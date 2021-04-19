@@ -28,7 +28,6 @@ pnpm-debug.log*
 
 # Skeleton Screen files
 dps.config.js
-index.html
 
 # dist file
 lib
