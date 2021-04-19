@@ -1,0 +1,12 @@
+@import '../../assets/scss/encode-woff2.scss';
+
+.r-icon {
+    // position: relative;
+    // transform: translateY(20%);
+    &__image {
+      width: 1em;
+      height: 1em;
+      object-fit: contain;
+    }
+  }
+  

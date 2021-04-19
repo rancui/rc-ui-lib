@@ -1,0 +1,151 @@
+
+@keyframes r-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes r-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+
+@keyframes r-slide-top-enter {
+    from {
+      transform: translate3d(0, -100%, 0);
+    }
+}
+  
+@keyframes r-slide-top-exit {
+    to {
+      transform: translate3d(0, -100%, 0);
+    }
+}
+  
+@keyframes r-slide-bottom-enter {
+    from {
+      transform: translate3d(0, 100%, 0);
+    }
+}
+  
+@keyframes r-slide-bottom-exit {
+
+    to {
+      transform: translate3d(0, 100%, 0);
+    }
+}
+  
+@keyframes r-slide-left-enter {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+}
+  
+@keyframes r-slide-left-exit {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes r-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes r-slide-right-exit {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+  
+
+@keyframes r-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.appear, .enter{
+  opacity: 0;
+}
+.enterActive{
+  animation: r-fade-in $animation-duration-base  both
+  $animation-timing-function-enter;
+}
+.enterDone, .exit{
+  opacity: 1;
+}
+
+.exitActive{
+  animation: r-fade-out $animation-duration-base  both
+  $animation-timing-function-exit;
+}
+.exitDone{
+  opacity: 0;
+}
+
+.r-slide-top {
+  &-enter-active {
+    animation: r-slide-top-enter $animation-duration-base both
+      $animation-timing-function-enter;
+  }
+
+  &-exit-active {
+    animation: r-slide-top-exit $animation-duration-base both
+      $animation-timing-function-exit;
+  }
+}
+
+.r-slide-bottom {
+  &-enter-active {
+    animation: r-slide-bottom-enter $animation-duration-base both
+      $animation-timing-function-enter;
+  }
+  &-exit-active {
+    animation: r-slide-bottom-exit $animation-duration-base both
+      $animation-timing-function-exit;
+  }
+}
+
+
+.r-slide-left {
+  &-enter-active {
+    animation: r-slide-left-enter $animation-duration-base both
+      $animation-timing-function-enter;
+  }
+
+  &-exit-active {
+    animation: r-slide-left-exit $animation-duration-base both
+      $animation-timing-function-exit;
+  }
+}
+
+.r-slide-right {
+  &-enter-active {
+    animation: r-slide-right-enter $animation-duration-base both
+      $animation-timing-function-enter;
+  }
+
+  &-exit-active {
+    animation: r-slide-right-exit $animation-duration-base both
+      $animation-timing-function-exit;
+  }
+}
+  

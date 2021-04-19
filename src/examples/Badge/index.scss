@@ -1,0 +1,29 @@
+.child{
+  width: 40px;
+  height: 40px;
+  background: #999999;
+  border-radius: 4px;
+}
+.badge__wrapper{
+  display: flex;
+}
+.r-badge__wrapper {
+  margin-left: 16px;
+}
+.r-doc-demo-block {
+  padding: 16px;
+}
+.demo-button-row {
+  margin-bottom: 12px;
+}
+.r-button--normal:not(:last-child){
+  margin-right: 16px;
+}
+.r-doc-demo-block__title {
+  margin: 0;
+  padding: 32px 16px 16px;
+  color: rgba(69, 90, 100, 0.6);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+}
