@@ -35,7 +35,6 @@ const Badge: React.FC<BadgeProps> = (props) => {
                     if (child?.type?.name === 'Icon') {
                         return child;
                     }
-
                 });
             }
         }

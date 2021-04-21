@@ -1,15 +1,18 @@
-*.log*
-.cache
-.eslintcache
+# dependencies
+node_modules
+
+# build
+lib
+es
+dist
+
+
+# misc
 .DS_Store
 
-# npm
-node_modules
-package-lock.json
-
-# local env files
-.env.local
-.env.*.local
+# cache
+.cache
+.eslintcache
 
 # Log files
 npm-debug.log*
@@ -17,19 +20,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor directories and files
+# Editor 
 .idea
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 
-# Skeleton Screen files
-dps.config.js
 
-# dist file
-lib
-dist
+
 

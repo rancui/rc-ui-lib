@@ -1,6 +1,6 @@
 import React, { ReactElement, useMemo } from 'react';
 import { LoadingProps } from './Props';
-import { addUnit, getSizeStyle } from '../../utils';
+import { addUnit, getSizeStyle } from '@/utils';
 import classnames from 'classnames';
 import styles from './index.scss';
 
