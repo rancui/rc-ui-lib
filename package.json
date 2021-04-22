@@ -98,9 +98,9 @@
   "lint-staged": {
     "*.{js,tsx,ts}": [
       "eslint --fix",
-      "prettier --write", 
+      "prettier --write",
       "git add"
-    ] 
+    ]
   },
   "browserslist": {
     "production": [

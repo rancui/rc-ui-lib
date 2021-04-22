@@ -1,9 +1,10 @@
-
 const overflowScrollReg = /scroll|auto/i;
 type ScrollElement = HTMLElement | Window;
 export type ContanierType = HTMLElement | (() => HTMLElement) | Window;
 
-export const noop = () => {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const noop = () => ({});
 
 // 判断其参数是否是数字
 export const isNumeric = (val: string): boolean => {
@@ -32,6 +33,7 @@ export const addUnit = (value?: string | number): string | undefined => {
     return isNumeric(value) ? `${value}px` : value;
 };
 // 获取宽高
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getSizeStyle = (originSize?: string | number) => {
     if (isDef(originSize)) {
         const size = addUnit(originSize);
@@ -43,6 +45,7 @@ export const getSizeStyle = (originSize?: string | number) => {
     return {};
 };
 // 阻止默认事件
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const preventDefault = (event: TouchEvent | MouseEvent, isStopPropagation?: boolean) => {
     if (typeof event.cancelable !== 'boolean' || event.cancelable) {
         event.preventDefault();
@@ -100,6 +103,7 @@ export const isObject = (val: Record<string, any>): boolean => {
     return val !== null && typeof val === 'object';
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const isFunction = (val): val is Function => {
     return val !== null && typeof val === 'function';
 };
