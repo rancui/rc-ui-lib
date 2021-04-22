@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { BadgeProps } from './Props';
 import { isDef } from '@/utils';
 import classnames from 'classnames';
+import { BadgeProps } from './Props';
 import styles from './index.scss';
 
 const baseClass = 'r-badge';
@@ -53,7 +53,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
             };
             if (offset) {
                 const [x, y] = offset;
-                if (!!content) {
+                if (content) {
                     style.top = `${y}px`;
                     style.right = `${-x}px`;
                 } else {
@@ -103,7 +103,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
         );
     };
 
-    return <>{!!children ? hasChildren() : withoutChildren()}</>;
+    return <>{children ? hasChildren() : withoutChildren()}</>;
 };
 
 export default Badge;

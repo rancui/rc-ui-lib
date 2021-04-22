@@ -1,4 +1,4 @@
-// import { FieldRule } from '../components/Field/types';
+
 const overflowScrollReg = /scroll|auto/i;
 type ScrollElement = HTMLElement | Window;
 export type ContanierType = HTMLElement | (() => HTMLElement) | Window;
@@ -118,16 +118,6 @@ export const isEmptyValue = (value: unknown): boolean => {
     }
     return !value;
 };
-
-// export const runSyncRule = (value: unknown, rule: FieldRule) => {
-//   if (rule.required && isEmptyValue(value)) {
-//     return false;
-//   }
-//   if (rule.pattern && !rule.pattern.test(String(value))) {
-//     return false;
-//   }
-//   return true;
-// }
 
 export function range(num: number, min: number, max: number): number {
     return Math.min(Math.max(num, min), max);

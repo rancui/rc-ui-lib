@@ -1,8 +1,8 @@
 import React from 'react';
-import { IconProps } from './Props';
-import Badge from '../Badge';
 import { addUnit } from '@/utils';
 import classnames from 'classnames';
+import { IconProps } from './Props';
+import Badge from '../Badge';
 import styles from './index.scss';
 
 export const isImage = (name?: string): boolean => {
@@ -41,7 +41,7 @@ const Icon: React.FC<IconProps> = (props) => {
             dot={dot}
             onClick={handleClick}
             style={{
-                color: color,
+                color,
                 fontSize: addUnit(size)
             }}
             tag={tag}

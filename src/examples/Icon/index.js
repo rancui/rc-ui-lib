@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import styles from './index.scss';
 import Icon from '@/components/Icon';
+import styles from './index.scss';
 
 export default class IconComponent extends Component {
     render() {

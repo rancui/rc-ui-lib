@@ -10,7 +10,7 @@ const happyThreadPool = HappyPack.ThreadPool({
 });
 
 function resolveResource(name) {
-    return path.resolve(__dirname, 'src/assets/scss/' + name);
+    return path.resolve(__dirname, `src/assets/scss/${name}`);
 }
 module.exports = {
     mode: 'development',

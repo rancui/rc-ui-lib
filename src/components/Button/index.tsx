@@ -1,12 +1,11 @@
 import React, { useMemo, useCallback } from 'react';
+import classnames from 'classnames';
 import { ButtonProps } from './Props';
 import Loading from '../Loading';
 import Icon from '../Icon';
-import classnames from 'classnames';
 import styles from './index.scss';
 
 const baseClass = 'r-button';
-
 const Button: React.FC<ButtonProps> = (props) => {
     const {
         type = 'default',
@@ -69,11 +68,11 @@ const Button: React.FC<ButtonProps> = (props) => {
     }, [loading, icon, loadingType, loadingSize, color, iconPrefix]);
 
     const renderContent = useMemo(() => {
-        let content; //loading ? loadingText: text;
+        let content; // loading ? loadingText: text;
         if (loading) {
             content = loadingText;
         } else {
-            content = !!children ? children : text;
+            content = children || text;
         }
         if (content) {
             return <span className={classnames(styles[`${baseClass}__text`])}>{content}</span>;
@@ -83,17 +82,17 @@ const Button: React.FC<ButtonProps> = (props) => {
     const getStyle = useCallback(() => {
         if (color) {
             const style = {};
-            style['color'] = plain ? color : 'white';
+            style.color = plain ? color : 'white';
             if (!plain) {
                 // 为了使linear-gradient起作用，请用background 代替 backgroundColor
-                style['background'] = color;
-                style['border'] = 'none';
+                style.background = color;
+                style.border = 'none';
             }
             // 当是渐变色是，去掉边框。
             if (color.indexOf('gradient') !== -1) {
-                style['border'] = 'none';
+                style.border = 'none';
             } else {
-                style['borderColor'] = color;
+                style.borderColor = color;
             }
             return style;
         }

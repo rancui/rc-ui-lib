@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
-import { OverlayProps } from './Props';
 import animation from '@/assets/scss/animation.scss';
 import { CSSTransition } from 'react-transition-group';
 import { inBrowser, isDef } from '@/utils';
 import classnames from 'classnames';
+import { OverlayProps } from './Props';
 import styles from './index.scss';
 
 const baseClass = 'r-overlay';

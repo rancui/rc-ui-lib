@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const fileEntries = require('./config/entries');
 
 function resolveResource(name) {
-    return path.resolve(__dirname, 'src/assets/scss/' + name);
+    return path.resolve(__dirname, `src/assets/scss/${name}`);
 }
 module.exports = {
     entry: fileEntries,
@@ -138,7 +138,7 @@ module.exports = {
         minimize: true,
         minimizer: [
             new TerserPlugin({
-                //禁止生成index.js.LICENSE.txt
+                // 禁止生成index.js.LICENSE.txt
                 extractComments: false,
                 parallel: true,
                 terserOptions: {
@@ -149,7 +149,7 @@ module.exports = {
                         warnings: false,
                         drop_console: true,
                         drop_debugger: true,
-                        pure_funcs: ['console.log'] //移除console
+                        pure_funcs: ['console.log'] // 移除console
                     }
                 }
             })
