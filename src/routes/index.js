@@ -2,8 +2,14 @@ import ButtonComponent from '@/examples/Button';
 import LoadingComponent from '@/examples/Loading';
 import IconComponent from '@/examples/Icon';
 import BadgeComponent from '@/examples/Badge';
-
+import OverlayComponent from '@/examples/Overlay';
 const routes = [
+    {
+        name: 'OverlayComponent',
+        path: '/overlay',
+        component: OverlayComponent,
+        exact: true
+    },
     {
         name: 'ButtonComponent',
         path: '/button',

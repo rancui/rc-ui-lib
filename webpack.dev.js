@@ -2,7 +2,7 @@ const path = require('path');
 const os = require('os');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
 const HappyPack = require('happypack');
 // eslint-disable-next-line new-cap
 const happyThreadPool = HappyPack.ThreadPool({
@@ -109,26 +109,26 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('development')
         }),
         new webpack.HotModuleReplacementPlugin()
-    ],
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                //禁止生成index.js.LICENSE.txt
-                extractComments: false,
-                parallel: true,
-                terserOptions: {
-                    output: {
-                        comments: false
-                    },
-                    compress: {
-                        warnings: false,
-                        drop_console: true,
-                        drop_debugger: true,
-                        pure_funcs: ['console.log'] //移除console
-                    }
-                }
-            })
-        ]
-    }
+    ]
+    // optimization: {
+    //     minimize: true,
+    //     minimizer: [
+    //         new TerserPlugin({
+    //             //禁止生成index.js.LICENSE.txt
+    //             extractComments: false,
+    //             parallel: true,
+    //             terserOptions: {
+    //                 output: {
+    //                     comments: false
+    //                 },
+    //                 compress: {
+    //                     warnings: false,
+    //                     drop_console: true,
+    //                     drop_debugger: true,
+    //                     pure_funcs: ['console.log'] //移除console
+    //                 }
+    //             }
+    //         })
+    //     ]
+    // }
 };
