@@ -22,10 +22,12 @@
 
 -   [x] Button
 -   [x] Icon
+-   [x] Popup
 
 ### 反馈组件
 
 -   [x] Loading
+-   [x] Overlay
 
 ### 展示组件
 
