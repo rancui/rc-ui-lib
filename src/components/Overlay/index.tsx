@@ -24,12 +24,13 @@ const Overlay: React.FC<OverlayProps> = (props) => {
         };
 
         if (isDef(duration)) {
-            style.animationDuration = `${+duration}s`;
+            style.animationDuration = `${+duration}ms`;
         }
         return (
             <CSSTransition
                 classNames={{ ...animation }}
                 in={show}
+                unmountOnExit
                 onEntering={(el) => (el.style.display = 'block')}
                 onExited={(el) => (el.style.display = 'none')}
                 timeout={+duration}

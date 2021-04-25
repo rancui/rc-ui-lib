@@ -45,7 +45,6 @@ const Button: React.FC<ButtonProps> = (props) => {
             [styles[`${baseClass}--square`]]: square,
             [styles[`${baseClass}--block`]]: block,
             [styles[`${baseClass}--hairline`]]: hairline,
-            // [hairlineStyles[`${hairlineClass}--surround`]]: hairline,
             [styles[`${baseClass}__${icon}`]]: !!icon
         },
         className
@@ -68,7 +67,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     }, [loading, icon, loadingType, loadingSize, color, iconPrefix]);
 
     const renderContent = useMemo(() => {
-        let content; // loading ? loadingText: text;
+        let content;
         if (loading) {
             content = loadingText;
         } else {
@@ -81,7 +80,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
     const getStyle = useCallback(() => {
         if (color) {
-            const style = {};
+            const style = {} as any;
             style.color = plain ? color : 'white';
             if (!plain) {
                 // 为了使linear-gradient起作用，请用background 代替 backgroundColor

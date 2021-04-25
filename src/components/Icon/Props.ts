@@ -12,7 +12,7 @@ export interface IconProps {
     // 图标颜色
     color?: string;
     // 类名前缀，用于使用自定义图标
-    classPrefix: string;
+    classPrefix?: string;
     // 外部传入的类名
     className?: string;
     // 点击触发

@@ -1,0 +1,55 @@
+.r-slide-top {
+    &-enter-active {
+        transform: translate3d(0, 0, 0) !important;
+        transition-timing-function: $animation-timing-function-enter !important;
+    }
+    &-enter-done {
+        transform: translate3d(0, 0, 0) !important;
+    }
+    &-exit-active {
+        transform: translate3d(0, -100%, 0) !important;
+        transition-timing-function: $animation-timing-function-exit !important;
+    }
+}
+
+.r-slide-bottom {
+    &-enter-active {
+        transform: translate3d(0, 0, 0) !important;
+        transition-timing-function: $animation-timing-function-enter !important;
+    }
+    &-enter-done {
+        transform: translate3d(0, 0, 0) !important;
+    }
+    &-exit-active {
+        transform: translate3d(0, 100%, 0) !important;
+        transition-timing-function: $animation-timing-function-exit !important;
+    }
+}
+
+.r-slide-left {
+    &-enter-active {
+        transform: translate3d(0, 0, 0) !important;
+        transition-timing-function: $animation-timing-function-enter !important;
+    }
+    &-enter-done {
+        transform: translate3d(0, 0, 0) !important;
+    }
+    &-exit-active {
+        transform: translate3d(-100%, 0, 0) !important;
+        transition-timing-function: $animation-timing-function-exit !important;
+    }
+}
+
+.r-slide-right {
+    &-enter-active {
+        transform: translate3d(0, 0, 0) !important;
+        transition-timing-function: $animation-timing-function-enter !important;
+    }
+    &-enter-done {
+        transform: translate3d(0, 0, 0) !important;
+    }
+    &-exit-active {
+        transform: translate3d(100%, 0, 0) !important;
+        transition-timing-function: $animation-timing-function-exit !important;
+    }
+}

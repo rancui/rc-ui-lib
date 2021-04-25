@@ -3,7 +3,15 @@ import LoadingComponent from '@/examples/Loading';
 import IconComponent from '@/examples/Icon';
 import BadgeComponent from '@/examples/Badge';
 import OverlayComponent from '@/examples/Overlay';
+import PopupComponent from '@/examples/Popup';
+
 const routes = [
+    {
+        name: 'PopupComponent',
+        path: '/popup',
+        component: PopupComponent,
+        exact: true
+    },
     {
         name: 'OverlayComponent',
         path: '/overlay',

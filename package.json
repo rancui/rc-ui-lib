@@ -1,5 +1,5 @@
 {
-  "name": "vant-react",
+  "name": "rc-ui",
   "version": "0.1.0",
   "description": "基于React Hooks和TypeScript开发的移动端组件库",
   "main": "lib/index.js",
