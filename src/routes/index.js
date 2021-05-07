@@ -4,8 +4,15 @@ import IconComponent from '@/examples/Icon';
 import BadgeComponent from '@/examples/Badge';
 import OverlayComponent from '@/examples/Overlay';
 import PopupComponent from '@/examples/Popup';
+import DialogComponent from '@/examples/Dialog';
 
 const routes = [
+    {
+        name: 'DialogComponent',
+        path: '/dialog',
+        component: DialogComponent,
+        exact: true
+    },
     {
         name: 'PopupComponent',
         path: '/popup',

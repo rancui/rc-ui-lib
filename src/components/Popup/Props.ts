@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Ref } from 'react';
 
 // import PopupSharedProps from './PopupSharedProps';
 
@@ -31,7 +31,7 @@ export interface PopupSharedProps {
 
 export interface PopupProps extends PopupSharedProps {
     // 是否显示弹出层
-    show: boolean;
+    // show: boolean;
     // 弹出层内联样式
     style?: React.CSSProperties;
     // 该组件被引用时传入的样式
@@ -66,4 +66,6 @@ export interface PopupProps extends PopupSharedProps {
     onClosed?: (el: HTMLElement) => void;
     // 点击关闭按钮图标时触发，参数是el，即该元素本身
     onClickCloseIcon?: (el: MouseEvent) => void;
+    children?: React.ReactNode;
+    ref?: Ref<HTMLDivElement>;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, forwardRef, Ref } from 'react';
 import ReactDOM from 'react-dom';
 import { PopupSharedProps, PopupProps } from './Props';
 import Overlay from '../Overlay';
@@ -29,7 +29,8 @@ const context = {
 
 const baseClass = 'r-popup';
 
-const Popup: React.FC<PopupProps> = (props) => {
+const Popup: React.FC<PopupProps> = forwardRef((props, ref: Ref<HTMLDivElement>) => {
+    // const Popup: React.FC<PopupProps> = (props) => {
     const {
         show = false, // 是否显示弹出层
         zIndex = 2000,
@@ -155,19 +156,19 @@ const Popup: React.FC<PopupProps> = (props) => {
         const name =
             position === 'center'
                 ? {
-                      ...centerCSS
-                  }
+                    ...centerCSS
+                }
                 : {
-                      enterActive: transitionCSS[`r-slide-${position}-enter-active`],
-                      enterDone: transitionCSS[`r-slide-${position}-enter-done`],
-                      exitActive: transitionCSS[`r-slide-${position}-exit-active`]
-                  };
+                    enterActive: transitionCSS[`r-slide-${position}-enter-active`],
+                    enterDone: transitionCSS[`r-slide-${position}-enter-done`],
+                    exitActive: transitionCSS[`r-slide-${position}-exit-active`]
+                };
         return (
             <CSSTransition
                 appear={transitionAppear}
                 in={visible}
                 timeout={duration}
-                unmountOnExit
+                // unmountOnExit
                 classNames={name}
                 onEnter={(el) => onOpen?.(el)}
                 onEntered={(el) => onOpened?.(el)}
@@ -188,18 +189,19 @@ const Popup: React.FC<PopupProps> = (props) => {
 
     const renderUI = () => {
         return (
-            <>
+            <div className="popup-wrapper" role="popup" ref={ref}>
                 {renderOverlay()}
                 {renderTransition()}
-            </>
+            </div>
         );
     };
 
     const renderPortal = () => {
         const ele = getMountContanier(document.querySelector(teleport as string) as ContanierType);
-        return teleport ? ReactDOM.createPortal(<>{renderUI()}</>, ele) : <>{renderUI()}</>;
+        return teleport ? ReactDOM.createPortal(renderUI(), ele) : renderUI();
     };
 
     return <>{renderPortal()}</>;
-};
+});
+Popup.displayName = 'Popup';
 export default Popup;

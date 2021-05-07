@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type ButtonTypes = 'default' | 'primary' | 'warning' | 'info' | 'danger' | 'round';
 export type ButtonSizeTypes = 'large' | 'small' | 'mini' | 'normal';
 export type NativeTypes = 'button' | 'submit' | 'reset';
@@ -6,7 +8,7 @@ export type LoadingTypes = 'spinner' | 'circular' | undefined;
 
 export interface ButtonProps {
     // 按钮类型，可选值为 primary,info, warning, danger,round
-    type: ButtonTypes;
+    type?: ButtonTypes;
     // 按钮文案
     text?: string;
     // 尺寸，可选值为 large, small, mini, normal
@@ -56,4 +58,6 @@ export interface ButtonProps {
     touchstart?: (e: TouchEvent) => void;
     // 传入的类名
     className?: string;
+    // 内联样式
+    style?: React.CSSProperties;
 }

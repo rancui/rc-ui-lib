@@ -2,9 +2,7 @@ const path = require('path');
 const os = require('os');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-// const TerserPlugin = require('terser-webpack-plugin');
 const HappyPack = require('happypack');
-// eslint-disable-next-line new-cap
 const happyThreadPool = HappyPack.ThreadPool({
     size: os.cpus().length
 });
