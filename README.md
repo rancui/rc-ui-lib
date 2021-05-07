@@ -28,6 +28,7 @@
 
 -   [x] Loading
 -   [x] Overlay
+-   [x] Dialog
 
 ### 展示组件
 
