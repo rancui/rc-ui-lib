@@ -1,5 +1,7 @@
 
-  { "types": [
+  {
+    "header":"# 更新历史 \n\n",
+    "types": [
     {"type": "chore", "section":"Others", "hidden": false},
     {"type": "revert", "section":"Reverts", "hidden": false},
     {"type": "feat", "section": "Features", "hidden": false},

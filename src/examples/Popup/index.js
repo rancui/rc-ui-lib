@@ -1,35 +1,32 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Button from '@/components/button';
 import Popup from '@/components/popup';
-export default class PopupComponent extends Component {
+export default class PopupComponent extends PureComponent {
     constructor() {
         super();
         this.state = {
             show: false
         };
-        this.show = this.show.bind(this);
-        this.onClickCloseIcon = this.onClickCloseIcon.bind(this);
-        this.close = this.close.bind(this);
     }
 
-    show() {
+    show = () => {
         this.setState({
             show: true
         });
-    }
+    };
 
-    close() {
+    close = () => {
         this.setState({
             show: false
         });
-    }
+    };
 
-    onClickCloseIcon() {
+    onClickCloseIcon = () => {
         console.log('onClickCloseIcon');
         this.setState({
             show: false
         });
-    }
+    };
 
     render() {
         return (

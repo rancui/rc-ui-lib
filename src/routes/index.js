@@ -1,12 +1,20 @@
-import ButtonComponent from '@/examples/Button';
-import LoadingComponent from '@/examples/Loading';
-import IconComponent from '@/examples/Icon';
-import BadgeComponent from '@/examples/Badge';
-import OverlayComponent from '@/examples/Overlay';
-import PopupComponent from '@/examples/Popup';
-import DialogComponent from '@/examples/Dialog';
-import ToastComponent from '@/examples/Toast';
+import ButtonComponent from '@/examples/button';
+import LoadingComponent from '@/examples/loading';
+import IconComponent from '@/examples/icon';
+import BadgeComponent from '@/examples/badge';
+import OverlayComponent from '@/examples/overlay';
+import PopupComponent from '@/examples/popup';
+import DialogComponent from '@/examples/dialog';
+import ToastComponent from '@/examples/toast';
+import ActionSheetComponent from '@/examples/action-sheet';
+
 const routes = [
+    {
+        name: 'ActionSheetComponent',
+        path: '/actionsheet',
+        component: ActionSheetComponent,
+        exact: true
+    },
     {
         name: 'ToastComponent',
         path: '/toast',

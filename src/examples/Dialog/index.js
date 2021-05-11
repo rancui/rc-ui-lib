@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import Dialog from '@/components/dialog';
 import Button from '@/components/button';
-import './index.scss';
-
-export default class DialogComponent extends Component {
-    constructor(props) {
-        super(props);
+import '../style/index.scss';
+export default class DialogComponent extends PureComponent {
+    constructor() {
+        super();
         this.state = {
             show: false,
             showCancelButton: false,
@@ -14,63 +13,51 @@ export default class DialogComponent extends Component {
             asyncShow: false,
             showConfirmWithRoundButton: false
         };
-
-        this.onClickRoundBtn = this.onClickRoundBtn.bind(this);
-        this.updateShow = this.updateShow.bind(this);
-        this.showCancelButton = this.showCancelButton.bind(this);
-        this.updateCancelButtonShow = this.updateCancelButtonShow.bind(this);
-        this.showRoundButton = this.showRoundButton.bind(this);
-        this.updateRoundButtonShow = this.updateRoundButtonShow.bind(this);
-        this.updateAsyncShow = this.updateAsyncShow.bind(this);
-        this.asyncButtonClose = this.asyncButtonClose.bind(this);
-        this.onBeforeClose = this.onBeforeClose.bind(this);
-        this.showConfirmWithRoundButton = this.showConfirmWithRoundButton.bind(this);
-        this.updateConfirmWithRoundButtonShow = this.updateConfirmWithRoundButtonShow.bind(this);
     }
 
-    onClickRoundBtn() {
+    onClickRoundBtn = () => {
         this.setState({
             show: true
         });
-    }
+    };
 
-    updateShow(v) {
+    updateShow = (v) => {
         this.setState({
             show: v
         });
-    }
-    showCancelButton() {
+    };
+    showCancelButton = () => {
         this.setState({
             showCancelButton: true
         });
-    }
-    updateCancelButtonShow(v) {
+    };
+    updateCancelButtonShow = (v) => {
         this.setState({
             showCancelButton: v
         });
-    }
-    showRoundButton() {
+    };
+    showRoundButton = () => {
         this.setState({
             showRoundButton: true
         });
-    }
-    updateRoundButtonShow(v) {
+    };
+    updateRoundButtonShow = (v) => {
         this.setState({
             showRoundButton: v
         });
-    }
-    asyncButtonClose() {
+    };
+    asyncButtonClose = () => {
         this.setState({
             asyncShow: true
         });
-    }
-    updateAsyncShow(v) {
+    };
+    updateAsyncShow = (v) => {
         this.setState({
             asyncShow: v
         });
-    }
+    };
 
-    onBeforeClose(action) {
+    onBeforeClose = (action) => {
         return new Promise((resolve) => {
             setTimeout(() => {
                 if (action === 'confirm') {
@@ -81,19 +68,19 @@ export default class DialogComponent extends Component {
                 }
             }, 1000);
         });
-    }
+    };
 
-    showConfirmWithRoundButton() {
+    showConfirmWithRoundButton = () => {
         this.setState({
             showConfirmWithRoundButton: true
         });
-    }
+    };
 
-    updateConfirmWithRoundButtonShow(v) {
+    updateConfirmWithRoundButtonShow = (v) => {
         this.setState({
             showConfirmWithRoundButton: v
         });
-    }
+    };
 
     render() {
         return (

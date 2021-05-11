@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Overlay from '@/components/overlay';
 import Button from '@/components/button';
 import classnames from 'classnames';
-import './index.scss';
-
-export default class OverlayComponent extends Component {
+import '../style/index.scss';
+export default class OverlayComponent extends PureComponent {
     constructor() {
         super();
         this.state = {
             show: false
         };
-        this.showOverlay = this.showOverlay.bind(this);
-        this.changeStatus = this.changeStatus.bind(this);
     }
 
-    showOverlay() {
+    showOverlay = () => {
         this.setState({
             show: true
         });
-    }
-    changeStatus(e) {
+    };
+    changeStatus = (e) => {
         this.setState({
             show: !this.state.show
         });
-    }
+    };
 
     render() {
         return (

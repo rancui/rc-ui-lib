@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import Icon from '@/components/icon';
-import './index.scss';
+import '../style/index.scss';
 
-export default class IconComponent extends Component {
+export default class IconComponent extends PureComponent {
     render() {
         return (
             <>

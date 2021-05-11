@@ -1,27 +1,25 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
-import './index.scss';
 import Button from '@/components/button';
-// import { Button } from 'vant-react/lib/main.js';
-export default class ButtonComponent extends Component {
-    constructor(props) {
-        super(props);
+import '../style/index.scss';
+export default class ButtonComponent extends PureComponent {
+    constructor() {
+        super();
         this.state = {
             loading: true
         };
-        this.changeLoading = this.changeLoading.bind(this);
     }
 
-    changeLoading() {
+    changeLoading = () => {
         this.setState({
             loading: !this.state.loading
         });
-    }
+    };
     render() {
         return (
             <>
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>按钮类型</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>按钮类型</h2>
                     <div className={classnames('demo-button-row')}>
                         <Button className={classnames('r-button--normal')} type="primary">
                             主要按钮
@@ -42,7 +40,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>朴素按钮</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>朴素按钮</h2>
                     <Button className={classnames('r-button--normal')} plain type="primary">
                         朴素按钮
                     </Button>
@@ -52,7 +50,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>细边框</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>细边框</h2>
                     <Button
                         className={classnames('r-button--normal')}
                         hairline
@@ -72,7 +70,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>禁用状态</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>禁用状态</h2>
                     <Button className={classnames('r-button--normal')} disabled type="primary">
                         禁用状态
                     </Button>
@@ -82,7 +80,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>加载状态</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>加载状态</h2>
                     <Button className={classnames('r-button--normal')} loading type="primary" />
                     <Button
                         className={classnames('r-button--normal')}
@@ -100,7 +98,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>按钮形状</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>按钮形状</h2>
                     <Button className={classnames('r-button--normal')} square type="primary">
                         方形按钮
                     </Button>
@@ -110,7 +108,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>按钮图标</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>按钮图标</h2>
                     <Button className={classnames('r-button--normal')} icon="plus" type="primary" />
                     <Button className={classnames('r-button--normal')} icon="plus" type="primary">
                         按钮
@@ -126,7 +124,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>按钮尺寸</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>按钮尺寸</h2>
                     <div className={classnames('demo-button-row')}>
                         <Button
                             className={classnames('r-button--normal')}
@@ -148,7 +146,7 @@ export default class ButtonComponent extends Component {
                 </div>
 
                 <div className={classnames('r-doc-demo-block')}>
-                    <h2 className={classnames('r-doc-demo-block__title-button')}>自定义颜色</h2>
+                    <h2 className={classnames('r-doc-demo-block__title')}>自定义颜色</h2>
                     <Button className={classnames('r-button--normal')} color="#7232dd">
                         单色按钮
                     </Button>

@@ -23,6 +23,17 @@ export interface PopupSharedProps {
     closeOnClickOverlay?: boolean;
 }
 
+export const defultPopupSharedProps: PopupSharedProps = {
+    show: false,
+    duration: 300,
+    zIndex: 2000,
+    teleport: 'body',
+    overlay: true,
+    overlayStyle: {},
+    overlayClass: '',
+    closeOnClickOverlay: true
+};
+
 export interface PopupProps extends PopupSharedProps {
     // 是否显示弹出层
     // show: boolean;

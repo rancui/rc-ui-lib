@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Loading from '@/components/loading';
 import classnames from 'classnames';
-import './index.scss';
-
-export default class LoadingComponent extends Component {
+import '../style/index.scss';
+export default class LoadingComponent extends PureComponent {
     render() {
         return (
             <>

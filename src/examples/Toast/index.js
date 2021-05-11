@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import Button from '@/components/button';
 import Toast from '@/components/toast';
-import './index.scss';
-class ToastComponent extends Component {
+import '../style/index.scss';
+class ToastComponent extends PureComponent {
     constructor() {
         super();
         this.state = {
