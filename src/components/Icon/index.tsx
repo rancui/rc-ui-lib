@@ -1,9 +1,9 @@
 import React from 'react';
 import { addUnit } from '@/utils';
 import classnames from 'classnames';
-import { IconProps } from './Props';
-import Badge from '../Badge';
-import styles from './index.scss';
+import { IconProps } from './props';
+import Badge from '../badge';
+import './style/index.scss';
 
 export const isImage = (name?: string): boolean => {
     return name ? name.indexOf('/') !== -1 : false;
@@ -33,8 +33,8 @@ const Icon: React.FC<IconProps> = (props) => {
     return (
         <Badge
             className={classnames(
-                styles[`${classPrefix}`],
-                { [styles[`${classPrefix}-${name}`]]: !isImageIcon },
+                classPrefix,
+                { [`${classPrefix}-${name}`]: !isImageIcon },
                 className
             )}
             content={badge}
@@ -47,9 +47,7 @@ const Icon: React.FC<IconProps> = (props) => {
             tag={tag}
         >
             {children}
-            {isImageIcon && (
-                <img className={classnames(styles[`${baseClass}__image`])} src={name} />
-            )}
+            {isImageIcon && <img className={classnames(`${baseClass}__image`)} src={name} />}
         </Badge>
     );
 };

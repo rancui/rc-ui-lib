@@ -29,6 +29,7 @@
 -   [x] Loading
 -   [x] Overlay
 -   [x] Dialog
+-   [x] Toast
 
 ### 展示组件
 

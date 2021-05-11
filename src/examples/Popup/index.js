@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Button from '@/components/Button';
-import Popup from '@/components/Popup';
+import Button from '@/components/button';
+import Popup from '@/components/popup';
 export default class PopupComponent extends Component {
     constructor() {
         super();
@@ -8,7 +8,6 @@ export default class PopupComponent extends Component {
             show: false
         };
         this.show = this.show.bind(this);
-        // this.changeShowStatus = this.changeShowStatus.bind(this);
         this.onClickCloseIcon = this.onClickCloseIcon.bind(this);
         this.close = this.close.bind(this);
     }
@@ -24,12 +23,6 @@ export default class PopupComponent extends Component {
             show: false
         });
     }
-
-    // changeShowStatus(arg) {
-    //     this.setState({
-    //         show: arg
-    //     });
-    // }
 
     onClickCloseIcon() {
         console.log('onClickCloseIcon');
@@ -48,15 +41,14 @@ export default class PopupComponent extends Component {
                     closeIcon={require('@/assets/images/user-active.png')}
                     closeIconPosition="top-right"
                     closeable
-                    // onClick={this.changeShowStatus}
                     onClickCloseIcon={this.onClickCloseIcon}
                     onClose={this.close}
+                    // position="center"
                     position="left"
                     round
                     safeAreaInsetBottom
                     show={this.state.show}
-                    style={{ width: '30%' }}
-                    teleport="#root"
+                    // teleport="#root"
                 >
                     <h1>hello,popup!</h1>
                 </Popup>

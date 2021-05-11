@@ -4,7 +4,7 @@ export type Interceptor = (...args: any[]) => Promise<boolean> | boolean | void;
 
 export const callIntercepter = (options: {
     interceptor?: Interceptor;
-    args?: any[];
+    args?: unknown[];
     done: () => void;
     canceled?: () => void;
 }): any => {

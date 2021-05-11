@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { isDef } from '@/utils';
 import classnames from 'classnames';
-import { BadgeProps } from './Props';
-import styles from './index.scss';
+import { BadgeProps } from './props';
+import './style/index.scss';
 
 const baseClass = 'r-badge';
 const Badge: React.FC<BadgeProps> = (props) => {
@@ -64,9 +64,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
 
             return (
                 <div
-                    className={classnames(styles[`${baseClass}`], {
-                        [styles[`${baseClass}--fixed`]]: !!children,
-                        [styles[`${baseClass}--dot`]]: dot
+                    className={classnames(baseClass, {
+                        [`${baseClass}--fixed`]: !!children,
+                        [`${baseClass}--dot`]: dot
                     })}
                     style={style}
                 >
@@ -87,7 +87,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
     const hasChildren = () => {
         return (
             <Tag
-                className={classnames(styles[`${baseClass}__wrapper`], className)}
+                className={classnames(`${baseClass}__wrapper`, className)}
                 onClick={handleClick}
                 style={style}
             >

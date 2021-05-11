@@ -5,8 +5,14 @@ import BadgeComponent from '@/examples/Badge';
 import OverlayComponent from '@/examples/Overlay';
 import PopupComponent from '@/examples/Popup';
 import DialogComponent from '@/examples/Dialog';
-
+import ToastComponent from '@/examples/Toast';
 const routes = [
+    {
+        name: 'ToastComponent',
+        path: '/toast',
+        component: ToastComponent,
+        exact: true
+    },
     {
         name: 'DialogComponent',
         path: '/dialog',

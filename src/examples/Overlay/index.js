@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Overlay from '@/components/Overlay';
-import Button from '@/components/Button';
+import Overlay from '@/components/overlay';
+import Button from '@/components/button';
 import classnames from 'classnames';
-import styles from './index.scss';
+import './index.scss';
 
 export default class OverlayComponent extends Component {
     constructor() {
@@ -20,7 +20,6 @@ export default class OverlayComponent extends Component {
         });
     }
     changeStatus(e) {
-        console.log('==wwww=', e);
         this.setState({
             show: !this.state.show
         });
@@ -33,8 +32,8 @@ export default class OverlayComponent extends Component {
                     <Button onClick={this.showOverlay} type="primary">
                         Click Me
                     </Button>
-                    <Overlay duration={0.3} onClick={this.changeStatus} show={this.state.show}>
-                        <div className={classnames(styles.overlayWrapper)}>
+                    <Overlay onClick={this.changeStatus} show={this.state.show}>
+                        <div className={classnames('overlayWrapper')}>
                             <div style={{ width: '200px', height: '200px', background: '#fff' }}>
                                 hello,world!
                             </div>

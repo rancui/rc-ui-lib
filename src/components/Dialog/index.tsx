@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { DialogProps } from './Props';
-import Popup from '../Popup';
-import Button from '../Button';
-import ActionBar from '../ActionBar';
+import { DialogProps } from './props';
+import Popup from '../popup';
+import Button from '../button';
+import ActionBar from '../action-bar';
 import { callIntercepter } from '../../utils/callIntercepter';
 import { addUnit } from '@/utils';
 import classnames from 'classnames';
-import styles from './index.scss';
+import './style/index.scss';
 
 const baseClass = 'r-dialog';
 
@@ -61,11 +61,12 @@ const Dialog: React.FC<DialogProps> = (props) => {
                     interceptor: onBeforeClose,
                     args: [action],
                     done: () => {
-                        updateShow?.(false);
                         handleLoadingStatus(action, false);
+                        updateShow?.(false);
                     },
                     canceled: () => {
                         handleLoadingStatus(action, false);
+                        updateShow?.(false);
                     }
                 });
             } else {
@@ -76,8 +77,8 @@ const Dialog: React.FC<DialogProps> = (props) => {
     );
 
     const renderTitle = useMemo(() => {
-        const titleCls = classnames(styles[`${baseClass}__header`], {
-            [styles[`${baseClass}__header--isolated`]]: !message
+        const titleCls = classnames(`${baseClass}__header`, {
+            [`${baseClass}__header--isolated`]: !message
         });
         if (title) {
             return <div className={titleCls}>{title}</div>;
@@ -85,12 +86,12 @@ const Dialog: React.FC<DialogProps> = (props) => {
     }, [title, message]);
 
     const renderContent = useMemo(() => {
-        const classStringWrapper = classnames(styles[`${baseClass}__content`], {
-            [styles[`${baseClass}__content--isolated`]]: !title
+        const classStringWrapper = classnames(`${baseClass}__content`, {
+            [`${baseClass}__content--isolated`]: !title
         });
-        const classStringInner = classnames(styles[`${baseClass}__message`], {
-            [styles[`${baseClass}__message--has-title`]]: title,
-            [styles[`${baseClass}__message--${messageAlign}`]]: messageAlign
+        const classStringInner = classnames(`${baseClass}__message`, {
+            [`${baseClass}__message--has-title`]: title,
+            [`${baseClass}__message--${messageAlign}`]: messageAlign
         });
         if (message) {
             return (
@@ -103,17 +104,12 @@ const Dialog: React.FC<DialogProps> = (props) => {
 
     const renderButtons = useMemo(() => {
         return (
-            <div
-                className={classnames(
-                    styles[`${baseClass}__footer`],
-                    styles[`${baseClass}__border--top`]
-                )}
-            >
+            <div className={classnames(`${baseClass}__footer`, `${baseClass}__border--top`)}>
                 {showCancelButton && (
                     <Button
                         size="large"
                         text={cancelButtonText}
-                        className={classnames(styles[`${baseClass}__cancel`])}
+                        className={classnames(`${baseClass}__cancel`)}
                         style={{ color: cancelButtonColor }}
                         loading={loadingCancel}
                         onClick={() => handleAction('cancel')}
@@ -123,8 +119,8 @@ const Dialog: React.FC<DialogProps> = (props) => {
                     <Button
                         size="large"
                         text={confirmButtonText}
-                        className={classnames(styles[`${baseClass}__confirm`], {
-                            [styles[`${baseClass}__border--left`]]: showCancelButton
+                        className={classnames(`${baseClass}__confirm`, {
+                            [`${baseClass}__border--left`]: showCancelButton
                         })}
                         style={{ color: confirmButtonColor }}
                         loading={loadingConfirm}
@@ -147,15 +143,15 @@ const Dialog: React.FC<DialogProps> = (props) => {
 
     const renderRoundButtons = useMemo(() => {
         return (
-            <ActionBar className={classnames(styles[`${baseClass}__footer`])}>
+            <ActionBar className={classnames(`${baseClass}__footer`)}>
                 {showCancelButton && (
                     <Button
                         size="large"
                         type="warning"
                         text={cancelButtonText}
                         className={classnames(
-                            styles[`${baseClass}__cancel`],
-                            styles[`${baseClass}__cancel__space-around`]
+                            `${baseClass}__cancel`,
+                            `${baseClass}__cancel__space-around`
                         )}
                         round
                         color={cancelButtonColor}
@@ -170,8 +166,8 @@ const Dialog: React.FC<DialogProps> = (props) => {
                         text={confirmButtonText}
                         round
                         className={classnames(
-                            styles[`${baseClass}__confirm`],
-                            styles[`${baseClass}__confirm__space-around`]
+                            `${baseClass}__confirm`,
+                            `${baseClass}__confirm__space-around`
                         )}
                         color={confirmButtonColor}
                         loading={loadingConfirm}
@@ -195,11 +191,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
     return (
         <Popup
             show={visible}
-            className={classnames(
-                styles[`${baseClass}`],
-                { [styles[`${baseClass}--${theme}`]]: !!theme },
-                className
-            )}
+            className={classnames(baseClass, { [`${baseClass}--${theme}`]: !!theme }, className)}
             style={{ width: addUnit(width) }}
             onClickOverlay={onClickOverlay}
             onOpen={onOpen}

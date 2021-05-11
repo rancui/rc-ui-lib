@@ -1,7 +1,7 @@
 import React from 'react';
-import { ActionBarProps } from './Props';
+import { ActionBarProps } from './props';
 import classnames from 'classnames';
-import styles from './index.scss';
+import './style/index.scss';
 
 const baseClass = 'r-action-bar';
 const ActionBar: React.FC<ActionBarProps> = (props) => {
@@ -9,8 +9,8 @@ const ActionBar: React.FC<ActionBarProps> = (props) => {
     return (
         <div
             className={classnames(
-                styles[`${baseClass}`],
-                { [styles[`${baseClass}--unshift`]]: !safeAreaInsetBottom },
+                baseClass,
+                { [`${baseClass}--unshift`]: !safeAreaInsetBottom },
                 className
             )}
         >

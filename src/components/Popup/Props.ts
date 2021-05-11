@@ -1,6 +1,5 @@
+import { ContanierType } from '@/utils';
 import React, { Ref } from 'react';
-
-// import PopupSharedProps from './PopupSharedProps';
 
 export type positionTypes = 'top' | 'right' | 'bottom' | 'left' | 'center';
 export type closeIconPositionTypes = 'top-left' | 'bottom-left' | 'bottom-right';
@@ -10,21 +9,16 @@ export interface PopupSharedProps {
     show?: boolean;
     // 动画时长，单位毫秒
     duration?: number | string;
+    // z-index
     zIndex?: number | string;
     // 指定挂载的节点
-    teleport?: string | HTMLElement;
+    teleport?: string | ContanierType;
     // 是否显示遮罩层
     overlay?: boolean;
     // 自定义遮罩层样式
     overlayStyle?: React.CSSProperties;
     // 自定义遮罩层类名
-    overlayClass?: string;
-    // 是否在初始渲染时启用过渡动画
-    transitionAppear?: boolean;
-    // 是否锁定背景滚动
-    lockScroll?: boolean;
-    // 是否在显示弹层时才渲染节点
-    lazyRender?: boolean;
+    overlayClass?: unknown;
     //是否在点击遮罩层后关闭
     closeOnClickOverlay?: boolean;
 }

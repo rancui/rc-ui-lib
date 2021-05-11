@@ -8,7 +8,7 @@ const happyThreadPool = HappyPack.ThreadPool({
 });
 
 function resolveResource(name) {
-    return path.resolve(__dirname, `src/assets/scss/${name}`);
+    return path.resolve(__dirname, `src/components/style/${name}`);
 }
 module.exports = {
     mode: 'development',
@@ -55,12 +55,12 @@ module.exports = {
                 use: [
                     'style-loader',
                     {
-                        loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[name]__[local]$[hash:base64:5]'
-                            }
-                        }
+                        loader: 'css-loader'
+                        // options: {
+                        //     modules: {
+                        //         localIdentName: '[name]__[local]$[hash:base64:5]'
+                        //     }
+                        // }
                     },
                     'postcss-loader',
                     'sass-loader',
@@ -123,7 +123,7 @@ module.exports = {
     //                     warnings: false,
     //                     drop_console: true,
     //                     drop_debugger: true,
-    //                     pure_funcs: ['console.log'] //移除console
+    //                     pure_funcs: ['console.log //移除console
     //                 }
     //             }
     //         })

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import BaseDialog from '@/components/Dialog/BaseDialog';
-import Dialog from '@/components/Dialog';
-import Button from '@/components/Button';
-import styles from './index.scss';
 import classnames from 'classnames';
+import Dialog from '@/components/dialog';
+import Button from '@/components/button';
+import './index.scss';
 
 export default class DialogComponent extends Component {
     constructor(props) {
@@ -72,10 +71,18 @@ export default class DialogComponent extends Component {
     }
 
     onBeforeClose(action) {
-        new Promise((resolve) => {
-            setTimeout(() => resolve(action === 'confirm'), 1000);
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                if (action === 'confirm') {
+                    resolve(true);
+                } else {
+                    // 拦截取消操作
+                    resolve(false);
+                }
+            }, 1000);
         });
     }
+
     showConfirmWithRoundButton() {
         this.setState({
             showConfirmWithRoundButton: true
@@ -91,12 +98,10 @@ export default class DialogComponent extends Component {
     render() {
         return (
             <>
-                <div className={classnames(styles['r-doc-demo-block'])}>
-                    <h2 className={classnames(styles['r-doc-demo-block__title'])}>消息提示</h2>
-                    <p className={classnames(styles.subTitle)}>
-                        用于提示一些消息，只包含一个确认按钮。
-                    </p>
-                    <div className={classnames(styles['dialogOptions'])}>
+                <div className={classnames('r-doc-demo-block')}>
+                    <h2 className={classnames('r-doc-demo-block__title')}>消息提示</h2>
+                    <p className={classnames('subTitle')}>用于提示一些消息，只包含一个确认按钮。</p>
+                    <div className={classnames('dialogOptions')}>
                         <Button onClick={this.onClickRoundBtn} type="primary">
                             消息提示
                         </Button>
@@ -108,12 +113,10 @@ export default class DialogComponent extends Component {
                         />
                     </div>
                 </div>
-                <div className={classnames(styles['r-doc-demo-block'])}>
-                    <h2 className={classnames(styles['r-doc-demo-block__title'])}>消息确认</h2>
-                    <p className={classnames(styles.subTitle)}>
-                        用于确认消息，包含取消 和 确认按钮。
-                    </p>
-                    <div className={classnames(styles['dialogOptions'])}>
+                <div className={classnames('r-doc-demo-block')}>
+                    <h2 className={classnames('r-doc-demo-block__title')}>消息确认</h2>
+                    <p className={classnames('subTitle')}>用于确认消息，包含取消 和 确认按钮。</p>
+                    <div className={classnames('dialogOptions')}>
                         <Button onClick={this.showCancelButton} type="primary">
                             确认弹窗
                         </Button>
@@ -127,12 +130,12 @@ export default class DialogComponent extends Component {
                     </div>
                 </div>
 
-                <div className={classnames(styles['r-doc-demo-block'])}>
-                    <h2 className={classnames(styles['r-doc-demo-block__title'])}>圆角按钮风格</h2>
-                    <p className={classnames(styles.subTitle)}>
+                <div className={classnames('r-doc-demo-block')}>
+                    <h2 className={classnames('r-doc-demo-block__title')}>圆角按钮风格</h2>
+                    <p className={classnames('subTitle')}>
                         将 theme 选项设置为 round-button 可以展示圆角按钮风格的弹窗。
                     </p>
-                    <div className={classnames(styles['dialogOptions'])}>
+                    <div className={classnames('dialogOptions')}>
                         <Button onClick={this.showRoundButton} type="primary">
                             圆角按钮
                         </Button>
@@ -145,14 +148,10 @@ export default class DialogComponent extends Component {
                         />
                     </div>
                 </div>
-                <div className={classnames(styles['r-doc-demo-block'])}>
-                    <h2 className={classnames(styles['r-doc-demo-block__title'])}>
-                        消息确认-圆角按钮
-                    </h2>
-                    <p className={classnames(styles.subTitle)}>
-                        用于确认消息，包含取消 和 确认按钮。
-                    </p>
-                    <div className={classnames(styles['dialogOptions'])}>
+                <div className={classnames('r-doc-demo-block')}>
+                    <h2 className={classnames('r-doc-demo-block__title')}>消息确认-圆角按钮</h2>
+                    <p className={classnames('subTitle')}>用于确认消息，包含取消 和 确认按钮。</p>
+                    <div className={classnames('dialogOptions')}>
                         <Button onClick={this.showConfirmWithRoundButton} type="primary">
                             确认弹窗-圆角按钮
                         </Button>
@@ -167,12 +166,12 @@ export default class DialogComponent extends Component {
                     </div>
                 </div>
 
-                <div className={classnames(styles['r-doc-demo-block'])}>
-                    <h2 className={classnames(styles['r-doc-demo-block__title'])}>异步关闭</h2>
-                    <p className={classnames(styles.subTitle)}>
+                <div className={classnames('r-doc-demo-block')}>
+                    <h2 className={classnames('r-doc-demo-block__title')}>异步关闭</h2>
+                    <p className={classnames('subTitle')}>
                         通过 onBeforeClose 属性可以传入一个回调函数，在弹窗关闭前进行特定操作。
                     </p>
-                    <div className={classnames(styles['dialogOptions'])}>
+                    <div className={classnames('dialogOptions')}>
                         <Button onClick={this.asyncButtonClose} type="primary">
                             异步关闭
                         </Button>

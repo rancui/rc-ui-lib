@@ -1,4 +1,4 @@
-export { default as Button } from './components/Button';
-export { default as Loading } from './components/Loading';
-export { default as Badge } from './components/Badge';
-export { default as Icon } from './components/Icon';
+export { default as Button } from './components/button';
+export { default as Loading } from './components/loading';
+export { default as Badge } from './components/badge';
+export { default as Icon } from './components/icon';

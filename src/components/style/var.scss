@@ -52,8 +52,8 @@ $base-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetic
 $price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
 
 // Animation
-$animation-duration-base: 300;
-$animation-duration-fast: 300;
+$animation-duration-base: 300ms;
+$animation-duration-fast: 300ms;
 $animation-timing-function-enter: ease-out;
 $animation-timing-function-exit: ease-in;
 

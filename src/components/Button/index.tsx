@@ -1,9 +1,9 @@
 import React, { useMemo, useCallback } from 'react';
 import classnames from 'classnames';
-import { ButtonProps } from './Props';
-import Loading from '../Loading';
-import Icon from '../Icon';
-import styles from './index.scss';
+import { ButtonProps } from './props';
+import Loading from '../loading';
+import Icon from '../icon';
+import './style/index.scss';
 
 const baseClass = 'r-button';
 const Button: React.FC<ButtonProps> = (props) => {
@@ -34,18 +34,19 @@ const Button: React.FC<ButtonProps> = (props) => {
     } = props;
     const Tag: any = tag || 'button';
     const Cls = classnames(
-        styles[`${baseClass}`],
+        // `${baseClass}`],
+        baseClass,
         {
-            [styles[`${baseClass}--${type}`]]: !!type,
-            [styles[`${baseClass}--${size}`]]: !!size,
-            [styles[`${baseClass}--plain`]]: plain,
-            [styles[`${baseClass}--disabled`]]: disabled,
-            [styles[`${baseClass}--loading`]]: loading,
-            [styles[`${baseClass}--round`]]: round,
-            [styles[`${baseClass}--square`]]: square,
-            [styles[`${baseClass}--block`]]: block,
-            [styles[`${baseClass}--hairline`]]: hairline,
-            [styles[`${baseClass}__${icon}`]]: !!icon
+            [`${baseClass}--${type}`]: !!type,
+            [`${baseClass}--${size}`]: !!size,
+            [`${baseClass}--plain`]: plain,
+            [`${baseClass}--disabled`]: disabled,
+            [`${baseClass}--loading`]: loading,
+            [`${baseClass}--round`]: round,
+            [`${baseClass}--square`]: square,
+            [`${baseClass}--block`]: block,
+            [`${baseClass}--hairline`]: hairline,
+            [`${baseClass}__${icon}`]: !!icon
         },
         className
     );
@@ -57,7 +58,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         if (icon) {
             return (
                 <Icon
-                    className={classnames(styles[`${baseClass}__icon`])}
+                    className={classnames(`${baseClass}__icon`)}
                     classPrefix={iconPrefix}
                     color={color}
                     name={icon}
@@ -74,7 +75,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             content = children || text;
         }
         if (content) {
-            return <span className={classnames(styles[`${baseClass}__text`])}>{content}</span>;
+            return <span className={classnames(`${baseClass}__text`)}>{content}</span>;
         }
     }, [loading, loadingText, text, children]);
 
@@ -112,7 +113,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             style={getStyle()}
             type={nativeType}
         >
-            <div className={classnames(styles[`${baseClass}__content`])}>
+            <div className={classnames(`${baseClass}__content`)}>
                 {iconPosition === 'left' && renderIcon}
                 {/* {renderContent()} */}
                 {renderContent}

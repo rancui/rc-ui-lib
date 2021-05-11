@@ -1,3 +1,6 @@
+import { ContanierType } from "@/utils";
+import React from "react";
+
 type DialogAction = 'confirm' | 'cancel';
 type DialogDone = (close?: boolean) => void;
 type themeType = 'default' | 'round-button';
@@ -15,9 +18,9 @@ export interface DialogProps {
     // 是否展示遮罩层
     overlay?: boolean;
     // 指定挂载的节点
-    teleport?: string | HTMLElement;
+    teleport?: string | ContanierType;
     // 自定义类名
-    className?: any;
+    className?: string;
     // 是否允许 message 内容中渲染 HTML
     allowHtml?: boolean;
     // 是否锁定背景滚动
@@ -29,7 +32,7 @@ export interface DialogProps {
     // 自定义遮罩层类名
     overlayClass?: string;
     // 自定义遮罩层样式
-    overlayStyle?: Record<string, any>;
+    overlayStyle?: React.CSSProperties;
     // 是否在页面回退时自动关闭
     closeOnPopstate?: boolean;
     //	取消按钮文案

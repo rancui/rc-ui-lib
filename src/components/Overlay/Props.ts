@@ -8,7 +8,7 @@ export interface OverlayProps {
     // 遮罩层动画时长，单位秒
     duration?: number | string;
     // 自定义类名
-    className?: string;
+    className?: unknown;
     // 自定义样式
     customStyle?: React.CSSProperties;
     // 点击时触发
