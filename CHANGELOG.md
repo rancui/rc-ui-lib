@@ -1,3 +1,21 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.3](https://github.com/rancui/vant-react/compare/v0.1.1...v0.1.3) (2021-05-11)
+
+
+### Features
+
+* 🎸 新增Toast组件 ([77dc89e](https://github.com/rancui/vant-react/commit/77dc89e8b43a8914983dcb33575c2ddd5c3c4ad7))
+* 新增Dialog组件 ([3207716](https://github.com/rancui/vant-react/commit/3207716257739da4e15a44bf21938804a5c12166))
+
+
+### Others
+
+* commit message & README ([0bfbf81](https://github.com/rancui/vant-react/commit/0bfbf814a649918f76b5982aa2a0371a9b0c47ac))
+* rEADME & Commit message ([8b2dc82](https://github.com/rancui/vant-react/commit/8b2dc82ea36a6471d39910e9f237defe5f41306a))
+
 ### 0.1.2 (2021-05-07)
 
 ### Features
