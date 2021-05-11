@@ -7,11 +7,17 @@ import PopupComponent from '@/examples/popup';
 import DialogComponent from '@/examples/dialog';
 import ToastComponent from '@/examples/toast';
 import ActionSheetComponent from '@/examples/action-sheet';
-
+import ActionBarComponent from '@/examples/action-bar';
 const routes = [
     {
+        name: 'ActionBarComponent',
+        path: '/action-bar',
+        component: ActionBarComponent,
+        exact: true
+    },
+    {
         name: 'ActionSheetComponent',
-        path: '/actionsheet',
+        path: '/action-sheet',
         component: ActionSheetComponent,
         exact: true
     },

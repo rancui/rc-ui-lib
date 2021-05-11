@@ -1,6 +1,6 @@
 export interface IconProps {
     // 图标名称或图片链接
-    name: string;
+    name?: string;
     // 是否显示图标右上角小红点
     dot?: boolean;
     // HTML 标签
