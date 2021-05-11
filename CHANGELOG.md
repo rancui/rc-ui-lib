@@ -1,6 +1,13 @@
 # 更新历史 
 
 
+### [0.1.5](https://github.com/rancui/vant-react/compare/v0.1.4...v0.1.5) (2021-05-11)
+
+
+### Features | 新功能
+
+* 新增ActionBar组件 ([0370e4d](https://github.com/rancui/vant-react/commit/0370e4d07a0ab8aff8e3af39e33b64e7d6821938))
+
 ### [0.1.4](https://github.com/rancui/vant-react/compare/v0.1.3...v0.1.4) (2021-05-11)
 
 
