@@ -1,6 +1,12 @@
-# Changelog
+# 更新历史 
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.4](https://github.com/rancui/vant-react/compare/v0.1.3...v0.1.4) (2021-05-11)
+
+
+### Others
+
+* 调整目录结构及代码格式 ([9e4769a](https://github.com/rancui/vant-react/commit/9e4769ab4e12797c37e518deb153e5fb36d5dc4d))
 
 ### [0.1.3](https://github.com/rancui/vant-react/compare/v0.1.1...v0.1.3) (2021-05-11)
 
