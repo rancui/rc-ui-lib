@@ -1,6 +1,13 @@
 # 更新历史 
 
 
+### [0.1.6](https://github.com/rancui/vant-react/compare/v0.1.5...v0.1.6) (2021-05-12)
+
+
+### Features | 新功能
+
+* 新增CheckboxGroup, Checkbox, Cell, CellGroup四个组件 ([a29752c](https://github.com/rancui/vant-react/commit/a29752c80b8f6ed09d78ad1b8d8e4f95732d4d6b))
+
 ### [0.1.5](https://github.com/rancui/vant-react/compare/v0.1.4...v0.1.5) (2021-05-11)
 
 
