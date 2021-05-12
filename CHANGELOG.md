@@ -4,41 +4,28 @@
 ### [0.1.6](https://github.com/rancui/vant-react/compare/v0.1.5...v0.1.6) (2021-05-12)
 
 
-### Features | 新功能
-
 * 新增CheckboxGroup, Checkbox, Cell, CellGroup四个组件 ([a29752c](https://github.com/rancui/vant-react/commit/a29752c80b8f6ed09d78ad1b8d8e4f95732d4d6b))
 
 ### [0.1.5](https://github.com/rancui/vant-react/compare/v0.1.4...v0.1.5) (2021-05-11)
 
-
-### Features | 新功能
 
 * 新增ActionBar组件 ([0370e4d](https://github.com/rancui/vant-react/commit/0370e4d07a0ab8aff8e3af39e33b64e7d6821938))
 
 ### [0.1.4](https://github.com/rancui/vant-react/compare/v0.1.3...v0.1.4) (2021-05-11)
 
 
-### Others
-
 * 调整目录结构及代码格式 ([9e4769a](https://github.com/rancui/vant-react/commit/9e4769ab4e12797c37e518deb153e5fb36d5dc4d))
 
 ### [0.1.3](https://github.com/rancui/vant-react/compare/v0.1.1...v0.1.3) (2021-05-11)
 
 
-### Features
-
-* 🎸 新增Toast组件 ([77dc89e](https://github.com/rancui/vant-react/commit/77dc89e8b43a8914983dcb33575c2ddd5c3c4ad7))
+* 新增Toast组件 ([77dc89e](https://github.com/rancui/vant-react/commit/77dc89e8b43a8914983dcb33575c2ddd5c3c4ad7))
 * 新增Dialog组件 ([3207716](https://github.com/rancui/vant-react/commit/3207716257739da4e15a44bf21938804a5c12166))
 
-
-### Others
-
 * commit message & README ([0bfbf81](https://github.com/rancui/vant-react/commit/0bfbf814a649918f76b5982aa2a0371a9b0c47ac))
-* rEADME & Commit message ([8b2dc82](https://github.com/rancui/vant-react/commit/8b2dc82ea36a6471d39910e9f237defe5f41306a))
+* README & Commit message ([8b2dc82](https://github.com/rancui/vant-react/commit/8b2dc82ea36a6471d39910e9f237defe5f41306a))
 
 ### 0.1.2 (2021-05-07)
-
-### Features
 
 -   新增 Button, Badge, Icon, Loading 组件 ([b046644](https://github.com/rancui/vant-react/commit/b0466442fc1dcd005cc1b090bdeb5036164f1a8b))
 -   新增 Dialog 组件 ([3207716](https://github.com/rancui/vant-react/commit/3207716257739da4e15a44bf21938804a5c12166))
@@ -58,4 +45,4 @@
 
 -   代码规范和格式 ([64e91a5](https://github.com/rancui/vant-react/commit/64e91a57b35c2b614c64a38bb9996ad70dc1320b))
 -   配置文件变动 ([e93671d](https://github.com/rancui/vant-react/commit/e93671d5f7ea717806a634f957c52323df863614))
--   rEADME & Commit message ([8b2dc82](https://github.com/rancui/vant-react/commit/8b2dc82ea36a6471d39910e9f237defe5f41306a))
+-   README & Commit message ([8b2dc82](https://github.com/rancui/vant-react/commit/8b2dc82ea36a6471d39910e9f237defe5f41306a))
