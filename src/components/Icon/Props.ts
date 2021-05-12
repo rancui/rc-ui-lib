@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface IconProps {
     // 图标名称或图片链接
     name?: string;
@@ -16,7 +18,7 @@ export interface IconProps {
     // 外部传入的类名
     className?: string;
     // 点击触发
-    onClick?: (e: MouseEvent | TouchEvent) => void;
+    onClick?: (e: MouseEvent) => void;
     // 行内样式
-    style?: Record<string, any>;
+    style?: React.CSSProperties;
 }

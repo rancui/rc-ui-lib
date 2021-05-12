@@ -8,7 +8,21 @@ import DialogComponent from '@/examples/dialog';
 import ToastComponent from '@/examples/toast';
 import ActionSheetComponent from '@/examples/action-sheet';
 import ActionBarComponent from '@/examples/action-bar';
+import CheckboxComponent from '@/examples/checkbox';
+import CellComponent from '@/examples/cell';
 const routes = [
+    {
+        name: 'CellComponent',
+        path: '/cell',
+        component: CellComponent,
+        exact: true
+    },
+    {
+        name: 'CheckboxComponent',
+        path: '/checkbox',
+        component: CheckboxComponent,
+        exact: true
+    },
     {
         name: 'ActionBarComponent',
         path: '/action-bar',

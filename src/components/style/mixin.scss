@@ -1,60 +1,59 @@
 // flex 布局
-@mixin flex($ju: space-between, $al: center){
-  display: flex;
-  justify-content: $ju;
-  align-items: $al;
+@mixin flex($ju: space-between, $al: center) {
+    display: flex;
+    justify-content: $ju;
+    align-items: $al;
 }
 
 // 超出隐藏
-@mixin over-hidden($line: 1){
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: $line;
+@mixin over-hidden($line: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
 }
 
 // 导航栏背景色
-@mixin navbar-bg($start: #FFCF00, $end: #FF8D00){
-  background-image: linear-gradient(270deg, $start 0%, $end 100%);
+@mixin navbar-bg($start: #ffcf00, $end: #ff8d00) {
+    background-image: linear-gradient(270deg, $start 0%, $end 100%);
 }
 
 // 距离底部高度
-@mixin distance-bottom($padding: 80px){
-  padding-bottom: $padding;
+@mixin distance-bottom($padding: 80px) {
+    padding-bottom: $padding;
 }
 
 // 1px 边框
-@mixin onepx($positions: top right bottom left, $border-color: #f0f0f0, $border-radius: 0) {
+@mixin onepx($positions: top right bottom left, $border-color: #ebedf0, $border-radius: 0) {
     &::after {
-      position: absolute;
-      content: '';
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      border-radius: $border-radius;
-      z-index: 999;
-      @each $position in $positions {
-        border-#{$position}: 1px solid $border-color;
-      }
-      
-      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-        width: 200%;
-        height: 200%;
-        transform: scale(0.5);
-        transform-origin: 0 0;
-        border-color: $border-color;
-        border-radius: $border-radius * 2;
-      }
-      @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
-        width: 300%;
-        height: 300%;
-        transform: scale(0.333333);
-        transform-origin: 0 0;
-        border-radius: $border-radius * 3;
-      }
+        position: absolute;
+        content: '';
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: $border-radius;
+        z-index: 999;
+        @each $position in $positions {
+            border-#{$position}: 1px solid $border-color;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            // border-color: $border-color;
+            border-radius: $border-radius * 2;
+        }
+        @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
+            width: 300%;
+            height: 300%;
+            transform: scale(0.333333);
+            transform-origin: 0 0;
+            border-radius: $border-radius * 3;
+        }
     }
 }
-

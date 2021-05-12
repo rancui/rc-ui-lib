@@ -26,7 +26,7 @@ const Icon: React.FC<IconProps> = (props) => {
 
     const isImageIcon = isImage(name);
 
-    const handleClick = (e: TouchEvent | MouseEvent) => {
+    const handleClick = (e: MouseEvent) => {
         onClick?.(e);
     };
 
