@@ -1,11 +1,20 @@
-import React, { useRef, useMemo, useCallback, ReactElement, MutableRefObject } from 'react';
+import React, {
+    useRef,
+    useMemo,
+    useCallback,
+    ReactElement,
+    ReactNode,
+    MutableRefObject,
+    forwardRef,
+    useImperativeHandle
+} from 'react';
 import { CheckerProps } from './props';
 import { addUnit } from '@/utils';
 import Icon from '../icon';
 import classnames from 'classnames';
 import './style/index.scss';
 
-const Checker: React.FC<CheckerProps> = (props) => {
+const Checker = forwardRef<unknown, CheckerProps>((props, ref) => {
     const {
         shape = 'round',
         imgUrl,
@@ -45,7 +54,7 @@ const Checker: React.FC<CheckerProps> = (props) => {
     }, [getParentProp, disabled]);
 
     // icon行内样式
-    const iconStyle = () => {
+    const iconStyle = useCallback(() => {
         const checkedStatusColor = getParentProp('checkedColor') || checkedColor;
         if (checked && checkedStatusColor && !disabledStatus) {
             return {
@@ -53,21 +62,7 @@ const Checker: React.FC<CheckerProps> = (props) => {
                 backgroundColor: checkedStatusColor
             };
         }
-    };
-
-    // 点击checkbox
-    const handleClick = (e) => {
-        const { target } = e;
-        const icon = iconRef.current;
-        // 当点击的是复选框 或者 点击的区域包括复选框
-        const iconClicked = icon === target || icon?.contains(target as Node);
-        // 复选框没被禁用，并且（复选框被点击或者文本内容没被禁用的情况下）
-        if (!disabledStatus && (iconClicked || !labelDisabled)) {
-            onToggle?.(!checked);
-        }
-        // 触发onClick事件
-        onClick?.(e);
-    };
+    }, [checkedColor, checked, disabledStatus]);
 
     // 外层样式
     const iconWrapperClassString = classnames(`${baseClass}__icon`, {
@@ -76,15 +71,13 @@ const Checker: React.FC<CheckerProps> = (props) => {
         [`${baseClass}__icon--checked`]: checked,
         [`${baseClass}__icon--double`]: disabledStatus && checked
     });
-    // 内层样式
-    // const iconInnerClassString = classnames('r-icon', {
-    //     [styles['r-icon']]: checked,
-    //     [styles['r-icon']]: shape === 'round',
-    //     [styles['r-icon']]: disabledStatus,
-    //     [styles['r-icon']]: disabledStatus && checked
-    // });
 
-    const renderIcon = () => {
+    const classString = classnames(baseClass, `${baseClass}--${directionVal()}`, {
+        [`${baseClass}--label-disabled`]: labelDisabled,
+        [`${baseClass}--disabled`]: disabledStatus
+    });
+
+    const renderIcon = useMemo(() => {
         return (
             <div
                 ref={iconRef as MutableRefObject<HTMLDivElement>}
@@ -101,7 +94,7 @@ const Checker: React.FC<CheckerProps> = (props) => {
                 )}
             </div>
         );
-    };
+    }, [iconSize, iconWrapperClassString, iconSize, imgUrl]);
 
     const renderLabel = useMemo(() => {
         const classString = classnames(
@@ -114,16 +107,31 @@ const Checker: React.FC<CheckerProps> = (props) => {
         return <>{children && <span className={classString}>{children}</span>}</>;
     }, [labelPosition, disabledStatus, children, baseClass]);
 
-    const nodes: (ReactElement | undefined)[] = [renderIcon()];
+    const nodes: ReactNode[] = [renderIcon];
     labelPosition === 'left' ? nodes.unshift(renderLabel) : nodes.push(renderLabel);
 
-    const classString = classnames(baseClass, `${baseClass}--${directionVal()}`, {
-        [`${baseClass}--label-disabled`]: labelDisabled,
-        [`${baseClass}--disabled`]: disabledStatus
-    });
+    useImperativeHandle(ref, () => ({
+        handleClick
+    }));
+
+    // 点击checkbox
+    const handleClick = (e) => {
+        const { target } = e;
+        const icon = iconRef.current;
+        // 当点击的是复选框 或者 点击的区域包括复选框
+        const iconClicked = icon === target || icon?.contains(target as Node);
+        // 复选框没被禁用，并且（复选框被点击或者文本内容没被禁用的情况下）
+        if (!disabledStatus && (iconClicked || !labelDisabled)) {
+            // 状态取反
+            onToggle?.(!checked);
+        }
+        // 触发onClick事件
+        onClick?.(e);
+    };
 
     return (
         <div
+            ref={ref as MutableRefObject<HTMLDivElement>}
             onClick={handleClick}
             className={classString}
             role={role}
@@ -131,12 +139,12 @@ const Checker: React.FC<CheckerProps> = (props) => {
             aria-checked={checked}
         >
             {nodes.map((item, index) => {
-                return React.cloneElement(item as React.ReactElement, {
+                return React.cloneElement(item as ReactElement, {
                     key: index
                 });
             })}
         </div>
     );
-};
-
+});
+Checker.displayName = 'Checker';
 export default Checker;

@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, forwardRef, useImperativeHandle } from 'react';
 import { CheckboxGroupContext } from '../checkbox-group';
 import Checker from './checker';
 import { CheckerProps } from './props';
 
 // checkbox 属性集合
 interface CheckboxProps extends CheckerProps {
-    bindGroup?: boolean;
+    // bindGroup?: boolean;
     onChange?: (val: boolean) => void;
 }
-
-const Checkbox: React.FC<CheckboxProps> = (props) => {
+const Checkbox = forwardRef<unknown, CheckboxProps>((props, ref) => {
     const { name, model = false, bindGroup = true, onChange } = props;
 
     // 获取共享上下文
@@ -27,7 +26,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
         const { model, max, onChange } = parent;
         if (checked) {
             // 判断父组件的model值的数量是否大于设置的max值
-            const overLimit = +max && model?.length >= +max;
+            const overLimit = (max as number) && model?.length >= max;
             if (!overLimit && model?.indexOf(name) === -1) {
                 setModelValue(checked);
                 model.push(name);
@@ -57,8 +56,13 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
         }
     };
 
+    useImperativeHandle(ref, () => ({
+        toggle
+    }));
+
     return (
         <Checker
+            ref={ref}
             baseClass="r-checkbox"
             role="checkbox"
             parent={parent}
@@ -67,6 +71,8 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
             {...props}
         />
     );
-};
+});
+
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;

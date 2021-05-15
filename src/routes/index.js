@@ -10,7 +10,14 @@ import ActionSheetComponent from '@/examples/action-sheet';
 import ActionBarComponent from '@/examples/action-bar';
 import CheckboxComponent from '@/examples/checkbox';
 import CellComponent from '@/examples/cell';
+import RadioComponent from '@/examples/radio';
 const routes = [
+    {
+        name: 'RadioComponent',
+        path: '/radio',
+        component: RadioComponent,
+        exact: true
+    },
     {
         name: 'CellComponent',
         path: '/cell',

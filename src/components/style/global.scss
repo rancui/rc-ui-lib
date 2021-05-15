@@ -1,57 +1,23 @@
 :global {
     * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        outline: none;
-    }
-    body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-  dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
-  pre, /* text formatting elements 文本格式元素 */
-  form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
-  th, td /* table elements 表格元素 */ {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        outline: none;
     }
     body {
         font-family: PingFangSC-Regular, Microsoft YaHei, 'Helvetica Neue', Helvetica, Arial,
             sans-serif;
         line-height: 1.5;
         color: #333;
-        background-color: #fff;
+        background-color: #f7f7f7;
         font-size: 14px;
-        -webkit-user-select: none;
-        -webkit-text-size-adjust: none;
+        user-select: none;
+        text-size-adjust: none;
         -webkit-tap-highlight-color: transparent;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
-    }
-    audio:not([controls]) {
-        display: none;
-        height: 0;
-    }
-
-    /*  处理 IE 8/9 中不存在的样式。 */
-    [hidden] {
-        display: none;
-    }
-    summary {
-        display: list-item;
-    }
-    /* HTML5 display-role reset for older browsers */
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    section {
-        display: block;
     }
 
     div,
@@ -69,99 +35,16 @@
     input,
     form,
     button {
-        margin: 0;
-        padding: 0;
-        -webkit-appearance: none;
-        outline: none;
+        appearance: none;
     }
-
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    nav,
-    section,
-    summary {
-        display: block;
-    }
-    ol,
-    ul {
-        list-style: none;
-    }
-    blockquote,
-    q {
-        quotes: none;
-    }
-    blockquote:before,
-    blockquote:after,
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-    button,
+    a,
     input,
-    optgroup,
-    select,
+    button,
     textarea,
-    div,
-    p {
-        margin: 0;
-        font: inherit;
-        color: inherit;
-    }
-
-    html,
-    body,
-    #root {
-        background-color: #f7f7f7;
-    }
-
-    a {
-        background-color: transparent;
-        color: #333;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: none;
-        color: #333;
-        outline: 0;
-    }
-    a:active,
-    a:focus {
-        color: #333;
-        outline: 0;
-    }
-
-    ::-webkit-scrollbar {
-        // 隐藏滚动条
-        display: none;
-    }
-
-    .submit-btn {
-        width: 100%;
-        height: 48px;
-        background-image: linear-gradient(180deg, #fdcc00 0%, #fba900 100%);
-        box-shadow: 0 5px 5px 0 rgba(253, 203, 0, 0.17);
-        border-radius: 50px;
-        color: #fff;
-        font-size: 17px;
-        border: none;
-        &:disabled {
-            box-shadow: none;
-            background: #ccc;
+    [class*='r-'] {
+        &:focus {
+            color: #333;
+            outline: none;
         }
-        &.plain {
-            background: #fff;
-            border: 1px solid #ffbb2e;
-            color: #ffbb2e;
-        }
-    }
-    .safe-area-btn {
-        padding-bottom: constant(safe-area-inset-bottom);
-        padding-bottom: env(safe-area-inset-bottom);
     }
 }

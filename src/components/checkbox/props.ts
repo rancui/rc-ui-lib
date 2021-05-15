@@ -17,7 +17,7 @@ export interface CheckerProps extends CheckerBaseProps {
 
 export interface CheckerBaseProps {
     // 是否为选中状态
-    model?: boolean;
+    model: boolean;
     // 标识符
     name?: string;
     // 形状
