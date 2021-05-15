@@ -30,6 +30,8 @@
 
 -   [x] CheckboxGroup
 -   [x] Checkbox
+-   [x] RadioGroup
+-   [x] Radio
 
 ### 反馈组件
 
