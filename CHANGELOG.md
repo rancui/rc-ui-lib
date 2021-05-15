@@ -1,6 +1,13 @@
 # 更新历史 
 
 
+### [0.1.8](https://github.com/rancui/vant-react/compare/v0.1.7...v0.1.8) (2021-05-15)
+
+
+### Documentation | 文档
+
+* 添加Radio, RadioGroup ([31cf91b](https://github.com/rancui/vant-react/commit/31cf91b11ef0eedee51c6848e2fe02a9cd7ca31a))
+
 ### [0.1.7](https://github.com/rancui/vant-react/compare/v0.1.6...v0.1.7) (2021-05-15)
 
 
