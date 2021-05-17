@@ -12,7 +12,7 @@
 # Using npm
 1）npm install
 2）npm run serve
-3) 通过路由访问组件的使用示例，如localhost:3000/#/button, 更多组件路由请参阅项目中routers/index.js文件。
+3) 通过路由访问组件的使用示例，如localhost:3000/#/button, 更多组件路由请参阅项目中router/index.js文件。
 
 ```
 
