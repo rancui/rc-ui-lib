@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.10](https://github.com/rancui/vant-react/compare/v0.1.9...v0.1.10) (2021-05-18)
+
+
+* 更改目录名 ([e1d9b49](https://github.com/rancui/vant-react/commit/e1d9b4948e9da3366fd7a5f5a1d6f808440dfa0a))
+
 ### [0.1.9](https://github.com/rancui/vant-react/compare/v0.1.8...v0.1.9) (2021-05-17)
 
 
