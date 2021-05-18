@@ -73,7 +73,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
                 updateShow?.(false);
             }
         },
-        [show, onBeforeClose, onConfirm, onCancel]
+        [show, onBeforeClose, onConfirm, onCancel, updateShow]
     );
 
     const renderTitle = useMemo(() => {

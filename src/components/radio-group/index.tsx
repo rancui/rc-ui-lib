@@ -8,7 +8,6 @@ export const RadioGroupContext = createContext(null);
 const baseClass = 'r-radio-group';
 const RadioGroup = forwardRef<unknown, RadioGroupProps>((props, ref) => {
     const { direction = 'vertical', children } = props;
-
     // 样式
     const classString = classnames(baseClass, `${baseClass}--${direction}`);
 

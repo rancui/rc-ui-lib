@@ -41,10 +41,10 @@ const ActionSheet: React.FC<ActionSheetProps> = (props) => {
     // const popupDefaultPropKeys = Object.keys(defultProps);
     const popupDefaultPropKeys = Object.keys(defultPopupSharedProps);
 
-    const handleCancel = () => {
+    const handleCancel = useCallback(() => {
         setVisible(false);
         onCancel?.();
-    };
+    }, [onCancel]);
 
     const renderHeader = useMemo(() => {
         if (title) {

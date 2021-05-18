@@ -17,7 +17,7 @@ const Radio = forwardRef<unknown, CheckerProps>((props, ref) => {
     const checked = useMemo(() => {
         const val = parent ? model : name;
         return name === val;
-    }, [model, name]);
+    }, [model, name, parent]);
 
     useImperativeHandle(ref, () => {
         toggle;
@@ -44,5 +44,6 @@ const Radio = forwardRef<unknown, CheckerProps>((props, ref) => {
         />
     );
 });
+
 Radio.displayName = 'Radio';
 export default Radio;

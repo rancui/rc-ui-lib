@@ -115,7 +115,6 @@ const Button: React.FC<ButtonProps> = (props) => {
         >
             <div className={classnames(`${baseClass}__content`)}>
                 {iconPosition === 'left' && renderIcon}
-                {/* {renderContent()} */}
                 {renderContent}
                 {iconPosition === 'right' && renderIcon}
             </div>

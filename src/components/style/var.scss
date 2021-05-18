@@ -103,28 +103,6 @@ $action-bar-button-height: 40px;
 $action-bar-button-warning-color: $gradient-orange;
 $action-bar-button-danger-color: $gradient-red;
 
-// AddressEdit
-$address-edit-padding: $padding-sm;
-$address-edit-buttons-padding: $padding-xl $padding-base;
-$address-edit-button-margin-bottom: $padding-sm;
-$address-edit-detail-finish-color: $blue;
-$address-edit-detail-finish-font-size: $font-size-sm;
-
-// AddressList
-$address-list-padding: $padding-sm $padding-sm 80px;
-$address-list-disabled-text-color: $gray-6;
-$address-list-disabled-text-padding: $padding-base * 5 0 $padding-md;
-$address-list-disabled-text-font-size: $font-size-md;
-$address-list-disabled-text-line-height: $line-height-md;
-$address-list-add-button-z-index: 999;
-$address-list-item-padding: $padding-sm;
-$address-list-item-text-color: $text-color;
-$address-list-item-disabled-text-color: $gray-5;
-$address-list-item-font-size: 13px;
-$address-list-item-line-height: $line-height-sm;
-$address-list-item-radio-icon-color: $red;
-$address-list-edit-icon-size: 20px;
-
 // Badge
 $badge-size: 16px;
 $badge-color: $white;
@@ -227,20 +205,6 @@ $dialog-has-title-message-padding-top: $padding-xs;
 $dialog-button-height: 48px;
 $dialog-round-button-height: 36px;
 $dialog-confirm-button-text-color: $red;
-
-// DropdownMenu
-$dropdown-menu-height: 48px;
-$dropdown-menu-background-color: $white;
-$dropdown-menu-box-shadow: 0 2px 12px fade($gray-7, 12);
-$dropdown-menu-title-font-size: 15px;
-$dropdown-menu-title-text-color: $text-color;
-$dropdown-menu-title-active-text-color: $red;
-$dropdown-menu-title-disabled-text-color: $gray-6;
-$dropdown-menu-title-padding: 0 $padding-xs;
-$dropdown-menu-title-line-height: $line-height-lg;
-$dropdown-menu-option-active-color: $red;
-$dropdown-menu-content-max-height: 80%;
-$dropdown-item-z-index: 10;
 
 // Field
 $field-label-width: 6.2em;

@@ -16,7 +16,9 @@ const Overlay: React.FC<OverlayProps> = (props) => {
 
     useEffect(() => {
         setVisible(show);
+        console.log(123);
         setDisplay({ display: visible ? 'block' : 'none' });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [show]);
 
     const handleClick = (e) => {

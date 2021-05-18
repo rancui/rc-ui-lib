@@ -20,7 +20,7 @@ const CheckboxGroup = forwardRef<unknown, CheckboxGroupProps>((props, ref) => {
 
     useEffect(() => {
         onChange?.(model as any);
-    }, [model]);
+    }, [model, onChange]);
 
     const classStrig = classnames(baseClass, `${baseClass}--${direction}`);
 

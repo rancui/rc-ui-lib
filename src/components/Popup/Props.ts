@@ -35,8 +35,6 @@ export const defultPopupSharedProps: PopupSharedProps = {
 };
 
 export interface PopupProps extends PopupSharedProps {
-    // 是否显示弹出层
-    // show: boolean;
     // 弹出层内联样式
     style?: React.CSSProperties;
     // 该组件被引用时传入的样式
@@ -55,8 +53,6 @@ export interface PopupProps extends PopupSharedProps {
     closeIconPosition?: closeIconPositionTypes;
     // 弹出位置，可选值为 top bottom right left
     position?: positionTypes;
-    // 是否在页面回退时自动关闭
-    closeOnPopstate?: boolean;
     // 点击遮罩层时触发
     onClickOverlay?: () => void;
     // 点击弹出层时触发

@@ -62,7 +62,7 @@ const Checker = forwardRef<unknown, CheckerProps>((props, ref) => {
                 backgroundColor: checkedStatusColor
             };
         }
-    }, [checkedColor, checked, disabledStatus]);
+    }, [checkedColor, checked, disabledStatus, getParentProp]);
 
     // 外层样式
     const iconWrapperClassString = classnames(`${baseClass}__icon`, {
@@ -94,7 +94,7 @@ const Checker = forwardRef<unknown, CheckerProps>((props, ref) => {
                 )}
             </div>
         );
-    }, [iconSize, iconWrapperClassString, iconSize, imgUrl]);
+    }, [iconSize, parent?.iconSize, checked, iconWrapperClassString, imgUrl, baseClass, iconStyle]);
 
     const renderLabel = useMemo(() => {
         const classString = classnames(

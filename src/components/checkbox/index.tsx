@@ -19,7 +19,7 @@ const Checkbox = forwardRef<unknown, CheckboxProps>((props, ref) => {
 
     useEffect(() => {
         onChange?.(modelValue);
-    }, [modelValue]);
+    }, [modelValue, onChange]);
 
     // 更新父组件的model值(当有父组件时)
     const updateParentModel = (checked) => {

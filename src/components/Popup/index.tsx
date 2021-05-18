@@ -5,7 +5,6 @@ import Overlay from '../overlay';
 import Icon from '@/components/icon';
 import { isDef, getMountContanier, ContanierType } from '@/utils';
 import { CSSTransition } from 'react-transition-group';
-import { useEventListener } from '@/utils/useEventListener';
 import classnames from 'classnames';
 import './style/transition.scss';
 import './style/index.scss';
@@ -34,7 +33,6 @@ const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) 
         safeAreaInsetBottom = false,
         closeIconPosition = 'top-right',
         position = 'center',
-        closeOnPopstate = false,
         closeOnClickOverlay = true,
         onClickOverlay,
         // transition,
@@ -70,7 +68,7 @@ const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) 
         }
 
         return Object.assign({ zIndex: zIndexRef.current as number }, InnerStyle, style);
-    }, [duration, position]);
+    }, [duration, position, style]);
 
     // 渲染遮罩层
     const renderOverlay = () => {
@@ -88,13 +86,17 @@ const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) 
         }
     };
 
+    const handleClose = useCallback(() => {
+        onClose?.();
+    }, [onClose]);
+
     // 点击遮罩，关闭弹出层。
     const clickOverlay = useCallback(() => {
         onClickOverlay?.();
         if (closeOnClickOverlay) {
             handleClose();
         }
-    }, [closeOnClickOverlay]);
+    }, [closeOnClickOverlay, handleClose, onClickOverlay]);
 
     const renderCloseIcon = () => {
         const classString = classnames(
@@ -141,10 +143,6 @@ const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) 
         onOpened?.(el);
     };
 
-    const handleClose = () => {
-        onClose?.();
-    };
-
     const handleClosed = (el: HTMLElement) => {
         onClosed?.(el);
     };
@@ -176,13 +174,6 @@ const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) 
             </CSSTransition>
         );
     };
-
-    // popstate触发时机：当前历史条目为pushState创建时，当活动历史记录条目更改时，将触发popstate事件
-    useEventListener('popstate', () => {
-        if (closeOnPopstate) {
-            onClose?.();
-        }
-    });
 
     const renderUI = () => {
         return (
