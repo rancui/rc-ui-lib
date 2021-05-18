@@ -14,8 +14,6 @@
 ### [0.1.9](https://github.com/rancui/vant-react/compare/v0.1.8...v0.1.9) (2021-05-17)
 
 
-### Documentation | 文档
-
 * 目录名routes->router ([71e5f93](https://github.com/rancui/vant-react/commit/71e5f931e1dad29085a6271b5a3a281215876a62))
 
 ### [0.1.8](https://github.com/rancui/vant-react/compare/v0.1.7...v0.1.8) (2021-05-15)
