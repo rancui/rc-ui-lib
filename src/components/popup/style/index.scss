@@ -1,0 +1,108 @@
+.r {
+    &-overflow-hidden {
+        overflow: hidden !important;
+        * {
+            pointer-events: none;
+        }
+    }
+
+    &-popup {
+        position: fixed;
+        max-height: 100%;
+        overflow-y: auto;
+        background-color: $popup-background-color;
+        transition: $popup-transition;
+        -webkit-overflow-scrolling: touch;
+
+        &--center {
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            display: none;
+            &--round {
+                border-radius: $popup-round-border-radius;
+            }
+        }
+
+        &--top {
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 50%;
+            transform: translate3d(0, -100%, 0);
+            &--round {
+                border-radius: 0 0 $popup-round-border-radius $popup-round-border-radius;
+            }
+        }
+
+        &--right {
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            transform: translate3d(100%, 0, 0);
+            &--round {
+                border-radius: $popup-round-border-radius 0 0 $popup-round-border-radius;
+            }
+        }
+
+        &--bottom {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            max-height: 50%;
+            transform: translate3d(0, 100%, 0);
+            &--round {
+                border-radius: $popup-round-border-radius $popup-round-border-radius 0 0;
+            }
+        }
+
+        &--left {
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            transform: translate3d(-100%, 0, 0);
+            &--round {
+                border-radius: 0 $popup-round-border-radius $popup-round-border-radius 0;
+            }
+        }
+
+        &--safe-area-inset-bottom {
+            padding-bottom: constant(safe-area-inset-bottom);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        &__close-icon {
+            position: absolute;
+            z-index: $popup-close-icon-z-index;
+            color: $popup-close-icon-color;
+            font-size: $popup-close-icon-size;
+            cursor: pointer;
+
+            &:active {
+                color: $popup-close-icon-active-color;
+            }
+
+            &--top-left {
+                top: $popup-close-icon-margin;
+                left: $popup-close-icon-margin;
+            }
+
+            &--top-right {
+                top: $popup-close-icon-margin;
+                right: $popup-close-icon-margin;
+            }
+
+            &--bottom-left {
+                bottom: $popup-close-icon-margin;
+                left: $popup-close-icon-margin;
+            }
+
+            &--bottom-right {
+                right: $popup-close-icon-margin;
+                bottom: $popup-close-icon-margin;
+            }
+        }
+    }
+}
