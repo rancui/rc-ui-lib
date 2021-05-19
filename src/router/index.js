@@ -11,7 +11,14 @@ import ActionBarComponent from '@/examples/action-bar';
 import CheckboxComponent from '@/examples/checkbox';
 import CellComponent from '@/examples/cell';
 import RadioComponent from '@/examples/radio';
+import SwitchComponent from '@/examples/switch';
 const routes = [
+    {
+        name: 'SwitchComponent',
+        path: '/switch',
+        component: SwitchComponent,
+        exact: true
+    },
     {
         name: 'RadioComponent',
         path: '/radio',

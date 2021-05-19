@@ -32,6 +32,7 @@
 -   [x] Checkbox
 -   [x] RadioGroup
 -   [x] Radio
+-   [x] Switch
 
 ### 反馈组件
 
