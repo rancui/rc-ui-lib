@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.13](https://github.com/rancui/vant-react/compare/v0.1.12...v0.1.13) (2021-05-19)
+
+
+* 新增Switch组件 ([71515d9](https://github.com/rancui/vant-react/commit/71515d97bff4960454915c349234b9fbc6a9d2de))
+
 ### [0.1.12](https://github.com/rancui/vant-react/compare/v0.1.11...v0.1.12) (2021-05-19)
 
 
