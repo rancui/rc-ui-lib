@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.12](https://github.com/rancui/vant-react/compare/v0.1.11...v0.1.12) (2021-05-19)
+
+
+* 更改目录名大小写 ([a32c920](https://github.com/rancui/vant-react/commit/a32c920073596a8194aafa1067858c028f81a778))
+
 ### [0.1.11](https://github.com/rancui/vant-react/compare/v0.1.10...v0.1.11) (2021-05-18)
 
 
