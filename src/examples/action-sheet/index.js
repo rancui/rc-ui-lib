@@ -61,7 +61,6 @@ export default class ActionSheetComponent extends PureComponent {
     };
 
     onSelect = (item, index) => {
-        console.log('item,index', item, index);
         this.setState({
             show: false
         });
@@ -74,7 +73,6 @@ export default class ActionSheetComponent extends PureComponent {
     };
 
     onSelect3 = (item, index) => {
-        console.log('item,index', item, index);
         this.setState({
             show3: false
         });

@@ -7,7 +7,7 @@ import './style/index.scss';
 
 const baseClass = 'r-cell';
 
-const Cell = forwardRef<HTMLDivElement, CellProps>((props, ref) => {
+const Cell = forwardRef<unknown, CellProps>((props, ref) => {
     const {
         icon,
         size,
@@ -51,10 +51,9 @@ const Cell = forwardRef<HTMLDivElement, CellProps>((props, ref) => {
     }, [title, titleStyle, titleClass, renderLabel]);
 
     const renderValue = useMemo(() => {
-        const hasTitle = isDef(title);
-        const hasValue = isDef(value);
-
+        const hasValue = children || isDef(value);
         if (hasValue) {
+            const hasTitle = isDef(title);
             return (
                 <div
                     className={classnames(
@@ -63,13 +62,9 @@ const Cell = forwardRef<HTMLDivElement, CellProps>((props, ref) => {
                         valueClass
                     )}
                 >
-                    <span>{value}</span>
+                    {children ? children : <span>{value}</span>}
                 </div>
             );
-        }
-
-        if (children) {
-            return children;
         }
     }, [valueClass, title, value, children]);
 
@@ -98,8 +93,9 @@ const Cell = forwardRef<HTMLDivElement, CellProps>((props, ref) => {
 
     return (
         <div
+            ref={ref as MutableRefObject<HTMLDivElement>}
             className={classnames(
-                `${baseClass}`,
+                baseClass,
                 {
                     [`${baseClass}--large`]: !!size,
                     [`${baseClass}--center`]: center,
@@ -112,7 +108,6 @@ const Cell = forwardRef<HTMLDivElement, CellProps>((props, ref) => {
             role={clickable ? 'button' : undefined}
             tabIndex={clickable ? 0 : undefined}
             onClick={handleClick}
-            ref={ref as MutableRefObject<HTMLDivElement>}
         >
             {renderLeftIcon}
             {renderTitle}

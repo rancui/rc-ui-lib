@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export type ButtonTypes = 'default' | 'primary' | 'warning' | 'info' | 'danger' | 'round';
 export type ButtonSizeTypes = 'large' | 'small' | 'mini' | 'normal';
@@ -53,9 +53,8 @@ export interface ButtonProps {
     // 后代子元素
     children?: string;
     // 点击按钮，且按钮状态不为加载或禁用时触发
-    onClick?: (e: MouseEvent | TouchEvent) => void;
-    // 开始触摸按钮时触发
-    touchstart?: (e: TouchEvent) => void;
+    // onClick?: (e: MouseEvent) => void;
+    onClick?: MouseEventHandler<HTMLDivElement>;
     // 传入的类名
     className?: string;
     // 内联样式

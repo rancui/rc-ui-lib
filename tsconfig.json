@@ -18,7 +18,9 @@
   },
   "include": [
     "src",
-    "typings"
+    "typings",
+    "examples"
+
   ],
   "exclude": [
     "node_modules",

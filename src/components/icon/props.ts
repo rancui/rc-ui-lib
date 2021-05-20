@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export interface IconProps {
     // 图标名称或图片链接
@@ -18,7 +18,7 @@ export interface IconProps {
     // 外部传入的类名
     className?: string;
     // 点击触发
-    onClick?: (e: MouseEvent) => void;
+    onClick?: MouseEventHandler<HTMLElement>;
     // 行内样式
     style?: React.CSSProperties;
 }

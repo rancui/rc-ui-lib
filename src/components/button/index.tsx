@@ -26,7 +26,6 @@ const Button: React.FC<ButtonProps> = (props) => {
         tag = 'button',
         nativeType,
         onClick,
-        // touchstart,
         icon,
         iconPrefix = 'r-icon',
         iconPosition = 'left',
@@ -99,7 +98,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         return null;
     }, [color, plain]);
 
-    const handleClick = (e: TouchEvent | MouseEvent) => {
+    const handleClick = (e) => {
         if (!disabled || !loading) {
             onClick?.(e);
         }

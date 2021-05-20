@@ -1,9 +1,8 @@
 const overflowScrollReg = /scroll|auto/i;
 type ScrollElement = HTMLElement | Window;
 export type ContanierType = HTMLElement | (() => HTMLElement) | Window;
+import { FieldRule } from '../components/Field/types';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const noop = () => ({});
 
 // 判断其参数是否是数字
@@ -46,7 +45,7 @@ export const getSizeStyle = (originSize?: string | number) => {
 };
 // 阻止默认事件
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const preventDefault = (event: TouchEvent | MouseEvent, isStopPropagation?: boolean) => {
+export const preventDefault = (event: MouseEvent, isStopPropagation?: boolean) => {
     if (typeof event.cancelable !== 'boolean' || event.cancelable) {
         event.preventDefault();
     }
@@ -142,8 +141,7 @@ export const trimExtraChar = (value: string, char: string, regExp: RegExp) => {
     return value.slice(0, index + 1) + value.slice(index).replace(regExp, '');
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const formatNumber = (value: string, allowDot = true, allowMinus = true) => {
+export const formatNumber = (value: string, allowDot = true, allowMinus = true): string => {
     if (allowDot) {
         value = trimExtraChar(value, '.', /\./g);
     } else {
@@ -158,9 +156,18 @@ export const formatNumber = (value: string, allowDot = true, allowMinus = true) 
     return value.replace(regExp, '');
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const trigger = (target: Element, type: string) => {
+export const trigger = (target: Element, type: string): void => {
     const inputEvent = document.createEvent('HTMLEvents');
     inputEvent.initEvent(type, true, true);
     target.dispatchEvent(inputEvent);
+};
+
+export const runSyncRule = (value: unknown, rule: FieldRule): boolean => {
+    if (rule.required && isEmptyValue(value)) {
+        return false;
+    }
+    if (rule.pattern && !rule.pattern.test(String(value))) {
+        return false;
+    }
+    return true;
 };

@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { CSSTransition } from 'react-transition-group';
-// import { inBrowser } from '@/utils';
 import classnames from 'classnames';
 import { OverlayProps } from './props';
 import './style/index.scss';
-import '../Popup/style/center.scss';
+import '../popup/style/center.scss';
 
 const baseClass = 'r-overlay';
 // const BODY_LOCK_CLASS = 'r-overflow-hidden';
@@ -16,7 +15,6 @@ const Overlay: React.FC<OverlayProps> = (props) => {
 
     useEffect(() => {
         setVisible(show);
-        console.log(123);
         setDisplay({ display: visible ? 'block' : 'none' });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [show]);

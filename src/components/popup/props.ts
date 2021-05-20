@@ -1,5 +1,5 @@
 import { ContanierType } from '@/utils';
-import React, { Ref } from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export type positionTypes = 'top' | 'right' | 'bottom' | 'left' | 'center';
 export type closeIconPositionTypes = 'top-left' | 'bottom-left' | 'bottom-right';
@@ -56,7 +56,7 @@ export interface PopupProps extends PopupSharedProps {
     // 点击遮罩层时触发
     onClickOverlay?: () => void;
     // 点击弹出层时触发
-    onClick?: (e: MouseEvent) => void;
+    onClick?: MouseEventHandler<HTMLDivElement>;
     // 打开弹出层时触发，参数是el，即该元素本身
     onOpen?: (el: HTMLElement) => void;
     // 打开弹出层且动画结束后触发，参数是el，即该元素本身
@@ -66,7 +66,6 @@ export interface PopupProps extends PopupSharedProps {
     // 关闭弹出层且动画结束后触发，参数是el，即该元素本身
     onClosed?: (el: HTMLElement) => void;
     // 点击关闭按钮图标时触发，参数是el，即该元素本身
-    onClickCloseIcon?: (el: MouseEvent) => void;
+    onClickCloseIcon?: MouseEventHandler<HTMLElement>;
     children?: React.ReactNode;
-    ref?: Ref<HTMLDivElement>;
 }

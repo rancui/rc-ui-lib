@@ -1,50 +1,47 @@
-:global {
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        outline: none;
-    }
-    body {
-        font-family: PingFangSC-Regular, Microsoft YaHei, 'Helvetica Neue', Helvetica, Arial,
-            sans-serif;
-        line-height: 1.5;
-        color: #333;
-        background-color: #f7f7f7;
-        font-size: 14px;
-        user-select: none;
-        text-size-adjust: none;
-        -webkit-tap-highlight-color: transparent;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    div,
-    ul,
-    li,
-    dl,
-    dt,
-    dd,
-    form,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    input,
-    form,
-    button {
-        appearance: none;
-    }
-    a,
-    input,
-    button,
-    textarea,
-    [class*='r-'] {
-        &:focus {
-            color: #333;
-            outline: none;
-        }
-    }
+body {
+    font-family: PingFangSC-Regular, Microsoft YaHei, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    user-select: none;
+    text-size-adjust: none;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+div,
+ul,
+li,
+dl,
+dt,
+dd,
+form,
+h1,
+h2,
+h3,
+h4,
+p,
+input,
+form,
+button {
+    appearance: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+input,
+textarea {
+    outline: none;
+    border: 0;
 }

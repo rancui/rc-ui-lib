@@ -1,5 +1,5 @@
 // export type TagTypes = keyof HTMLElementTagNameMap;
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export interface BadgeProps {
     // 是否展示为小红点
@@ -19,5 +19,6 @@ export interface BadgeProps {
     // 自定义标签
     tag?: string;
     // 点击事件
-    onClick?: (e: TouchEvent | MouseEvent) => void;
+    // onClick?: (e: MouseEvent) => void;
+    onClick?: MouseEventHandler<HTMLElement>;
 }

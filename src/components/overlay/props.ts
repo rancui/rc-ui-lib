@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export interface OverlayProps {
     // 是否显示遮罩层
@@ -12,5 +12,6 @@ export interface OverlayProps {
     // 自定义样式
     customStyle?: React.CSSProperties;
     // 点击时触发
-    onClick?: (e: MouseEvent<HTMLElement>) => void;
+    onClick?: MouseEventHandler<HTMLDivElement>;
+    // onClick?: (e: MouseEvent<HTMLElement>) => void;
 }

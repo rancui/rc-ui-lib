@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from 'react';
+
 export interface RadioGroupProps {
     // 所有选中项的标识符
     model?: any;
@@ -10,7 +12,7 @@ export interface RadioGroupProps {
     // 所有复选框的选中状态颜色
     checkedColor?: string;
     // 当绑定值变化时触发的事件
-    onChange?: () => void;
+    onChange?: ChangeEventHandler<unknown>;
 }
 
 type directionTypes = 'horizontal' | 'vertical';

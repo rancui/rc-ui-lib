@@ -1,3 +1,5 @@
+import React from 'react';
+
 type DirectionTypes = 'horizontal' | 'vertical';
 export interface CheckboxGroupProps {
     // 所有选中项的标识符
@@ -12,6 +14,8 @@ export interface CheckboxGroupProps {
     iconSize?: string | number;
     // 所有复选框的选中状态颜色
     checkedColor?: string;
+    // 子元素
+    children: React.ReactNode;
     // 当绑定值变化时触发的事件
     onChange?: (val: any[]) => void;
 }

@@ -1,3 +1,5 @@
+import React, { MouseEventHandler } from 'react';
+
 type LabelPositionTypes = 'left' | 'right';
 type ShapeTypes = 'square' | 'round';
 type BaseClassTypes = 'r-checkbox' | 'r-radio';
@@ -12,7 +14,7 @@ export interface CheckerProps extends CheckerBaseProps {
     // 是否和复选框组绑定
     bindGroup?: boolean;
     // 点击
-    onClick: (e: MouseEvent) => void;
+    onClick: MouseEventHandler<HTMLDivElement>;
 }
 
 export interface CheckerBaseProps {
@@ -34,8 +36,10 @@ export interface CheckerBaseProps {
     iconSize?: number | string;
     // 选中状态颜色
     checkedColor?: string;
-    // 状态切换
-    onToggle?: (checked: boolean) => void;
     // 基类名
     baseClass?: BaseClassTypes;
+    // 子元素
+    children: React.ReactNode;
+    // 状态切换
+    onToggle?: (checked: boolean) => void;
 }

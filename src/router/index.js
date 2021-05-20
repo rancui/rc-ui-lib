@@ -12,7 +12,15 @@ import CheckboxComponent from '@/examples/checkbox';
 import CellComponent from '@/examples/cell';
 import RadioComponent from '@/examples/radio';
 import SwitchComponent from '@/examples/switch';
+import FieldComponent from '@/examples/field';
+
 const routes = [
+    {
+        name: 'FieldComponent',
+        path: '/field',
+        component: FieldComponent,
+        exact: true
+    },
     {
         name: 'SwitchComponent',
         path: '/switch',

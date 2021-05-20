@@ -80,7 +80,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
         return renderBadge();
     };
 
-    const handleClick = (e: TouchEvent | MouseEvent) => {
+    const handleClick = (e) => {
         onClick?.(e);
     };
 

@@ -22,7 +22,6 @@ export default class PopupComponent extends PureComponent {
     };
 
     onClickCloseIcon = () => {
-        console.log('onClickCloseIcon');
         this.setState({
             show: false
         });

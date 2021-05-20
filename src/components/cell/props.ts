@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 export type CellArrowDirection = 'top' | 'right' | 'bottom' | 'left';
 export interface CellProps {
@@ -6,6 +6,8 @@ export interface CellProps {
     icon?: string;
     // 单元格大小
     size?: string;
+    // 类名
+    className?: string;
     // 左侧标题
     title?: number | string;
     // 右侧内容
@@ -34,8 +36,8 @@ export interface CellProps {
     border?: boolean;
     // 是否开启点击反馈
     clickable?: boolean | null;
+    // 子元素
+    children: React.ReactNode;
     // 点击
-    onClick?: (event: MouseEvent | TouchEvent) => void;
-    // 类名
-    className?: string;
+    onClick?: MouseEventHandler<HTMLDivElement>;
 }

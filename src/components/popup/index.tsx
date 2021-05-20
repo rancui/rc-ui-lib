@@ -1,4 +1,12 @@
-import React, { useState, useRef, useMemo, useEffect, useCallback, forwardRef, Ref } from 'react';
+import React, {
+    useState,
+    useRef,
+    useMemo,
+    useEffect,
+    useCallback,
+    forwardRef,
+    MutableRefObject
+} from 'react';
 import ReactDOM from 'react-dom';
 import { PopupProps } from './props';
 import Overlay from '../overlay';
@@ -16,7 +24,7 @@ const context = {
 
 const baseClass = 'r-popup';
 
-const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) => {
+const Popup = forwardRef<unknown, PopupProps>((props, ref) => {
     const {
         show = false,
         zIndex = 2000,
@@ -177,7 +185,11 @@ const Popup = forwardRef<unknown, PopupProps>((props, ref: Ref<HTMLDivElement>) 
 
     const renderUI = () => {
         return (
-            <div className="popup-wrapper" role="popup" ref={ref}>
+            <div
+                className="popup-wrapper"
+                role="popup"
+                ref={ref as MutableRefObject<HTMLDivElement>}
+            >
                 {renderOverlay()}
                 {renderTransition()}
             </div>
