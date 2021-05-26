@@ -1,4 +1,4 @@
-import { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react';
+import React, { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react';
 import { CellProps } from '../cell/props';
 import {
     FieldRule,
@@ -12,6 +12,7 @@ export interface FieldProps extends CellProps {
     model: string | number;
     name?: string;
     type?: FieldType;
+    children?: React.ReactNode;
     maxlength?: number | string;
     placeholder?: string;
     // 是否显示内边框

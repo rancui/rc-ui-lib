@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export interface SwitchProps {
     // 开关尺寸，默认单位为px
     size?: string | number;
@@ -18,5 +20,5 @@ export interface SwitchProps {
     // 开关状态切换时触发
     onChange?: (val: any) => void;
     // 点击时触发
-    onClick?: (e?: MouseEvent) => void;
+    onClick?: MouseEventHandler<HTMLDivElement>;
 }

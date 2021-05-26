@@ -1,4 +1,4 @@
-import { ContanierType } from '@/utils';
+import { ContanierType } from '../../utils';
 import React from 'react';
 
 type DialogAction = 'confirm' | 'cancel';

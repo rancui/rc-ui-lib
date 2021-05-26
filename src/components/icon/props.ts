@@ -20,5 +20,5 @@ export interface IconProps {
     // 点击触发
     onClick?: MouseEventHandler<HTMLElement>;
     // 行内样式
-    style?: React.CSSProperties;
+    style?: React.CSSProperties | null;
 }

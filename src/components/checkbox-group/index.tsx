@@ -1,6 +1,6 @@
 import React, { useEffect, createContext, forwardRef, MutableRefObject } from 'react';
-import { CheckboxGroupProps } from './props';
 import classnames from 'classnames';
+import { CheckboxGroupProps } from './props';
 import './style/index.scss';
 
 const baseClass = 'r-checkbox-group';
@@ -8,33 +8,27 @@ const baseClass = 'r-checkbox-group';
 export const CheckboxGroupContext = createContext(null);
 
 export type CheckboxGroupToggleAllOptions =
-    | boolean
-    | {
-          checked?: boolean;
-          // 跳过禁用的复选框
-          skipDisabled?: boolean;
-      };
+  | boolean
+  | {
+      checked?: boolean;
+      // 跳过禁用的复选框
+      skipDisabled?: boolean;
+    };
 
 const CheckboxGroup = forwardRef<unknown, CheckboxGroupProps>((props, ref) => {
-    const { model, direction = 'vertical', onChange, children } = props;
+  const { model, direction = 'vertical', onChange, children } = props;
 
-    useEffect(() => {
-        onChange?.(model as any);
-    }, [model, onChange]);
+  useEffect(() => {
+    onChange?.(model as any);
+  }, [model, onChange]);
 
-    const classStrig = classnames(baseClass, `${baseClass}--${direction}`);
+  const classStrig = classnames(baseClass, `${baseClass}--${direction}`);
 
-    return (
-        <div
-            role="checkbox-group"
-            className={classStrig}
-            ref={ref as MutableRefObject<HTMLDivElement>}
-        >
-            <CheckboxGroupContext.Provider value={props as any}>
-                {children}
-            </CheckboxGroupContext.Provider>
-        </div>
-    );
+  return (
+    <div role="checkbox-group" className={classStrig} ref={ref as MutableRefObject<HTMLDivElement>}>
+      <CheckboxGroupContext.Provider value={props as any}>{children}</CheckboxGroupContext.Provider>
+    </div>
+  );
 });
 
 CheckboxGroup.displayName = 'CheckboxGroup';

@@ -54,7 +54,7 @@ export interface ButtonProps {
     children?: string;
     // 点击按钮，且按钮状态不为加载或禁用时触发
     // onClick?: (e: MouseEvent) => void;
-    onClick?: MouseEventHandler<HTMLDivElement>;
+    onClick?: MouseEventHandler<HTMLElement>;
     // 传入的类名
     className?: string;
     // 内联样式

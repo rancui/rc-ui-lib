@@ -19,6 +19,5 @@ export interface BadgeProps {
     // 自定义标签
     tag?: string;
     // 点击事件
-    // onClick?: (e: MouseEvent) => void;
     onClick?: MouseEventHandler<HTMLElement>;
 }

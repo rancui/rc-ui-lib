@@ -37,7 +37,7 @@ export interface CellProps {
     // 是否开启点击反馈
     clickable?: boolean | null;
     // 子元素
-    children: React.ReactNode;
+    children?: React.ReactNode;
     // 点击
     onClick?: MouseEventHandler<HTMLDivElement>;
 }

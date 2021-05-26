@@ -1,3 +1,5 @@
+@import './variable.scss';
+@import '../../style/mixin.scss';
 .r-cell-group {
     width: 100%;
     background-color: $cell-group-background-color;

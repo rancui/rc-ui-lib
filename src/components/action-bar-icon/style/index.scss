@@ -1,4 +1,7 @@
 
+@import './variable.scss';
+$action-bar-icon-width:48px;
+$action-bar-icon-height:100%;
 .r-action-bar-icon {
   display: flex;
   flex-direction: column;

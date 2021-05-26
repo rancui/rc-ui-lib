@@ -1,0 +1,18 @@
+[esm]
+> 1% and last 2 versions
+not ie <= 11
+not dead
+Firefox ESR
+maintained node versions
+
+[cjs]
+> 1% and last 2 versions
+not ie <= 11
+not dead
+Firefox ESR
+maintained node versions
+
+[umd]
+defaults
+ie >= 10
+maintained node versions
