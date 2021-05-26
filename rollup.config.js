@@ -17,10 +17,19 @@ const globals = { react: 'React', 'react-dom': 'ReactDOM' };
 const externalPkg = ['react', 'react-dom', 'classnames'];
 BABEL_ENV !== 'umd' && externalPkg.push('@babel/runtime');
 const external = (id) => externalPkg.some((e) => id.indexOf(e) === 0);
-const componentDir = 'src/components';
-const cModuleNames = fs.readdirSync(path.resolve(componentDir));
-const componentEntryFiles = cModuleNames
-  .map((name) => (/^[a-z]\w+/.test(name) ? `${componentDir}/${name}/index.tsx` : undefined))
+const srcDir = 'src';
+const EXCLUDES = ['.DS_Store', 'utils', 'index.ts'];
+const cModuleNames = fs.readdirSync(path.resolve(srcDir));
+
+const modules = cModuleNames.filter((dir) => !EXCLUDES.includes(dir));
+console.log('====', modules);
+
+const componentEntryFiles = modules
+  .map((name) => {
+    if (/^[a-z]\w+/.test(name)) {
+      return `${srcDir}/${name}/index.tsx`;
+    }
+  })
   .filter((n) => !!n);
 
 const commonPlugins = [
@@ -87,13 +96,13 @@ export default () => {
       return [
         {
           input: entryFile,
-          output: { ...umdOutput, file: 'dist/umd/rc-ui.development.js' },
+          output: { ...umdOutput, file: 'umd/rc-ui.development.js' },
           external,
           plugins: [styles(stylePluginConfig), ...commonPlugins],
         },
         {
           input: entryFile,
-          output: { ...umdOutput, file: 'dist/umd/rc-ui.production.min.js', plugins: [terser()] },
+          output: { ...umdOutput, file: 'umd/rc-ui.production.min.js', plugins: [terser()] },
           external,
           plugins: [styles({ ...stylePluginConfig, minimize: true }), ...commonPlugins],
         },
@@ -102,7 +111,7 @@ export default () => {
       return {
         input: [entryFile, ...componentEntryFiles],
         preserveModules: true, // rollup-plugin-styles 还是需要使用
-        output: { ...esOutput, dir: 'dist/es', format: 'es' },
+        output: { ...esOutput, dir: 'es', format: 'es' },
         external,
         plugins: [styles(esStylePluginConfig), ...commonPlugins],
       };
@@ -110,7 +119,7 @@ export default () => {
       return {
         input: [entryFile, ...componentEntryFiles],
         preserveModules: true, // rollup-plugin-styles 还是需要使用
-        output: { ...esOutput, dir: 'dist/cjs', format: 'cjs' },
+        output: { ...esOutput, dir: 'cjs', format: 'cjs' },
         external,
         plugins: [styles(esStylePluginConfig), ...commonPlugins],
       };

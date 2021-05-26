@@ -15,6 +15,7 @@ export const getScrollTop = (el: ScrollElement): number => {
 
 export const setScrollTop = (el: ScrollElement, value: number): void => {
   if ('scrollTop' in el) {
+    // eslint-disable-next-line no-param-reassign
     el.scrollTop = value;
   } else {
     el.scrollTo(el.scrollX, value);

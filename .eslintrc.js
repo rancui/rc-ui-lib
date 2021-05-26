@@ -1,4 +1,3 @@
-// 仅 commit 时会用
 const commitRules = {
   'no-alert': 2,
   'no-debugger': 2,
@@ -27,14 +26,23 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
-    }
+    },
   },
   globals: {
     React: true,
     ReactDOM: true,
   },
   rules: {
-    // javascript
+    'no-shadow': 0,
+    'no-new': 0,
+    'consistent-return': 0,
+    'no-param-reassign': 0,
+    'no-void': 0,
+    'no-plusplus': 0,
+    '@typescript-eslint/no-shadow': 0,
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': ['error'],
+    'no-self-compare': 0,
     'brace-style': [2, '1tbs', { allowSingleLine: true }],
     'block-spacing': [2, 'always'],
     'no-const-assign': 2,
@@ -45,11 +53,14 @@ module.exports = {
     'no-console': [2, { allow: ['warn', 'error', 'log'] }],
     'no-nested-ternary': 2, // 禁止三元表达式嵌套
     // jsx
+    'react/prop-types': 0,
+    'react/jsx-props-no-spreading': [0, { custom: 'ignore' }],
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/click-events-have-key-events': 0, // 强制 绑定 onClick 事件同时也绑定 onKeyUp, onKeyDown, onKeyPress 等事件
     'jsx-a11y/no-static-element-interactions': 0, // 强制给 div span 等没有语义的标签加上 role 角色，（在有onClick 等事件的前提下）
+    'jsx-a11y/interactive-supports-focus': 0,
     // react
-    '@typescript-eslint/no-unused-expressions': 2, // 开启对短路求值和三元表达式的支持
+    'react/state-in-constructor': 0,
     'react/jsx-no-undef': [
       2,
       {
@@ -61,6 +72,7 @@ module.exports = {
     'react/jsx-no-target-blank': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }], // 识别扩展名
     '@typescript-eslint/camelcase': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'prettier/prettier': [
       'error',
       {},
@@ -70,15 +82,10 @@ module.exports = {
         },
       },
     ],
-    ...(process.env.ESLINT_ENV === 'commit' ? commitRules : {})
+    ...(process.env.ESLINT_ENV === 'commit' ? commitRules : {}),
   },
   env: {
     browser: true,
     node: true,
-  },
-  settings: {
-    // react: {
-      // version: '16.8.6',
-    // },
   },
 };

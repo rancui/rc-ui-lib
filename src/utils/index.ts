@@ -1,4 +1,4 @@
-import { FieldRule } from '../components/field/types';
+import { FieldRule } from '../field/types';
 
 const overflowScrollReg = /scroll|auto/i;
 type ScrollElement = HTMLElement | Window;
@@ -29,6 +29,7 @@ export const addUnit = (value?: string | number): string | undefined => {
   if (!isDef(value)) {
     return undefined;
   }
+  // eslint-disable-next-line no-param-reassign
   value = String(value);
   return isNumeric(value) ? `${value}px` : value;
 };
@@ -92,6 +93,7 @@ export const getMountContanier = (contanier?: ContanierType): HTMLElement => {
 // 将组件中传入的配置项(组件属性)对应的key/value赋给新对象。
 export const pick = (prop: Record<string, any>, keys: string[]): Record<string, any> => {
   return keys.reduce((target, key) => {
+    // eslint-disable-next-line no-param-reassign
     target[key] = prop[key];
     return target;
   }, {} as any);
@@ -142,13 +144,17 @@ export const trimExtraChar = (value: string, char: string, regExp: RegExp) => {
 
 export const formatNumber = (value: string, allowDot = true, allowMinus = true): string => {
   if (allowDot) {
+    // eslint-disable-next-line no-param-reassign
     value = trimExtraChar(value, '.', /\./g);
   } else {
+    // eslint-disable-next-line no-param-reassign
     value = value.split('.')[0];
   }
   if (allowMinus) {
+    // eslint-disable-next-line no-param-reassign
     value = trimExtraChar(value, '-', /-/g);
   } else {
+    // eslint-disable-next-line no-param-reassign
     value = value.replace(/-/, '');
   }
   const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g;
