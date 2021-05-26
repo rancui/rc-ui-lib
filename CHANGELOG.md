@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.16](https://github.com/rancui/rc-ui/compare/v0.1.15...v0.1.16) (2021-05-26)
+
+
+* 目录结构优化 ([bfef571](https://github.com/rancui/rc-ui/commit/bfef5713a13d23949c93c24c72ba1d4b81199a56))
+
 ### [0.1.15](https://github.com/rancui/rc-ui/compare/v0.1.14...v0.1.15) (2021-05-26)
 
 
