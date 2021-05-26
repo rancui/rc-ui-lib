@@ -1,6 +1,6 @@
 {
   "name": "rc-ui",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "基于React Hooks和TypeScript开发的移动端组件库",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",

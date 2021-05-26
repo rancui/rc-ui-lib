@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.15](https://github.com/rancui/rc-ui/compare/v0.1.14...v0.1.15) (2021-05-26)
+
+
+* 支持打包成cjs,es,umd格式,支持按需加载 ([e948c12](https://github.com/rancui/rc-ui/commit/e948c123556e760ff9abca72449319c54c1be878))
+
 ### [0.1.14](https://github.com/rancui/vant-react/compare/v0.1.13...v0.1.14) (2021-05-20)
 
 
