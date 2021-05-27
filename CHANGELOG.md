@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.18](https://github.com/rancui/rc-ui/compare/v0.1.17...v0.1.18) (2021-05-27)
+
+
+* 调整配置项，添加条件返回值 ([dfaa105](https://github.com/rancui/rc-ui/commit/dfaa10575a6f8eef9b2e7f195e0cb2ce1cb59a5b))
+
 ### [0.1.17](https://github.com/rancui/rc-ui/compare/v0.1.16...v0.1.17) (2021-05-26)
 
 ### [0.1.16](https://github.com/rancui/rc-ui/compare/v0.1.15...v0.1.16) (2021-05-26)
