@@ -6,10 +6,6 @@ lib
 es
 cjs
 umd
-dist
-
-#config
-rollup.config.js
 
 # misc
 .DS_Store

@@ -1,5 +1,7 @@
 node-modules/**/*
-dist/**/*
+es/**/*
+cjs/**/*
+umd/**/*
 .eslintrc.js
 lint-staged.config.js
 .babelrc.js

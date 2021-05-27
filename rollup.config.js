@@ -20,10 +20,7 @@ const external = (id) => externalPkg.some((e) => id.indexOf(e) === 0);
 const srcDir = 'src';
 const EXCLUDES = ['.DS_Store', 'utils', 'index.ts'];
 const cModuleNames = fs.readdirSync(path.resolve(srcDir));
-
 const modules = cModuleNames.filter((dir) => !EXCLUDES.includes(dir));
-console.log('====', modules);
-
 const componentEntryFiles = modules
   .map((name) => {
     if (/^[a-z]\w+/.test(name)) {
@@ -44,6 +41,7 @@ const commonPlugins = [
   }),
   // 全局变量替换
   replace({
+    preventAssignment: true,
     exclude: 'node_modules/**',
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     'process.env.BABEL_ENV': JSON.stringify(BABEL_ENV || 'umd'),

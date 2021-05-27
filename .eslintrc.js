@@ -71,6 +71,8 @@ module.exports = {
     'react/no-deprecated': 0,
     'react/jsx-no-target-blank': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }], // 识别扩展名
+    // ts
+    "@typescript-eslint/no-explicit-any":0,
     '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'prettier/prettier': [

@@ -97,7 +97,8 @@ const Form = forwardRef<unknown, FormProps>((props, ref) => {
         form[field?.props.name] = field.ref.current?.formValue();
         return form;
       }
-    }, {} as Record<string, unknown>);
+      return null;
+    }, {});
   };
 
   const validate = (name?: string | string[]) => {
