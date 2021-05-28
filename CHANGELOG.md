@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.19](https://github.com/rancui/rc-ui/compare/v0.1.18...v0.1.19) (2021-05-28)
+
+
+* 组件包style目录下增加index.js ([5b09383](https://github.com/rancui/rc-ui/commit/5b09383c89770ca924263ca7cd20c7fd2a15ef6e))
+
 ### [0.1.18](https://github.com/rancui/rc-ui/compare/v0.1.17...v0.1.18) (2021-05-27)
 
 
