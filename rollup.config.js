@@ -9,6 +9,8 @@ import eslint from '@rollup/plugin-eslint';
 import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import autoprefixer from 'autoprefixer';
+import { join } from 'path';
+import { ensureFile, outputFileSync } from 'fs-extra';
 
 const entryFile = 'src/index.ts';
 const BABEL_ENV = process.env.BABEL_ENV || 'umd';
@@ -51,7 +53,7 @@ const commonPlugins = [
 const stylePluginConfig = {
   mode: 'extract',
   extensions: ['.scss', '.css'],
-  minimize: false,
+  minimize: true,
   use: ['sass'],
   url: {
     inline: true,
@@ -71,6 +73,18 @@ const esOutput = {
   exports: 'named',
   assetFileNames: ({ name }) => {
     const { ext, dir, base } = path.parse(name);
+    let jsfilePath = '';
+    if (BABEL_ENV === 'esm') {
+      jsfilePath = join(process.cwd(), `es/${dir}/style/index.js`);
+    } else if (BABEL_ENV === 'cjs') {
+      jsfilePath = join(process.cwd(), `cjs/${dir}/style/index.js`);
+    }
+    ensureFile(jsfilePath, (err) => {
+      if (err) {
+        console.log('error', err);
+      }
+      outputFileSync(jsfilePath, `import './${base}'`);
+    });
     if (ext !== '.css') return '[name].[ext]';
     // 规范 style 的输出格式
     return path.join(dir, 'style', base);
@@ -78,7 +92,7 @@ const esOutput = {
 };
 const esStylePluginConfig = {
   ...stylePluginConfig,
-  sourceMap: true, // 必须开启，否则 rollup-plugin-styles 会有 bug
+  sourceMap: false,
   onExtract(data) {
     // 一下操作用来确保只输出一个 index.css
     const { css, name, map } = data;
@@ -111,7 +125,7 @@ export default () => {
         preserveModules: true, // rollup-plugin-styles 还是需要使用
         output: { ...esOutput, dir: 'es', format: 'es' },
         external,
-        plugins: [styles(esStylePluginConfig), ...commonPlugins],
+        plugins: [styles(esStylePluginConfig), ...commonPlugins, terser()],
       };
     case 'cjs':
       return {
@@ -119,7 +133,7 @@ export default () => {
         preserveModules: true, // rollup-plugin-styles 还是需要使用
         output: { ...esOutput, dir: 'cjs', format: 'cjs' },
         external,
-        plugins: [styles(esStylePluginConfig), ...commonPlugins],
+        plugins: [styles(esStylePluginConfig), ...commonPlugins, terser()],
       };
     default:
       return [];
