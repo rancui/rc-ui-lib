@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:rancui/rc-ui.git"
+    "url": "git@github.com:rancui/rc-ui-lib.git"
   },
   "keywords": [
     "react",
@@ -44,7 +44,7 @@
     "release": "standard-version"
   },
   "bugs": {
-    "url": "https://github.com/rancui/rc-ui/issues"
+    "url": "https://github.com/rancui/rc-ui-lib/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
