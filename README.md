@@ -6,50 +6,99 @@
 
 使用过程中发现任何问题都可以提 Issue 或者 发送 PR。
 
-## 使用
+## 安装
 
 ```text
-# Using npm
-1）npm install
-2）npm run serve
-3) 通过路由访问组件的使用示例，如localhost:3000/#/button, 更多组件路由请参阅项目中router/index.js文件。
+通过 npm 安装
+npm i rc-ui-lib -S
+```
 
+# 使用
+
+```js
+import { Button } from 'rc-ui-lib';
+```
+
+# 方式一. 自动按需引入组件 (推荐)
+
+```text
+
+babel-plugin-import 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。
+# 安装插件
+npm i babel-plugin-import -D
+```
+
+```js
+// 在.babel.config.js中添加配置
+{
+  "plugins": [
+    ["import", {
+      libraryName: "rc-ui-lib",
+      libraryDirectory: "es",
+      style: (name) => {
+        return `${name}/style/index.css`;
+      }
+    }]
+  ]
+}
+
+// 对于使用 babel7 的用户，可以在 babel.config.js 中配置
+module.exports = {
+  plugins: [
+    ['import', {
+      libraryName: 'rc-ui-lib',
+      libraryDirectory: 'es',
+      style: (name) => {
+        return `${name}/style/index.css`;
+      }
+    }, 'rc-ui-lib']
+  ]
+};
+```
+
+# 方式二. 手动按需引入组件
+
+### 在不使用插件的情况下，可以手动引入需要的组件。
+
+```js
+import Button from 'rc-ui-lib/es/button';
+import 'rc-ui-lib/es/button/style/index.css';
 ```
 
 ## 已开发的组件
 
 ### 基础组件
 
--   [x] Button
--   [x] Icon
--   [x] Popup
--   [x] Cell
--   [x] CellGroup
+- [x] Button
+- [x] Icon
+- [x] Popup
+- [x] Cell
+- [x] CellGroup
 
 ### 表单组件
 
--   [x] CheckboxGroup
--   [x] Checkbox
--   [x] RadioGroup
--   [x] Radio
--   [x] Switch
--   [x] Form
--   [x] Field
+- [x] CheckboxGroup
+- [x] Checkbox
+- [x] RadioGroup
+- [x] Radio
+- [x] Switch
+- [x] Form
+- [x] Field
 
 ### 反馈组件
 
--   [x] Loading
--   [x] Overlay
--   [x] Dialog
--   [x] Toast
+- [x] Loading
+- [x] Overlay
+- [x] Dialog
+- [x] Toast
 
 ### 展示组件
 
--   [x] Badge
+- [x] Badge
 
 ### 导航组件
 
--   [x] ActionBar
+- [x] ActionBar
 
 ## 浏览器支持
 
