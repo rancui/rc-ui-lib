@@ -15,50 +15,14 @@ npm i rc-ui-lib -S
 
 # 使用
 
+# 方式一. 在项目入口文件中引入全量 css
+
 ```js
 import { Button } from 'rc-ui-lib';
-```
-
-# 方式一. 自动按需引入组件 (推荐)
-
-```text
-
-babel-plugin-import 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。
-# 安装插件
-npm i babel-plugin-import -D
-```
-
-```js
-// 在.babel.config.js中添加配置
-{
-  "plugins": [
-    ["import", {
-      libraryName: "rc-ui-lib",
-      libraryDirectory: "es",
-      style: (name) => {
-        return `${name}/style/index.css`;
-      }
-    }]
-  ]
-}
-
-// 对于使用 babel7 的用户，可以在 babel.config.js 中配置
-module.exports = {
-  plugins: [
-    ['import', {
-      libraryName: 'rc-ui-lib',
-      libraryDirectory: 'es',
-      style: (name) => {
-        return `${name}/style/index.css`;
-      }
-    }, 'rc-ui-lib']
-  ]
-};
+import 'rc-ui-lib/es/style/index.css';
 ```
 
 # 方式二. 手动按需引入组件
-
-### 在不使用插件的情况下，可以手动引入需要的组件。
 
 ```js
 import Button from 'rc-ui-lib/es/button';
