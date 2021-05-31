@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.21](https://github.com/rancui/rc-ui/compare/v0.1.20...v0.1.21) (2021-05-31)
+
+
+* 修改使用说明 ([523eb4b](https://github.com/rancui/rc-ui/commit/523eb4b84529d6358e12143a937595e7109e1714))
+
 ### [0.1.20](https://github.com/rancui/rc-ui/compare/v0.1.19...v0.1.20) (2021-05-31)
 
 
