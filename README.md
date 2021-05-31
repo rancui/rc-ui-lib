@@ -8,6 +8,12 @@
 
 使用过程中发现任何问题都可以提 Issue 或者 发送 PR。
 
+## 特性
+
+- 支持按需引入
+- 支持主题定制
+- 支持 TypeScript
+
 ## 安装
 
 ```text
@@ -15,19 +21,45 @@
 npm i rc-ui-lib -S
 ```
 
-# 使用
+## 使用
 
 ```js
 import { Button } from 'rc-ui-lib';
 ```
 
-# 方式一. 在项目入口文件中引入全量 css
+## 方式一. 自动按需引入组件 (推荐)
 
 ```js
-import 'rc-ui-lib/es/style/index.css';
+// 安装插件
+// 注意：请用webpack 4.x版本
+npm i babel-plugin-import -D
 ```
 
-# 方式二. 手动按需引入组件
+```js
+// 在.babelrc 中添加配置
+{
+  "plugins": [
+    ["import", {
+      libraryName: "rc-ui-lib",
+      libraryDirectory: "es",
+      style: true
+    }]
+  ]
+}
+
+// 对于使用 babel7 的用户，可以在 babel.config.js 中配置
+module.exports = {
+  plugins: [
+    ['import', {
+      libraryName: 'rc-ui-lib',
+      libraryDirectory: 'es',
+      style: true
+    }, 'rc-ui-lib']
+  ]
+};
+```
+
+## 方式二. 手动按需引入组件
 
 ```js
 import Button from 'rc-ui-lib/es/button';
