@@ -1,8 +1,10 @@
 # rc-ui-lib
 
+# 该组件库会持续更新...
+
 众所周知，[Vant 组件库](https://vant-contrib.gitee.io/vant/v3/#/zh-CN) Vue 版本在前端业内享有盛誉，无论是从美观，性能还是使用体验上来说都是非常优秀的开源作品。
 尽管 Vant 的 React 版本有社区团队在维护，但其组件偏少，更新较慢，满足不了实际工作中某些场景的需要，而且业内开源出来的同类作品中，也很难找到一个可以媲美 Vant 的 React 移动端组件库。
-基于此，我萌生了开发这个 UI 组件库的想法，希望我的这点微薄之力，能够帮助到有同样需求的个人、团队。
+基于此，我萌生了开发这个 UI 组件库的想法，希望能够帮助到有同样需求的个人、团队。
 
 使用过程中发现任何问题都可以提 Issue 或者 发送 PR。
 
@@ -15,10 +17,13 @@ npm i rc-ui-lib -S
 
 # 使用
 
+```js
+import { Button } from 'rc-ui-lib';
+```
+
 # 方式一. 在项目入口文件中引入全量 css
 
 ```js
-import { Button } from 'rc-ui-lib';
 import 'rc-ui-lib/es/style/index.css';
 ```
 
