@@ -74,16 +74,20 @@ const esOutput = {
   assetFileNames: ({ name }) => {
     const { ext, dir, base } = path.parse(name);
     let jsfilePath = '';
+    let cssJsfilePath = '';
     if (BABEL_ENV === 'esm') {
       jsfilePath = join(process.cwd(), `es/${dir}/style/index.js`);
+      cssJsfilePath = join(process.cwd(), `es/${dir}/style/css.js`);
     } else if (BABEL_ENV === 'cjs') {
       jsfilePath = join(process.cwd(), `cjs/${dir}/style/index.js`);
+      cssJsfilePath = join(process.cwd(), `es/${dir}/style/css.js`);
     }
     ensureFile(jsfilePath, (err) => {
       if (err) {
         console.log('error', err);
       }
       outputFileSync(jsfilePath, `import './${base}'`);
+      outputFileSync(cssJsfilePath, `import './${base}'`);
     });
     if (ext !== '.css') return '[name].[ext]';
     // 规范 style 的输出格式
