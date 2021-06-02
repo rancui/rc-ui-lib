@@ -1,6 +1,11 @@
 # 更新历史 
 
 
+### [0.1.25](https://github.com/rancui/rc-ui-lib/compare/v0.1.24...v0.1.25) (2021-06-02)
+
+
+* 打包生成css.js ([e33c8d9](https://github.com/rancui/rc-ui-lib/commit/e33c8d92dda2598c77180cb4dde84ec4c700faef))
+
 ### [0.1.24](https://github.com/rancui/rc-ui-lib/compare/v0.1.23...v0.1.24) (2021-05-31)
 
 
