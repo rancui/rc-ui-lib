@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://user-images.githubusercontent.com/7098719/132332142-f84a2bb9-879d-47e6-8e99-638d8e4b4740.png" width="240" style="margin-bottom: 10px;">
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" alt="" height="100">
 </p>
 
 <h1 align="center">rc-ui-lib</h1>
@@ -11,14 +11,11 @@
 </p>
 
 <p align="center">
-  🔥 <a href="https://lang3.gitee.io/rc-ui-lib/">文档网站（国内）</a>
-  &nbsp;
+
   🌈 <a href="https://rancui.github.io/rc-ui-lib/">文档网站（GitHub）</a>
 </p>
 
-## 路线图
 
-[Roadmap](https://github.com/rancui/rc-ui-lib/discussions/16)概览
 
 ## 特性
 
@@ -28,19 +25,20 @@
 - 支持按需引入
 - 支持主题定制(less modifyVars)
 - 支持 TypeScript
-- 支持 [SSR]
-- 支持 [Vite]
+- 支持 SSR
+- 支持 Vite
 
 ## 安装
-
-[![rc-ui-lib](https://nodei.co/npm/rc-ui-lib.png)](https://npmjs.org/package/rc-ui-lib)
+```js
+npm install rc-ui-lib
+```
 
 ## 快速开始
 
 ```jsx
 import ReactDOM from 'react-dom';
 import { Button } from 'rc-ui-lib';
-import 'rc-ui-lib/lib/index.css';
+import 'rc-ui-lib/es/index.css';
 
 function App() {
   return <Button>Default Button</Button>;
@@ -49,25 +47,6 @@ function App() {
 ReactDOM.render(<App />, mountNode);
 ```
 
-### 快速集成
-
-#### 在 create-react-app 中使用
-
-参考[rc-ui-lib-cra](https://github.com/rancui/rc-ui-lib-template/tree/main/template/create-react-app)
-
-#### 在 umijs 使用
-
-参考[rc-ui-lib-umi](https://github.com/rancui/rc-ui-lib-template/tree/main/template/umi)
-
-#### 在 nextjs 使用
-
-参考[rc-ui-lib-nextjs](https://github.com/rancui/rc-ui-lib-template/tree/main/template/nextjs)
-
-#### vite 集成
-
-参考[rc-ui-lib-vite](https://github.com/rancui/rc-ui-lib-template/tree/main/template/vite)
-
-请参阅[Quickstart](https://rancui.github.io/rc-ui-lib/#/zh-CN/)中的更多内容。
 
 ## 浏览器支持
 
@@ -79,12 +58,4 @@ rc-ui-lib 支持现代浏览器以及 Chrome >= 51、iOS >= 10.0。
 
 使用过程中发现任何问题都可以提 [Issue](https://github.com/rancui/rc-ui-lib/issues) 给我们，当然，我们也非常欢迎你给我们发 [PR](https://github.com/rancui/rc-ui-lib/pulls)。
 
-> 欢迎加入我们的微信讨论组
 
-<img src="https://user-images.githubusercontent.com/7098719/130221473-851855c7-1429-4a36-838d-4f7f95a48418.jpg" width="140">
-
-## 手机预览
-
-可以手机扫码以下二维码访问手机端 demo：
-
-<img src="https://user-images.githubusercontent.com/7098719/132332336-20429085-18b7-4639-8022-a5e7098610ad.png" width="200" height="200" >
