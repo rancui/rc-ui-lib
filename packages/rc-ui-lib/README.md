@@ -1,18 +1,13 @@
 <p align="center">
 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" alt="" height="100">
 </p>
-
 <h1 align="center">rc-ui-lib</h1>
 
 <p align="center">参照 <a href="https://github.com/youzan/vant">Vant</a> 打造的 React 框架移动端组件库。</p>
 
-
 <p align="center">
-
   🌈 <a href="https://rancui.github.io/rc-ui-lib/">文档网站（GitHub）</a>
 </p>
-
-
 
 ## 特性
 
@@ -26,9 +21,12 @@
 - 支持 Vite
 
 ## 安装
+
 ```js
 npm install rc-ui-lib
 ```
+
+<!-- [![rc-ui-lib](https://nodei.co/npm/rc-ui-lib.png)](https://npmjs.org/package/rc-ui-lib) -->
 
 ## 快速开始
 
@@ -44,7 +42,6 @@ function App() {
 ReactDOM.render(<App />, mountNode);
 ```
 
-
 ## 浏览器支持
 
 rc-ui-lib 支持现代浏览器以及 Chrome >= 51、iOS >= 10.0。
@@ -54,5 +51,3 @@ rc-ui-lib 支持现代浏览器以及 Chrome >= 51、iOS >= 10.0。
 修改代码请阅读我们的 [贡献指南](https://rancui.github.io/rc-ui-lib/#/zh-CN/contribution)。
 
 使用过程中发现任何问题都可以提 [Issue](https://github.com/rancui/rc-ui-lib/issues) 给我们，当然，我们也非常欢迎你给我们发 [PR](https://github.com/rancui/rc-ui-lib/pulls)。
-
-
