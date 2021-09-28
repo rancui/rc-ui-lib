@@ -6,9 +6,6 @@
 
 <p align="center">参照 <a href="https://github.com/youzan/vant">Vant</a> 打造的 React 框架移动端组件库。</p>
 
-<p align="center">
-    <img src="https://img.shields.io/npm/v/rc-ui-lib/latest?style=flat-square" alt="npm version" />
-</p>
 
 <p align="center">
 
