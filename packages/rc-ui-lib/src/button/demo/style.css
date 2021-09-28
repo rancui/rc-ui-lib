@@ -1,0 +1,22 @@
+.demo-button .rc-button--large {
+  margin-bottom: 16px;
+}
+.demo-button .rc-button--small,
+.demo-button .rc-button--normal:not(:last-child) {
+  margin-right: 16px;
+}
+.demo-button .rc-button-group {
+  display: flex;
+}
+.demo-button .rc-button-group .rc-button--normal:not(:last-child) {
+  margin-right: 0;
+}
+.demo-button .vant-doc-demo-block {
+  padding: 0 16px;
+}
+.demo-button .vant-doc-demo-block__title {
+  padding-left: 0;
+}
+.demo-button-row {
+  margin-bottom: 12px;
+}

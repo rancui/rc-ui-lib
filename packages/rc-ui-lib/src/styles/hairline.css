@@ -1,0 +1,40 @@
+[class*='rc-hairline']::after {
+  position: absolute;
+  box-sizing: border-box;
+  content: ' ';
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #ebeff1;
+  transform: scale(0.5);
+}
+.rc-hairline,
+.rc-hairline--top,
+.rc-hairline--left,
+.rc-hairline--right,
+.rc-hairline--bottom,
+.rc-hairline--surround,
+.rc-hairline--top-bottom {
+  position: relative;
+}
+.rc-hairline--top::after {
+  border-top-width: 1px;
+}
+.rc-hairline--left::after {
+  border-left-width: 1px;
+}
+.rc-hairline--right::after {
+  border-right-width: 1px;
+}
+.rc-hairline--bottom::after {
+  border-bottom-width: 1px;
+}
+.rc-hairline--top-bottom::after,
+.rc-hairline-unset--top-bottom::after {
+  border-width: 1px 0;
+}
+.rc-hairline--surround::after {
+  border-width: 1px;
+}

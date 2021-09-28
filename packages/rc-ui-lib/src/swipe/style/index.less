@@ -1,0 +1,25 @@
+@import '../../styles/themes/default.less';
+
+@import '~swiper/swiper.less';
+@import '~swiper/components/pagination/pagination.less';
+
+.@{rc-prefix}-swipe {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+
+  .swiper-pagination-bullet {
+    width: @swipe-indicator-size;
+    height: @swipe-indicator-size;
+    background-color: @swipe-indicator-inactive-background-color;
+    border-radius: 100%;
+    opacity: @swipe-indicator-inactive-opacity;
+    transition: opacity @animation-duration-fast, background-color @animation-duration-fast;
+
+    &-active {
+      background-color: @swipe-indicator-active-background-color;
+      opacity: @swipe-indicator-active-opacity;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.rc-action-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  height: 50px;
+  background-color: #fff;
+}
+.rc-action-bar-button {
+  flex: 1;
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+}
+.rc-action-bar-button--first {
+  margin-left: 5px;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+.rc-action-bar-button--last {
+  margin-right: 5px;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+.rc-action-bar-button--warning {
+  background: linear-gradient(to right, #ffd01e, #ff8917);
+}
+.rc-action-bar-button--danger {
+  background: linear-gradient(to right, #ff6034, #ee0a24);
+}
+@media (max-width: 321px) {
+  .rc-action-bar-button {
+    font-size: 13px;
+  }
+}
+.rc-action-bar-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 48px;
+  height: 100%;
+  color: #646566;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+}
+.rc-action-bar-icon:active {
+  background-color: #f2f3f5;
+}
+.rc-action-bar-icon__icon {
+  margin: 0 auto 4px;
+  color: #333333;
+  font-size: 18px;
+}

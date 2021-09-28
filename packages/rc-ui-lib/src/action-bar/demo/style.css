@@ -1,0 +1,13 @@
+.demo-action-bar .rc-action-bar {
+  position: relative;
+  padding-bottom: 0;
+}
+.demo-action-bar .vant-doc-demo-block {
+  padding: 0;
+}
+.demo-action-bar .vant-doc-demo-block__title {
+  padding-left: 16px;
+}
+.demo-action-bar-row {
+  margin-bottom: 12px;
+}

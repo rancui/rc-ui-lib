@@ -1,0 +1,98 @@
+.rc-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 2px;
+}
+.rc-tag--default {
+  background-color: #969799;
+}
+.rc-tag--default.rc-tag--plain {
+  color: #969799;
+}
+.rc-tag--danger {
+  background-color: #f44336;
+}
+.rc-tag--danger.rc-tag--plain {
+  color: #f44336;
+}
+.rc-tag--primary {
+  background-color: #3f45ff;
+}
+.rc-tag--primary.rc-tag--plain {
+  color: #3f45ff;
+}
+.rc-tag--success {
+  background-color: #00c853;
+}
+.rc-tag--success.rc-tag--plain {
+  color: #00c853;
+}
+.rc-tag--warning {
+  background-color: #ffa524;
+}
+.rc-tag--warning.rc-tag--plain {
+  color: #ffa524;
+}
+.rc-tag--plain {
+  background-color: #fff;
+}
+.rc-tag--plain::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  content: '';
+  pointer-events: none;
+}
+.rc-tag--selected {
+  color: #3f45ff !important;
+}
+.rc-tag--selected.rc-tag--plain::before {
+  border: 1px solid #3f45ff;
+}
+.rc-tag--mini {
+  font-size: 10px;
+}
+.rc-tag--medium {
+  padding: 2px 6px;
+}
+.rc-tag--large {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+.rc-tag--mark {
+  border-radius: 0 999px 999px 0;
+}
+.rc-tag--mark::after {
+  display: block;
+  width: 2px;
+  content: '';
+}
+.rc-tag--round {
+  border-radius: 999px;
+}
+.rc-tag--hairline {
+  border-width: 0;
+}
+.rc-tag--hairline::after {
+  border-color: inherit;
+  border-radius: 2px;
+}
+.rc-tag--hairline.rc-tag--plain::before {
+  border-width: 0;
+}
+.rc-tag--hairline.rc-tag--round::after {
+  border-radius: 999px;
+}
+.rc-tag__close {
+  margin-left: 2px;
+  cursor: pointer;
+}

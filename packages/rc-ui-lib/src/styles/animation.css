@@ -1,0 +1,120 @@
+@keyframes rc-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes rc-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes rc-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes rc-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes rc-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes rc-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes rc-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes rc-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes rc-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rc-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes rc-zoom-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes rc-zoom-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes rc-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rc-fade-enter-active {
+  animation: 0.3s rc-fade-in both ease-out;
+}
+.rc-fade-exit-active {
+  animation: 0.3s rc-fade-out both ease-in;
+}
+.rc-slide-up-enter-active {
+  animation: 0.3s rc-slide-up-enter both ease-out;
+}
+.rc-slide-up-exit-active {
+  animation: 0.3s rc-slide-up-leave both ease-in;
+}
+.rc-slide-down-enter-active {
+  animation: rc-slide-down-enter 0.3s both ease-out;
+}
+.rc-slide-down-exit-active {
+  animation: rc-slide-down-leave 0.3s both ease-in;
+}
+.rc-slide-left-enter-active {
+  animation: rc-slide-left-enter 0.3s both ease-out;
+}
+.rc-slide-left-exit-active {
+  animation: rc-slide-left-leave 0.3s both ease-in;
+}
+.rc-slide-right-enter-active {
+  animation: rc-slide-right-enter 0.3s both ease-out;
+}
+.rc-slide-right-exit-active {
+  animation: rc-slide-right-leave 0.3s both ease-in;
+}
+.rc-zoom-enter-active {
+  animation: 0.3s rc-zoom-in both ease-out;
+}
+.rc-zoom-exit-active {
+  animation: 0.3s rc-zoom-out both ease-in;
+}

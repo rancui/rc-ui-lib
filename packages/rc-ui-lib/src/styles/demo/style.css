@@ -1,0 +1,27 @@
+.demo-styles .rc-ellipsis,
+.demo-styles .rc-multi-ellipsis--l2 {
+  max-width: 300px;
+  margin-left: 16px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.demo-styles .rc-ellipsis {
+  margin-bottom: 16px;
+}
+.demo-styles .rc-hairline--top {
+  height: 30px;
+  background-color: #fff;
+}
+.demo-styles .rc-hairline--top::after {
+  top: 5px;
+}
+.demo-styles .demo-animate-block {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  background-color: #3f45ff;
+  border-radius: 8px;
+}

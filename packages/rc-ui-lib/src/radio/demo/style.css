@@ -1,0 +1,15 @@
+.demo-radio {
+  background: #fff;
+}
+.demo-radio-group {
+  padding: 0 16px;
+}
+.demo-radio-group .rc-radio {
+  margin-bottom: 8px;
+}
+.demo-radio img {
+  height: 20px;
+}
+.demo-radio .rc-doc-demo-block__title {
+  margin-top: -8px;
+}

@@ -1,0 +1,110 @@
+.rc-dialog {
+  top: 45%;
+  left: 50%;
+  width: 320px;
+  overflow: hidden;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  transition: 0.3s;
+  transition-property: transform, opacity;
+}
+@media (max-width: 321px) {
+  .rc-dialog {
+    width: 90%;
+  }
+}
+.rc-dialog__header {
+  padding-top: 24px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+.rc-dialog__header--isolated {
+  padding: 24px 0;
+}
+.rc-dialog__content--isolated {
+  display: flex;
+  align-items: center;
+  min-height: 104px;
+}
+.rc-dialog__message {
+  flex: 1;
+  max-height: 60vh;
+  padding: 26px 24px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  text-align: center;
+  word-wrap: break-word;
+  -webkit-overflow-scrolling: touch;
+}
+.rc-dialog__message--has-title {
+  padding-top: 8px;
+  color: #646566;
+}
+.rc-dialog__message--left {
+  text-align: left;
+}
+.rc-dialog__message--right {
+  text-align: right;
+}
+.rc-dialog__footer {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+.rc-dialog__confirm,
+.rc-dialog__cancel {
+  flex: 1;
+  height: 44px;
+  margin: 0;
+  border: 0;
+}
+.rc-dialog__confirm,
+.rc-dialog__confirm:active {
+  color: #3f45ff;
+}
+.rc-dialog__close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  color: #c8c9cc;
+  font-size: 18px;
+  cursor: pointer;
+}
+.rc-dialog__close-icon:active {
+  color: #969799;
+}
+.rc-dialog--round-button .rc-dialog__footer {
+  position: relative;
+  height: auto;
+  padding: 8px 24px 16px;
+}
+.rc-dialog--round-button .rc-dialog__message {
+  padding-bottom: 16px;
+  color: #333333;
+}
+.rc-dialog--round-button .rc-dialog__confirm,
+.rc-dialog--round-button .rc-dialog__cancel {
+  height: 36px;
+}
+.rc-dialog--round-button .rc-dialog__confirm {
+  color: #fff;
+}
+.rc-dialog-bounce-enter {
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+  opacity: 0;
+}
+.rc-dialog-bounce-exit-active {
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  opacity: 0;
+}
+.rc-dialog-bounce-enter-active,
+.rc-dialog-bounce-leave-exit {
+  transform: translate3d(-50%, -50%, 0);
+  opacity: 1;
+}

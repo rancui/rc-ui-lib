@@ -1,114 +1,53 @@
-# rc-ui-lib
+<p align="center">
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" alt="" height="100">
+</p>
+<h1 align="center">rc-ui-lib</h1>
 
-# 该组件库会持续更新...
+<p align="center">参照 <a href="https://github.com/youzan/vant">Vant</a> 打造的 React 框架移动端组件库。</p>
 
-众所周知，[Vant 组件库](https://vant-contrib.gitee.io/vant/v3/#/zh-CN) Vue 版本在前端业内享有盛誉，无论是从美观，性能还是使用体验上来说都是非常优秀的开源作品。
-尽管 Vant 的 React 版本有社区团队在维护，但其组件偏少，更新较慢，满足不了实际工作中某些场景的需要，而且业内开源出来的同类作品中，也很难找到一个可以媲美 Vant 的 React 移动端组件库。
-基于此，我萌生了开发这个 UI 组件库的想法，希望能够帮助到有同样需求的个人、团队。
-
-使用过程中发现任何问题都可以提 Issue 或者 发送 PR。
+<p align="center">
+  🌈 <a href="https://rancui.github.io/rc-ui-lib/">文档网站（GitHub）</a>
+</p>
 
 ## 特性
 
+- 提供 50 多个高质量组件，覆盖移动端各类场景
+- 性能极佳，组件平均体积不到 1kb（min+gzip）
+- 完善的文档和示例
 - 支持按需引入
-- 支持主题定制
+- 支持主题定制(less modifyVars)
 - 支持 TypeScript
+- 支持 SSR
+- 支持 Vite
 
 ## 安装
 
-```text
-通过 npm 安装
-npm i rc-ui-lib -S
+```js
+npm install rc-ui-lib
 ```
 
-## 使用
+<!-- [![rc-ui-lib](https://nodei.co/npm/rc-ui-lib.png)](https://npmjs.org/package/rc-ui-lib) -->
 
-```js
+## 快速开始
+
+```jsx
+import ReactDOM from 'react-dom';
 import { Button } from 'rc-ui-lib';
-```
+import 'rc-ui-lib/es/index.css';
 
-## 方式一. 自动按需引入组件 (推荐)
-
-```js
-// 安装插件
-// 注意：请用webpack 4.x版本
-npm i babel-plugin-import -D
-```
-
-```js
-// 在.babelrc 中添加配置
-{
-  "plugins": [
-    ["import", {
-      libraryName: "rc-ui-lib",
-      libraryDirectory: "es",
-      style: true
-    }]
-  ]
+function App() {
+  return <Button>Default Button</Button>;
 }
 
-// 对于使用 babel7 的用户，可以在 babel.config.js 中配置
-module.exports = {
-  plugins: [
-    ['import', {
-      libraryName: 'rc-ui-lib',
-      libraryDirectory: 'es',
-      style: true
-    }, 'rc-ui-lib']
-  ]
-};
+ReactDOM.render(<App />, mountNode);
 ```
-
-## 方式二. 手动按需引入组件
-
-```js
-import Button from 'rc-ui-lib/es/button';
-import 'rc-ui-lib/es/button/style/index.css';
-```
-
-## 已开发的组件
-
-### 基础组件
-
-- [x] Button
-- [x] Icon
-- [x] Popup
-- [x] Cell
-- [x] CellGroup
-
-### 表单组件
-
-- [x] CheckboxGroup
-- [x] Checkbox
-- [x] RadioGroup
-- [x] Radio
-- [x] Switch
-- [x] Form
-- [x] Field
-
-### 反馈组件
-
-- [x] Loading
-- [x] Overlay
-- [x] Dialog
-- [x] Toast
-
-### 展示组件
-
-- [x] Badge
-
-### 导航组件
-
-- [x] ActionBar
 
 ## 浏览器支持
 
-Modern browsers and Android 4.0+, iOS 8.0+.
+rc-ui-lib 支持现代浏览器以及 Chrome >= 51、iOS >= 10.0。
 
-## 特别鸣谢
+## 贡献代码
 
-为了尽可能的与 Vant 保持一致的使用体验，在开发过程中参考了[Vant 组件库](https://vant-contrib.gitee.io/vant/v3/#/zh-CN)的源码，在此特别鸣谢 Vant 组件库及其开发者！
+修改代码请阅读我们的 [贡献指南](https://rancui.github.io/rc-ui-lib/#/zh-CN/contribution)。
 
-## 开源协议
-
-This is an Open Source Software operating under the [MIT](https://github.com/rancui/vant-react/blob/main/LICENSE) License.
+使用过程中发现任何问题都可以提 [Issue](https://github.com/rancui/rc-ui-lib/issues) 给我们，当然，我们也非常欢迎你给我们发 [PR](https://github.com/rancui/rc-ui-lib/pulls)。

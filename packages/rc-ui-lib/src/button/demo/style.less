@@ -1,0 +1,34 @@
+@import '../../styles/themes/default.less';
+
+.demo-button {
+  .rc-button {
+    &--large {
+      margin-bottom: @padding-md;
+    }
+
+    &--small,
+    &--normal:not(:last-child) {
+      margin-right: @padding-md;
+    }
+  }
+  .rc-button-group {
+    display: flex;
+    .rc-button {
+      &--normal:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .vant-doc-demo-block {
+    padding: 0 @padding-md;
+  }
+
+  .vant-doc-demo-block__title {
+    padding-left: 0;
+  }
+
+  &-row {
+    margin-bottom: @padding-sm;
+  }
+}

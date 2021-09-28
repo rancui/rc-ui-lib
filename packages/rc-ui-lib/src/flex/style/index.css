@@ -1,0 +1,187 @@
+.rc-flexbox {
+  display: flex;
+}
+.rc-flexbox::before,
+.rc-flexbox::after {
+  display: flex;
+}
+.rc-flexbox--justify-start {
+  justify-content: flex-start;
+}
+.rc-flexbox--justify-center {
+  justify-content: center;
+}
+.rc-flexbox--justify-end {
+  justify-content: flex-end;
+}
+.rc-flexbox--justify-between {
+  justify-content: space-between;
+}
+.rc-flexbox--justify-around {
+  justify-content: space-around;
+}
+.rc-flexbox--align-start {
+  align-items: flex-start;
+}
+.rc-flexbox--align-center {
+  align-items: center;
+}
+.rc-flexbox--align-end {
+  align-items: flex-end;
+}
+.rc-flexbox--align-baseline {
+  align-items: baseline;
+}
+.rc-flexbox--align-stretch {
+  align-items: stretch;
+}
+.rc-flexbox--row {
+  flex-direction: row;
+}
+.rc-flexbox--row-reverse {
+  flex-direction: row-reverse;
+}
+.rc-flexbox--column {
+  flex-direction: column;
+}
+.rc-flexbox--column-reverse {
+  flex-direction: column-reverse;
+}
+.rc-flexbox--nowrap {
+  flex-wrap: nowrap;
+}
+.rc-flexbox--wrap {
+  flex-wrap: wrap;
+}
+.rc-flexbox--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.rc-flexitem {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 1px;
+}
+.rc-flexitem--24 {
+  display: block;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.rc-flexitem--23 {
+  display: block;
+  flex: 0 0 95.83333333%;
+  max-width: 95.83333333%;
+}
+.rc-flexitem--22 {
+  display: block;
+  flex: 0 0 91.66666667%;
+  max-width: 91.66666667%;
+}
+.rc-flexitem--21 {
+  display: block;
+  flex: 0 0 87.5%;
+  max-width: 87.5%;
+}
+.rc-flexitem--20 {
+  display: block;
+  flex: 0 0 83.33333333%;
+  max-width: 83.33333333%;
+}
+.rc-flexitem--19 {
+  display: block;
+  flex: 0 0 79.16666667%;
+  max-width: 79.16666667%;
+}
+.rc-flexitem--18 {
+  display: block;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.rc-flexitem--17 {
+  display: block;
+  flex: 0 0 70.83333333%;
+  max-width: 70.83333333%;
+}
+.rc-flexitem--16 {
+  display: block;
+  flex: 0 0 66.66666667%;
+  max-width: 66.66666667%;
+}
+.rc-flexitem--15 {
+  display: block;
+  flex: 0 0 62.5%;
+  max-width: 62.5%;
+}
+.rc-flexitem--14 {
+  display: block;
+  flex: 0 0 58.33333333%;
+  max-width: 58.33333333%;
+}
+.rc-flexitem--13 {
+  display: block;
+  flex: 0 0 54.16666667%;
+  max-width: 54.16666667%;
+}
+.rc-flexitem--12 {
+  display: block;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.rc-flexitem--11 {
+  display: block;
+  flex: 0 0 45.83333333%;
+  max-width: 45.83333333%;
+}
+.rc-flexitem--10 {
+  display: block;
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+}
+.rc-flexitem--9 {
+  display: block;
+  flex: 0 0 37.5%;
+  max-width: 37.5%;
+}
+.rc-flexitem--8 {
+  display: block;
+  flex: 0 0 33.33333333%;
+  max-width: 33.33333333%;
+}
+.rc-flexitem--7 {
+  display: block;
+  flex: 0 0 29.16666667%;
+  max-width: 29.16666667%;
+}
+.rc-flexitem--6 {
+  display: block;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.rc-flexitem--5 {
+  display: block;
+  flex: 0 0 20.83333333%;
+  max-width: 20.83333333%;
+}
+.rc-flexitem--4 {
+  display: block;
+  flex: 0 0 16.66666667%;
+  max-width: 16.66666667%;
+}
+.rc-flexitem--3 {
+  display: block;
+  flex: 0 0 12.5%;
+  max-width: 12.5%;
+}
+.rc-flexitem--2 {
+  display: block;
+  flex: 0 0 8.33333333%;
+  max-width: 8.33333333%;
+}
+.rc-flexitem--1 {
+  display: block;
+  flex: 0 0 4.16666667%;
+  max-width: 4.16666667%;
+}
+.rc-flexitem--0 {
+  display: none;
+}

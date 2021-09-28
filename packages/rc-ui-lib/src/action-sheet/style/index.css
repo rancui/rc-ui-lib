@@ -1,0 +1,102 @@
+.rc-action-sheet {
+  display: flex;
+  flex-direction: column;
+  max-height: 80%;
+  overflow: hidden;
+  color: #333333;
+}
+.rc-action-sheet__content {
+  flex: 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.rc-action-sheet__item,
+.rc-action-sheet__cancel {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.rc-action-sheet__item:active,
+.rc-action-sheet__cancel:active {
+  background-color: #f2f3f5;
+}
+.rc-action-sheet__item {
+  line-height: 22px;
+}
+.rc-action-sheet__item--loading,
+.rc-action-sheet__item--disabled {
+  color: #c8c9cc;
+}
+.rc-action-sheet__item--loading:active,
+.rc-action-sheet__item--disabled:active {
+  background-color: #fff;
+}
+.rc-action-sheet__item--disabled {
+  cursor: not-allowed;
+}
+.rc-action-sheet__item--loading {
+  cursor: default;
+}
+.rc-action-sheet__cancel {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  color: #646566;
+}
+.rc-action-sheet__subname {
+  margin-top: 8px;
+  color: #969799;
+  font-size: 12px;
+  line-height: 18px;
+}
+.rc-action-sheet__gap {
+  display: block;
+  height: 8px;
+  background-color: #f7f8fa;
+}
+.rc-action-sheet__header {
+  flex-shrink: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 48px;
+  text-align: center;
+}
+.rc-action-sheet__description {
+  position: relative;
+  flex-shrink: 0;
+  padding: 20px 16px;
+  color: #969799;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+.rc-action-sheet__description::after {
+  position: absolute;
+  box-sizing: border-box;
+  content: ' ';
+  pointer-events: none;
+  right: 16px;
+  bottom: 0;
+  left: 16px;
+  border-bottom: 1px solid #ebeff1;
+  transform: scaleY(0.5);
+}
+.rc-action-sheet__loading-icon .rc-loading__spinner {
+  width: 22px;
+  height: 22px;
+}
+.rc-action-sheet__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 16px;
+  color: #c8c9cc;
+  font-size: 22px;
+  line-height: inherit;
+}
+.rc-action-sheet__close:active {
+  color: #969799;
+}

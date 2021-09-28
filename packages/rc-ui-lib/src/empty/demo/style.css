@@ -1,0 +1,20 @@
+.demo-empty {
+  background: #fff;
+}
+.demo-empty .vant-doc-demo-block {
+  padding: 0;
+}
+.demo-empty .vant-doc-demo-block__title {
+  padding-left: 16px;
+}
+.demo-empty-row {
+  margin-bottom: 12px;
+}
+.demo-empty .custom-image .rc-empty__image {
+  width: 90px;
+  height: 90px;
+}
+.demo-empty .bottom-button {
+  width: 160px;
+  height: 40px;
+}
