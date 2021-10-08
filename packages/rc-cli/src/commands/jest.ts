@@ -9,7 +9,18 @@ export function test(command: any) {
     rootDir: ROOT,
     watch: command.watch,
     config: JEST_CONFIG_FILE,
+    clearCache: command.clearCache,
+    changedSince: command.changedSince,
+    logHeapUsage: command.logHeapUsage,
+    runInBand: command.runInBand,
+    debug: command.debug,
     coverage: command.coverage,
+    colors: command.colors,
+    updateSnapshot: command.u,
+    // make jest tests faster
+    // see: https://ivantanev.com/make-jest-faster/
+    maxWorkers: '50%',
+
   } as any;
 
   runCLI(config, [ROOT])

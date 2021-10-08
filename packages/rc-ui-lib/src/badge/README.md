@@ -18,16 +18,16 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="5">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="10">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="Hot">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge dot>
-  <div class="child" />
+  <div className="child" />
 </Badge>
 
 <style>
@@ -46,13 +46,13 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="20" max="9">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="50" max="20">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="200" max="99">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 ```
 
@@ -62,13 +62,13 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="5" color="#1989fa">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="10" color="#1989fa">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge dot color="#1989fa">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 ```
 
@@ -76,7 +76,7 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content={<Icon name="success" className="badge-icon" />}>
-  <div class="child" />
+  <div className="child" />
 </Badge>
 ```
 

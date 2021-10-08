@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<button
+  class="rc-button rc-button--default rc-button--normal"
+>
+  <div
+    class="rc-button__content"
+  />
+</button>
+`;
+
+exports[`Button should change icon class prefix when using icon-prefix prop 1`] = `undefined`;
+
+exports[`Button should render empty button without errors 1`] = `
+<Button
+  iconPosition="left"
+  size="normal"
+  tag="button"
+  type="default"
+>
+  <button
+    className="rc-button rc-button--default rc-button--normal"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <div
+      className="rc-button__content"
+    >
+      <span
+        className="rc-button__text"
+        key="text"
+      />
+    </div>
+  </button>
+</Button>
+`;
+
+exports[`Button should render icon in the right side when setting icon-position to right 1`] = `
+<Button
+  icon="plus"
+  iconPosition="right"
+  size="normal"
+  tag="button"
+  type="default"
+>
+  <button
+    className="rc-button rc-button--default rc-button--normal"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <div
+      className="rc-button__content"
+    >
+      <Icon
+        className="rc-button__icon"
+        classPrefix="van-icon"
+        name="plus"
+        tag="i"
+      >
+        <Badge
+          className="rc-button__icon van-icon van-icon-plus"
+          showZero={true}
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+          tag="i"
+        >
+          <i
+            className="rc-badge__wrapper rc-button__icon van-icon van-icon-plus"
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": undefined,
+              }
+            }
+          />
+        </Badge>
+      </Icon>
+    </div>
+  </button>
+</Button>
+`;
+
+exports[`Button should render icon slot correctly 1`] = `undefined`;

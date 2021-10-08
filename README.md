@@ -33,7 +33,7 @@ npm install rc-ui-lib
 ```jsx
 import ReactDOM from 'react-dom';
 import { Button } from 'rc-ui-lib';
-import 'rc-ui-lib/es/index.css';
+import 'rc-ui-lib/lib/index.css';
 
 function App() {
   return <Button>Default Button</Button>;

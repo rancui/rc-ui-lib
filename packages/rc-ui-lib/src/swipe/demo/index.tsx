@@ -28,7 +28,7 @@ export default (): React.ReactNode => {
           autoplay={3000}
           pagination={{
             renderBullet: (index, className) => {
-              return `<span class="custom-pagination--bullet ${className}"></span>`;
+              return `<span className="custom-pagination--bullet ${className}"></span>`;
             },
           }}
         >
@@ -43,7 +43,7 @@ export default (): React.ReactNode => {
           pagination={{
             type: 'fraction',
             renderFraction: (currentClass, totalClass) => {
-              return `<div class="custom-pagination--fraction"><span class="${currentClass}"></span>/<span class="${totalClass}"></span></div>`;
+              return `<div className="custom-pagination--fraction"><span className="${currentClass}"></span>/<span className="${totalClass}"></span></div>`;
             },
           }}
         >

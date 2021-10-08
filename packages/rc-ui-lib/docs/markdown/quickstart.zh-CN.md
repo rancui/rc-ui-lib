@@ -65,7 +65,7 @@ import 'rc-ui-lib/es/button/style';
 
 ```js
 import { Button } from 'rc-ui-lib';
-import 'rc-ui-lib/es/button/style';
+import 'rc-ui-lib/lib/button/style';
 ```
 
 > Tips: 配置按需引入后，将不允许直接导入所有组件。
