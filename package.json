@@ -11,6 +11,7 @@
     "build:cli": "lerna exec --scope @rc/cli yarn build",
     "build:linter": "lerna exec --scope @rc/linter yarn build",
     "build:site": "lerna exec --scope rc-ui-lib yarn build:site",
+    "release:cli": "lerna exec --scope @rc/cli yarn release",
     "release:site": "lerna exec --scope rc-ui-lib yarn release:site",
     "changelog": "lerna-changelog",
     "clean": "lerna clean -y",
