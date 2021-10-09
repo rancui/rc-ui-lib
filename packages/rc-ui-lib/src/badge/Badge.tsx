@@ -10,9 +10,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
   const { content, max, dot, showZero, tag } = props;
 
   const hasContent = () => {
-    if (props.content) {
-      return true;
-    }
+    // if (props.content) {
+    //   return true;
+    // }
     return isDef(content) && content !== '' && (showZero || +content !== 0);
   };
 
@@ -38,7 +38,11 @@ const Badge: React.FC<BadgeProps> = (props) => {
 
         if (props.children) {
           style.top = addUnit(y);
-          style.right = `-${addUnit(x)}`;
+          if (typeof x === 'number') {
+            style.right = addUnit(-x);
+          } else {
+            style.right = x.startsWith('-') ? x.replace('-', '') : `-${x}`;
+          }
         } else {
           style.marginTop = addUnit(y);
           style.marginLeft = addUnit(x);
@@ -83,7 +87,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
 };
 
 Badge.defaultProps = {
+  // eslint-disable-next-line react/default-props-match-prop-types
   tag: 'div',
+  // eslint-disable-next-line react/default-props-match-prop-types
   showZero: true,
 };
 

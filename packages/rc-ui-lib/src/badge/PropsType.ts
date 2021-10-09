@@ -6,7 +6,8 @@ export type HtmlTagType = keyof HTMLElementTagNameMap;
 
 export interface BadgeProps extends BaseTypeProps {
   /** 徽标内容 */
-  content?: React.ReactNode;
+  content?: React.ReactNode| number | string;
+  // content?: number | string;
   /** 是否展示为小红点	 */
   dot?: boolean;
   /** 最大值，超过最大值会显示 {max}+，仅当 content 为数字时有效	 */
