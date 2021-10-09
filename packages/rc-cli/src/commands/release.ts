@@ -14,7 +14,7 @@ export async function release(command: { tag?: string }) {
     },
     git: {
       requireCleanWorkingDir: false,
-      requireBranch: 'dev',
+      requireBranch: 'main',
       requireUpstream: false,
       tagName: 'v${version}',
       commitMessage: 'chore: release ${version}',

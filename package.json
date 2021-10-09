@@ -11,6 +11,7 @@
     "build:cli": "lerna exec --scope @rc/cli yarn build",
     "build:linter": "lerna exec --scope @rc/linter yarn build",
     "build:site": "lerna exec --scope rc-ui-lib yarn build:site",
+    "release:site": "lerna exec --scope rc-ui-lib yarn release:site",
     "changelog": "lerna-changelog",
     "clean": "lerna clean -y",
     "publish": "lerna publish"
@@ -23,7 +24,7 @@
     "@rc/linter": "^1.0.0",
     "eslint": "^7.32.0",
     "husky": "4",
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "lerna-changelog": "^2.1.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.0",
@@ -35,6 +36,6 @@
     "./packages/rc-ui-lib/src/**/*.{css,less}": "stylelint --fix"
   },
   "dependencies": {
-    "@rc/cli": "^1.0.10"
+    "@rc/cli": "^1.0.0"
   }
 }

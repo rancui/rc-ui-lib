@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render content slot correctly 1`] = `
+<Badge
+  content={
+    <Icon
+      className="badge-icon"
+      classPrefix="van-icon"
+      name="success"
+      tag="i"
+    />
+  }
+  showZero={true}
+  tag="div"
+>
+  <div
+    className="rc-badge__wrapper"
+  >
+    <div
+      className="child"
+    />
+    <div
+      className="rc-badge rc-badge--fixed"
+      style={
+        Object {
+          "background": undefined,
+        }
+      }
+    >
+      <Icon
+        className="badge-icon"
+        classPrefix="van-icon"
+        name="success"
+        tag="i"
+      >
+        <Badge
+          className="badge-icon van-icon van-icon-success"
+          showZero={true}
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+          tag="i"
+        >
+          <i
+            className="rc-badge__wrapper badge-icon van-icon van-icon-success"
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": undefined,
+              }
+            }
+          />
+        </Badge>
+      </Icon>
+    </div>
+  </div>
+</Badge>
+`;
+
+exports[`should render nothing when content is empty string 1`] = `
+<Badge
+  content=""
+  showZero={true}
+  tag="div"
+/>
+`;
+
+exports[`should render nothing when content is undefined 1`] = `
+<Badge
+  content="undefined"
+  showZero={true}
+  tag="div"
+>
+  <div
+    className="rc-badge"
+    style={
+      Object {
+        "background": undefined,
+      }
+    }
+  >
+    undefined
+  </div>
+</Badge>
+`;
+
+exports[`should render nothing when content is zero 1`] = `
+<Badge
+  content="0"
+  showZero={true}
+  tag="div"
+>
+  <div
+    className="rc-badge"
+    style={
+      Object {
+        "background": undefined,
+      }
+    }
+  >
+    0
+  </div>
+</Badge>
+`;

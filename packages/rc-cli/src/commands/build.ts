@@ -175,34 +175,34 @@ async function runBuildTasks() {
   consola.success('Compile successfully');
 }
 
-function watchFileChange() {
-  consola.info('Watching file changes...');
+// function watchFileChange() {
+//   consola.info('Watching file changes...');
 
-  chokidar.watch(SRC_DIR).on('change', async (path) => {
-    if (isDemoDir(path) || isTestDir(path)) {
-      return;
-    }
+//   chokidar.watch(SRC_DIR).on('change', async (path) => {
+//     if (isDemoDir(path) || isTestDir(path)) {
+//       return;
+//     }
 
-    const spinner = ora('File changed, start compilation...').start();
-    const esPath = path.replace(SRC_DIR, ES_DIR);
-    const libPath = path.replace(SRC_DIR, LIB_DIR);
+//     const spinner = ora('File changed, start compilation...').start();
+//     const esPath = path.replace(SRC_DIR, ES_DIR);
+//     const libPath = path.replace(SRC_DIR, LIB_DIR);
 
-    try {
-      await copy(path, esPath);
-      await copy(path, libPath);
-      await compileFile(esPath);
-      await compileFile(libPath);
-      await genStyleDepsMap();
-      genComponentStyle({ cache: false });
-      spinner.succeed(`Compiled: ${slimPath(path)}`);
-    } catch (err) {
-      spinner.fail(`Compile failed: ${path}`);
-      console.log(err);
-    }
-  });
-}
+//     try {
+//       await copy(path, esPath);
+//       await copy(path, libPath);
+//       await compileFile(esPath);
+//       await compileFile(libPath);
+//       await genStyleDepsMap();
+//       genComponentStyle({ cache: false });
+//       spinner.succeed(`Compiled: ${slimPath(path)}`);
+//     } catch (err) {
+//       spinner.fail(`Compile failed: ${path}`);
+//       console.log(err);
+//     }
+//   });
+// }
 
-export async function build(cmd: { watch?: boolean } = {}) {
+export async function build() {
   setNodeEnv('production');
 
   try {
@@ -210,9 +210,9 @@ export async function build(cmd: { watch?: boolean } = {}) {
     await installDependencies();
     await runBuildTasks();
 
-    if (cmd.watch) {
-      watchFileChange();
-    }
+    // if (cmd.watch) {
+    //   watchFileChange();
+    // }
   } catch (err) {
     consola.error('Build failed');
     process.exit(1);
