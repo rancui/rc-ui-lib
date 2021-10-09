@@ -98,7 +98,7 @@ export const baseConfig: WebpackConfig = {
           CACHE_LOADER,
           'babel-loader',
           {
-            loader: require.resolve('@rc/markdown-loader'),
+            loader: require.resolve('@rancui/markdown-loader'),
           },
         ],
       },

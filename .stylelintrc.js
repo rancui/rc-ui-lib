@@ -1,4 +1,4 @@
-const linter = require('@rc/linter');
+const linter = require('@rancui/linter');
 
 module.exports = {
   ...linter.stylelint,

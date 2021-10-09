@@ -1,3 +1,3 @@
 module.exports = {
-  presets: [require.resolve('@rc/cli/preset')],
+  presets: [require.resolve('@rancui/cli/preset')],
 };

@@ -8,12 +8,11 @@
     "bootstrap": "lerna bootstrap",
     "start": "lerna exec --scope rc-ui-lib yarn start",
     "build": "lerna exec --scope rc-ui-lib yarn build",
-    "build:cli": "lerna exec --scope @rc/cli yarn build",
-    "build:linter": "lerna exec --scope @rc/linter yarn build",
+    "build:cli": "lerna exec --scope @rancui/cli yarn build",
+    "build:linter": "lerna exec --scope @rancui/linter yarn build",
     "build:site": "lerna exec --scope rc-ui-lib yarn build:site",
-    "release:cli": "lerna exec --scope @rc/cli yarn release",
     "release:site": "lerna exec --scope rc-ui-lib yarn release:site",
-    "changelog": "lerna-changelog",
+    "release": "rc-cli release",
     "clean": "lerna clean -y",
     "publish": "lerna publish"
   },
@@ -22,7 +21,7 @@
     "url": "git+https://github.com/rancui/rc-ui-lib.git"
   },
   "devDependencies": {
-    "@rc/linter": "^1.0.0",
+    "@rancui/linter": "^1.0.0",
     "eslint": "^7.32.0",
     "husky": "4",
     "lerna": "^4.0.0",
@@ -37,6 +36,7 @@
     "./packages/rc-ui-lib/src/**/*.{css,less}": "stylelint --fix"
   },
   "dependencies": {
-    "@rc/cli": "^1.0.0"
-  }
+    "@rancui/cli": "^1.0.0"
+  },
+  "version": "1.0.6"
 }

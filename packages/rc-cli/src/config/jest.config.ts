@@ -23,7 +23,7 @@ const DEFAULT_CONFIG = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   testPathIgnorePatterns: ['/node_modules/', '_site', 'site'],
-  transformIgnorePatterns: ['/node_modules/(?!(@rc/cli))/'],
+  transformIgnorePatterns: ['/node_modules/(?!(@rancui/cli))/'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/demo/**'],
   coverageDirectory: './tests/coverage',
   snapshotSerializers: ['enzyme-to-json/serializer'],

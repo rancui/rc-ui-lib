@@ -1,6 +1,6 @@
 {
   "name": "@rancui/cli",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "release": "yarn build & release-it",
+    "release": "yarn build & rc-cli release",
     "changelog": "rc-cli changelog"
   },
   "files": [
@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
-    "@rc/markdown-loader": "^1.0.0",
+    "@rancui/markdown-loader": "^1.0.0",
     "@vant/touch-emulator": "^1.3.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "address": "^1.1.2",
@@ -107,7 +107,7 @@
   "release-it": {
     "git": {
       "tag": false,
-      "commitMessage": "release: @rc/cli ${version}",
+      "commitMessage": "release: @rancui/cli ${version}",
       "addUntrackedFiles": true,
       "requireCleanWorkingDir": false
     }

@@ -16,7 +16,7 @@ import {
 
 const program = new Command();
 
-program.version(`@rc/cli ${cliVersion}`);
+program.version(`@rancui/cli ${cliVersion}`);
 
 program.command('dev').description('Run webpack dev server').action(dev);
 

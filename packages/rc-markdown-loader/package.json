@@ -1,5 +1,5 @@
 {
-  "name": "@rc/markdown-loader",
+  "name": "@rancui/markdown-loader",
   "version": "1.0.0",
   "description": "Simple and fast React markdown loader",
   "main": "src/index.js",

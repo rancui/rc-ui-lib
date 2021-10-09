@@ -1,5 +1,5 @@
 module.exports = {
-  extends: [require.resolve('@rc/linter/dist/eslint')],
+  extends: [require.resolve('@rancui/linter/dist/eslint')],
   ignorePatterns: ['/.*'],
   rules: {
     '@typescript-eslint/ban-types': 'off',
