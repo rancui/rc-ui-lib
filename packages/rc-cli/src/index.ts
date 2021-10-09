@@ -7,6 +7,7 @@ import { test } from './commands/jest';
 import { lint } from './commands/lint';
 import { clean } from './commands/clean';
 import { release } from './commands/release';
+import { changelog } from './commands/changelog';
 import { buildSite } from './commands/build-site';
 import { commitLint } from './commands/commit-lint';
 
@@ -21,6 +22,7 @@ export {
   clean,
   build,
   release,
+  changelog,
   buildSite,
   commitLint,
 };

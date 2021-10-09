@@ -10,6 +10,7 @@ import {
   release,
   buildSite,
   commitLint,
+  changelog,
   cliVersion,
 } from '.';
 
@@ -73,5 +74,10 @@ program
   .command('commit-lint')
   .description('Lint commit message')
   .action(commitLint);
+
+program
+.command('changelog')
+.description('Generate changelog')
+.action(changelog);
 
 program.parse(process.argv);

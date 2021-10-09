@@ -1,6 +1,6 @@
 {
-  "name": "@rc/cli",
-  "version": "1.0.0",
+  "name": "@rancui/cli",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "prepack": "yarn build",
-    "release": "release-it"
+    "release": "yarn build & release-it",
+    "changelog": "rc-cli changelog"
   },
   "files": [
     "lib",
