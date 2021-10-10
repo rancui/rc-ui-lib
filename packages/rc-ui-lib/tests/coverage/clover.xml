@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633695741012" clover="3.2.0">
-  <project timestamp="1633695741012" name="All files">
-    <metrics statements="2041" coveredstatements="138" conditionals="1176" coveredconditionals="88" methods="595" coveredmethods="27" elements="3812" coveredelements="253" complexity="0" loc="2041" ncloc="2041" packages="55" files="159" classes="159"/>
+<coverage generated="1633873197203" clover="3.2.0">
+  <project timestamp="1633873197203" name="All files">
+    <metrics statements="2218" coveredstatements="183" conditionals="1249" coveredconditionals="118" methods="661" coveredmethods="36" elements="4128" coveredelements="337" complexity="0" loc="2218" ncloc="2218" packages="59" files="168" classes="168"/>
     <package name="src">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/index.ts">
@@ -157,19 +157,19 @@
       <metrics statements="31" coveredstatements="31" conditionals="31" coveredconditionals="30" methods="4" coveredmethods="4"/>
       <file name="Badge.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/badge/Badge.tsx">
         <metrics statements="31" coveredstatements="31" conditionals="31" coveredconditionals="30" methods="4" coveredmethods="4"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="15" type="stmt"/>
-        <line num="12" count="15" type="stmt"/>
-        <line num="16" count="20" type="cond" truecount="4" falsecount="0"/>
-        <line num="19" count="15" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="21" type="stmt"/>
+        <line num="12" count="21" type="stmt"/>
+        <line num="16" count="26" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="21" type="stmt"/>
         <line num="20" count="10" type="cond" truecount="4" falsecount="0"/>
         <line num="21" count="5" type="cond" truecount="5" falsecount="0"/>
         <line num="22" count="1" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
         <line num="27" count="5" type="stmt"/>
-        <line num="30" count="15" type="stmt"/>
-        <line num="31" count="15" type="cond" truecount="4" falsecount="0"/>
+        <line num="30" count="21" type="stmt"/>
+        <line num="31" count="21" type="cond" truecount="4" falsecount="0"/>
         <line num="32" count="10" type="stmt"/>
         <line num="36" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="37" count="5" type="stmt"/>
@@ -183,11 +183,11 @@
         <line num="52" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="53" count="3" type="stmt"/>
         <line num="55" count="10" type="stmt"/>
-        <line num="69" count="5" type="stmt"/>
-        <line num="72" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="73" count="11" type="stmt"/>
+        <line num="69" count="11" type="stmt"/>
+        <line num="72" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="17" type="stmt"/>
         <line num="86" count="4" type="stmt"/>
-        <line num="89" count="2" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
       </file>
       <file name="PropsType.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/badge/PropsType.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -276,66 +276,239 @@
         <line num="8" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.cell">
-      <metrics statements="47" coveredstatements="0" conditionals="31" coveredconditionals="0" methods="9" coveredmethods="0"/>
-      <file name="Cell.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cell/Cell.tsx">
-        <metrics statements="36" coveredstatements="0" conditionals="27" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+    <package name="src.cascader">
+      <metrics statements="113" coveredstatements="0" conditionals="67" coveredconditionals="0" methods="26" coveredmethods="0"/>
+      <file name="Cascader.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cascader/Cascader.tsx">
+        <metrics statements="113" coveredstatements="0" conditionals="67" coveredconditionals="0" methods="26" coveredmethods="0"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="70" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
         <line num="72" count="0" type="stmt"/>
-        <line num="75" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="85" count="0" type="stmt"/>
+        <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="81" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="107" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="118" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="124" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="143" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="148" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="156" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="157" count="0" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="159" count="0" type="stmt"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="161" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="166" count="0" type="stmt"/>
+        <line num="168" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
+        <line num="172" count="0" type="stmt"/>
+        <line num="176" count="0" type="stmt"/>
+        <line num="177" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="178" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="179" count="0" type="stmt"/>
+        <line num="181" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="182" count="0" type="stmt"/>
+        <line num="184" count="0" type="stmt"/>
+        <line num="187" count="0" type="stmt"/>
+        <line num="188" count="0" type="stmt"/>
+        <line num="194" count="0" type="stmt"/>
+        <line num="199" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="200" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="201" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="206" count="0" type="stmt"/>
+        <line num="217" count="0" type="stmt"/>
+        <line num="225" count="0" type="stmt"/>
+        <line num="230" count="0" type="stmt"/>
+        <line num="231" count="0" type="stmt"/>
+        <line num="235" count="0" type="stmt"/>
+        <line num="236" count="0" type="stmt"/>
+        <line num="237" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="238" count="0" type="stmt"/>
+        <line num="253" count="0" type="stmt"/>
+        <line num="254" count="0" type="stmt"/>
+        <line num="267" count="0" type="stmt"/>
+        <line num="268" count="0" type="stmt"/>
+        <line num="271" count="0" type="stmt"/>
+        <line num="272" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="273" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="274" count="0" type="stmt"/>
+        <line num="275" count="0" type="stmt"/>
+        <line num="278" count="0" type="stmt"/>
+        <line num="279" count="0" type="stmt"/>
+        <line num="280" count="0" type="stmt"/>
+        <line num="283" count="0" type="stmt"/>
+        <line num="284" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="285" count="0" type="stmt"/>
+        <line num="286" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="287" count="0" type="stmt"/>
+        <line num="290" count="0" type="stmt"/>
+        <line num="293" count="0" type="stmt"/>
+        <line num="301" count="0" type="stmt"/>
+      </file>
+      <file name="PropsType.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cascader/PropsType.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="index.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cascader/index.tsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.cascader.demo">
+      <metrics statements="42" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="33" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cascader/demo/index.tsx">
+        <metrics statements="42" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="33" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="153" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="156" count="0" type="stmt"/>
+        <line num="157" count="0" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
+        <line num="176" count="0" type="stmt"/>
+        <line num="178" count="0" type="stmt"/>
+        <line num="182" count="0" type="stmt"/>
+        <line num="184" count="0" type="stmt"/>
+        <line num="196" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="203" count="0" type="stmt"/>
+        <line num="205" count="0" type="stmt"/>
+        <line num="217" count="0" type="stmt"/>
+        <line num="219" count="0" type="stmt"/>
+        <line num="224" count="0" type="stmt"/>
+        <line num="226" count="0" type="stmt"/>
+        <line num="239" count="0" type="stmt"/>
+        <line num="241" count="0" type="stmt"/>
+        <line num="261" count="0" type="stmt"/>
+        <line num="263" count="0" type="stmt"/>
+        <line num="276" count="0" type="stmt"/>
+        <line num="284" count="0" type="stmt"/>
+        <line num="292" count="0" type="stmt"/>
+        <line num="297" count="0" type="stmt"/>
+        <line num="299" count="0" type="stmt"/>
+        <line num="301" count="0" type="stmt"/>
+        <line num="302" count="0" type="stmt"/>
+        <line num="313" count="0" type="stmt"/>
+        <line num="314" count="0" type="stmt"/>
+        <line num="315" count="0" type="stmt"/>
+        <line num="316" count="0" type="stmt"/>
+        <line num="317" count="0" type="stmt"/>
+        <line num="319" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.cell">
+      <metrics statements="47" coveredstatements="45" conditionals="31" coveredconditionals="28" methods="9" coveredmethods="9"/>
+      <file name="Cell.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cell/Cell.tsx">
+        <metrics statements="36" coveredstatements="34" conditionals="27" coveredconditionals="24" methods="6" coveredmethods="6"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="13" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="19" count="17" type="stmt"/>
+        <line num="20" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="14" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="31" count="17" type="stmt"/>
+        <line num="32" count="17" type="stmt"/>
+        <line num="33" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="11" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
+        <line num="45" count="17" type="stmt"/>
+        <line num="46" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="56" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="14" type="stmt"/>
+        <line num="63" count="17" type="stmt"/>
+        <line num="64" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="68" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="72" count="14" type="stmt"/>
+        <line num="75" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="76" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="78" count="17" type="stmt"/>
+        <line num="84" count="17" type="cond" truecount="1" falsecount="1"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="87" count="17" type="stmt"/>
       </file>
       <file name="CellGroup.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cell/CellGroup.tsx">
-        <metrics statements="10" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
       </file>
       <file name="PropsType.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cell/PropsType.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="index.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/cell/index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.cell.demo">
@@ -485,6 +658,49 @@
         <line num="117" count="0" type="stmt"/>
         <line num="129" count="0" type="stmt"/>
         <line num="136" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.config-provider">
+      <metrics statements="17" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="ConfigProvider.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/config-provider/ConfigProvider.tsx">
+        <metrics statements="12" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+      </file>
+      <file name="ConfigProviderContext.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/config-provider/ConfigProviderContext.ts">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+      <file name="PropsType.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/config-provider/PropsType.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="index.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/config-provider/index.tsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.config-provider.demo">
+      <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/config-provider/demo/index.tsx">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.dialog">
@@ -1248,20 +1464,20 @@
       <metrics statements="22" coveredstatements="9" conditionals="18" coveredconditionals="4" methods="5" coveredmethods="3"/>
       <file name="Icon.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/icon/Icon.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="8" coveredconditionals="4" methods="3" coveredmethods="3"/>
-        <line num="8" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="16" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
+        <line num="8" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="16" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
       </file>
       <file name="PropsType.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/icon/PropsType.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="createFromIconfontCN.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/icon/createFromIconfontCN.tsx">
         <metrics statements="14" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
         <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
@@ -1278,7 +1494,7 @@
       </file>
       <file name="index.tsx" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/icon/index.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.icon.demo">
@@ -2349,9 +2565,9 @@
       <metrics statements="98" coveredstatements="19" conditionals="53" coveredconditionals="3" methods="30" coveredmethods="1"/>
       <file name="base.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/base.ts">
         <metrics statements="19" coveredstatements="3" conditionals="15" coveredconditionals="2" methods="11" coveredmethods="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="9" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="9" count="117" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="18" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -2371,20 +2587,20 @@
       </file>
       <file name="constant.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/constant.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
       </file>
       <file name="deep-assign.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/deep-assign.ts">
         <metrics statements="10" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -2458,8 +2674,8 @@
       </file>
       <file name="raf.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/raf.ts">
         <metrics statements="13" coveredstatements="2" conditionals="6" coveredconditionals="1" methods="5" coveredmethods="0"/>
-        <line num="3" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="5" count="3" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -2474,27 +2690,27 @@
       </file>
     </package>
     <package name="src.utils.create">
-      <metrics statements="15" coveredstatements="15" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6"/>
+      <metrics statements="15" coveredstatements="15" conditionals="16" coveredconditionals="16" methods="6" coveredmethods="6"/>
       <file name="bem.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/create/bem.ts">
         <metrics statements="13" coveredstatements="13" conditionals="14" coveredconditionals="14" methods="5" coveredmethods="5"/>
-        <line num="16" count="87" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="26" type="stmt"/>
-        <line num="20" count="61" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="33" type="stmt"/>
-        <line num="24" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="155" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="58" type="stmt"/>
+        <line num="20" count="97" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="37" type="stmt"/>
+        <line num="24" count="60" type="cond" truecount="2" falsecount="0"/>
         <line num="25" count="25" type="stmt"/>
-        <line num="27" count="85" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="5" type="stmt"/>
-        <line num="32" count="47" type="cond" truecount="4" falsecount="0"/>
-        <line num="33" count="19" type="stmt"/>
-        <line num="34" count="19" type="stmt"/>
-        <line num="37" count="47" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="47" type="stmt"/>
+        <line num="27" count="168" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="32" count="111" type="cond" truecount="4" falsecount="0"/>
+        <line num="33" count="40" type="stmt"/>
+        <line num="34" count="40" type="stmt"/>
+        <line num="37" count="111" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="111" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/create/index.ts">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="8" type="stmt"/>
       </file>
     </package>
     <package name="src.utils.dom">
@@ -2575,7 +2791,7 @@
         <line num="99" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="100" count="0" type="stmt"/>
         <line num="104" count="0" type="stmt"/>
-        <line num="107" count="2" type="stmt"/>
+        <line num="107" count="3" type="stmt"/>
         <line num="112" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="113" count="0" type="stmt"/>
       </file>
@@ -2623,7 +2839,7 @@
       </file>
       <file name="string.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/format/string.ts">
         <metrics statements="6" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -2632,8 +2848,8 @@
       </file>
       <file name="unit.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/format/unit.ts">
         <metrics statements="32" coveredstatements="6" conditionals="22" coveredconditionals="5" methods="8" coveredmethods="2"/>
-        <line num="7" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="7" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="9" type="stmt"/>
         <line num="11" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="16" count="2" type="stmt"/>
@@ -2682,7 +2898,7 @@
       <file name="system.ts" path="/Users/rancui/Desktop/rc-ui-lib/packages/rc-ui-lib/src/utils/validate/system.ts">
         <metrics statements="2" coveredstatements="1" conditionals="4" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="4" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="8" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="3" type="cond" truecount="1" falsecount="1"/>
       </file>
     </package>
   </project>

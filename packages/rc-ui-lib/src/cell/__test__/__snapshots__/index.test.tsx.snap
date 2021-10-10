@@ -1,0 +1,1154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cell and CellGroup should be wrappered by CellGroup 1`] = `
+<CellGroup
+  border={true}
+>
+  <div
+    className="rc-cell-group rc-hairline--top-bottom"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`Cell and CellGroup should be wrappered by CellGroup with prop border is false 1`] = `
+<CellGroup
+  border={false}
+  title="单元组"
+>
+  <div
+    className="rc-cell-group__title"
+  >
+    单元组
+  </div>
+  <div
+    className="rc-cell-group"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`Cell and CellGroup should be wrappered by CellGroup with prop inset 1`] = `
+<CellGroup
+  border={true}
+  inset={true}
+>
+  <div
+    className="rc-cell-group rc-cell-group--inset"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`Cell and CellGroup should be wrappered by CellGroup with prop title 1`] = `
+<CellGroup
+  border={true}
+  title="单元组"
+>
+  <div
+    className="rc-cell-group__title"
+  >
+    单元组
+  </div>
+  <div
+    className="rc-cell-group rc-hairline--top-bottom"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`Cell and CellGroup should change arrow direction when using arrowDirection prop 1`] = `
+Array [
+  <Icon
+    className="rc-cell__right-icon"
+    classPrefix="van-icon"
+    name="arrow-down"
+    tag="i"
+  >
+    <Badge
+      className="rc-cell__right-icon van-icon van-icon-arrow-down"
+      showZero={true}
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": undefined,
+        }
+      }
+      tag="i"
+    >
+      <i
+        className="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow-down"
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+      />
+    </Badge>
+  </Icon>,
+  <Badge
+    className="rc-cell__right-icon van-icon van-icon-arrow-down"
+    showZero={true}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+    tag="i"
+  >
+    <i
+      className="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow-down"
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": undefined,
+        }
+      }
+    />
+  </Badge>,
+  <i
+    className="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow-down"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Cell and CellGroup should change icon class prefix when using iconPrefix prop 1`] = `
+<Cell
+  icon="success"
+  iconPrefix="my-icon"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      classPrefix="my-icon"
+      name="success"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon my-icon my-icon-success"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+  </div>
+</Cell>
+`;
+
+exports[`Cell and CellGroup should render extra correctly 1`] = `
+<Cell
+  extra="extra"
+  icon="shop-o"
+  rightIcon={
+    <Icon
+      className="search-icon"
+      classPrefix="van-icon"
+      name="search"
+      tag="i"
+    />
+  }
+  title="单元格"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      classPrefix="van-icon"
+      name="shop-o"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon van-icon van-icon-shop-o"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+    <div
+      className="rc-cell__title"
+    >
+      单元格
+    </div>
+    <Icon
+      className="search-icon"
+      classPrefix="van-icon"
+      name="search"
+      tag="i"
+    >
+      <Badge
+        className="search-icon van-icon van-icon-search"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper search-icon van-icon van-icon-search"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+    extra
+  </div>
+</Cell>
+`;
+
+exports[`Cell and CellGroup should render icon correctly 1`] = `
+<Cell
+  icon="shop-o"
+  title="单元格"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      classPrefix="van-icon"
+      name="shop-o"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon van-icon van-icon-shop-o"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+    <div
+      className="rc-cell__title"
+    >
+      单元格
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`Cell and CellGroup should render label correctly 1`] = `
+<Cell
+  label="Custom Label"
+  title="Custom Title"
+  value="Custom Value"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__title"
+    >
+      Custom Title
+      <div
+        className="rc-cell__label"
+      >
+        Custom Label
+      </div>
+    </div>
+    <div
+      className="rc-cell__value"
+    >
+      <span>
+        Custom Value
+      </span>
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`Cell and CellGroup should render title correctly 1`] = `
+<Cell
+  title="Custom Title"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__title"
+    >
+      Custom Title
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`Cell and CellGroup should render value correctly 1`] = `
+<Cell
+  value="Custom Value"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__value rc-cell__value--alone"
+    >
+      <span>
+        Custom Value
+      </span>
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`should be wrappered by CellGroup 1`] = `
+<CellGroup
+  border={true}
+>
+  <div
+    className="rc-cell-group rc-hairline--top-bottom"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`should be wrappered by CellGroup with prop border is false 1`] = `
+<CellGroup
+  border={false}
+  title="单元组"
+>
+  <div
+    className="rc-cell-group__title"
+  >
+    单元组
+  </div>
+  <div
+    className="rc-cell-group"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`should be wrappered by CellGroup with prop inset 1`] = `
+<CellGroup
+  border={true}
+  inset={true}
+>
+  <div
+    className="rc-cell-group rc-cell-group--inset"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`should be wrappered by CellGroup with prop title 1`] = `
+<CellGroup
+  border={true}
+  title="单元组"
+>
+  <div
+    className="rc-cell-group__title"
+  >
+    单元组
+  </div>
+  <div
+    className="rc-cell-group rc-hairline--top-bottom"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`should be wrappered by CellGroup with prop title and value 1`] = `
+<CellGroup
+  border={true}
+  title="单元组"
+>
+  <div
+    className="rc-cell-group__title"
+  >
+    单元组
+  </div>
+  <div
+    className="rc-cell-group rc-hairline--top-bottom"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
+
+exports[`should change arrow direction when using arrowDirection prop 1`] = `
+Array [
+  <Icon
+    className="rc-cell__right-icon"
+    classPrefix="van-icon"
+    name="arrow-down"
+    tag="i"
+  >
+    <Badge
+      className="rc-cell__right-icon van-icon van-icon-arrow-down"
+      showZero={true}
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": undefined,
+        }
+      }
+      tag="i"
+    >
+      <i
+        className="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow-down"
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+      />
+    </Badge>
+  </Icon>,
+  <Badge
+    className="rc-cell__right-icon van-icon van-icon-arrow-down"
+    showZero={true}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+    tag="i"
+  >
+    <i
+      className="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow-down"
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": undefined,
+        }
+      }
+    />
+  </Badge>,
+  <i
+    className="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow-down"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  />,
+]
+`;
+
+exports[`should change icon class prefix when using iconPrefix prop 1`] = `
+<Cell
+  icon="success"
+  iconPrefix="my-icon"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      classPrefix="my-icon"
+      name="success"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon my-icon my-icon-success"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+  </div>
+</Cell>
+`;
+
+exports[`should render extra correctly 1`] = `
+<Cell
+  extra="extra"
+  icon="shop-o"
+  rightIcon={
+    <Icon
+      className="search-icon"
+      classPrefix="van-icon"
+      name="search"
+      tag="i"
+    />
+  }
+  title="单元格"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      classPrefix="van-icon"
+      name="shop-o"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon van-icon van-icon-shop-o"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+    <div
+      className="rc-cell__title"
+    >
+      单元格
+    </div>
+    <Icon
+      className="search-icon"
+      classPrefix="van-icon"
+      name="search"
+      tag="i"
+    >
+      <Badge
+        className="search-icon van-icon van-icon-search"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper search-icon van-icon van-icon-search"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+    extra
+  </div>
+</Cell>
+`;
+
+exports[`should render icon correctly 1`] = `
+<Cell
+  icon="shop-o"
+  title="单元格"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      classPrefix="van-icon"
+      name="shop-o"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon van-icon van-icon-shop-o"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+    <div
+      className="rc-cell__title"
+    >
+      单元格
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`should render label correctly 1`] = `
+<Cell
+  label="Custom Label"
+  title="Custom Title"
+  value="Custom Value"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__title"
+    >
+      Custom Title
+      <div
+        className="rc-cell__label"
+      >
+        Custom Label
+      </div>
+    </div>
+    <div
+      className="rc-cell__value"
+    >
+      <span>
+        Custom Value
+      </span>
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`should render title correctly 1`] = `
+<Cell
+  title="Custom Title"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__title"
+    >
+      Custom Title
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`should render value correctly 1`] = `
+<Cell
+  value="Custom Value"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__value rc-cell__value--alone"
+    >
+      <span>
+        Custom Value
+      </span>
+    </div>
+  </div>
+</Cell>
+`;

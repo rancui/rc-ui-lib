@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,31 +98,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,31 +133,31 @@ import { CellGroupProps } from './PropsType';
 import { createNamespace } from '../utils';
 import { BORDER_TOP_BOTTOM } from '../utils/constant';
 &nbsp;
-const [bem] = <span class="cstat-no" title="statement not covered" >createNamespace('cell-group');</span>
+const [bem] = createNamespace('cell-group');
 &nbsp;
-const CellGroup: React.FC&lt;CellGroupProps&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {</span>
-  const { title, border, inset } = <span class="cstat-no" title="statement not covered" >props;</span>
+const CellGroup: React.FC&lt;CellGroupProps&gt; = (props) =&gt; {
+  const { title, border, inset } = props;
 &nbsp;
-  const renderGroup = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className={classnames(bem({ inset }), { [BORDER_TOP_BOTTOM]: !inset &amp;&amp; border })}&gt;</span>
+  const renderGroup = () =&gt; (
+    &lt;div className={classnames(bem({ inset }), { [BORDER_TOP_BOTTOM]: !inset &amp;&amp; border })}&gt;
       {props.children}
     &lt;/div&gt;
   );
 &nbsp;
-  const renderTitle = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >&lt;div className={classnames(bem('title'))}&gt;{title}&lt;/div&gt;;</span></span>
+  const renderTitle = () =&gt; &lt;div className={classnames(bem('title'))}&gt;{title}&lt;/div&gt;;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (title)</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+  if (title)
+    return (
       &lt;&gt;
         {renderTitle()}
         {renderGroup()}
       &lt;/&gt;
     );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return renderGroup();</span>
+  return renderGroup();
 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >CellGroup.defaultProps = {</span>
+CellGroup.defaultProps = {
   border: true,
 };
 &nbsp;
@@ -169,7 +169,7 @@ export default CellGroup;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Oct 08 2021 20:22:20 GMT+0800 (中国标准时间)
+                at Sun Oct 10 2021 21:39:56 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="../../prettify.js"></script>
