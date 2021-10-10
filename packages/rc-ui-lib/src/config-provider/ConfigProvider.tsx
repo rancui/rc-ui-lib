@@ -12,7 +12,7 @@ function kebabCase(str: string): string {
 function mapThemeVarsToCSSVars(themeVars: Record<string, string | number>) {
   const cssVars: Record<string, string | number> = {};
   Object.keys(themeVars).forEach((key) => {
-    cssVars[`--rv-${kebabCase(key)}`] = themeVars[key];
+    cssVars[`--rc-${kebabCase(key)}`] = themeVars[key];
   });
   return cssVars;
 }

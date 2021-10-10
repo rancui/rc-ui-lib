@@ -1,11 +1,21 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 
-.rc-grid {
+:root {
+  --rc-grid-item-content-padding: @grid-item-content-padding;
+  --rc-grid-item-content-background-color: @grid-item-content-background-color;
+  --rc-grid-item-content-active-color: @grid-item-content-active-color;
+  --rc-grid-item-icon-size: @grid-item-icon-size;
+  --rc-grid-item-text-color: @grid-item-text-color;
+  --rc-grid-item-text-font-size: @grid-item-text-font-size;
+}
+
+.@{rc-prefix}-grid {
   display: flex;
   flex-wrap: wrap;
 }
 
-.rc-grid-item {
+
+.@{rc-prefix}-grid-item {
   position: relative;
   box-sizing: border-box;
 
@@ -14,19 +24,19 @@
   }
 
   &__icon {
-    font-size: @grid-item-icon-size;
+    font-size: var(--rc-grid-item-icon-size);
   }
 
   &__text {
-    color: @grid-item-text-color;
-    font-size: @grid-item-text-font-size;
+    color: var(--rc-grid-item-text-color);
+    font-size: var(--rc-grid-item-text-font-size);
     line-height: 1.5;
     // https://github.com/youzan/vant/issues/3894
     word-break: break-all;
   }
 
   &__icon + &__text {
-    margin-top: @padding-xs;
+    margin-top: var(--rc-padding-xs);
   }
 
   &__content {
@@ -34,12 +44,13 @@
     flex-direction: column;
     box-sizing: border-box;
     height: 100%;
-    padding: @grid-item-content-padding;
-    background-color: @grid-item-content-background-color;
+    padding: var(--rc-grid-item-content-padding);
+    background-color: var(--rc-grid-item-content-background-color);
 
     &::after {
       z-index: 1;
-      border-width: 0 @border-width-base @border-width-base 0;
+      border-width: 0 var(--rc-border-width-base) var(--rc-border-width-base)
+        0;
     }
 
     &--square {
@@ -57,30 +68,30 @@
     &--horizontal {
       flex-direction: row;
 
-      .rc-grid-item__text {
-        margin: 0 0 0 @padding-xs;
+      .@{rc-prefix}-grid-item__text {
+        margin: 0 0 0 var(--rc-padding-xs);
       }
     }
 
     &--reverse {
       flex-direction: column-reverse;
 
-      .rc-grid-item__text {
-        margin: 0 0 @padding-xs;
+      .@{rc-prefix}-grid-item__text {
+        margin: 0 0 var(--rc-padding-xs);
       }
     }
 
     &--horizontal&--reverse {
       flex-direction: row-reverse;
 
-      .rc-grid-item__text {
-        margin: 0 @padding-xs 0;
+      .@{rc-prefix}-grid-item__text {
+        margin: 0 var(--rc-padding-xs) 0 0;
       }
     }
 
     &--surround {
       &::after {
-        border-width: @border-width-base;
+        border-width: var(--rc-border-width-base);
       }
     }
 
@@ -88,7 +99,7 @@
       cursor: pointer;
 
       &:active {
-        background-color: @grid-item-content-active-color;
+        background-color: var(--rc-grid-item-content-active-color);
       }
     }
   }

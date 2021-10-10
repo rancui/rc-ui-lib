@@ -1,29 +1,51 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 
-.rc-dialog {
+:root {
+  --rc-dialog-width: @dialog-width;
+  --rc-dialog-small-screen-width: @dialog-small-screen-width;
+  --rc-dialog-font-size: @dialog-font-size;
+  --rc-dialog-transition: @dialog-transition;
+  --rc-dialog-border-radius: @dialog-border-radius;
+  --rc-dialog-background-color: @dialog-background-color;
+  --rc-dialog-header-font-weight: @dialog-header-font-weight;
+  --rc-dialog-header-line-height: @dialog-header-line-height;
+  --rc-dialog-header-padding-top: @dialog-header-padding-top;
+  --rc-dialog-header-isolated-padding: @dialog-header-isolated-padding;
+  --rc-dialog-message-padding: @dialog-message-padding;
+  --rc-dialog-message-font-size: @dialog-message-font-size;
+  --rc-dialog-message-line-height: @dialog-message-line-height;
+  --rc-dialog-message-max-height: @dialog-message-max-height;
+  --rc-dialog-has-title-message-text-color: @dialog-has-title-message-text-color;
+  --rc-dialog-has-title-message-padding-top: @dialog-has-title-message-padding-top;
+  --rc-dialog-button-height: @dialog-button-height;
+  --rc-dialog-round-button-height: @dialog-round-button-height;
+  --rc-dialog-confirm-button-text-color: @dialog-confirm-button-text-color;
+}
+
+.@{rc-prefix}-dialog {
   top: 45%;
   left: 50%;
-  width: @dialog-width;
+  width: var(--rc-dialog-width);
   overflow: hidden;
-  font-size: @dialog-font-size;
-  background-color: @dialog-background-color;
-  border-radius: @dialog-border-radius;
+  font-size: var(--rc-dialog-font-size);
+  background-color: var(--rc-dialog-background-color);
+  border-radius: var(--rc-dialog-border-radius);
   backface-visibility: hidden; // avoid blurry text after scale animation
-  transition: @dialog-transition;
+  transition: var(--rc-dialog-transition);
   transition-property: transform, opacity;
 
-  @media (max-width: 321* @hd) {
-    width: @dialog-small-screen-width;
+  @media (max-width: 321px) {
+    width: var(--rc-dialog-small-screen-width);
   }
 
   &__header {
-    padding-top: @dialog-header-padding-top;
-    font-weight: @dialog-header-font-weight;
-    line-height: @dialog-header-line-height;
+    padding-top: var(--rc-dialog-header-padding-top);
+    font-weight: var(--rc-dialog-header-font-weight);
+    line-height: var(--rc-dialog-header-line-height);
     text-align: center;
 
     &--isolated {
-      padding: @dialog-header-isolated-padding;
+      padding: var(--rc-dialog-header-isolated-padding);
     }
   }
 
@@ -31,27 +53,27 @@
     &--isolated {
       display: flex;
       align-items: center;
-      min-height: 104px;
+      min-height: 104 * @hd;
     }
   }
 
   &__message {
     flex: 1;
-    max-height: @dialog-message-max-height;
-    padding: 26 * @hd @dialog-message-padding;
+    max-height: var(--rc-dialog-message-max-height);
+    padding: 26 * @hd var(--rc-dialog-message-padding);
     overflow-y: auto;
-    font-size: @dialog-message-font-size;
-    line-height: @dialog-message-line-height;
+    font-size: var(--rc-dialog-message-font-size);
+    line-height: var(--rc-dialog-message-line-height);
 
-    // allow newline charactor
+    // allow newline character
     white-space: pre-wrap;
     text-align: center;
     word-wrap: break-word;
     -webkit-overflow-scrolling: touch;
 
     &--has-title {
-      padding-top: @dialog-has-title-message-padding-top;
-      color: @dialog-has-title-message-text-color;
+      padding-top: var(--rc-dialog-has-title-message-padding-top);
+      color: var(--rc-dialog-has-title-message-text-color);
     }
 
     &--left {
@@ -72,7 +94,7 @@
   &__confirm,
   &__cancel {
     flex: 1;
-    height: @dialog-button-height;
+    height: var(--rc-dialog-button-height);
     margin: 0;
     border: 0;
   }
@@ -80,43 +102,29 @@
   &__confirm {
     &,
     &:active {
-      color: @dialog-confirm-button-text-color;
-    }
-  }
-
-  &__close-icon {
-    position: absolute;
-    top: @dialog-close-icon-margin;
-    right: @dialog-close-icon-margin;
-    z-index: @popup-close-icon-z-index;
-    color: @popup-close-icon-color;
-    font-size: @dialog-close-icon-size;
-    cursor: pointer;
-
-    &:active {
-      color: @popup-close-icon-active-color;
+      color: var(--rc-dialog-confirm-button-text-color);
     }
   }
 
   &--round-button {
-    .rc-dialog__footer {
+    .@{rc-prefix}-dialog__footer {
       position: relative;
       height: auto;
-      padding: @padding-xs @padding-lg @padding-md;
+      padding: var(--rc-padding-xs) var(--rc-padding-lg) var(--rc-padding-md);
     }
 
-    .rc-dialog__message {
-      padding-bottom: @padding-md;
-      color: @text-color;
+    .@{rc-prefix}-dialog__message {
+      padding-bottom: var(--rc-padding-md);
+      color: var(--rc-text-color);
     }
 
-    .rc-dialog__confirm,
-    .rc-dialog__cancel {
-      height: @dialog-round-button-height;
+    .@{rc-prefix}-dialog__confirm,
+    .@{rc-prefix}-dialog__cancel {
+      height: var(--rc-dialog-round-button-height);
     }
 
-    .rc-dialog__confirm {
-      color: @white;
+    .@{rc-prefix}-dialog__confirm {
+      color: var(--rc-white);
     }
   }
 

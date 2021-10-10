@@ -167,3 +167,19 @@ export default () => {
   )
 }
 ```
+
+
+## 主题定制
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
+
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-swipe-indicator-size | _6px_ | - |
+| --rc-swipe-indicator-margin | _var(--rc-padding-sm)_ | - |
+| --rc-swipe-indicator-active-opacity | _1_ | - |
+| --rc-swipe-indicator-inactive-opacity | _0.3_ | - |
+| --rc-swipe-indicator-active-background-color | _var(--rc-primary-color)_ | - |
+| --rc-swipe-indicator-inactive-background-color | _var(--rc-border-color)_ | - |

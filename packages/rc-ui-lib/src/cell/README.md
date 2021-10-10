@@ -138,3 +138,47 @@ import { Cell } from 'rc-ui-lib';
 | 事件名  | 说明             | 回调参数       |
 | ------- | ---------------- | -------------- |
 | onClick | 点击单元格时触发 | _event: Event_ |
+
+### 类型定义
+
+组件导出以下类型定义：
+
+```js
+import type { CellArrowDirection } from 'rc-ui-lib';
+```
+
+## 主题定制
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
+
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-cell-font-size | _var(--rc-font-size-md)_ | - |
+| --rc-cell-line-height | _24px_ | - |
+| --rc-cell-vertical-padding | _10px_ | - |
+| --rc-cell-horizontal-padding | _var(--rc-padding-md)_ | - |
+| --rc-cell-text-color | _var(--rc-text-color)_ | - |
+| --rc-cell-background-color | _var(--rc-white)_ | - |
+| --rc-cell-border-color | _var(--rc-border-color)_ | - |
+| --rc-cell-active-color | _var(--rc-active-color)_ | - |
+| --rc-cell-required-color | _var(--rc-danger-color)_ | - |
+| --rc-cell-label-color | _var(--rc-gray-6)_ | - |
+| --rc-cell-label-font-size | _var(--rc-font-size-sm)_ | - |
+| --rc-cell-label-line-height | _var(--rc-line-height-sm)_ | - |
+| --rc-cell-label-margin-top | _var(--rc-padding-base)_ | - |
+| --rc-cell-value-color | _var(--rc-gray-6)_ | - |
+| --rc-cell-icon-size | _16px_ | - |
+| --rc-cell-right-icon-color | _var(--rc-gray-6)_ | - |
+| --rc-cell-large-vertical-padding | _var(--rc-padding-sm)_ | - |
+| --rc-cell-large-title-font-size | _var(--rc-font-size-lg)_ | - |
+| --rc-cell-large-label-font-size | _var(--rc-font-size-md)_ | - |
+| --rc-cell-group-background-color | _var(--rc-white)_ | - |
+| --rc-cell-group-title-color | _var(--rc-gray-6)_ | - |
+| --rc-cell-group-title-padding | _var(--rc-padding-md) var(--rc-padding-md) var(--rc-padding-xs)_ | - |
+| --rc-cell-group-title-font-size | _var(--rc-font-size-md)_ | - |
+| --rc-cell-group-title-line-height | _16px_ | - |
+| --rc-cell-group-inset-padding | _0 var(--rc-padding-md)_ | - |
+| --rc-cell-group-inset-border-radius | _var(--rc-border-radius-lg)_ | - |
+| --rc-cell-group-inset-title-padding | _var(--rc-padding-md) var(--rc-padding-md) var(--rc-padding-xs) var(--rc-padding-xl)_ | - |

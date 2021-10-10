@@ -18,16 +18,16 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="5">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge content="10">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge content="Hot">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge dot>
-  <div className="child" />
+  <div class="child" />
 </Badge>
 
 <style>
@@ -46,13 +46,13 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="20" max="9">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge content="50" max="20">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge content="200" max="99">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 ```
 
@@ -62,13 +62,13 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="5" color="#1989fa">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge content="10" color="#1989fa">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 <Badge dot color="#1989fa">
-  <div className="child" />
+  <div class="child" />
 </Badge>
 ```
 
@@ -76,7 +76,7 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content={<Icon name="success" className="badge-icon" />}>
-  <div className="child" />
+  <div class="child" />
 </Badge>
 ```
 
@@ -116,3 +116,24 @@ import { Badge } from 'rc-ui-lib';
 | 事件名  | 说明       | 回调参数       |
 | ------- | ---------- | -------------- |
 | onClick | 点击时触发 | _event: Event_ |
+
+
+
+## 主题定制
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
+
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-badge-size | _16px_ | - |
+| --rc-badge-color | _var(--rc-white)_ | - |
+| --rc-badge-padding | _0 3px_ | - |
+| --rc-badge-font-size | _var(--rc-font-size-sm)_ | - |
+| --rc-badge-font-weight | _var(--rc-font-weight-bold)_ | - |
+| --rc-badge-border-width | _var(--rc-border-width-base)_ | - |
+| --rc-badge-background-color | _var(--rc-danger-color)_ | - |
+| --rc-badge-dot-color | _var(--rc-danger-color)_ | - |
+| --rc-badge-dot-size | _8px_ | - |
+| --rc-badge-font-family | _-apple-system-font, Helvetica Neue, Arial, sans-serif_ | - |

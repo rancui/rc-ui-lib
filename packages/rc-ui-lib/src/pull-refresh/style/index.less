@@ -1,0 +1,39 @@
+@import './var.less';
+
+:root {
+  --rc-pull-refresh-head-height: @pull-refresh-head-height;
+  --rc-pull-refresh-head-font-size: @pull-refresh-head-font-size;
+  --rc-pull-refresh-head-text-color: @pull-refresh-head-text-color;
+  --rc-pull-refresh-loading-icon-size: @pull-refresh-loading-icon-size;
+}
+
+.@{rc-prefix}-pull-refresh {
+  overflow: hidden;
+  user-select: none;
+
+  &__track {
+    position: relative;
+    height: 100%;
+    transition-property: transform;
+  }
+
+  &__head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: var(--rc-pull-refresh-head-height);
+    overflow: hidden;
+    color: var(--rc-pull-refresh-head-text-color);
+    font-size: var(--rc-pull-refresh-head-font-size);
+    line-height: var(--rc-pull-refresh-head-height);
+    text-align: center;
+    transform: translateY(-100%);
+  }
+
+  &__loading {
+    .@{rc-prefix}-loading__spinner {
+      width: var(--rc-pull-refresh-loading-icon-size);
+      height: var(--rc-pull-refresh-loading-icon-size);
+    }
+  }
+}

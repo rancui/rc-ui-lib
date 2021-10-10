@@ -1,0 +1,44 @@
+@import './var.less';
+
+:root {
+  --rc-notify-text-color: @notify-text-color;
+  --rc-notify-padding: @notify-padding;
+  --rc-notify-font-size: @notify-font-size;
+  --rc-notify-line-height: @notify-line-height;
+  --rc-notify-primary-background-color: @notify-primary-background-color;
+  --rc-notify-success-background-color: @notify-success-background-color;
+  --rc-notify-danger-background-color: @notify-danger-background-color;
+  --rc-notify-warning-background-color: @notify-warning-background-color;
+}
+
+.@{rc-prefix}-notify {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: var(--rc-notify-padding);
+  color: var(--rc-notify-text-color);
+  font-size: var(--rc-notify-font-size);
+  line-height: var(--rc-notify-line-height);
+
+  // allow newline character
+  white-space: pre-wrap;
+  text-align: center;
+  word-wrap: break-word;
+
+  &--primary {
+    background-color: var(--rc-notify-primary-background-color);
+  }
+
+  &--success {
+    background-color: var(--rc-notify-success-background-color);
+  }
+
+  &--danger {
+    background-color: var(--rc-notify-danger-background-color);
+  }
+
+  &--warning {
+    background-color: var(--rc-notify-warning-background-color);
+  }
+}

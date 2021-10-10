@@ -1,0 +1,75 @@
+@import './var.less';
+@import '../../styles/mixins/hairline';
+
+:root {
+  --rc-collapse-item-transition-duration: @collapse-item-transition-duration;
+  --rc-collapse-item-content-padding: @collapse-item-content-padding;
+  --rc-collapse-item-content-font-size: @collapse-item-content-font-size;
+  --rc-collapse-item-content-line-height: @collapse-item-content-line-height;
+  --rc-collapse-item-content-text-color: @collapse-item-content-text-color;
+  --rc-collapse-item-content-background-color: @collapse-item-content-background-color;
+  --rc-collapse-item-title-disabled-color: @collapse-item-title-disabled-color;
+}
+
+.@{rc-prefix}-collapse-item {
+  position: relative;
+
+  &--border {
+    &::after {
+      .hairline-top(var(--rc-border-color), var(--rc-padding-md), var(--rc-padding-md));
+    }
+  }
+
+  &__title {
+    .@{rc-prefix}-cell__right-icon::before {
+      // using translateZ to fix safari rendering issues
+      // see: https://github.com/youzan/vant/issues/8608
+      transform: rotate(90deg) translateZ(0);
+      transition: transform var(--rc-collapse-item-transition-duration);
+    }
+
+    &::after {
+      right: var(--rc-padding-md);
+      display: none;
+    }
+
+    &--expanded {
+      .@{rc-prefix}-cell__right-icon::before {
+        transform: rotate(-90deg);
+      }
+
+      &::after {
+        display: block;
+      }
+    }
+
+    &--borderless {
+      &::after {
+        display: none;
+      }
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+
+      &,
+      & .@{rc-prefix}-cell__right-icon {
+        color: var(--rc-collapse-item-title-disabled-color);
+      }
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    transition: height var(--rc-collapse-item-transition-duration) ease-in-out;
+    will-change: height;
+  }
+
+  &__content {
+    padding: var(--rc-collapse-item-content-padding);
+    color: var(--rc-collapse-item-content-text-color);
+    font-size: var(--rc-collapse-item-content-font-size);
+    line-height: var(--rc-collapse-item-content-line-height);
+    background-color: var(--rc-collapse-item-content-background-color);
+  }
+}

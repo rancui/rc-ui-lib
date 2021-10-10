@@ -10,7 +10,7 @@ export interface CellProps extends BaseTypeProps {
   /** 右侧内容	 */
   value?: number | string;
   /**  标题下方的描述信息	*/
-  label?: React.ReactNode | string;
+  label?: React.ReactNode;
   /** 单元格大小 */
   size?: 'large';
   /** 是否使内容垂直居中	  */

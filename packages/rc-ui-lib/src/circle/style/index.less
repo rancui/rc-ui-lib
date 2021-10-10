@@ -1,0 +1,51 @@
+@import './var.less';
+
+:root {
+  --rc-circle-size: @circle-size;
+  --rc-circle-color: @circle-color;
+  --rc-circle-layer-color: @circle-layer-color;
+  --rc-circle-text-color: @circle-text-color;
+  --rc-circle-text-font-weight: @circle-text-font-weight;
+  --rc-circle-text-font-size: @circle-text-font-size;
+  --rc-circle-text-line-height: @circle-text-line-height;
+}
+
+.@{rc-prefix}-circle {
+  position: relative;
+  display: inline-block;
+  width: var(--rc-circle-size);
+  height: var(--rc-circle-size);
+  text-align: center;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__layer {
+    stroke: var(--rc-circle-layer-color);
+  }
+
+  &__hover {
+    fill: none;
+    stroke: var(--rc-circle-color);
+    stroke-linecap: round;
+  }
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 var(--rc-padding-base);
+    color: var(--rc-circle-text-color);
+    font-weight: var(--rc-circle-text-font-weight);
+    font-size: var(--rc-circle-text-font-size);
+    line-height: var(--rc-circle-text-line-height);
+    transform: translateY(-50%);
+  }
+}

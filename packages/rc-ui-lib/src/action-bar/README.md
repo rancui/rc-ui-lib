@@ -87,7 +87,7 @@ export default () => {
 | icon | 图标 | _string\|ReactNode_ | - |
 | color | 图标颜色 | _string_ | `#323233` |
 | iconClass | 图标额外类名 | _string_ | - |
-| icoPrefix | 图标类名前缀，等同于 Icon 组件的 [classPrefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
+| icoPrefix  | 图标类名前缀，等同于 Icon 组件的 [classPrefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
 | badge | 图标右上角徽标设置 | _BadgeProps_ | - |
 | onClick | 点击事件 | _(event) => void_ | - |
 
@@ -103,6 +103,8 @@ export default () => {
 | loading | 是否显示为加载状态 | _boolean_ | `false` |
 | onClick | 点击事件 | _(event) => void_ | - |
 
+
+
 ## 主题定制
 
 ### 样式变量
@@ -111,16 +113,16 @@ export default () => {
 
 | 名称                                   | 默认值                       | 描述 |
 | -------------------------------------- | ---------------------------- | ---- |
-| --van-action-bar-background-color      | _var(--van-white)_           | -    |
-| --van-action-bar-height                | _50px_                       | -    |
-| --van-action-bar-icon-width            | _48px_                       | -    |
-| --van-action-bar-icon-height           | _100%_                       | -    |
-| --van-action-bar-icon-color            | _var(--van-text-color)_      | -    |
-| --van-action-bar-icon-size             | _18px_                       | -    |
-| --van-action-bar-icon-font-size        | _var(--van-font-size-xs)_    | -    |
-| --van-action-bar-icon-active-color     | _var(--van-active-color)_    | -    |
-| --van-action-bar-icon-text-color       | _var(--van-gray-7)_          | -    |
-| --van-action-bar-icon-background-color | _var(--van-white)_           | -    |
-| --van-action-bar-button-height         | _40px_                       | -    |
-| --van-action-bar-button-warning-color  | _var(--van-gradient-orange)_ | -    |
-| --van-action-bar-button-danger-color   | _var(--van-gradient-red)_    | -    |
+| --rc-action-bar-background-color      | _var(--rc-white)_           | -    |
+| --rc-action-bar-height                | _50px_                       | -    |
+| --rc-action-bar-icon-width            | _48px_                       | -    |
+| --rc-action-bar-icon-height           | _100%_                       | -    |
+| --rc-action-bar-icon-color            | _var(--rc-text-color)_      | -    |
+| --rc-action-bar-icon-size             | _18px_                       | -    |
+| --rc-action-bar-icon-font-size        | _var(--rc-font-size-xs)_    | -    |
+| --rc-action-bar-icon-active-color     | _var(--rc-active-color)_    | -    |
+| --rc-action-bar-icon-text-color       | _var(--rc-gray-7)_          | -    |
+| --rc-action-bar-icon-background-color | _var(--rc-white)_           | -    |
+| --rc-action-bar-button-height         | _40px_                       | -    |
+| --rc-action-bar-button-warning-color  | _var(--rc-gradient-orange)_ | -    |
+| --rc-action-bar-button-danger-color   | _var(--rc-gradient-red)_    | -    |

@@ -1,19 +1,56 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
+
+:root {
+  --rc-button-mini-height: @button-mini-height;
+  --rc-button-mini-padding: @button-mini-padding;
+  --rc-button-mini-font-size: @button-mini-font-size;
+  --rc-button-small-height: @button-small-height;
+  --rc-button-small-padding: @button-small-padding;
+  --rc-button-small-font-size: @button-small-font-size;
+  --rc-button-normal-padding: @button-normal-padding;
+  --rc-button-normal-font-size: @button-normal-font-size;
+  --rc-button-large-height: @button-large-height;
+  --rc-button-default-height: @button-default-height;
+  --rc-button-default-line-height: @button-default-line-height;
+  --rc-button-default-font-size: @button-default-font-size;
+  --rc-button-default-color: @button-default-color;
+  --rc-button-default-background-color: @button-default-background-color;
+  --rc-button-default-border-color: @button-default-border-color;
+  --rc-button-primary-color: @button-primary-color;
+  --rc-button-primary-background-color: @button-primary-background-color;
+  --rc-button-primary-border-color: @button-primary-border-color;
+  --rc-button-success-color: @button-success-color;
+  --rc-button-success-background-color: @button-success-background-color;
+  --rc-button-success-border-color: @button-success-border-color;
+  --rc-button-danger-color: @button-danger-color;
+  --rc-button-danger-background-color: @button-danger-background-color;
+  --rc-button-danger-border-color: @button-danger-border-color;
+  --rc-button-warning-color: @button-warning-color;
+  --rc-button-warning-background-color: @button-warning-background-color;
+  --rc-button-warning-border-color: @button-warning-border-color;
+  --rc-button-border-width: @button-border-width;
+  --rc-button-border-radius: @button-border-radius;
+  --rc-button-round-border-radius: @button-round-border-radius;
+  --rc-button-plain-background-color: @button-plain-background-color;
+  --rc-button-disabled-opacity: @button-disabled-opacity;
+  --rc-button-icon-size: @button-icon-size;
+  --rc-button-loading-icon-size: @button-loading-icon-size;
+}
 
 .@{rc-prefix}-button {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  height: @button-default-height;
+  height: var(--rc-button-default-height);
   margin: 0;
   padding: 0;
-  font-size: @button-default-font-size;
-  line-height: @button-default-line-height;
+  font-size: var(--rc-button-default-font-size);
+  line-height: var(--rc-button-default-line-height);
   text-align: center;
-  border-radius: @button-border-radius;
-  transition: opacity @animation-duration-fast;
+  border-radius: var(--rc-button-border-radius);
+  cursor: pointer;
+  transition: opacity var(--rc-animation-duration-fast);
   -webkit-appearance: none;
-  -webkit-text-size-adjust: 100%;
 
   &::before {
     position: absolute;
@@ -21,9 +58,9 @@
     left: 50%;
     width: 100%;
     height: 100%;
-    background-color: @black;
+    background: var(--rc-black);
     border: inherit;
-    border-color: @black;
+    border-color: var(--rc-black);
     border-radius: inherit; /* inherit parent's border radius */
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -42,104 +79,109 @@
   }
 
   &--default {
-    color: @button-default-color;
-    background-color: @button-default-background-color;
-    border: @button-border-width solid @button-default-border-color;
+    color: var(--rc-button-default-color);
+    background: var(--rc-button-default-background-color);
+    border: var(--rc-button-border-width) solid var(--rc-button-default-border-color);
   }
 
   &--primary {
-    color: @button-primary-color;
-    background-color: @button-primary-background-color;
-    border: @button-border-width solid @button-primary-border-color;
+    color: var(--rc-button-primary-color);
+    background: var(--rc-button-primary-background-color);
+    border: var(--rc-button-border-width) solid var(--rc-button-primary-border-color);
   }
 
+  &--success,
   &--info {
-    color: @button-info-color;
-    background-color: @button-info-background-color;
-    border: @button-border-width solid @button-info-border-color;
+    color: var(--rc-button-success-color);
+    background: var(--rc-button-success-background-color);
+    border: var(--rc-button-border-width) solid var(--rc-button-success-border-color);
   }
 
   &--danger {
-    color: @button-danger-color;
-    background-color: @button-danger-background-color;
-    border: @button-border-width solid @button-danger-border-color;
+    color: var(--rc-button-danger-color);
+    background: var(--rc-button-danger-background-color);
+    border: var(--rc-button-border-width) solid var(--rc-button-danger-border-color);
   }
 
   &--warning {
-    color: @button-warning-color;
-    background-color: @button-warning-background-color;
-    border: @button-border-width solid @button-warning-border-color;
+    color: var(--rc-button-warning-color);
+    background: var(--rc-button-warning-background-color);
+    border: var(--rc-button-border-width) solid var(--rc-button-warning-border-color);
   }
 
   &--plain {
-    background-color: @button-plain-background-color;
+    background: var(--rc-button-plain-background-color);
 
     &.@{rc-prefix}-button--primary {
-      color: @button-primary-background-color;
+      color: var(--rc-button-primary-background-color);
     }
 
-    &.@{rc-prefix}-button--info {
-      color: @button-info-background-color;
+    &.@{rc-prefix}-button--success, &.@{rc-prefix}-button--info {
+      color: var(--rc-button-success-background-color);
     }
 
     &.@{rc-prefix}-button--danger {
-      color: @button-danger-background-color;
+      color: var(--rc-button-danger-background-color);
     }
 
     &.@{rc-prefix}-button--warning {
-      color: @button-warning-background-color;
+      color: var(--rc-button-warning-background-color);
     }
   }
 
   &--large {
     width: 100%;
-    height: @button-large-height;
-    line-height: @button-large-line-height;
+    height: var(--rc-button-large-height);
   }
 
   &--normal {
-    padding: 0 15 * @hd;
-    font-size: @button-normal-font-size;
+    padding: var(--rc-button-normal-padding);
+    font-size: var(--rc-button-normal-font-size);
   }
 
   &--small {
-    min-width: @button-small-min-width;
-    height: @button-small-height;
-    padding: 0 @padding-xs;
-    font-size: @button-small-font-size;
-    line-height: @button-small-line-height;
+    height: var(--rc-button-small-height);
+    padding: var(--rc-button-small-padding);
+    font-size: var(--rc-button-small-font-size);
   }
 
   &__loading {
-    display: inline-block;
     color: inherit;
-    vertical-align: top;
+    font-size: inherit;
+
+    .@{rc-prefix}-loading__spinner {
+      width: var(--rc-button-loading-icon-size);
+      height: var(--rc-button-loading-icon-size);
+      color: currentColor;
+    }
   }
 
   &--mini {
-    display: inline-block;
-    min-width: @button-mini-min-width;
-    height: @button-mini-height;
-    font-size: @button-mini-font-size;
-    line-height: @button-mini-line-height;
+    height: var(--rc-button-mini-height);
+    padding: var(--rc-button-mini-padding);
+    font-size: var(--rc-button-mini-font-size);
 
     & + .@{rc-prefix}-button--mini {
-      margin-left: 5 * @hd;
+      margin-left: var(--rc-padding-base);
     }
   }
 
   &--block {
     display: block;
     width: 100%;
-    font-size: @button-default-font-size;
   }
 
   &--disabled {
-    opacity: @button-disabled-opacity;
+    cursor: not-allowed;
+    opacity: var(--rc-button-disabled-opacity);
+  }
+
+  &--loading {
+    cursor: default;
   }
 
   &--round {
-    border-radius: @button-round-border-radius;
+    border-radius: var(--rc-button-round-border-radius);
   }
 
   &--square {
@@ -171,6 +213,8 @@
     }
   }
 
+  // align-items are ignored when flex container is a button in legacy safari
+  // see: https://bugs.webkit.org/show_bug.cgi?id=169700
   &__content {
     display: flex;
     align-items: center;
@@ -178,13 +222,14 @@
     height: 100%;
 
     // fix icon vertical align
+    // see: https://github.com/youzan/vant/issues/7617
     &::before {
       content: ' ';
     }
   }
 
   &__icon {
-    font-size: 1.2em;
+    font-size: var(--rc-button-icon-size);
     line-height: inherit;
   }
 
@@ -192,7 +237,7 @@
   &__loading + &__text,
   &__text + &__icon,
   &__text + &__loading {
-    margin-left: @padding-base;
+    margin-left: var(--rc-padding-base);
   }
 
   &--hairline {
@@ -200,11 +245,11 @@
 
     &::after {
       border-color: inherit;
-      border-radius: @button-border-radius * 2;
+      border-radius: calc(var(--rc-button-border-radius) * 2);
     }
 
     &.@{rc-prefix}-button--round::after {
-      border-radius: @button-round-border-radius;
+      border-radius: var(--rc-button-round-border-radius);
     }
 
     &.@{rc-prefix}-button--square::after {
@@ -222,13 +267,13 @@
     }
 
     .@{rc-prefix}-button:last-child {
-      border-top-right-radius: 2 * @hd;
-      border-bottom-right-radius: 2 * @hd;
+      border-top-right-radius: var(--rc-button-border-radius);
+      border-bottom-right-radius: var(--rc-button-border-radius);
     }
 
     .@{rc-prefix}-button:first-child {
-      border-top-left-radius: 2 * @hd;
-      border-bottom-left-radius: 2 * @hd;
+      border-top-left-radius: var(--rc-button-border-radius);
+      border-bottom-left-radius: var(--rc-button-border-radius);
     }
   }
 }

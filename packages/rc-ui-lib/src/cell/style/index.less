@@ -1,20 +1,50 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 @import '../../styles/mixins/hairline.less';
 
-.rc-cell {
+:root {
+  --rc-cell-font-size: @cell-font-size;
+  --rc-cell-line-height: @cell-line-height;
+  --rc-cell-vertical-padding: @cell-vertical-padding;
+  --rc-cell-horizontal-padding: @cell-horizontal-padding;
+  --rc-cell-text-color: @cell-text-color;
+  --rc-cell-background-color: @cell-background-color;
+  --rc-cell-border-color: @cell-border-color;
+  --rc-cell-active-color: @cell-active-color;
+  --rc-cell-required-color: @cell-required-color;
+  --rc-cell-label-color: @cell-label-color;
+  --rc-cell-label-font-size: @cell-label-font-size;
+  --rc-cell-label-line-height: @cell-label-line-height;
+  --rc-cell-label-margin-top: @cell-label-margin-top;
+  --rc-cell-value-color: @cell-value-color;
+  --rc-cell-icon-size: @cell-icon-size;
+  --rc-cell-right-icon-color: @cell-right-icon-color;
+  --rc-cell-large-vertical-padding: @cell-large-vertical-padding;
+  --rc-cell-large-title-font-size: @cell-large-title-font-size;
+  --rc-cell-large-label-font-size: @cell-large-label-font-size;
+  --rc-cell-group-background-color: @cell-group-background-color;
+  --rc-cell-group-title-color: @cell-group-title-color;
+  --rc-cell-group-title-padding: @cell-group-title-padding;
+  --rc-cell-group-title-font-size: @cell-group-title-font-size;
+  --rc-cell-group-title-line-height: @cell-group-title-line-height;
+  --rc-cell-group-inset-padding: @cell-group-inset-padding;
+  --rc-cell-group-inset-border-radius: @cell-group-inset-border-radius;
+  --rc-cell-group-inset-title-padding: @cell-group-inset-title-padding;
+}
+
+.@{rc-prefix}-cell {
   position: relative;
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  padding: @cell-vertical-padding @cell-horizontal-padding;
+  padding: var(--rc-cell-vertical-padding) var(--rc-cell-horizontal-padding);
   overflow: hidden;
-  color: @cell-text-color;
-  font-size: @cell-font-size;
-  line-height: @cell-line-height;
-  background-color: @cell-background-color;
+  color: var(--rc-cell-text-color);
+  font-size: var(--rc-cell-font-size);
+  line-height: var(--rc-cell-line-height);
+  background-color: var(--rc-cell-background-color);
 
   &::after {
-    .hairline-bottom(@cell-border-color, @padding-md, @padding-md);
+    .hairline-bottom(var(--rc-cell-border-color), var(--rc-padding-md), var(--rc-padding-md));
   }
 
   &:last-child::after,
@@ -23,10 +53,10 @@
   }
 
   &__label {
-    margin-top: @cell-label-margin-top;
-    color: @cell-label-color;
-    font-size: @cell-label-font-size;
-    line-height: @cell-label-line-height;
+    margin-top: var(--rc-cell-label-margin-top);
+    color: var(--rc-cell-label-color);
+    font-size: var(--rc-cell-label-font-size);
+    line-height: var(--rc-cell-label-line-height);
   }
 
   &__title,
@@ -37,42 +67,38 @@
   &__value {
     position: relative;
     overflow: hidden;
-    color: @cell-value-color;
+    color: var(--rc-cell-value-color);
     text-align: right;
     vertical-align: middle;
     word-wrap: break-word;
 
     &--alone {
-      color: @text-color;
+      color: var(--rc-text-color);
       text-align: left;
     }
   }
 
   &__left-icon,
   &__right-icon {
-    height: @cell-line-height;
-    font-size: @cell-icon-size;
-    line-height: @cell-line-height;
+    height: var(--rc-cell-line-height);
+    font-size: var(--rc-cell-icon-size);
+    line-height: var(--rc-cell-line-height);
   }
 
   &__left-icon {
-    margin-right: @padding-base;
+    margin-right: var(--rc-padding-base);
   }
 
   &__right-icon {
-    margin-left: @padding-base;
-    color: @cell-right-icon-color;
-  }
-
-  &--round {
-    border-radius: @cell-border-radius;
+    margin-left: var(--rc-padding-base);
+    color: var(--rc-cell-right-icon-color);
   }
 
   &--clickable {
     cursor: pointer;
 
     &:active {
-      background-color: @cell-active-color;
+      background-color: var(--rc-cell-active-color);
     }
   }
 
@@ -81,9 +107,9 @@
 
     &::before {
       position: absolute;
-      left: @padding-xs;
-      color: @cell-required-color;
-      font-size: @cell-font-size;
+      left: var(--rc-padding-xs);
+      color: var(--rc-cell-required-color);
+      font-size: var(--rc-cell-font-size);
       content: '*';
     }
   }
@@ -93,35 +119,37 @@
   }
 
   &--large {
-    padding-top: @cell-large-vertical-padding;
-    padding-bottom: @cell-large-vertical-padding;
+    padding-top: var(--rc-cell-large-vertical-padding);
+    padding-bottom: var(--rc-cell-large-vertical-padding);
 
-    .rc-cell__title {
-      font-size: @cell-large-title-font-size;
+    .@{rc-prefix}-cell__title {
+      font-size: var(--rc-cell-large-title-font-size);
     }
 
-    .rc-cell__label {
-      font-size: @cell-large-label-font-size;
+    .@{rc-prefix}-cell__label {
+      font-size: var(--rc-cell-large-label-font-size);
     }
   }
 }
 
-.rc-cell-group {
-  background-color: @cell-group-background-color;
+
+.@{rc-prefix}-cell-group {
+  background-color: var(--rc-cell-group-background-color);
 
   &--inset {
-    margin: @cell-group-inset-padding;
+    margin: var(--rc-cell-group-inset-padding);
     overflow: hidden;
-    border-radius: @cell-group-inset-border-radius;
+    border-radius: var(--rc-cell-group-inset-border-radius);
   }
 
   &__title {
-    padding: @cell-group-title-padding;
-    color: @cell-group-title-color;
-    font-size: @cell-group-title-font-size;
-    line-height: @cell-group-title-line-height;
+    padding: var(--rc-cell-group-title-padding);
+    color: var(--rc-cell-group-title-color);
+    font-size: var(--rc-cell-group-title-font-size);
+    line-height: var(--rc-cell-group-title-line-height);
+
     &--inset {
-      padding: @cell-group-inset-title-padding;
+      padding: var(--rc-cell-group-inset-title-padding);
     }
   }
 }

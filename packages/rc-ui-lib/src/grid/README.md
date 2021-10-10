@@ -100,7 +100,7 @@ import { Grid } from 'rc-ui-lib';
 ```jsx
 <Grid columnNum={2}>
   <Grid.Item icon="home-o" text="文字" badge={{ dot: true }} />
-  <Grid.Item icon="search" text="文字" badge={{ content: '99+' }} />
+  <Grid.Item icon="search" text="文字" badge={{ content: "99+" }} />
 </Grid>
 ```
 
@@ -140,3 +140,27 @@ import { Grid } from 'rc-ui-lib';
 | 事件名  | 说明           | 回调参数            |
 | ------- | -------------- | ------------------- |
 | onClick | 点击格子时触发 | _event: MouseEvent_ |
+
+
+### 类型定义
+
+组件导出以下类型定义：
+
+```js
+import type { GridDirection } from 'rc-ui-lib';
+```
+
+## 主题定制
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
+
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-grid-item-content-padding | _var(--rc-padding-md) var(--rc-padding-xs)_ | - |
+| --rc-grid-item-content-background-color | _var(--rc-white)_ | - |
+| --rc-grid-item-content-active-color | _var(--rc-active-color)_ | - |
+| --rc-grid-item-icon-size | _28px_ | - |
+| --rc-grid-item-text-color | _var(--rc-gray-7)_ | - |
+| --rc-grid-item-text-font-size | _var(--rc-font-size-sm)_ | - |

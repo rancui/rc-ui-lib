@@ -1,28 +1,43 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 
-.rc-switch {
+:root {
+  --rc-switch-size: @switch-size;
+  --rc-switch-width: @switch-width;
+  --rc-switch-height: @switch-height;
+  --rc-switch-node-size: @switch-node-size;
+  --rc-switch-node-background-color: @switch-node-background-color;
+  --rc-switch-node-box-shadow: @switch-node-box-shadow;
+  --rc-switch-background-color: @switch-background-color;
+  --rc-switch-on-background-color: @switch-on-background-color;
+  --rc-switch-transition-duration: @switch-transition-duration;
+  --rc-switch-disabled-opacity: @switch-disabled-opacity;
+  --rc-switch-border: @switch-border;
+}
+
+.@{rc-prefix}-switch {
   position: relative;
   display: inline-block;
   box-sizing: content-box;
-  width: @switch-width;
-  height: @switch-height;
-  font-size: @switch-size;
-  background-color: @switch-background-color;
-  border: @switch-border;
-  border-radius: @switch-node-size;
+  width: var(--rc-switch-width);
+  height: var(--rc-switch-height);
+  font-size: var(--rc-switch-size);
+  background-color: var(--rc-switch-background-color);
+  border: var(--rc-switch-border);
+  border-radius: var(--rc-switch-node-size);
   cursor: pointer;
-  transition: background-color @switch-transition-duration;
+  transition: background-color var(--rc-switch-transition-duration);
 
   &__node {
     position: absolute;
     top: 0;
     left: 0;
-    width: @switch-node-size;
-    height: @switch-node-size;
-    background-color: @switch-node-background-color;
+    width: var(--rc-switch-node-size);
+    height: var(--rc-switch-node-size);
+    background-color: var(--rc-switch-node-background-color);
     border-radius: 100%;
-    box-shadow: @switch-node-box-shadow;
-    transition: transform @switch-transition-duration cubic-bezier(0.3, 1.05, 0.4, 1.05);
+    box-shadow: var(--rc-switch-node-box-shadow);
+    transition: transform var(--rc-switch-transition-duration)
+      cubic-bezier(0.3, 1.05, 0.4, 1.05);
   }
 
   &__loading {
@@ -34,20 +49,22 @@
   }
 
   &--on {
-    background-color: @switch-on-background-color;
+    background-color: var(--rc-switch-on-background-color);
 
-    .rc-switch__node {
-      transform: translateX(calc(@switch-width - @switch-node-size));
+    .@{rc-prefix}-switch__node {
+      transform: translateX(
+        calc(var(--rc-switch-width) - var(--rc-switch-node-size))
+      );
     }
 
-    .rc-switch__loading {
-      color: @switch-on-background-color;
+    .@{rc-prefix}-switch__loading {
+      color: var(--rc-switch-on-background-color);
     }
   }
 
   &--disabled {
     cursor: not-allowed;
-    opacity: @switch-disabled-opacity;
+    opacity: var(--rc-switch-disabled-opacity);
   }
 
   &--loading {

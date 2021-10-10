@@ -28,7 +28,7 @@ export default (): React.ReactNode => {
           autoplay={3000}
           pagination={{
             renderBullet: (index, className) => {
-              return `<span className="custom-pagination--bullet ${className}"></span>`;
+              return `<span class="custom-pagination--bullet ${className}"></span>`;
             },
           }}
         >
@@ -43,7 +43,7 @@ export default (): React.ReactNode => {
           pagination={{
             type: 'fraction',
             renderFraction: (currentClass, totalClass) => {
-              return `<div className="custom-pagination--fraction"><span className="${currentClass}"></span>/<span className="${totalClass}"></span></div>`;
+              return `<div class="custom-pagination--fraction"><span class="${currentClass}"></span>/<span class="${totalClass}"></span></div>`;
             },
           }}
         >
@@ -93,7 +93,7 @@ export default (): React.ReactNode => {
             Popup中展示轮播图
           </Button>
         </div>
-        <Popup visible={visible} onClose={() => set(false)} style={{ width: '100%' }}>
+        <Popup className="demo-swipe-popup" visible={visible} onClose={() => set(false)} style={{ width: '100%' }}>
           <Swipe resizeObserver autoplay={1000}>
             <Swipe.Item>1</Swipe.Item>
             <Swipe.Item>2</Swipe.Item>

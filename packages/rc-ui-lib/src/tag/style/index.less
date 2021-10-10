@@ -1,57 +1,77 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
+
+:root {
+  --rc-tag-padding: @tag-padding;
+  --rc-tag-text-color: @tag-text-color;
+  --rc-tag-font-size: @tag-font-size;
+  --rc-tag-border-radius: @tag-border-radius;
+  --rc-tag-line-height: @tag-line-height;
+  --rc-tag-medium-padding: @tag-medium-padding;
+  --rc-tag-large-padding: @tag-large-padding;
+  --rc-tag-large-border-radius: @tag-large-border-radius;
+  --rc-tag-large-font-size: @tag-large-font-size;
+  --rc-tag-round-border-radius: @tag-round-border-radius;
+  --rc-tag-danger-color: @tag-danger-color;
+  --rc-tag-primary-color: @tag-primary-color;
+  --rc-tag-success-color: @tag-success-color;
+  --rc-tag-warning-color: @tag-warning-color;
+  --rc-tag-default-color: @tag-default-color;
+  --rc-tag-plain-background-color: @tag-plain-background-color;
+}
 
 .@{rc-prefix}-tag {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: @tag-padding;
-  color: @tag-text-color;
-  font-size: @tag-font-size;
-  line-height: @tag-line-height;
-  border-radius: @tag-border-radius;
+  padding: var(--rc-tag-padding);
+  color: var(--rc-tag-text-color);
+  font-size: var(--rc-tag-font-size);
+  line-height: var(--rc-tag-line-height);
+  border-radius: var(--rc-tag-border-radius);
 
   &--default {
-    background-color: @tag-default-color;
+    background-color: var(--rc-tag-default-color);
 
-    &.rc-tag--plain {
-      color: @tag-default-color;
+    &.@{rc-prefix}-tag--plain {
+      color: var(--rc-tag-default-color);
     }
   }
 
   &--danger {
-    background-color: @tag-danger-color;
+    background-color: var(--rc-tag-danger-color);
 
-    &.rc-tag--plain {
-      color: @tag-danger-color;
+    &.@{rc-prefix}-tag--plain {
+      color: var(--rc-tag-danger-color);
     }
   }
 
   &--primary {
-    background-color: @tag-primary-color;
+    background-color: var(--rc-tag-primary-color);
 
-    &.rc-tag--plain {
-      color: @tag-primary-color;
+    &.@{rc-prefix}-tag--plain {
+      color: var(--rc-tag-primary-color);
     }
   }
 
   &--success {
-    background-color: @tag-success-color;
+    background-color: var(--rc-tag-success-color);
 
-    &.rc-tag--plain {
-      color: @tag-success-color;
+    &.@{rc-prefix}-tag--plain {
+      color: var(--rc-tag-success-color);
     }
   }
 
   &--warning {
-    background-color: @tag-warning-color;
+    background-color: var(--rc-tag-warning-color);
 
-    &.rc-tag--plain {
-      color: @tag-warning-color;
+    &.@{rc-prefix}-tag--plain {
+      color: var(--rc-tag-warning-color);
     }
   }
 
   &--plain {
-    background-color: @tag-plain-background-color;
+    background-color: var(--rc-tag-plain-background-color);
+    border-color: currentColor;
 
     &::before {
       position: absolute;
@@ -59,54 +79,49 @@
       right: 0;
       bottom: 0;
       left: 0;
-      border: 1 * @hd solid currentColor;
+      border: 1px solid;
+      border-color: inherit;
       border-radius: inherit;
       content: '';
       pointer-events: none;
     }
   }
 
-  &--selected {
-    color: @tag-primary-color !important;
-
-    &.rc-tag--plain::before {
-      border: 1 * @hd solid @tag-primary-color;
-    }
-  }
-
-  &--mini {
-    font-size: @tag-mini-font-size;
-  }
-
   &--medium {
-    padding: @tag-medium-padding;
+    padding: var(--rc-tag-medium-padding);
   }
 
   &--large {
-    padding: @tag-large-padding;
-    font-size: @tag-large-font-size;
+    padding: var(--rc-tag-large-padding);
+    font-size: var(--rc-tag-large-font-size);
+    border-radius: var(--rc-tag-large-border-radius);
   }
 
   &--mark {
-    border-radius: 0 @tag-round-border-radius @tag-round-border-radius 0;
+    border-radius: 0 var(--rc-tag-round-border-radius)
+      var(--rc-tag-round-border-radius) 0;
 
     &::after {
       display: block;
-      width: 2 * @hd;
+      width: 2px;
       content: '';
     }
   }
 
   &--round {
-    border-radius: @tag-round-border-radius;
+    border-radius: var(--rc-tag-round-border-radius);
   }
 
+  &__close {
+    margin-left: 2px;
+    cursor: pointer;
+  }
   &--hairline {
     border-width: 0;
 
     &::after {
       border-color: inherit;
-      border-radius: @tag-border-radius;
+      border-radius: var(--rc-tag-round-border-radius);
     }
 
     &.@{rc-prefix}-tag--plain::before {
@@ -114,12 +129,7 @@
     }
 
     &.@{rc-prefix}-tag--round::after {
-      border-radius: @tag-round-border-radius;
+      border-radius: var(--rc-tag-round-border-radius);
     }
-  }
-
-  &__close {
-    margin-left: 2 * @hd;
-    cursor: pointer;
   }
 }

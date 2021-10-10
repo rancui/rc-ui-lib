@@ -231,7 +231,7 @@ const formatter = (value) => value.replace(/\d/g, '');
 | required | 是否显示表单必填星号 | _boolean_ | `false` |
 | center | 是否使内容垂直居中 | _boolean_ | `false` |
 | clearable | 是否启用清除图标，点击清除图标后会清空输入框 | _boolean_ | `false` |
-| clearIcon | 清除图标名称或图片链接 | _string_ | `clear` |
+| clearIcon | 清除图标名称或图片链接	 | _string_ | `clear` |
 | clickable | 是否开启点击反馈 | _boolean_ | `false` |
 | isLink | 是否展示右侧箭头并开启点击反馈 | _boolean_ | `false` |
 | autofocus | 是否自动聚焦，iOS 系统不支持该属性 | _boolean_ | `false` |
@@ -261,14 +261,14 @@ const formatter = (value) => value.replace(/\d/g, '');
 
 | 事件             | 说明                 | 回调参数                |
 | ---------------- | -------------------- | ----------------------- |
-| onChange         | 输入框获得焦点时触发 | _val: string \| number_ |
-| onFocus          | 输入框获得焦点时触发 | _event: MouseEvent_     |
-| onBlur           | 输入框失去焦点时触发 | _event: MouseEvent_     |
-| onClear          | 点击清除按钮时触发   | _event: MouseEvent_     |
-| onClick          | 点击 Field 时触发    | _event: MouseEvent_     |
-| onClickInput     | 点击输入区域时触发   | _event: MouseEvent_     |
-| onClickLeftIcon  | 点击左侧图标时触发   | _event: MouseEvent_     |
-| onClickRightIcon | 点击右侧图标时触发   | _event: MouseEvent_     |
+| onChange          | 输入框获得焦点时触发 | _val: string \| number_ |
+| onFocus          | 输入框获得焦点时触发 | _event: MouseEvent_ |
+| onBlur           | 输入框失去焦点时触发 | _event: MouseEvent_ |
+| onClear          | 点击清除按钮时触发   | _event: MouseEvent_          |
+| onClick          | 点击 Field 时触发    | _event: MouseEvent_          |
+| onClickInput     | 点击输入区域时触发   | _event: MouseEvent_          |
+| onClickLeftIcon  | 点击左侧图标时触发   | _event: MouseEvent_          |
+| onClickRightIcon | 点击右侧图标时触发   | _event: MouseEvent_          |
 
 ### 方法
 
@@ -301,30 +301,35 @@ const fieldRef = useRef < FieldInstance > null;
 | focus  | 获取输入框焦点 | -    | -      |
 | blur   | 取消输入框焦点 | -    | -      |
 
+
+## 主题定制
+
 ### 样式变量
 
-组件提供了下列 Less 变量，可用于自定义样式，使用方法请参考[主题定制](#/zh-CN/theme)。
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                             | 默认值          | 描述 |
-| -------------------------------- | --------------- | ---- |
-| @field-label-width               | `5.2em`         | -    |
-| @field-label-color               | `@gray-8`       | -    |
-| @field-label-margin-right        | `@padding-sm`   | -    |
-| @field-input-text-color          | `@text-color`   | -    |
-| @field-input-error-text-color    | `@red`          | -    |
-| @field-input-disabled-text-color | `@gray-5`       | -    |
-| @field-placeholder-text-color    | `@gray-5`       | -    |
-| @field-icon-size                 | `16px`          | -    |
-| @field-clear-icon-size           | `16px`          | -    |
-| @field-clear-icon-color          | `@gray-5`       | -    |
-| @field-right-icon-color          | `@gray-6`       | -    |
-| @field-error-message-color       | `@red`          | -    |
-| @field-error-message-text-color  | `12px`          | -    |
-| @field-text-area-min-height      | `60px`          | -    |
-| @field-word-limit-color          | `@gray-7`       | -    |
-| @field-word-limit-font-size      | `@font-size-sm` | -    |
-| @field-word-limit-line-height    | `16px`          | -    |
-| @field-disabled-text-color       | `@gray-5`       | -    |
+| 名称                                  | 默认值                    | 描述 |
+| ------------------------------------- | ------------------------- | ---- |
+| --rc-field-label-width               | _6.2em_                   | -    |
+| --rc-field-label-color               | _var(--rc-gray-7)_       | -    |
+| --rc-field-label-margin-right        | _var(--rc-padding-sm)_   | -    |
+| --rc-field-input-text-color          | _var(--rc-text-color)_   | -    |
+| --rc-field-input-error-text-color    | _var(--rc-danger-color)_ | -    |
+| --rc-field-input-disabled-text-color | _var(--rc-gray-5)_       | -    |
+| --rc-field-placeholder-text-color    | _var(--rc-gray-5)_       | -    |
+| --rc-field-icon-size                 | _16px_                    | -    |
+| --rc-field-clear-icon-size           | _16px_                    | -    |
+| --rc-field-clear-icon-color          | _var(--rc-gray-5)_       | -    |
+| --rc-field-right-icon-color          | _var(--rc-gray-6)_       | -    |
+| --rc-field-error-message-color       | _var(--rc-danger-color)_ | -    |
+| --rc-field-error-message-font-size   | _12px_                    | -    |
+| --rc-field-text-area-min-height      | _60px_                    | -    |
+| --rc-field-word-limit-color          | _var(--rc-gray-7)_       | -    |
+| --rc-field-word-limit-font-size      | _var(--rc-font-size-sm)_ | -    |
+| --rc-field-word-limit-line-height    | _16px_                    | -    |
+| --rc-field-disabled-text-color       | _var(--rc-gray-5)_       | -    |
+| --rc-field-required-mark-color       | _var(--rc-red)_          | -    |
+
 
 ## 常见问题
 

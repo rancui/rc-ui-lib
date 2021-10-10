@@ -168,3 +168,36 @@ export default () => {
 | onOpened       | 打开面板且动画结束后触发                 | -                               |
 | onClosed       | 关闭面板且动画结束后触发                 | -                               |
 | onClickOverlay | 点击遮罩层时触发                         | _event: MouseEvent_             |
+
+
+
+## 主题定制
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
+
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-action-sheet-max-height | _80%_ | - |
+| --rc-action-sheet-header-height | _48px_ | - |
+| --rc-action-sheet-header-font-size | _var(--rc-font-size-lg)_ | - |
+| --rc-action-sheet-description-color | _var(--rc-gray-6)_ | - |
+| --rc-action-sheet-description-font-size | _var(--rc-font-size-md)_ | - |
+| --rc-action-sheet-description-line-height | _var(--rc-line-height-md)_ | - |
+| --rc-action-sheet-item-background | _var(--rc-white)_ | - |
+| --rc-action-sheet-item-font-size | _var(--rc-font-size-lg)_ | - |
+| --rc-action-sheet-item-line-height | _var(--rc-line-height-lg)_ | - |
+| --rc-action-sheet-item-text-color | _var(--rc-text-color)_ | - |
+| --rc-action-sheet-item-disabled-text-color | _var(--rc-gray-5)_ | - |
+| --rc-action-sheet-subname-color | _var(--rc-gray-6)_ | - |
+| --rc-action-sheet-subname-font-size | _var(--rc-font-size-sm)_ | - |
+| --rc-action-sheet-subname-line-height | _var(--rc-line-height-sm)_ | - |
+| --rc-action-sheet-close-icon-size | _22px_ | - |
+| --rc-action-sheet-close-icon-color | _var(--rc-gray-5)_ | - |
+| --rc-action-sheet-close-icon-active-color | _var(--rc-gray-6)_ | - |
+| --rc-action-sheet-close-icon-padding | _0 var(--rc-padding-md)_ | - |
+| --rc-action-sheet-cancel-text-color | _var(--rc-gray-7)_ | - |
+| --rc-action-sheet-cancel-padding-top | _var(--rc-padding-xs)_ | - |
+| --rc-action-sheet-cancel-padding-color | _var(--rc-background-color)_ | - |
+| --rc-action-sheet-loading-icon-size | _22px_ | - |

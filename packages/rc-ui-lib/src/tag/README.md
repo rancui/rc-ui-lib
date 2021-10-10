@@ -98,31 +98,33 @@ import { Tag } from 'rc-ui-lib';
 
 ### Events
 
-| 事件名  | 说明           | 回调参数            |
-| ------- | -------------- | ------------------- |
-| onClick | 点击时触发     | _event: MouseEvent_ |
-| onClose | 关闭标签时触发 | _event: MouseEvent_ |
+| 事件名 | 说明           | 回调参数            |
+| ------ | -------------- | ------------------- |
+| onClick  | 点击时触发     | _event: MouseEvent_      |
+| onClose  | 关闭标签时触发 | _event: MouseEvent_                   |
+
+
+## 主题定制
 
 ### 样式变量
 
-组件提供了下列 Less 变量，可用于自定义样式，使用方法请参考[主题定制](#/zh-CN/theme)。
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                        | 默认值                      | 描述 |
-| --------------------------- | --------------------------- | ---- |
-| @tag-padding                | `0 @padding-base`           | -    |
-| @tag-textColor              | `@white`                    | -    |
-| @tag-font-size              | `@font-size-sm`             | -    |
-| @tag-border-radius          | `2px`                       | -    |
-| @tag-line-height            | `16px`                      | -    |
-| @tag-medium-padding         | `2px 6px`                   | -    |
-| @tag-mini-font-size         | `@font-size-xs`             | -    |
-| @tag-large-padding          | `@padding-base @padding-xs` | -    |
-| @tag-large-border-radius    | `@border-radius-md`         | -    |
-| @tag-large-font-size        | `@font-size-md`             | -    |
-| @tag-round-border-radius    | `@border-radius-max`        | -    |
-| @tag-danger-color           | `@red`                      | -    |
-| @tag-primary-color          | `@blue`                     | -    |
-| @tag-success-color          | `@green`                    | -    |
-| @tag-warning-color          | `@orange`                   | -    |
-| @tag-default-color          | `@gray-6`                   | -    |
-| @tag-plain-background-color | `@white`                    | -    |
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-tag-padding | _0 var(--rc-padding-base)_ | - |
+| --rc-tag-text-color | _var(--rc-white)_ | - |
+| --rc-tag-font-size | _var(--rc-font-size-sm)_ | - |
+| --rc-tag-border-radius | _2px_ | - |
+| --rc-tag-line-height | _16px_ | - |
+| --rc-tag-medium-padding | _2px 6px_ | - |
+| --rc-tag-large-padding | _var(--rc-padding-base) var(--rc-padding-xs)_ | - |
+| --rc-tag-large-border-radius | _var(--rc-border-radius-md)_ | - |
+| --rc-tag-large-font-size | _var(--rc-font-size-md)_ | - |
+| --rc-tag-round-border-radius | _var(--rc-border-radius-max)_ | - |
+| --rc-tag-danger-color | _var(--rc-danger-color)_ | - |
+| --rc-tag-primary-color | _var(--rc-primary-color)_ | - |
+| --rc-tag-success-color | _var(--rc-success-color)_ | - |
+| --rc-tag-warning-color | _var(--rc-warning-color)_ | - |
+| --rc-tag-default-color | _var(--rc-gray-6)_ | - |
+| --rc-tag-plain-background-color | _var(--rc-white)_ | - |

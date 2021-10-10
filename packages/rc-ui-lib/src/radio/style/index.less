@@ -1,6 +1,18 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 
-.rc-radio {
+:root {
+  --rc-radio-size: @radio-size;
+  --rc-radio-border-color: @radio-border-color;
+  --rc-radio-transition-duration: @radio-transition-duration;
+  --rc-radio-label-margin: @radio-label-margin;
+  --rc-radio-label-color: @radio-label-color;
+  --rc-radio-checked-icon-color: @radio-checked-icon-color;
+  --rc-radio-disabled-icon-color: @radio-disabled-icon-color;
+  --rc-radio-disabled-label-color: @radio-disabled-label-color;
+  --rc-radio-disabled-background-color: @radio-disabled-background-color;
+}
+
+.@{rc-prefix}-radio {
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -16,13 +28,13 @@
   }
 
   &--horizontal {
-    margin-right: @padding-sm;
+    margin-right: var(--rc-padding-sm);
   }
 
   &__icon {
     flex: none;
     height: 1em;
-    font-size: @radio-size;
+    font-size: var(--rc-radio-size);
     line-height: 1em;
     cursor: pointer;
 
@@ -35,8 +47,8 @@
       font-size: 0.8em;
       line-height: 1.25;
       text-align: center;
-      border: 1px solid @radio-border-color;
-      transition-duration: @radio-transition-duration;
+      border: 1px solid var(--rc-radio-border-color);
+      transition-duration: var(--rc-radio-transition-duration);
       transition-property: color, border-color, background-color;
     }
 
@@ -48,9 +60,9 @@
 
     &--checked {
       .van-icon {
-        color: @white;
-        background-color: @radio-checked-icon-color;
-        border-color: @radio-checked-icon-color;
+        color: var(--rc-white);
+        background-color: var(--rc-radio-checked-icon-color);
+        border-color: var(--rc-radio-checked-icon-color);
       }
     }
 
@@ -58,34 +70,34 @@
       cursor: not-allowed;
 
       .van-icon {
-        background-color: @radio-disabled-background-color;
-        border-color: @radio-disabled-icon-color;
+        background-color: var(--rc-radio-disabled-background-color);
+        border-color: var(--rc-radio-disabled-icon-color);
       }
     }
 
     &--disabled&--checked {
       .van-icon {
-        color: @radio-disabled-icon-color;
+        color: var(--rc-radio-disabled-icon-color);
       }
     }
   }
 
   &__label {
-    margin-left: @radio-label-margin;
-    color: @radio-label-color;
-    line-height: @radio-size;
+    margin-left: var(--rc-radio-label-margin);
+    color: var(--rc-radio-label-color);
+    line-height: var(--rc-radio-size);
 
     &--left {
-      margin: 0 @radio-label-margin 0 0;
+      margin: 0 var(--rc-radio-label-margin) 0 0;
     }
 
     &--disabled {
-      color: @radio-disabled-label-color;
+      color: var(--rc-radio-disabled-label-color);
     }
   }
 }
 
-.rc-radio-group {
+.@{rc-prefix}-radio-group {
   &--horizontal {
     display: flex;
     flex-wrap: wrap;

@@ -3,7 +3,7 @@
 ### Install
 
 ```js
-import { Button } from 'rc-ui-lib';
+import { Button } from 'rc-ui-lib'
 ```
 
 ## Usage
@@ -76,9 +76,7 @@ import { Button } from 'rc-ui-lib';
 ### Block Element
 
 ```jsx
-<Button type="primary" block>
-  Block Element
-</Button>
+<Button type="primary" block>Block Element</Button>
 ```
 
 ### Route
@@ -128,10 +126,10 @@ import { Button } from 'rc-ui-lib';
 
 ### Events
 
-| Event      | Description                                             | Arguments           |
-| ---------- | ------------------------------------------------------- | ------------------- |
-| click      | Triggered when click button and not disabled or loading | _event: Event_      |
-| touchstart | Triggered when touch start                              | _event: TouchEvent_ |
+| Event | Description | Arguments |
+| --- | --- | --- |
+| click | Triggered when click button and not disabled or loading | _event: Event_ |
+| touchstart | Triggered when touch start | _event: TouchEvent_ |
 
 ### Slots
 

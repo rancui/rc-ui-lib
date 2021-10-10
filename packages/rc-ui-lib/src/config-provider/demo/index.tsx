@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Rate, Field, Slider } from 'react-vant';
+import { Button, Rate, Field, Slider } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
 import ConfigProvider from '..';
 import './style.less';

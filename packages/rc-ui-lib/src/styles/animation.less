@@ -1,4 +1,4 @@
-@import './themes/index.less';
+@import './var.less';
 
 @keyframes rc-slide-up-enter {
   from {
@@ -102,7 +102,7 @@
   }
 }
 
-.rc-fade {
+.@{rc-prefix}-fade {
   &-enter-active {
     animation: @animation-duration-base rc-fade-in both @animation-timing-function-enter;
   }
@@ -111,7 +111,7 @@
   }
 }
 
-.rc-slide-up {
+.@{rc-prefix}-slide-up {
   &-enter-active {
     animation: @animation-duration-base rc-slide-up-enter both @animation-timing-function-enter;
   }
@@ -121,7 +121,7 @@
   }
 }
 
-.rc-slide-down {
+.@{rc-prefix}-slide-down {
   &-enter-active {
     animation: rc-slide-down-enter @animation-duration-base both @animation-timing-function-enter;
   }
@@ -131,7 +131,7 @@
   }
 }
 
-.rc-slide-left {
+.@{rc-prefix}-slide-left {
   &-enter-active {
     animation: rc-slide-left-enter @animation-duration-base both @animation-timing-function-enter;
   }
@@ -141,7 +141,7 @@
   }
 }
 
-.rc-slide-right {
+.@{rc-prefix}-slide-right {
   &-enter-active {
     animation: rc-slide-right-enter @animation-duration-base both @animation-timing-function-enter;
   }
@@ -151,7 +151,7 @@
   }
 }
 
-.rc-zoom {
+.@{rc-prefix}-zoom {
   &-enter-active {
     animation: @animation-duration-base rc-zoom-in both @animation-timing-function-enter;
   }

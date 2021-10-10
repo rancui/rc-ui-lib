@@ -1,11 +1,16 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 
-.rc-overlay {
+:root {
+  --rc-overlay-z-index: @overlay-z-index;
+  --rc-overlay-background-color: @overlay-background-color;
+}
+
+.@{rc-prefix}-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: @overlay-z-index;
+  z-index: var(--rc-overlay-z-index);
   width: 100%;
   height: 100%;
-  background-color: @overlay-background-color;
+  background-color: var(--rc-overlay-background-color);
 }

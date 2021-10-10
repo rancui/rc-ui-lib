@@ -175,7 +175,7 @@ function <span class="fstat-no" title="function not covered" >kebabCase(</span>s
 function <span class="fstat-no" title="function not covered" >mapThemeVarsToCSSVars(</span>themeVars: Record&lt;string, string | number&gt;) {
   const cssVars: Record&lt;string, string | number&gt; = <span class="cstat-no" title="statement not covered" >{};</span>
 <span class="cstat-no" title="statement not covered" >  Object.keys(themeVars).forEach(<span class="fstat-no" title="function not covered" >(k</span>ey) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    cssVars[`--rv-${kebabCase(key)}`] = themeVars[key];</span>
+<span class="cstat-no" title="statement not covered" >    cssVars[`--rc-${kebabCase(key)}`] = themeVars[key];</span>
   });
 <span class="cstat-no" title="statement not covered" >  return cssVars;</span>
 }

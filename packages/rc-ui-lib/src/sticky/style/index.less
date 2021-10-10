@@ -1,8 +1,12 @@
-@import '../../styles/themes/default.less';
+@import './var.less';
 
-.rc-sticky {
+:root {
+  --rc-sticky-z-index: @sticky-z-index;
+}
+
+.@{rc-prefix}-sticky {
   &--fixed {
     position: fixed;
-    z-index: @sticky-z-index;
+    z-index: var(--rc-sticky-z-index);
   }
 }

@@ -1,13 +1,16 @@
-@import '../../styles/themes/default.less';
+@import '../../styles/var.less';
 
 .demo-swipe {
   padding-bottom: 30px;
+}
+
+.demo-swipe, .demo-swipe-popup {
 
   .p-default {
     padding: 0 @padding-md;
   }
 
-  .rc-swipe {
+  .@{rc-prefix}-swipe {
     &-item {
       color: @white;
       font-size: 20px;
@@ -35,7 +38,7 @@
   }
 
   &--vertical {
-    .rc-swipe-item {
+    .@{rc-prefix}-swipe-item {
       line-height: 200px;
     }
   }

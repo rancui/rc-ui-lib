@@ -157,7 +157,7 @@ import { Radio } from 'rc-ui-lib';
 | labelDisabled | 是否禁用文本内容点击      | _boolean_                              | `false`   |
 | labelPosition | 文本位置，可选值为 `left` | _string_                               | `right`   |
 | iconSize      | 图标大小，默认单位为`px`  | _number \| string_                     | `21px`    |
-| checkedColor  | 选中状态颜色              | _string_                               | `#1989fa` |
+| checkedColor  | 选中状态颜色              | _string_                               | `#3f45ff` |
 | iconRender    | 自定义图标                | _({ checked, disabled }) => ReactNode_ | -         |
 
 ### RadioGroup Props
@@ -168,7 +168,7 @@ import { Radio } from 'rc-ui-lib';
 | disabled     | 是否禁用所有单选框                   | _boolean_          | `false`    |
 | direction    | 排列方向，可选值为`horizontal`       | _string_           | `vertical` |
 | iconSize     | 所有单选框的图标大小，默认单位为`px` | _number \| string_ | `21px`     |
-| checkedColor | 所有单选框的选中状态颜色             | _string_           | `#1989fa`  |
+| checkedColor | 所有单选框的选中状态颜色             | _string_           | `#3f45ff`  |
 
 ### Radio Events
 
@@ -182,18 +182,21 @@ import { Radio } from 'rc-ui-lib';
 | -------- | ------------------------ | -------------- |
 | onChange | 当绑定值变化时触发的事件 | _name: string_ |
 
+
+## 主题定制
+
 ### 样式变量
 
-组件提供了下列 Less 变量，可用于自定义样式，使用方法请参考[主题定制](#/zh-CN/theme)。
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                             | 默认值                     | 描述 |
-| -------------------------------- | -------------------------- | ---- |
-| @radio-size                      | `20px`                     | -    |
-| @radio-border-color              | `@gray-5`                  | -    |
-| @radio-transition-duration       | `@animation-duration-fast` | -    |
-| @radio-label-margin              | `@padding-xs`              | -    |
-| @radio-label-color               | `@text-color`              | -    |
-| @radio-checked-icon-color        | `@blue`                    | -    |
-| @radio-disabled-icon-color       | `@white`                   | -    |
-| @radio-disabled-label-color      | `@gray-5`                  | -    |
-| @radio-disabled-background-color | `#CCCCCC`                  | -    |
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-radio-size | _20px_ | - |
+| --rc-radio-border-color | _var(--rc-gray-5)_ | - |
+| --rc-radio-transition-duration | _var(--rc-animation-duration-fast)_ | - |
+| --rc-radio-label-margin | _var(--rc-padding-xs)_ | - |
+| --rc-radio-label-color | _var(--rc-text-color)_ | - |
+| --rc-radio-checked-icon-color | _var(--rc-primary-color)_ | - |
+| --rc-radio-disabled-icon-color | _var(--rc-gray-5)_ | - |
+| --rc-radio-disabled-label-color | _var(--rc-gray-5)_ | - |
+| --rc-radio-disabled-background-color | _var(--rc-border-color)_ | - |

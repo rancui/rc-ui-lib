@@ -54,16 +54,6 @@ export default (): React.ReactNode => {
           <div className="child" />
         </Badge>
       </DemoBlock>
-      <DemoBlock title="offset">
-        <Badge content={5} offset={[2,4]}>
-          <div className="child" />
-        </Badge>
-      </DemoBlock>
-      <DemoBlock title="showZero为0时，badge不展示">
-        <Badge content={0} showZero={false}>
-          <div className="child" />
-        </Badge>
-      </DemoBlock>
       <DemoBlock title="独立展示">
         <Badge content="20" style={{ marginRight: 16 }} />
         <Badge content="200" max="99" />

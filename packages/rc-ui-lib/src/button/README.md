@@ -116,11 +116,9 @@ import { Button } from 'rc-ui-lib';
 通过 `Button.Group` 将多个按钮并排显示。
 
 ```jsx
-<Button.Group>
+ <Button.Group>
   <Button block>上一步</Button>
-  <Button block type="primary">
-    下一步
-  </Button>
+  <Button block type="primary" >下一步</Button>
 </Button.Group>
 ```
 
@@ -156,3 +154,56 @@ import { Button } from 'rc-ui-lib';
 | 事件名  | 说明                                     | 回调参数       |
 | ------- | ---------------------------------------- | -------------- |
 | onClick | 点击按钮，且按钮状态不为加载或禁用时触发 | _event: Event_ |
+
+### 类型定义
+
+组件导出以下类型定义：
+
+```js
+import type { ButtonType, ButtonSize } from 'rc-ui-lib';
+```
+
+
+
+## 主题定制
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
+
+| 名称 | 默认值 | 描述 |
+| --- | --- | --- |
+| --rc-button-mini-height | _24px_ | - |
+| --rc-button-mini-padding | _0 var(--rc-padding-base)_ | - |
+| --rc-button-mini-font-size | _var(--rc-font-size-xs)_ | - |
+| --rc-button-small-height | _32px_ | - |
+| --rc-button-small-padding | _0 var(--rc-padding-xs)_ | - |
+| --rc-button-small-font-size | _var(--rc-font-size-sm)_ | - |
+| --rc-button-normal-font-size | _var(--rc-font-size-md)_ | - |
+| --rc-button-normal-padding | _0 15px_ | - |
+| --rc-button-large-height | _50px_ | - |
+| --rc-button-default-height | _44px_ | - |
+| --rc-button-default-line-height | _1.2_ | - |
+| --rc-button-default-font-size | _var(--rc-font-size-lg)_ | - |
+| --rc-button-default-color | _var(--rc-text-color)_ | - |
+| --rc-button-default-background-color | _var(--rc-white)_ | - |
+| --rc-button-default-border-color | _var(--rc-border-color)_ | - |
+| --rc-button-primary-color | _var(--rc-white)_ | - |
+| --rc-button-primary-background-color | _var(--rc-primary-color)_ | - |
+| --rc-button-primary-border-color | _var(--rc-primary-color)_ | - |
+| --rc-button-success-color | _var(--rc-white)_ | - |
+| --rc-button-success-background-color | _var(--rc-success-color)_ | - |
+| --rc-button-success-border-color | _var(--rc-success-color)_ | - |
+| --rc-button-danger-color | _var(--rc-white)_ | - |
+| --rc-button-danger-background-color | _var(--rc-danger-color)_ | - |
+| --rc-button-danger-border-color | _var(--rc-danger-color)_ | - |
+| --rc-button-warning-color | _var(--rc-white)_ | - |
+| --rc-button-warning-background-color | _var(--rc-orange)_ | - |
+| --rc-button-warning-border-color | _var(--rc-orange)_ | - |
+| --rc-button-border-width | _var(--rc-border-width-base)_ | - |
+| --rc-button-border-radius | _var(--rc-border-radius-sm)_ | - |
+| --rc-button-round-border-radius | _var(--rc-border-radius-max)_ | - |
+| --rc-button-plain-background-color | _var(--rc-white)_ | - |
+| --rc-button-disabled-opacity | _var(--rc-disabled-opacity)_ | - |
+| --rc-button-icon-size | _1.2em_ | - |
+| --rc-button-loading-icon-size | _20px_ | - |

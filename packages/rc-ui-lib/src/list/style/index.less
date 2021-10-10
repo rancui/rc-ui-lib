@@ -1,0 +1,31 @@
+@import './var.less';
+
+:root {
+  --rc-list-text-color: @list-text-color;
+  --rc-list-text-font-size: @list-text-font-size;
+  --rc-list-text-line-height: @list-text-line-height;
+  --rc-list-loading-icon-size: @list-loading-icon-size;
+}
+
+.@{rc-prefix}-list {
+  &__loading,
+  &__finished-text,
+  &__error-text {
+    color: var(--rc-list-text-color);
+    font-size: var(--rc-list-text-font-size);
+    line-height: var(--rc-list-text-line-height);
+    text-align: center;
+  }
+
+  &__placeholder {
+    height: 0;
+    pointer-events: none;
+  }
+
+  &__loading-icon {
+    .@{rc-prefix}-loading__spinner {
+      width: var(--rc-list-loading-icon-size);
+      height: var(--rc-list-loading-icon-size);
+    }
+  }
+}

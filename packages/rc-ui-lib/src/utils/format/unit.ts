@@ -8,7 +8,9 @@ export function addUnit(value?: string | number): string | undefined {
     return undefined;
   }
 
-  return isNumeric(value) ? `${value}px` : String(value);
+  // eslint-disable-next-line no-param-reassign
+  value = String(value);
+  return isNumeric(value) ? `${value}px` : value;
 }
 
 export function getSizeStyle(originSize?: string | number) {
