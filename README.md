@@ -19,11 +19,7 @@
 
 ## 安装
 
-```js
-npm install rc-ui-lib
-```
-
-<!-- [![rc-ui-lib](https://nodei.co/npm/rc-ui-lib.png)](https://npmjs.org/package/rc-ui-lib) -->
+[![rc-ui-lib](https://nodei.co/npm/rc-ui-lib.png)](https://npmjs.org/package/rc-ui-lib)
 
 ## 快速开始
 

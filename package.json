@@ -12,7 +12,7 @@
     "build:linter": "lerna exec --scope @rancui/linter yarn build",
     "build:site": "lerna exec --scope rc-ui-lib yarn build:site",
     "release:site": "lerna exec --scope rc-ui-lib yarn release:site",
-    "release": "rc-cli release",
+    "release": "lerna exec --scope rc-ui-lib yarn release",
     "clean": "lerna clean -y",
     "publish": "lerna publish"
   },
