@@ -1,0 +1,85 @@
+:root {
+  --rc-slider-active-background-color: var(--rc-primary-color);
+  --rc-slider-inactive-background-color: var(--rc-gray-3);
+  --rc-slider-disabled-opacity: var(--rc-disabled-opacity);
+  --rc-slider-bar-height: 2px;
+  --rc-slider-button-width: 24px;
+  --rc-slider-button-height: 24px;
+  --rc-slider-button-border-radius: 50%;
+  --rc-slider-button-background-color: var(--rc-white);
+  --rc-slider-button-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.rc-slider {
+  position: relative;
+  width: 100%;
+  height: var(--rc-slider-bar-height);
+  background-color: var(--rc-slider-inactive-background-color);
+  border-radius: var(--rc-border-radius-max);
+  cursor: pointer;
+}
+.rc-slider::before {
+  position: absolute;
+  top: calc(var(--rc-padding-xs) * -1);
+  right: 0;
+  bottom: calc(var(--rc-padding-xs) * -1);
+  left: 0;
+  content: '';
+}
+.rc-slider__bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--rc-slider-active-background-color);
+  border-radius: inherit;
+  transition: all var(--rc-animation-duration-fast);
+}
+.rc-slider__button {
+  width: var(--rc-slider-button-width);
+  height: var(--rc-slider-button-height);
+  background-color: var(--rc-slider-button-background-color);
+  border-radius: var(--rc-slider-button-border-radius);
+  box-shadow: var(--rc-slider-button-box-shadow);
+}
+.rc-slider__button-wrapper {
+  position: absolute;
+  top: 50%;
+  cursor: grab;
+}
+.rc-slider__button-wrapper--right {
+  right: 0;
+  transform: translate3d(50%, -50%, 0);
+}
+.rc-slider__button-wrapper--left {
+  left: 0;
+  transform: translate3d(-50%, -50%, 0);
+}
+.rc-slider--disabled {
+  cursor: not-allowed;
+  opacity: var(--rc-slider-disabled-opacity);
+}
+.rc-slider--disabled .rc-slider__button-wrapper {
+  cursor: not-allowed;
+}
+.rc-slider--vertical {
+  display: inline-block;
+  width: var(--rc-slider-bar-height);
+  height: 100%;
+}
+.rc-slider--vertical .rc-slider__button-wrapper--right {
+  top: auto;
+  right: 50%;
+  bottom: 0;
+  transform: translate3d(50%, 50%, 0);
+}
+.rc-slider--vertical .rc-slider__button-wrapper--left {
+  top: 0;
+  right: 50%;
+  left: auto;
+  transform: translate3d(50%, -50%, 0);
+}
+.rc-slider--vertical::before {
+  top: 0;
+  right: calc(var(--rc-padding-xs) * -1);
+  bottom: 0;
+  left: calc(var(--rc-padding-xs) * -1);
+}

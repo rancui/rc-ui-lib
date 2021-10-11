@@ -18,13 +18,13 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
   style,
   ...props
 }) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('grid-item', prefixCls);
   const { index, parent } = props;
   if (!parent) {
     if (process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line no-console
-      console.error('[React Vant] <GridItem> must be a child component of <Grid>.');
+      console.error('[rc-ui-lib] <GridItem> must be a child component of <Grid>.');
     }
   }
 

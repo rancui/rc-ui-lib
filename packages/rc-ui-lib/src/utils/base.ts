@@ -35,6 +35,7 @@ export function get(object: any, path: string): any {
 
 export type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function pick<T, U extends keyof T>(
   obj: T,
   keys: ReadonlyArray<U>,

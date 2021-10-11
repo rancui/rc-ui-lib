@@ -106,10 +106,10 @@ module.exports = {
               //   path: 'calendar',
               //   title: 'Calendar 日历',
               // },
-              // {
-              //   path: 'cascader',
-              //   title: 'Cascader 级联选择',
-              // },
+              {
+                path: 'cascader',
+                title: 'Cascader 级联选择',
+              },
               {
                 path: 'checkbox',
                 title: 'Checkbox 复选框',
@@ -138,18 +138,18 @@ module.exports = {
                 path: 'radio',
                 title: 'Radio 单选框',
               },
-              // {
-              //   path: 'rate',
-              //   title: 'Rate 评分',
-              // },
+              {
+                path: 'rate',
+                title: 'Rate 评分',
+              },
               // {
               //   path: 'search',
               //   title: 'Search 搜索',
               // },
-              // {
-              //   path: 'slider',
-              //   title: 'Slider 滑块',
-              // },
+              {
+                path: 'slider',
+                title: 'Slider 滑块',
+              },
               // {
               //   path: 'stepper',
               //   title: 'Stepper 步进器',
@@ -158,10 +158,10 @@ module.exports = {
                 path: 'switch',
                 title: 'Switch 开关',
               },
-              // {
-              //   path: 'uploader',
-              //   title: 'Uploader 文件上传',
-              // },
+              {
+                path: 'uploader',
+                title: 'Uploader 文件上传',
+              },
             ],
           },
           {
@@ -183,22 +183,22 @@ module.exports = {
                 path: 'loading',
                 title: 'Loading 加载',
               },
-              // {
-              //   path: 'notify',
-              //   title: 'Notify 消息通知',
-              // },
+              {
+                path: 'notify',
+                title: 'Notify 消息通知',
+              },
               {
                 path: 'overlay',
                 title: 'Overlay 遮罩层',
               },
-              // {
-              //   path: 'pull-refresh',
-              //   title: 'PullRefresh 下拉刷新',
-              // },
-              // {
-              //   path: 'share-sheet',
-              //   title: 'ShareSheet 分享面板',
-              // },
+              {
+                path: 'pull-refresh',
+                title: 'PullRefresh 下拉刷新',
+              },
+              {
+                path: 'share-sheet',
+                title: 'ShareSheet 分享面板',
+              },
               {
                 path: 'swipe-cell',
                 title: 'SwipeCell 滑动单元格',
@@ -212,46 +212,46 @@ module.exports = {
                 path: 'badge',
                 title: 'Badge 徽标',
               },
-              // {
-              //   path: 'circle',
-              //   title: 'Circle 环形进度条',
-              // },
-              // {
-              //   path: 'collapse',
-              //   title: 'Collapse 折叠面板',
-              // },
+              {
+                path: 'circle',
+                title: 'Circle 环形进度条',
+              },
+              {
+                path: 'collapse',
+                title: 'Collapse 折叠面板',
+              },
               // {
               //   path: 'count-down',
               //   title: 'CountDown 倒计时',
               // },
-              // {
-              //   path: 'divider',
-              //   title: 'Divider 分割线',
-              // },
+              {
+                path: 'divider',
+                title: 'Divider 分割线',
+              },
               {
                 path: 'empty',
                 title: 'Empty 空状态',
               },
-              // {
-              //   path: 'image-preview',
-              //   title: 'ImagePreview 图片预览',
-              // },
-              // {
-              //   path: 'list',
-              //   title: 'List 列表',
-              // },
-              // {
-              //   path: 'skeleton',
-              //   title: 'Skeleton 骨架屏',
-              // },
+              {
+                path: 'image-preview',
+                title: 'ImagePreview 图片预览',
+              },
+              {
+                path: 'list',
+                title: 'List 列表',
+              },
+              {
+                path: 'skeleton',
+                title: 'Skeleton 骨架屏',
+              },
               // {
               //   path: 'steps',
               //   title: 'Steps 步骤条',
               // },
-              // {
-              //   path: 'notice-bar',
-              //   title: 'NoticeBar 通知栏',
-              // },
+              {
+                path: 'notice-bar',
+                title: 'NoticeBar 通知栏',
+              },
               // {
               //   path: 'popover',
               //   title: 'Popover 气泡弹出框',
@@ -305,10 +305,10 @@ module.exports = {
                 path: 'tabs',
                 title: 'Tabs 标签页',
               },
-              // {
-              //   path: 'tabbar',
-              //   title: 'Tabbar 标签栏',
-              // },
+              {
+                path: 'tabbar',
+                title: 'Tabbar 标签栏',
+              },
             ],
           },
           {

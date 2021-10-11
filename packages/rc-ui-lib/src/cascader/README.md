@@ -169,8 +169,6 @@ const options = [
 
 通过 `value` 属性可以 Cascader 成为受控组件。
 
-> 此处 options 数据和右侧 demo 数据不一致，完整数据请看 [options](https://github.com/3lang3/rc-ui-lib/blob/main/src/cascader/demo/index.tsx#L7-L128)
-
 ```jsx
 import { useState } from 'react';
 import { Cascader, Button, Popup, Field } from 'rc-ui-lib';
@@ -283,28 +281,25 @@ export default () => {
 | onClose    | 点击关闭图标时触发     | -                                      |
 | onClickTab | 点击标签时触发         | _tabIndex: number, title: string_      |
 
-
-
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                                   | 默认值                    | 描述 |
-| -------------------------------------- | ------------------------- | ---- |
-| --rc-cascader-header-height           | _48px_                    | -    |
+| 名称                                  | 默认值                   | 描述 |
+| ------------------------------------- | ------------------------ | ---- |
+| --rc-cascader-header-height           | _48px_                   | -    |
 | --rc-cascader-header-padding          | _0 var(--rc-padding-md)_ | -    |
 | --rc-cascader-title-font-size         | _var(--rc-font-size-lg)_ | -    |
-| --rc-cascader-title-line-height       | _20px_                    | -    |
-| --rc-cascader-close-icon-size         | _22px_                    | -    |
+| --rc-cascader-title-line-height       | _20px_                   | -    |
+| --rc-cascader-close-icon-size         | _22px_                   | -    |
 | --rc-cascader-close-icon-color        | _var(--rc-gray-5)_       | -    |
 | --rc-cascader-close-icon-active-color | _var(--rc-gray-6)_       | -    |
-| --rc-cascader-selected-icon-size      | _18px_                    | -    |
-| --rc-cascader-tabs-height             | _48px_                    | -    |
+| --rc-cascader-selected-icon-size      | _18px_                   | -    |
+| --rc-cascader-tabs-height             | _48px_                   | -    |
 | --rc-cascader-active-color            | _var(--rc-danger-color)_ | -    |
-| --rc-cascader-options-height          | _384px_                   | -    |
+| --rc-cascader-options-height          | _384px_                  | -    |
 | --rc-cascader-option-disabled-color   | _van(--rc-gray-5)_       | -    |
 | --rc-cascader-tab-color               | _var(--rc-text-color)_   | -    |
 | --rc-cascader-unselected-tab-color    | _var(--rc-gray-6)_       | -    |

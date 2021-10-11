@@ -15,7 +15,7 @@ const TabbarItem: React.FC<TabbarItemProps> = (props) => {
   const { activeColor, inactiveColor } = parent;
   if (!parent) {
     if (process.env.NODE_ENV !== 'production') {
-      console.error('[React Vant] <TabbarItem> must be a child component of <Tabbar>.');
+      console.error('[rc-ui-lib] <TabbarItem> must be a child component of <Tabbar>.');
     }
   }
 

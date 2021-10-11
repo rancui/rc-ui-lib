@@ -13,7 +13,7 @@ const StepsItem: React.FC<StepsItemProps> = ({ children, ...props }) => {
   if (!parentProps) {
     if (process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line no-console
-      console.error('[React Vant] <Step> must be a child component of <Steps>.');
+      console.error('[rc-ui-lib] <Step> must be a child component of <Steps>.');
     }
   }
 

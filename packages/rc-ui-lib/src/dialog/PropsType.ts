@@ -12,7 +12,7 @@ export interface DialogProps extends BaseTypeProps {
   closeable?: boolean;
   /**
    * 关闭按钮icon值
-   * @see https://3lang3.github.io/rc-ui-lib/#/zh-CN/icon
+   * @see https://rancui.github.io/rc-ui-lib/#/zh-CN/icon
    */
   closeIcon?: string | React.ReactNode;
   /** 标题 */

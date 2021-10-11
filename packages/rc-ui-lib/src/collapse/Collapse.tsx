@@ -18,14 +18,14 @@ function validateModelValue(
     return false;
   }
   if (!accordion && !Array.isArray(modelValue)) {
-    console.error('[React Vant] Collapse: "value" should be Array in non-accordion mode');
+    console.error('[rc-ui-lib] Collapse: "value" should be Array in non-accordion mode');
     return false;
   }
   return true;
 }
 
 const Collapse: React.FC<CollapseProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('collapse', prefixCls);
 
   const innerEffect = useRef(false);
@@ -71,11 +71,13 @@ const Collapse: React.FC<CollapseProps> = (props) => {
   return (
     <CollapseContext.Provider value={{ isExpanded, toggle }}>
       <div className={classnames(bem(), { [BORDER_TOP_BOTTOM]: props.border })}>
-        {React.Children.toArray(props.children).filter(Boolean).map((child: ReactElement, index: number) =>
-          React.cloneElement(child, {
-            index,
-          }),
-        )}
+        {React.Children.toArray(props.children)
+          .filter(Boolean)
+          .map((child: ReactElement, index: number) =>
+            React.cloneElement(child, {
+              index,
+            }),
+          )}
       </div>
     </CollapseContext.Provider>
   );
