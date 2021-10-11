@@ -59,7 +59,7 @@ async function compileDir(dir: string) {
       }
 
       return compileFile(filePath);
-    })
+    }),
   );
 }
 
@@ -209,10 +209,6 @@ export async function build() {
     await clean();
     await installDependencies();
     await runBuildTasks();
-
-    // if (cmd.watch) {
-    //   watchFileChange();
-    // }
   } catch (err) {
     consola.error('Build failed');
     process.exit(1);
