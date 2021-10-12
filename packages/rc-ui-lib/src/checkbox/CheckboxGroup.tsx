@@ -14,9 +14,8 @@ import { WithDisplayNameReactElement } from '../utils';
 import useRefs from '../hooks/use-refs';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-
 const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((props, ref) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('checkbox-group', prefixCls);
   const [childrenRefs, setChildrenRefs] = useRefs();
   const [checked, setChecked] = useMergedState({
@@ -46,9 +45,9 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
     props.onChange(names);
   };
 
-  const toggle = (name: Array<string | number>) => {
-    setChecked(name);
-    props.onChange?.(name);
+  const toggle = (names: Array<string | number>) => {
+    setChecked(names);
+    props.onChange?.(names);
   };
 
   useImperativeHandle(ref, () => ({
@@ -58,10 +57,12 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
   return (
     <CheckBoxContext.Provider value={{ parent: { props }, toggle, checked }}>
       <div className={classnames(bem([props.direction]))}>
-        {React.Children.toArray(props.children).filter(Boolean).map((child: WithDisplayNameReactElement, index: number) => {
-          if (child.type.displayName !== 'Checkbox') return child;
-          return React.cloneElement(child, { ref: setChildrenRefs(index) });
-        })}
+        {React.Children.toArray(props.children)
+          .filter(Boolean)
+          .map((child: WithDisplayNameReactElement, index: number) => {
+            if (child.type.displayName !== 'Checkbox') return child;
+            return React.cloneElement(child, { ref: setChildrenRefs(index) });
+          })}
       </div>
     </CheckBoxContext.Provider>
   );

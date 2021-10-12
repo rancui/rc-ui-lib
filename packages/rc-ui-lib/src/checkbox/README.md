@@ -94,14 +94,14 @@ import { Checkbox } from 'rc-ui-lib';
 
 ### 复选框组
 
-复选框可以与复选框组一起使用，复选框组通过 `defaultChecked` 数组默认复选框的勾选状态。
+复选框可以与复选框组一起使用，复选框组通过 `defaultValue` 数组默认复选框的勾选状态。
 
 ```js
 const checked = ['a', 'b'];
 ```
 
 ```jsx
-<CheckboxGroup defaultChecked="checked">
+<CheckboxGroup defaultValue="checked">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
 </CheckboxGroup>
@@ -112,7 +112,7 @@ const checked = ['a', 'b'];
 将 `direction` 属性设置为 `horizontal` 后，复选框组会变成水平排列。
 
 ```jsx
-<CheckboxGroup defaultChecked="checked" direction="horizontal">
+<CheckboxGroup defaultValue="checked" direction="horizontal">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
 </CheckboxGroup>
@@ -123,7 +123,7 @@ const checked = ['a', 'b'];
 通过 `max` 属性可以限制复选框组的最大可选数。
 
 ```jsx
-<CheckboxGroup defaultChecked="result" max={2}>
+<CheckboxGroup defaultValue="result" max={2}>
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
   <Checkbox name="c">复选框 c</Checkbox>
@@ -162,7 +162,7 @@ export default () => {
 
 ### 搭配单元格组件使用
 
-此时你需要再引入 `Cell` 和 `Cell.Group` 组件。
+此时你需要再引入 `Cell` 和 `CellGroup` 组件。
 
 ```jsx
 export default () => {
@@ -177,7 +177,7 @@ export default () => {
 
   return (
     <CheckboxGroup value={value}>
-      <Cell.Group>
+      <CellGroup>
         <Cell
           clickable
           title="单选框1"
@@ -192,7 +192,7 @@ export default () => {
           onClick={() => toggle('b')}
           rightIcon={<Checkbox name="b" />}
         />
-      </Cell.Group>
+      </CellGroup>
     </CheckboxGroup>
   );
 };
@@ -218,15 +218,15 @@ export default () => {
 
 ### CheckboxGroup Props
 
-| 参数           | 说明                                  | 类型               | 默认值     |
-| -------------- | ------------------------------------- | ------------------ | ---------- |
-| value          | 所有选中项的标识符                    | _any[]_            | -          |
-| defaultChecked | 默认选中项的标识符                    | _any[]_            | -          |
-| disabled       | 是否禁用所有复选框                    | _boolean_          | `false`    |
-| max            | 最大可选数，`0`为无限制               | _number \| string_ | `0`        |
-| direction      | 排列方向，可选值为 `horizontal`       | _string_           | `vertical` |
-| iconSize       | 所有复选框的图标大小，默认单位为 `px` | _number \| string_ | `20px`     |
-| checkedColor   | 所有复选框的选中状态颜色              | _string_           | `#3f45ff`  |
+| 参数         | 说明                                  | 类型               | 默认值     |
+| ------------ | ------------------------------------- | ------------------ | ---------- |
+| value        | 所有选中项的标识符                    | _any[]_            | -          |
+| defaultValue | 默认选中项的标识符                    | _any[]_            | -          |
+| disabled     | 是否禁用所有复选框                    | _boolean_          | `false`    |
+| max          | 最大可选数，`0`为无限制               | _number \| string_ | `0`        |
+| direction    | 排列方向，可选值为 `horizontal`       | _string_           | `vertical` |
+| iconSize     | 所有复选框的图标大小，默认单位为 `px` | _number \| string_ | `20px`     |
+| checkedColor | 所有复选框的选中状态颜色              | _string_           | `#3f45ff`  |
 
 ### Checkbox Events
 
