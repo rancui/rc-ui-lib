@@ -1,18 +1,12 @@
 import glob from 'fast-glob';
 import { join, parse } from 'path';
 import { existsSync, readdirSync } from 'fs-extra';
-import {
-  pascalize,
-  removeExt,
-  getVantConfig,
-  smartOutputFile,
-  normalizePath,
-} from '../common';
+import { pascalize, removeExt, getVantConfig, smartOutputFile, normalizePath } from '../common';
 import {
   SRC_DIR,
   DOCS_DIR,
   getPackageJson,
-  ZHPFE_CONFIG_FILE,
+  VANT_CONFIG_FILE,
   SITE_DESKTOP_SHARED_FILE,
 } from '../common/constant';
 
@@ -63,22 +57,20 @@ function resolveDocuments(components: string[]): DocumentItem[] {
     });
   }
 
-  const staticDocs = glob
-    .sync(normalizePath(join(DOCS_DIR, '**/*.md')))
-    .map((path) => {
-      const pairs = parse(path).name.split('.');
-      return {
-        name: formatName(pairs[0], pairs[1] || defaultLang),
-        path,
-      };
-    });
+  const staticDocs = glob.sync(normalizePath(join(DOCS_DIR, '**/*.md'))).map((path) => {
+    const pairs = parse(path).name.split('.');
+    return {
+      name: formatName(pairs[0], pairs[1] || defaultLang),
+      path,
+    };
+  });
 
   return [...staticDocs, ...docs.filter((item) => existsSync(item.path))];
 }
 
 // config.js
 function genImportConfig() {
-  return `import config from '${removeExt(normalizePath(ZHPFE_CONFIG_FILE))}';`;
+  return `import config from '${removeExt(normalizePath(VANT_CONFIG_FILE))}';`;
 }
 
 function genExportConfig() {
@@ -92,9 +84,7 @@ function genExportVersion() {
 // 引入所有.md
 // ps: 这里需要使用 loader 转译 markdown
 function genImportDocuments(items: DocumentItem[]) {
-  return items
-    .map((item) => `import ${item.name} from '${normalizePath(item.path)}';`)
-    .join('\n');
+  return items.map((item) => `import ${item.name} from '${normalizePath(item.path)}';`).join('\n');
 }
 
 // 导出所有.md
