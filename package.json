@@ -38,9 +38,9 @@
     }
   },
   "lint-staged": {
-    "./packages/rc-ui-lib/src/**/*.{ts,tsx,js,less}": "prettier --write",
-    "./packages/rc-ui-lib/src/**/*.{ts,tsx,js}": "eslint --fix",
-    "./packages/rc-ui-lib/src/**/*.{css,less}": "stylelint --fix"
+    "*.{ts,tsx,js,less}": "prettier --write",
+    "*.{ts,tsx,js}": "eslint --fix",
+    "*.{css,less}": "stylelint --fix"
   },
   "dependencies": {
     "@rancui/cli": "^1.0.0"
