@@ -18,10 +18,10 @@ import { Swipe } from 'rc-ui-lib';
 
 ```jsx
 <Swipe className="my-swipe" autoplay={3000}>
-  <Swipe.Item>1</Swipe.Item>
-  <Swipe.Item>2</Swipe.Item>
-  <Swipe.Item>3</Swipe.Item>
-  <Swipe.Item>4</Swipe.Item>
+  <SwipeItem>1</SwipeItem>
+  <SwipeItem>2</SwipeItem>
+  <SwipeItem>3</SwipeItem>
+  <SwipeItem>4</SwipeItem>
 </Swipe>
 
 <style>
@@ -48,10 +48,10 @@ import { Swipe } from 'rc-ui-lib';
     },
   }}
 >
-  <Swipe.Item>1</Swipe.Item>
-  <Swipe.Item>2</Swipe.Item>
-  <Swipe.Item>3</Swipe.Item>
-  <Swipe.Item>4</Swipe.Item>
+  <SwipeItem>1</SwipeItem>
+  <SwipeItem>2</SwipeItem>
+  <SwipeItem>3</SwipeItem>
+  <SwipeItem>4</SwipeItem>
 </Swipe>
 
 <style>
@@ -71,9 +71,9 @@ import { Swipe } from 'rc-ui-lib';
 ```jsx
 <Swipe autoplay={3000} lazy>
   {images.map((item) => (
-    <Swipe.Item key={item}>
+    <SwipeItem key={item}>
       <img className="swiper-lazy" src={item} alt="" />
-    </Swipe.Item>
+    </SwipeItem>
   ))}
 </Swipe>
 ```
@@ -91,10 +91,10 @@ const images = [
 
 ```jsx
 <Swipe onChange="{onChange}">
-  <Swipe.Item>1</Swipe.Item>
-  <Swipe.Item>2</Swipe.Item>
-  <Swipe.Item>3</Swipe.Item>
-  <Swipe.Item>4</Swipe.Item>
+  <SwipeItem>1</SwipeItem>
+  <SwipeItem>2</SwipeItem>
+  <SwipeItem>3</SwipeItem>
+  <SwipeItem>4</SwipeItem>
 </Swipe>
 ```
 
@@ -110,10 +110,10 @@ const onChange = (index: number) => Toast(`当前 Swipe 索引：${index}`);
 
 ```jsx
 <Swipe autoplay={3000} vertical style={{ height: '200px' }} className="demo-swipe--vertical">
-  <Swipe.Item>1</Swipe.Item>
-  <Swipe.Item>2</Swipe.Item>
-  <Swipe.Item>3</Swipe.Item>
-  <Swipe.Item>4</Swipe.Item>
+  <SwipeItem>1</SwipeItem>
+  <SwipeItem>2</SwipeItem>
+  <SwipeItem>3</SwipeItem>
+  <SwipeItem>4</SwipeItem>
 </Swipe>
 ```
 
@@ -159,15 +159,14 @@ export default () => {
   }
   return (
     <Swipe ref={ref} autoplay={3000}>
-      <Swipe.Item>1</Swipe.Item>
-      <Swipe.Item>2</Swipe.Item>
-      <Swipe.Item>3</Swipe.Item>
-      <Swipe.Item>4</Swipe.Item>
+      <SwipeItem>1</SwipeItem>
+      <SwipeItem>2</SwipeItem>
+      <SwipeItem>3</SwipeItem>
+      <SwipeItem>4</SwipeItem>
     </Swipe>
   )
 }
 ```
-
 
 ## 主题定制
 
@@ -175,11 +174,11 @@ export default () => {
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-swipe-indicator-size | _6px_ | - |
-| --rc-swipe-indicator-margin | _var(--rc-padding-sm)_ | - |
-| --rc-swipe-indicator-active-opacity | _1_ | - |
-| --rc-swipe-indicator-inactive-opacity | _0.3_ | - |
-| --rc-swipe-indicator-active-background-color | _var(--rc-primary-color)_ | - |
-| --rc-swipe-indicator-inactive-background-color | _var(--rc-border-color)_ | - |
+| 名称                                           | 默认值                    | 描述 |
+| ---------------------------------------------- | ------------------------- | ---- |
+| --rc-swipe-indicator-size                      | _6px_                     | -    |
+| --rc-swipe-indicator-margin                    | _var(--rc-padding-sm)_    | -    |
+| --rc-swipe-indicator-active-opacity            | _1_                       | -    |
+| --rc-swipe-indicator-inactive-opacity          | _0.3_                     | -    |
+| --rc-swipe-indicator-active-background-color   | _var(--rc-primary-color)_ | -    |
+| --rc-swipe-indicator-inactive-background-color | _var(--rc-border-color)_  | -    |

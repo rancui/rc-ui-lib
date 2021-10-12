@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "release": "yarn build & release-it",
+    "release": "release-it",
     "changelog": "rc-cli changelog"
   },
   "files": [

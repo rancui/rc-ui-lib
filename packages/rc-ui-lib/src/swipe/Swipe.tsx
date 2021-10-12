@@ -22,7 +22,7 @@ const Swipe = forwardRef<SwipeInstance, SwipeProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('swipe', prefixCls);
 
-  const { children, className, autoplay, ...parseProsp } = parseOptions(props);
+  const { children, className, autoplay, ...otherProps } = parseOptions(props);
   const internalSwipeRef = useRef<SwipeInstance>(null);
   useImperativeHandle(ref, () => internalSwipeRef.current, [internalSwipeRef.current]);
 
@@ -33,7 +33,7 @@ const Swipe = forwardRef<SwipeInstance, SwipeProps>((props, ref) => {
         internalSwipeRef.current = swiper;
       }}
       autoplay={autoplay as Swiper['autoplay']}
-      {...parseProsp}
+      {...otherProps}
     >
       {Children.toArray(children)
         .filter(Boolean)

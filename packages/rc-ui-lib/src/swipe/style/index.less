@@ -9,6 +9,7 @@
   --rc-swipe-indicator-inactive-opacity: @swipe-indicator-inactive-opacity;
   --rc-swipe-indicator-active-background-color: @swipe-indicator-active-background-color;
   --rc-swipe-indicator-inactive-background-color: @swipe-indicator-inactive-background-color;
+  --rc-animation-duration-fast: @animation-duration-fast;
 }
 
 .@{rc-prefix}-swipe {
@@ -23,7 +24,8 @@
     background-color: var(--rc-swipe-indicator-inactive-background-color);
     border-radius: 100%;
     opacity: var(--rc-swipe-indicator-inactive-opacity);
-    transition: opacity var(--van-animation-duration-fast), background-color var(--van-animation-duration-fast);
+    transition: opacity var(--rc-animation-duration-fast),
+      background-color var(--rc-animation-duration-fast);
 
     &-active {
       background-color: var(--rc-swipe-indicator-active-background-color);

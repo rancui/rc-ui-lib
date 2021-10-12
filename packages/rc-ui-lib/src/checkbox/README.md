@@ -101,10 +101,10 @@ const checked = ['a', 'b'];
 ```
 
 ```jsx
-<Checkbox.Group defaultChecked="checked">
+<CheckboxGroup defaultChecked="checked">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
-</Checkbox.Group>
+</CheckboxGroup>
 ```
 
 ### 水平排列
@@ -112,10 +112,10 @@ const checked = ['a', 'b'];
 将 `direction` 属性设置为 `horizontal` 后，复选框组会变成水平排列。
 
 ```jsx
-<Checkbox.Group defaultChecked="checked" direction="horizontal">
+<CheckboxGroup defaultChecked="checked" direction="horizontal">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
-</Checkbox.Group>
+</CheckboxGroup>
 ```
 
 ### 限制最大可选数
@@ -123,11 +123,11 @@ const checked = ['a', 'b'];
 通过 `max` 属性可以限制复选框组的最大可选数。
 
 ```jsx
-<Checkbox.Group defaultChecked="result" max={2}>
+<CheckboxGroup defaultChecked="result" max={2}>
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
   <Checkbox name="c">复选框 c</Checkbox>
-</Checkbox.Group>
+</CheckboxGroup>
 ```
 
 ### 全选与反选
@@ -143,11 +143,11 @@ export default () => {
   const [checkedAll, setCheckedAll] = useState([]);
   return (
     <>
-      <Checkbox.Group value={checkedAll} onChange={setCheckedAll} ref={ref}>
+      <CheckboxGroup value={checkedAll} onChange={setCheckedAll} ref={ref}>
         <Checkbox name="a">复选框 a</Checkbox>
         <Checkbox name="b">复选框 b</Checkbox>
         <Checkbox name="c">复选框 c</Checkbox>
-      </Checkbox.Group>
+      </CheckboxGroup>
 
       <Button type="primary" onClick={() => ref.current?.toggleAll()}>
         全选
@@ -176,7 +176,7 @@ export default () => {
   };
 
   return (
-    <Checkbox.Group value={value}>
+    <CheckboxGroup value={value}>
       <Cell.Group>
         <Cell
           clickable
@@ -193,7 +193,7 @@ export default () => {
           rightIcon={<Checkbox name="b" />}
         />
       </Cell.Group>
-    </Checkbox.Group>
+    </CheckboxGroup>
   );
 };
 ```
@@ -297,21 +297,20 @@ checkboxRef.current?.toggle();
 checkboxGroupRef.current?.toggleAll();
 ```
 
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-checkbox-size | _20px_ | - |
-| --rc-checkbox-border-color | _var(--rc-gray-5)_ | - |
-| --rc-checkbox-transition-duration | _var(--rc-animation-duration-fast)_ | - |
-| --rc-checkbox-label-margin | _var(--rc-padding-xs)_ | - |
-| --rc-checkbox-label-color | _var(--rc-text-color)_ | - |
-| --rc-checkbox-checked-icon-color | _var(--rc-primary-color)_ | - |
-| --rc-checkbox-disabled-icon-color | _var(--rc-gray-5)_ | - |
-| --rc-checkbox-disabled-label-color | _var(--rc-gray-5)_ | - |
-| --rc-checkbox-disabled-background-color | _var(--rc-border-color)_ | - |
+| 名称                                    | 默认值                              | 描述 |
+| --------------------------------------- | ----------------------------------- | ---- |
+| --rc-checkbox-size                      | _20px_                              | -    |
+| --rc-checkbox-border-color              | _var(--rc-gray-5)_                  | -    |
+| --rc-checkbox-transition-duration       | _var(--rc-animation-duration-fast)_ | -    |
+| --rc-checkbox-label-margin              | _var(--rc-padding-xs)_              | -    |
+| --rc-checkbox-label-color               | _var(--rc-text-color)_              | -    |
+| --rc-checkbox-checked-icon-color        | _var(--rc-primary-color)_           | -    |
+| --rc-checkbox-disabled-icon-color       | _var(--rc-gray-5)_                  | -    |
+| --rc-checkbox-disabled-label-color      | _var(--rc-gray-5)_                  | -    |
+| --rc-checkbox-disabled-background-color | _var(--rc-border-color)_            | -    |
