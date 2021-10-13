@@ -35,14 +35,14 @@ export default () => {
   return (
     <>
       <Circle rate={rate} speed={100} text={`${rate}%`} />
-      <Button.Group>
+      <ButtonGroup>
         <Button onClick={add} type="primary">
           增加
         </Button>
         <Button onClick={reduce} type="danger">
           减少
         </Button>
-      </Button.Group>
+      </ButtonGroup>
     </>
   );
 };
@@ -138,9 +138,9 @@ import type { CircleStartPosition } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                          | 默认值                        | 描述 |
-| ----------------------------- | ----------------------------- | ---- |
-| --rc-circle-size             | _100px_                       | -    |
+| 名称                         | 默认值                       | 描述 |
+| ---------------------------- | ---------------------------- | ---- |
+| --rc-circle-size             | _100px_                      | -    |
 | --rc-circle-color            | _var(--rc-primary-color)_    | -    |
 | --rc-circle-layer-color      | _var(--rc-white)_            | -    |
 | --rc-circle-text-color       | _var(--rc-text-color)_       | -    |

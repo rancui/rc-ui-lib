@@ -60,7 +60,7 @@ import { Cell } from 'rc-ui-lib';
 
 ### 分组标题
 
-通过 `CellGroup` 的 `title` 属性可以指定分组标题。
+通过 `CellGroup` （或 `Cell.Group`）的 `title` 属性可以指定分组标题。
 
 ```jsx
 <CellGroup title="分组1">

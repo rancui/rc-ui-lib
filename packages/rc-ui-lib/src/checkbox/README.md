@@ -96,6 +96,8 @@ import { Checkbox } from 'rc-ui-lib';
 
 复选框可以与复选框组一起使用，复选框组通过 `defaultValue` 数组默认复选框的勾选状态。
 
+> 使用 CheckboxGroup 或 Checkbox.Group 都可以，任君选择。
+
 ```js
 const checked = ['a', 'b'];
 ```

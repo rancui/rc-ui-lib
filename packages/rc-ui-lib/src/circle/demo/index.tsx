@@ -52,14 +52,14 @@ export default (): React.ReactNode => {
         />
 
         <Flex style={{ marginTop: 15 }} align="center" justify="center">
-          <Button.Group>
+          <ButtonGroup>
             <Button onClick={add} type="primary">
               增加
             </Button>
             <Button onClick={reduce} type="danger">
               减少
             </Button>
-          </Button.Group>
+          </ButtonGroup>
         </Flex>
       </DemoBlock>
       <DemoBlock title="起始位置">

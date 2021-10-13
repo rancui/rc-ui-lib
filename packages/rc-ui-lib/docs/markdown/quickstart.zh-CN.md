@@ -2,15 +2,11 @@
 
 ### 通过 npm 安装
 
-在现有项目中使用，可以通过`npm`或`yarn`安装
+在现有项目中使用，可以通过`npm`安装
 
-```bash
+````bash
 # 通过 npm 安装
 npm i rc-ui-lib
-
-# 通过 yarn 安装
-yarn add rc-ui-lib
-```
 
 ## 引入组件
 
@@ -21,7 +17,7 @@ yarn add rc-ui-lib
 ```bash
 # 安装插件
 npm i babel-plugin-import -D
-```
+````
 
 ```js
 // 在.babelrc 中添加配置

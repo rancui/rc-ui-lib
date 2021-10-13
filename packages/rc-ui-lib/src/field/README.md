@@ -17,10 +17,10 @@ import { Field } from 'rc-ui-lib';
 可以通过 `value` 和 `input` 双向绑定输入框的值，通过 `placeholder` 设置占位提示文字。
 
 ```jsx
-<!-- Field 是基于 Cell 实现的，可以使用 Cell.Group 作为容器来提供外边框。 -->
-<Cell.Group>
+<!-- Field 是基于 Cell 实现的，可以使用 CellGroup 或 CellGroup 作为容器来提供外边框。 -->
+<CellGroup>
   <Field value={value1} type="text" label="文本" placeholder="请输入用户名" onChange={setValue1} />
-</Cell.Group>
+</CellGroup>
 ```
 
 ```js
@@ -57,10 +57,10 @@ const [password, setPasswrod] = useState('');
 通过 `readonly` 将输入框设置为只读状态，通过 `disabled` 将输入框设置为禁用状态。
 
 ```jsx
-<Cell.Group>
+<CellGroup>
   <Field label="文本" value="输入框只读" readonly />
   <Field label="文本" value="输入框已禁用" disabled />
-</Cell.Group>
+</CellGroup>
 ```
 
 ### 显示图标
@@ -68,7 +68,7 @@ const [password, setPasswrod] = useState('');
 通过 `leftIcon` 和 `rightIcon` 配置输入框两侧的图标，通过设置 `clearable` 在输入过程中展示清除图标。
 
 ```jsx
-<Cell.Group>
+<CellGroup>
   <Field
     value={value3}
     label="文本"
@@ -85,7 +85,7 @@ const [password, setPasswrod] = useState('');
     placeholder="显示清除图标"
     onChange={setValue4}
   />
-</Cell.Group>
+</CellGroup>
 ```
 
 ```js
@@ -98,7 +98,7 @@ const [value4, setValue4] = useState('');
 设置 `required` 属性表示这是一个必填项，可以配合 `error` 或 `error-message` 属性显示对应的错误提示。
 
 ```jsx
-<Cell.Group>
+<CellGroup>
   <Field
     value={username}
     error
@@ -115,7 +115,7 @@ const [value4, setValue4] = useState('');
     errorMessage="手机号格式错误"
     onChange={setPhone}
   />
-</Cell.Group>
+</CellGroup>
 ```
 
 ### 插入按钮
@@ -231,7 +231,7 @@ const formatter = (value) => value.replace(/\d/g, '');
 | required | 是否显示表单必填星号 | _boolean_ | `false` |
 | center | 是否使内容垂直居中 | _boolean_ | `false` |
 | clearable | 是否启用清除图标，点击清除图标后会清空输入框 | _boolean_ | `false` |
-| clearIcon | 清除图标名称或图片链接	 | _string_ | `clear` |
+| clearIcon | 清除图标名称或图片链接 | _string_ | `clear` |
 | clickable | 是否开启点击反馈 | _boolean_ | `false` |
 | isLink | 是否展示右侧箭头并开启点击反馈 | _boolean_ | `false` |
 | autofocus | 是否自动聚焦，iOS 系统不支持该属性 | _boolean_ | `false` |
@@ -261,14 +261,14 @@ const formatter = (value) => value.replace(/\d/g, '');
 
 | 事件             | 说明                 | 回调参数                |
 | ---------------- | -------------------- | ----------------------- |
-| onChange          | 输入框获得焦点时触发 | _val: string \| number_ |
-| onFocus          | 输入框获得焦点时触发 | _event: MouseEvent_ |
-| onBlur           | 输入框失去焦点时触发 | _event: MouseEvent_ |
-| onClear          | 点击清除按钮时触发   | _event: MouseEvent_          |
-| onClick          | 点击 Field 时触发    | _event: MouseEvent_          |
-| onClickInput     | 点击输入区域时触发   | _event: MouseEvent_          |
-| onClickLeftIcon  | 点击左侧图标时触发   | _event: MouseEvent_          |
-| onClickRightIcon | 点击右侧图标时触发   | _event: MouseEvent_          |
+| onChange         | 输入框获得焦点时触发 | _val: string \| number_ |
+| onFocus          | 输入框获得焦点时触发 | _event: MouseEvent_     |
+| onBlur           | 输入框失去焦点时触发 | _event: MouseEvent_     |
+| onClear          | 点击清除按钮时触发   | _event: MouseEvent_     |
+| onClick          | 点击 Field 时触发    | _event: MouseEvent_     |
+| onClickInput     | 点击输入区域时触发   | _event: MouseEvent_     |
+| onClickLeftIcon  | 点击左侧图标时触发   | _event: MouseEvent_     |
+| onClickRightIcon | 点击右侧图标时触发   | _event: MouseEvent_     |
 
 ### 方法
 
@@ -301,35 +301,33 @@ const fieldRef = useRef < FieldInstance > null;
 | focus  | 获取输入框焦点 | -    | -      |
 | blur   | 取消输入框焦点 | -    | -      |
 
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                                  | 默认值                    | 描述 |
-| ------------------------------------- | ------------------------- | ---- |
-| --rc-field-label-width               | _6.2em_                   | -    |
+| 名称                                 | 默认值                   | 描述 |
+| ------------------------------------ | ------------------------ | ---- |
+| --rc-field-label-width               | _6.2em_                  | -    |
 | --rc-field-label-color               | _var(--rc-gray-7)_       | -    |
 | --rc-field-label-margin-right        | _var(--rc-padding-sm)_   | -    |
 | --rc-field-input-text-color          | _var(--rc-text-color)_   | -    |
 | --rc-field-input-error-text-color    | _var(--rc-danger-color)_ | -    |
 | --rc-field-input-disabled-text-color | _var(--rc-gray-5)_       | -    |
 | --rc-field-placeholder-text-color    | _var(--rc-gray-5)_       | -    |
-| --rc-field-icon-size                 | _16px_                    | -    |
-| --rc-field-clear-icon-size           | _16px_                    | -    |
+| --rc-field-icon-size                 | _16px_                   | -    |
+| --rc-field-clear-icon-size           | _16px_                   | -    |
 | --rc-field-clear-icon-color          | _var(--rc-gray-5)_       | -    |
 | --rc-field-right-icon-color          | _var(--rc-gray-6)_       | -    |
 | --rc-field-error-message-color       | _var(--rc-danger-color)_ | -    |
-| --rc-field-error-message-font-size   | _12px_                    | -    |
-| --rc-field-text-area-min-height      | _60px_                    | -    |
+| --rc-field-error-message-font-size   | _12px_                   | -    |
+| --rc-field-text-area-min-height      | _60px_                   | -    |
 | --rc-field-word-limit-color          | _var(--rc-gray-7)_       | -    |
 | --rc-field-word-limit-font-size      | _var(--rc-font-size-sm)_ | -    |
-| --rc-field-word-limit-line-height    | _16px_                    | -    |
+| --rc-field-word-limit-line-height    | _16px_                   | -    |
 | --rc-field-disabled-text-color       | _var(--rc-gray-5)_       | -    |
 | --rc-field-required-mark-color       | _var(--rc-red)_          | -    |
-
 
 ## 常见问题
 

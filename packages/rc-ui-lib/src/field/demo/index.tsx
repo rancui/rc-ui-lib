@@ -65,14 +65,14 @@ export default (): React.ReactNode => {
       </DemoBlock>
 
       <DemoBlock card title="禁用输入框">
-        <Cell.Group>
+        <CellGroup>
           <Field label="文本" value="输入框只读" readonly />
           <Field label="文本" value="输入框已禁用" disabled />
-        </Cell.Group>
+        </CellGroup>
       </DemoBlock>
 
       <DemoBlock card title="显示图标">
-        <Cell.Group>
+        <CellGroup>
           <Field
             value={value3}
             label="文本"
@@ -97,11 +97,11 @@ export default (): React.ReactNode => {
             }}
             onChange={setValue4}
           />
-        </Cell.Group>
+        </CellGroup>
       </DemoBlock>
 
       <DemoBlock card title="错误提示">
-        <Cell.Group>
+        <CellGroup>
           <Field
             value={username}
             error
@@ -118,7 +118,7 @@ export default (): React.ReactNode => {
             errorMessage="手机号格式错误"
             onChange={setPhone}
           />
-        </Cell.Group>
+        </CellGroup>
       </DemoBlock>
 
       <DemoBlock card title="插入按钮">
@@ -192,7 +192,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
 
       <DemoBlock card title="调用方法">
-        <Cell.Group>
+        <CellGroup>
           <Field
             center
             ref={fieldRef}
@@ -211,7 +211,7 @@ export default (): React.ReactNode => {
             }
             placeholder="请输入文本"
           />
-        </Cell.Group>
+        </CellGroup>
       </DemoBlock>
     </DemoSection>
   );

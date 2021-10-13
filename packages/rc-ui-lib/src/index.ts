@@ -1,4 +1,4 @@
-export { default as Button } from './button';
+export { default as Button, ButtonGroup } from './button';
 export { default as Badge } from './badge';
 export { default as Field } from './field';
 export { default as Flex } from './flex';
@@ -36,7 +36,7 @@ export { default as Tag } from './tag';
 export { default as Grid } from './grid';
 // export { default as IndexBar } from './index-bar';
 export { default as Collapse } from './collapse';
-export { default as Radio } from './radio';
+export { default as Radio, RadioGroup } from './radio';
 export { default as Rate } from './rate';
 // export { default as Calendar } from './calendar';
 export { default as Cascader } from './cascader';

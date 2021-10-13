@@ -1,7 +1,7 @@
 import Button from './Button';
-import Group from './ButtonGroup';
+import ButtonGroup from './ButtonGroup';
 
-const ButtonNameSpace = Object.assign(Button, { Group });
+const ButtonNameSpace = Object.assign(Button, { Group: ButtonGroup });
 export default ButtonNameSpace;
-export { ButtonNameSpace as Button };
+export { ButtonNameSpace as Button, ButtonGroup };
 export type { ButtonProps, ButtonType, ButtonSize, ButtonIconPosition } from './PropsType';
