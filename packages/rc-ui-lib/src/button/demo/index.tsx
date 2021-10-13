@@ -1,6 +1,6 @@
 import React from 'react';
 import { components } from 'site-mobile-demo';
-import Button from '..';
+import { Button, ButtonGroup } from '..';
 import './style.less';
 
 export default (): React.ReactNode => {

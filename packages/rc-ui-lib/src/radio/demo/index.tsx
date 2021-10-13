@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Cell, Toast } from 'rc-ui-lib';
+import { Cell, CellGroup, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
-import Radio from '..';
+import { Radio, RadioGroup } from '..';
 import './style.less';
 
 let timer;
