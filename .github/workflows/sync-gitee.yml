@@ -17,4 +17,4 @@ jobs:
           # GitHub 源仓库地址
           source-repo: git@github.com:rancui/rc-ui-lib.git
           # Gitee 目标仓库地址
-          # destination-repo: git@gitee.com:rancui/rc-ui-lib.git
+          destination-repo: git@gitee.com:rancui/rc-ui-lib.git

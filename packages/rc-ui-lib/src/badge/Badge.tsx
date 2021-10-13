@@ -8,13 +8,13 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const Badge: React.FC<BadgeProps> = (props) => {
   const { content, max, dot, showZero, tag } = props;
 
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('badge', prefixCls);
 
   const hasContent = () => {
-    if (props.content) {
-      return true;
-    }
+    // if (props.content) {
+    //   return true;
+    // }
     return isDef(content) && content !== '' && (showZero || +content !== 0);
   };
 
@@ -40,7 +40,11 @@ const Badge: React.FC<BadgeProps> = (props) => {
 
         if (props.children) {
           style.top = addUnit(y);
-          style.right = `-${addUnit(x)}`;
+          if (typeof x === 'number') {
+            style.right = addUnit(-x);
+          } else {
+            style.right = x.startsWith('-') ? x.replace('-', '') : `-${x}`;
+          }
         } else {
           style.marginTop = addUnit(y);
           style.marginLeft = addUnit(x);

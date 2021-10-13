@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<button
+  class="rc-button rc-button--default rc-button--normal"
+>
+  <div
+    class="rc-button__content"
+  />
+</button>
+`;
+
+exports[`Button should change icon class prefix when using icon-prefix prop 1`] = `"<button class=\\"rc-button rc-button--default rc-button--normal\\"><div class=\\"rc-button__content\\"><i class=\\"rc-badge__wrapper rc-button__icon my-icon my-icon-success\\"></i></div></button>"`;
+
+exports[`Button should render empty button without errors 1`] = `
+<button
+  class="rc-button rc-button--default rc-button--normal"
+>
+  <div
+    class="rc-button__content"
+  >
+    <span
+      class="rc-button__text"
+    />
+  </div>
+</button>
+`;
