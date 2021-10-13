@@ -12,6 +12,20 @@
 
 ## 更新内容
 
+### [v0.1.35](https://github.com/compare/v0.1.34...v0.1.35)
+
+`2021-10-13`
+
+**Feature**
+
+- 删除同步到 Gitee 的配置文件 [c2c0ce](https://github.com/commit/c2c0ce1b0aab6a95a92dc3c88c8d2ca45154c9e5)
+- delete sync to Gitee [d736b5](https://github.com/commit/d736b5c9c5eec885061d968cf22ecbbe8521a740)
+
+**refactor**
+
+- 增加分组组件的命名 [b5abda](https://github.com/commit/b5abda80e56dafbc809568b747311a310ad7a5cd)
+- 增加 demo 中引入的组件 [5bd85c](https://github.com/commit/5bd85c29950b343af479e89d946f70084146da91)
+
 ### [v0.1.34](https://github.com/compare/v0.1.33...v0.1.34)
 
 `2021-10-13`
