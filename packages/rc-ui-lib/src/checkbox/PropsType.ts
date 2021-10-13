@@ -36,7 +36,7 @@ type IconRenderParams = {
   disabled: boolean;
 };
 
-export interface CheckerProps<T> extends BaseTypeProps {
+export interface BaseCheckerProps<T> extends BaseTypeProps {
   /** 标识符	 */
   name?: number | string;
   /**  是否禁用复选框	 */
@@ -63,8 +63,8 @@ export interface CheckerProps<T> extends BaseTypeProps {
   checked?: boolean;
   /** 默认勾选状态 */
   defaultChecked?: boolean;
-  /** 切换选择状态时触发 */
-  onToggle?: () => void;
+  // /** 切换选择状态时触发 */
+  // onToggle?: () => void;
   /** 点击时触发 */
   onClick?: (event: MouseEvent) => void;
   /** 当绑定值变化时触发的事件	 */
@@ -74,6 +74,11 @@ export interface CheckerProps<T> extends BaseTypeProps {
   bem?: Function;
   /** @private  */
   parent?: { props: T };
+}
+
+export interface CheckerProps<T> extends BaseCheckerProps<T> {
+  /** 切换选择状态时触发 */
+  onToggle?: () => void;
 }
 
 export type CheckboxProps = CheckerProps<CheckboxGroupProps>;

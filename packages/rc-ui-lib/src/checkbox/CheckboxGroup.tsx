@@ -45,9 +45,9 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
     props.onChange(names);
   };
 
-  const toggle = (names: Array<string | number>) => {
-    setChecked(names);
-    props.onChange?.(names);
+  const toggle = (name: Array<string | number>) => {
+    setChecked(name);
+    props.onChange?.(name);
   };
 
   useImperativeHandle(ref, () => ({
