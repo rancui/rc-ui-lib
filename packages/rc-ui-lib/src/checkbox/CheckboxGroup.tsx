@@ -42,7 +42,7 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
 
     const names = checkedChildren.map((item) => item.props.name);
     setChecked(names);
-    props.onChange(names);
+    props.onChange?.(names);
   };
 
   const toggle = (name: Array<string | number>) => {
