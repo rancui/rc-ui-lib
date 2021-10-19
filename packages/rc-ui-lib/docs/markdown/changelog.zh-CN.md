@@ -12,6 +12,14 @@
 
 ## 更新内容
 
+### [v0.1.41](https://github.com/compare/v0.1.40...v0.1.41)
+
+`2021-10-19`
+
+**Feature**
+
+- 增加 Form 组件 [b2e724](https://github.com/commit/b2e7249ec660da3479d6bed6ba23779ae1bc1bb7)
+
 ### [v0.1.35](https://github.com/compare/v0.1.34...v0.1.35)
 
 `2021-10-13`
