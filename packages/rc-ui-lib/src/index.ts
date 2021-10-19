@@ -1,5 +1,6 @@
 export { default as Button, ButtonGroup } from './button';
 export { default as Badge } from './badge';
+export { default as Form } from './form';
 export { default as Field } from './field';
 export { default as Flex } from './flex';
 export { default as Typography } from './typography';

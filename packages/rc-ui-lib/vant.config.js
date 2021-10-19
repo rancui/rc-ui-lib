@@ -122,6 +122,10 @@ module.exports = {
                 path: 'field',
                 title: 'Field 输入框',
               },
+              {
+                path: 'form',
+                title: 'Form 表单',
+              },
               // {
               //   path: 'number-keyboard',
               //   title: 'NumberKeyboard 数字键盘',

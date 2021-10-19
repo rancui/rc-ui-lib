@@ -42,7 +42,7 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
 
     const names = checkedChildren.map((item) => item.props.name);
     setChecked(names);
-    props.onChange?.(names);
+    props.onChange(names);
   };
 
   const toggle = (name: Array<string | number>) => {
@@ -67,5 +67,9 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
     </CheckBoxContext.Provider>
   );
 });
+
+CheckBoxGroup.defaultProps = {
+  defaultValue: [],
+};
 
 export default CheckBoxGroup;
