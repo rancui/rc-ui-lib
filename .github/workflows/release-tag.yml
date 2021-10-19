@@ -20,4 +20,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            更新内容参见 [CHANGELOG](https://rancui.github.io/rc-ui-lib/#/zh-CN/)。
+            更新内容参见 [CHANGELOG](https://rancui.github.io/rc-ui-lib/#/zh-CN/changelog)。
