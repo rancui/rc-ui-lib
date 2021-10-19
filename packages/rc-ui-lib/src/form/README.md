@@ -40,7 +40,7 @@ export default () => {
     <Form onFinish={onFinish} form={form}>
       <FormItemname="username" label="用户名">
         <Field />
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };
@@ -73,14 +73,14 @@ export default () => {
         </div>
       }
     >
-      <Form.Item
+      <FormItem
         name="text1"
         label="正则校验"
         rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}
       >
         <Field placeholder="正则校验" />
-      </Form.Item>
-      <Form.Item
+      </FormItem>
+      <FormItem
         name="text2"
         label="函数校验"
         rules={[
@@ -95,8 +95,8 @@ export default () => {
         ]}
       >
         <Field placeholder="函数校验" />
-      </Form.Item>
-      <Form.Item
+      </FormItem>
+      <FormItem
         label="异步函数校验"
         name="text3"
         rules={[
@@ -119,7 +119,7 @@ export default () => {
         ]}
       >
         <Field placeholder="异步函数校验" />
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };
@@ -144,7 +144,7 @@ export default () => {
     <Form onFinish={onFinish} form={form}>
       <FormItemname="switch" label="开关" valuePropName="checked">
         <Switch />
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };
@@ -169,7 +169,7 @@ export default () => {
     <Form onFinish={onFinish} form={form}>
       <FormItemname="checkbox" label="复选框" valuePropName="checked">
         <Checkbox shape="square" />
-      </Form.Item>
+      </FormItem>
       <FormItemname="checkbox_group" label="复选框组">
         <Checkbox.Group direction="horizontal">
           <Checkbox shape="square" name="c1">
@@ -179,7 +179,7 @@ export default () => {
             复选框2
           </Checkbox>
         </Checkbox.Group>
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };
@@ -207,7 +207,7 @@ export default () => {
           <Radio name="r1">单选框1</Radio>
           <Radio name="r2">单选框2</Radio>
         </Radio.Group>
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };
@@ -232,7 +232,7 @@ export default () => {
     <Form onFinish={onFinish} form={form}>
       <FormItemname="rate" label="评分" initialValue={3}>
         <Rate />
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };
@@ -255,7 +255,7 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <Form.Item
+      <FormItem
         name="uploader"
         label="文件上传"
         initialValue={[
@@ -267,7 +267,7 @@ export default () => {
         ]}
       >
         <Uploader />
-      </Form.Item>
+      </FormItem>
     </Form>
   );
 };

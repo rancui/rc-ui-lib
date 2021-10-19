@@ -178,7 +178,7 @@ const FormItem: FC<FormItemProps> = (props) => {
 
         const fieldId = (toArray(name).length && meta ? meta.name : []).join('_');
         if (shouldUpdate && dependencies) {
-          devWarning('Form.Item', "`shouldUpdate` and `dependencies` shouldn't be used together.");
+          devWarning('FormItem', "`shouldUpdate` and `dependencies` shouldn't be used together.");
         }
 
         if (isRenderProps) {
@@ -187,13 +187,13 @@ const FormItem: FC<FormItemProps> = (props) => {
           } else {
             if (!(shouldUpdate || dependencies)) {
               devWarning(
-                'Form.Item',
+                'FormItem',
                 '`children` of render props only work with `shouldUpdate` or `dependencies`.',
               );
             }
             if (name) {
               devWarning(
-                'Form.Item',
+                'FormItem',
                 "Do not use `name` with `children` of render props since it's not a field.",
               );
             }
@@ -201,10 +201,7 @@ const FormItem: FC<FormItemProps> = (props) => {
 
           // not render props
         } else if (dependencies && !name) {
-          devWarning(
-            'Form.Item',
-            'Must set `name` or use render props when `dependencies` is set.',
-          );
+          devWarning('FormItem', 'Must set `name` or use render props when `dependencies` is set.');
         } else if (React.isValidElement(children)) {
           const childProps = { ...children.props, ...control };
 
@@ -242,8 +239,8 @@ const FormItem: FC<FormItemProps> = (props) => {
         } else {
           if (name) {
             devWarning(
-              'Form.Item',
-              '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
+              'FormItem',
+              '`name` is only used for validate React element. If you are using FormItem as layout display, please remove `name` instead.',
             );
           }
           childNode = children;
