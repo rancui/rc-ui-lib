@@ -38,7 +38,7 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItemname="username" label="用户名">
+      <FormItem name="username" label="用户名">
         <Field />
       </FormItem>
     </Form>
@@ -142,7 +142,7 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItemname="switch" label="开关" valuePropName="checked">
+      <FormItem name="switch" label="开关" valuePropName="checked">
         <Switch />
       </FormItem>
     </Form>
@@ -167,10 +167,10 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItemname="checkbox" label="复选框" valuePropName="checked">
+      <FormItem name="checkbox" label="复选框" valuePropName="checked">
         <Checkbox shape="square" />
       </FormItem>
-      <FormItemname="checkbox_group" label="复选框组">
+      <FormItem name="checkbox_group" label="复选框组">
         <Checkbox.Group direction="horizontal">
           <Checkbox shape="square" name="c1">
             复选框1
@@ -202,7 +202,7 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItemname="radio" label="单选框">
+      <FormItem name="radio" label="单选框">
         <Radio.Group direction="horizontal">
           <Radio name="r1">单选框1</Radio>
           <Radio name="r2">单选框2</Radio>
@@ -230,7 +230,7 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItemname="rate" label="评分" initialValue={3}>
+      <FormItem name="rate" label="评分" initialValue={3}>
         <Rate />
       </FormItem>
     </Form>
