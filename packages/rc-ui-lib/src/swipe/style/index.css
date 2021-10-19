@@ -1,0 +1,30 @@
+@import '~swiper/swiper.min.css';
+@import '~swiper/components/pagination/pagination.min.css';
+:root {
+  --rc-swipe-indicator-size: 6px;
+  --rc-swipe-indicator-margin: var(--rc-padding-sm);
+  --rc-swipe-indicator-active-opacity: 1;
+  --rc-swipe-indicator-inactive-opacity: 0.3;
+  --rc-swipe-indicator-active-background-color: var(--rc-white);
+  --rc-swipe-indicator-inactive-background-color: var(--rc-border-color);
+  --rc-animation-duration-fast: 0.2s;
+}
+.rc-swipe {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+.rc-swipe .swiper-pagination-bullet {
+  width: var(--rc-swipe-indicator-size);
+  height: var(--rc-swipe-indicator-size);
+  background-color: var(--rc-swipe-indicator-inactive-background-color);
+  border-radius: 100%;
+  opacity: var(--rc-swipe-indicator-inactive-opacity);
+  transition: opacity var(--rc-animation-duration-fast),
+    background-color var(--rc-animation-duration-fast);
+}
+.rc-swipe .swiper-pagination-bullet-active {
+  background-color: var(--rc-swipe-indicator-active-background-color);
+  opacity: var(--rc-swipe-indicator-active-opacity);
+}
