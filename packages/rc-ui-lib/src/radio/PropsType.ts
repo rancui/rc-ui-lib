@@ -1,5 +1,5 @@
 import { BaseTypeProps } from '../utils';
-import { BaseCheckerProps } from '../checkbox/PropsType';
+import { CheckerProps } from '../checkbox/PropsType';
 
 type RadioValueType = number | string;
 
@@ -20,6 +20,6 @@ export interface RadioGroupProps<T = RadioValueType> extends BaseTypeProps {
   onChange?: (name: T) => void;
 }
 
-export interface RadioProps<T = RadioValueType> extends BaseCheckerProps<RadioGroupProps<T>> {
+export interface RadioProps<T = RadioValueType> extends CheckerProps<RadioGroupProps<T>> {
   value?: T;
 }

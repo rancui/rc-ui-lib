@@ -13,6 +13,7 @@
     "build:site": "lerna exec --scope rc-ui-lib yarn build:site",
     "release:site": "lerna exec --scope rc-ui-lib yarn release:site",
     "release": "lerna exec --scope rc-ui-lib yarn release",
+    "test": "lerna exec --scope rc-ui-lib yarn test",
     "clean": "lerna clean -y",
     "publish": "lerna publish"
   },

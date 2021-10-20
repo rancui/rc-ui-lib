@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { Checkbox } from '../index';
+import { Checkbox } from '..';
 
 import mountTest from '../../../tests/shared/mountTest';
 
@@ -209,7 +209,7 @@ describe('Checkbox.Group', () => {
     expect(onChange).toHaveBeenCalledTimes(0);
     icons.at(0).simulate('click');
     expect(onChange).toHaveBeenCalledTimes(1);
-    icons.at(0).simulate('click');
+    icons.at(1).simulate('click');
     expect(onChange).toHaveBeenCalledTimes(2);
   });
 
@@ -295,6 +295,6 @@ describe('Checkbox.Group', () => {
       toggleAll({ checked: true, skipDisabled: true });
     });
     await sleep(0);
-    expect(onChange).toBeCalledWith(['a', 'b', 'c']);
+    expect(onChange).toBeCalledWith(['a', 'b']);
   });
 });

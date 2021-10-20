@@ -81,7 +81,7 @@ export interface CheckerProps<T> extends BaseCheckerProps<T> {
   onToggle?: () => void;
 }
 
-export type CheckboxProps = CheckerProps<CheckboxGroupProps>;
+export type CheckboxProps = BaseCheckerProps<CheckboxGroupProps>;
 
 export type CheckboxInstance = {
   toggle: (newValue?: boolean) => void;
