@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "commit": "git-cz",
     "prepare": "yarn build:cli && yarn build:linter",
     "bootstrap": "lerna bootstrap",
     "start": "lerna exec --scope rc-ui-lib yarn start",
@@ -23,14 +24,16 @@
   },
   "devDependencies": {
     "@rancui/linter": "^1.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "husky": "4",
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.1.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.0",
-    "stylelint": "^13.13.1",
-    "pretty-quick": "^3.1.1"
+    "pretty-quick": "^3.1.1",
+    "stylelint": "^13.13.1"
   },
   "husky": {
     "hooks": {
@@ -42,6 +45,11 @@
     "*.{ts,tsx,js,less}": "prettier --write",
     "*.{ts,tsx,js}": "eslint --fix",
     "*.{css,less}": "stylelint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@rancui/cli": "^1.0.0"
