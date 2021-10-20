@@ -24,5 +24,5 @@ dist
 .changelog
 
 # tests
-tests/coverage
+**/test/coverage
 changelog.generated.md
