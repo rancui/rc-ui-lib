@@ -55,6 +55,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const [bem] = createNamespace('popup', prefixCls);
 
   const {
+    style,
     round,
     visible,
     closeable,
@@ -64,6 +65,12 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     duration,
     closeIcon,
     position,
+    onClickOverlay,
+    closeOnClickOverlay,
+    onOpen,
+    beforeClose,
+    onClose,
+    onClickCloseIcon,
     teleport,
   } = props;
   const opened = useRef<boolean>(false);
@@ -73,10 +80,10 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
   const [ssrCompatRender, rendered] = useSsrCompat();
 
-  const style = useMemo(() => {
+  const popupStyle = useMemo(() => {
     const initStyle: CSSProperties = {
       zIndex: zIndex.current,
-      ...props.style,
+      ...style,
     };
 
     if (isDef(duration)) {
@@ -84,63 +91,59 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
       initStyle[key] = `${duration}ms`;
     }
     return initStyle;
-  }, [zIndex.current, props.style, duration]);
+  }, [zIndex.current, style, duration]);
 
   const open = () => {
     if (!opened.current) {
       if (props.zIndex !== undefined) {
         globalZIndex = props.zIndex;
       }
-
       opened.current = true;
       zIndex.current = ++globalZIndex;
-
-      props.onOpen?.();
+      onOpen?.();
     }
   };
 
   const close = () => {
     if (opened.current) {
       callInterceptor({
-        interceptor: props.beforeClose,
+        interceptor: beforeClose,
         args: ['close'],
         done: () => {
           opened.current = false;
-          props.onClose?.();
+          onClose?.();
         },
       });
     }
   };
 
-  const onClickOverlay = (event) => {
-    props.onClickOverlay?.(event);
-
-    if (props.closeOnClickOverlay) {
+  const handleClickOverlay = (event) => {
+    onClickOverlay?.(event);
+    if (closeOnClickOverlay) {
       close();
     }
   };
 
   const renderOverlay = () => {
-    if (props.overlay) {
+    const { overlay, overlayClass, overlayStyle } = props;
+    if (overlay) {
       return (
         <Overlay
           visible={visible && rendered}
-          className={props.overlayClass}
-          customStyle={props.overlayStyle}
+          className={overlayClass}
+          customStyle={overlayStyle}
           // zIndex={zIndex.current}
-          zIndex={style.zIndex as number}
+          zIndex={popupStyle.zIndex as number}
           duration={duration}
-          onClick={onClickOverlay}
+          onClick={handleClickOverlay}
         />
       );
     }
     return null;
   };
 
-  const onClickCloseIcon = (e) => {
-    if (props.onClickCloseIcon) {
-      props.onClickCloseIcon(e);
-    }
+  const handleClickCloseIcon = (e) => {
+    onClickCloseIcon?.(e);
     close();
   };
 
@@ -152,7 +155,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
           name={closeIcon}
           className={classnames(bem('close-icon', closeIconPosition))}
           classPrefix={iconPrefix}
-          onClick={onClickCloseIcon}
+          onClick={handleClickCloseIcon}
         />
       );
     }
@@ -174,12 +177,11 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const renderPopup = () => {
-    const { safeAreaInsetBottom } = props;
     return (
       <div
         ref={popupRef}
         style={{
-          ...style,
+          ...popupStyle,
           display: !visible && !animatedVisible ? 'none' : undefined,
         }}
         className={classnames(
@@ -188,7 +190,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
             round,
             [position]: position,
           }),
-          { 'rc-safe-area-bottom': safeAreaInsetBottom },
+          { 'rc-safe-area-bottom': props.safeAreaInsetBottom },
         )}
         onClick={props.onClick}
       >

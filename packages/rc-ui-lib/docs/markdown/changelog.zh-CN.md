@@ -12,13 +12,25 @@
 
 ## 更新内容
 
+### [v0.1.46](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
+
+`2021-10-25`
+
+- 增加 Popup 测试案例 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
+
+### [v0.1.45](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
+
+`2021-10-20`
+
+- 增加 Radio 测试案例 [7ac8e81](https://github.com/rancui/rc-ui-lib/commit/7ac8e816103660daf9f96385455bdca33af5b711)
+
 ### [v0.1.44](https://github.com/rancui/rc-ui-lib/compare/v0.1.43...v0.1.44)
 
 `2021-10-19`
 
 **Bug Fixes**
 
-- 修复 swiper 样式引入报错问题 [07a134](https://github.com/rancui/rc-ui-lib/commit/07a134d81443ffdadd28802a3343cca242b15770)
+- 修复 swiper 样式引入报错问题 [07a134d](https://github.com/rancui/rc-ui-lib/commit/07a134d81443ffdadd28802a3343cca242b15770)
 
 **Document**
 

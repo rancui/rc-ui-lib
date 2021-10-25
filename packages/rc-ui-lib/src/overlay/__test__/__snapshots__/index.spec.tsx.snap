@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overlay should render default slot correctly 1`] = `
+<Overlay
+  duration={300}
+  lockScroll={true}
+>
+  <CSSTransition
+    classNames="rc-fade"
+    mountOnEnter={true}
+    nodeRef={
+      Object {
+        "current": null,
+      }
+    }
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={true}
+      nodeRef={
+        Object {
+          "current": null,
+        }
+      }
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </CSSTransition>
+</Overlay>
+`;

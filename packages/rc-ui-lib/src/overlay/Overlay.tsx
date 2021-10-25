@@ -8,9 +8,9 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const Overlay: React.FC<OverlayProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('overlay', prefixCls);
-
   const nodeRef = useRef(null);
-  const { visible, duration } = props;
+
+  const { visible, duration, customStyle, children, lockScroll } = props;
 
   const preventTouchMove = (event: TouchEvent) => {
     preventDefault(event, true);
@@ -20,7 +20,7 @@ const Overlay: React.FC<OverlayProps> = (props) => {
     const style: CSSProperties = {
       zIndex: props.zIndex !== undefined ? +props.zIndex : undefined,
       ...props.style,
-      ...props.customStyle,
+      ...customStyle,
     };
 
     if (isDef(duration)) {
@@ -33,9 +33,9 @@ const Overlay: React.FC<OverlayProps> = (props) => {
         style={style}
         onClick={props.onClick}
         className={classnames(bem(), props.className)}
-        onTouchMove={props.lockScroll ? preventTouchMove : noop}
+        onTouchMove={lockScroll ? preventTouchMove : noop}
       >
-        {props.children}
+        {children}
       </div>
     );
   };
