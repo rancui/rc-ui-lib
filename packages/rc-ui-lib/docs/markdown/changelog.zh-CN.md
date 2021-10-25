@@ -12,11 +12,17 @@
 
 ## 更新内容
 
+### [v0.1.47](https://github.com/rancui/rc-ui-lib/compare/v0.1.46...v0.1.47)
+
+`2021-10-25`
+
+- 增加 Overlay 单元测试 [aab94b5](https://github.com/rancui/rc-ui-lib/commit/aab94b5792d2f02780c65d3ce8f56653edd02318)
+
 ### [v0.1.46](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
 `2021-10-25`
 
-- 增加 Popup 测试案例 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
+- 增加 Popup 单元测试 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
 
 ### [v0.1.45](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
