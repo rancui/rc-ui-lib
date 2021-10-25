@@ -7,6 +7,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useContext,
+  CSSProperties,
 } from 'react';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
@@ -53,37 +54,49 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('popup', prefixCls);
 
-  const { round, visible, closeable, title, descrition, children, duration, closeIcon, position } =
-    props;
-  const opened = useRef(false);
-  const zIndex = useRef(globalZIndex);
+  const {
+    round,
+    visible,
+    closeable,
+    title,
+    descrition,
+    children,
+    duration,
+    closeIcon,
+    position,
+    teleport,
+  } = props;
+  const opened = useRef<boolean>(false);
+  const zIndex = useRef<number>(globalZIndex);
   const popupRef = useRef<HTMLDivElement>();
   const [animatedVisible, setAnimatedVisible] = useState(visible);
   const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
   const [ssrCompatRender, rendered] = useSsrCompat();
 
   const style = useMemo(() => {
-    const initStyle = {
+    const initStyle: CSSProperties = {
       zIndex: zIndex.current,
       ...props.style,
     };
 
-    if (isDef(props.duration)) {
-      const key = props.position === 'center' ? 'animationDuration' : 'transitionDuration';
-      initStyle[key] = `${props.duration}ms`;
+    if (isDef(duration)) {
+      const key = position === 'center' ? 'animationDuration' : 'transitionDuration';
+      initStyle[key] = `${duration}ms`;
     }
     return initStyle;
-  }, [zIndex.current, props.style, props.duration]);
+  }, [zIndex.current, props.style, duration]);
 
   const open = () => {
-    if (props.zIndex !== undefined) {
-      globalZIndex = +props.zIndex;
+    if (!opened.current) {
+      if (props.zIndex !== undefined) {
+        globalZIndex = props.zIndex;
+      }
+
+      opened.current = true;
+      zIndex.current = ++globalZIndex;
+
+      props.onOpen?.();
     }
-
-    opened.current = true;
-    zIndex.current = ++globalZIndex;
-
-    props.onOpen?.();
   };
 
   const close = () => {
@@ -114,7 +127,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
           visible={visible && rendered}
           className={props.overlayClass}
           customStyle={props.overlayStyle}
-          zIndex={zIndex.current}
+          // zIndex={zIndex.current}
+          zIndex={style.zIndex as number}
           duration={duration}
           onClick={onClickOverlay}
         />
@@ -132,12 +146,12 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 
   const renderCloseIcon = () => {
     if (closeable) {
-      const { closeIconPosition } = props;
+      const { closeIconPosition, iconPrefix } = props;
       return (
         <Icon
           name={closeIcon}
           className={classnames(bem('close-icon', closeIconPosition))}
-          classPrefix={props.iconPrefix}
+          classPrefix={iconPrefix}
           onClick={onClickCloseIcon}
         />
       );
@@ -187,25 +201,22 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const renderTransition = () => {
-    const { transition, destroyOnClose, forceRender } = props;
+    const { transition, destroyOnClose, forceRender, onClosed, onOpened } = props;
     const name = position === 'center' ? 'rc-fade' : `rc-popup-slide-${position}`;
 
     return (
       <CSSTransition
         in={visible && rendered}
-        /**
-         * https://github.com/reactjs/react-transition-group/pull/559
-         */
         nodeRef={popupRef}
         timeout={duration}
         classNames={transition || name}
         mountOnEnter={!forceRender}
         unmountOnExit={destroyOnClose}
         onEnter={open}
-        onEntered={props.onOpened}
+        onEntered={onOpened}
         onExited={() => {
           setAnimatedVisible(false);
-          props.onClosed?.();
+          onClosed?.();
         }}
       >
         {renderPopup()}
@@ -235,7 +246,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 
   return ssrCompatRender(() =>
     renderToContainer(
-      props.teleport,
+      teleport,
       <PopupContext.Provider value={{ visible }}>
         {renderOverlay()}
         {renderTransition()}
