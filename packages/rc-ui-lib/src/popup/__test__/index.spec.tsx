@@ -3,51 +3,47 @@ import { mount } from 'enzyme';
 import { Popup } from '..';
 
 describe('Popup', () => {
-  it('should lazy render content by default', async () => {
-    const wrapper = mount(
-      <Popup>
-        <div className="foo" />
-      </Popup>,
-    );
-    expect(wrapper.find('.foo').exists()).toBeFalsy();
-    await wrapper.setProps({ visible: true });
-    expect(wrapper.find('.foo').exists()).toBeTruthy();
+  let wrapper;
+  afterEach(() => {
+    wrapper.unmount();
   });
+
   it('should change z-index when using z-index prop', async () => {
-    const wrapper = mount(
-      // <Popup visible zIndex={10} />);
-      <Popup visible style={{ zIndex: 10 }} />,
-    );
+    wrapper = mount(<Popup visible style={{ zIndex: 10 }} />);
     expect(wrapper.find('.rc-popup').getDOMNode().style.zIndex).toEqual('10');
     expect(wrapper.find('.rc-overlay').getDOMNode().style.zIndex).toEqual('10');
   });
 
-  // it('should lock scroll when visibled', async () => {
-  //   const wrapper = mount(<Popup />);
-  //   expect(document.body.classList.contains('rc-overflow-hidden')).toBeFalsy();
-  //   await wrapper.setProps({ visible: true });
-  //   expect(document.body.classList.contains('rc-overflow-hidden')).toBeTruthy();
-  // });
+  it('should lock scroll when visibled', async () => {
+    wrapper = mount(<Popup />);
+    console.log(
+      '=======rc-overflow-hidden=======',
+      document.body.classList.contains('rc-overflow-hidden'),
+    );
+    expect(document.body.classList.contains('rc-overflow-hidden')).toBeFalsy();
+    await wrapper.setProps({ visible: true });
+    expect(document.body.classList.contains('rc-overflow-hidden')).toBeTruthy();
+  });
 
   it('should allow to using teleport prop', async () => {
     const div = document.createElement('div');
-    mount(<Popup visible teleport={div} />);
+    wrapper = mount(<Popup visible teleport={div} />);
 
     expect(div.querySelector('.rc-popup')).toBeTruthy();
   });
 
   it('should render overlay by default', () => {
-    const wrapper = mount(<Popup visible />);
-    expect(wrapper.find('.rc-overlay').exists()).toBeTruthy();
+    wrapper = mount(<Popup visible />);
+    expect(wrapper.find('.rc-overlay')).toBeTruthy();
   });
 
   it('should not render overlay when overlay prop is false', () => {
-    const wrapper = mount(<Popup visible overlay={false} />);
-    expect(wrapper.hasClass('rc-overlay'));
+    wrapper = mount(<Popup visible overlay={false} />);
+    expect(wrapper.hasClass('rc-overlay')).toBeFalsy();
   });
   it('should emit click-overlay event when overlay is clicked', async () => {
     const onClickOverlay = jest.fn();
-    const wrapper = mount(<Popup visible onClickOverlay={onClickOverlay} />);
+    wrapper = mount(<Popup visible onClickOverlay={onClickOverlay} />);
     const overlay = wrapper.find('.rc-overlay');
     overlay.simulate('click');
     expect(onClickOverlay).toHaveBeenCalled();
@@ -55,7 +51,7 @@ describe('Popup', () => {
 
   it('should emit open event when visible prop is set to true', async () => {
     const onOpen = jest.fn();
-    const wrapper = mount(<Popup visible={false} onOpen={onOpen} />);
+    wrapper = mount(<Popup visible={false} onOpen={onOpen} />);
     await wrapper.setProps({ visible: true });
     expect(onOpen).toHaveBeenCalledTimes(1);
   });
@@ -63,7 +59,7 @@ describe('Popup', () => {
   it('should emit close event when visible prop is set to false', async () => {
     const onClickOverlay = jest.fn();
     const onClose = jest.fn();
-    const wrapper = mount(<Popup visible onClickOverlay={onClickOverlay} onClose={onClose} />);
+    wrapper = mount(<Popup visible onClickOverlay={onClickOverlay} onClose={onClose} />);
     const overlay = wrapper.find('.rc-overlay');
     await overlay.simulate('click');
     wrapper.setProps({ visible: false });
@@ -71,7 +67,7 @@ describe('Popup', () => {
   });
 
   it('should change duration when using duration prop', () => {
-    const wrapper = mount(<Popup visible duration={500} />);
+    wrapper = mount(<Popup visible duration={500} />);
     const popup = wrapper.find('.rc-popup');
     const overlay = wrapper.find('.rc-overlay');
     expect(popup.getDOMNode().style.animationDuration).toEqual('500ms');
@@ -79,19 +75,18 @@ describe('Popup', () => {
   });
 
   it('should have "rc-popup--round" class when setting the round prop', () => {
-    const wrapper = mount(<Popup visible round />);
-
+    wrapper = mount(<Popup visible round />);
     expect(wrapper.find('.rc-popup--round').exists()).toBeTruthy();
   });
 
   it('should render close icon when using closeable prop', () => {
-    const wrapper = mount(<Popup visible closeable />);
+    wrapper = mount(<Popup visible closeable />);
     expect(wrapper.find('.rc-popup__close-icon').exists()).toBeTruthy();
   });
 
   it('should emit click-close-icon event when close icon is clicked', async () => {
     const onClickCloseIcon = jest.fn();
-    const wrapper = mount(
+    wrapper = mount(
       <Popup visible closeable closeIcon="success" onClickCloseIcon={onClickCloseIcon} />,
     );
     const icon = wrapper.find('.rc-popup__close-icon').at(0);
@@ -100,32 +95,31 @@ describe('Popup', () => {
   });
 
   it('should render correct close icon when using close-icon prop', () => {
-    const wrapper = mount(<Popup visible closeable closeIcon="success" />);
+    wrapper = mount(<Popup visible closeable closeIcon="success" />);
     expect(wrapper.find('.rc-popup__close-icon')).toMatchSnapshot();
   });
 
   it('should change icon class prefix when using icon-prefix prop', () => {
-    const wrapper = mount(<Popup visible closeable iconPrefix="my-icon" />);
-
+    wrapper = mount(<Popup visible closeable iconPrefix="my-icon" />);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should allow to prevent close with before-close prop', async () => {
     const onClickOverlay = jest.fn();
-    const www = mount(<Popup visible beforeClose={() => false} onClickOverlay={onClickOverlay} />);
+    wrapper = mount(<Popup visible beforeClose={() => false} onClickOverlay={onClickOverlay} />);
 
-    const overlay = www.find('.rc-overlay');
+    const overlay = wrapper.find('.rc-overlay');
     overlay.simulate('click');
     expect(overlay).toBeTruthy();
 
-    await www.setProps({ beforeClose: () => true });
+    await wrapper.setProps({ beforeClose: () => true });
     overlay.simulate('click');
     expect(overlay.exists());
   });
 
   it('should not call before-close when visible prop becomes false', async () => {
     const beforeClose = jest.fn();
-    const wrapper = mount(<Popup visible beforeClose={beforeClose} />);
+    wrapper = mount(<Popup visible beforeClose={beforeClose} />);
     await wrapper.setProps({ visible: false });
     expect(beforeClose).toHaveBeenCalledTimes(0);
   });

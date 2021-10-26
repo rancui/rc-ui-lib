@@ -258,6 +258,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 });
 
 Popup.defaultProps = {
+  visible: false,
   zIndex: 2000,
   duration: 300,
   overlay: true,

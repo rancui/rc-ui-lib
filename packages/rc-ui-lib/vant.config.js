@@ -207,10 +207,10 @@ module.exports = {
                 path: 'share-sheet',
                 title: 'ShareSheet 分享面板',
               },
-              {
-                path: 'swipe-cell',
-                title: 'SwipeCell 滑动单元格',
-              },
+              // {
+              //   path: 'swipe-cell',
+              //   title: 'SwipeCell 滑动单元格',
+              // },
             ],
           },
           {

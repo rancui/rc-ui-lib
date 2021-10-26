@@ -103,7 +103,7 @@ const [showPopup, setShowPopup] = useState(false);
 | closeIcon | 关闭图标名称或图片链接 | _string_ | `cross` |
 | closeIconPosition | 关闭图标位置，可选值为`top-left`<br>`bottom-left` `bottom-right` | _string_ | `top-right` |
 | transition | 动画类名，等价于 [transtion](https://v3.cn.vuejs.org/api/built-in-components.html#transition) 的`name`属性 | _string_ | - |
-| teleport | 指定挂载的节点 | _HTMLElement | (() => HTMLElement)_ | - |
+| teleport | 指定挂载的节点 | _HTMLElement_ | _(() => HTMLElement)_ |
 | safeAreaInsetBottom | 是否开启[底部安全区适配](#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_ | `false` |
 
 ### Events
@@ -117,7 +117,6 @@ const [showPopup, setShowPopup] = useState(false);
 | onClose          | 关闭弹出层时触发           | -              |
 | onOpened         | 打开弹出层且动画结束后触发 | -              |
 | onClosed         | 关闭弹出层且动画结束后触发 | -              |
-
 
 ### 类型定义
 
@@ -133,13 +132,13 @@ import type { PopupPosition, PopupCloseIconPosition } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-popup-background-color | _var(--rc-white)_ | - |
-| --rc-popup-transition | _transform var(--rc-animation-duration-base)_ | - |
-| --rc-popup-round-border-radius | _16px_ | - |
-| --rc-popup-close-icon-size | _22px_ | - |
-| --rc-popup-close-icon-color | _var(--rc-gray-5)_ | - |
-| --rc-popup-close-icon-active-color | _var(--rc-gray-6)_ | - |
-| --rc-popup-close-icon-margin | _16px_ | - |
-| --rc-popup-close-icon-z-index | _1_ | - |
+| 名称                               | 默认值                                        | 描述 |
+| ---------------------------------- | --------------------------------------------- | ---- |
+| --rc-popup-background-color        | _var(--rc-white)_                             | -    |
+| --rc-popup-transition              | _transform var(--rc-animation-duration-base)_ | -    |
+| --rc-popup-round-border-radius     | _16px_                                        | -    |
+| --rc-popup-close-icon-size         | _22px_                                        | -    |
+| --rc-popup-close-icon-color        | _var(--rc-gray-5)_                            | -    |
+| --rc-popup-close-icon-active-color | _var(--rc-gray-6)_                            | -    |
+| --rc-popup-close-icon-margin       | _16px_                                        | -    |
+| --rc-popup-close-icon-z-index      | _1_                                           | -    |
