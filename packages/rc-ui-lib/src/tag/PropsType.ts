@@ -20,7 +20,8 @@ export interface TagProps extends BaseTypeProps {
   /** 类型 */
   type?: TagType;
   /** 是否展示标签	 */
-  show?: boolean;
+  visible?: boolean;
   onClose?: (e: React.MouseEvent) => void;
+  /** 点击	 */
   onClick?: (e: React.MouseEvent) => void;
 }

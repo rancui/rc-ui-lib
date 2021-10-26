@@ -16,10 +16,6 @@ describe('Popup', () => {
 
   it('should lock scroll when visibled', async () => {
     wrapper = mount(<Popup />);
-    console.log(
-      '=======rc-overflow-hidden=======',
-      document.body.classList.contains('rc-overflow-hidden'),
-    );
     expect(document.body.classList.contains('rc-overflow-hidden')).toBeFalsy();
     await wrapper.setProps({ visible: true });
     expect(document.body.classList.contains('rc-overflow-hidden')).toBeTruthy();

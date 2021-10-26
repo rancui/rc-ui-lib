@@ -12,29 +12,40 @@ const Tag: React.FC<TagProps> = (props) => {
 
   const nodeRef = useRef(null);
 
-  const onClose = (event: MouseEvent) => {
+  const {
+    visible,
+    plain,
+    textColor,
+    color,
+    type,
+    mark,
+    round,
+    size,
+    closeable,
+    onClick,
+    onClose,
+    children,
+  } = props;
+
+  const handleClose = (event: MouseEvent) => {
     event.stopPropagation();
-    if (props.onClose) {
-      props.onClose(event);
-    }
+    onClose?.(event);
   };
 
   const getStyle = useMemo(() => {
-    if (props.plain) {
+    if (plain) {
       return {
-        color: props.textColor || props.color,
-        borderColor: props.color,
+        color: textColor || color,
+        borderColor: color,
       };
     }
     return {
-      color: props.textColor,
-      background: props.color,
+      color: textColor,
+      background: color,
     };
-  }, [props.textColor, props.color, props.plain]);
+  }, [textColor, color, plain]);
 
   const renderTag = () => {
-    const { type, mark, plain, round, size, closeable } = props;
-
     const classes: Record<string, unknown> = {
       mark,
       plain,
@@ -45,7 +56,7 @@ const Tag: React.FC<TagProps> = (props) => {
     }
 
     const CloseIcon = closeable && (
-      <Icon name="cross" className={classnames(bem('close'))} onClick={onClose} />
+      <Icon name="cross" className={classnames(bem('close'))} onClick={handleClose} />
     );
 
     return (
@@ -53,29 +64,23 @@ const Tag: React.FC<TagProps> = (props) => {
         ref={nodeRef}
         style={{ ...getStyle, ...props.style }}
         className={classnames(props.className, bem([classes, type]))}
-        onClick={props.onClick}
+        onClick={onClick}
       >
-        {props.children}
+        {children}
         {CloseIcon}
       </span>
     );
   };
 
   return (
-    <CSSTransition
-      nodeRef={nodeRef}
-      classNames="rc-fade"
-      in={props.show}
-      timeout={300}
-      unmountOnExit
-    >
+    <CSSTransition nodeRef={nodeRef} classNames="rc-fade" in={visible} timeout={300} unmountOnExit>
       {renderTag()}
     </CSSTransition>
   );
 };
 
 Tag.defaultProps = {
-  show: true,
+  visible: true,
   type: 'default',
 };
 
