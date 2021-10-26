@@ -54,7 +54,7 @@ import { Tag } from 'rc-ui-lib';
 添加 `closeable` 属性表示标签是可关闭的，关闭标签时会触发 `close` 事件，在 `close` 事件中可以执行隐藏标签的逻辑。
 
 ```jsx
-<Tag show={show} closeable size="medium" type="primary" onClose={() => setShow(false)}>
+<Tag visible={visible} closeable size="medium" type="primary" onClose={() => setVisible(false)}>
   标签
 </Tag>
 ```
@@ -89,7 +89,7 @@ import { Tag } from 'rc-ui-lib';
 | type      | 类型，可选值为 `primary` `success` `danger` `warning` | _string_  | `default` |
 | size      | 大小, 可选值为 `large` `medium`                       | _string_  | -         |
 | color     | 标签颜色                                              | _string_  | -         |
-| show      | 是否展示标签                                          | _boolean_ | `true`    |
+| visible   | 是否展示标签                                          | _boolean_ | `true`    |
 | plain     | 是否为空心样式                                        | _boolean_ | `false`   |
 | round     | 是否为圆角样式                                        | _boolean_ | `false`   |
 | mark      | 是否为标记样式                                        | _boolean_ | `false`   |
@@ -98,11 +98,10 @@ import { Tag } from 'rc-ui-lib';
 
 ### Events
 
-| 事件名 | 说明           | 回调参数            |
-| ------ | -------------- | ------------------- |
-| onClick  | 点击时触发     | _event: MouseEvent_      |
-| onClose  | 关闭标签时触发 | _event: MouseEvent_                   |
-
+| 事件名  | 说明           | 回调参数            |
+| ------- | -------------- | ------------------- |
+| onClick | 点击时触发     | _event: MouseEvent_ |
+| onClose | 关闭标签时触发 | _event: MouseEvent_ |
 
 ## 主题定制
 
@@ -110,21 +109,21 @@ import { Tag } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-tag-padding | _0 var(--rc-padding-base)_ | - |
-| --rc-tag-text-color | _var(--rc-white)_ | - |
-| --rc-tag-font-size | _var(--rc-font-size-sm)_ | - |
-| --rc-tag-border-radius | _2px_ | - |
-| --rc-tag-line-height | _16px_ | - |
-| --rc-tag-medium-padding | _2px 6px_ | - |
-| --rc-tag-large-padding | _var(--rc-padding-base) var(--rc-padding-xs)_ | - |
-| --rc-tag-large-border-radius | _var(--rc-border-radius-md)_ | - |
-| --rc-tag-large-font-size | _var(--rc-font-size-md)_ | - |
-| --rc-tag-round-border-radius | _var(--rc-border-radius-max)_ | - |
-| --rc-tag-danger-color | _var(--rc-danger-color)_ | - |
-| --rc-tag-primary-color | _var(--rc-primary-color)_ | - |
-| --rc-tag-success-color | _var(--rc-success-color)_ | - |
-| --rc-tag-warning-color | _var(--rc-warning-color)_ | - |
-| --rc-tag-default-color | _var(--rc-gray-6)_ | - |
-| --rc-tag-plain-background-color | _var(--rc-white)_ | - |
+| 名称                            | 默认值                                        | 描述 |
+| ------------------------------- | --------------------------------------------- | ---- |
+| --rc-tag-padding                | _0 var(--rc-padding-base)_                    | -    |
+| --rc-tag-text-color             | _var(--rc-white)_                             | -    |
+| --rc-tag-font-size              | _var(--rc-font-size-sm)_                      | -    |
+| --rc-tag-border-radius          | _2px_                                         | -    |
+| --rc-tag-line-height            | _16px_                                        | -    |
+| --rc-tag-medium-padding         | _2px 6px_                                     | -    |
+| --rc-tag-large-padding          | _var(--rc-padding-base) var(--rc-padding-xs)_ | -    |
+| --rc-tag-large-border-radius    | _var(--rc-border-radius-md)_                  | -    |
+| --rc-tag-large-font-size        | _var(--rc-font-size-md)_                      | -    |
+| --rc-tag-round-border-radius    | _var(--rc-border-radius-max)_                 | -    |
+| --rc-tag-danger-color           | _var(--rc-danger-color)_                      | -    |
+| --rc-tag-primary-color          | _var(--rc-primary-color)_                     | -    |
+| --rc-tag-success-color          | _var(--rc-success-color)_                     | -    |
+| --rc-tag-warning-color          | _var(--rc-warning-color)_                     | -    |
+| --rc-tag-default-color          | _var(--rc-gray-6)_                            | -    |
+| --rc-tag-plain-background-color | _var(--rc-white)_                             | -    |

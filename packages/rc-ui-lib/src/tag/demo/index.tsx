@@ -7,7 +7,7 @@ import './style.less';
 export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
 
-  const [show, setShow] = useState(true);
+  const [visible, setVisible] = useState(true);
 
   return (
     <DemoSection>
@@ -43,12 +43,12 @@ export default (): React.ReactNode => {
         </Cell>
         <Cell title="可关闭标签">
           <Tag
-            show={show}
+            visible={visible}
             plain
             closeable
             size="medium"
             type="primary"
-            onClose={() => setShow(false)}
+            onClose={() => setVisible(false)}
           >
             标签
           </Tag>
