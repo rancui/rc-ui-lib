@@ -76,7 +76,7 @@ export default (): React.ReactNode => {
           <DemoBlock title="徽标提示">
             <Flex>
               <Flex.Item span={6}>
-                <Icon name="chat-o" badge={{ dot: true }} />
+                <Icon name="chat-o" dot />
               </Flex.Item>
               <Flex.Item span={6}>
                 <Icon name="chat-o" badge={{ content: 9 }} />

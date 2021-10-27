@@ -12,20 +12,20 @@ function isImage(name?: string): boolean {
 const Icon: React.FC<IconProps> = (props) => {
   const { iconPrefix } = useContext(ConfigProviderContext);
 
-  const { tag, name, className, onClick, onTouchStart } = props;
+  const { dot, tag, name, badge, className, onClick, onTouchStart } = props;
 
   const imageIcon = isImage(name);
 
-  const classPrefix = useMemo(() => props.classPrefix || iconPrefix, [props.classPrefix, iconPrefix]);
+  const classPrefix = useMemo(
+    () => props.classPrefix || iconPrefix,
+    [props.classPrefix, iconPrefix],
+  );
 
   return (
     <Badge
+      dot={dot}
       tag={tag}
-      className={classnames(
-        className,
-        classPrefix,
-        imageIcon ? '' : `${classPrefix}-${name}`,
-      )}
+      className={classnames(className, classPrefix, imageIcon ? '' : `${classPrefix}-${name}`)}
       style={{
         color: props.color,
         fontSize: addUnit(props.size),
@@ -36,7 +36,7 @@ const Icon: React.FC<IconProps> = (props) => {
       {...props.badge}
     >
       {props?.children}
-      {imageIcon && <img className={classnames('van-icon__image')} src={name} alt={name} />}
+      {imageIcon && <img className={classnames('rc-icon__image')} src={name} alt={name} />}
     </Badge>
   );
 };
