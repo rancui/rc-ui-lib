@@ -74,7 +74,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     teleport,
   } = props;
   const opened = useRef<boolean>(false);
-  const zIndex = useRef<number>(globalZIndex);
+  const zIndex = useRef<number>();
   const popupRef = useRef<HTMLDivElement>();
   const [animatedVisible, setAnimatedVisible] = useState(visible);
   const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
@@ -95,11 +95,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 
   const open = () => {
     if (!opened.current) {
-      if (props.zIndex !== undefined) {
-        globalZIndex = props.zIndex;
-      }
+      zIndex.current = props.zIndex !== undefined ? +props.zIndex : globalZIndex++;
       opened.current = true;
-      zIndex.current = ++globalZIndex;
       onOpen?.();
     }
   };
@@ -132,8 +129,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
           visible={visible && rendered}
           className={overlayClass}
           customStyle={overlayStyle}
-          // zIndex={zIndex.current}
-          zIndex={popupStyle.zIndex as number}
+          zIndex={zIndex.current}
           duration={duration}
           onClick={handleClickOverlay}
         />
@@ -259,7 +255,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 
 Popup.defaultProps = {
   visible: false,
-  zIndex: 2000,
   duration: 300,
   overlay: true,
   lockScroll: true,
