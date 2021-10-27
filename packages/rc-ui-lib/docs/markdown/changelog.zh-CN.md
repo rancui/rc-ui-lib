@@ -12,23 +12,46 @@
 
 ## 更新内容
 
+### [v0.1.49](https://github.com/rancui/rc-ui-lib/compare/v0.1.48...v0.1.49)
+
+`2021-10-27`
+
+**Feature**
+
+- Tag: 增加测试用例 [2404278](https://github.com/rancui/rc-ui-lib/commit/2404278663ea40edea326610729ff0effaffa098)
+- Switch: 增加测试用例 [c2950a9](https://github.com/rancui/rc-ui-lib/commit/c2950a9c7faafe1a9690619c8806dc5981e1f1db)
+- Loading: 增加单元测试[92cef48](https://github.com/rancui/rc-ui-lib/commit/92cef48ccae6ff92b3a3a73444ba2a350fd62052)
+- Icon: 增加单元测试[2ab01fb](https://github.com/rancui/rc-ui-lib/commit/2ab01fb8617fbf3f4b3a57b386697903271f5a9f)
+
+**Document**
+
+- Tag: 更新 README.md 文档[ba19760](https://github.com/rancui/rc-ui-lib/commit/ba197609552e3f45f7808ddccc38075a6a28a503)
+
+### [v0.1.48](https://github.com/rancui/rc-ui-lib/compare/v0.1.47...v0.1.48)
+
+`2021-10-26`
+
+**Document**
+
+- 更新 Form，Slider，Popup 的 README.md 文档[e333e84](https://github.com/rancui/rc-ui-lib/commit/e333e84d50be57028eff53cc007f2da81dbb565e)
+
 ### [v0.1.47](https://github.com/rancui/rc-ui-lib/compare/v0.1.46...v0.1.47)
 
 `2021-10-25`
 
-- 增加 Overlay 单元测试 [aab94b5](https://github.com/rancui/rc-ui-lib/commit/aab94b5792d2f02780c65d3ce8f56653edd02318)
+- Overlay: 增加单元测试 [aab94b5](https://github.com/rancui/rc-ui-lib/commit/aab94b5792d2f02780c65d3ce8f56653edd02318)
 
 ### [v0.1.46](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
 `2021-10-25`
 
-- 增加 Popup 单元测试 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
+- Popup: 增加单元测试 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
 
 ### [v0.1.45](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
 `2021-10-20`
 
-- 增加 Radio 测试案例 [7ac8e81](https://github.com/rancui/rc-ui-lib/commit/7ac8e816103660daf9f96385455bdca33af5b711)
+- Radio: 增加单元测试 [7ac8e81](https://github.com/rancui/rc-ui-lib/commit/7ac8e816103660daf9f96385455bdca33af5b711)
 
 ### [v0.1.44](https://github.com/rancui/rc-ui-lib/compare/v0.1.43...v0.1.44)
 
@@ -36,11 +59,7 @@
 
 **Bug Fixes**
 
-- 修复 swiper 样式引入报错问题 [07a134d](https://github.com/rancui/rc-ui-lib/commit/07a134d81443ffdadd28802a3343cca242b15770)
-
-**Document**
-
-- update form README.md [eeb38f](https://github.com/rancui/rc-ui-lib/commit/eeb38f0f28289168de9896056febe21947c05f3d)
+- Swiper: 修复样式引入报错问题 [07a134d](https://github.com/rancui/rc-ui-lib/commit/07a134d81443ffdadd28802a3343cca242b15770)
 
 ### [v0.1.43](https://github.com/rancui/rc-ui-lib/compare/v0.1.42...v0.1.43)
 
@@ -53,40 +72,32 @@
 
 **Feature**
 
-- 提供 FormItem 标签供使用 [6d4d6d](https://github.com/commit/6d4d6d17effc164787c8daabc316daca2e43deef)
+- Form: 提供 FormItem 标签供使用 [6d4d6d](https://github.com/rancui/rc-ui-lib/commit/6d4d6d17effc164787c8daabc316daca2e43deef)
 
 ### [v0.1.41](https://github.com/rancui/rc-ui-lib/compare/v0.1.40...v0.1.41)
 
-- feat: 增加 Form 组件 [b2e7249](https://github.com/rancui/rc-ui-lib/commit/b2e7249ec660da3479d6bed6ba23779ae1bc1bb7)
+`2021-10-19`
+
+- 增加 Form 组件 [b2e7249](https://github.com/rancui/rc-ui-lib/commit/b2e7249ec660da3479d6bed6ba23779ae1bc1bb7)
 
 ### [v0.1.35](https://github.com/compare/v0.1.34...v0.1.35)
 
 `2021-10-13`
 
-**Feature**
+**Features**
 
-- 删除同步到 Gitee 的配置文件 [c2c0ce](https://github.com/rancui/rc-ui-lib/commit/c2c0ce1b0aab6a95a92dc3c88c8d2ca45154c9e5)
-
-**refactor**
-
-- 增加分组组件的命名 [b5abda](https://github.com/rancui/rc-ui-lib/commit/b5abda80e56dafbc809568b747311a310ad7a5cd)
-- 增加 demo 中引入的组件 [5bd85c](https://github.com/rancui/rc-ui-lib/commit/5bd85c29950b343af479e89d946f70084146da91)
+- Button: 增加分组组件的命名 [b5abda](https://github.com/rancui/rc-ui-lib/commit/b5abda80e56dafbc809568b747311a310ad7a5cd)
+- Button: 更新 demo [5bd85c](https://github.com/rancui/rc-ui-lib/commit/5bd85c29950b343af479e89d946f70084146da91)
 
 ### [v0.1.34](https://github.com/compare/v0.1.33...v0.1.34)
 
 `2021-10-13`
 
-**Document**
+**Features**
 
-- docs: update READEME [eb8849](https://github.com/rancui/rc-ui-lib/commit/eb8849695bd4b03f285486106009e43739d80f19)
+- Checkbox: 移除属性 onToggle [ebacf9](https://github.com/rancui/rc-ui-lib/commit/ebacf9bb8fe084701b3b3a34ba296d8b90000af6)
 
-**refactor**
-
-- package.json: update lint-staged [1d7d37](https://github.com/rancui/rc-ui-lib/commit/1d7d37aab0eafb2a151d0633c55e7f90a510c1d4)
-- rc-cli: update variable name [fe5277](https://github.com/rancui/rc-ui-lib/commit/fe52776ce525db092df68689e437c87f22dcbb5c)
-- remove prop onToggle in CheckboxProps [ebacf9](https://github.com/rancui/rc-ui-lib/commit/ebacf9bb8fe084701b3b3a34ba296d8b90000af6)
-
-### [v0.1.33](https://github.com/compare/v0.1.31...v0.1.33)
+### [v0.1.33](https://github.com/rancui/rc-ui-lib/compare/v0.1.31...v0.1.33)
 
 `2021-10-12`
 
@@ -96,8 +107,10 @@
 
 - docs:update demo usage [7c9b4e](https://github.com/rancui/rc-ui-lib/commit/7c9b4e590565f60cce36210e5938aa95053cba45)
 
-### v0.1.26
+### [v0.1.26](https://github.com/rancui/rc-ui-lib/compare/v0.1.25...rc-ui-lib@0.1.26)
 
-`2021-09-28` **Build**
+`2021-09-28`
 
-- 更改构建工具体系及相关依赖
+**Build**
+
+- 更改各组件代码实现，构建工具体系及相关依赖[dc9776f](https://github.com/rancui/rc-ui-lib/commit/dc9776f237d00c3cefd1d66f8f8b31edb5131c53)
