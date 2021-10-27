@@ -45,11 +45,13 @@
 
 `2021-10-25`
 
+**Feature**
+
 - Popup: 增加单元测试 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
 
 ### [v0.1.45](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
-`2021-10-20`
+`2021-10-20` **Feature**
 
 - Radio: 增加单元测试 [7ac8e81](https://github.com/rancui/rc-ui-lib/commit/7ac8e816103660daf9f96385455bdca33af5b711)
 
@@ -77,6 +79,8 @@
 ### [v0.1.41](https://github.com/rancui/rc-ui-lib/compare/v0.1.40...v0.1.41)
 
 `2021-10-19`
+
+**Feature**
 
 - 增加 Form 组件 [b2e7249](https://github.com/rancui/rc-ui-lib/commit/b2e7249ec660da3479d6bed6ba23779ae1bc1bb7)
 
