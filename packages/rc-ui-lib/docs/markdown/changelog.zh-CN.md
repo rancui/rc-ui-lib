@@ -12,6 +12,14 @@
 
 ## 更新内容
 
+### [v0.1.51](https://github.com/rancui/rc-ui-lib/compare/v0.1.50...v0.1.51)
+
+`2021-10-28`
+
+**Feature**
+
+- Circle: 增加单元测试 [945f0db](https://github.com/rancui/rc-ui-lib/commit/945f0dbf6d389c2278179c44e1e87f28cd552c1e)
+
 ### [v0.1.50](https://github.com/rancui/rc-ui-lib/compare/v0.1.49...v0.1.50)
 
 `2021-10-28`
