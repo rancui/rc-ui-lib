@@ -129,7 +129,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
           visible={visible && rendered}
           className={overlayClass}
           customStyle={overlayStyle}
-          zIndex={zIndex.current}
+          zIndex={popupStyle.zIndex as number}
           duration={duration}
           onClick={handleClickOverlay}
         />
@@ -254,7 +254,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 });
 
 Popup.defaultProps = {
-  visible: false,
   duration: 300,
   overlay: true,
   lockScroll: true,

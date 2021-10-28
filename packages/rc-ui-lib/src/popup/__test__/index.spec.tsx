@@ -6,12 +6,13 @@ describe('Popup', () => {
   let wrapper;
   afterEach(() => {
     wrapper.unmount();
+    jest.restoreAllMocks();
   });
 
   it('should change z-index when using z-index prop', async () => {
-    wrapper = mount(<Popup visible style={{ zIndex: 10 }} />);
-    expect(wrapper.find('.rc-popup').getDOMNode().style.zIndex).toEqual('10');
-    expect(wrapper.find('.rc-overlay').getDOMNode().style.zIndex).toEqual('10');
+    wrapper = mount(<Popup visible style={{ zIndex: 1500 }} />);
+    expect(wrapper.find('.rc-popup').getDOMNode().style.zIndex).toEqual('1500');
+    expect(wrapper.find('.rc-overlay').getDOMNode().style.zIndex).toEqual('1500');
   });
 
   it('should lock scroll when visibled', async () => {

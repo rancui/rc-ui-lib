@@ -177,9 +177,8 @@ export default (): React.ReactNode => {
       />
       <Popup
         visible={state.showBottom}
-        style={{ height: '30%' }}
+        style={{ height: '30%', zIndex: 1600 }}
         position="bottom"
-        zIndex={1500}
         onClose={() =>
           dispatch({
             type: 'showBottom',

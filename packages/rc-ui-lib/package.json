@@ -22,13 +22,10 @@
   },
   "author": "rancui",
   "license": "MIT",
+  "repository": "https://github.com/rancui/rc-ui-lib.git",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:rancui/rc-ui-lib.git"
   },
   "keywords": [
     "ui",
