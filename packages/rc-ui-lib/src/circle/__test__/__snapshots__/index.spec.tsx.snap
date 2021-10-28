@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Circle should change circle size when using size prop 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={0}
+  fill="none"
+  size={150}
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={
+      Object {
+        "height": "150px",
+        "width": "150px",
+      }
+    }
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "0px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should change stroke linecap when using stroke-linecap prop 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={0}
+  fill="none"
+  speed={100}
+  startPosition="top"
+  strokeLinecap="butt"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "0px 3140px",
+            "strokeLinecap": "butt",
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should emit "update:currentRate" event during animation 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={0}
+  fill="none"
+  rate={150}
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "0px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should render clockwise and anticlockwise correctly 1`] = `
+<Circle
+  clockwise={false}
+  defaultRate={70}
+  fill="none"
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+  text="70%"
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 0 0, 1000 a 500, 500 0 1, 0 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 0 0, 1000 a 500, 500 0 1, 0 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "2198px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+    <div
+      className="rc-circle__text"
+    >
+      70%
+    </div>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should render linearGradient correctly 1`] = `
+<Circle
+  clockwise={true}
+  color={
+    Object {
+      "0%": "#3fecff",
+      "100%": "#6149f6",
+    }
+  }
+  defaultRate={70}
+  fill="none"
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <defs>
+        <linearGradient
+          className="linearGradient"
+          id="rc-circle-14"
+          x1="100%"
+          x2="0%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            key="0"
+            offset="0%"
+            stopColor="#3fecff"
+          />
+          <stop
+            key="1"
+            offset="100%"
+            stopColor="#6149f6"
+          />
+        </linearGradient>
+      </defs>
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        stroke="url(#rc-circle-14)"
+        style={
+          Object {
+            "stroke": "url(#rc-circle-14)",
+            "strokeDasharray": "2198px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should render text correctly 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={70}
+  fill="none"
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+  text="70%"
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "2198px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+    <div
+      className="rc-circle__text"
+    >
+      70%
+    </div>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should update to final rate immediately if speed is 0 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={0}
+  fill="none"
+  rate={150}
+  speed={0}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "0px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;

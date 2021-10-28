@@ -27,13 +27,13 @@ const ROTATE_ANGLE_MAP: Record<CircleStartPosition, number> = {
 };
 
 const Circle: React.FC<CircleProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('circle', prefixCls);
 
   // eslint-disable-next-line no-plusplus
-  const id = `van-circle-${uid++}`;
+  const id = `rc-circle-${uid++}`;
 
-  const [currentRate, setCurrentRate] = useState(() => props.defaultRate || 0)
+  const [currentRate, setCurrentRate] = useState(() => props.defaultRate || 0);
 
   const [current] = useMergedState({
     defaultValue: props.defaultRate,
@@ -65,14 +65,14 @@ const Circle: React.FC<CircleProps> = (props) => {
       const now = Date.now();
       const progress = Math.min((now - startTime) / duration, 1);
       const rate = progress * (endRate - startRate) + startRate;
-      const crate = format(parseFloat(rate.toFixed(1)))
+      const crate = format(parseFloat(rate.toFixed(1)));
 
       setCurrentRate(crate);
 
       if (endRate > startRate ? rate < endRate : rate > endRate) {
         rafId = raf(animate);
       } else {
-        props.onChange?.(crate)
+        props.onChange?.(crate);
       }
     };
     if (props.speed) {
@@ -125,7 +125,7 @@ const Circle: React.FC<CircleProps> = (props) => {
 
     return (
       <defs>
-        <linearGradient id={id} x1="100%" y1="0%" x2="0%" y2="0%">
+        <linearGradient className="linearGradient" id={id} x1="100%" y1="0%" x2="0%" y2="0%">
           {Stops}
         </linearGradient>
       </defs>

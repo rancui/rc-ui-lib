@@ -26,7 +26,9 @@ export interface CircleProps extends BaseTypeProps {
   clockwise?: boolean;
   /** 进度起始位置 */
   startPosition?: CircleStartPosition;
+  /** 文字 */
   text?: string;
+  /** 子元素 */
   children?: React.ReactNode;
   onChange?: (value: number) => void;
 }
