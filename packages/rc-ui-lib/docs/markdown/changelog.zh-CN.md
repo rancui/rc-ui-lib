@@ -12,6 +12,15 @@
 
 ## 更新内容
 
+### [v0.1.50](https://github.com/rancui/rc-ui-lib/compare/v0.1.49...v0.1.50)
+
+`2021-10-28`
+
+**Bug Fixes**
+
+- Popup: 修复的 z-index 显示 [5ddd28](https://github.com/rancui/rc-ui-lib/commit/5ddd28b4ca48523ecc400954649c73d2769b13c8)
+- Swipe: swiper 的 css 变量未加分号引起打包失败 [fc318f](https://github.com/rancui/rc-ui-lib/commit/fc318fdecf9c5e8fab869ac09ce6c3355b79daf8)
+
 ### [v0.1.49](https://github.com/rancui/rc-ui-lib/compare/v0.1.48...v0.1.49)
 
 `2021-10-27`
