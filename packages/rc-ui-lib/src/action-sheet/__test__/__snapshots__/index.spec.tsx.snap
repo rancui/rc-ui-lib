@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup should allow to custom close icon with closeIcon prop 1`] = `
+Array [
+  <Icon
+    className="rc-action-sheet__close"
+    name="success"
+    onClick={[Function]}
+    tag="i"
+  >
+    <Badge
+      className="rc-action-sheet__close van-icon van-icon-success"
+      onClick={[Function]}
+      showZero={true}
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": undefined,
+        }
+      }
+      tag="i"
+    >
+      <i
+        className="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+      />
+    </Badge>
+  </Icon>,
+  <Badge
+    className="rc-action-sheet__close van-icon van-icon-success"
+    onClick={[Function]}
+    showZero={true}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+    tag="i"
+  >
+    <i
+      className="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": undefined,
+        }
+      }
+    />
+  </Badge>,
+  <i
+    className="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Popup should render default slot correctly 1`] = `"<div style=\\"animation-duration: 300ms;\\" class=\\"rc-overlay rc-fade-enter rc-fade-enter-active\\"></div><div style=\\"transition-duration: 300ms;\\" class=\\"rc-action-sheet rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-popup-slide-bottom-enter rc-popup-slide-bottom-enter-active\\"><div class=\\"rc-action-sheet__header\\">Title<i class=\\"rc-badge__wrapper rc-action-sheet__close van-icon van-icon-cross\\"></i></div><div class=\\"rc-action-sheet__content\\">Default</div></div>"`;
+
+exports[`Popup should render description correctly 1`] = `
+<div
+  className="rc-action-sheet__description"
+>
+  This is a description
+</div>
+`;
+
+exports[`Popup should render subname correctly 1`] = `"<button type=\\"button\\" class=\\"rc-action-sheet__item\\"><span class=\\"rc-action-sheet__name\\">Option</span><div class=\\"rc-action-sheet__subname\\">Subname</div></button>"`;
