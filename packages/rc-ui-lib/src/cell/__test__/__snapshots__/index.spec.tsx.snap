@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cell should change icon class prefix when using icon-prefix prop 1`] = `"<div class=\\"rc-cell\\"><i class=\\"rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success\\"></i><div class=\\"rc-cell__title\\">Title</div></div>"`;
+
+exports[`Cell should render extra slot correctly 1`] = `"<div class=\\"rc-cell\\"><div class=\\"rc-cell__title\\">Title</div><div class=\\"rc-cell__value\\"><span>Value</span></div>Custom Extra</div>"`;
+
+exports[`Cell should render icon slot correctly 1`] = `
+<Cell
+  icon="location-o"
+>
+  <div
+    className="rc-cell"
+  >
+    <Icon
+      className="rc-cell__left-icon"
+      name="location-o"
+      tag="i"
+    >
+      <Badge
+        className="rc-cell__left-icon van-icon van-icon-location-o"
+        showZero={true}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": undefined,
+          }
+        }
+        tag="i"
+      >
+        <i
+          className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-location-o"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+        />
+      </Badge>
+    </Icon>
+  </div>
+</Cell>
+`;
+
+exports[`Cell should render label slot correctly 1`] = `
+<Cell
+  label="Custom Label"
+  title="Title"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__title"
+    >
+      Title
+      <div
+        className="rc-cell__label"
+      >
+        Custom Label
+      </div>
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`Cell should render title slot correctly 1`] = `
+<Cell
+  title="Custom Title"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__title"
+    >
+      Custom Title
+    </div>
+  </div>
+</Cell>
+`;
+
+exports[`Cell should render value slot correctly 1`] = `
+<Cell
+  value="Custom Value"
+>
+  <div
+    className="rc-cell"
+  >
+    <div
+      className="rc-cell__value rc-cell__value--alone"
+    >
+      <span>
+        Custom Value
+      </span>
+    </div>
+  </div>
+</Cell>
+`;
