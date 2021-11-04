@@ -93,6 +93,12 @@ const [value3, setValue3] = useState('');
 const [value4, setValue4] = useState('');
 ```
 
+### 信息提示（Tooltip）
+
+```jsx
+<Field label="文本" placeholder="请输入文本" tooltip="success" />
+```
+
 ### 错误提示
 
 设置 `required` 属性表示这是一个必填项，可以配合 `error` 或 `error-message` 属性显示对应的错误提示。
@@ -234,7 +240,6 @@ const formatter = (value) => value.replace(/\d/g, '');
 | clearIcon | 清除图标名称或图片链接 | _string_ | `clear` |
 | clickable | 是否开启点击反馈 | _boolean_ | `false` |
 | isLink | 是否展示右侧箭头并开启点击反馈 | _boolean_ | `false` |
-| autofocus | 是否自动聚焦，iOS 系统不支持该属性 | _boolean_ | `false` |
 | showWordLimit | 是否显示字数统计，需要设置`maxlength`属性 | _boolean_ | `false` |
 | error | 是否将输入内容标红 | _boolean_ | `false` |
 | errorMessage | 底部错误提示文案，为空时不展示 | _string_ | - |
@@ -250,12 +255,7 @@ const formatter = (value) => value.replace(/\d/g, '');
 | leftIcon | 左侧图标 | _string\|ReactNode_ | - |
 | rightIcon | 右侧图标 | _string\|ReactNode_ | - |
 | iconPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
-
-#### TODO
-
-| 参数  | 说明                                                             | 类型     | 默认值 |
-| ----- | ---------------------------------------------------------------- | -------- | ------ |
-| rules | 表单校验规则，详见 [Form 组件](#/zh-CN/form#rule-shu-ju-jie-gou) | _Rule[]_ | -      |
+| rules | 表单校验规则，详见 [Form 组件](#/zh-CN/form#rule-shu-ju-jie-gou) | _Rule[]_ | - |
 
 ### Events
 

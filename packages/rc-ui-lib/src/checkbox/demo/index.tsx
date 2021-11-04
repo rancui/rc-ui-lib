@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React, { useRef, useState } from 'react';
-import { Button, Cell, CellGroup, Toast } from 'rc-ui-lib';
+import { Button, Cell, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
 import { CheckboxGroupInstance } from '../PropsType';
-import { Checkbox, CheckboxGroup } from '..';
+import { Checkbox } from '..';
 import './style.less';
 
 const activeIcon = 'https://img.yzcdn.cn/vant/user-active.png';
@@ -85,31 +85,31 @@ export default (): React.ReactNode => {
       </DemoBlock>
 
       <DemoBlock title="复选框组">
-        <CheckboxGroup onChange={(v) => console.log(v)} defaultValue={['a', 'b']}>
+        <Checkbox.Group onChange={(v) => console.log(v)} defaultValue={['a', 'b']}>
           <Checkbox name="a">复选框a</Checkbox>
           <Checkbox name="b">复选框b</Checkbox>
           <Checkbox name="c">复选框c</Checkbox>
-        </CheckboxGroup>
+        </Checkbox.Group>
       </DemoBlock>
       <DemoBlock title="水平排列">
-        <CheckboxGroup defaultValue={[]} direction="horizontal">
+        <Checkbox.Group defaultValue={[]} direction="horizontal">
           <Checkbox name="a">复选框a</Checkbox>
           <Checkbox name="b">复选框b</Checkbox>
-        </CheckboxGroup>
+        </Checkbox.Group>
       </DemoBlock>
       <DemoBlock title="限制最大可选数">
-        <CheckboxGroup defaultValue={[]} max={2}>
+        <Checkbox.Group defaultValue={[]} max={2}>
           <Checkbox name="a">复选框a</Checkbox>
           <Checkbox name="b">复选框b</Checkbox>
           <Checkbox name="c">复选框c</Checkbox>
-        </CheckboxGroup>
+        </Checkbox.Group>
       </DemoBlock>
       <DemoBlock title="全选与反选">
-        <CheckboxGroup ref={ref} value={checkAll} onChange={setCheckAll}>
+        <Checkbox.Group ref={ref} value={checkAll} onChange={setCheckAll}>
           <Checkbox name="a">复选框a</Checkbox>
           <Checkbox name="b">复选框b</Checkbox>
           <Checkbox name="c">复选框c</Checkbox>
-        </CheckboxGroup>
+        </Checkbox.Group>
         <div className="demo-checkbox-buttons">
           <Button type="primary" onClick={() => ref.current?.toggleAll(true)}>
             全选
@@ -120,8 +120,8 @@ export default (): React.ReactNode => {
         </div>
       </DemoBlock>
       <DemoBlock title="搭配单元格组件使用">
-        <CheckboxGroup value={cellCheck} onChange={setCellCheck}>
-          <CellGroup>
+        <Checkbox.Group value={cellCheck} onChange={setCellCheck}>
+          <Cell.Group>
             <Cell
               clickable
               title="单选框1"
@@ -136,8 +136,8 @@ export default (): React.ReactNode => {
               onClick={() => toggle('b')}
               rightIcon={<Checkbox name="b" />}
             />
-          </CellGroup>
-        </CheckboxGroup>
+          </Cell.Group>
+        </Checkbox.Group>
       </DemoBlock>
     </DemoSection>
   );

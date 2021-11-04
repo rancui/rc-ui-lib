@@ -10,7 +10,139 @@ exports[`Button renders correctly 1`] = `
 </button>
 `;
 
-exports[`Button should change icon class prefix when using icon-prefix prop 1`] = `"<button class=\\"rc-button rc-button--default rc-button--normal\\"><div class=\\"rc-button__content\\"><i class=\\"rc-badge__wrapper rc-button__icon my-icon my-icon-success\\"></i></div></button>"`;
+exports[`Button should change icon class prefix when using icon-prefix prop 1`] = `
+<Button
+  icon="success"
+  iconPosition="left"
+  iconPrefix="my-icon"
+  size="normal"
+  tag="button"
+  type="default"
+>
+  <button
+    className="rc-button rc-button--default rc-button--normal"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <div
+      className="rc-button__content"
+    >
+      <Icon
+        className="rc-button__icon"
+        classPrefix="my-icon"
+        name="success"
+        tag="i"
+      >
+        <Badge
+          className="rc-button__icon my-icon my-icon-success"
+          showZero={true}
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+          tag="i"
+        >
+          <i
+            className="rc-badge__wrapper rc-button__icon my-icon my-icon-success"
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": undefined,
+              }
+            }
+          />
+        </Badge>
+      </Icon>
+    </div>
+  </button>
+</Button>
+`;
+
+exports[`Button should render buttton group correctly 1`] = `
+<ButtonGroup>
+  <div
+    className="rc-button-group"
+  >
+    <Button
+      iconPosition="left"
+      size="normal"
+      tag="button"
+      type="primary"
+    >
+      <button
+        className="rc-button rc-button--primary rc-button--normal"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <div
+          className="rc-button__content"
+        >
+          <span
+            className="rc-button__text"
+            key="text"
+          >
+            next step
+          </span>
+        </div>
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
+`;
+
+exports[`Button should render correctly when icon is JSX element 1`] = `
+<Button
+  icon={
+    <Icon
+      name="shop-o"
+      tag="i"
+    />
+  }
+  iconPosition="left"
+  size="normal"
+  tag="button"
+  type="default"
+>
+  <button
+    className="rc-button rc-button--default rc-button--normal"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <div
+      className="rc-button__content"
+    >
+      <Icon
+        name="shop-o"
+        tag="i"
+      >
+        <Badge
+          className="van-icon van-icon-shop-o"
+          showZero={true}
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+          tag="i"
+        >
+          <i
+            className="rc-badge__wrapper van-icon van-icon-shop-o"
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": undefined,
+              }
+            }
+          />
+        </Badge>
+      </Icon>
+    </div>
+  </button>
+</Button>
+`;
 
 exports[`Button should render empty button without errors 1`] = `
 <button

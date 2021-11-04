@@ -96,17 +96,15 @@ import { Checkbox } from 'rc-ui-lib';
 
 复选框可以与复选框组一起使用，复选框组通过 `defaultValue` 数组默认复选框的勾选状态。
 
-> 使用 CheckboxGroup 或 Checkbox.Group 都可以，任君选择。
-
 ```js
 const checked = ['a', 'b'];
 ```
 
 ```jsx
-<CheckboxGroup defaultValue="checked">
+<Checkbox.Group defaultValue="checked">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
-</CheckboxGroup>
+</Checkbox.Group>
 ```
 
 ### 水平排列
@@ -114,10 +112,10 @@ const checked = ['a', 'b'];
 将 `direction` 属性设置为 `horizontal` 后，复选框组会变成水平排列。
 
 ```jsx
-<CheckboxGroup defaultValue="checked" direction="horizontal">
+<Checkbox.Group defaultValue="checked" direction="horizontal">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
-</CheckboxGroup>
+</Checkbox.Group>
 ```
 
 ### 限制最大可选数
@@ -125,16 +123,16 @@ const checked = ['a', 'b'];
 通过 `max` 属性可以限制复选框组的最大可选数。
 
 ```jsx
-<CheckboxGroup defaultValue="result" max={2}>
+<Checkbox.Group defaultValue="result" max={2}>
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
   <Checkbox name="c">复选框 c</Checkbox>
-</CheckboxGroup>
+</Checkbox.Group>
 ```
 
 ### 全选与反选
 
-通过 `CheckboxGroup` 实例上的`toggleAll`方法可以实现全选与反选。
+通过 `Checkbox.Group` 实例上的`toggleAll`方法可以实现全选与反选。
 
 ```jsx
 import { useState, useRef } from 'react';
@@ -145,11 +143,11 @@ export default () => {
   const [checkedAll, setCheckedAll] = useState([]);
   return (
     <>
-      <CheckboxGroup value={checkedAll} onChange={setCheckedAll} ref={ref}>
+      <Checkbox.Group value={checkedAll} onChange={setCheckedAll} ref={ref}>
         <Checkbox name="a">复选框 a</Checkbox>
         <Checkbox name="b">复选框 b</Checkbox>
         <Checkbox name="c">复选框 c</Checkbox>
-      </CheckboxGroup>
+      </Checkbox.Group>
 
       <Button type="primary" onClick={() => ref.current?.toggleAll()}>
         全选
@@ -178,7 +176,7 @@ export default () => {
   };
 
   return (
-    <CheckboxGroup value={value}>
+    <Checkbox.Group value={value}>
       <CellGroup>
         <Cell
           clickable
@@ -195,7 +193,7 @@ export default () => {
           rightIcon={<Checkbox name="b" />}
         />
       </CellGroup>
-    </CheckboxGroup>
+    </Checkbox.Group>
   );
 };
 ```
@@ -218,7 +216,7 @@ export default () => {
 | checkedColor   | 选中状态颜色              | _string_                               | `#3f45ff` |
 | bindGroup      | 是否与复选框组绑定        | _boolean_                              | `true`    |
 
-### CheckboxGroup Props
+### Checkbox.Group Props
 
 | 参数         | 说明                                  | 类型               | 默认值     |
 | ------------ | ------------------------------------- | ------------------ | ---------- |
@@ -237,15 +235,15 @@ export default () => {
 | onChange | 当绑定值变化时触发的事件 | _checked: boolean_  |
 | onClick  | 点击复选框时触发         | _event: MouseEvent_ |
 
-### CheckboxGroup Events
+### Checkbox.Group Events
 
 | 事件名   | 说明                     | 回调参数       |
 | -------- | ------------------------ | -------------- |
 | onChange | 当绑定值变化时触发的事件 | _names: any[]_ |
 
-### CheckboxGroup 方法
+### Checkbox.Group 方法
 
-通过 ref 可以获取到 CheckboxGroup 实例并调用实例方法。
+通过 ref 可以获取到 Checkbox.Group 实例并调用实例方法。
 
 | 方法名 | 说明 | 参数 | 返回值 |
 | --- | --- | --- | --- |
@@ -254,23 +252,23 @@ export default () => {
 ### toggleAll 方法示例
 
 ```jsx
-import { CheckboxGroupInstance } from 'rc-ui-lib';
+import { Checkbox.GroupInstance } from 'rc-ui-lib';
 
-const checkboxGroup = useRef < CheckboxGroupInstance > null;
+const Checkbox.Group = useRef < Checkbox.GroupInstance > null;
 
 // 全部反选
-checkboxGroup.current?.toggleAll();
+Checkbox.Group.current?.toggleAll();
 // 全部选中
-checkboxGroup.current?.toggleAll(true);
+Checkbox.Group.current?.toggleAll(true);
 // 全部取消
-checkboxGroup.current?.toggleAll(false);
+Checkbox.Group.current?.toggleAll(false);
 
 // 全部反选，并跳过禁用的复选框
-checkboxGroup.current?.toggleAll({
+Checkbox.Group.current?.toggleAll({
   skipDisabled: true,
 });
 // 全部选中，并跳过禁用的复选框
-checkboxGroup.current?.toggleAll({
+Checkbox.Group.current?.toggleAll({
   checked: true,
   skipDisabled: true,
 });
@@ -286,17 +284,17 @@ checkboxGroup.current?.toggleAll({
 
 ### 类型定义
 
-通过 `CheckboxInstance` 和 `CheckboxGroupInstance` 获取 Checkbox 实例的类型定义
+通过 `CheckboxInstance` 和 `Checkbox.GroupInstance` 获取 Checkbox 实例的类型定义
 
 ```js
 import { useRef } from 'react';
-import type { CheckboxInstance, CheckboxGroupInstance } from 'rc-ui-lib';
+import type { CheckboxInstance, Checkbox.GroupInstance } from 'rc-ui-lib';
 
 const checkboxRef = useRef<CheckboxInstance>();
-const checkboxGroupRef = useRef<CheckboxGroupInstance>();
+const Checkbox.GroupRef = useRef<Checkbox.GroupInstance>();
 
 checkboxRef.current?.toggle();
-checkboxGroupRef.current?.toggleAll();
+Checkbox.GroupRef.current?.toggleAll();
 ```
 
 ## 主题定制

@@ -14,13 +14,13 @@ import { Cell } from 'rc-ui-lib';
 
 ### 基础用法
 
-`Cell` 可以单独使用，也可以与 `CellGroup` 搭配使用，`CellGroup` 可以为 `Cell` 提供上下外边框。
+`Cell` 可以单独使用，也可以与 `Cell.Group` 搭配使用，`Cell.Group` 可以为 `Cell` 提供上下外边框。
 
 ```jsx
-<CellGroup>
+<Cell.Group>
   <Cell title="单元格" value="内容" />
   <Cell title="单元格" value="内容" label="描述信息" />
-</CellGroup>
+</Cell.Group>
 ```
 
 ### 单元格大小
@@ -60,26 +60,26 @@ import { Cell } from 'rc-ui-lib';
 
 ### 分组标题
 
-通过 `CellGroup` （或 `Cell.Group`）的 `title` 属性可以指定分组标题。
+通过 `Cell.Group` （或 `Cell.Group`）的 `title` 属性可以指定分组标题。
 
 ```jsx
-<CellGroup title="分组1">
+<Cell.Group title="分组1">
   <Cell title="单元格" value="内容" />
-</CellGroup>
-<CellGroup title="分组2">
+</Cell.Group>
+<Cell.Group title="分组2">
   <Cell title="单元格" value="内容" />
-</CellGroup>
+</Cell.Group>
 ```
 
 ### 卡片类型
 
-通过 `CellGroup` 的 `inset` 属性可以可以展示卡片类型。
+通过 `Cell.Group` 的 `inset` 属性可以可以展示卡片类型。
 
 ```jsx
-<CellGroup inset>
+<Cell.Group inset>
   <Cell title="单元格" value="内容" />
   <Cell title="单元格" value="内容" />
-</CellGroup>
+</Cell.Group>
 ```
 
 ### 自定义内容
@@ -102,7 +102,7 @@ import { Cell } from 'rc-ui-lib';
 
 ## API
 
-### CellGroup Props
+### Cell.Group Props
 
 | 参数   | 说明                   | 类型      | 默认值 |
 | ------ | ---------------------- | --------- | ------ |

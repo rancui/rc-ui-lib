@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Toast, Swipe, Button, Popup, SwipeItem } from 'rc-ui-lib';
+import { Toast, Swipe, Button, Popup } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
 import './style.less';
 
@@ -17,10 +17,10 @@ export default (): React.ReactNode => {
     <DemoSection>
       <DemoBlock title="基础用法">
         <Swipe autoplay={false}>
-          <SwipeItem>1</SwipeItem>
-          <SwipeItem>2</SwipeItem>
-          <SwipeItem>3</SwipeItem>
-          <SwipeItem>4</SwipeItem>
+          <Swipe.Item>1</Swipe.Item>
+          <Swipe.Item>2</Swipe.Item>
+          <Swipe.Item>3</Swipe.Item>
+          <Swipe.Item>4</Swipe.Item>
         </Swipe>
       </DemoBlock>
       <DemoBlock title="自定义指示器">
@@ -32,10 +32,10 @@ export default (): React.ReactNode => {
             },
           }}
         >
-          <SwipeItem>1</SwipeItem>
-          <SwipeItem>2</SwipeItem>
-          <SwipeItem>3</SwipeItem>
-          <SwipeItem>4</SwipeItem>
+          <Swipe.Item>1</Swipe.Item>
+          <Swipe.Item>2</Swipe.Item>
+          <Swipe.Item>3</Swipe.Item>
+          <Swipe.Item>4</Swipe.Item>
         </Swipe>
         <br />
         <Swipe
@@ -47,18 +47,18 @@ export default (): React.ReactNode => {
             },
           }}
         >
-          <SwipeItem>1</SwipeItem>
-          <SwipeItem>2</SwipeItem>
-          <SwipeItem>3</SwipeItem>
-          <SwipeItem>4</SwipeItem>
+          <Swipe.Item>1</Swipe.Item>
+          <Swipe.Item>2</Swipe.Item>
+          <Swipe.Item>3</Swipe.Item>
+          <Swipe.Item>4</Swipe.Item>
         </Swipe>
       </DemoBlock>
       <DemoBlock title="图片懒加载">
         <Swipe lazy>
           {images.map((item) => (
-            <SwipeItem key={item}>
+            <Swipe.Item key={item}>
               <img className="swiper-lazy" data-src={item} alt="" />
-            </SwipeItem>
+            </Swipe.Item>
           ))}
         </Swipe>
       </DemoBlock>
@@ -68,10 +68,10 @@ export default (): React.ReactNode => {
             Toast(`当前 Swipe 索引：${index}`);
           }}
         >
-          <SwipeItem>1</SwipeItem>
-          <SwipeItem>2</SwipeItem>
-          <SwipeItem>3</SwipeItem>
-          <SwipeItem>4</SwipeItem>
+          <Swipe.Item>1</Swipe.Item>
+          <Swipe.Item>2</Swipe.Item>
+          <Swipe.Item>3</Swipe.Item>
+          <Swipe.Item>4</Swipe.Item>
         </Swipe>
       </DemoBlock>
       <DemoBlock title="纵向滚动">
@@ -81,10 +81,10 @@ export default (): React.ReactNode => {
           style={{ height: '200px' }}
           className="demo-swipe--vertical"
         >
-          <SwipeItem>1</SwipeItem>
-          <SwipeItem>2</SwipeItem>
-          <SwipeItem>3</SwipeItem>
-          <SwipeItem>4</SwipeItem>
+          <Swipe.Item>1</Swipe.Item>
+          <Swipe.Item>2</Swipe.Item>
+          <Swipe.Item>3</Swipe.Item>
+          <Swipe.Item>4</Swipe.Item>
         </Swipe>
       </DemoBlock>
       <DemoBlock title="Popup中展示">
@@ -100,10 +100,10 @@ export default (): React.ReactNode => {
           style={{ width: '100%' }}
         >
           <Swipe resizeObserver autoplay={1000}>
-            <SwipeItem>1</SwipeItem>
-            <SwipeItem>2</SwipeItem>
-            <SwipeItem>3</SwipeItem>
-            <SwipeItem>4</SwipeItem>
+            <Swipe.Item>1</Swipe.Item>
+            <Swipe.Item>2</Swipe.Item>
+            <Swipe.Item>3</Swipe.Item>
+            <Swipe.Item>4</Swipe.Item>
           </Swipe>
         </Popup>
       </DemoBlock>

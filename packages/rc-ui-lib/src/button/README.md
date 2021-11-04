@@ -113,15 +113,15 @@ import { Button } from 'rc-ui-lib';
 
 ### 按钮组
 
-通过 `ButtonGroup` 或 `Button.Group`将多个按钮并排显示。
+通过 `Button.Group`将多个按钮并排显示。
 
 ```jsx
-<ButtonGroup>
+<Button.Group>
   <Button block>上一步</Button>
   <Button block type="primary">
     下一步
   </Button>
-</ButtonGroup>
+</Button.Group>
 ```
 
 ## API

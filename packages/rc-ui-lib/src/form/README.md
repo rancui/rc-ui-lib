@@ -21,9 +21,9 @@ import { Form } from 'rc-ui-lib';
 
 ### 基础用法
 
-在表单中，每个 FormItem 组件代表一个表单项，使用 FormItem 的 `rules` 属性定义校验规则。
+在表单中，每个 Form.Item 组件代表一个表单项，使用 Form.Item 的 `rules` 属性定义校验规则。
 
-> FormItem 是基于 Field 和 [RcField](https://github.com/react-component/field-form#field) 的封装
+> Form.Item 是基于 Field 和 [RcField](https://github.com/react-component/field-form#field) 的封装
 
 ```jsx
 import React from 'react';
@@ -38,9 +38,9 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItem name="username" label="用户名">
+      <Form.Item name="username" label="用户名">
         <Field />
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -73,14 +73,14 @@ export default () => {
         </div>
       }
     >
-      <FormItem
+      <Form.Item
         name="text1"
         label="正则校验"
         rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}
       >
         <Field placeholder="正则校验" />
-      </FormItem>
-      <FormItem
+      </Form.Item>
+      <Form.Item
         name="text2"
         label="函数校验"
         rules={[
@@ -95,8 +95,8 @@ export default () => {
         ]}
       >
         <Field placeholder="函数校验" />
-      </FormItem>
-      <FormItem
+      </Form.Item>
+      <Form.Item
         label="异步函数校验"
         name="text3"
         rules={[
@@ -119,7 +119,7 @@ export default () => {
         ]}
       >
         <Field placeholder="异步函数校验" />
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -142,9 +142,9 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItem name="switch" label="开关" valuePropName="checked">
+      <Form.Item name="switch" label="开关" valuePropName="checked">
         <Switch />
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -167,10 +167,10 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItem name="checkbox" label="复选框" valuePropName="checked">
+      <Form.Item name="checkbox" label="复选框" valuePropName="checked">
         <Checkbox shape="square" />
-      </FormItem>
-      <FormItem name="checkbox_group" label="复选框组">
+      </Form.Item>
+      <Form.Item name="checkbox_group" label="复选框组">
         <Checkbox.Group direction="horizontal">
           <Checkbox shape="square" name="c1">
             复选框1
@@ -179,7 +179,7 @@ export default () => {
             复选框2
           </Checkbox>
         </Checkbox.Group>
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -202,12 +202,12 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItem name="radio" label="单选框">
+      <Form.Item name="radio" label="单选框">
         <Radio.Group direction="horizontal">
           <Radio name="r1">单选框1</Radio>
           <Radio name="r2">单选框2</Radio>
         </Radio.Group>
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -230,9 +230,9 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItem name="rate" label="评分" initialValue={3}>
+      <Form.Item name="rate" label="评分" initialValue={3}>
         <Rate />
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -255,7 +255,7 @@ export default () => {
 
   return (
     <Form onFinish={onFinish} form={form}>
-      <FormItem
+      <Form.Item
         name="uploader"
         label="文件上传"
         initialValue={[
@@ -267,7 +267,7 @@ export default () => {
         ]}
       >
         <Uploader />
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 };
@@ -276,9 +276,9 @@ export default () => {
 ### 表单项类型 - TeaxtArea
 
 ```js
-<FormItem name="textarea" label="详细地址">
+<Form.Item name="textarea" label="详细地址">
   <Field rows={3} autosize type="textarea" maxlength={140} showWordLimit />
-</FormItem>
+</Form.Item>
 ```
 
 ## API
@@ -288,7 +288,7 @@ export default () => {
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | layout | 表单布局 | _horizontal \| vertical_ | `horizontal` |
-| colon | 配置 FormItem 的 colon 的默认值。表示是否显示 label 后面的冒号 | _boolean_ | `false` |
+| colon | 配置 Form.Item 的 colon 的默认值。表示是否显示 label 后面的冒号 | _boolean_ | `false` |
 | showValidateMessage | 是否显示验证错误信息 | _boolean_ | `true` |
 | inset | 是否展示为圆角卡片风格 | _boolean_ | `false` |
 | border | 是否显示外边框 | _boolean_ | `false` |
@@ -296,7 +296,7 @@ export default () => {
 
 > 更多 Form API 参见：[rc-field-form](https://github.com/react-component/field-form#form)
 
-### FormItemProps
+### Form.ItemProps
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -311,7 +311,7 @@ export default () => {
 | labelWidth | 左侧文本宽度，默认单位为`px` | _number \| string_ | `6.2em` |
 | labelAlign | 左侧文本对齐方式，可选值为 `center` `right` | _string_ | `left` |
 
-> 更多 FormItemAPI 参见：[rc-field-form](https://github.com/react-component/field-form#field)
+> 更多 Form.ItemAPI 参见：[rc-field-form](https://github.com/react-component/field-form#field)
 
 ### Form.List Props
 
@@ -346,4 +346,4 @@ export default () => {
 | message | 错误提示文案 | _string_ |
 | validator | 自定义校验，接收 Promise 作为返回值 | _(rule, value, callback: (error?: string) => void, form) => Promise \| void_ |
 | pattern | 正则表达式匹配 | _RegExp_ |
-| validateTrigger | 设置触发验证时机，必须是 FormItem 的 validateTrigger 的子集 | _string\| string[]_ |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 validateTrigger 的子集 | _string\| string[]_ |

@@ -42,7 +42,7 @@ export interface FieldCommonProps {
   /** 是否禁用输入框	 */
   disabled?: boolean;
   /**  是否自动聚焦，iOS 系统不支持该属性	 */
-  autofocus?: boolean;
+  // autofocus?: boolean;
   /** 是否为只读状态，只读状态下无法输入内容	 */
   readonly?: boolean;
   /** 是否启用清除图标，点击清除图标后会清空输入框	 */
@@ -75,6 +75,7 @@ export interface FieldCommonProps {
 }
 
 export interface FieldProps extends FieldCommonProps, BaseTypeProps, Partial<CellProps> {
+  /** 当前输入的值 */
   value?: string;
   /** 输入框类型 */
   type?: FieldType;
@@ -115,16 +116,26 @@ export interface FieldProps extends FieldCommonProps, BaseTypeProps, Partial<Cel
   intro?: React.ReactNode;
   /** 字段提示信息 */
   tooltip?: React.ReactNode | FieldTooltipProps;
+  /** 输入框获得焦点时触发 */
   onChange?: (val: string) => void;
+  /** 输入框失去焦点时触发 */
   onClear?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /** 点击 Field 时触发 */
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /** 输入框获得焦点时触发 */
   onFocus?: (e: React.MouseEvent) => void;
+  /** 输入框失去焦点时触发 */
   onBlur?: (e: React.MouseEvent) => void;
   onKeypress?: (e: React.KeyboardEvent) => void;
+  /** 点击输入区域时触发 */
   onClickInput?: (e: React.MouseEvent) => void;
+  /** 点击左侧图标时触发 */
   onClickLeftIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /** 	点击右侧图标时触发 */
   onClickRightIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /** 获取到 Field 实例 */
   getFieldRef?: (ref) => void;
+  /** 获取到 input 实例 */
   getInputRef?: (ref) => void;
 }
 

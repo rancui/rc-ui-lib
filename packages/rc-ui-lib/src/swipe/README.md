@@ -14,14 +14,14 @@ import { Swipe } from 'rc-ui-lib';
 
 ### 基础用法
 
-每个 SwipeItem 代表一张轮播卡片，可以通过 `autoplay` 属性设置自动轮播的间隔。
+每个 Swipe.Item 代表一张轮播卡片，可以通过 `autoplay` 属性设置自动轮播的间隔。
 
 ```jsx
 <Swipe className="my-swipe" autoplay={3000}>
-  <SwipeItem>1</SwipeItem>
-  <SwipeItem>2</SwipeItem>
-  <SwipeItem>3</SwipeItem>
-  <SwipeItem>4</SwipeItem>
+  <Swipe.Item>1</Swipe.Item>
+  <Swipe.Item>2</Swipe.Item>
+  <Swipe.Item>3</Swipe.Item>
+  <Swipe.Item>4</Swipe.Item>
 </Swipe>
 
 <style>
@@ -48,10 +48,10 @@ import { Swipe } from 'rc-ui-lib';
     },
   }}
 >
-  <SwipeItem>1</SwipeItem>
-  <SwipeItem>2</SwipeItem>
-  <SwipeItem>3</SwipeItem>
-  <SwipeItem>4</SwipeItem>
+  <Swipe.Item>1</Swipe.Item>
+  <Swipe.Item>2</Swipe.Item>
+  <Swipe.Item>3</Swipe.Item>
+  <Swipe.Item>4</Swipe.Item>
 </Swipe>
 
 <style>
@@ -71,9 +71,9 @@ import { Swipe } from 'rc-ui-lib';
 ```jsx
 <Swipe autoplay={3000} lazy>
   {images.map((item) => (
-    <SwipeItem key={item}>
+    <Swipe.Item key={item}>
       <img className="swiper-lazy" src={item} alt="" />
-    </SwipeItem>
+    </Swipe.Item>
   ))}
 </Swipe>
 ```
@@ -91,10 +91,10 @@ const images = [
 
 ```jsx
 <Swipe onChange="{onChange}">
-  <SwipeItem>1</SwipeItem>
-  <SwipeItem>2</SwipeItem>
-  <SwipeItem>3</SwipeItem>
-  <SwipeItem>4</SwipeItem>
+  <Swipe.Item>1</Swipe.Item>
+  <Swipe.Item>2</Swipe.Item>
+  <Swipe.Item>3</Swipe.Item>
+  <Swipe.Item>4</Swipe.Item>
 </Swipe>
 ```
 
@@ -110,10 +110,10 @@ const onChange = (index: number) => Toast(`当前 Swipe 索引：${index}`);
 
 ```jsx
 <Swipe autoplay={3000} vertical style={{ height: '200px' }} className="demo-swipe--vertical">
-  <SwipeItem>1</SwipeItem>
-  <SwipeItem>2</SwipeItem>
-  <SwipeItem>3</SwipeItem>
-  <SwipeItem>4</SwipeItem>
+  <Swipe.Item>1</Swipe.Item>
+  <Swipe.Item>2</Swipe.Item>
+  <Swipe.Item>3</Swipe.Item>
+  <Swipe.Item>4</Swipe.Item>
 </Swipe>
 ```
 
@@ -140,9 +140,9 @@ const onChange = (index: number) => Toast(`当前 Swipe 索引：${index}`);
 | -------- | -------------------- | ------------------- |
 | onChange | 每一页轮播结束后触发 | index, 当前页的索引 |
 
-### SwipeItem Props
+### Swipe.Item Props
 
-`SwipeItem` 是 `Swipeer.SwiperSlide` 的别名导出，详见[SwiperSlide Props](https://swiperjs.com/react#swiper-slide-props)
+`Swipe.Item` 是 `Swipeer.SwiperSlide` 的别名导出，详见[SwiperSlide Props](https://swiperjs.com/react#swiper-slide-props)
 
 ### Swipe 方法
 
@@ -159,10 +159,10 @@ export default () => {
   }
   return (
     <Swipe ref={ref} autoplay={3000}>
-      <SwipeItem>1</SwipeItem>
-      <SwipeItem>2</SwipeItem>
-      <SwipeItem>3</SwipeItem>
-      <SwipeItem>4</SwipeItem>
+      <Swipe.Item>1</Swipe.Item>
+      <Swipe.Item>2</Swipe.Item>
+      <Swipe.Item>3</Swipe.Item>
+      <Swipe.Item>4</Swipe.Item>
     </Swipe>
   )
 }

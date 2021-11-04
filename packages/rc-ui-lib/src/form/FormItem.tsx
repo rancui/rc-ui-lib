@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { FC } from 'react';
+import React, { FC, useRef, useContext } from 'react';
 import classnames from 'classnames';
 import { Field as RcField } from 'rc-field-form';
 import FieldContext from 'rc-field-form/lib/FieldContext';
@@ -40,9 +40,10 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = (props) => {
     layout,
     ...fieldProps
   } = props;
+
   const { prefixCls, createNamespace } = React.useContext(ConfigProviderContext);
   const [bem] = createNamespace('form', prefixCls);
-  const context = React.useContext(FormContext);
+  const context = useContext(FormContext);
   const itemLayout = layout ?? context.layout;
   const itemColon = colon ?? context.colon;
   const itemShowValidateMessage = showValidateMessage ?? context.showValidateMessage;
@@ -94,11 +95,11 @@ const FormItem: FC<FormItemProps> = (props) => {
     ...fieldProps
   } = props;
 
-  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  const updateRef = React.useRef(0);
+  const updateRef = useRef<number>(0);
   updateRef.current += 1;
 
   const isFieldChildren =

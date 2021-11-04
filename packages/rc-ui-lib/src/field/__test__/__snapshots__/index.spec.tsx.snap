@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field should change clear icon when using clear-icon prop 1`] = `
+Array [
+  <Icon
+    className="rc-field__clear"
+    name="cross"
+    onTouchStart={[Function]}
+    size="16px"
+    tag="i"
+  >
+    <Badge
+      className="rc-field__clear van-icon van-icon-cross"
+      onTouchStart={[Function]}
+      showZero={true}
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": "16px",
+        }
+      }
+      tag="i"
+    >
+      <i
+        className="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": "16px",
+          }
+        }
+      />
+    </Badge>
+  </Icon>,
+  <Badge
+    className="rc-field__clear van-icon van-icon-cross"
+    onTouchStart={[Function]}
+    showZero={true}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": "16px",
+      }
+    }
+    tag="i"
+  >
+    <i
+      className="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": "16px",
+        }
+      }
+    />
+  </Badge>,
+  <i
+    className="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": "16px",
+      }
+    }
+  />,
+]
+`;
+
+exports[`Field should render colon when using colon prop 1`] = `
+<div
+  className="rc-cell__title rc-field__label"
+  style={Object {}}
+>
+  world
+  :
+</div>
+`;
+
+exports[`Field should render error-message slot correctly 1`] = `
+<div
+  className="rc-field__error-message"
+>
+  this is an error message
+</div>
+`;
+
+exports[`Field should render extra slot correctly 1`] = `
+<ForwardRef
+  clearIcon="clear"
+  clearTrigger="focus"
+  extra={
+    <Icon
+      name="success"
+      tag="i"
+    />
+  }
+  formatTrigger="onChange"
+  type="text"
+  value="test"
+>
+  <Cell
+    className="rc-field"
+    extra={
+      <Icon
+        name="success"
+        tag="i"
+      />
+    }
+    icon={null}
+    title={null}
+    titleClass="rc-field__label"
+    titleStyle={Object {}}
+    valueClass="rc-field__value"
+  >
+    <div
+      className="rc-cell rc-field"
+    >
+      <div
+        className="rc-cell__value rc-cell__value--alone rc-field__value"
+      >
+        <div
+          className="rc-field__body"
+        >
+          <input
+            className="rc-field__control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onCompositionEnd={[Function]}
+            onCompositionStart={[Function]}
+            onCompositionUpdate={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder=""
+            type="text"
+            value="test"
+          />
+        </div>
+      </div>
+      <Icon
+        name="success"
+        tag="i"
+      >
+        <Badge
+          className="van-icon van-icon-success"
+          showZero={true}
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": undefined,
+            }
+          }
+          tag="i"
+        >
+          <i
+            className="rc-badge__wrapper van-icon van-icon-success"
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": undefined,
+              }
+            }
+          />
+        </Badge>
+      </Icon>
+    </div>
+  </Cell>
+</ForwardRef>
+`;
+
+exports[`Field should render label slot correctly 1`] = `
+<div
+  className="rc-cell__title rc-field__label"
+  style={Object {}}
+>
+  Lable
+</div>
+`;
+
+exports[`Field should render textarea when type is textarea 1`] = `undefined`;
+
+exports[`Field should render word limit correctly 1`] = `
+<ForwardRef
+  clearIcon="clear"
+  clearTrigger="focus"
+  formatTrigger="onChange"
+  maxlength={3}
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "wor",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  showWordLimit={true}
+  type="textarea"
+>
+  <Cell
+    className="rc-field rc-field--min-height"
+    icon={null}
+    title={null}
+    titleClass="rc-field__label"
+    titleStyle={Object {}}
+    valueClass="rc-field__value"
+  >
+    <div
+      className="rc-cell rc-field rc-field--min-height"
+    >
+      <div
+        className="rc-cell__value rc-cell__value--alone rc-field__value"
+      >
+        <div
+          className="rc-field__body"
+        >
+          <textarea
+            className="rc-field__control rc-field__control--min-height"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onCompositionEnd={[Function]}
+            onCompositionStart={[Function]}
+            onCompositionUpdate={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder=""
+          />
+        </div>
+        <div
+          className="rc-field__word-limit"
+        >
+          <span
+            className="rc-field__word-num"
+          >
+            0
+          </span>
+          /
+          3
+        </div>
+      </div>
+    </div>
+  </Cell>
+</ForwardRef>
+`;
+
+exports[`Field should render word limit correctly when value is undefined 1`] = `
+<ForwardRef
+  clearIcon="clear"
+  clearTrigger="focus"
+  formatTrigger="onChange"
+  maxlength={3}
+  showWordLimit={true}
+  type="text"
+>
+  <Cell
+    className="rc-field"
+    icon={null}
+    title={null}
+    titleClass="rc-field__label"
+    titleStyle={Object {}}
+    valueClass="rc-field__value"
+  >
+    <div
+      className="rc-cell rc-field"
+    >
+      <div
+        className="rc-cell__value rc-cell__value--alone rc-field__value"
+      >
+        <div
+          className="rc-field__body"
+        >
+          <input
+            className="rc-field__control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onCompositionEnd={[Function]}
+            onCompositionStart={[Function]}
+            onCompositionUpdate={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder=""
+            type="text"
+          />
+        </div>
+        <div
+          className="rc-field__word-limit"
+        >
+          <span
+            className="rc-field__word-num"
+          >
+            0
+          </span>
+          /
+          3
+        </div>
+      </div>
+    </div>
+  </Cell>
+</ForwardRef>
+`;

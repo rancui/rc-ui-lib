@@ -16,6 +16,7 @@ import { FieldInstance, FieldProps, FieldTooltipProps } from './PropsType';
 import { isDef, addUnit, formatNumber, isObject, preventDefault, resetScroll } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { COMPONENT_TYPE_KEY } from '../utils/constant';
+import { FieldFormatTrigger } from '.';
 
 const ICON_SIZE = '16px';
 
@@ -26,6 +27,7 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
   const [inputFocus, setInputFocus] = useState(false);
   const fieldRef = useRef(null);
   const inputRef = useRef(null);
+  const [compositing, setCompositing] = React.useState(false);
 
   useEffect(() => {
     if (props.getFieldRef) props.getFieldRef(fieldRef);
@@ -33,15 +35,11 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
   }, [props.getFieldRef, props.getInputRef]);
 
   const focus = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    inputRef.current?.focus();
   };
 
   const blur = () => {
-    if (inputRef.current) {
-      inputRef.current.blur();
-    }
+    inputRef.current?.blur();
   };
 
   useImperativeHandle(ref, () => ({
@@ -49,22 +47,18 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     blur,
   }));
 
-  const getProp = (key) => {
-    if (isDef(props[key])) {
-      return props[key];
-    }
-    return null;
+  const getProp = <T extends keyof FieldProps>(key: T) => {
+    return isDef(props[key]) ? props[key] : null;
   };
+
   const getModelValue = () => String(props.value ?? '');
 
   const showClear = useMemo(() => {
     const readonly = getProp('readonly');
-
     if (props.clearable && !readonly) {
       const hasValue = getModelValue() !== '';
       const trigger =
         props.clearTrigger === 'always' || (props.clearTrigger === 'focus' && inputFocus);
-
       return hasValue && trigger;
     }
     return false;
@@ -75,7 +69,6 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     if (labelW) {
       return { width: addUnit(labelW) };
     }
-
     return {};
   };
 
@@ -108,15 +101,6 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     adjustSize();
   }, [props.value]);
 
-  const formatValue = (inputValue, trigger = 'onChange') => {
-    const { formatTrigger, formatter } = props;
-    if (formatter && trigger === formatTrigger) {
-      return formatter(inputValue);
-    }
-
-    return inputValue;
-  };
-
   const renderInput = () => {
     const { type, error, name, rows, value, placeholder, disabled, readonly, onClickInput } = props;
     const controlClass = bem('control', [
@@ -136,29 +120,57 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
       );
     }
 
-    const handleChange = (e) => {
-      const { maxlength, onChange } = props;
-      const inputValue = e?.currentTarget?.value;
-      let finalValue = inputValue;
+    const limitValueLength = (val: string) => {
+      const { maxlength } = props;
+      if (isDef(maxlength) && val.length > maxlength && !compositing) {
+        const modelValue = getModelValue();
+        if (modelValue && modelValue.length === +maxlength) {
+          return modelValue;
+        }
+        return val.slice(0, +maxlength);
+      }
+      return val;
+    };
 
-      if (isDef(maxlength) && finalValue.length > +maxlength) {
-        finalValue = finalValue.slice(0, maxlength);
+    const updateValue = (val: string, trigger: FieldFormatTrigger = 'onChange') => {
+      val = limitValueLength(val);
+      if (props.type === 'number' || props.type === 'digit') {
+        const isNumber = props.type === 'number';
+        val = formatNumber(val, isNumber, isNumber);
       }
 
-      if (type === 'number' || type === 'digit') {
-        const isNumber = type === 'number';
-        finalValue = formatNumber(finalValue, isNumber, isNumber);
+      if (props.formatter && trigger === props.formatTrigger) {
+        val = props.formatter(val);
       }
 
-      finalValue = formatValue(finalValue, 'onChange');
-
-      // if (inputRef.value && inputValue !== inputRef.value.value) {
-      //   inputRef.value.value = inputValue;
-      // }
-
-      if (onChange && typeof onChange === 'function') {
-        onChange(finalValue);
+      if (inputRef.current && inputRef.current.value !== val) {
+        inputRef.current.value = val;
       }
+
+      if (val !== props.value) {
+        if (props.onChange && typeof props.onChange === 'function') {
+          props.onChange(val);
+        }
+      }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const inputValue = e?.target?.value;
+      updateValue(inputValue, 'onChange');
+    };
+
+    const handleCompositionStart: React.CompositionEventHandler<
+      HTMLInputElement | HTMLTextAreaElement
+    > = (e) => {
+      setCompositing(true);
+    };
+
+    const handleCompositionEnd: React.CompositionEventHandler<
+      HTMLInputElement | HTMLTextAreaElement
+    > = (e) => {
+      setCompositing(false);
+      const triggerValue = e.currentTarget.value;
+      updateValue(triggerValue);
     };
 
     const handleFocus = (e) => {
@@ -167,16 +179,16 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
       if (onFocus && typeof onFocus === 'function') {
         onFocus(e);
       }
-
       // readonly not work in legacy mobile safari
       if (readonly) {
         blur();
       }
     };
 
-    const handleBulr = (e) => {
+    const handleBlur = (e) => {
       const { onBlur } = props;
       setInputFocus(false);
+      updateValue(getModelValue(), 'onBlur');
       if (onBlur && typeof onBlur === 'function') {
         onBlur(e);
       }
@@ -212,11 +224,14 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
           disabled={disabled}
           readOnly={readonly}
           placeholder={placeholder || ''}
-          onBlur={handleBulr}
+          onBlur={handleBlur}
           onFocus={handleFocus}
           onClick={onClickInput}
           onChange={handleChange}
           onKeyPress={handleKeypress}
+          onCompositionStart={handleCompositionStart}
+          onCompositionUpdate={handleCompositionStart}
+          onCompositionEnd={handleCompositionEnd}
         />
       );
     }
@@ -247,11 +262,14 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
         disabled={disabled}
         readOnly={readonly}
         placeholder={placeholder || ''}
-        onBlur={handleBulr}
+        onBlur={handleBlur}
         onFocus={handleFocus}
         onClick={onClickInput}
         onChange={handleChange}
         onKeyPress={handleKeypress}
+        onCompositionStart={handleCompositionStart}
+        onCompositionUpdate={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
       />
     );
   };
@@ -325,7 +343,6 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
         icon = customIcon || icon;
         dialogProps = customDialogProps as typeof dialogProps;
       }
-
       return (
         <div className={classnames(bem('tooltip'))} onClick={() => Dialog.show(dialogProps)}>
           {icon}

@@ -190,6 +190,95 @@ exports[`Circle should render clockwise and anticlockwise correctly 1`] = `
 </Circle>
 `;
 
+exports[`Circle should render fill prop correctly 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={70}
+  fill="#ff0000"
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "#ff0000",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "2198px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should render layerColor correctly 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={70}
+  fill="none"
+  layerColor="#ebedf0"
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": "#ebedf0",
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "2198px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
 exports[`Circle should render linearGradient correctly 1`] = `
 <Circle
   clockwise={true}

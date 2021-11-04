@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect, useRef } from 'react';
-import { CellGroup, Button, Toast } from 'rc-ui-lib';
+import { Cell, Button, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
 import Field from '..';
 import './style.less';
@@ -65,14 +65,14 @@ export default (): React.ReactNode => {
       </DemoBlock>
 
       <DemoBlock card title="禁用输入框">
-        <CellGroup>
+        <Cell.Group>
           <Field label="文本" value="输入框只读" readonly />
           <Field label="文本" value="输入框已禁用" disabled />
-        </CellGroup>
+        </Cell.Group>
       </DemoBlock>
 
       <DemoBlock card title="显示图标">
-        <CellGroup>
+        <Cell.Group>
           <Field
             value={value3}
             label="文本"
@@ -97,11 +97,15 @@ export default (): React.ReactNode => {
             }}
             onChange={setValue4}
           />
-        </CellGroup>
+        </Cell.Group>
+      </DemoBlock>
+
+      <DemoBlock card title="提示信息">
+        <Field label="文本" placeholder="请输入文本" tooltip="success" />
       </DemoBlock>
 
       <DemoBlock card title="错误提示">
-        <CellGroup>
+        <Cell.Group>
           <Field
             value={username}
             error
@@ -118,7 +122,7 @@ export default (): React.ReactNode => {
             errorMessage="手机号格式错误"
             onChange={setPhone}
           />
-        </CellGroup>
+        </Cell.Group>
       </DemoBlock>
 
       <DemoBlock card title="插入按钮">
@@ -192,7 +196,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
 
       <DemoBlock card title="调用方法">
-        <CellGroup>
+        <Cell.Group>
           <Field
             center
             ref={fieldRef}
@@ -211,7 +215,7 @@ export default (): React.ReactNode => {
             }
             placeholder="请输入文本"
           />
-        </CellGroup>
+        </Cell.Group>
       </DemoBlock>
     </DemoSection>
   );

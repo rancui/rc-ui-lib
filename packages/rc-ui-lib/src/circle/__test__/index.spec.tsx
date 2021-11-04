@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { sleep } from '../../../tests/utils';
 import { Circle } from '..';
 
 describe('Circle', () => {
   let wrapper;
   afterEach(() => {
     wrapper.unmount();
-    jest.clearAllMocks();
   });
 
   it('should update to final rate immediately if speed is 0', async () => {
@@ -85,5 +85,26 @@ describe('Circle', () => {
     await wrapper.setProps({ clockwise: false });
     expect(wrapper.find('svg').find('path').at(1).props().d.substr(-10, 1)).toEqual('0');
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should render layerColor correctly', () => {
+    wrapper = mount(<Circle defaultRate={70} layerColor="#ebedf0" />);
+    expect(wrapper.find('.rc-circle__layer').getDOMNode().style.stroke).toEqual('#ebedf0');
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should render fill prop correctly', () => {
+    wrapper = mount(<Circle defaultRate={70} fill="#ff0000" />);
+    expect(wrapper.find('.rc-circle__layer').getDOMNode().style.fill).toEqual('#ff0000');
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should render fill prop correctly', async () => {
+    const onChange = jest.fn();
+    wrapper = mount(<Circle defaultRate={50} onChange={onChange} />);
+    expect(onChange).not.toHaveBeenCalled();
+    wrapper.setProps({ rate: 90, speed: 100 });
+    await sleep(10);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });

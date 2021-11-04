@@ -1,8 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Cell } from '..';
 import toJson from 'enzyme-to-json';
-import { sleep } from '../../../tests/utils';
+import { Cell } from '..';
 
 describe('Cell', () => {
   let wrapper;
