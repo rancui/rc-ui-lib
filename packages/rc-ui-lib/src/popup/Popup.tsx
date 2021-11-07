@@ -14,7 +14,6 @@ import { CSSTransition } from 'react-transition-group';
 
 import Icon from '../icon';
 import Overlay from '../overlay';
-import useLockScroll from '../hooks/use-lock-scroll';
 import useEventListener from '../hooks/use-event-listener';
 
 import { isDef } from '../utils';
@@ -77,7 +76,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const zIndex = useRef<number>();
   const popupRef = useRef<HTMLDivElement>();
   const [animatedVisible, setAnimatedVisible] = useState(visible);
-  const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
   const [ssrCompatRender, rendered] = useSsrCompat();
 
   const popupStyle = useMemo(() => {
@@ -146,13 +144,23 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const renderCloseIcon = () => {
     if (closeable) {
       const { closeIconPosition, iconPrefix } = props;
+      if (closeIcon && typeof closeIcon === 'string') {
+        return (
+          <Icon
+            name={closeIcon}
+            className={classnames(bem('close-icon', closeIconPosition))}
+            classPrefix={iconPrefix}
+            onClick={handleClickCloseIcon}
+          />
+        );
+      }
       return (
-        <Icon
-          name={closeIcon}
+        <div
           className={classnames(bem('close-icon', closeIconPosition))}
-          classPrefix={iconPrefix}
-          onClick={handleClickCloseIcon}
-        />
+          onClick={onClickCloseIcon}
+        >
+          {closeIcon}
+        </div>
       );
     }
     return null;
@@ -231,10 +239,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   useEffect(() => {
     if (!rendered) return;
     if (visible) {
-      lockScroll();
       setAnimatedVisible(true);
-    } else {
-      unlockScroll();
     }
   }, [visible, rendered]);
 
