@@ -35,7 +35,7 @@ const Circle: React.FC<CircleProps> = (props) => {
 
   const [currentRate, setCurrentRate] = useState(() => props.defaultRate || 0);
 
-  const [current] = useMergedState({
+  const [rate] = useMergedState({
     defaultValue: props.defaultRate,
     value: props.rate,
   });
@@ -58,7 +58,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     let rafId: number | undefined;
     const startTime = Date.now();
     const startRate = currentRate;
-    const endRate = format(current);
+    const endRate = format(rate);
     const duration = Math.abs(((startRate - endRate) * 1000) / +props.speed);
 
     const animate = () => {
@@ -68,13 +68,13 @@ const Circle: React.FC<CircleProps> = (props) => {
       const crate = format(parseFloat(rate.toFixed(1)));
 
       setCurrentRate(crate);
+      props.onChange?.(crate);
 
-      if (endRate > startRate ? rate < endRate : rate > endRate) {
+      if (endRate > currentRate ? rate < endRate : rate > endRate) {
         rafId = raf(animate);
-      } else {
-        props.onChange?.(crate);
       }
     };
+
     if (props.speed) {
       if (rafId) {
         cancelRaf(rafId);
@@ -82,19 +82,24 @@ const Circle: React.FC<CircleProps> = (props) => {
       rafId = raf(animate);
     } else {
       setCurrentRate(endRate);
+      props.onChange?.(endRate);
     }
-  }, [current]);
+
+    return () => {
+      cancelRaf(rafId);
+    };
+  }, [rate]);
 
   const renderHover = () => {
     const PERIMETER = 3140;
-    const { strokeWidth } = props;
+    const { strokeWidth, strokeLinecap } = props;
     const offset = (PERIMETER * currentRate) / 100;
     const color = isObject(props.color) ? `url(#${id})` : props.color;
 
     const style: CSSProperties = {
       stroke: color,
       strokeWidth: `${+strokeWidth + 1}px`,
-      strokeLinecap: props.strokeLinecap,
+      strokeLinecap,
       strokeDasharray: `${offset}px ${PERIMETER}px`,
     };
 

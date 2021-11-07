@@ -11,14 +11,17 @@ describe('Circle', () => {
   });
 
   it('should update to final rate immediately if speed is 0', async () => {
-    wrapper = mount(<Circle defaultRate={0} speed={0} />);
-    await wrapper.setProps({ rate: 150 });
-    expect(wrapper.props().rate).toEqual(150);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const onChange = jest.fn();
+    wrapper = mount(<Circle rate={50} speed={0} onChange={onChange} />);
+    // await wrapper.setProps({ rate: 150 });
+    // expect(wrapper.props().rate).toEqual(150);
+    await sleep(50);
+    expect(onChange).toHaveBeenCalledWith(50);
+    // expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should emit "update:currentRate" event during animation', async () => {
-    wrapper = mount(<Circle rate={50} defaultRate={0} speed={100} />);
+  it('should render rate correctly when rate is changed', async () => {
+    wrapper = mount(<Circle rate={50} defaultRate={0} />);
     expect(wrapper.props().rate).toEqual(50);
     await wrapper.setProps({ rate: 150 });
     expect(wrapper.props().rate).toEqual(150);
@@ -99,12 +102,10 @@ describe('Circle', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should render fill prop correctly', async () => {
+  it('hould emit onChange event during animation', async () => {
     const onChange = jest.fn();
-    wrapper = mount(<Circle defaultRate={50} onChange={onChange} />);
-    expect(onChange).not.toHaveBeenCalled();
-    wrapper.setProps({ rate: 90, speed: 100 });
-    await sleep(10);
-    expect(onChange).toHaveBeenCalledTimes(1);
+    wrapper = mount(<Circle speed={150} rate={150} onChange={onChange} />);
+    await sleep(50);
+    expect(onChange).toHaveBeenCalled();
   });
 });

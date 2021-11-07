@@ -95,51 +95,6 @@ exports[`Circle should change stroke linecap when using stroke-linecap prop 1`] 
 </Circle>
 `;
 
-exports[`Circle should emit "update:currentRate" event during animation 1`] = `
-<Circle
-  clockwise={true}
-  defaultRate={0}
-  fill="none"
-  rate={150}
-  speed={100}
-  startPosition="top"
-  strokeWidth={40}
->
-  <div
-    className="rc-circle"
-    style={Object {}}
-  >
-    <svg
-      viewBox="0 0 1040 1040"
-    >
-      <path
-        className="rc-circle__layer"
-        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
-        style={
-          Object {
-            "fill": "none",
-            "stroke": undefined,
-            "strokeWidth": "40px",
-          }
-        }
-      />
-      <path
-        className="rc-circle__hover"
-        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
-        style={
-          Object {
-            "stroke": undefined,
-            "strokeDasharray": "0px 3140px",
-            "strokeLinecap": undefined,
-            "strokeWidth": "41px",
-          }
-        }
-      />
-    </svg>
-  </div>
-</Circle>
-`;
-
 exports[`Circle should render clockwise and anticlockwise correctly 1`] = `
 <Circle
   clockwise={false}
@@ -304,7 +259,7 @@ exports[`Circle should render linearGradient correctly 1`] = `
       <defs>
         <linearGradient
           className="linearGradient"
-          id="rc-circle-14"
+          id="rc-circle-13"
           x1="100%"
           x2="0%"
           y1="0%"
@@ -336,11 +291,56 @@ exports[`Circle should render linearGradient correctly 1`] = `
       <path
         className="rc-circle__hover"
         d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
-        stroke="url(#rc-circle-14)"
+        stroke="url(#rc-circle-13)"
         style={
           Object {
-            "stroke": "url(#rc-circle-14)",
+            "stroke": "url(#rc-circle-13)",
             "strokeDasharray": "2198px 3140px",
+            "strokeLinecap": undefined,
+            "strokeWidth": "41px",
+          }
+        }
+      />
+    </svg>
+  </div>
+</Circle>
+`;
+
+exports[`Circle should render rate correctly when rate is changed 1`] = `
+<Circle
+  clockwise={true}
+  defaultRate={0}
+  fill="none"
+  rate={150}
+  speed={100}
+  startPosition="top"
+  strokeWidth={40}
+>
+  <div
+    className="rc-circle"
+    style={Object {}}
+  >
+    <svg
+      viewBox="0 0 1040 1040"
+    >
+      <path
+        className="rc-circle__layer"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "fill": "none",
+            "stroke": undefined,
+            "strokeWidth": "40px",
+          }
+        }
+      />
+      <path
+        className="rc-circle__hover"
+        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
+        style={
+          Object {
+            "stroke": undefined,
+            "strokeDasharray": "0px 3140px",
             "strokeLinecap": undefined,
             "strokeWidth": "41px",
           }
@@ -397,51 +397,6 @@ exports[`Circle should render text correctly 1`] = `
     >
       70%
     </div>
-  </div>
-</Circle>
-`;
-
-exports[`Circle should update to final rate immediately if speed is 0 1`] = `
-<Circle
-  clockwise={true}
-  defaultRate={0}
-  fill="none"
-  rate={150}
-  speed={0}
-  startPosition="top"
-  strokeWidth={40}
->
-  <div
-    className="rc-circle"
-    style={Object {}}
-  >
-    <svg
-      viewBox="0 0 1040 1040"
-    >
-      <path
-        className="rc-circle__layer"
-        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
-        style={
-          Object {
-            "fill": "none",
-            "stroke": undefined,
-            "strokeWidth": "40px",
-          }
-        }
-      />
-      <path
-        className="rc-circle__hover"
-        d="M 520 520 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
-        style={
-          Object {
-            "stroke": undefined,
-            "strokeDasharray": "0px 3140px",
-            "strokeLinecap": undefined,
-            "strokeWidth": "41px",
-          }
-        }
-      />
-    </svg>
   </div>
 </Circle>
 `;
