@@ -58,6 +58,10 @@ export interface DialogProps extends BaseTypeProps {
   teleport?: HTMLElement | (() => HTMLElement);
   /** 自定义底部按钮区域 */
   footer?: React.ReactNode;
+  /** 打开弹窗时触发	 */
+  onOpen?: () => void;
+  /** 打开弹窗且动画结束后触发	 */
+  onOpened?: () => void;
   /** Dialog关闭时的回调 */
   onClose?: () => void;
   /** Dialog完全关闭后的回调 */
