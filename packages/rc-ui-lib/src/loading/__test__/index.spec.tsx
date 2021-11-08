@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { Loading } from '..';
 
 describe('Loading', () => {
@@ -38,5 +38,15 @@ describe('Loading', () => {
       </Loading>,
     );
     expect(wrapper.find('.rc-loading__text').getDOMNode().style.color).toBe('red');
+  });
+
+  it('should render correctly when using type is spinner', async () => {
+    wrapper = mount(<Loading type="spinner" />);
+    expect(wrapper.find('i')).toHaveLength(12);
+  });
+
+  it('should render correctly when using type is ball', async () => {
+    wrapper = shallow(<Loading type="ball" />);
+    expect(wrapper.find('BallIcon').exists()).toBeTruthy();
   });
 });
