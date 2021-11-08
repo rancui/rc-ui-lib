@@ -209,7 +209,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const renderTransition = () => {
     const { transition, destroyOnClose, forceRender, onClosed, onOpened } = props;
     const name = position === 'center' ? 'rc-fade' : `rc-popup-slide-${position}`;
-
     return (
       <CSSTransition
         in={visible && rendered}
@@ -268,5 +267,5 @@ Popup.defaultProps = {
   closeOnClickOverlay: true,
   teleport: () => document.body,
 };
-
+Popup.displayName = 'Popup';
 export default Popup;

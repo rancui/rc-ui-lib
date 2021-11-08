@@ -1,5 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import Icon from '../../icon';
+import { sleep } from '../../../tests/utils';
 import { Popup } from '..';
 
 describe('Popup', () => {
@@ -94,6 +97,21 @@ describe('Popup', () => {
   it('should render correct close icon when using close-icon prop', () => {
     wrapper = mount(<Popup visible closeable closeIcon="success" />);
     expect(wrapper.find('.rc-popup__close-icon')).toMatchSnapshot();
+  });
+
+  it('should render correct close icon when close-icon is JSX element', () => {
+    wrapper = mount(<Popup visible closeable closeIcon={<Icon name="shop-o" />} />);
+    expect(wrapper.find('Icon').exists()).toBeTruthy();
+  });
+
+  it('should render correctly when using title prop', () => {
+    wrapper = mount(<Popup visible title="标题" />);
+    expect(wrapper.find('.rc-popup__title').text()).toEqual('标题');
+  });
+
+  it('should render correctly when using descrition prop', () => {
+    wrapper = mount(<Popup visible descrition="descrition" />);
+    expect(wrapper.find('.rc-popup__descrition').text()).toEqual('descrition');
   });
 
   it('should change icon class prefix when using icon-prefix prop', () => {
