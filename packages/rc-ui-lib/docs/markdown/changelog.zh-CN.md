@@ -12,13 +12,25 @@
 
 ## 更新内容
 
+### [v0.1.52](https://github.com/rancui/rc-ui-lib/compare/v0.1.51...v0.1.52)
+
+`2021-11-07`
+
+**Feature**
+
+- Popup: 新增关闭图标的类型，并使其正确渲染 [0d25a9](https://github.com/rancui/rc-ui-lib/commit/0d25a9c4ccac67b62f751da96b5ffb2d6d174a8c)
+
+- **Bug Fixes**
+
+- Dialog: 修复 closeIcon 渲染不正确[ec2a6e](https://github.com/rancui/rc-ui-lib/commit/ec2a6eb24fe53a6911005aa5e7ae304c85924860)
+
 ### [v0.1.51](https://github.com/rancui/rc-ui-lib/compare/v0.1.50...v0.1.51)
 
 `2021-10-28`
 
 **Feature**
 
-- Circle: 增加单元测试 [945f0db](https://github.com/rancui/rc-ui-lib/commit/945f0dbf6d389c2278179c44e1e87f28cd552c1e)
+- Circle: 增加 linearGradient 的类名 [945f0db](https://github.com/rancui/rc-ui-lib/commit/945f0dbf6d389c2278179c44e1e87f28cd552c1e)
 
 ### [v0.1.50](https://github.com/rancui/rc-ui-lib/compare/v0.1.49...v0.1.50)
 
@@ -33,12 +45,10 @@
 
 `2021-10-27`
 
-**Feature**
+**Refactor**
 
-- Tag: 增加测试用例 [2404278](https://github.com/rancui/rc-ui-lib/commit/2404278663ea40edea326610729ff0effaffa098)
-- Switch: 增加测试用例 [c2950a9](https://github.com/rancui/rc-ui-lib/commit/c2950a9c7faafe1a9690619c8806dc5981e1f1db)
-- Loading: 增加单元测试[92cef48](https://github.com/rancui/rc-ui-lib/commit/92cef48ccae6ff92b3a3a73444ba2a350fd62052)
-- Icon: 增加单元测试[2ab01fb](https://github.com/rancui/rc-ui-lib/commit/2ab01fb8617fbf3f4b3a57b386697903271f5a9f)
+- Tag: 代码优化[2404278](https://github.com/rancui/rc-ui-lib/commit/2404278663ea40edea326610729ff0effaffa098)
+- Icon: 代码优化[2ab01fb](https://github.com/rancui/rc-ui-lib/commit/2ab01fb8617fbf3f4b3a57b386697903271f5a9f)
 
 **Document**
 
@@ -50,29 +60,31 @@
 
 **Document**
 
-- 更新 Form，Slider，Popup 的 README.md 文档[e333e84](https://github.com/rancui/rc-ui-lib/commit/e333e84d50be57028eff53cc007f2da81dbb565e)
+- Form & Slider & Popup : 更新 README.md 文档[e333e84](https://github.com/rancui/rc-ui-lib/commit/e333e84d50be57028eff53cc007f2da81dbb565e)
 
 ### [v0.1.47](https://github.com/rancui/rc-ui-lib/compare/v0.1.46...v0.1.47)
 
 `2021-10-25`
 
-**Feature**
+**Refactor**
 
-- Overlay: 增加单元测试 [aab94b5](https://github.com/rancui/rc-ui-lib/commit/aab94b5792d2f02780c65d3ce8f56653edd02318)
+- Overlay & Popup: 代码优化 [aab94b5](https://github.com/rancui/rc-ui-lib/commit/aab94b5792d2f02780c65d3ce8f56653edd02318)
 
 ### [v0.1.46](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
 `2021-10-25`
 
-**Feature**
+**Refactor**
 
-- Popup: 增加单元测试 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
+- Popup: 代码优化 [a6dc09c](https://github.com/rancui/rc-ui-lib/commit/a6dc09c67b18c9bde9b34bc7045e5da6de791ea8)
 
 ### [v0.1.45](https://github.com/rancui/rc-ui-lib/compare/v0.1.44...v0.1.46)
 
-`2021-10-20` **Feature**
+`2021-10-20`
 
-- Radio: 增加单元测试 [7ac8e81](https://github.com/rancui/rc-ui-lib/commit/7ac8e816103660daf9f96385455bdca33af5b711)
+**Refactor**
+
+- Checkbox: 优化 BaseCheckerProps[7ac8e81](https://github.com/rancui/rc-ui-lib/commit/7ac8e816103660daf9f96385455bdca33af5b711)
 
 ### [v0.1.44](https://github.com/rancui/rc-ui-lib/compare/v0.1.43...v0.1.44)
 
@@ -88,8 +100,8 @@
 
 **Document**
 
-- update theme.zh-CN.md [e59407](https://github.com/rancui/rc-ui-lib/commit/e59407a83eb92a30652b8df8f6471fd739de9370)
-- 删除 sync-gitee.yml [66d2059](https://github.com/rancui/rc-ui-lib/commit/66d20594005fcf968c1a450b581c83ed5495a922)
+- 主题定制: 更新 theme.zh-CN.md [e59407](https://github.com/rancui/rc-ui-lib/commit/e59407a83eb92a30652b8df8f6471fd739de9370)
+- 配置: 删除 sync-gitee.yml [66d2059](https://github.com/rancui/rc-ui-lib/commit/66d20594005fcf968c1a450b581c83ed5495a922)
 
 **Feature**
 
@@ -126,9 +138,7 @@
 
 **Document**
 
-- update README [dbf674](https://github.com/rancui/rc-ui-lib/commit/dbf674e87ebbbe6dc2fa287d3d816a69fc64b6b0)
-
-- docs:update demo usage [7c9b4e](https://github.com/rancui/rc-ui-lib/commit/7c9b4e590565f60cce36210e5938aa95053cba45)
+- Cell: 更新使用说明 [7c9b4e](https://github.com/rancui/rc-ui-lib/commit/7c9b4e590565f60cce36210e5938aa95053cba45)
 
 ### [v0.1.26](https://github.com/rancui/rc-ui-lib/compare/v0.1.25...rc-ui-lib@0.1.26)
 

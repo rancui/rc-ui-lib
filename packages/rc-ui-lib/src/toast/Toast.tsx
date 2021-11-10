@@ -29,7 +29,7 @@ const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = 
     }
   };
 
-  const onClick = () => {
+  const handleClick = () => {
     if (props.closeOnClick) {
       props.onClose();
     }
@@ -83,7 +83,7 @@ const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = 
       overlayStyle={props.overlayStyle}
       closeOnClickOverlay={props.closeOnClickOverlay}
       lockScroll={false}
-      onClick={onClick}
+      onClick={handleClick}
       onClose={props.onClose}
       onClosed={props.onClosed}
       onOpened={props.onOpened}

@@ -1,8 +1,6 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
 import Icon from '../../icon';
-import { sleep } from '../../../tests/utils';
 import { Popup } from '..';
 
 describe('Popup', () => {

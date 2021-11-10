@@ -1,11 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-
 import { extend, isObject } from '../utils';
 import { resolveContainer } from '../utils/dom/getContainer';
 import { lockClick } from './lock-click';
 import { ToastProps, ToastInstance, ToastReturnType, ToastType } from './PropsType';
-
 import BaseToast from './Toast';
 
 const defaultOptions: ToastProps = {
@@ -19,36 +17,46 @@ const defaultOptions: ToastProps = {
   teleport: () => document.body,
 };
 
-const toastArray: (() => void)[] = [];
+const toastQueue: (() => void)[] = [];
+
 let allowMultiple = false;
+
 let currentOptions = extend({}, defaultOptions);
 // default options of specific type
 const defaultOptionsMap = new Map<string, ToastProps>();
 
+function parseOptions(message) {
+  if (isObject(message)) {
+    return message;
+  }
+  return { message };
+}
+
 // 同步的销毁
-function syncClear() {
-  let fn = toastArray.pop();
+const syncClear = () => {
+  let fn = toastQueue.pop();
   while (fn) {
     fn();
-    fn = toastArray.pop();
+    fn = toastQueue.pop();
   }
-}
+};
 
 // 针对 toast 还没弹出来就立刻销毁的情况，将销毁放到下一个 event loop 中，避免销毁失败。
-function nextTickClear() {
+const nextTickClear = () => {
   setTimeout(syncClear);
-}
+};
 
 // 可返回用于销毁此弹窗的方法
-const Toast = (p: ToastProps): unknown => {
-  const props = parseOptions(p);
-  const update: ToastReturnType = {
+const Toast = (toastProps?: string | ToastProps): unknown => {
+  const props = parseOptions(toastProps);
+  const instance: ToastReturnType = {
     config: () => {},
     clear: () => null,
   };
   let timer = 0;
   const { onClose, teleport } = props;
   const container = document.createElement('div');
+  container.className = 'toast-contanier';
   const bodyContainer = resolveContainer(teleport);
   bodyContainer.appendChild(container);
 
@@ -59,8 +67,8 @@ const Toast = (p: ToastProps): unknown => {
     } as ToastProps;
     const [visible, setVisible] = useState(false);
     const [state, setState] = useState<ToastProps>({ ...options });
-    // clearDOM after animation
-    const internalOnClosed = useCallback(() => {
+
+    const unmountComponent = useCallback(() => {
       if (state.forbidClick) {
         lockClick(false);
       }
@@ -68,17 +76,18 @@ const Toast = (p: ToastProps): unknown => {
       if (unmountResult && container.parentNode) {
         container.parentNode.removeChild(container);
       }
+
+      onClose?.();
     }, [onClose, container]);
 
-    // close with animation
-    const destroy = useCallback(() => {
+    const handleClose = useCallback(() => {
       setVisible(false);
-      if (onClose) onClose();
+      onClose?.();
     }, []);
 
-    update.clear = internalOnClosed;
+    instance.clear = unmountComponent;
 
-    update.config = useCallback(
+    instance.config = useCallback(
       (nextState) => {
         setState((prev) =>
           typeof nextState === 'function'
@@ -92,10 +101,9 @@ const Toast = (p: ToastProps): unknown => {
     useEffect(() => {
       setVisible(true);
       if (!allowMultiple) syncClear();
-      toastArray.push(internalOnClosed);
-
+      toastQueue.push(unmountComponent);
       if (state.duration !== 0 && 'duration' in state) {
-        timer = window.setTimeout(destroy, +state.duration);
+        timer = window.setTimeout(handleClose, +state.duration);
       }
       return () => {
         if (timer !== 0) {
@@ -109,48 +117,40 @@ const Toast = (p: ToastProps): unknown => {
         {...state}
         visible={visible}
         teleport={() => container}
-        onClose={destroy}
-        onClosed={internalOnClosed}
+        onClose={handleClose}
+        onClosed={unmountComponent}
       />
     );
   };
 
   ReactDOM.render(<TempToast />, container);
 
-  return update;
+  return instance;
 };
 
-function parseOptions(message) {
-  if (isObject(message)) {
-    return message;
-  }
-  return { message };
-}
-
-const createMethod = (type) => (options) =>
+const createMethod = (type: ToastType) => (options: string | ToastProps) => {
   Toast({
-    ...currentOptions,
-    ...defaultOptionsMap.get(type),
-    ...parseOptions(options),
-    type,
+    ...extend({}, currentOptions, defaultOptionsMap.get(type), parseOptions(options), { type }),
   });
+};
 
 ['info', 'loading', 'success', 'fail'].forEach((method) => {
-  Toast[method] = createMethod(method);
+  Toast[method] = createMethod(method as ToastType);
 });
 
 Toast.allowMultiple = (value = true) => {
   allowMultiple = value;
 };
+
 Toast.clear = nextTickClear;
 
-function setDefaultOptions(type: ToastType | ToastProps, options?: ToastProps) {
+const setDefaultOptions = (type: ToastType | ToastProps, options?: ToastProps) => {
   if (typeof type === 'string') {
     defaultOptionsMap.set(type, options);
   } else {
     extend(currentOptions, type);
   }
-}
+};
 
 Toast.setDefaultOptions = setDefaultOptions;
 
@@ -164,4 +164,4 @@ Toast.resetDefaultOptions = (type?: ToastType) => {
 };
 
 export default Toast as ToastInstance;
-export type { ToastType, ToastPosition, ToastOptions } from './PropsType'
+export type { ToastType, ToastPosition, ToastOptions } from './PropsType';
