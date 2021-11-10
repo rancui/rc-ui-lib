@@ -4,8 +4,6 @@ import conventionalChangelog from 'conventional-changelog';
 import { ROOT } from '../common/constant';
 import { ora, slimPath } from '../common/logger';
 
-
-
 const DIST_FILE = join(ROOT, './changelog.generated.md');
 const MAIN_TEMPLATE = join(__dirname, '../../template/changelog-main.hbs');
 const HEADER_TEMPLATE = join(__dirname, '../../template/changelog-header.hbs');
@@ -21,6 +19,7 @@ function formatType(type: string) {
     feat: 'Feature',
     docs: 'Document',
     types: 'Types',
+    refactor: 'Refactor',
   };
 
   return MAP[type] || type;
@@ -64,7 +63,7 @@ export async function changelog(): Promise<void> {
         headerPartial,
         commitPartial,
         transform,
-      }
+      },
     )
       .pipe(createWriteStream(DIST_FILE))
       .on('close', () => {
