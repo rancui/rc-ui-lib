@@ -9,7 +9,7 @@
 Notify 是一个函数，调用后会直接在页面中弹出相应的消息提示。
 
 ```js
-import { Notify } from 'reactvant';
+import { Notify } from 'rc-ui-lib';
 
 Notify.show('通知内容');
 ```
@@ -111,7 +111,6 @@ Notify.show({
 | onClose | 关闭时的回调函数 | _() => void_ | - |
 | teleport | 指定挂载的节点 | _HTMLElement \| () => HTMLElement_ | `body` |
 
-
 ### 类型定义
 
 组件导出以下类型定义：
@@ -126,13 +125,13 @@ import type { NotifyType, NotifyProps } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-notify-text-color | _var(--rc-white)_ | - |
-| --rc-notify-padding | _var(--rc-padding-xs) var(--rc-padding-md)_ | - |
-| --rc-notify-font-size | _var(--rc-font-size-md)_ | - |
-| --rc-notify-line-height | _var(--rc-line-height-md)_ | - |
-| --rc-notify-primary-background-color | _var(--rc-primary-color)_ | - |
-| --rc-notify-success-background-color | _var(--rc-success-color)_ | - |
-| --rc-notify-danger-background-color | _var(--rc-danger-color)_ | - |
-| --rc-notify-warning-background-color | _var(--rc-warning-color)_ | - |
+| 名称                                 | 默认值                                      | 描述 |
+| ------------------------------------ | ------------------------------------------- | ---- |
+| --rc-notify-text-color               | _var(--rc-white)_                           | -    |
+| --rc-notify-padding                  | _var(--rc-padding-xs) var(--rc-padding-md)_ | -    |
+| --rc-notify-font-size                | _var(--rc-font-size-md)_                    | -    |
+| --rc-notify-line-height              | _var(--rc-line-height-md)_                  | -    |
+| --rc-notify-primary-background-color | _var(--rc-primary-color)_                   | -    |
+| --rc-notify-success-background-color | _var(--rc-success-color)_                   | -    |
+| --rc-notify-danger-background-color  | _var(--rc-danger-color)_                    | -    |
+| --rc-notify-warning-background-color | _var(--rc-warning-color)_                   | -    |

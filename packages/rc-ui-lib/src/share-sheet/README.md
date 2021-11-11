@@ -7,7 +7,7 @@
 ### 引入
 
 ```js
-import { ShareSheet } from 'reactvant';
+import { ShareSheet } from 'rc-ui-lib';
 ```
 
 ## 代码演示
@@ -104,11 +104,7 @@ const options = [
   { name: '二维码', icon: 'qrcode' },
 ];
 
-<ShareSheet
-  title="立即分享给好友"
-  description="描述信息"
-  options={options}
-/>;
+<ShareSheet title="立即分享给好友" description="描述信息" options={options} />;
 ```
 
 ## API
@@ -149,7 +145,6 @@ const options = [
 | onSelect | 点击分享选项时触发 | _option: Option, index: number_ |
 | onCancel | 点击取消按钮时触发 | -                               |
 
-
 ## 主题定制
 
 ### 样式变量
@@ -173,7 +168,6 @@ const options = [
 | --rc-share-sheet-cancel-button-font-size | _var(--rc-font-size-lg)_ | - |
 | --rc-share-sheet-cancel-button-height | _48px_ | - |
 | --rc-share-sheet-cancel-button-background | _var(--rc-white)_ | - |
-
 
 ## 常见问题
 
