@@ -6,13 +6,21 @@
 
 **发布节奏**
 
-- 修订号：每周发布，包含新特性和问题修复。
+- 修订号：每周都会发布，包含新特性和问题修复。
 - 次版本号：每隔一至二个月发布，包含新特性和较大的功能更新，向下兼容。
 - 主版本号：无固定的发布时间，包含不兼容更新和重大功能更新。
 
 ## 更新内容
 
-### [v0.1.52](https://github.com/rancui/rc-ui-lib/compare/v0.1.51...v0.1.52)
+### [v0.1.54](https://github.com/compare/v0.1.53...v0.1.54)
+
+`2021-11-10`
+
+**Bug Fixes**
+
+- Toast: 修复 onClose 无法被调用 [e2cd15](https://github.com/commit/e2cd15e68513d4a79e189a51f0b91d0be0196143)
+
+### [v0.1.53](https://github.com/rancui/rc-ui-lib/compare/v0.1.52...v0.1.53)
 
 `2021-11-07`
 
