@@ -17,9 +17,10 @@ function formatType(type: string) {
   const MAP: Record<string, string> = {
     fix: 'Bug Fixes',
     feat: 'Feature',
-    docs: 'Document',
     types: 'Types',
     refactor: 'Refactor',
+    style: 'Style',
+    perf: 'Perf',
   };
 
   return MAP[type] || type;
