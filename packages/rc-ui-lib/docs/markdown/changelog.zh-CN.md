@@ -28,7 +28,7 @@
 
 - Popup: 新增关闭图标的类型，并使其正确渲染 [0d25a9](https://github.com/rancui/rc-ui-lib/commit/0d25a9c4ccac67b62f751da96b5ffb2d6d174a8c)
 
-- **Bug Fixes**
+**Bug Fixes**
 
 - Dialog: 修复 closeIcon 渲染不正确[ec2a6e](https://github.com/rancui/rc-ui-lib/commit/ec2a6eb24fe53a6911005aa5e7ae304c85924860)
 
