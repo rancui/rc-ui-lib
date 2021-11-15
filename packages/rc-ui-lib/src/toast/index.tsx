@@ -32,7 +32,6 @@ function parseOptions(message) {
   return { message };
 }
 
-// 同步的销毁
 const syncClear = () => {
   let fn = toastQueue.pop();
   while (fn) {
@@ -46,7 +45,6 @@ const nextTickClear = () => {
   setTimeout(syncClear);
 };
 
-// 可返回用于销毁此弹窗的方法
 const Toast = (toastProps?: string | ToastProps): unknown => {
   const props = parseOptions(toastProps);
   const instance: ToastReturnType = {

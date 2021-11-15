@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
-import Collapse from '..'
+import Collapse from '..';
 import './style.less';
 
 export default (): React.ReactNode => {
@@ -9,7 +9,7 @@ export default (): React.ReactNode => {
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
-        <Collapse initExpanded={['1']}>
+        <Collapse initValue={['1']}>
           <Collapse.Item title="标题1" name="1">
             代码是写出来给人看的，附带能在机器上运行
           </Collapse.Item>
@@ -22,7 +22,7 @@ export default (): React.ReactNode => {
         </Collapse>
       </DemoBlock>
       <DemoBlock title="手风琴">
-        <Collapse initExpanded="1" accordion>
+        <Collapse initValue="1" accordion>
           <Collapse.Item
             title={
               <div>
@@ -41,12 +41,12 @@ export default (): React.ReactNode => {
           </Collapse.Item>
         </Collapse>
       </DemoBlock>
-      <DemoBlock initExpanded={[]} title="禁用状态">
+      <DemoBlock initValue={[]} title="禁用状态">
         <Collapse>
           <Collapse.Item title="标题1" name="1">
             代码是写出来给人看的，附带能在机器上运行
           </Collapse.Item>
-          <Collapse.Item title="标题2" name="2" disabled>
+          <Collapse.Item title="标题2" name="2" readonly>
             代码是写出来给人看的，附带能在机器上运行
           </Collapse.Item>
           <Collapse.Item title="标题3" name="3" disabled>

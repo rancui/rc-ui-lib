@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
 import React, { ReactElement, useContext, useRef, useState } from 'react';
 import classnames from 'classnames';
-
 import CollapseContext from './CollapseContext';
-
 import { CollapseProps } from './PropsType';
 import { BORDER_TOP_BOTTOM } from '../utils/constant';
 import { useUpdateEffect } from '../hooks';
@@ -14,7 +12,7 @@ function validateModelValue(
   accordion: boolean,
 ) {
   if (accordion && Array.isArray(modelValue)) {
-    console.error('[ReactVant] Collapse: "value" should not be Array in accordion mode');
+    console.error('[rc-ui-lib] Collapse: "value" should not be Array in accordion mode');
     return false;
   }
   if (!accordion && !Array.isArray(modelValue)) {
@@ -29,35 +27,34 @@ const Collapse: React.FC<CollapseProps> = (props) => {
   const [bem] = createNamespace('collapse', prefixCls);
 
   const innerEffect = useRef(false);
-  const [expanded, setExpanded] = useState(() => props.value ?? props.initExpanded);
+
+  const [modelValue, setModelValue] = useState(() => props.value ?? props.initValue);
+
   const updateName = (name: number | string | Array<number | string>) => {
     innerEffect.current = true;
-    setExpanded(name);
+    setModelValue(name);
     props.onChange?.(name);
   };
 
   const toggle = (name, isExpanded: boolean) => {
     const { accordion } = props;
     if (accordion) {
-      if (name === expanded) {
-        name = '';
-      }
+      updateName(name === modelValue ? '' : name);
     } else if (isExpanded) {
-      name = (expanded as []).concat(name);
+      updateName((modelValue as Array<number | string>).concat(name));
     } else {
-      name = (expanded as []).filter((activeName) => activeName !== name);
+      updateName(
+        (modelValue as Array<number | string>).filter((activeName) => activeName !== name),
+      );
     }
-    updateName(name);
   };
 
   const isExpanded = (name: string | number): boolean => {
     const { accordion } = props;
-
-    if (process.env.NODE_ENV !== 'production' && !validateModelValue(expanded, accordion)) {
+    if (process.env.NODE_ENV !== 'production' && !validateModelValue(modelValue, accordion)) {
       return false;
     }
-
-    return accordion ? expanded === name : (expanded as Array<number | string>).includes(name);
+    return accordion ? modelValue === name : (modelValue as Array<number | string>).includes(name);
   };
 
   useUpdateEffect(() => {
@@ -65,7 +62,7 @@ const Collapse: React.FC<CollapseProps> = (props) => {
       innerEffect.current = false;
       return;
     }
-    setExpanded(props.value);
+    setModelValue(props.value);
   }, [props.value]);
 
   return (
@@ -85,7 +82,7 @@ const Collapse: React.FC<CollapseProps> = (props) => {
 
 Collapse.defaultProps = {
   border: true,
-  initExpanded: [],
+  initValue: [],
 };
 
 export default Collapse;

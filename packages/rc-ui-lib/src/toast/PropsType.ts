@@ -21,7 +21,9 @@ export interface ToastProps extends BaseTypeProps {
   loadingType?: LoadingType;
   /** 是否显示背景遮罩层	 */
   overlay?: boolean;
+  /** 背景遮罩层额外的类名	 */
   overlayClass?: string;
+  /** 背景遮罩层自定义样式	 */
   overlayStyle?: React.CSSProperties;
   /** 是否禁止背景点击	 */
   forbidClick?: boolean;
@@ -74,7 +76,7 @@ export interface ToastInstance {
    */
   resetDefaultOptions(type?: ToastType): void;
   /** 允许同时存在多个 Toast	 */
-  allowMultiple(value: boolean): void;
+  allowMultiple(value?: boolean): void;
   /** 关闭提示	 */
   clear(): void;
 }

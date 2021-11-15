@@ -14,14 +14,14 @@ import { Collapse } from 'rc-ui-lib';
 
 ### 基础用法
 
-通过 `initExpanded` 控制展开的面板列表，`initExpanded` 为数组格式。
+通过 `initValue` 控制展开的面板列表，`initValue` 为数组格式。
 
 ```js
-const initExpanded = ['1'];
+const initValue = ['1'];
 ```
 
 ```jsx
-<Collapse initExpanded={initExpanded}>
+<Collapse initValue={initValue}>
   <Collapse.Item title="标题1" name="1">
     内容
   </Collapse.Item>
@@ -36,10 +36,10 @@ const initExpanded = ['1'];
 
 ### 手风琴
 
-通过 `accordion` 可以设置为手风琴模式，最多展开一个面板，此时 `initExpanded` 为字符串格式。
+通过 `accordion` 可以设置为手风琴模式，最多展开一个面板，此时 `initValue` 为字符串格式。
 
 ```jsx
-<Collapse initExpanded="1" accordion>
+<Collapse initValue="1" accordion>
   <Collapse.Item title="标题1" name="1">
     内容
   </Collapse.Item>
@@ -57,7 +57,7 @@ const initExpanded = ['1'];
 通过 `disabled` 属性来禁用单个面板。
 
 ```jsx
-<Collapse initExpanded="initExpanded">
+<Collapse initValue="initValue">
   <Collapse.Item title="标题1" name="1">
     内容
   </Collapse.Item>
@@ -75,7 +75,7 @@ const initExpanded = ['1'];
 通过 `title` 插槽可以自定义标题栏的内容。
 
 ```jsx
-<Collapse initExpanded="initExpanded">
+<Collapse initValue="initValue">
   <Collapse.Item
     name="1"
     title={
@@ -98,16 +98,16 @@ const initExpanded = ['1'];
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| initExpanded | 默认打开的面板 name(只执行一次) | 手风琴模式：_number \| string_<br>非手风琴模式：_(number \| string)[]_ | - |
+| initValue | 默认打开的面板 name | 手风琴模式：_number \| string_<br>非手风琴模式：_(number \| string)[]_ | - |
 | value | 当前展开面板的 name | _number \| string_ \| _(number \| string)[]_ | - |
 | accordion | 是否开启手风琴模式 | _boolean_ | `false` |
 | border | 是否显示外边框 | _boolean_ | `true` |
 
 ### Collapse Events
 
-| 事件名   | 说明           | 回调参数                                       |
-| -------- | -------------- | ---------------------------------------------- |
-| onChange | 切换面板时触发 | initExpanded: 类型与 initExpanded 绑定的值一致 |
+| 事件名   | 说明           | 回调参数                                 |
+| -------- | -------------- | ---------------------------------------- |
+| onChange | 切换面板时触发 | initValue: 类型与 initValue 绑定的值一致 |
 
 ### CollapseItem Props
 

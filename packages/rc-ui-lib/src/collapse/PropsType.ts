@@ -6,7 +6,7 @@ export interface CollapseProps extends BaseTypeProps {
   /** 是否开启手风琴模式	 */
   accordion?: boolean;
   /** 默认打开的面板name */
-  initExpanded?: string | number | Array<number | string>;
+  initValue?: string | number | Array<number | string>;
   /** 是否显示外边框	 */
   border?: boolean;
   /** 当前展开面板的 name	 */
@@ -29,4 +29,4 @@ export interface CollapseItemProps extends CellProps {
 
 export type CollapseItemInstance = {
   toggle: (expand: boolean) => void;
-}
+};
