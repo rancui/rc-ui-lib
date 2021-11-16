@@ -1,6 +1,5 @@
 import { MutableRefObject, useEffect } from 'react';
 import { useTouch } from './use-touch';
-// import { preventDefault } from '.';
 import { getScrollParent } from './use-scroll-parent';
 import { preventDefault } from '../utils';
 
@@ -41,7 +40,6 @@ export const useLockScroll = (
   const lock = () => {
     document.addEventListener('touchstart', touch.start);
     document.addEventListener('touchmove', onTouchMove, { passive: false });
-
     if (!totalLockCount) {
       document.body.classList.add(BODY_LOCK_CLASS);
     }
@@ -76,18 +74,10 @@ export const useLockScroll = (
   }, []);
 
   useEffect(() => {
-    if (shouldLock) {
+    if (shouldLock()) {
       lock();
     } else {
       unlock();
     }
-  }, [shouldLock]);
-
-  // onMountedOrActivated(init);
-  // onDeactivated(destroy);
-  // onBeforeUnmount(destroy);
-
-  // watch(shouldLock, (value) => {
-  //   value ? lock() : unlock();
-  // });
+  }, [shouldLock()]);
 };

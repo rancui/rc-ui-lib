@@ -27,7 +27,7 @@ function formatType(type: string) {
 }
 
 function transform(item: any) {
-  if (item.type === 'chore' || item.type === 'test') {
+  if (item.type === 'chore' || item.type === 'test' || item.type === 'docs') {
     return null;
   }
 
