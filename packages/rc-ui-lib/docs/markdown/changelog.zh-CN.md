@@ -12,6 +12,14 @@
 
 ## 更新内容
 
+### [v0.1.55](https://github.com/rancui/rc-ui-lib/compare/v0.1.54...v0.1.55)
+
+`2021-11-16`
+
+**Bug Fixes**
+
+- 修复 lockScroll 背景滚动问题 [31ce63](https://github.com/rancui/rc-ui-lib/commit/31ce63248d09c4e05722aca4fe661c21ed123f99)
+
 ### [v0.1.54](https://github.com/rancui/rc-ui-lib/compare/v0.1.53...v0.1.54)
 
 `2021-11-10`
