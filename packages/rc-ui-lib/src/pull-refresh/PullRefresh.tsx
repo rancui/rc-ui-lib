@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { PullRefreshProps, PullRefreshStatus } from './PropsType';
 import { getScrollTop, preventDefault } from '../utils';
 
-import useTouch from '../hooks/use-touch';
+import { useTouch } from '../hooks/use-touch';
 import { getScrollParent } from '../hooks/use-scroll-parent';
 import useEventListener from '../hooks/use-event-listener';
 
@@ -150,8 +150,8 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
         }
 
         touch.move(event);
-        if (reachTop.current && touch.deltaY >= 0 && touch.isVertical()) {
-          setStatus(ease(touch.deltaY));
+        if (reachTop.current && touch.deltaY.current >= 0 && touch.isVertical()) {
+          setStatus(ease(touch.deltaY.current));
           preventDefault(event);
         } else {
           /**

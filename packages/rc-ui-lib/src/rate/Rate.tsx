@@ -2,7 +2,7 @@ import React, { useRef, useContext, useMemo } from 'react';
 import classnames from 'classnames';
 import { RateProps } from './PropsType';
 import { addUnit, preventDefault } from '../utils';
-import useTouch from '../hooks/use-touch';
+import { useTouch } from '../hooks/use-touch';
 import useRefs from '../hooks/use-refs';
 import Icon from '../icon';
 import useMergedState from '../hooks/use-merged-state';
@@ -49,7 +49,7 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
     defaultValue: props.defaultValue,
   });
   const root = useRef<HTMLDivElement>(null);
-  const touch = useTouch(true);
+  const touch = useTouch();
   const [itemRefs, setItemRefs] = useRefs();
 
   const untouchable = () => props.readonly || props.disabled || !touchable;

@@ -1,33 +1,93 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-let count = 0;
+import { MutableRefObject, useEffect } from 'react';
+import { useTouch } from './use-touch';
+// import { preventDefault } from '.';
+import { getScrollParent } from './use-scroll-parent';
+import { preventDefault } from '../utils';
 
-const CLASSNAME = 'rc-overflow-hidden';
+let totalLockCount = 0;
 
-export interface Action {
-  lock: () => void;
-  unlock: () => void;
-}
+const BODY_LOCK_CLASS = 'rc-overflow-hidden';
 
-function useLockScroll(shouldLock: () => boolean) {
-  const lock = () => {
-    if (shouldLock()) {
-      if (!count) {
-        document.body.classList.add(CLASSNAME);
-      }
-      count += 1;
+export const useLockScroll = (
+  rootRef: MutableRefObject<HTMLElement | undefined>,
+  shouldLock: () => boolean,
+): void => {
+  const touch = useTouch();
+
+  const onTouchMove = (event: TouchEvent) => {
+    touch.move(event);
+
+    const direction = touch.deltaY.current > 0 ? '10' : '01';
+    const el = getScrollParent(event.target as Element, rootRef.current) as HTMLElement;
+    const { scrollHeight, offsetHeight, scrollTop } = el;
+    let status = '11';
+
+    if (scrollTop === 0) {
+      status = offsetHeight >= scrollHeight ? '00' : '01';
+    } else if (scrollTop + offsetHeight >= scrollHeight) {
+      status = '10';
     }
+
+    if (
+      status !== '11' &&
+      touch.isVertical() &&
+      // eslint-disable-next-line no-bitwise
+      !(parseInt(status, 2) & parseInt(direction, 2))
+    ) {
+      preventDefault(event, true);
+    }
+  };
+
+  const lock = () => {
+    document.addEventListener('touchstart', touch.start);
+    document.addEventListener('touchmove', onTouchMove, { passive: false });
+
+    if (!totalLockCount) {
+      document.body.classList.add(BODY_LOCK_CLASS);
+    }
+
+    // eslint-disable-next-line no-plusplus
+    totalLockCount++;
   };
 
   const unlock = () => {
-    if (shouldLock() && count) {
-      count -= 1;
-      if (!count) {
-        document.body.classList.remove(CLASSNAME);
+    if (totalLockCount) {
+      document.removeEventListener('touchstart', touch.start);
+      document.removeEventListener('touchmove', onTouchMove);
+
+      // eslint-disable-next-line no-plusplus
+      totalLockCount--;
+
+      if (!totalLockCount) {
+        document.body.classList.remove(BODY_LOCK_CLASS);
       }
     }
   };
 
-  return [lock, unlock];
-}
+  const init = () => shouldLock() && lock();
 
-export default useLockScroll;
+  const destroy = () => shouldLock() && unlock();
+
+  useEffect(() => {
+    init();
+    return () => {
+      destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (shouldLock) {
+      lock();
+    } else {
+      unlock();
+    }
+  }, [shouldLock]);
+
+  // onMountedOrActivated(init);
+  // onDeactivated(destroy);
+  // onBeforeUnmount(destroy);
+
+  // watch(shouldLock, (value) => {
+  //   value ? lock() : unlock();
+  // });
+};

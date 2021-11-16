@@ -50,20 +50,16 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
     if (expanded) {
       setShow(true);
     }
-    console.log('=====useUpdateEffect====');
     raf(() => {
       if (!contentRef.current || !wrapperRef.current) {
         return;
       }
-      console.log('=====raf====');
       const { offsetHeight } = contentRef.current;
-      console.log('=====offsetHeight====', contentRef.current.offsetHeight);
       if (offsetHeight) {
         const contentHeight = `${offsetHeight}px`;
         wrapperRef.current.style.height = expanded ? 0 : contentHeight;
         // use double raf to ensure animation can start
         doubleRaf(() => {
-          console.log('=====doubleRaf====');
           wrapperRef.current.style.height = expanded ? contentHeight : 0;
         });
       } else {

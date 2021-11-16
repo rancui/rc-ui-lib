@@ -23,6 +23,7 @@ import { renderToContainer } from '../utils/dom/renderToContainer';
 import useSsrCompat from '../hooks/use-ssr-compat';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import PopupContext from './PopupContext';
+import { useLockScroll } from '../hooks/use-lock-scroll';
 
 export const sharedPopupProps = [
   'round',
@@ -228,6 +229,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
       </CSSTransition>
     );
   };
+
+  useLockScroll(popupRef, () => props.visible && props.lockScroll);
 
   useEventListener('popstate', () => {
     if (props.closeOnPopstate) {
