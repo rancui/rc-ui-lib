@@ -1,8 +1,9 @@
-import React, { CSSProperties, TouchEvent, useContext, useRef } from 'react';
+import React, { CSSProperties, useContext, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import classnames from 'classnames';
+import { useLockScroll } from '../hooks/use-lock-scroll';
 import { OverlayProps } from './PropsType';
-import { noop, preventDefault, isDef } from '../utils';
+import { isDef } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Overlay: React.FC<OverlayProps> = (props) => {
@@ -10,11 +11,9 @@ const Overlay: React.FC<OverlayProps> = (props) => {
   const [bem] = createNamespace('overlay', prefixCls);
   const nodeRef = useRef(null);
 
-  const { visible, duration, customStyle, children } = props;
+  useLockScroll(nodeRef, props.visible && props.lockScroll);
 
-  const preventTouchMove = (event: TouchEvent) => {
-    preventDefault(event, true);
-  };
+  const { visible, duration, customStyle, children } = props;
 
   const renderOverlay = () => {
     const style: CSSProperties = {
@@ -33,7 +32,6 @@ const Overlay: React.FC<OverlayProps> = (props) => {
         style={style}
         onClick={props.onClick}
         className={classnames(bem(), props.className)}
-        onTouchMove={props.lockScroll ? preventTouchMove : noop}
       >
         {children}
       </div>

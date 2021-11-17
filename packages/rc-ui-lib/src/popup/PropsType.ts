@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent, MouseEventHandler } from 'react';
 import { BaseTypeProps, TeleportType } from '../utils';
 
 export type PopupPosition = 'top' | 'left' | 'bottom' | 'right' | 'center' | '';
@@ -68,9 +68,9 @@ export interface PopupProps extends BaseTypeProps, SharedPopupProps {
   /** 关闭图标位置 */
   closeIconPosition?: string;
   /** 点击弹出层时触发 */
-  onClick?: (e: React.MouseEvent) => void;
+  onClick?: (event: MouseEvent) => void;
   /** 点击关闭图标时触发	 */
-  onClickCloseIcon?: (e: React.MouseEvent) => void;
+  onClickCloseIcon?: (event: MouseEvent) => void;
   /** 子元素	 */
   children?: React.ReactNode;
 }

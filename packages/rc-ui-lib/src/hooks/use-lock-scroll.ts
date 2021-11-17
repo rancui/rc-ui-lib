@@ -1,16 +1,14 @@
-import { MutableRefObject, useEffect } from 'react';
+import { useEffect, RefObject } from 'react';
 import { useTouch } from './use-touch';
 import { getScrollParent } from './use-scroll-parent';
-import { preventDefault } from '../utils';
+import { supportsPassive } from './use-support-passive';
 
 let totalLockCount = 0;
 
 const BODY_LOCK_CLASS = 'rc-overflow-hidden';
 
-export const useLockScroll = (
-  rootRef: MutableRefObject<HTMLElement | undefined>,
-  shouldLock: () => boolean,
-): void => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export function useLockScroll(rootRef: RefObject<HTMLElement>, shouldLock: boolean) {
   const touch = useTouch();
 
   const onTouchMove = (event: TouchEvent) => {
@@ -18,6 +16,7 @@ export const useLockScroll = (
 
     const direction = touch.deltaY.current > 0 ? '10' : '01';
     const el = getScrollParent(event.target as Element, rootRef.current) as HTMLElement;
+    if (!el) return;
     const { scrollHeight, offsetHeight, scrollTop } = el;
     let status = '11';
 
@@ -33,13 +32,20 @@ export const useLockScroll = (
       // eslint-disable-next-line no-bitwise
       !(parseInt(status, 2) & parseInt(direction, 2))
     ) {
-      preventDefault(event, true);
+      if (event.cancelable) {
+        event.preventDefault();
+      }
     }
   };
 
   const lock = () => {
     document.addEventListener('touchstart', touch.start);
-    document.addEventListener('touchmove', onTouchMove, { passive: false });
+    document.addEventListener(
+      'touchmove',
+      onTouchMove,
+      supportsPassive ? { passive: false } : false,
+    );
+
     if (!totalLockCount) {
       document.body.classList.add(BODY_LOCK_CLASS);
     }
@@ -62,22 +68,13 @@ export const useLockScroll = (
     }
   };
 
-  const init = () => shouldLock() && lock();
-
-  const destroy = () => shouldLock() && unlock();
-
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
-    init();
-    return () => {
-      destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (shouldLock()) {
+    if (shouldLock) {
       lock();
-    } else {
-      unlock();
+      return () => {
+        unlock();
+      };
     }
-  }, [shouldLock()]);
-};
+  }, [shouldLock]);
+}

@@ -1,16 +1,18 @@
-import { TouchEvent } from 'react';
+import { MouseEvent, TouchEvent } from 'react';
 
-export function stopPropagation(event): void {
+export const stopPropagation = (event: TouchEvent | MouseEvent | Event): void =>
   event.stopPropagation();
-}
 
-export function preventDefault(event: TouchEvent | Event, isStopPropagation?: boolean): void {
+export function preventDefault(
+  event: TouchEvent | MouseEvent | Event,
+  isStopPropagation?: boolean,
+): void {
   /* istanbul ignore else */
   if (typeof event.cancelable !== 'boolean' || event.cancelable) {
     event.preventDefault();
   }
 
   if (isStopPropagation) {
-    stopPropagation(event as Event);
+    stopPropagation(event);
   }
 }
