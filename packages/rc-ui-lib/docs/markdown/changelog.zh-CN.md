@@ -12,6 +12,14 @@
 
 ## 更新内容
 
+### [v0.1.56](https://github.com/rancui/rc-ui-lib/compare/v0.1.55...v0.1.56)
+
+`2021-11-16`
+
+**Bug Fixes**
+
+- body: 修复初始化完成时 body 被加上类名 rc-overflow-hidden [810c72](https://github.com/rancui/rc-ui-lib/commit/810c72abd17d0f7bddfd1186a33e2dcd0406b754)
+
 ### [v0.1.55](https://github.com/rancui/rc-ui-lib/compare/v0.1.54...v0.1.55)
 
 `2021-11-16`
