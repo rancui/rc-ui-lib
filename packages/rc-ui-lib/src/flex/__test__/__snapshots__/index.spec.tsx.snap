@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex should render correctly 1`] = `undefined`;
+
+exports[`Flex should render correctly when direction prop is row-reverse 1`] = `undefined`;
+
+exports[`Flex should render correctly when flex prop is decimal 1`] = `undefined`;
+
+exports[`Flex should render correctly when gutter prop is array 1`] = `undefined`;
+
+exports[`Flex should render correctly when using align prop 1`] = `undefined`;
+
+exports[`Flex should render correctly when using disabled prop 1`] = `undefined`;
+
+exports[`Flex should render correctly when using flex prop 1`] = `undefined`;
+
+exports[`Flex should render correctly when using gutter prop 1`] = `undefined`;
+
+exports[`Flex should render correctly when using justify prop 1`] = `undefined`;
+
+exports[`Flex should render correctly when wrap prop is wrap 1`] = `undefined`;
