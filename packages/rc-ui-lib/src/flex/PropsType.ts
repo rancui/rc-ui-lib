@@ -23,8 +23,6 @@ export interface FlexProps extends BaseTypeProps {
    * @default 'start'
    */
   align?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
-  disabled?: boolean;
-  onClick?: (e: React.MouseEvent) => void;
 }
 
 export type FlexType = number | 'none' | 'auto' | string;
