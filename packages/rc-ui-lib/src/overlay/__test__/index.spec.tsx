@@ -31,30 +31,4 @@ describe('Overlay', () => {
     const wrapper = mount(<Overlay>Custom Default</Overlay>);
     expect(wrapper).toMatchSnapshot();
   });
-
-  it('should allow to touchmove when lock-scroll is false', async () => {
-    const onTouchMove = jest.fn();
-    const wrapper = mount(
-      <div onTouchMove={onTouchMove}>
-        <Overlay visible lockScroll={false} />
-      </div>,
-    );
-
-    const overlay = wrapper.find('.rc-overlay');
-    overlay.simulate('touchmove');
-    expect(onTouchMove).toHaveBeenCalledTimes(1);
-  });
-
-  it('should not allow to touchmove when lock-scroll is true', async () => {
-    const onTouchMove = jest.fn();
-    const wrapper = mount(
-      <div onTouchMove={onTouchMove}>
-        <Overlay visible lockScroll />
-      </div>,
-    );
-
-    const overlay = wrapper.find('.rc-overlay');
-    overlay.simulate('touchmove');
-    expect(onTouchMove).toHaveBeenCalledTimes(0);
-  });
 });
