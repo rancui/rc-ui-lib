@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty should render bottom correctly 1`] = `undefined`;
+
+exports[`Empty should render description correctly 1`] = `undefined`;
+
+exports[`Empty should render image correctly 1`] = `undefined`;
+
+exports[`Empty should render svg when image is network 1`] = `undefined`;
+
+exports[`Empty should render svg when image is network component 1`] = `undefined`;
+
+exports[`Empty should render svg when prop image is network 1`] = `undefined`;
