@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid should render correctly when icon is ReactNode 1`] = `"<div class=\\"rc-grid rc-hairline--top\\"><div class=\\"rc-grid-item\\" style=\\"flex-basis: 25%;\\"><div class=\\"rc-grid-item__content rc-grid-item__content--center rc-hairline\\"><div class=\\"rc-badge__wrapper\\"><i class=\\"rc-badge__wrapper van-icon van-icon-shop-o\\"></i></div></div></div></div>"`;
+
+exports[`Grid should render correctly when text prop is ReactNode 1`] = `undefined`;
+
+exports[`Grid should render correctly when using inde 1`] = `undefined`;
+
+exports[`Grid should render correctly when using text prop 1`] = `undefined`;
+
+exports[`Grid should render correctly with children 1`] = `undefined`;
+
+exports[`Grid should render correctly with index prop 1`] = `undefined`;
+
+exports[`Grid should render icon correctly 1`] = `"<div class=\\"rc-grid rc-hairline--top\\"><div class=\\"rc-grid-item\\" style=\\"flex-basis: 25%;\\"><div class=\\"rc-grid-item__content rc-grid-item__content--center rc-hairline\\"><i class=\\"rc-badge__wrapper rc-grid-item__icon van-icon van-icon-success\\" style=\\"color: red;\\"><div class=\\"rc-badge rc-badge--fixed\\">1</div></i></div></div></div>"`;
+
+exports[`Grid should render square grid with gutter correctly 1`] = `undefined`;
