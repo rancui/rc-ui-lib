@@ -21,6 +21,7 @@ export interface ActionBarIconProps extends BaseTypeProps {
   iconPrefix?: string;
   /** 图标右上角徽标的内容	 */
   badge?: BadgeSettingProps;
+  /** 触发点击 */
   onClick?: (event: React.MouseEvent) => void;
 }
 

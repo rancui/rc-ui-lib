@@ -12,7 +12,7 @@ function isImage(name?: string): boolean {
 const Icon: React.FC<IconProps> = (props) => {
   const { iconPrefix } = useContext(ConfigProviderContext);
 
-  const { dot, tag, name, badge, className, onClick, onTouchStart } = props;
+  const { dot, tag, name, className, onClick, onTouchStart } = props;
 
   const imageIcon = isImage(name);
 

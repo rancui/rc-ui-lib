@@ -6,7 +6,7 @@ import Badge from '../badge';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const ActionBarIcon: React.FC<ActionBarIconProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('action-bar-icon', prefixCls);
 
   const renderIcon = () => {
@@ -33,13 +33,17 @@ const ActionBarIcon: React.FC<ActionBarIconProps> = (props) => {
     return null;
   };
 
+  const handleClick = (e) => {
+    props.onClick?.(e);
+  };
+
   return (
     <div
       role="button"
       className={classnames(props.className, bem())}
       style={props.style}
       tabIndex={0}
-      onClick={props.onClick}
+      onClick={handleClick}
     >
       {renderIcon()}
       {props.children || props.text}
