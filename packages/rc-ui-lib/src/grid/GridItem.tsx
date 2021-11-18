@@ -27,7 +27,6 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
       console.error('[rc-ui-lib] <GridItem> must be a child component of <Grid>.');
     }
   }
-
   const rootStyle = useMemo(() => {
     const { square, gutter, columnNum } = parent;
     const percent = `${100 / +columnNum}%`;
@@ -41,7 +40,6 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
     } else if (gutter) {
       const gutterValue = addUnit(gutter);
       internalStyle.paddingRight = gutterValue;
-
       if (index >= columnNum) {
         internalStyle.marginTop = gutterValue;
       }
@@ -78,11 +76,9 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
         />
       );
     }
-
     if (React.isValidElement(props.icon)) {
       return <Badge {...props.badge}>{props.icon}</Badge>;
     }
-
     return null;
   };
 
