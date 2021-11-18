@@ -2,7 +2,6 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
-import { sleep } from '../../../tests/utils';
 import Cell from '../../cell';
 import Collapse from '..';
 import { CollapseItemInstance } from '../PropsType';
