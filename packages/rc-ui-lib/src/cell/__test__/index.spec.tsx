@@ -1,13 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { Cell } from '..';
+import Cell from '..';
 
 describe('Cell', () => {
   let wrapper;
 
   afterEach(() => {
     wrapper.unmount();
+    jest.restoreAllMocks();
   });
 
   it('should render value slot correctly', () => {
@@ -55,5 +56,39 @@ describe('Cell', () => {
   it('should allow to disable clicakble when using is-link prop', () => {
     wrapper = mount(<Cell title="Title" isLink clickable={false} />);
     expect(wrapper.find('.rc-cell--clickable').exists()).toBeTruthy();
+  });
+
+  it('should render correctly when wrapperd with Cell.Group', () => {
+    wrapper = mount(
+      <Cell.Group>
+        <Cell title="单元格" value="内容" />
+        <Cell title="单元格" value="内容" label="描述信息" />
+      </Cell.Group>,
+    );
+    expect(toJson(wrapper.html())).toMatchSnapshot();
+  });
+
+  it('should render correctly when using title prop in Cell.Group', () => {
+    wrapper = mount(
+      <div>
+        <Cell.Group title="分组1">
+          <Cell title="单元格" value="内容" />
+        </Cell.Group>
+        <Cell.Group title="分组2">
+          <Cell title="单元格" value="内容" />
+        </Cell.Group>
+      </div>,
+    );
+    expect(toJson(wrapper.html())).toMatchSnapshot();
+  });
+
+  it('should render correctly when using inset prop in Cell.Group', () => {
+    wrapper = mount(
+      <Cell.Group inset>
+        <Cell title="单元格" value="内容" />
+        <Cell title="单元格" value="内容" label="描述信息" />
+      </Cell.Group>,
+    );
+    expect(toJson(wrapper.html())).toMatchSnapshot();
   });
 });

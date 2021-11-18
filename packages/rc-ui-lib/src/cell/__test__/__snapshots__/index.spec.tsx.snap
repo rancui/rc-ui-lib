@@ -2,6 +2,12 @@
 
 exports[`Cell should change icon class prefix when using icon-prefix prop 1`] = `"<div class=\\"rc-cell\\"><i class=\\"rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success\\"></i><div class=\\"rc-cell__title\\">Title</div></div>"`;
 
+exports[`Cell should render correctly when using title prop in Cell.Group 1`] = `undefined`;
+
+exports[`Cell should render correctly when wrapperd with Cell.Group 1`] = `undefined`;
+
+exports[`Cell should render correctly when wrapperd with Cell.Group 2`] = `undefined`;
+
 exports[`Cell should render extra slot correctly 1`] = `"<div class=\\"rc-cell\\"><div class=\\"rc-cell__title\\">Title</div><div class=\\"rc-cell__value\\"><span>Value</span></div>Custom Extra</div>"`;
 
 exports[`Cell should render icon slot correctly 1`] = `
