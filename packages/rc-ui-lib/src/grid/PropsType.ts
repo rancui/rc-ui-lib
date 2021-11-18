@@ -21,8 +21,6 @@ export interface GridProps extends BaseTypeProps {
   direction?: GridDirection;
   /** 列数	 */
   columnNum?: number;
-  className?: string;
-  style?: React.CSSProperties;
 }
 
 export interface GridItemProps extends BaseTypeProps {
@@ -36,10 +34,12 @@ export interface GridItemProps extends BaseTypeProps {
   iconPrefix?: string;
   /** 图标颜色，等同于 Icon 组件的 color 属性	 */
   iconColor?: string;
-  className?: string;
-  style?: React.CSSProperties;
+  /** 内容类名 */
   contentClassName?: string;
+  /** 内容 style */
   contentStyle?: React.CSSProperties;
+  /** 子元素 */
   children?: React.ReactNode;
+  /** 点击格子时触发 */
   onClick?: (event: React.MouseEvent) => void;
 }
