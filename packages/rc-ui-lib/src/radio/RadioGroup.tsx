@@ -1,12 +1,10 @@
 /* eslint-disable no-console */
 import React, { useContext } from 'react';
 import classnames from 'classnames';
-
 import useMergedState from '../hooks/use-merged-state';
 import RadioContext from './RadioContext';
 import { RadioGroupProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
-
 
 const RadioGroup: React.FC<RadioGroupProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
