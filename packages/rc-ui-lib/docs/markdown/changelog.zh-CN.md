@@ -12,6 +12,14 @@
 
 ## 更新内容
 
+### [v0.1.57](https://github.com/rancui/rc-ui-lib/compare/v0.1.56...v0.1.57)
+
+`2021-11-17`
+
+**Bug Fixes**
+
+- Overlay: 修复滑动时页面跟着滚动的问题 [620da5](https://github.com/rancui/rc-ui-lib/commit/620da517eda3b78b8723dfb6706af0cc4ad78809)
+
 ### [v0.1.56](https://github.com/rancui/rc-ui-lib/compare/v0.1.55...v0.1.56)
 
 `2021-11-16`
