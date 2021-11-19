@@ -1,5 +1,5 @@
 import React, { CSSProperties, useContext, useMemo, useRef, useState } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { SliderProps, SliderValue } from './PropsType';
 import { addUnit, range, addNumber, preventDefault, getSizeStyle, stopPropagation } from '../utils';
 import { useTouch } from '../hooks/use-touch';
@@ -237,7 +237,7 @@ const Slider: React.FC<SliderProps> = (props) => {
       return props.button;
     }
 
-    return <div className={cls(bem('button'))} style={getSizeStyle(props.buttonSize)} />;
+    return <div className={classnames(bem('button'))} style={getSizeStyle(props.buttonSize)} />;
   };
 
   const renderButton = (buttounRef, index?: 0 | 1) => {
@@ -251,7 +251,7 @@ const Slider: React.FC<SliderProps> = (props) => {
         ref={buttounRef}
         key={index}
         role="slider"
-        className={cls(getButtonClassName(index))}
+        className={classnames(getButtonClassName(index))}
         tabIndex={props.disabled || props.readonly ? -1 : 0}
         aria-valuemin={props.min}
         aria-valuenow={value}
@@ -286,7 +286,7 @@ const Slider: React.FC<SliderProps> = (props) => {
     <div
       ref={root}
       style={wrapperStyle}
-      className={cls(
+      className={classnames(
         props.className,
         bem({
           vertical: props.vertical,
@@ -295,7 +295,7 @@ const Slider: React.FC<SliderProps> = (props) => {
       )}
       onClick={onClick}
     >
-      <div className={cls(bem('bar'))} style={barStyle}>
+      <div className={classnames(bem('bar'))} style={barStyle}>
         {props.range
           ? [renderButton(setButtonRef1, 0), renderButton(setButtonRef2, 1)]
           : renderButton(setButtonRef1)}

@@ -1,5 +1,5 @@
 import React, { forwardRef, isValidElement, useContext, useImperativeHandle, useRef } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 // Utils
 import { isPromise, getSizeStyle, extend, pick } from '../utils';
 import { isOversize, filterFiles, readFileContent, toArray, isImageFile } from './utils';
@@ -197,7 +197,7 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
 
   const renderUploadIcon = () => {
     if (typeof props.uploadIcon === 'string') {
-      return <Icon name={props.uploadIcon} className={cls(bem('upload-icon'))} />;
+      return <Icon name={props.uploadIcon} className={classnames(bem('upload-icon'))} />;
     }
 
     if (isValidElement(props.uploadIcon)) {
@@ -216,7 +216,7 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
       <input
         ref={inputRef}
         type="file"
-        className={cls(bem('input'))}
+        className={classnames(bem('input'))}
         accept={props.accept}
         capture={props.capture as unknown as boolean}
         multiple={props.multiple}
@@ -227,7 +227,7 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
 
     if (props.children) {
       return (
-        <div className={cls(bem('input-wrapper'))} onClick={onClickUpload}>
+        <div className={classnames(bem('input-wrapper'))} onClick={onClickUpload}>
           {props.children}
           {Input}
         </div>
@@ -236,12 +236,14 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
 
     return (
       <div
-        className={cls(bem('upload', { readonly: props.readonly }))}
+        className={classnames(bem('upload', { readonly: props.readonly }))}
         style={getSizeStyle(props.previewSize)}
         onClick={onClickUpload}
       >
         {renderUploadIcon()}
-        {props.uploadText && <span className={cls(bem('upload-text'))}>{props.uploadText}</span>}
+        {props.uploadText && (
+          <span className={classnames(bem('upload-text'))}>{props.uploadText}</span>
+        )}
         {Input}
       </div>
     );
@@ -259,8 +261,8 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
   }));
 
   return (
-    <div className={cls(bem())}>
-      <div className={cls(bem('wrapper', { disabled: props.disabled }))}>
+    <div className={classnames(bem())}>
+      <div className={classnames(bem('wrapper', { disabled: props.disabled }))}>
         {renderPreviewList()}
         {renderUpload()}
       </div>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 
 import { StepsProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
@@ -9,8 +9,8 @@ const Steps: React.FC<StepsProps> = ({ children, className, style, ...props }) =
   const [bem] = createNamespace('steps', prefixCls);
 
   return (
-    <div className={cls(className, bem([props.direction]))} style={style}>
-      <div className={cls(bem('items'))}>
+    <div className={classnames(className, bem([props.direction]))} style={style}>
+      <div className={classnames(bem('items'))}>
         {React.Children.toArray(children)
           .filter(Boolean)
           .map((child: React.ReactElement, index: number) =>

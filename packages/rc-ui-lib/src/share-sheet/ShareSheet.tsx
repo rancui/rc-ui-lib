@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { ShareSheetOption, ShareSheetProps } from './PropsType';
 import { pick } from '../utils';
 import Popup from '../popup';
@@ -39,9 +39,9 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
     const { title, description } = props;
     if (title || description) {
       return (
-        <div className={cls(bem('header'))}>
-          {title && <div className={cls(bem('title'))}>{title}</div>}
-          {description && <div className={cls(bem('description'))}>{description}</div>}
+        <div className={classnames(bem('header'))}>
+          {title && <div className={classnames(bem('title'))}>{title}</div>}
+          {description && <div className={classnames(bem('description'))}>{description}</div>}
         </div>
       );
     }
@@ -55,18 +55,20 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
         key={index}
         role="button"
         tabIndex={0}
-        className={cls([bem('option'), className])}
+        className={classnames([bem('option'), className])}
         onClick={() => onSelect(option, index)}
       >
-        <img alt="share sheet icon" src={getIconURL(icon)} className={cls(bem('icon'))} />
-        {name && <span className={cls(bem('name'))}>{name}</span>}
-        {description && <span className={cls(bem('option-description'))}>{description}</span>}
+        <img alt="share sheet icon" src={getIconURL(icon)} className={classnames(bem('icon'))} />
+        {name && <span className={classnames(bem('name'))}>{name}</span>}
+        {description && (
+          <span className={classnames(bem('option-description'))}>{description}</span>
+        )}
       </div>
     );
   };
 
   const renderOptions = (options: ShareSheetOption[], border?: boolean, key?: React.Key) => (
-    <div key={key} className={cls(bem('options', { border }))}>
+    <div key={key} className={classnames(bem('options', { border }))}>
       {options.map(renderOption)}
     </div>
   );
@@ -85,7 +87,7 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
     const { cancelText } = props;
     if (cancelText) {
       return (
-        <button type="button" className={cls(bem('cancel'))} onClick={onCancel}>
+        <button type="button" className={classnames(bem('cancel'))} onClick={onCancel}>
           {cancelText}
         </button>
       );
@@ -95,7 +97,7 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
   return (
     <Popup
       round
-      className={cls(bem())}
+      className={classnames(bem())}
       position="bottom"
       onClose={onCancel}
       {...pick(props, [

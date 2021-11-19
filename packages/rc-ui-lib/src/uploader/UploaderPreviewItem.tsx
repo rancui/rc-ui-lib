@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { useContext } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 // Utils
 import { isImageFile } from './utils';
 import { isDef, getSizeStyle, extend } from '../utils';
@@ -23,17 +23,17 @@ export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) =>
     if (status === 'uploading' || status === 'failed') {
       const MaskIcon =
         status === 'failed' ? (
-          <Icon name="close" className={cls(bem('mask-icon'))} />
+          <Icon name="close" className={classnames(bem('mask-icon'))} />
         ) : (
-          <Loading className={cls(bem('loading'))} />
+          <Loading className={classnames(bem('loading'))} />
         );
 
       const showMessage = isDef(message) && message !== '';
 
       return (
-        <div className={cls(bem('mask'))}>
+        <div className={classnames(bem('mask'))}>
           {MaskIcon}
-          {showMessage && <div className={cls(bem('mask-message'))}>{message}</div>}
+          {showMessage && <div className={classnames(bem('mask-message'))}>{message}</div>}
         </div>
       );
     }
@@ -57,8 +57,8 @@ export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) =>
   const renderDeleteIcon = () => {
     if (props.deletable && props.item.status !== 'uploading') {
       return (
-        <div className={cls(bem('preview-delete'))} onClick={onDelete}>
-          <Icon name="cross" className={cls(bem('preview-delete-icon'))} />
+        <div className={classnames(bem('preview-delete'))} onClick={onDelete}>
+          <Icon name="cross" className={classnames(bem('preview-delete-icon'))} />
         </div>
       );
     }
@@ -69,7 +69,7 @@ export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) =>
     if (props.previewCoverRender) {
       const { index, item } = props;
       return (
-        <div className={cls(bem('preview-cover'))}>
+        <div className={classnames(bem('preview-cover'))}>
           {props.previewCoverRender(extend({ index }, item))}
         </div>
       );
@@ -85,7 +85,7 @@ export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) =>
         <Image
           fit={props.imageFit}
           src={item.content || item.url}
-          className={cls(bem('preview-image'))}
+          className={classnames(bem('preview-image'))}
           width={props.previewSize}
           height={props.previewSize}
           onClick={onPreview}
@@ -96,9 +96,9 @@ export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) =>
     }
 
     return (
-      <div className={cls(bem('file'))} style={getSizeStyle(props.previewSize)}>
-        <Icon className={cls(bem('file-icon'))} name="description" />
-        <div className={cls(bem('file-name'), 'rc-ellipsis')}>
+      <div className={classnames(bem('file'))} style={getSizeStyle(props.previewSize)}>
+        <Icon className={classnames(bem('file-icon'))} name="description" />
+        <div className={classnames(bem('file-name'), 'rc-ellipsis')}>
           {item.file ? item.file.name : item.url}
         </div>
         {renderCover()}
@@ -107,7 +107,7 @@ export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) =>
   };
 
   return (
-    <div className={cls(bem('preview'))} onClick={props.onClick}>
+    <div className={classnames(bem('preview'))} onClick={props.onClick}>
       {renderPreview()}
       {renderMask()}
       {renderDeleteIcon()}

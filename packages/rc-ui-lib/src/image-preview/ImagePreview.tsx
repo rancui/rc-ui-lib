@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { ImagePreviewProps } from './PropsType';
 import { pick } from '../utils';
 import Icon from '../icon';
@@ -10,7 +10,7 @@ import Popup from '../popup';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('imagee-preview', prefixCls);
   const [active, setActive] = useState(() => props.startPosition);
   const mountedRef = useRef(false);
@@ -30,7 +30,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
       observer
       observeParents
       loop={props.loop}
-      className={cls(bem('swipe'))}
+      className={classnames(bem('swipe'))}
       duration={props.swipeDuration}
       initialSwipe={active}
       onChange={onSwipeChange}
@@ -46,7 +46,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
             loadingIcon={<Loading type="spinner" />}
             src={image}
             fit="contain"
-            className={cls(bem('image'))}
+            className={classnames(bem('image'))}
           />
         </Swipe.Item>
       ))}
@@ -58,7 +58,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
       return (
         <Icon
           name={props.closeIcon}
-          className={cls(bem('close-icon', props.closeIconPosition))}
+          className={classnames(bem('close-icon', props.closeIconPosition))}
           onClick={() => props.onClose?.()}
         />
       );
@@ -69,7 +69,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   const renderIndex = () => {
     if (props.showIndex) {
       return (
-        <div className={cls(bem('index'))}>
+        <div className={classnames(bem('index'))}>
           {props.indexRender
             ? props.indexRender({ index: active, len: props.images.length })
             : `${active + 1} / ${props.images.length}`}
@@ -81,8 +81,8 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
 
   return (
     <Popup
-      className={cls(bem(), props.className)}
-      overlayClass={cls(bem('overlay'))}
+      className={classnames(bem(), props.className)}
+      overlayClass={classnames(bem('overlay'))}
       beforeClose={props.beforeClose}
       {...pick(props, ['visible', 'overlayStyle', 'closeOnPopstate', 'onClose', 'onClosed'])}
     >

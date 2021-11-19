@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { StepsItemProps } from './PropsType';
 import { BORDER } from '../utils/constant';
 import Icon from '../icon';
@@ -58,7 +58,7 @@ const StepsItem: React.FC<StepsItemProps> = ({ children, ...props }) => {
 
       return (
         <Icon
-          className={cls(bem('icon', 'active'))}
+          className={classnames(bem('icon', 'active'))}
           name={activeIcon as string}
           color={activeColor}
           classPrefix={iconPrefix}
@@ -73,7 +73,7 @@ const StepsItem: React.FC<StepsItemProps> = ({ children, ...props }) => {
 
       return (
         <Icon
-          className={cls(bem('icon', 'finish'))}
+          className={classnames(bem('icon', 'finish'))}
           name={finishIcon as string}
           color={activeColor}
           classPrefix={iconPrefix}
@@ -87,11 +87,15 @@ const StepsItem: React.FC<StepsItemProps> = ({ children, ...props }) => {
 
     if (inactiveIcon) {
       return (
-        <Icon className={cls(bem('icon'))} name={inactiveIcon as string} classPrefix={iconPrefix} />
+        <Icon
+          className={classnames(bem('icon'))}
+          name={inactiveIcon as string}
+          classPrefix={iconPrefix}
+        />
       );
     }
 
-    return <i className={cls(bem('circle'))} style={lineStyle} />;
+    return <i className={classnames(bem('circle'))} style={lineStyle} />;
   };
 
   const status = getStatus();
@@ -99,19 +103,23 @@ const StepsItem: React.FC<StepsItemProps> = ({ children, ...props }) => {
   return (
     <div
       style={props.style}
-      className={cls(props.className, BORDER, bem([parentProps.direction, { [status]: status }]))}
+      className={classnames(
+        props.className,
+        BORDER,
+        bem([parentProps.direction, { [status]: status }]),
+      )}
     >
       <div
-        className={cls(bem('title', { active: isActive() }))}
+        className={classnames(bem('title', { active: isActive() }))}
         style={titleStyle}
         onClick={onClickStep}
       >
         {children}
       </div>
-      <div className={cls(bem('circle-container'))} onClick={onClickStep}>
+      <div className={classnames(bem('circle-container'))} onClick={onClickStep}>
         {renderCircle()}
       </div>
-      <div className={cls(bem('line'))} style={lineStyle} />
+      <div className={classnames(bem('line'))} style={lineStyle} />
     </div>
   );
 };

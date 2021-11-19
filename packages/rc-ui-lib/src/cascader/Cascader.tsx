@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 import React, { isValidElement, useContext, useEffect, useState } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { CascaderOption, CascaderProps, CascaderTab } from './PropsType';
 import { extend } from '../utils';
 import { useSetState, useUpdateEffect } from '../hooks';
@@ -15,10 +15,10 @@ const INITIAL_STATE = {
 };
 
 const Cascader: React.FC<CascaderProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('cascader', prefixCls);
 
-  const [internalValue, updateInternalValue] = useState(undefined);
+  const [internalValue, setInternalValue] = useState(undefined);
   const [state, updateState] =
     useSetState<{ tabs: CascaderTab[]; activeTab: number }>(INITIAL_STATE);
 
@@ -41,11 +41,9 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   ): CascaderOption[] | undefined => {
     for (let i = 0; i < options.length; i++) {
       const option = options[i];
-
       if (option[valueKey] === value) {
         return [option];
       }
-
       if (option[childrenKey]) {
         const selectedOptions = getSelectedOptionsByValue(option[childrenKey], value);
         if (selectedOptions) {
@@ -85,6 +83,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
         }
 
         updateState({ tabs });
+
         setTimeout(() => {
           updateState({ activeTab: tabs.length - 1 });
         }, 0);
@@ -92,7 +91,6 @@ const Cascader: React.FC<CascaderProps> = (props) => {
         return;
       }
     }
-
     updateState({
       tabs: [
         {
@@ -107,6 +105,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     if (option.disabled) {
       return;
     }
+
     let tabs = JSON.parse(JSON.stringify(state.tabs));
 
     tabs[tabIndex].selectedOption = option;
@@ -137,7 +136,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
       selectedOptions,
     };
 
-    updateInternalValue(option[valueKey]);
+    setInternalValue(option[valueKey]);
     props.onChange?.(eventParams);
 
     if (!option[childrenKey]) {
@@ -158,10 +157,11 @@ const Cascader: React.FC<CascaderProps> = (props) => {
       const initialState = { activeTab: value.length - 1, tabs: [] } as typeof state;
       value.reduce((options, v) => {
         const selectedOption = options.find((tabs) => tabs[valueKey] === v);
-        if (!selectedOption)
+        if (!selectedOption) {
           throw Error(
             'Cascader: unable to match options correctly, Please check value or defaultValue props.',
           );
+        }
         initialState.tabs.push({ options, selectedOption });
         return selectedOption[childrenKey];
       }, props.options);
@@ -176,7 +176,9 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   const renderCloseIcon = () => {
     if (!props.closeable) return null;
     if (typeof props.closeIcon === 'string') {
-      return <Icon name={props.closeIcon} className={cls(bem('close-icon'))} onClick={onClose} />;
+      return (
+        <Icon name={props.closeIcon} className={classnames(bem('close-icon'))} onClick={onClose} />
+      );
     }
     if (isValidElement(props.closeIcon)) {
       return props.closeIcon;
@@ -185,8 +187,8 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   };
 
   const renderHeader = () => (
-    <div className={cls(bem('header'))}>
-      <h2 className={cls(bem('title'))}>{props.title}</h2>
+    <div className={classnames(bem('header'))}>
+      <h2 className={classnames(bem('title'))}>{props.title}</h2>
       {renderCloseIcon()}
     </div>
   );
@@ -206,7 +208,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     return (
       <li
         key={option[valueKey]}
-        className={cls(
+        className={classnames(
           bem('option', {
             selected,
             disabled: option.disabled,
@@ -217,7 +219,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
         onClick={() => onSelect(option, tabIndex)}
       >
         {Text}
-        {selected ? <Icon name="success" className={cls(bem('selected-icon'))} /> : null}
+        {selected ? <Icon name="success" className={classnames(bem('selected-icon'))} /> : null}
       </li>
     );
   };
@@ -227,7 +229,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     selectedOption: CascaderOption | null,
     tabIndex: number,
   ) => (
-    <ul key={tabIndex} className={cls(bem('options'))}>
+    <ul key={tabIndex} className={classnames(bem('options'))}>
       {options.map((option) => renderOption(option, selectedOption, tabIndex))}
     </ul>
   );
@@ -239,7 +241,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
       <Tabs.TabPane
         key={tabIndex}
         title={title}
-        titleClass={cls(
+        titleClass={classnames(
           bem('tab', {
             unselected: !selectedOption,
           }),
@@ -254,7 +256,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     <Tabs
       animated
       active={state.activeTab}
-      className={cls(bem('tabs'))}
+      className={classnames(bem('tabs'))}
       color={props.activeColor}
       swipeThreshold={0}
       swipeable={props.swipeable}
@@ -291,7 +293,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   }, [internalValue]);
 
   return (
-    <div className={cls(bem())}>
+    <div className={classnames(bem())}>
       {renderHeader()}
       {state.tabs.length ? renderTabs() : null}
     </div>

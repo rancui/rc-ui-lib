@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { SkeletonProps } from './PropsType';
 import { addUnit, getSizeStyle } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
@@ -38,7 +38,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
     if (props.avatar) {
       return (
         <div
-          className={cls(bem('avatar', props.avatarShape))}
+          className={classnames(bem('avatar', props.avatarShape))}
           style={getSizeStyle(props.avatarSize)}
         />
       );
@@ -50,7 +50,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
     if (props.title) {
       const width = addUnit(props.titleWidth);
       const height = addUnit(getRowHeight(0));
-      return <div className={cls(bem('title'))} style={{ width, height }} />;
+      return <div className={classnames(bem('title'))} style={{ width, height }} />;
     }
     return null;
   };
@@ -62,17 +62,17 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
         const width = addUnit(getRowWidth(i));
         const height = addUnit(getRowHeight(i));
         // eslint-disable-next-line react/no-array-index-key
-        return <div key={i} className={cls(bem('row'))} style={{ width, height }} />;
+        return <div key={i} className={classnames(bem('row'))} style={{ width, height }} />;
       });
 
   if (!props.loading) return children;
   return (
     <div
-      className={cls(className, bem({ animate: props.animate, round: props.round }))}
+      className={classnames(className, bem({ animate: props.animate, round: props.round }))}
       style={style}
     >
       {renderAvatar()}
-      <div className={cls(bem('content'))}>
+      <div className={classnames(bem('content'))}>
         {renderTitle()}
         {renderRows()}
       </div>

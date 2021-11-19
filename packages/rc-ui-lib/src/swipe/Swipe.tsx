@@ -7,7 +7,7 @@ import React, {
   useImperativeHandle,
   useContext,
 } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 
 import SwiperCore, { Pagination, Autoplay, Lazy } from 'swiper';
 
@@ -28,7 +28,7 @@ const Swipe = forwardRef<SwipeInstance, SwipeProps>((props, ref) => {
 
   return (
     <Swiper
-      className={cls(className, bem())}
+      className={classnames(className, bem())}
       onSwiper={(swiper) => {
         internalSwipeRef.current = swiper;
       }}

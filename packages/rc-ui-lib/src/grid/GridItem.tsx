@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import { addUnit } from '../utils';
 import { GridProps, GridItemProps } from './PropsType';
 import { BORDER } from '../utils/constant';
@@ -70,7 +70,7 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
           badge={props.badge}
           name={props.icon as string}
           size={parent.iconSize}
-          className={cls(bem('icon'))}
+          className={classnames(bem('icon'))}
           classPrefix={props.iconPrefix}
           color={props.iconColor}
         />
@@ -87,7 +87,7 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
       return props.text;
     }
     if (props.text) {
-      return <span className={cls(bem('text'))}>{props.text}</span>;
+      return <span className={classnames(bem('text'))}>{props.text}</span>;
     }
     return null;
   };
@@ -106,7 +106,7 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
 
   const { center, border, square, gutter, reverse, direction } = parent;
 
-  const classes = cls(
+  const classes = classnames(
     props.contentClassName,
     bem('content', [
       direction,
@@ -122,7 +122,7 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
   );
 
   return (
-    <div className={cls(className, bem({ square }))} style={rootStyle}>
+    <div className={classnames(className, bem({ square }))} style={rootStyle}>
       <div
         role={props.onClick ? 'button' : undefined}
         className={classes}

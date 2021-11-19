@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import cls from 'classnames';
+import classnames from 'classnames';
 import Popup from '../popup';
 import { NotifyPrivateProps, NotifyProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
@@ -16,7 +16,7 @@ const Notify: React.FC<NotifyProps & NotifyPrivateProps> = ({ children, ...props
   return (
     <Popup
       visible={props.visible}
-      className={cls(bem([props.type]), props.className)}
+      className={classnames(bem([props.type]), props.className)}
       style={style}
       overlay={false}
       position="top"

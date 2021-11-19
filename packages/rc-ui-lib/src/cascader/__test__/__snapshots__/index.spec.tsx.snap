@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cascader should render option correctly when using defaultValue prop 1`] = `undefined`;
+
+exports[`Cascader should render option correctly when using optionRender prop 1`] = `undefined`;
+
+exports[`Cascader should render option slot correctly 1`] = `"<li class=\\"rc-cascader__option\\">Custom Option foo</li>"`;
+
+exports[`Cascader should render title slot correctly 1`] = `"<h2 class=\\"rc-cascader__title\\">Custom Title</h2>"`;
+
+exports[`Cascader when value change 1`] = `undefined`;
+
+exports[`Cascader when value change 2`] = `undefined`;
