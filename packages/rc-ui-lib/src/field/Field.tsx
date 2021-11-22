@@ -455,4 +455,6 @@ export const FIELD_KEY = Symbol('field');
 
 const FieldNamespace = Object.assign(Field, { [COMPONENT_TYPE_KEY]: FIELD_KEY });
 
+Field.displayName = 'Field';
+
 export default FieldNamespace;
