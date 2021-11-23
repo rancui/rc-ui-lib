@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form basic usage 1`] = `undefined`;
+
+exports[`Form when name props is set without shouldUpdate or dependencies 1`] = `undefined`;
+
+exports[`Form when noStyle props is set 1`] = `undefined`;
+
+exports[`Form when rules props is set 1`] = `undefined`;
+
+exports[`Form when rules with reqiured props is set 1`] = `undefined`;
+
+exports[`Form when rules without reqiured props is set 1`] = `undefined`;
+
+exports[`Form when shouldUpdate and dependencies are not set 1`] = `undefined`;
+
+exports[`Form when shouldUpdate props is set 1`] = `undefined`;
