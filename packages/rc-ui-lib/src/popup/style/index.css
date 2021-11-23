@@ -64,6 +64,26 @@
 .rc-popup-slide-top-exit-active {
   transform: translate3d(0, -100%, 0);
 }
+.rc-popup-slide-top-appear {
+  transform: translate3d(0, -100%, 0);
+}
+.rc-popup-slide-right-appear {
+  transform: translate3d(100%, 0, 0);
+}
+.rc-popup-slide-bottom-appear {
+  transform: translate3d(0, 100%, 0);
+}
+.rc-popup-slide-left-appear {
+  transform: translate3d(-100%, 0, 0);
+}
+.rc-popup-slide-top-appear-active,
+.rc-popup-slide-right-appear-active,
+.rc-popup-slide-bottom-appear-active,
+.rc-popup-slide-left-appear-active {
+  transform: translate3d(0, 0, 0);
+  transition: var(--rc-popup-transition);
+}
+.rc-popup-slide-right-appear,
 .rc-popup-slide-right-enter,
 .rc-popup-slide-right-exit-active {
   transform: translate3d(100%, 0, 0);

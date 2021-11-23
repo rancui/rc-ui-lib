@@ -1,4 +1,4 @@
-import React, { MouseEvent, MouseEventHandler } from 'react';
+import React, { MouseEvent } from 'react';
 import { BaseTypeProps, TeleportType } from '../utils';
 
 export type PopupPosition = 'top' | 'left' | 'bottom' | 'right' | 'center' | '';

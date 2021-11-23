@@ -15,6 +15,7 @@ import { CSSTransition } from 'react-transition-group';
 import Icon from '../icon';
 import Overlay from '../overlay';
 import useEventListener from '../hooks/use-event-listener';
+import { useLockScroll } from '../hooks/use-lock-scroll';
 
 import { isDef } from '../utils';
 import { PopupInstanceType, PopupProps } from './PropsType';
@@ -84,12 +85,12 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
       ...style,
     };
 
-    if (isDef(duration)) {
+    if (isDef(props.duration)) {
       const key = position === 'center' ? 'animationDuration' : 'transitionDuration';
       initStyle[key] = `${duration}ms`;
     }
     return initStyle;
-  }, [zIndex.current, style, duration]);
+  }, [zIndex.current, JSON.stringify(style), props.duration]);
 
   const open = () => {
     if (!opened.current) {
@@ -136,7 +137,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     return null;
   };
 
-  const handleClickCloseIcon = (e) => {
+  const handleClickCloseIcon = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     onClickCloseIcon?.(e);
     close();
   };
@@ -216,8 +217,9 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     return (
       <CSSTransition
         in={visible && rendered}
+        appear
         nodeRef={popupRef}
-        timeout={duration}
+        timeout={props.duration ? '' : props.duration}
         classNames={transition || name}
         mountOnEnter={!forceRender}
         unmountOnExit={destroyOnClose}
@@ -238,6 +240,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
       close();
     }
   });
+
+  useLockScroll(popupRef, props.visible);
 
   useEffect(() => {
     if (!rendered) return;
@@ -262,7 +266,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 });
 
 Popup.defaultProps = {
-  duration: 300,
   overlay: true,
   lockScroll: true,
   position: 'center',

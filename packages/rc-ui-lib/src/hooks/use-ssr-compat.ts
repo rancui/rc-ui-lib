@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useCallback, useEffect, useState } from 'react';
 
-export default function useSsrCompat() {
+const useSsrCompat = () => {
   const [mounted, setMounted] = useState(false);
   const [rendered, setRendered] = useState(mounted);
 
@@ -18,4 +19,6 @@ export default function useSsrCompat() {
     useCallback((render: () => any) => (mounted ? render() : null), [mounted]),
     rendered,
   ] as const;
-}
+};
+
+export default useSsrCompat;
