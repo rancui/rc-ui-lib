@@ -43,12 +43,16 @@ export type FormItemProps = RcFieldProps &
     | 'labelClass'
     | 'onClick'
   > & {
+    /** 输入框左侧文本 */
     label?: string;
+    /** 必填项 */
     required?: boolean;
     noStyle?: boolean;
+    /** 是否禁用表单项 */
     disabled?: boolean;
     /** 自定义item，此时不会渲染内置的field */
     customField?: boolean;
+    /** 子元素 */
     children?: ChildrenType;
   };
 
