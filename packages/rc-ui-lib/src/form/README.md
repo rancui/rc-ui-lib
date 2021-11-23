@@ -10,7 +10,7 @@
 
 ```bash
 # 添加 rc-field-form包
-yarn add rc-field-form
+npm install rc-field-form
 ```
 
 ```js
@@ -296,7 +296,7 @@ export default () => {
 
 > 更多 Form API 参见：[rc-field-form](https://github.com/react-component/field-form#form)
 
-### Form.ItemProps
+### Form.Item Props
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -306,7 +306,7 @@ export default () => {
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | _boolean_ | `false` |
 | tooltip | 字段提示信息 | _ReactNode \|_ [DialogProps & { icon: ReactNode }](/#/zh-CN/dialog#props) |
 | customField | 自定义 item，此时不会渲染内置的 field，通常用于自定义表单项 | _boolean_ | `false` |
-| disabled | 是否禁用标单项 | _boolean_ | `false` |
+| disabled | 是否禁用表单项 | _boolean_ | `false` |
 | labelClass | 左侧文本额外类名 | _any_ | - |
 | labelWidth | 左侧文本宽度，默认单位为`px` | _number \| string_ | `6.2em` |
 | labelAlign | 左侧文本对齐方式，可选值为 `center` `right` | _string_ | `left` |
