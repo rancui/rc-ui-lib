@@ -12,6 +12,28 @@
 
 ## 更新内容
 
+### [v0.1.59](https://github.com/rancui/rc-ui-lib/compare/v0.1.58...v0.1.59)
+
+`2021-11-23`
+
+**Bug Fixes**
+
+- Popup: 修复在 iPhone7 中 Popup 出现时闪动两次 [a2eb3b](https://github.com/rancui/rc-ui-lib/commit/a2eb3b9f5071e6723e1f9dd8298e33a3ba831260)
+
+**Style**
+
+- Popup: 增加 CSSTransition 的 appear 样式 [957dde](https://github.com/rancui/rc-ui-lib/commit/957dde3a9245ae18d4b1ac09ad78cecfc30b071a)
+
+### [v0.1.58](https://github.com/rancui/rc-ui-lib/compare/v0.1.57...v0.1.58)
+
+`2021-11-18`
+
+**TypeScript**
+
+- Grid: 删除 PropsType.ts 中多余的 className & style 属性 [536e9f](https://github.com/rancui/rc-ui-lib/commit/536e9fa28d5fd66bb4dcbb68f74283cc0be9f263)
+- Flex: 删除组件的 disabled 和 onClick 属性 [720cd1](https://github.com/rancui/rc-ui-lib/commit/720cd10dd8087a0727836eb08ec6c10e998da24a)
+- Badge: 完善属性 content 的类型 [acbe45](https://github.com/rancui/rc-ui-lib/commit/acbe45c88d4bd4816cf5cc30bdc1eeedd3862df7)
+
 ### [v0.1.57](https://github.com/rancui/rc-ui-lib/compare/v0.1.56...v0.1.57)
 
 `2021-11-17`
