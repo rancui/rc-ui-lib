@@ -6,6 +6,6 @@ export async function clean() {
     remove(ES_DIR),
     remove(LIB_DIR),
     remove(DIST_DIR),
-    remove(DOC_DIST_DIR)
+    // remove(DOC_DIST_DIR)
   ]);
 }
