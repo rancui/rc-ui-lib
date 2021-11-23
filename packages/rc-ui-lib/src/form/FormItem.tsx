@@ -41,7 +41,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = (props) => {
     ...fieldProps
   } = props;
 
-  const { prefixCls, createNamespace } = React.useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('form', prefixCls);
   const context = useContext(FormContext);
   const itemLayout = layout ?? context.layout;
@@ -144,14 +144,6 @@ const FormItem: FC<FormItemProps> = (props) => {
     return renderLayout(children) as JSX.Element;
   }
 
-  let variables: Record<string, string> = {};
-  if (typeof label === 'string') {
-    variables.label = label;
-  }
-  if (messageVariables) {
-    variables = { ...variables, ...messageVariables };
-  }
-
   return (
     <RcField
       {...fieldProps}
@@ -176,8 +168,8 @@ const FormItem: FC<FormItemProps> = (props) => {
                   return false;
                 })
               );
-
         const fieldId = (toArray(name).length && meta ? meta.name : []).join('_');
+
         if (shouldUpdate && dependencies) {
           devWarning('FormItem', "`shouldUpdate` and `dependencies` shouldn't be used together.");
         }
@@ -199,8 +191,6 @@ const FormItem: FC<FormItemProps> = (props) => {
               );
             }
           }
-
-          // not render props
         } else if (dependencies && !name) {
           devWarning('FormItem', 'Must set `name` or use render props when `dependencies` is set.');
         } else if (React.isValidElement(children)) {
