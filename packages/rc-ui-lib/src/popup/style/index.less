@@ -80,6 +80,31 @@
       transform: translate3d(0, -100%, 0);
     }
 
+    &-slide-top-appear {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &-slide-right-appear {
+      transform: translate3d(100%, 0, 0);
+    }
+
+    &-slide-bottom-appear {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &-slide-left-appear {
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    &-slide-top-appear-active,
+    &-slide-right-appear-active,
+    &-slide-bottom-appear-active,
+    &-slide-left-appear-active {
+      transform: translate3d(0, 0, 0);
+      transition: var(--rc-popup-transition);
+    }
+
+    &-slide-right-appear,
     &-slide-right-enter,
     &-slide-right-exit-active {
       transform: translate3d(100%, 0, 0);
