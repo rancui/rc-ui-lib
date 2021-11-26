@@ -33,7 +33,7 @@ export const sharedPopupProps = [
   'overlayClass',
   'overlayStyle',
   'destroyOnClose',
-  'forceRender',
+  'mountOnEnter',
   'lockScroll',
   'duration',
   'transition',
@@ -48,7 +48,7 @@ export const sharedPopupProps = [
   'beforeClose',
 ] as const;
 
-let globalZIndex = 2000;
+// const globalZIndex = 2000;
 
 const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
@@ -62,7 +62,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     title,
     descrition,
     children,
-    duration,
     closeIcon,
     position,
     onClickOverlay,
@@ -74,27 +73,25 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     teleport,
   } = props;
   const opened = useRef<boolean>(false);
-  const zIndex = useRef<number>();
   const popupRef = useRef<HTMLDivElement>();
-  const [animatedVisible, setAnimatedVisible] = useState(visible);
+  const popupZIndex = useRef<number>(2000);
   const [ssrCompatRender, rendered] = useSsrCompat();
 
   const popupStyle = useMemo(() => {
     const initStyle: CSSProperties = {
-      zIndex: zIndex.current,
       ...style,
     };
 
     if (isDef(props.duration)) {
       const key = position === 'center' ? 'animationDuration' : 'transitionDuration';
-      initStyle[key] = `${duration}ms`;
+      initStyle[key] = `${props.duration}ms`;
     }
+
     return initStyle;
-  }, [zIndex.current, JSON.stringify(style), props.duration]);
+  }, [JSON.stringify(style), props.duration]);
 
   const open = () => {
     if (!opened.current) {
-      zIndex.current = props.zIndex !== undefined ? +props.zIndex : globalZIndex++;
       opened.current = true;
       onOpen?.();
     }
@@ -125,11 +122,11 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     if (overlay) {
       return (
         <Overlay
-          visible={visible && rendered}
+          visible={visible}
           className={overlayClass}
           customStyle={overlayStyle}
-          zIndex={popupStyle.zIndex as number}
-          duration={duration}
+          zIndex={popupZIndex.current}
+          duration={props.duration}
           onClick={handleClickOverlay}
         />
       );
@@ -190,8 +187,9 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
       <div
         ref={popupRef}
         style={{
+          zIndex: popupZIndex.current,
           ...popupStyle,
-          display: !visible && !animatedVisible ? 'none' : undefined,
+          display: !visible ? 'none' : undefined,
         }}
         className={classnames(
           props.className,
@@ -212,21 +210,21 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const renderTransition = () => {
-    const { transition, destroyOnClose, forceRender, onClosed, onOpened } = props;
+    const { transition, destroyOnClose, duration, mountOnEnter, onClosed, onOpened } = props;
     const name = position === 'center' ? 'rc-fade' : `rc-popup-slide-${position}`;
     return (
       <CSSTransition
-        in={visible && rendered}
+        in={visible}
         appear
-        nodeRef={popupRef}
-        timeout={props.duration ? '' : props.duration}
+        timeout={{
+          exit: duration,
+        }}
         classNames={transition || name}
-        mountOnEnter={!forceRender}
+        mountOnEnter={!mountOnEnter}
         unmountOnExit={destroyOnClose}
         onEnter={open}
         onEntered={onOpened}
         onExited={() => {
-          setAnimatedVisible(false);
           onClosed?.();
         }}
       >
@@ -244,11 +242,16 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   useLockScroll(popupRef, props.visible);
 
   useEffect(() => {
-    if (!rendered) return;
     if (visible) {
-      setAnimatedVisible(true);
+      if (popupRef.current) {
+        const curIndex = +window.getComputedStyle(popupRef.current, null)?.zIndex;
+        // console.log('===zIndex+1==',curIndex);
+        if (isDef(curIndex)) {
+          popupZIndex.current++;
+        }
+      }
     }
-  }, [visible, rendered]);
+  }, [visible]);
 
   useImperativeHandle(ref, () => ({
     popupRef,
@@ -266,6 +269,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 });
 
 Popup.defaultProps = {
+  mountOnEnter: true,
+  // duration:300,
   overlay: true,
   lockScroll: true,
   position: 'center',
