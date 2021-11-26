@@ -149,6 +149,7 @@ export default (): React.ReactNode => {
           }
         />
       </DemoBlock>
+
       <Popup
         visible={state.showBasic}
         onClose={() => {
@@ -175,10 +176,12 @@ export default (): React.ReactNode => {
           })
         }
       />
+
       <Popup
         visible={state.showBottom}
         style={{ height: '30%', zIndex: 1600 }}
         position="bottom"
+        duration={300}
         onClose={() =>
           dispatch({
             type: 'showBottom',
