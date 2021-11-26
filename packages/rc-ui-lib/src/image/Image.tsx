@@ -7,12 +7,13 @@ import { useSetState, useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Image: React.FC<ImageProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('image', prefixCls);
-  const { fit, errorIcon, loadingIcon, showError, showLoading, block } = props;
   const [status, setStatus] = useSetState({ loading: true, error: false });
   const imgRef = useRef<HTMLImageElement>(null);
   const unmountedRef = useRef(false);
+
+  const { fit, errorIcon, loadingIcon, showError, showLoading, block } = props;
 
   const style = useMemo(() => {
     const internalStyle: CSSProperties = {};
@@ -57,8 +58,8 @@ const Image: React.FC<ImageProps> = (props) => {
 
   const onError = (e) => {
     if (!unmountedRef.current) {
-      setStatus({ error: true, loading: false });
-      props.onLoad?.(e);
+      setStatus({ loading: false, error: true });
+      props.onError?.(e);
     }
   };
 
