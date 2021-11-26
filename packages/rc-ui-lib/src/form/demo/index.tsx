@@ -46,7 +46,6 @@ export default (): React.ReactNode => {
           >
             <Field placeholder="请输入密码" />
           </Form.Item>
-          <Form.Item name="ceshi" label="测试" />
         </Form>
       </DemoBlock>
 
