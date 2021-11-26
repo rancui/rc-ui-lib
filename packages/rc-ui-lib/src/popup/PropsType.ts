@@ -23,7 +23,7 @@ export interface SharedPopupProps {
   /** 关闭时销毁 Popup 里的子元素 */
   destroyOnClose?: boolean;
   /** 强制渲染 Popup */
-  forceRender?: boolean;
+  mountOnEnter?: boolean;
   /** 是否锁定背景滚动	 */
   lockScroll?: boolean;
   /** 动画时长 */
