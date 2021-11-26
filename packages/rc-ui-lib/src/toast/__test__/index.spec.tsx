@@ -10,6 +10,18 @@ describe('Toast', () => {
     jest.restoreAllMocks();
   });
 
+  it('toast disappeared after duration', async () => {
+    const handleClose = jest.fn();
+    Toast({
+      duration: 10,
+      onClose: handleClose,
+    });
+
+    expect(handleClose).toHaveBeenCalledTimes(0);
+    await sleep(50);
+    expect(handleClose).toHaveBeenCalledTimes(1);
+  });
+
   it('should change overlay style after using overlay-style prop', async () => {
     const wrapper = mount(<BaseToast visible overlay overlayStyle={{ background: 'red' }} />);
     await sleep();
@@ -20,17 +32,6 @@ describe('Toast', () => {
     const onClose = jest.fn();
     const wrapper = shallow(<BaseToast visible closeOnClick onClose={onClose} />);
     wrapper.find('.rc-toast').simulate('click');
-    expect(onClose).toHaveBeenCalledTimes(1);
-  });
-
-  it('toast disappeared after duration', async () => {
-    const onClose = jest.fn();
-    Toast({
-      duration: 10,
-      onClose,
-    });
-    expect(onClose).toHaveBeenCalledTimes(0);
-    await sleep(50);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
