@@ -179,7 +179,7 @@ export default (): React.ReactNode => {
 
       <Popup
         visible={state.showBottom}
-        style={{ height: '30%', zIndex: 1600 }}
+        style={{ height: '30%' }}
         position="bottom"
         duration={300}
         onClose={() =>
