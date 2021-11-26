@@ -2,10 +2,6 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import toJson from 'enzyme-to-json';
-import { sleep } from '../../../tests/utils';
-import Icon from '../../icon';
-import Toast from '../../toast';
 import Image from '..';
 
 const IMAGE_URL = 'https://img.com';
