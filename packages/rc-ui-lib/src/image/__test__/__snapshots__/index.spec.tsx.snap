@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should emit load event after image loaded 1`] = `"<div class=\\"rc-image rc-image--block\\"><img alt=\\"img\\" src=\\"https://img.com\\" class=\\"rc-image__img\\" style=\\"object-fit: fill;\\"></div>"`;
+
+exports[`Image should watch src and reset 1`] = `"<div class=\\"rc-image rc-image--block\\"></div>"`;
