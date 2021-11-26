@@ -68,7 +68,7 @@ Array [
 ]
 `;
 
-exports[`Popup should render default slot correctly 1`] = `"<div style=\\"animation-duration: 300ms;\\" class=\\"rc-overlay rc-fade-enter rc-fade-enter-active\\"></div><div style=\\"transition-duration: 300ms;\\" class=\\"rc-action-sheet rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-popup-slide-bottom-enter rc-popup-slide-bottom-enter-active\\"><div class=\\"rc-action-sheet__header\\">Title<i class=\\"rc-badge__wrapper rc-action-sheet__close van-icon van-icon-cross\\"></i></div><div class=\\"rc-action-sheet__content\\">Default</div></div>"`;
+exports[`Popup should render default slot correctly 1`] = `"<div style=\\"z-index: 2000; animation-duration: 300ms;\\" class=\\"rc-overlay\\"></div><div style=\\"z-index: 2000;\\" class=\\"rc-action-sheet rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-popup-slide-bottom-appear rc-popup-slide-bottom-appear-active\\"><div class=\\"rc-action-sheet__header\\">Title<i class=\\"rc-badge__wrapper rc-action-sheet__close van-icon van-icon-cross\\"></i></div><div class=\\"rc-action-sheet__content\\">Default</div></div>"`;
 
 exports[`Popup should render description correctly 1`] = `
 <div

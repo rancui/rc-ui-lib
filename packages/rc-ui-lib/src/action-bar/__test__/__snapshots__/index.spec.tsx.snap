@@ -1,28 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionBar basic usage 1`] = `undefined`;
-
 exports[`ActionBar basic usage with ActionBar.Icon 1`] = `undefined`;
 
 exports[`ActionBar should allow to disable safe-area-inset-bottom prop 1`] = `"<div class=\\"rc-action-bar\\"><div role=\\"button\\" class=\\"rc-action-bar-icon\\" tabindex=\\"0\\"><div class=\\"rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o\\"></div>客服</div><div role=\\"button\\" class=\\"rc-action-bar-icon\\" tabindex=\\"0\\"><div class=\\"rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o\\"></div>购物车</div><div role=\\"button\\" class=\\"rc-action-bar-icon\\" tabindex=\\"0\\"><div class=\\"rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-shop-o\\"></div>店铺</div></div>"`;
 
-exports[`ActionBar should render ActionBarButton correctly 1`] = `"<div class=\\"rc-action-bar rc-safe-area-bottom\\"><button class=\\"rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">加入购物车</span></div></button><button class=\\"rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">立即购买</span></div></button></div>"`;
-
-exports[`ActionBar should render correctly when color prop in ActionBar.Icon 1`] = `undefined`;
-
 exports[`ActionBar should render correctly when color prop in ActionBarIcon 1`] = `undefined`;
 
-exports[`ActionBar should render correctly when color prop in ActionBarIcon 2`] = `undefined`;
-
 exports[`ActionBar should render correctly when icon prop in ActionBarIcon 1`] = `undefined`;
-
-exports[`ActionBar should render correctly when using badge prop in ActionBar.Icon 1`] = `undefined`;
 
 exports[`ActionBar should render correctly when using badge prop in ActionBarIcon 1`] = `undefined`;
 
 exports[`ActionBar should render correctly when using color prop in ActionBarButton 1`] = `"<div class=\\"rc-action-bar rc-safe-area-bottom\\"><button style=\\"color: rgb(255, 255, 255); background: red; border-color: red;\\" class=\\"rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">加入购物车</span></div></button><button style=\\"color: rgb(255, 255, 255); border: 0px;\\" class=\\"rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">立即购买</span></div></button></div>"`;
-
-exports[`ActionBar should render correctly when using color prop in ActionBarButton 2`] = `"<div><button class=\\"rc-action-bar-button rc-action-bar-button--warning rc-button rc-button--warning rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">加入购物车</span></div></button><button class=\\"rc-action-bar-button rc-action-bar-button--danger rc-button rc-button--danger rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">立即购买</span></div></button></div>"`;
 
 exports[`ActionBar should render correctly when using icon prop in ActionBarButton 1`] = `"<div class=\\"rc-action-bar rc-safe-area-bottom\\"><button class=\\"rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large\\"><div class=\\"rc-button__content\\"><i class=\\"rc-badge__wrapper rc-button__icon van-icon van-icon-shop-o\\"></i><span class=\\"rc-button__text\\">加入购物车</span></div></button><button class=\\"rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large\\"><div class=\\"rc-button__content\\"><i class=\\"rc-badge__wrapper van-icon van-icon-chat-o\\"></i><span class=\\"rc-button__text\\">立即购买</span></div></button></div>"`;
 
