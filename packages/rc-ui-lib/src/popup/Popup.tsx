@@ -48,8 +48,6 @@ export const sharedPopupProps = [
   'beforeClose',
 ] as const;
 
-// const globalZIndex = 2000;
-
 const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('popup', prefixCls);
@@ -245,7 +243,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
     if (visible) {
       if (popupRef.current) {
         const curIndex = +window.getComputedStyle(popupRef.current, null)?.zIndex;
-        // console.log('===zIndex+1==',curIndex);
         if (isDef(curIndex)) {
           popupZIndex.current++;
         }
@@ -270,7 +267,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 
 Popup.defaultProps = {
   mountOnEnter: true,
-  // duration:300,
   overlay: true,
   lockScroll: true,
   position: 'center',
