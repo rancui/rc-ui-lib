@@ -1,8 +1,8 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React from 'react';
-import { Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell } from '../../cell';
 import Toast from '..';
 
 export default (): React.ReactNode => {
@@ -11,7 +11,7 @@ export default (): React.ReactNode => {
   const onDynicUpdate = () => {
     let remain = 4;
     let timer;
-    const update = Toast.info({
+    const update = Toast({
       message: `还剩 ${remain + 1} 秒`,
       duration: 5000,
       onClose: () => clearInterval(timer),
