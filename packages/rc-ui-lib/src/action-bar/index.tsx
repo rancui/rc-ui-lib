@@ -4,8 +4,8 @@ import ActionBarButton from './ActionBarButton';
 
 const ActionBarNamespace = Object.assign(ActionBar, {
   Icon: ActionBarIcon,
-  Button: ActionBarButton
-})
+  Button: ActionBarButton,
+});
 
 export default ActionBarNamespace;
 export { ActionBarNamespace as ActionBar, ActionBarIcon, ActionBarButton };

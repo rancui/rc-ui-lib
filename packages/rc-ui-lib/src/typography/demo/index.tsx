@@ -1,6 +1,6 @@
 import React from 'react';
 import { components } from 'site-mobile-demo';
-import Typography from '..'
+import Typography from '..';
 import './style.less';
 
 export default (): React.ReactNode => {

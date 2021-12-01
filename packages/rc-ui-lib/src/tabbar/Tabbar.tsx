@@ -12,7 +12,10 @@ const Tabbar: React.FC<TabbarProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('tabbar', prefixCls);
 
-  const [current, setCurrent] = useMergedState({ value: props.value, defaultValue: props.defaultValue });
+  const [current, setCurrent] = useMergedState({
+    value: props.value,
+    defaultValue: props.defaultValue,
+  });
   const root = useRef<HTMLDivElement>();
   const height = useHeight(root);
 
@@ -46,12 +49,14 @@ const Tabbar: React.FC<TabbarProps> = (props) => {
             'rc-safe-area-bottom': enableSafeArea(),
           })}
         >
-          {React.Children.toArray(props.children).filter(Boolean).map((child: React.ReactElement, index) =>
-            React.cloneElement(child, {
-              setActive,
-              index,
-            }),
-          )}
+          {React.Children.toArray(props.children)
+            .filter(Boolean)
+            .map((child: React.ReactElement, index) =>
+              React.cloneElement(child, {
+                setActive,
+                index,
+              }),
+            )}
         </div>
       </TabbarContext.Provider>
     );
@@ -66,7 +71,7 @@ const Tabbar: React.FC<TabbarProps> = (props) => {
 Tabbar.defaultProps = {
   fixed: true,
   border: true,
-  defaultValue: 0
+  defaultValue: 0,
 };
 
 export default Tabbar;

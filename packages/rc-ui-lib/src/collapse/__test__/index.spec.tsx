@@ -61,7 +61,7 @@ describe('Collapse', () => {
         </Collapse.Item>
       </Collapse>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should not render border when border prop is false', () => {

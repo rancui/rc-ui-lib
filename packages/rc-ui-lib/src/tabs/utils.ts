@@ -38,5 +38,5 @@ function getWindowHeight() {
 }
 
 export function isReachBottom(offset = 0): boolean {
-  return (getScrollTop() + getWindowHeight() + offset) >= getScrollHeight();
+  return getScrollTop() + getWindowHeight() + offset >= getScrollHeight();
 }

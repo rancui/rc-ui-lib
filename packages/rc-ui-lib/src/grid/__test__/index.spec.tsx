@@ -18,7 +18,7 @@ describe('Grid', () => {
         <Grid.Item />
       </Grid>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly with index prop', async () => {
@@ -29,7 +29,7 @@ describe('Grid', () => {
         ))}
       </Grid>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should change icon size when using icon-size prop', async () => {
@@ -85,7 +85,7 @@ describe('Grid', () => {
         <Grid.Item icon="photo-o" text="hello,world!" />
       </Grid>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when text prop is ReactNode', async () => {
@@ -94,7 +94,7 @@ describe('Grid', () => {
         <Grid.Item icon="photo-o" text={React.createElement('div', {}, 'world')} />
       </Grid>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using iconPrefix prop', async () => {
@@ -152,6 +152,6 @@ describe('Grid', () => {
       </Grid>,
     );
 
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

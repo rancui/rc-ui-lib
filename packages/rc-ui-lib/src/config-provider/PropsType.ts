@@ -1,4 +1,4 @@
-import { BaseTypeProps } from "../utils";
+import { BaseTypeProps } from '../utils';
 
 export interface Theme {
   primaryColor?: string;

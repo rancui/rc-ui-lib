@@ -89,7 +89,7 @@ import { NoticeBar } from 'rc-ui-lib';
 | text                | 通知文本内容                             | _ReactNode_         | `''`      |
 | color               | 通知文本颜色                             | _string_            | `#f60`    |
 | background          | 滚动条背景                               | _string_            | `#fff7cc` |
-| leftIcon            | 左侧图标   | _string\|ReactNode_ | -         |
+| leftIcon            | 左侧图标                                 | _string\|ReactNode_ | -         |
 | rightIcon           | 自定义右侧图标                           |
 | _string\|ReactNode_ | -                                        |
 | delay               | 动画延迟时间 (s)                         | _number \| string_  | `1`       |
@@ -99,12 +99,11 @@ import { NoticeBar } from 'rc-ui-lib';
 
 ### Events
 
-| 事件名 | 说明                         | 回调参数       |
-| ------ | ---------------------------- | -------------- |
+| 事件名   | 说明                         | 回调参数       |
+| -------- | ---------------------------- | -------------- |
 | onClick  | 点击通知栏时触发             | _event: Event_ |
 | onClose  | 关闭通知栏时触发             | _event: Event_ |
 | onReplay | 每当滚动栏重新开始滚动时触发 | -              |
-
 
 ## 主题定制
 
@@ -112,14 +111,14 @@ import { NoticeBar } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-notice-bar-height | _40px_ | - |
-| --rc-notice-bar-padding | _0 var(--rc-padding-md)_ | - |
-| --rc-notice-bar-wrapable-padding | _var(--rc-padding-xs) var(--rc-padding-md)_ | - |
-| --rc-notice-bar-text-color | _var(--rc-orange-dark)_ | - |
-| --rc-notice-bar-font-size | _var(--rc-font-size-md)_ | - |
-| --rc-notice-bar-line-height | _24px_ | - |
-| --rc-notice-bar-background-color | _var(--rc-orange-light)_ | - |
-| --rc-notice-bar-icon-size | _16px_ | - |
-| --rc-notice-bar-icon-min-width | _24px_ | - |
+| 名称                             | 默认值                                      | 描述 |
+| -------------------------------- | ------------------------------------------- | ---- |
+| --rc-notice-bar-height           | _40px_                                      | -    |
+| --rc-notice-bar-padding          | _0 var(--rc-padding-md)_                    | -    |
+| --rc-notice-bar-wrapable-padding | _var(--rc-padding-xs) var(--rc-padding-md)_ | -    |
+| --rc-notice-bar-text-color       | _var(--rc-orange-dark)_                     | -    |
+| --rc-notice-bar-font-size        | _var(--rc-font-size-md)_                    | -    |
+| --rc-notice-bar-line-height      | _24px_                                      | -    |
+| --rc-notice-bar-background-color | _var(--rc-orange-light)_                    | -    |
+| --rc-notice-bar-icon-size        | _16px_                                      | -    |
+| --rc-notice-bar-icon-min-width   | _24px_                                      | -    |

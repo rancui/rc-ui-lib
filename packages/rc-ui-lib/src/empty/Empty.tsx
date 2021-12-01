@@ -8,7 +8,7 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const PRESET_IMAGES = ['error', 'search', 'default'];
 
 const Empty: React.FC<EmptyProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('empty', prefixCls);
 
   const renderImage = () => {

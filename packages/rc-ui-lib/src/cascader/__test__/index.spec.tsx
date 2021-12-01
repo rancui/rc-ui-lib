@@ -127,7 +127,7 @@ describe('Cascader', () => {
   test('should render option correctly when using defaultValue prop', async () => {
     wrapper = mount(<Cascader options={options} defaultValue={['330000']} />);
     await sleep();
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   test('should emit onClickTab event correctly', async () => {
@@ -143,6 +143,6 @@ describe('Cascader', () => {
   test('when value change', async () => {
     wrapper = mount(<Cascader options={options} defaultValue={['330000']} />);
     await wrapper.setProps({ value: ['350000'] });
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

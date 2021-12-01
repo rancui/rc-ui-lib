@@ -154,22 +154,21 @@ const icon = {
 | iconPrefix | 图标类名前缀，等同于 Icon 组件的 [classPrefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
 | badge | 图标右上角徽标的内容 | _BadgeProps_ | - |
 
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-tabbar-height | _50px_ | - |
-| --rc-tabbar-z-index | _1_ | - |
-| --rc-tabbar-background-color | _var(--rc-white)_ | - |
-| --rc-tabbar-item-font-size | _var(--rc-font-size-sm)_ | - |
-| --rc-tabbar-item-text-color | _var(--rc-gray-7)_ | - |
-| --rc-tabbar-item-active-color | _var(--rc-primary-color)_ | - |
-| --rc-tabbar-item-active-background-color | _var(--rc-white)_ | - |
-| --rc-tabbar-item-line-height | _1_ | - |
-| --rc-tabbar-item-icon-size | _22px_ | - |
-| --rc-tabbar-item-icon-margin-bottom | _var(--rc-padding-base)_ | - |
+| 名称                                     | 默认值                    | 描述 |
+| ---------------------------------------- | ------------------------- | ---- |
+| --rc-tabbar-height                       | _50px_                    | -    |
+| --rc-tabbar-z-index                      | _1_                       | -    |
+| --rc-tabbar-background-color             | _var(--rc-white)_         | -    |
+| --rc-tabbar-item-font-size               | _var(--rc-font-size-sm)_  | -    |
+| --rc-tabbar-item-text-color              | _var(--rc-gray-7)_        | -    |
+| --rc-tabbar-item-active-color            | _var(--rc-primary-color)_ | -    |
+| --rc-tabbar-item-active-background-color | _var(--rc-white)_         | -    |
+| --rc-tabbar-item-line-height             | _1_                       | -    |
+| --rc-tabbar-item-icon-size               | _22px_                    | -    |
+| --rc-tabbar-item-icon-margin-bottom      | _var(--rc-padding-base)_  | -    |

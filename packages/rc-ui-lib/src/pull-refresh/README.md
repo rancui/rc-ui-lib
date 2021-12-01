@@ -16,8 +16,7 @@ import { PullRefresh } from 'rc-ui-lib';
 
 下拉刷新时会触发 `onRefresh` 事件，在事件的回调函数中可以进行同步或异步操作，操作完成后表示加载完成。
 
-> 和 vant 不同的是，rc-ui-lib 根据onRefresh在组件内部维护了loading状态。
-
+> 和 vant 不同的是，rc-ui-lib 根据 onRefresh 在组件内部维护了 loading 状态。
 
 ```jsx
 export default () => {
@@ -95,8 +94,8 @@ export default () => {
 
 ### Events
 
-| 事件名    | 说明           | 类型                     | 回调参数 |
-| --------- | -------------- | ------------------------ | -------- |
+| 事件名    | 说明           | 类型                    | 回调参数 |
+| --------- | -------------- | ----------------------- | -------- |
 | onRefresh | 下拉刷新时触发 | _() => (Promise\|void)_ | -        |
 
 ## 主题定制
@@ -105,13 +104,12 @@ export default () => {
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                                 | 默认值                    | 描述 |
-| ------------------------------------ | ------------------------- | ---- |
-| --rc-pull-refresh-head-height       | _50px_                    | -    |
+| 名称                                | 默认值                   | 描述 |
+| ----------------------------------- | ------------------------ | ---- |
+| --rc-pull-refresh-head-height       | _50px_                   | -    |
 | --rc-pull-refresh-head-font-size    | _var(--rc-font-size-md)_ | -    |
 | --rc-pull-refresh-head-text-color   | _var(--rc-gray-6)_       | -    |
-| --rc-pull-refresh-loading-icon-size | _16px_                    | -    |
-
+| --rc-pull-refresh-loading-icon-size | _16px_                   | -    |
 
 ## 常见问题
 

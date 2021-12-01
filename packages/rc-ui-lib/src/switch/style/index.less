@@ -36,8 +36,7 @@
     background-color: var(--rc-switch-node-background-color);
     border-radius: 100%;
     box-shadow: var(--rc-switch-node-box-shadow);
-    transition: transform var(--rc-switch-transition-duration)
-      cubic-bezier(0.3, 1.05, 0.4, 1.05);
+    transition: transform var(--rc-switch-transition-duration) cubic-bezier(0.3, 1.05, 0.4, 1.05);
   }
 
   &__loading {
@@ -52,9 +51,7 @@
     background-color: var(--rc-switch-on-background-color);
 
     .@{rc-prefix}-switch__node {
-      transform: translateX(
-        calc(var(--rc-switch-width) - var(--rc-switch-node-size))
-      );
+      transform: translateX(calc(var(--rc-switch-width) - var(--rc-switch-node-size)));
     }
 
     .@{rc-prefix}-switch__loading {

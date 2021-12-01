@@ -13,12 +13,12 @@ describe('Empty', () => {
 
   it('should render image correctly', () => {
     wrapper = mount(<Empty image="search" />);
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render description correctly', () => {
     wrapper = mount(<Empty description="description" />);
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render bottom correctly', () => {
@@ -29,17 +29,17 @@ describe('Empty', () => {
         </Button>
       </Empty>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render svg when image is network component', () => {
     wrapper = mount(<Empty image={Network} />);
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render svg when prop image is network', () => {
     wrapper = mount(<Empty image="network" />);
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should change image size when using image-size prop', async () => {

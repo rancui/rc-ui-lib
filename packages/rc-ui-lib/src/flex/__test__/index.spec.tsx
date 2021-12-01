@@ -16,7 +16,7 @@ describe('Flex', () => {
         <Flex.Item span={12}>span: 12</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using gutter prop', async () => {
@@ -27,7 +27,7 @@ describe('Flex', () => {
         <Flex.Item span={8}>span: 8</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when gutter prop is array', async () => {
@@ -37,7 +37,7 @@ describe('Flex', () => {
         <Flex.Item span={8}>span: 8</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when direction prop is row-reverse', async () => {
@@ -48,7 +48,7 @@ describe('Flex', () => {
         <Flex.Item span={8}>span: 8-3</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when wrap prop is wrap', async () => {
@@ -59,7 +59,7 @@ describe('Flex', () => {
         <Flex.Item span={8}>span: 8-3</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using justify prop', async () => {
@@ -70,7 +70,7 @@ describe('Flex', () => {
         <Flex.Item span={8}>span: 8-3</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using align prop', async () => {
@@ -81,7 +81,7 @@ describe('Flex', () => {
         <Flex.Item span={8}>span: 8-3</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using flex prop', async () => {
@@ -91,7 +91,7 @@ describe('Flex', () => {
         <Flex.Item flex={5}>span: 8-2</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when flex prop is decimal', async () => {
@@ -101,6 +101,6 @@ describe('Flex', () => {
         <Flex.Item flex={5}>span: 8-2</Flex.Item>
       </Flex>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

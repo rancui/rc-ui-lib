@@ -117,23 +117,21 @@ import { Badge } from 'rc-ui-lib';
 | ------- | ---------- | -------------- |
 | onClick | 点击时触发 | _event: Event_ |
 
-
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-badge-size | _16px_ | - |
-| --rc-badge-color | _var(--rc-white)_ | - |
-| --rc-badge-padding | _0 3px_ | - |
-| --rc-badge-font-size | _var(--rc-font-size-sm)_ | - |
-| --rc-badge-font-weight | _var(--rc-font-weight-bold)_ | - |
-| --rc-badge-border-width | _var(--rc-border-width-base)_ | - |
-| --rc-badge-background-color | _var(--rc-danger-color)_ | - |
-| --rc-badge-dot-color | _var(--rc-danger-color)_ | - |
-| --rc-badge-dot-size | _8px_ | - |
-| --rc-badge-font-family | _-apple-system-font, Helvetica Neue, Arial, sans-serif_ | - |
+| 名称                        | 默认值                                                  | 描述 |
+| --------------------------- | ------------------------------------------------------- | ---- |
+| --rc-badge-size             | _16px_                                                  | -    |
+| --rc-badge-color            | _var(--rc-white)_                                       | -    |
+| --rc-badge-padding          | _0 3px_                                                 | -    |
+| --rc-badge-font-size        | _var(--rc-font-size-sm)_                                | -    |
+| --rc-badge-font-weight      | _var(--rc-font-weight-bold)_                            | -    |
+| --rc-badge-border-width     | _var(--rc-border-width-base)_                           | -    |
+| --rc-badge-background-color | _var(--rc-danger-color)_                                | -    |
+| --rc-badge-dot-color        | _var(--rc-danger-color)_                                | -    |
+| --rc-badge-dot-size         | _8px_                                                   | -    |
+| --rc-badge-font-family      | _-apple-system-font, Helvetica Neue, Arial, sans-serif_ | -    |

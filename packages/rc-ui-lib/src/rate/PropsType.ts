@@ -29,6 +29,7 @@ export interface RateProps extends BaseTypeProps {
    * @default true
    */
   touchable?: boolean;
+  /** 图标类名前缀 */
   iconPrefix?: string;
   /** 禁用时的颜色	 */
   disabledColor?: string;

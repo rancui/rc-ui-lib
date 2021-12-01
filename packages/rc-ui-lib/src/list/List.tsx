@@ -12,7 +12,7 @@ import { useSetState, useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const List = forwardRef<ListInstance, ListProps>((props, ref) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('list', prefixCls);
   const [state, updateState] = useSetState({
     loading: props.loading,

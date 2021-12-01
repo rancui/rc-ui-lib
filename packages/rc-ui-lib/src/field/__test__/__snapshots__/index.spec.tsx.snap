@@ -179,7 +179,48 @@ exports[`Field should render label slot correctly 1`] = `
 </div>
 `;
 
-exports[`Field should render textarea when type is textarea 1`] = `undefined`;
+exports[`Field should render textarea when type is textarea 1`] = `
+<ForwardRef
+  autosize={true}
+  clearIcon="clear"
+  clearTrigger="focus"
+  formatTrigger="onChange"
+  type="textarea"
+>
+  <Cell
+    className="rc-field"
+    icon={null}
+    title={null}
+    titleClass="rc-field__label"
+    titleStyle={Object {}}
+    valueClass="rc-field__value"
+  >
+    <div
+      className="rc-cell rc-field"
+    >
+      <div
+        className="rc-cell__value rc-cell__value--alone rc-field__value"
+      >
+        <div
+          className="rc-field__body"
+        >
+          <textarea
+            className="rc-field__control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onCompositionEnd={[Function]}
+            onCompositionStart={[Function]}
+            onCompositionUpdate={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder=""
+          />
+        </div>
+      </div>
+    </div>
+  </Cell>
+</ForwardRef>
+`;
 
 exports[`Field should render word limit correctly 1`] = `
 <ForwardRef

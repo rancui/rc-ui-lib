@@ -7,7 +7,7 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const CellGroup: React.FC<CellGroupProps> = (props) => {
   const { title, border, inset } = props;
 
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('cell-group', prefixCls);
 
   const renderGroup = () => (

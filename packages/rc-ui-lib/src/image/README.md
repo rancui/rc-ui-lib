@@ -41,10 +41,7 @@ import { Image } from 'rc-ui-lib';
 `Image` 组件提供了默认的加载中提示，支持通过 `loadingIcon` 自定义内容。
 
 ```jsx
-<Image 
-  src="https://img.yzcdn.cn/vant/cat.jpeg" 
-  loadingIcon={<Loading type="spinner" />} 
-/>
+<Image src="https://img.yzcdn.cn/vant/cat.jpeg" loadingIcon={<Loading type="spinner" />} />
 ```
 
 ### 加载失败提示
@@ -52,10 +49,7 @@ import { Image } from 'rc-ui-lib';
 `Image` 组件提供了默认的加载失败提示，支持通过 `errorIcon` 自定义内容。
 
 ```jsx
-<Image 
-  src="https://img.yzcdn.cn/vant/cat.jpeg" 
-  errorIcon={<div>加载失败</div>} 
-/>
+<Image src="https://img.yzcdn.cn/vant/cat.jpeg" errorIcon={<div>加载失败</div>} />
 ```
 
 ## API
@@ -73,9 +67,9 @@ import { Image } from 'rc-ui-lib';
 | round | 是否显示为圆形 | _boolean_ | `false` |
 | showError | 是否展示图片加载失败提示 | _boolean_ | `true` |
 | showLoading | 是否展示图片加载中提示 | _boolean_ | `true` |
-| errorIcon | 失败时提示的图标 | _string\|ReactNode_| `photo-fail` |
+| errorIcon | 失败时提示的图标 | _string\|ReactNode_ | `photo-fail` |
 | loadingIcon | 加载时提示的图标 | _string\|ReactNode_ | `photo` |
-| iconSize  | 加载图标和失败图标的大小 | _number \| string_ | `32px` |
+| iconSize | 加载图标和失败图标的大小 | _number \| string_ | `32px` |
 | iconPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
 
 ### 图片填充模式 
@@ -90,13 +84,11 @@ import { Image } from 'rc-ui-lib';
 
 ### Events
 
-| 事件名 | 说明               | 回调参数            |
-| ------ | ------------------ | ------------------- |
-| onClick  | 点击图片时触发     | _event: MouseEvent_ |
-| onLoad   | 图片加载完毕时触发 | -                   |
-| onError  | 图片加载失败时触发 | -                   |
-
-
+| 事件名  | 说明               | 回调参数            |
+| ------- | ------------------ | ------------------- |
+| onClick | 点击图片时触发     | _event: MouseEvent_ |
+| onLoad  | 图片加载完毕时触发 | -                   |
+| onError | 图片加载失败时触发 | -                   |
 
 ### 类型定义
 
@@ -112,16 +104,15 @@ import type { ImageFit } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-image-placeholder-text-color | _var(--rc-gray-6)_ | - |
-| --rc-image-placeholder-font-size | _var(--rc-font-size-md)_ | - |
-| --rc-image-placeholder-background-color | _var(--rc-background-color)_ | - |
-| --rc-image-loading-icon-size | _32px_ | - |
-| --rc-image-loading-icon-color | _var(--rc-gray-4)_ | - |
-| --rc-image-error-icon-size | _32px_ | - |
-| --rc-image-error-icon-color | _var(--rc-gray-4)_ | - |
-
+| 名称                                    | 默认值                       | 描述 |
+| --------------------------------------- | ---------------------------- | ---- |
+| --rc-image-placeholder-text-color       | _var(--rc-gray-6)_           | -    |
+| --rc-image-placeholder-font-size        | _var(--rc-font-size-md)_     | -    |
+| --rc-image-placeholder-background-color | _var(--rc-background-color)_ | -    |
+| --rc-image-loading-icon-size            | _32px_                       | -    |
+| --rc-image-loading-icon-color           | _var(--rc-gray-4)_           | -    |
+| --rc-image-error-icon-size              | _32px_                       | -    |
+| --rc-image-error-icon-color             | _var(--rc-gray-4)_           | -    |
 
 ## 常见问题
 
@@ -130,9 +121,9 @@ import type { ImageFit } from 'rc-ui-lib';
 在 .tsx, jsx 文件中通过相对路径引用本地图片时，需要在图片的链接外包上一层 `require()`，将图片 URL 转换为 webpack 模块请求，并结合 [file-loader](https://github.com/webpack-contrib/file-loader) 或者 [url-loader](https://github.com/webpack-contrib/url-loader) 进行处理。
 
 ```jsx
-// 错误写法 
+// 错误写法
 <Image src="./image.png" />
 
-// 正确写法 
+// 正确写法
 <Image src="require('./image.png')" />
 ```

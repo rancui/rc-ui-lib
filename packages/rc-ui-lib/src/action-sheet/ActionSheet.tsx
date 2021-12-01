@@ -9,7 +9,7 @@ import { sharedPopupProps } from '../popup/Popup';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const ActionSheet: React.FC<ActionSheetProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('action-sheet', prefixCls);
 
   const onCancel = () => {

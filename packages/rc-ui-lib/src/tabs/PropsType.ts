@@ -7,7 +7,7 @@ type ScrollspyConfig = {
   autoFocusLast?: boolean;
   /** 触底偏移量 */
   reachBottomThreshold?: number;
-}
+};
 
 export interface TabsProps extends BaseTypeProps {
   /** 标签主题色	 */

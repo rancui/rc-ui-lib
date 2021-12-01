@@ -99,7 +99,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when noStyle props is set', async () => {
@@ -110,7 +110,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when shouldUpdate props is set', async () => {
@@ -119,7 +119,7 @@ describe('Form', () => {
         <Form.Item shouldUpdate>{() => <Field placeholder="请输入密码" />}</Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it("shouldn't work when shouldUpdate is set", async () => {
@@ -166,7 +166,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when rules with reqiured props is set', async () => {
@@ -177,7 +177,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when name props is set without shouldUpdate or dependencies', async () => {
@@ -186,7 +186,7 @@ describe('Form', () => {
         <Form.Item name="name">{() => <Field placeholder="请输入密码" />}</Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when shouldUpdate and dependencies are not set', async () => {
@@ -195,7 +195,7 @@ describe('Form', () => {
         <Form.Item>{() => <Field placeholder="请输入密码" />}</Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('dependencies is set and name is not set ', async () => {
@@ -229,6 +229,6 @@ describe('Form', () => {
     await wrapper.find('input').simulate('blur');
     expect(handleBlur).toHaveBeenCalled();
 
-    // expect(toJson(wrapper.html())).toMatchSnapshot();
+    // expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

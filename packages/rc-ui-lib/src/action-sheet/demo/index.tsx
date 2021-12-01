@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
-import ActionSheet from '..'
+import ActionSheet from '..';
 import './style.less';
 
 const actions = [{ name: '选项一' }, { name: '选项二' }, { name: '选项三' }];

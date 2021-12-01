@@ -1,7 +1,6 @@
 import { isFunction } from '../utils';
 import { UploaderFileListItem, UploaderMaxSize, UploaderResultType } from './PropsType';
 
-
 export function toArray<T>(item: T | T[]): T[] {
   if (Array.isArray(item)) {
     return item;

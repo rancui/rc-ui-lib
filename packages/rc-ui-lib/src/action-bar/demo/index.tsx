@@ -60,11 +60,7 @@ export default (): React.ReactNode => {
             text="客服"
             onClick={() => console.log('chat click')}
           />
-          <ActionBar.Icon
-            icon="cart-o"
-            text="购物车"
-            onClick={() => console.log('cart click')}
-          />
+          <ActionBar.Icon icon="cart-o" text="购物车" onClick={() => console.log('cart click')} />
           <ActionBar.Icon
             icon="star"
             color="#ff5000"
@@ -85,16 +81,8 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="自定义按钮颜色">
         <ActionBar>
-          <ActionBar.Icon
-            icon="chat-o"
-            text="客服"
-            onClick={() => console.log('chat click')}
-          />
-          <ActionBar.Icon
-            icon="cart-o"
-            text="购物车"
-            onClick={() => console.log('cart click')}
-          />
+          <ActionBar.Icon icon="chat-o" text="客服" onClick={() => console.log('chat click')} />
+          <ActionBar.Icon icon="cart-o" text="购物车" onClick={() => console.log('cart click')} />
           <ActionBar.Button
             color="#be99ff"
             type="warning"

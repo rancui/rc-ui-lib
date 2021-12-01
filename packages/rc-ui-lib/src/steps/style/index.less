@@ -20,13 +20,13 @@
   background-color: var(--rc-steps-background-color);
 
   &--horizontal {
-    padding: 10*@hd 10*@hd 0;
+    padding: 10 * @hd 10 * @hd 0;
 
     .@{rc-prefix}-steps__items {
       position: relative;
       display: flex;
-      margin: 0 0 10*@hd;
-      padding-bottom: 22*@hd;
+      margin: 0 0 10 * @hd;
+      padding-bottom: 22 * @hd;
     }
   }
 
@@ -34,8 +34,6 @@
     padding: 0 0 0 var(--rc-padding-xl);
   }
 }
-
-
 
 .@{rc-prefix}-step {
   position: relative;
@@ -69,7 +67,7 @@
 
     &:last-child {
       position: absolute;
-      right: 1*@hd;
+      right: 1 * @hd;
       width: auto;
 
       .@{rc-prefix}-step__title {
@@ -78,14 +76,14 @@
       }
 
       .@{rc-prefix}-step__circle-container {
-        right: -9*@hd;
+        right: -9 * @hd;
         left: auto;
       }
     }
 
     .@{rc-prefix}-step__circle-container {
       position: absolute;
-      top: 30*@hd;
+      top: 30 * @hd;
       left: calc(var(--rc-padding-xs) * -1);
       z-index: 1;
       padding: 0 var(--rc-padding-xs);
@@ -95,16 +93,16 @@
 
     .@{rc-prefix}-step__title {
       display: inline-block;
-      margin-left: 3*@hd;
+      margin-left: 3 * @hd;
       font-size: var(--rc-step-horizontal-title-font-size);
       transform: translateX(-50%);
     }
 
     .@{rc-prefix}-step__line {
-      top: 30*@hd;
+      top: 30 * @hd;
       left: 0;
       width: 100%;
-      height: 1*@hd;
+      height: 1 * @hd;
     }
 
     .@{rc-prefix}-step__icon {
@@ -120,17 +118,17 @@
   &--vertical {
     display: block;
     float: none;
-    padding: 10*@hd 10*@hd 10*@hd 0;
+    padding: 10 * @hd 10 * @hd 10 * @hd 0;
     line-height: var(--rc-line-height-sm);
 
     &:not(:last-child)::after {
-      border-bottom-width: 1*@hd;
+      border-bottom-width: 1 * @hd;
     }
 
     .@{rc-prefix}-step__circle-container {
       position: absolute;
-      top: 19*@hd;
-      left: -15*@hd;
+      top: 19 * @hd;
+      left: -15 * @hd;
       z-index: 1;
       font-size: var(--rc-step-icon-size);
       line-height: 1;
@@ -138,9 +136,9 @@
     }
 
     .@{rc-prefix}-step__line {
-      top: 16*@hd;
-      left: -15*@hd;
-      width: 1*@hd;
+      top: 16 * @hd;
+      left: -15 * @hd;
+      width: 1 * @hd;
       height: 100%;
     }
   }

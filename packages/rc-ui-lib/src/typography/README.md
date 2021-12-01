@@ -49,10 +49,9 @@ import { Typography } from 'rc-ui-lib';
 
 ### Typography.Title Props
 
-| 参数  | 说明                                  | 类型     | 默认值 |
-| ----- | ------------------------------------- | -------- | ------ |
+| 参数  | 说明                                 | 类型     | 默认值 |
+| ----- | ------------------------------------ | -------- | ------ |
 | level | 重要程度，可选值 `1` `2` `3` `4` `5` | _number_ | `4`    |
-
 
 ## 主题定制
 
@@ -60,16 +59,16 @@ import { Typography } from 'rc-ui-lib';
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-typography-color | _var(--rc-text-color)_ | - |
-| --rc-typography-link-color | _var(--rc-primary-color)_ | - |
-| --rc-typography-font-size | _var(--rc-font-size-md)_ | - |
-| --rc-typography-line-height | _var(--rc-line-height-md)_ | - |
-| --rc-typography-primary-color | _var(--rc-primary-color)_ | - |
-| --rc-typography-danger-color | _var(--rc-danger-color)_ | - |
-| --rc-typography-success-color | _var(--rc-success-color)_ | - |
-| --rc-typography-warning-color | _var(--rc-warning-color)_ | - |
-| --rc-typography-secondary-color | _var(--rc-gray-6)_ | - |
-| --rc-typography-disabled-color | _var(--rc-gray-5)_ | - |
-| --rc-typography-light-color | _var(--rc-white-color)_ | - |
+| 名称                            | 默认值                     | 描述 |
+| ------------------------------- | -------------------------- | ---- |
+| --rc-typography-color           | _var(--rc-text-color)_     | -    |
+| --rc-typography-link-color      | _var(--rc-primary-color)_  | -    |
+| --rc-typography-font-size       | _var(--rc-font-size-md)_   | -    |
+| --rc-typography-line-height     | _var(--rc-line-height-md)_ | -    |
+| --rc-typography-primary-color   | _var(--rc-primary-color)_  | -    |
+| --rc-typography-danger-color    | _var(--rc-danger-color)_   | -    |
+| --rc-typography-success-color   | _var(--rc-success-color)_  | -    |
+| --rc-typography-warning-color   | _var(--rc-warning-color)_  | -    |
+| --rc-typography-secondary-color | _var(--rc-gray-6)_         | -    |
+| --rc-typography-disabled-color  | _var(--rc-gray-5)_         | -    |
+| --rc-typography-light-color     | _var(--rc-white-color)_    | -    |

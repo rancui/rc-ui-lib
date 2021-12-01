@@ -2,13 +2,199 @@
 
 exports[`Cell should change icon class prefix when using icon-prefix prop 1`] = `"<div class=\\"rc-cell\\"><i class=\\"rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success\\"></i><div class=\\"rc-cell__title\\">Title</div></div>"`;
 
-exports[`Cell should render correctly when using inset prop in Cell.Group 1`] = `undefined`;
+exports[`Cell should render correctly when using inset prop in Cell.Group 1`] = `
+<CellGroup
+  border={true}
+  inset={true}
+>
+  <div
+    className="rc-cell-group rc-cell-group--inset"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
 
-exports[`Cell should render correctly when using title prop in Cell.Group 1`] = `undefined`;
+exports[`Cell should render correctly when using title prop in Cell.Group 1`] = `
+<div>
+  <CellGroup
+    border={true}
+    title="分组1"
+  >
+    <div
+      className="rc-cell-group__title"
+    >
+      分组1
+    </div>
+    <div
+      className="rc-cell-group rc-hairline--top-bottom"
+    >
+      <Cell
+        title="单元格"
+        value="内容"
+      >
+        <div
+          className="rc-cell"
+        >
+          <div
+            className="rc-cell__title"
+          >
+            单元格
+          </div>
+          <div
+            className="rc-cell__value"
+          >
+            <span>
+              内容
+            </span>
+          </div>
+        </div>
+      </Cell>
+    </div>
+  </CellGroup>
+  <CellGroup
+    border={true}
+    title="分组2"
+  >
+    <div
+      className="rc-cell-group__title"
+    >
+      分组2
+    </div>
+    <div
+      className="rc-cell-group rc-hairline--top-bottom"
+    >
+      <Cell
+        title="单元格"
+        value="内容"
+      >
+        <div
+          className="rc-cell"
+        >
+          <div
+            className="rc-cell__title"
+          >
+            单元格
+          </div>
+          <div
+            className="rc-cell__value"
+          >
+            <span>
+              内容
+            </span>
+          </div>
+        </div>
+      </Cell>
+    </div>
+  </CellGroup>
+</div>
+`;
 
-exports[`Cell should render correctly when wrapperd with Cell.Group 1`] = `undefined`;
-
-exports[`Cell should render correctly when wrapperd with Cell.Group 2`] = `undefined`;
+exports[`Cell should render correctly when wrapperd with Cell.Group 1`] = `
+<CellGroup
+  border={true}
+>
+  <div
+    className="rc-cell-group rc-hairline--top-bottom"
+  >
+    <Cell
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+    <Cell
+      label="描述信息"
+      title="单元格"
+      value="内容"
+    >
+      <div
+        className="rc-cell"
+      >
+        <div
+          className="rc-cell__title"
+        >
+          单元格
+          <div
+            className="rc-cell__label"
+          >
+            描述信息
+          </div>
+        </div>
+        <div
+          className="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
+    </Cell>
+  </div>
+</CellGroup>
+`;
 
 exports[`Cell should render extra slot correctly 1`] = `"<div class=\\"rc-cell\\"><div class=\\"rc-cell__title\\">Title</div><div class=\\"rc-cell__value\\"><span>Value</span></div>Custom Extra</div>"`;
 

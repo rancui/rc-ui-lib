@@ -1,21 +1,401 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Flex should render correctly 1`] = `undefined`;
+exports[`Flex should render correctly 1`] = `
+<Flex
+  gutter={0}
+>
+  <div
+    className="rc-flexbox"
+    style={Object {}}
+  >
+    <FlexItem
+      span={12}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--12"
+        style={Object {}}
+      >
+        span: 12
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={12}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--12"
+        style={Object {}}
+      >
+        span: 12
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when direction prop is row-reverse 1`] = `undefined`;
+exports[`Flex should render correctly when direction prop is row-reverse 1`] = `
+<Flex
+  direction="row-reverse"
+  gutter={0}
+>
+  <div
+    className="rc-flexbox rc-flexbox--row-reverse"
+    style={Object {}}
+  >
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-1
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-2
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-3
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when flex prop is decimal 1`] = `undefined`;
+exports[`Flex should render correctly when flex prop is decimal 1`] = `
+<Flex
+  align="center"
+  gutter={0}
+>
+  <div
+    className="rc-flexbox rc-flexbox--align-center"
+    style={Object {}}
+  >
+    <FlexItem
+      flex="20px"
+    >
+      <div
+        className="rc-flexitem"
+        style={
+          Object {
+            "flex": "0 0 20px",
+          }
+        }
+      >
+        span: 8-1
+      </div>
+    </FlexItem>
+    <FlexItem
+      flex={5}
+    >
+      <div
+        className="rc-flexitem"
+        style={
+          Object {
+            "flex": "5 5 auto",
+          }
+        }
+      >
+        span: 8-2
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when gutter prop is array 1`] = `undefined`;
+exports[`Flex should render correctly when gutter prop is array 1`] = `
+<Flex
+  gutter={
+    Array [
+      16,
+      -16,
+    ]
+  }
+>
+  <div
+    className="rc-flexbox"
+    style={
+      Object {
+        "marginLeft": -8,
+        "marginRight": -8,
+      }
+    }
+  >
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={
+          Object {
+            "paddingLeft": 8,
+            "paddingRight": 8,
+          }
+        }
+      >
+        span: 8
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={
+          Object {
+            "paddingLeft": 8,
+            "paddingRight": 8,
+          }
+        }
+      >
+        span: 8
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when using align prop 1`] = `undefined`;
+exports[`Flex should render correctly when using align prop 1`] = `
+<Flex
+  align="center"
+  gutter={0}
+>
+  <div
+    className="rc-flexbox rc-flexbox--align-center"
+    style={Object {}}
+  >
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-1
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-2
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-3
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when using disabled prop 1`] = `undefined`;
+exports[`Flex should render correctly when using flex prop 1`] = `
+<Flex
+  align="center"
+  gutter={0}
+>
+  <div
+    className="rc-flexbox rc-flexbox--align-center"
+    style={Object {}}
+  >
+    <FlexItem
+      flex={2}
+    >
+      <div
+        className="rc-flexitem"
+        style={
+          Object {
+            "flex": "2 2 auto",
+          }
+        }
+      >
+        span: 8-1
+      </div>
+    </FlexItem>
+    <FlexItem
+      flex={5}
+    >
+      <div
+        className="rc-flexitem"
+        style={
+          Object {
+            "flex": "5 5 auto",
+          }
+        }
+      >
+        span: 8-2
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when using flex prop 1`] = `undefined`;
+exports[`Flex should render correctly when using gutter prop 1`] = `
+<Flex
+  gutter={16}
+>
+  <div
+    className="rc-flexbox"
+    style={
+      Object {
+        "marginLeft": -8,
+        "marginRight": -8,
+      }
+    }
+  >
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={
+          Object {
+            "paddingLeft": 8,
+            "paddingRight": 8,
+          }
+        }
+      >
+        span: 8
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={
+          Object {
+            "paddingLeft": 8,
+            "paddingRight": 8,
+          }
+        }
+      >
+        span: 8
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={
+          Object {
+            "paddingLeft": 8,
+            "paddingRight": 8,
+          }
+        }
+      >
+        span: 8
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when using gutter prop 1`] = `undefined`;
+exports[`Flex should render correctly when using justify prop 1`] = `
+<Flex
+  gutter={0}
+  justify="between"
+>
+  <div
+    className="rc-flexbox rc-flexbox--justify-between"
+    style={Object {}}
+  >
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-1
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-2
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-3
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;
 
-exports[`Flex should render correctly when using justify prop 1`] = `undefined`;
-
-exports[`Flex should render correctly when wrap prop is wrap 1`] = `undefined`;
+exports[`Flex should render correctly when wrap prop is wrap 1`] = `
+<Flex
+  gutter={0}
+  wrap="wrap"
+>
+  <div
+    className="rc-flexbox rc-flexbox--wrap"
+    style={Object {}}
+  >
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-1
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-2
+      </div>
+    </FlexItem>
+    <FlexItem
+      span={8}
+    >
+      <div
+        className="rc-flexitem rc-flexitem--8"
+        style={Object {}}
+      >
+        span: 8-3
+      </div>
+    </FlexItem>
+  </div>
+</Flex>
+`;

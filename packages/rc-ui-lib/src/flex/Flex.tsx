@@ -6,7 +6,7 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Flex: React.FC<FlexProps> = (props) => {
   const { direction, wrap, justify, align, gutter, style, className, children, ...rest } = props;
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('flexbox', prefixCls);
   const getGutter: [number, number] = useMemo(
     () => (Array.isArray(gutter) ? gutter : [gutter, 0]),

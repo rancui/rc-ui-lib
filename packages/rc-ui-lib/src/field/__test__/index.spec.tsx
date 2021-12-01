@@ -93,7 +93,7 @@ describe('Field', () => {
   it('should render textarea when type is textarea', async () => {
     wrapper = mount(<Field type="textarea" autosize />);
     await sleep(0);
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should autosize textarea field', async () => {

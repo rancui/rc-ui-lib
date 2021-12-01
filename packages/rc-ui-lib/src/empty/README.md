@@ -72,20 +72,19 @@ import { Empty } from 'rc-ui-lib';
 | description | 图片下方的描述文字 | _ReactNode_ | - |
 | className | 定义图片或文字样式 | _string_ | - |
 
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                                | 默认值                      | 描述 |
-| ----------------------------------- | --------------------------- | ---- |
+| 名称                               | 默认值                     | 描述 |
+| ---------------------------------- | -------------------------- | ---- |
 | --rc-empty-padding                 | _var(--rc-padding-xl) 0_   | -    |
-| --rc-empty-image-size              | _160px_                     | -    |
+| --rc-empty-image-size              | _160px_                    | -    |
 | --rc-empty-description-margin-top  | _var(--rc-padding-md)_     | -    |
-| --rc-empty-description-padding     | _0 60px_                    | -    |
+| --rc-empty-description-padding     | _0 60px_                   | -    |
 | --rc-empty-description-color       | _var(--rc-gray-6)_         | -    |
 | --rc-empty-description-font-size   | _var(--rc-font-size-md)_   | -    |
 | --rc-empty-description-line-height | _var(--rc-line-height-md)_ | -    |
-| --rc-empty-bottom-margin-top       | _24px_                      | -    |
+| --rc-empty-bottom-margin-top       | _24px_                     | -    |

@@ -71,8 +71,8 @@ export default (): React.ReactNode => {
           <List finished={finished} onLoad={onLoad}>
             {list.length
               ? list.map((_, i) => {
-                return <Cell key={i} title={i + 1} />;
-              })
+                  return <Cell key={i} title={i + 1} />;
+                })
               : null}
           </List>
         </Tabs.TabPane>
@@ -80,8 +80,8 @@ export default (): React.ReactNode => {
           <List finished={finished} errorText="请求失败，点击重新加载" onLoad={onLoadError}>
             {errorList.length
               ? errorList.map((_, i) => {
-                return <Cell key={i} title={i + 1} />;
-              })
+                  return <Cell key={i} title={i + 1} />;
+                })
               : null}
           </List>
         </Tabs.TabPane>
@@ -90,8 +90,8 @@ export default (): React.ReactNode => {
             <List ref={listRef} finished={finished} onLoad={onLoadRefresh}>
               {refreshList.length
                 ? refreshList.map((_, i) => {
-                  return <Cell key={i} title={i + 1} />;
-                })
+                    return <Cell key={i} title={i + 1} />;
+                  })
                 : null}
             </List>
           </PullRefresh>

@@ -144,11 +144,11 @@ import { Tabs } from 'rc-ui-lib';
 | titleInactiveColor | 标题默认态颜色 | _string_ | - |
 | beforeChange | 切换标签前的回调函数，返回 `false` 可阻止切换，支持返回 Promise | _(name) => boolean \| Promise_ | - |
 
-### ScrollspyConfig 
+### ScrollspyConfig
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| autoFocusLast | 滚动导航模式下，容器滚动触底时是否将最后一个tab转为Active状态 | _boolean_ | - |
+| autoFocusLast | 滚动导航模式下，容器滚动触底时是否将最后一个 tab 转为 Active 状态 | _boolean_ | - |
 | reachBottomThreshold | 触底偏移量 | _number_ | - |
 
 ### TabPane Props
@@ -163,7 +163,7 @@ import { Tabs } from 'rc-ui-lib';
 | name | 标签名称，作为匹配的标识符 | _number \| string_ | 标签的索引值 |
 | titleStyle | 自定义标题样式 | _CSSProperties_ | - |
 | titleSlass | 自定义标题类名 | _string_ | - |
-| showZeroBadge  | 当 badge 为数字 0 时，是否展示徽标 | _boolean_ | `true` |
+| showZeroBadge | 当 badge 为数字 0 时，是否展示徽标 | _boolean_ | `true` |
 
 ### Tabs Events
 
@@ -184,24 +184,23 @@ import { Tabs } from 'rc-ui-lib';
 | resize | 外层元素大小或组件显示状态变化时，可以调用此方法来触发重绘 | - | - |
 | scrollTo | 滚动到指定的标签页，在滚动导航模式下可用 | _name: string \| number_ | - |
 
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                            | 默认值                      | 描述 |
-| ------------------------------- | --------------------------- | ---- |
+| 名称                           | 默认值                     | 描述 |
+| ------------------------------ | -------------------------- | ---- |
 | --rc-tab-text-color            | _var(--rc-gray-7)_         | -    |
 | --rc-tab-active-text-color     | _var(--rc-text-color)_     | -    |
 | --rc-tab-disabled-text-color   | _var(--rc-gray-5)_         | -    |
 | --rc-tab-font-size             | _var(--rc-font-size-md)_   | -    |
 | --rc-tab-line-height           | _var(--rc-line-height-md)_ | -    |
 | --rc-tabs-default-color        | _var(--rc-danger-color)_   | -    |
-| --rc-tabs-line-height          | _44px_                      | -    |
-| --rc-tabs-card-height          | _30px_                      | -    |
+| --rc-tabs-line-height          | _44px_                     | -    |
+| --rc-tabs-card-height          | _30px_                     | -    |
 | --rc-tabs-nav-background-color | _var(--rc-white)_          | -    |
-| --rc-tabs-bottom-bar-width     | _40px_                      | -    |
-| --rc-tabs-bottom-bar-height    | _3px_                       | -    |
+| --rc-tabs-bottom-bar-width     | _40px_                     | -    |
+| --rc-tabs-bottom-bar-height    | _3px_                      | -    |
 | --rc-tabs-bottom-bar-color     | _var(--rc-danger-color)_   | -    |

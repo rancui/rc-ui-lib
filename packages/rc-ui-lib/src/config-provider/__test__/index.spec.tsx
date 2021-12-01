@@ -19,7 +19,7 @@ describe('ConfigProvider', () => {
         <Icon name="success" />
       </ConfigProvider>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when using iconPrefix prop', () => {

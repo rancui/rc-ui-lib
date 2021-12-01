@@ -5,7 +5,7 @@ import { FlexItemProps, FlexType } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const FlexItem: React.FC<FlexItemProps> = (props) => {
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('flexitem', prefixCls);
   const { style, className, span, children, flex, ...others } = props;
 

@@ -104,7 +104,7 @@
     &--line {
       box-sizing: content-box;
       height: 100%;
-      padding-bottom: 15*@hd; /* 15*@hd padding to hide scrollbar in mobile safari */
+      padding-bottom: 15 * @hd; /* 15*@hd padding to hide scrollbar in mobile safari */
     }
 
     &--line&--complete {
@@ -121,8 +121,7 @@
 
       .@{rc-prefix}-tab {
         color: var(--rc-tabs-default-color);
-        border-right: var(--rc-border-width-base) solid
-          var(--rc-tabs-default-color);
+        border-right: var(--rc-border-width-base) solid var(--rc-tabs-default-color);
 
         &:last-child {
           border-right: none;
@@ -142,7 +141,7 @@
 
   &__line {
     position: absolute;
-    bottom: 15*@hd;
+    bottom: 15 * @hd;
     left: 0;
     z-index: 1;
     width: var(--rc-tabs-bottom-bar-width);

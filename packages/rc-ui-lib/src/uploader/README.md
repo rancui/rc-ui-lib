@@ -20,11 +20,9 @@ import { Uploader } from 'rc-ui-lib';
 <Uploader afterRead={(file) => console.log(file)} />
 ```
 
-
 ### 文件预览
 
 通过 `value` 可以绑定已经上传的文件列表，并展示文件列表的预览图。
-
 
 ```jsx
 export default () => {
@@ -34,7 +32,6 @@ export default () => {
     // 如果图片 URL 中不包含类型信息，可以添加 isImage 标记来声明
     { url: 'https://cloud-image', isImage: true },
   ]);
-
 
   return <Uploader value={demo} />;
 };
@@ -231,18 +228,12 @@ beforeRead、afterRead、beforeDelete 执行时会传递以下回调参数：
 | text    | 结果包含 File 对象，以及文件的文本内容         |
 | dataUrl | 结果包含 File 对象，以及文件对应的 base64 编码 |
 
-
-
 ### 类型定义
 
 组件导出以下类型定义：
 
 ```js
-import type {
-  UploaderInstance,
-  UploaderResultType,
-  UploaderFileListItem,
-} from 'rc-ui-lib';
+import type { UploaderInstance, UploaderResultType, UploaderFileListItem } from 'rc-ui-lib';
 ```
 
 `UploaderInstance` 是组件实例的类型，用法如下：
@@ -262,34 +253,33 @@ uploaderRef.current?.chooseFile();
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称 | 默认值 | 描述 |
-| --- | --- | --- |
-| --rc-uploader-size | _80px_ | - |
-| --rc-uploader-icon-size | _24px_ | - |
-| --rc-uploader-icon-color | _var(--rc-gray-4)_ | - |
-| --rc-uploader-text-color | _var(--rc-gray-6)_ | - |
-| --rc-uploader-text-font-size | _var(--rc-font-size-sm)_ | - |
-| --rc-uploader-upload-background-color | _var(--rc-gray-1)_ | - |
-| --rc-uploader-upload-active-color | _var(--rc-active-color)_ | - |
-| --rc-uploader-delete-color | _var(--rc-white)_ | - |
-| --rc-uploader-delete-icon-size | _14px_ | - |
-| --rc-uploader-delete-background-color | _rgba(0, 0, 0, 0.7)_ | - |
-| --rc-uploader-file-background-color | _var(--rc-background-color)_ | - |
-| --rc-uploader-file-icon-size | _20px_ | - |
-| --rc-uploader-file-icon-color | _var(--rc-gray-7)_ | - |
-| --rc-uploader-file-name-padding | _0 var(--rc-padding-base)_ | - |
-| --rc-uploader-file-name-margin-top | _var(--rc-padding-xs)_ | - |
-| --rc-uploader-file-name-font-size | _var(--rc-font-size-sm)_ | - |
-| --rc-uploader-file-name-text-color | _var(--rc-gray-7)_ | - |
-| --rc-uploader-mask-text-color | _var(--rc-white)_ | - |
-| --rc-uploader-mask-background-color | _fade(var(--rc-gray-8), 88%)_ | - |
-| --rc-uploader-mask-icon-size | _22px_ | - |
-| --rc-uploader-mask-message-font-size | _var(--rc-font-size-sm)_ | - |
-| --rc-uploader-mask-message-line-height | _var(--rc-line-height-xs)_ | - |
-| --rc-uploader-loading-icon-size | _22px_ | - |
-| --rc-uploader-loading-icon-color | _var(--rc-white)_ | - |
-| --rc-uploader-disabled-opacity | _var(--rc-disabled-opacity)_ | - |
-
+| 名称                                   | 默认值                        | 描述 |
+| -------------------------------------- | ----------------------------- | ---- |
+| --rc-uploader-size                     | _80px_                        | -    |
+| --rc-uploader-icon-size                | _24px_                        | -    |
+| --rc-uploader-icon-color               | _var(--rc-gray-4)_            | -    |
+| --rc-uploader-text-color               | _var(--rc-gray-6)_            | -    |
+| --rc-uploader-text-font-size           | _var(--rc-font-size-sm)_      | -    |
+| --rc-uploader-upload-background-color  | _var(--rc-gray-1)_            | -    |
+| --rc-uploader-upload-active-color      | _var(--rc-active-color)_      | -    |
+| --rc-uploader-delete-color             | _var(--rc-white)_             | -    |
+| --rc-uploader-delete-icon-size         | _14px_                        | -    |
+| --rc-uploader-delete-background-color  | _rgba(0, 0, 0, 0.7)_          | -    |
+| --rc-uploader-file-background-color    | _var(--rc-background-color)_  | -    |
+| --rc-uploader-file-icon-size           | _20px_                        | -    |
+| --rc-uploader-file-icon-color          | _var(--rc-gray-7)_            | -    |
+| --rc-uploader-file-name-padding        | _0 var(--rc-padding-base)_    | -    |
+| --rc-uploader-file-name-margin-top     | _var(--rc-padding-xs)_        | -    |
+| --rc-uploader-file-name-font-size      | _var(--rc-font-size-sm)_      | -    |
+| --rc-uploader-file-name-text-color     | _var(--rc-gray-7)_            | -    |
+| --rc-uploader-mask-text-color          | _var(--rc-white)_             | -    |
+| --rc-uploader-mask-background-color    | _fade(var(--rc-gray-8), 88%)_ | -    |
+| --rc-uploader-mask-icon-size           | _22px_                        | -    |
+| --rc-uploader-mask-message-font-size   | _var(--rc-font-size-sm)_      | -    |
+| --rc-uploader-mask-message-line-height | _var(--rc-line-height-xs)_    | -    |
+| --rc-uploader-loading-icon-size        | _22px_                        | -    |
+| --rc-uploader-loading-icon-color       | _var(--rc-white)_             | -    |
+| --rc-uploader-disabled-opacity         | _var(--rc-disabled-opacity)_  | -    |
 
 ## 常见问题
 

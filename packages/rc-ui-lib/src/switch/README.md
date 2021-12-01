@@ -105,7 +105,6 @@ import { Switch } from 'rc-ui-lib';
 | onChange | 开关状态切换时触发 | _value: any_   |
 | onClick  | 点击时触发         | _event: Event_ |
 
-
 ## 主题定制
 
 ### 样式变量

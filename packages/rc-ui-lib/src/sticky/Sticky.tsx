@@ -4,13 +4,7 @@ import classnames from 'classnames';
 import useScrollParent from '../hooks/use-scroll-parent';
 import useEventListener from '../hooks/use-event-listener';
 
-import {
-  getScrollTop,
-  unitToPx,
-  isHidden,
-  getZIndexStyle,
-  extend,
-} from '../utils';
+import { getScrollTop, unitToPx, isHidden, getZIndexStyle, extend } from '../utils';
 import { StickyProps } from './PropsType';
 import { useSetState, useUpdateEffect, useVisibilityChange } from '../hooks';
 import { getRect } from '../hooks/use-rect';

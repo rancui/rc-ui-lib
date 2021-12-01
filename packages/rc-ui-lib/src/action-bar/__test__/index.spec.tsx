@@ -31,7 +31,7 @@ describe('ActionBar', () => {
         <ActionBar.Button type="danger" text="立即购买" />
       </ActionBar>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using badge prop in ActionBarIcon', async () => {
@@ -41,7 +41,7 @@ describe('ActionBar', () => {
         <ActionBar.Icon icon="cart-o" text="购物车" badge={{ content: 5 }} />
       </ActionBar>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when color prop in ActionBarIcon', async () => {
@@ -52,7 +52,7 @@ describe('ActionBar', () => {
         <ActionBar.Icon icon="star" color="#ff5000" text="店铺" />
       </ActionBar>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when icon prop in ActionBarIcon', async () => {
@@ -62,7 +62,7 @@ describe('ActionBar', () => {
         <ActionBar.Icon icon={<Icon name="shop-o" />} text="购物车" />
       </ActionBar>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('when icon prop in ActionBarIcon is not isValidElement', async () => {
@@ -71,7 +71,7 @@ describe('ActionBar', () => {
         <ActionBar.Icon icon={123} color="#ee0a24" text="客服" />
       </ActionBar>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when iconClass prop in ActionBarIcon', async () => {
@@ -113,7 +113,7 @@ describe('ActionBar', () => {
         <ActionBar.Button type="danger" text="立即购买" />
       </ActionBar>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render correctly when using icon prop in ActionBarButton', () => {
@@ -123,7 +123,7 @@ describe('ActionBar', () => {
         <ActionBar.Button type="danger" text="立即购买" icon={<Icon name="chat-o" />} />
       </ActionBar>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render correctly when using color prop in ActionBarButton', () => {
@@ -137,7 +137,7 @@ describe('ActionBar', () => {
         />
       </ActionBar>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('when ActionBarButton does not wrapperd by ActionBar', () => {
@@ -147,7 +147,7 @@ describe('ActionBar', () => {
         <ActionBar.Button type="danger" text="立即购买" />
       </div>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('when ActionBarButton has children', () => {
@@ -157,6 +157,6 @@ describe('ActionBar', () => {
         <ActionBar.Button type="danger">立即购买</ActionBar.Button>
       </ActionBar>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

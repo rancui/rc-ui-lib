@@ -1,3 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collapse should render CollapseItem correctly 1`] = `undefined`;
+exports[`Collapse should render CollapseItem correctly 1`] = `
+<Collapse
+  border={true}
+  initValue={Array []}
+  value={Array []}
+>
+  <div
+    className="rc-collapse rc-hairline--top-bottom"
+  >
+    <CollapseItem
+      border={true}
+      icon="shop-o"
+      index={0}
+      isLink={true}
+      key=".0"
+      name="first"
+      rightIcon="question-o"
+      title="标题1"
+      value="this is value"
+    >
+      <div
+        className="rc-collapse-item"
+      >
+        <Cell
+          aria-expanded="false"
+          className="rc-collapse-item__title"
+          icon="shop-o"
+          index={0}
+          isLink={true}
+          name="first"
+          onClick={[Function]}
+          rightIcon="question-o"
+          title="标题1"
+          value="this is value"
+        >
+          <div
+            className="rc-cell rc-cell--clickable rc-collapse-item__title"
+            onClick={[Function]}
+            role="button"
+          >
+            <Icon
+              className="rc-cell__left-icon"
+              name="shop-o"
+              tag="i"
+            >
+              <Badge
+                className="rc-cell__left-icon van-icon van-icon-shop-o"
+                showZero={true}
+                style={
+                  Object {
+                    "color": undefined,
+                    "fontSize": undefined,
+                  }
+                }
+                tag="i"
+              >
+                <i
+                  className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "fontSize": undefined,
+                    }
+                  }
+                />
+              </Badge>
+            </Icon>
+            <div
+              className="rc-cell__title"
+            >
+              标题1
+            </div>
+            <div
+              className="rc-cell__value"
+            >
+              <span>
+                this is value
+              </span>
+            </div>
+            question-o
+          </div>
+        </Cell>
+      </div>
+    </CollapseItem>
+  </div>
+</Collapse>
+`;

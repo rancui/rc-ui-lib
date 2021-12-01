@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     iconPosition,
   } = props;
 
-  const { prefixCls,  createNamespace } = useContext(ConfigProviderContext);
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('button', prefixCls);
 
   const classes = classnames(

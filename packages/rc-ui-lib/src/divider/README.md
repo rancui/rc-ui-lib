@@ -65,21 +65,19 @@ import { Divider } from 'rc-ui-lib';
 | className       | 类名                              | _string_              | -        |
 | style           | style                             | _React.CSSProperties_ | -        |
 
-
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                              | 默认值                    | 描述 |
-| --------------------------------- | ------------------------- | ---- |
+| 名称                             | 默认值                   | 描述 |
+| -------------------------------- | ------------------------ | ---- |
 | --rc-divider-margin              | _var(--rc-padding-md) 0_ | -    |
 | --rc-divider-text-color          | _var(--rc-gray-6)_       | -    |
 | --rc-divider-font-size           | _var(--rc-font-size-md)_ | -    |
-| --rc-divider-line-height         | _24px_                    | -    |
+| --rc-divider-line-height         | _24px_                   | -    |
 | --rc-divider-border-color        | _var(--rc-border-color)_ | -    |
 | --rc-divider-content-padding     | _var(--rc-padding-md)_   | -    |
-| --rc-divider-content-left-width  | _10%_                     | -    |
-| --rc-divider-content-right-width | _10%_                     | -    |
+| --rc-divider-content-left-width  | _10%_                    | -    |
+| --rc-divider-content-right-width | _10%_                    | -    |

@@ -94,8 +94,8 @@ export default () => {
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                                  | 默认值                     | 描述 |
-| ------------------------------------- | -------------------------- | ---- |
+| 名称                                 | 默认值                    | 描述 |
+| ------------------------------------ | ------------------------- | ---- |
 | --rc-step-text-color                 | _var(--rc-gray-6)_        | -    |
 | --rc-step-active-color               | _var(--rc-success-color)_ | -    |
 | --rc-step-process-text-color         | _var(--rc-text-color)_    | -    |
@@ -103,8 +103,8 @@ export default () => {
 | --rc-step-line-color                 | _var(--rc-border-color)_  | -    |
 | --rc-step-finish-line-color          | _var(--rc-success-color)_ | -    |
 | --rc-step-finish-text-color          | _var(--rc-text-color)_    | -    |
-| --rc-step-icon-size                  | _12px_                     | -    |
-| --rc-step-circle-size                | _5px_                      | -    |
+| --rc-step-icon-size                  | _12px_                    | -    |
+| --rc-step-circle-size                | _5px_                     | -    |
 | --rc-step-circle-color               | _var(--rc-gray-6)_        | -    |
 | --rc-step-horizontal-title-font-size | _var(--rc-font-size-sm)_  | -    |
 | --rc-steps-background-color          | _var(--rc-white)_         | -    |

@@ -7,11 +7,13 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const SpinIcon = ({ bem }) => (
   <>
     {Array(12)
-    .fill(null)
-    // eslint-disable-next-line react/no-array-index-key
-    .map((_, index) => <i key={index} className={classnames(bem('line', String(index + 1)))} />)}
+      .fill(null)
+      // eslint-disable-next-line react/no-array-index-key
+      .map((_, index) => (
+        <i key={index} className={classnames(bem('line', String(index + 1)))} />
+      ))}
   </>
-)
+);
 
 const CircularIcon = ({ bem }) => (
   <svg className={classnames(bem('circular'))} viewBox="25 25 50 50">
@@ -27,7 +29,7 @@ const BallIcon = ({ bem }) => (
   </div>
 );
 
-const Icon = (bem) =>  ({
+const Icon = (bem) => ({
   spinner: <SpinIcon bem={bem} />,
   circular: <CircularIcon bem={bem} />,
   ball: <BallIcon bem={bem} />,

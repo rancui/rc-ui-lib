@@ -86,19 +86,18 @@ export default () => {
 | className | 类名 | _string_ | - |
 | style | style | _React.CSSProperties_ | - |
 
-
 ## 主题定制
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
 
-| 名称                                   | 默认值                    | 描述 |
-| -------------------------------------- | ------------------------- | ---- |
-| --rc-skeleton-row-height              | _16px_                    | -    |
+| 名称                                  | 默认值                   | 描述 |
+| ------------------------------------- | ------------------------ | ---- |
+| --rc-skeleton-row-height              | _16px_                   | -    |
 | --rc-skeleton-row-background-color    | _var(--rc-active-color)_ | -    |
 | --rc-skeleton-row-margin-top          | _var(--rc-padding-sm)_   | -    |
-| --rc-skeleton-title-width             | _40%_                     | -    |
-| --rc-skeleton-avatar-size             | _32px_                    | -    |
+| --rc-skeleton-title-width             | _40%_                    | -    |
+| --rc-skeleton-avatar-size             | _32px_                   | -    |
 | --rc-skeleton-avatar-background-color | _var(--rc-active-color)_ | -    |
-| --rc-skeleton-animation-duration      | _1.2s_                    | -    |
+| --rc-skeleton-animation-duration      | _1.2s_                   | -    |

@@ -65,7 +65,7 @@ describe('Cell', () => {
         <Cell title="单元格" value="内容" label="描述信息" />
       </Cell.Group>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using title prop in Cell.Group', () => {
@@ -79,7 +79,7 @@ describe('Cell', () => {
         </Cell.Group>
       </div>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render correctly when using inset prop in Cell.Group', () => {
@@ -89,6 +89,6 @@ describe('Cell', () => {
         <Cell title="单元格" value="内容" label="描述信息" />
       </Cell.Group>,
     );
-    expect(toJson(wrapper.html())).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
