@@ -125,6 +125,7 @@ describe('Cascader', () => {
   });
 
   test('should render option correctly when using defaultValue prop', async () => {
+    Date.now = jest.fn(() => 1482363367071);
     wrapper = mount(<Cascader options={options} defaultValue={['330000']} />);
     await sleep();
     expect(toJson(wrapper)).toMatchSnapshot();

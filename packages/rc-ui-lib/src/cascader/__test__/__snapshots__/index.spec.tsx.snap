@@ -914,7 +914,7 @@ exports[`Cascader should render option correctly when using defaultValue prop 1`
                             "isScrolling": undefined,
                             "isTouchEvent": undefined,
                             "isTouched": undefined,
-                            "lastClickTime": 1638350360847,
+                            "lastClickTime": 1482363367071,
                             "startMoving": undefined,
                             "startTranslate": undefined,
                             "touchStartTime": undefined,
