@@ -125,14 +125,10 @@ describe('Toast', () => {
     Toast.allowMultiple(false);
   });
 
-  it('should trigger onClose callback after closed', async () => {
-    Toast.allowMultiple(true);
-    const onClose = jest.fn();
-    const toast = Toast({ onClose });
-
-    await sleep(2100);
+  it('should trigger onClosed callback after closed', async () => {
+    const toast = Toast({ forbidClick: true });
+    await sleep();
     toast.clear();
-    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('should register component to teleport', async () => {
