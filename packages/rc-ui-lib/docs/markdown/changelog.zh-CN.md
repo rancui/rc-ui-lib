@@ -12,6 +12,15 @@
 
 ## 更新内容
 
+### [v0.2.0](https://github.com/rancui/rc-ui-lib/compare/v0.1.59...v0.2.0)
+
+`2021-11-26`
+
+**Bug Fixes**
+
+- Image: onError 方法中 props.onLoad 改成 props.onError [3138a5](https://github.com/rancui/rc-ui-lib/commit/3138a515763d14826c83e63372d2f0511c8b249c)
+- Popup: 修复在 iOS 13 中 Transition 被触发两次 [3fc1a8](https://github.com/rancui/rc-ui-lib/commit/3fc1a83cb942cf83b3a302374e8cba96fc2e1fbf)
+
 ### [v0.1.59](https://github.com/rancui/rc-ui-lib/compare/v0.1.58...v0.1.59)
 
 `2021-11-23`
