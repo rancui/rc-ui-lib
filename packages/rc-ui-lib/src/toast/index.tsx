@@ -52,10 +52,10 @@ const Toast = (toastProps?: string | ToastProps): unknown => {
     clear: () => null,
   };
   let timer = 0;
-  const { onClose, teleport } = props;
+  // const { onClose, teleport } = props;
   const container = document.createElement('div');
   container.className = 'toast-contanier';
-  const bodyContainer = resolveContainer(teleport);
+  const bodyContainer = resolveContainer(props.teleport);
   bodyContainer.appendChild(container);
 
   const TempToast = () => {
@@ -74,13 +74,11 @@ const Toast = (toastProps?: string | ToastProps): unknown => {
       if (unmountResult && container.parentNode) {
         container.parentNode.removeChild(container);
       }
-
-      onClose?.();
-    }, [onClose, container]);
+    }, [container]);
 
     const handleClose = useCallback(() => {
       setVisible(false);
-      onClose?.();
+      props.onClose?.();
     }, []);
 
     instance.clear = unmountComponent;
@@ -127,9 +125,7 @@ const Toast = (toastProps?: string | ToastProps): unknown => {
 };
 
 const createMethod = (type: ToastType) => (options: string | ToastProps) => {
-  Toast({
-    ...extend({}, currentOptions, defaultOptionsMap.get(type), parseOptions(options), { type }),
-  });
+  Toast(extend({}, currentOptions, defaultOptionsMap.get(type), parseOptions(options), { type }));
 };
 
 ['info', 'loading', 'success', 'fail'].forEach((method) => {

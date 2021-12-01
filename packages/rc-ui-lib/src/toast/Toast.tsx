@@ -31,7 +31,7 @@ const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = 
 
   const handleClick = () => {
     if (props.closeOnClick) {
-      props.onClose();
+      props.onClose?.();
     }
   };
 
