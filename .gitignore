@@ -6,6 +6,7 @@
 .now
 .env
 .env.*
+.vscode
 
 # npm
 node_modules
@@ -26,3 +27,6 @@ dist
 # tests
 **/tests/coverage
 changelog.generated.md
+
+# toole
+del.js
