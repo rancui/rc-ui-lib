@@ -2,7 +2,7 @@
 
 <p align="center">参照 <a href="https://github.com/youzan/vant">Vant</a> 打造的 React 框架移动端组件库。</p>
 <p align="center">
-  <img src="https://img.shields.io/github/workflow/status/rancui/rc-ui-lib/CI/dev?style=flat-square" alt="CI Status" />
+  <img src="https://img.shields.io/github/workflow/status/rancui/rc-ui-lib/CI/main?style=flat-square" alt="CI Status" />
 </p>
 
 <p align="center">
