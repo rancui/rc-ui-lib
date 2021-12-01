@@ -45,7 +45,7 @@ Toast.fail('失败文案');
 
 ```jsx
 let remain = 4;
-const updateConfig = Toast.info({
+const updateConfig = Toast({
   message: `还剩 ${remain + 1} 秒`,
   duration: 5000,
   onClose: () => clearInterval(timer),
