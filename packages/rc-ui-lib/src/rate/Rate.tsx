@@ -1,13 +1,13 @@
-import React, { useRef, useContext, useMemo } from 'react';
+import React, { useRef, useContext, useMemo, TouchEvent } from 'react';
 import classnames from 'classnames';
-import { RateProps } from './PropsType';
-import { addUnit, preventDefault } from '../utils';
-import { useTouch } from '../hooks/use-touch';
-import useRefs from '../hooks/use-refs';
-import Icon from '../icon';
 import useMergedState from '../hooks/use-merged-state';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
-import useEventListener from '../hooks/use-event-listener';
+import { addUnit } from '../utils';
+import { useTouch } from '../hooks/use-touch';
+import useRefs from '../hooks/use-refs';
+import usePassiveHandler from '../hooks/usePassiveHandler';
+import Icon from '../icon';
+import { RateProps } from './PropsType';
 
 type RateStatus = 'full' | 'half' | 'void';
 
@@ -16,12 +16,12 @@ type RateListItem = {
   status: RateStatus;
 };
 
-function getRateStatus(
+const getRateStatus = (
   value: number,
   index: number,
   allowHalf: boolean,
   readonly: boolean,
-): RateListItem {
+): RateListItem => {
   if (value >= index) {
     return { status: 'full', value: 1 };
   }
@@ -39,7 +39,7 @@ function getRateStatus(
   }
 
   return { status: 'void', value: 0 };
-}
+};
 
 const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
@@ -54,7 +54,7 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
 
   const untouchable = () => props.readonly || props.disabled || !touchable;
 
-  const list = useMemo<RateListItem[]>(
+  const starList = useMemo<RateListItem[]>(
     () =>
       Array(count)
         .fill('')
@@ -66,7 +66,6 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
 
   const updateRanges = () => {
     const rects = itemRefs.map((item) => item.getBoundingClientRect());
-
     ranges.current = [];
     rects.forEach((rect, index) => {
       if (props.allowHalf) {
@@ -97,12 +96,11 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
     }
   };
 
-  const onTouchStart = (event: React.TouchEvent) => {
+  const onTouchStart = (event) => {
     if (untouchable()) {
       return;
     }
-
-    touch.start(event.nativeEvent);
+    touch.start(event);
     updateRanges();
   };
 
@@ -115,10 +113,11 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
 
     if (touch.isHorizontal()) {
       const { clientX } = event.touches[0];
-      preventDefault(event);
       select(getScoreByPosition(clientX));
     }
   };
+
+  usePassiveHandler();
 
   const renderStar = (item: RateListItem, index: number) => {
     const {
@@ -127,11 +126,11 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
       color,
       gutter,
       voidIcon,
-      disabled,
       voidColor,
+      disabled,
+      disabledColor,
       allowHalf,
       iconPrefix,
-      disabledColor,
     } = props;
     const score = index + 1;
     const isFull = item.status === 'full';
@@ -187,11 +186,6 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
     );
   };
 
-  useEventListener('touchmove', onTouchMove as EventListener, {
-    target: root.current,
-    depends: [touch.deltaY],
-  });
-
   return (
     <div
       ref={root}
@@ -203,9 +197,10 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
         }),
       )}
       tabIndex={0}
-      onTouchStart={onTouchStart}
+      onTouchStart={(e: TouchEvent) => onTouchStart(e)}
+      onTouchMove={(e: TouchEvent) => onTouchMove(e)}
     >
-      {list.map(renderStar)}
+      {starList.map(renderStar)}
     </div>
   );
 };
