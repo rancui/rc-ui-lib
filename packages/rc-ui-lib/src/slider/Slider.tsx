@@ -1,10 +1,10 @@
-import React, { CSSProperties, useContext, useMemo, useRef, useState } from 'react';
+import React, { CSSProperties, useContext, useMemo, useRef } from 'react';
 import classnames from 'classnames';
 import { SliderProps, SliderValue } from './PropsType';
-import { addUnit, range, addNumber, preventDefault, getSizeStyle, stopPropagation } from '../utils';
+import { addUnit, range, addNumber, getSizeStyle, stopPropagation } from '../utils';
 import { useTouch } from '../hooks/use-touch';
 import { getRect } from '../hooks/use-rect';
-import useEventListener from '../hooks/use-event-listener';
+import usePassiveHandler from '../hooks/usePassiveHandler';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 type NumberRange = [number, number];
@@ -13,8 +13,8 @@ const Slider: React.FC<SliderProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('slider', prefixCls);
 
-  const [buttonRef1, setButtonRef1] = useState<HTMLDivElement>(null);
-  const [buttonRef2, setButtonRef2] = useState<HTMLDivElement>(null);
+  const buttonRef1 = useRef<HTMLDivElement>(null);
+  const buttonRef2 = useRef<HTMLDivElement>(null);
   const buttonIndex = useRef<0 | 1>();
   const startValue = useRef<SliderValue>();
   const currentValue = useRef<SliderValue>(props.value);
@@ -128,6 +128,7 @@ const Slider: React.FC<SliderProps> = (props) => {
         if (reverse) {
           return rect.bottom - event.clientY;
         }
+
         return event.clientY - rect.top;
       }
       if (reverse) {
@@ -138,11 +139,9 @@ const Slider: React.FC<SliderProps> = (props) => {
 
     const total = vertical ? rect.height : rect.width;
     const value = Number(min) + (getDelta() / total) * scope;
-
     if (isRange(modelValue)) {
       const [left, right] = modelValue;
       const middle = (left + right) / 2;
-
       if (value <= middle) {
         updateValue([value, right], true);
       } else {
@@ -158,7 +157,7 @@ const Slider: React.FC<SliderProps> = (props) => {
       return;
     }
 
-    touch.start(event);
+    touch.start(event as TouchEvent);
     currentValue.current = JSON.parse(JSON.stringify(props.value));
 
     if (isRange(currentValue.current)) {
@@ -178,15 +177,15 @@ const Slider: React.FC<SliderProps> = (props) => {
     if (dragStatus.current === 'start') {
       props.onDragStart?.(event, startValue.current as number & [number, number]);
     }
-
-    preventDefault(event, true);
-    touch.move(event);
+    touch.move(event as TouchEvent);
     dragStatus.current = 'dragging';
 
     const rect = getRect(root.current);
     const delta = props.vertical ? touch.deltaY.current : touch.deltaX.current;
+
     const total = props.vertical ? rect.height : rect.width;
     let diff = (delta / total) * scope;
+
     if (props.reverse) {
       diff = -diff;
     }
@@ -264,6 +263,7 @@ const Slider: React.FC<SliderProps> = (props) => {
           }
           onTouchStart(event);
         }}
+        onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         onTouchCancel={onTouchEnd}
         onClick={stopPropagation}
@@ -273,14 +273,7 @@ const Slider: React.FC<SliderProps> = (props) => {
     );
   };
 
-  useEventListener('touchmove', onTouchMove as EventListener, {
-    target: buttonRef1,
-    depends: [touch.deltaX, touch.deltaY, props.disabled, props.readonly],
-  });
-  useEventListener('touchmove', onTouchMove as EventListener, {
-    target: buttonRef2,
-    depends: [touch.deltaX, touch.deltaY, props.disabled, props.readonly],
-  });
+  usePassiveHandler();
 
   return (
     <div
@@ -297,8 +290,8 @@ const Slider: React.FC<SliderProps> = (props) => {
     >
       <div className={classnames(bem('bar'))} style={barStyle}>
         {props.range
-          ? [renderButton(setButtonRef1, 0), renderButton(setButtonRef2, 1)]
-          : renderButton(setButtonRef1)}
+          ? [renderButton(buttonRef1, 0), renderButton(buttonRef2, 1)]
+          : renderButton(buttonRef1)}
       </div>
     </div>
   );
@@ -308,6 +301,7 @@ Slider.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
+  range: false,
 };
 
 export default Slider;
