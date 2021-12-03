@@ -12,6 +12,22 @@
 
 ## 更新内容
 
+### [v0.2.2](https://github.com/rancui/rc-ui-lib/compare/v0.2.1...v0.2.2)
+
+`2021-12-01`
+
+**Bug Fixes**
+
+- Toast: 允许同时存在多个 Toast，当 toast = Toast({ onClose }) 且 toast.clear() 时 onClose 被调用两次 [85e808](https://github.com/rancui/rc-ui-lib/commit/85e808c69df4c0f2ee801ca08638aac2cb61610a)
+
+### [v0.2.1](https://github.com/rancui/rc-ui-lib/compare/v0.2.0...v0.2.1)
+
+`2021-12-01`
+
+**Perf**
+
+- Rate: 提升 touchmove 时被选中/取消的流畅度 [ff412f](https://github.com/rancui/rc-ui-lib/commit/ff412fe469d039492a57fd355fcbf46be62fb75a)
+
 ### [v0.2.0](https://github.com/rancui/rc-ui-lib/compare/v0.1.59...v0.2.0)
 
 `2021-11-26`
