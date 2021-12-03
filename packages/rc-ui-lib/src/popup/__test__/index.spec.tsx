@@ -57,10 +57,12 @@ describe('Popup', () => {
   it('should emit close event when visible prop is set to false', async () => {
     const onClickOverlay = jest.fn();
     const onClose = jest.fn();
-    wrapper = mount(<Popup visible onClickOverlay={onClickOverlay} onClose={onClose} />);
+    wrapper = mount(<Popup onClickOverlay={onClickOverlay} onClose={onClose} />);
+    wrapper.setProps({ visible: true });
     const overlay = wrapper.find('.rc-overlay');
     await overlay.simulate('click');
     wrapper.setProps({ visible: false });
+    expect(onClickOverlay).toHaveBeenCalled();
     expect(onClose).toHaveBeenCalled();
   });
 
