@@ -19,6 +19,7 @@ yarn-error.json
 es
 lib
 dist
+packages/rc-ui-lib/site
 
 # log file
 .changelog
