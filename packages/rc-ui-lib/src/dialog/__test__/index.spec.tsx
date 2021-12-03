@@ -57,10 +57,11 @@ describe('Dialog', () => {
   it('should emit close event when show prop is set to false', async () => {
     const onClose = jest.fn();
     const onClickCloseIcon = jest.fn();
-    wrapper = mount(
-      <Dialog visible onClose={onClose} closeable onClickCloseIcon={onClickCloseIcon} />,
-    );
+    wrapper = mount(<Dialog onClose={onClose} closeable onClickCloseIcon={onClickCloseIcon} />);
+    wrapper.setProps({ visible: true });
+
     wrapper.find('i').simulate('click');
+    wrapper.setProps({ visible: false });
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
