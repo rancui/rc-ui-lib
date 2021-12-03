@@ -162,10 +162,10 @@ Toast.resetDefaultOptions('loading');
 ### Options
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | type | 提示类型，可选值为 `loading` `success` `fail` `info` | _string_ | `info` |
 | position | 位置，可选值为 `top` `bottom` | _string_ | `middle` |
-| message | 文本内容，支持通过`\n`换行 | _string_ | `''` | - |
+| message | 文本内容，支持通过`\n`换行 | _string_ | - |
 | icon | 自定义图标 | _string\|ReactNode_ | - |
 | iconSize | 图标大小，如 `20px` `2em`，默认单位为 `px` | _number \| string_ | `36px` |
 | iconPrefix | 图标类名前缀，等同于 Icon 组件的 [class-prefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
