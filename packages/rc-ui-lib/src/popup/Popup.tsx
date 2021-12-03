@@ -228,6 +228,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
 
   useEffect(() => {
     if (visible) {
+      opened.current = true;
       setAnimatedVisible(true);
     }
   }, [visible]);
