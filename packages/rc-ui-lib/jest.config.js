@@ -4,10 +4,10 @@ module.exports = {
   testPathIgnorePatterns: ['/es/', '/lib/', '<rootDir>/node_modules/'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
-    '!src/hooks/**',
-    '!src/utils/**',
+    '!**/hooks/**',
+    '!**/utils/**',
     '!**/demo/**',
-    '!src/**/PropsType.ts',
-    '!src/**/index.tsx',
+    '!**/**/PropsType.ts',
+    '!**/**/index.tsx',
   ],
 };
