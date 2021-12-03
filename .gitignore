@@ -18,7 +18,6 @@ yarn-error.json
 # dist file
 es
 lib
-site
 dist
 
 # log file
