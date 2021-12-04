@@ -4,7 +4,7 @@ export function mockGetBoundingClientRect(rect: Partial<DOMRect>): () => void {
   return () => spy.mockRestore();
 }
 
-export function mockRect(vertical?: boolean) {
+export function mockRect(vertical?: boolean): () => void {
   return mockGetBoundingClientRect({
     width: vertical ? 0 : 100,
     height: vertical ? 100 : 0,
