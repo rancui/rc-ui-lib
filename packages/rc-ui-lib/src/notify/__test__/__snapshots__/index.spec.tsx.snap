@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notify should render Notify correctly 1`] = `
+<div
+  class="rc-popup rc-popup--top rc-notify rc-notify--danger rc-popup-slide-top-enter-done"
+  style="z-index: 2000; color: white; transition-duration: 300ms;"
+>
+  test
+</div>
+`;
