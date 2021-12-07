@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Cell, Toast, ImagePreview } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell, Toast, ImagePreview } from '../..';
 import './style.less';
 
 const images = [
