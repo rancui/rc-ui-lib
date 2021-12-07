@@ -82,6 +82,10 @@ module.exports = {
                 title: 'Typography 文本',
               },
               {
+                path: 'styles',
+                title: 'Style 内置样式',
+              },
+              {
                 path: 'icon',
                 title: 'Icon 图标',
               },
@@ -92,10 +96,6 @@ module.exports = {
               {
                 path: 'popup',
                 title: 'Popup 弹出层',
-              },
-              {
-                path: 'styles',
-                title: 'Style 内置样式',
               },
               {
                 path: 'toast',
@@ -273,8 +273,8 @@ module.exports = {
                 title: 'Sticky 粘性布局',
               },
               {
-                path: 'swipe',
-                title: 'Swipe 轮播',
+                path: 'swiper',
+                title: 'Swiper 轮播',
               },
               {
                 path: 'tag',
