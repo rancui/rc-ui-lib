@@ -21,22 +21,40 @@
   height: 100%;
   background-color: transparent;
   transform: none;
+  user-select: none;
+  touch-action: none;
 
   &__swipe {
+    display: flex;
+    align-items: center;
     height: 100%;
 
-    &-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    .@{rc-prefix}-swiper__track {
+      height: 100%;
+      &-inner {
+        align-items: center;
+        height: 100%;
+      }
     }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
   }
 
   &__cover {
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  &__control {
+    user-select: none;
+    touch-action: none;
   }
 
   &__image {
