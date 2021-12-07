@@ -23,7 +23,6 @@ export { default as Steps } from './steps';
 export { default as Toast } from './toast';
 export { default as ActionSheet } from './action-sheet';
 export { default as Dialog } from './dialog';
-export { default as Swipe } from './swipe';
 export { default as Swiper } from './swiper';
 export { default as Tabs } from './tabs';
 export { default as Sticky } from './sticky';
