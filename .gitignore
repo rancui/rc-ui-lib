@@ -20,6 +20,7 @@ es
 lib
 dist
 packages/rc-ui-lib/site
+packages/rc-ui-lib/**/*.css
 
 # log file
 .changelog
