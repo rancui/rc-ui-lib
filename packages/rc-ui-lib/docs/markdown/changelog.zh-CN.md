@@ -12,6 +12,22 @@
 
 ## 更新内容
 
+### [v0.2.5](https://github.com/rancui/rc-ui-lib/compare/v0.2.4...v0.2.5)
+
+`2021-12-03`
+
+**Bug Fixes**
+
+- Popup： 修复 visibl 初始值为 true 时,点击 overlay 或 closeIcon 关闭不了 [211680](https://github.com/rancui/rc-ui-lib/commit/21168035996381d3bea28bc4f39d11b253931238)
+
+### [v0.2.3](https://github.com/rancui/rc-ui-lib/compare/v0.2.2...v0.2.3)
+
+`2021-12-02`
+
+**Perf**
+
+- Slider: 优化 Slider 组件代码, 并显性增加 onTouchMove 事件。[2d6fc4](https://github.com/rancui/rc-ui-lib/commit/2d6fc48986a70ad9111e85bbca2502082a9b1c4a)
+
 ### [v0.2.2](https://github.com/rancui/rc-ui-lib/compare/v0.2.1...v0.2.2)
 
 `2021-12-01`
