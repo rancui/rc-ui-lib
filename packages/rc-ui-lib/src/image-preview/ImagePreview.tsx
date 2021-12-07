@@ -1,56 +1,57 @@
 import React, { useContext, useRef, useState } from 'react';
 import classnames from 'classnames';
-import { ImagePreviewProps } from './PropsType';
+import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { pick } from '../utils';
 import Icon from '../icon';
-import Swipe from '../swipe';
-import Image from '../image';
-import Loading from '../loading';
+import Swiper from '../swiper';
+import ImagePreviewItem from './ImagePreviewItem';
+import { ImagePreviewProps } from './PropsType';
 import Popup from '../popup';
-import ConfigProviderContext from '../config-provider/ConfigProviderContext';
+import { SwiperInstance } from '../swiper/PropsType';
 
 const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
-  const [bem] = createNamespace('imagee-preview', prefixCls);
+  const [bem] = createNamespace('image-preview', prefixCls);
   const [active, setActive] = useState(() => props.startPosition);
-  const mountedRef = useRef(false);
+  const swiperRef = useRef<SwiperInstance>(null);
 
   const onSwipeChange = (idx: number) => {
-    if (active !== idx && mountedRef.current) {
+    if (active !== idx) {
       setActive(idx);
       props.onChange?.(idx);
     }
   };
 
   const renderImages = () => (
-    <Swipe
-      onAfterInit={() => {
-        mountedRef.current = true;
-      }}
-      observer
-      observeParents
+    <Swiper
+      ref={swiperRef}
+      defaultIndex={active}
       loop={props.loop}
       className={classnames(bem('swipe'))}
-      duration={props.swipeDuration}
-      initialSwipe={active}
-      onChange={onSwipeChange}
-      pagination={props.showIndicators}
+      autoplayInterval={props.swipeDuration}
+      onIndexChange={onSwipeChange}
+      indicator={props.showIndicators}
     >
       {props.images.map((image, i) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Swipe.Item key={i}>
-          <Image
-            onClick={() => {
+        <Swiper.Item className={classnames(bem('item'))} key={image}>
+          <ImagePreviewItem
+            maxZoom={props.maxZoom}
+            image={image}
+            onTap={() => {
               props.onClose?.({ url: image, index: i });
             }}
-            loadingIcon={<Loading type="spinner" />}
-            src={image}
-            fit="contain"
-            className={classnames(bem('image'))}
+            onZoomChange={(zoom) => {
+              if (zoom !== 1) {
+                swiperRef.current?.lock();
+              } else {
+                swiperRef.current?.unlock();
+              }
+            }}
           />
-        </Swipe.Item>
+        </Swiper.Item>
       ))}
-    </Swipe>
+    </Swiper>
   );
 
   const renderClose = () => {
@@ -81,7 +82,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
 
   return (
     <Popup
-      className={classnames(bem(), props.className)}
+      className={classnames(props.className, bem())}
       overlayClass={classnames(bem('overlay'))}
       beforeClose={props.beforeClose}
       {...pick(props, ['visible', 'overlayStyle', 'closeOnPopstate', 'onClose', 'onClosed'])}
