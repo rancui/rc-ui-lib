@@ -8,6 +8,9 @@ export interface ImagePreviewProps extends BaseTypeProps {
   visible?: boolean;
   /** 是否开启循环播放 */
   loop?: boolean;
+  /** 最大放大倍数 */
+  maxZoom?: number;
+  /** 是否开启遮罩层 */
   overlay?: boolean;
   /** 是否在页面回退时自动关闭 */
   closeable?: boolean;
@@ -54,3 +57,11 @@ export type ImagePreviewStatic = {
   /** 调用该函数后会直接在页面中展示图片预览界面 */
   open: (OpenProps: Omit<ImagePreviewProps, 'visible'>) => () => void;
 };
+
+export interface ImagePreviewItemProps extends BaseTypeProps {
+  // lazyload: LazyImageType;
+  image: string;
+  maxZoom: number;
+  onTap: () => void;
+  onZoomChange?: (zoom: number) => void;
+}
