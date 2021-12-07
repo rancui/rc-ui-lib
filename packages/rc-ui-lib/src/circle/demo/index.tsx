@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Flex, Button, ButtonGroup } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Flex, Button } from '../..';
 import Circle from '..';
 
 import './style.less';
@@ -52,14 +52,14 @@ export default (): React.ReactNode => {
         />
 
         <Flex style={{ marginTop: 15 }} align="center" justify="center">
-          <ButtonGroup>
+          <Button.Group>
             <Button onClick={add} type="primary">
               增加
             </Button>
             <Button onClick={reduce} type="danger">
               减少
             </Button>
-          </ButtonGroup>
+          </Button.Group>
         </Flex>
       </DemoBlock>
       <DemoBlock title="起始位置">
