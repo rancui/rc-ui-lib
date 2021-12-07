@@ -1,6 +1,6 @@
 import React from 'react';
-import { Swipe } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Swiper } from '../..';
 import './style.less';
 import NoticeBar from '..';
 
@@ -34,11 +34,16 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="垂直滚动">
         <NoticeBar leftIcon="volume-o">
-          <Swipe autoplay={1000} pagination={false} vertical className="notice-swipe">
-            <Swipe.Item>内容 1</Swipe.Item>
-            <Swipe.Item>内容 2</Swipe.Item>
-            <Swipe.Item>内容 3</Swipe.Item>
-          </Swipe>
+          <Swiper
+            autoplayInterval={1000}
+            indicator={false}
+            direction="vertical"
+            className="notice-swipe"
+          >
+            <Swiper.Item>内容 1</Swiper.Item>
+            <Swiper.Item>内容 2</Swiper.Item>
+            <Swiper.Item>内容 3</Swiper.Item>
+          </Swiper>
         </NoticeBar>
       </DemoBlock>
     </DemoSection>
