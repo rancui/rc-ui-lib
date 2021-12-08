@@ -25,7 +25,8 @@ jobs:
             node_modules
             */*/node_modules
           key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
-
+      - name: Clear
+        run: lerna clean
       - name: Install
         run: yarn bootstrap
   compile-cli:
