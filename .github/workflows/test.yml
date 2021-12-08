@@ -27,7 +27,6 @@ jobs:
           key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn bootstrap
   compile-cli:
     name: building cli
