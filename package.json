@@ -15,6 +15,7 @@
     "release": "lerna exec --scope rc-ui-lib yarn release",
     "test": "lerna exec --scope rc-ui-lib yarn test",
     "clean": "lerna clean -y",
+    "clearCache": "lerna exec --scope rc-ui-lib yarn test:clearCache",
     "publish": "lerna publish",
     "lint:prettier": "prettier --write  \"packages/rc-ui-lib/src/**/*.{js,json,ts,tsx,css,less,md}\""
   },

@@ -17,7 +17,8 @@
     "build:site": "rc-cli build-site",
     "release:site": "yarn build:site && gh-pages -d site",
     "prepack": "yarn build",
-    "test": "rc-cli test --u --colors --coverage",
+    "test": "rc-cli test -u --colors --coverage",
+    "test:clearCache": "rc-cli test --clearCache",
     "test:coverage": "open tests/coverage/index.html"
   },
   "author": "rancui",
