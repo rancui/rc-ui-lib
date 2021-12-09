@@ -39,7 +39,7 @@ program
   .option('--debug', 'Print debugging info about your Jest config')
   .option('--colors', 'Print test coverage statistics with color')
   .option('--coverage', 'generate test coverage report')
-  .option('--u, --update-snapshot', 'update snapshot')
+  .option('-u, --update-snapshot', 'update snapshot')
   .action(test);
 
 program.command('clean').description('Clean all dist files').action(clean);
