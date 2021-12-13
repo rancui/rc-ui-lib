@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react';
+
 export type ScrollEventParams = {
   scrollTop: number;
   isFixed: boolean;
@@ -5,7 +7,7 @@ export type ScrollEventParams = {
 
 export type StickyPosition = 'top' | 'bottom';
 
-export interface StickyProps {
+export interface StickyComponentProps {
   /** 吸顶时的 z-index	 */
   zIndex?: number | string;
   /**
@@ -23,3 +25,6 @@ export interface StickyProps {
   /** 当吸顶状态改变时触发	 */
   onChange?: (isFixed: boolean) => void;
 }
+
+export type StickyProps = StickyComponentProps &
+  Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll'>;
