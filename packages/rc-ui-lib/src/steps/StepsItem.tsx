@@ -38,7 +38,7 @@ const StepsItem: React.FC<StepsItemProps> = ({ children, ...props }) => {
     if (isActive()) {
       return { color: parentProps.activeColor };
     }
-    if (!getStatus()) {
+    if (getStatus() === 'waiting') {
       return { color: parentProps.inactiveColor };
     }
     return {};
