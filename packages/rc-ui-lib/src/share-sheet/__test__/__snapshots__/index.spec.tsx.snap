@@ -1,0 +1,808 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareSheet should render cancel text when using cancel-text prop 1`] = `
+<button
+  className="rc-share-sheet__cancel"
+  onClick={[Function]}
+  type="button"
+>
+  foo
+</button>
+`;
+
+exports[`ShareSheet should render description and title when using description prop and title prop 1`] = `"<div class=\\"rc-share-sheet__description\\">foo</div>"`;
+
+exports[`ShareSheet should render description and title when using description prop and title prop 2`] = `"<div class=\\"rc-share-sheet__title\\">hoo</div>"`;
+
+exports[`ShareSheet should render multi Line when option item is array 1`] = `
+<ShareSheet
+  cancelText="取消"
+  closeOnClickOverlay={true}
+  closeOnPopstate={true}
+  options={
+    Array [
+      Array [
+        Object {
+          "icon": "wechat",
+          "name": "微信",
+        },
+        Object {
+          "icon": "wechat-moments",
+          "name": "朋友圈",
+        },
+        Object {
+          "icon": "https://img.yzcdn.cn/vant/share-sheet-weibo.png",
+          "name": "微博",
+        },
+        Object {
+          "icon": "qq",
+          "name": "QQ",
+        },
+      ],
+      Array [
+        Object {
+          "icon": "link",
+          "name": "复制链接",
+        },
+        Object {
+          "icon": "poster",
+          "name": "分享海报",
+        },
+        Object {
+          "icon": "qrcode",
+          "name": "二维码",
+        },
+        Object {
+          "icon": "weapp-qrcode",
+          "name": "小程序码",
+        },
+      ],
+    ]
+  }
+  safeAreaInsetBottom={true}
+  visible={true}
+>
+  <Popup
+    className="rc-share-sheet"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    closeOnPopstate={true}
+    duration={300}
+    lockScroll={true}
+    onClose={[Function]}
+    overlay={true}
+    position="bottom"
+    round={true}
+    safeAreaInsetBottom={true}
+    teleport={[Function]}
+    visible={true}
+  >
+    <Portal
+      containerInfo={
+        <body
+          class="rc-overflow-hidden"
+        >
+          <div
+            class="rc-overlay"
+            style="z-index: 2000; animation-duration: 300ms;"
+          />
+          <div
+            class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-share-sheet"
+            style="z-index: 2000; transition-duration: 300ms;"
+          >
+            <div
+              class="rc-share-sheet__options"
+            >
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-wechat.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  微信
+                </span>
+              </div>
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-wechat-moments.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  朋友圈
+                </span>
+              </div>
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-weibo.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  微博
+                </span>
+              </div>
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-qq.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  QQ
+                </span>
+              </div>
+            </div>
+            <div
+              class="rc-share-sheet__options rc-share-sheet__options--border"
+            >
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-link.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  复制链接
+                </span>
+              </div>
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-poster.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  分享海报
+                </span>
+              </div>
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-qrcode.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  二维码
+                </span>
+              </div>
+              <div
+                class="rc-share-sheet__option"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="share sheet icon"
+                  class="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-weapp-qrcode.png"
+                />
+                <span
+                  class="rc-share-sheet__name"
+                >
+                  小程序码
+                </span>
+              </div>
+            </div>
+            <button
+              class="rc-share-sheet__cancel"
+              type="button"
+            >
+              取消
+            </button>
+          </div>
+        </body>
+      }
+    >
+      <Overlay
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        visible={true}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-overlay"
+                style="z-index: 2000; animation-duration: 300ms;"
+              />,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": <div
+                  class="rc-overlay"
+                  style="z-index: 2000; animation-duration: 300ms;"
+                />,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          >
+            <div
+              className="rc-overlay"
+              onClick={[Function]}
+              style={
+                Object {
+                  "animationDuration": "300ms",
+                  "zIndex": 2000,
+                }
+              }
+            />
+          </Transition>
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-popup-slide-bottom"
+        in={true}
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": <div
+              class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-share-sheet"
+              style="z-index: 2000; transition-duration: 300ms;"
+            >
+              <div
+                class="rc-share-sheet__options"
+              >
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-wechat.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    微信
+                  </span>
+                </div>
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-wechat-moments.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    朋友圈
+                  </span>
+                </div>
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-weibo.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    微博
+                  </span>
+                </div>
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-qq.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    QQ
+                  </span>
+                </div>
+              </div>
+              <div
+                class="rc-share-sheet__options rc-share-sheet__options--border"
+              >
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-link.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    复制链接
+                  </span>
+                </div>
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-poster.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    分享海报
+                  </span>
+                </div>
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-qrcode.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    二维码
+                  </span>
+                </div>
+                <div
+                  class="rc-share-sheet__option"
+                  role="button"
+                  tabindex="0"
+                >
+                  <img
+                    alt="share sheet icon"
+                    class="rc-share-sheet__icon"
+                    src="https://img.yzcdn.cn/vant/share-sheet-weapp-qrcode.png"
+                  />
+                  <span
+                    class="rc-share-sheet__name"
+                  >
+                    小程序码
+                  </span>
+                </div>
+              </div>
+              <button
+                class="rc-share-sheet__cancel"
+                type="button"
+              >
+                取消
+              </button>
+            </div>,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-share-sheet"
+                style="z-index: 2000; transition-duration: 300ms;"
+              >
+                <div
+                  class="rc-share-sheet__options"
+                >
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-wechat.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      微信
+                    </span>
+                  </div>
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-wechat-moments.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      朋友圈
+                    </span>
+                  </div>
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-weibo.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      微博
+                    </span>
+                  </div>
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-qq.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      QQ
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="rc-share-sheet__options rc-share-sheet__options--border"
+                >
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-link.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      复制链接
+                    </span>
+                  </div>
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-poster.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      分享海报
+                    </span>
+                  </div>
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-qrcode.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      二维码
+                    </span>
+                  </div>
+                  <div
+                    class="rc-share-sheet__option"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="share sheet icon"
+                      class="rc-share-sheet__icon"
+                      src="https://img.yzcdn.cn/vant/share-sheet-weapp-qrcode.png"
+                    />
+                    <span
+                      class="rc-share-sheet__name"
+                    >
+                      小程序码
+                    </span>
+                  </div>
+                </div>
+                <button
+                  class="rc-share-sheet__cancel"
+                  type="button"
+                >
+                  取消
+                </button>
+              </div>,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        >
+          <div
+            className="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-share-sheet"
+            style={
+              Object {
+                "display": undefined,
+                "transitionDuration": "300ms",
+                "zIndex": 2000,
+              }
+            }
+          >
+            <div
+              className="rc-share-sheet__options"
+              key="0"
+            >
+              <div
+                className="rc-share-sheet__option"
+                key="0"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-wechat.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  微信
+                </span>
+              </div>
+              <div
+                className="rc-share-sheet__option"
+                key="1"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-wechat-moments.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  朋友圈
+                </span>
+              </div>
+              <div
+                className="rc-share-sheet__option"
+                key="2"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-weibo.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  微博
+                </span>
+              </div>
+              <div
+                className="rc-share-sheet__option"
+                key="3"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-qq.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  QQ
+                </span>
+              </div>
+            </div>
+            <div
+              className="rc-share-sheet__options rc-share-sheet__options--border"
+              key="1"
+            >
+              <div
+                className="rc-share-sheet__option"
+                key="0"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-link.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  复制链接
+                </span>
+              </div>
+              <div
+                className="rc-share-sheet__option"
+                key="1"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-poster.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  分享海报
+                </span>
+              </div>
+              <div
+                className="rc-share-sheet__option"
+                key="2"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-qrcode.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  二维码
+                </span>
+              </div>
+              <div
+                className="rc-share-sheet__option"
+                key="3"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <img
+                  alt="share sheet icon"
+                  className="rc-share-sheet__icon"
+                  src="https://img.yzcdn.cn/vant/share-sheet-weapp-qrcode.png"
+                />
+                <span
+                  className="rc-share-sheet__name"
+                >
+                  小程序码
+                </span>
+              </div>
+            </div>
+            <button
+              className="rc-share-sheet__cancel"
+              onClick={[Function]}
+              type="button"
+            >
+              取消
+            </button>
+          </div>
+        </Transition>
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ShareSheet>
+`;
