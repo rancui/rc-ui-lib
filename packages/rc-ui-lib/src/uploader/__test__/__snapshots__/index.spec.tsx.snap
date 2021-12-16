@@ -1,0 +1,549 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Uploader/> max-count 1`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          >
+            https://upload.com/foo.txt
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__preview-image rc-image rc-image--block"
+        >
+          <img
+            alt="img"
+            class="rc-image__img"
+            src="https://dummyimage.com/50/fff.png"
+            style="object-fit: cover;"
+          />
+          <div
+            class="rc-image__loading"
+          >
+            <i
+              class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+            />
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> render children 1`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__input-wrapper"
+      >
+        <div>
+          children
+        </div>
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> should render correctly when icon prop is ReactNode 1`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__upload"
+      >
+        <i
+          class="rc-badge__wrapper van-icon van-icon-photograph"
+        />
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> should render correctly when icon prop is ReactNode 2`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__upload"
+      >
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> test chooseFile 1`] = `
+<div>
+  <div>
+    <div
+      class="rc-uploader"
+    >
+      <div
+        class="rc-uploader__wrapper"
+      >
+        <div
+          class="rc-uploader__upload"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__upload-icon van-icon van-icon-photograph"
+          />
+          <input
+            accept="image/*"
+            class="rc-uploader__input"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      data-testid="button"
+      type="button"
+    >
+      chooseFile
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> test previewCoverRender 1`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          >
+            https://upload.com/foo.txt
+          </div>
+          <div
+            class="rc-uploader__preview-cover"
+          >
+            <p>
+              https://upload.com/foo.txt
+            </p>
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__preview-image rc-image rc-image--block"
+        >
+          <img
+            alt="img"
+            class="rc-image__img"
+            src="https://dummyimage.com/50/fff.png"
+            style="object-fit: cover;"
+          />
+          <div
+            class="rc-image__loading"
+          >
+            <i
+              class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+            />
+          </div>
+          <div
+            class="rc-uploader__preview-cover"
+          >
+            <p>
+              https://dummyimage.com/300x200/fff.png
+            </p>
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__upload"
+      >
+        <i
+          class="rc-badge__wrapper rc-uploader__upload-icon van-icon van-icon-photograph"
+        />
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> test remove 1`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          >
+            https://upload.com/foo.txt
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__preview-image rc-image rc-image--block"
+        >
+          <img
+            alt="img"
+            class="rc-image__img"
+            src="https://dummyimage.com/50/fff.png"
+            style="object-fit: cover;"
+          />
+          <div
+            class="rc-image__loading"
+          >
+            <i
+              class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+            />
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__upload"
+      >
+        <i
+          class="rc-badge__wrapper rc-uploader__upload-icon van-icon van-icon-photograph"
+        />
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> test remove 2`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          >
+            https://upload.com/foo.txt
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__preview-image rc-image rc-image--block"
+        >
+          <img
+            alt="img"
+            class="rc-image__img"
+            src="https://dummyimage.com/50/fff.png"
+            style="object-fit: cover;"
+          />
+          <div
+            class="rc-image__loading"
+          >
+            <i
+              class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+            />
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__upload"
+      >
+        <i
+          class="rc-badge__wrapper rc-uploader__upload-icon van-icon van-icon-photograph"
+        />
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Uploader/> thumbnail 1`] = `
+<div>
+  <div
+    class="rc-uploader"
+  >
+    <div
+      class="rc-uploader__wrapper"
+    >
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          />
+        </div>
+        <div
+          class="rc-uploader__mask"
+        >
+          <div
+            class="rc-uploader__loading rc-loading rc-loading--circular"
+          >
+            <span
+              class="rc-loading__spinner rc-loading__spinner--circular"
+            >
+              <svg
+                class="rc-loading__circular"
+                viewBox="25 25 50 50"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  fill="none"
+                  r="20"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          />
+        </div>
+        <div
+          class="rc-uploader__mask"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__mask-icon van-icon van-icon-close"
+          />
+          <div
+            class="rc-uploader__mask-message"
+          >
+            failed
+          </div>
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          />
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__preview"
+      >
+        <div
+          class="rc-uploader__file"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__file-icon van-icon van-icon-description"
+          />
+          <div
+            class="rc-uploader__file-name rc-ellipsis"
+          />
+        </div>
+        <div
+          class="rc-uploader__preview-delete"
+        >
+          <i
+            class="rc-badge__wrapper rc-uploader__preview-delete-icon van-icon van-icon-cross"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-uploader__upload"
+      >
+        <i
+          class="rc-badge__wrapper rc-uploader__upload-icon van-icon van-icon-photograph"
+        />
+        <input
+          accept="image/*"
+          class="rc-uploader__input"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -51,7 +51,7 @@ export type UploaderAfterRead = (
   },
 ) => void;
 
-export interface UploaderPrviewItemProps {
+export interface UploaderPreviewItemProps {
   name?: number | string;
   index?: number;
   imageFit?: ImageFit;
