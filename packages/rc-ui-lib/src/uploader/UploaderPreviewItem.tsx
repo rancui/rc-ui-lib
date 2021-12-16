@@ -10,10 +10,10 @@ import { callInterceptor } from '../utils/interceptor';
 import Icon from '../icon';
 import Image from '../image';
 import Loading from '../loading';
-import { UploaderPrviewItemProps } from './PropsType';
+import { UploaderPreviewItemProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-export const UploaderPreviewItem: React.FC<UploaderPrviewItemProps> = (props) => {
+export const UploaderPreviewItem: React.FC<UploaderPreviewItemProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('uploader', prefixCls);
 
