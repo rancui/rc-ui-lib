@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton should change avatar shape when using avatar-shape prop 1`] = `
+<div
+  className="rc-skeleton__avatar rc-skeleton__avatar--square"
+  style={Object {}}
+/>
+`;
+
+exports[`Skeleton should change avatar size when using avatar-size prop: 20rem 1`] = `"20rem"`;
+
+exports[`Skeleton should change avatar size when using avatar-size prop: 20ren 1`] = `"20rem"`;
+
+exports[`Skeleton should render default slot when loading is false 1`] = `
+<Skeleton
+  animate={true}
+  avatarShape="round"
+  loading={false}
+  round={true}
+  row={3}
+  rowWidth="100%"
+>
+  <div>
+    Content
+  </div>
+</Skeleton>
+`;
+
+exports[`Skeleton should render with row height array correctly 1`] = `
+<Skeleton
+  animate={true}
+  avatarShape="round"
+  loading={true}
+  round={true}
+  row={4}
+  rowHeight={
+    Array [
+      "10px",
+      30,
+      "1rem",
+    ]
+  }
+  rowWidth="100%"
+>
+  <div
+    className="rc-skeleton rc-skeleton--animate rc-skeleton--round"
+  >
+    <div
+      className="rc-skeleton__content"
+    >
+      <div
+        className="rc-skeleton__row"
+        key="0"
+        style={
+          Object {
+            "height": "10px",
+            "width": "100%",
+          }
+        }
+      />
+      <div
+        className="rc-skeleton__row"
+        key="1"
+        style={
+          Object {
+            "height": "30px",
+            "width": "100%",
+          }
+        }
+      />
+      <div
+        className="rc-skeleton__row"
+        key="2"
+        style={
+          Object {
+            "height": "1rem",
+            "width": "100%",
+          }
+        }
+      />
+      <div
+        className="rc-skeleton__row"
+        key="3"
+        style={
+          Object {
+            "height": undefined,
+            "width": "60%",
+          }
+        }
+      />
+    </div>
+  </div>
+</Skeleton>
+`;
+
+exports[`Skeleton should render with row width array correctly 1`] = `
+<Skeleton
+  animate={true}
+  avatarShape="round"
+  loading={true}
+  round={true}
+  row={4}
+  rowWidth={
+    Array [
+      "100%",
+      30,
+      "5rem",
+    ]
+  }
+>
+  <div
+    className="rc-skeleton rc-skeleton--animate rc-skeleton--round"
+  >
+    <div
+      className="rc-skeleton__content"
+    >
+      <div
+        className="rc-skeleton__row"
+        key="0"
+        style={
+          Object {
+            "height": undefined,
+            "width": "100%",
+          }
+        }
+      />
+      <div
+        className="rc-skeleton__row"
+        key="1"
+        style={
+          Object {
+            "height": undefined,
+            "width": "30px",
+          }
+        }
+      />
+      <div
+        className="rc-skeleton__row"
+        key="2"
+        style={
+          Object {
+            "height": undefined,
+            "width": "5rem",
+          }
+        }
+      />
+      <div
+        className="rc-skeleton__row"
+        key="3"
+        style={
+          Object {
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </div>
+  </div>
+</Skeleton>
+`;
+
+exports[`Tabbar render Custom icon correctly 1`] = `"<div class=\\"rc-tabbar rc-tabbar--fixed rc-hairline--top-bottom rc-safe-area-bottom\\"><div class=\\"rc-tabbar-item rc-tabbar-item--active\\"><div class=\\"rc-badge__wrapper rc-tabbar-item__icon\\"><img alt=\\"\\" src=\\"https://img.yzcdn.cn/vant/user-active.png\\"></div><div class=\\"rc-tabbar-item__text\\">标签</div></div><div class=\\"rc-tabbar-item\\"><div class=\\"rc-badge__wrapper rc-tabbar-item__icon\\"><i class=\\"rc-badge__wrapper van-icon van-icon-friends-o\\"></i></div><div class=\\"rc-tabbar-item__text\\">标签</div></div><div class=\\"rc-tabbar-item\\"><div class=\\"rc-badge__wrapper rc-tabbar-item__icon\\"><i class=\\"rc-badge__wrapper van-icon van-icon-setting-o\\"></i></div><div class=\\"rc-tabbar-item__text\\">标签</div></div></div>"`;
+
+exports[`Tabbar should render cust prop 1`] = `"<div class=\\"rc-tabbar__placeholder\\" style=\\"height: 50px;\\"><div class=\\"rc-tabbar rc-tabbar--fixed rc-hairline--top-bottom rc-safe-area-bottom\\"><div class=\\"rc-tabbar-item rc-tabbar-item--active\\"><div class=\\"rc-tabbar-item__text\\">Tab</div></div><div class=\\"rc-tabbar-item\\"><div class=\\"rc-tabbar-item__text\\">Tab</div></div></div></div>"`;
+
+exports[`Tabbar should render placeholder element when using placeholder prop 1`] = `"<div class=\\"rc-tabbar__placeholder\\" style=\\"height: 50px;\\"><div class=\\"rc-tabbar rc-tabbar--fixed rc-hairline--top-bottom rc-safe-area-bottom\\"><div class=\\"rc-tabbar-item rc-tabbar-item--active\\"><div class=\\"rc-tabbar-item__text\\">Tab</div></div><div class=\\"rc-tabbar-item\\"><div class=\\"rc-tabbar-item__text\\">Tab</div></div></div></div>"`;
