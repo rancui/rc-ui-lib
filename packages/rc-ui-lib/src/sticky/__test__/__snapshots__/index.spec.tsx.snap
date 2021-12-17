@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sticky should add offset top when using offset-top prop 1`] = `
+<div>
+  <div
+    style="width: 0px; height: 0px;"
+  >
+    <div
+      class="rc-sticky rc-sticky--fixed"
+      style="z-index: 0; width: 0px; height: 0px; top: 10px;"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should allow to using offset-top prop with rem unit 1`] = `
+<div>
+  <div
+    style="width: 0px; height: 0px;"
+  >
+    <div
+      class="rc-sticky rc-sticky--fixed"
+      style="width: 0px; height: 0px; top: 32px;"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should allow to using offset-top prop with vw unit 1`] = `
+<div>
+  <div
+    style="width: 0px; height: 0px;"
+  >
+    <div
+      class="rc-sticky rc-sticky--fixed"
+      style="width: 0px; height: 0px; top: 30px;"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should not trigger scroll event when hidden 1`] = `
+<div>
+  <div>
+    <div
+      class="rc-sticky"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should render container correctly  1`] = `
+<div>
+  <div
+    style="height: 150px; background-color: rgb(255, 255, 255);"
+  >
+    <div>
+      <div
+        class="rc-sticky"
+      >
+        指定容器
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should sticky inside container bottom when using containerRef prop 1`] = `
+<div
+  data-testid="container"
+  style="margin-top: 640px;"
+>
+  <div
+    style="height: 150px;"
+  />
+  <div>
+    <div
+      class="rc-sticky"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should sticky inside container bottom when using containerRef prop 2`] = `
+<div
+  data-testid="container"
+  style="margin-top: 640px;"
+>
+  <div
+    style="height: 150px;"
+  />
+  <div>
+    <div
+      class="rc-sticky"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should sticky to bottom after scrolling 1`] = `
+<div>
+  <div>
+    <div
+      class="rc-sticky"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should sticky to top after scrolling 1`] = `
+<div>
+  <div>
+    <div
+      class="rc-sticky"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sticky should update z-index when using z-index prop 1`] = `
+<div>
+  <div>
+    <div
+      class="rc-sticky"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
