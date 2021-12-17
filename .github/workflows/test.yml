@@ -45,7 +45,7 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-2
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-1
 
       - name: Cache cli
         uses: actions/cache@v2
@@ -73,7 +73,7 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-3
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-1
 
       - name: Restore cli
         uses: actions/cache@v2
