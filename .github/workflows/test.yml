@@ -8,6 +8,9 @@ on:
   push:
     branches: [main]
 
+  pull_request:
+    branches: [dev]
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   setup:
@@ -24,7 +27,7 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-1
 
       - name: Install
         if: steps.cache.outputs.cache-hit != 'true'
@@ -42,7 +45,7 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-2
 
       - name: Cache cli
         uses: actions/cache@v2
@@ -70,7 +73,7 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-3
 
       - name: Restore cli
         uses: actions/cache@v2
