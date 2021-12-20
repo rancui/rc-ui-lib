@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Tabs, Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
 import List from '../index';
@@ -42,10 +42,13 @@ export default (): React.ReactNode => {
     setCount((v) => v + 1);
     const data = await getData(count === 1);
     setErrorList((v) => [...v, ...data]);
-    if (list.length >= 30) {
+  };
+
+  useEffect(() => {
+    if (errorList.length >= 30) {
       setFinished(true);
     }
-  };
+  }, [errorList]);
 
   const onLoadRefresh = async (isRefresh?) => {
     const data = await getData();

@@ -19,6 +19,8 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
     error: props.error,
   });
 
+  const errorRecent = useRef(props.error);
+
   const root = useRef<HTMLDivElement>();
   const scrollParent = useRef(null);
   const placeholder = useRef<HTMLDivElement>();
@@ -28,7 +30,7 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
   // 判断是否需要加载
   const check = async () => {
     if (!props.onLoad) return;
-    if (state.loading || props.finished || state.error) {
+    if (state.loading || props.finished || errorRecent.current) {
       return;
     }
     const { offset, direction } = props;
@@ -40,7 +42,6 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
 
     let isReachEdge = false;
     const placeholderRect = getRect(placeholder.current);
-
     if (direction === 'up') {
       isReachEdge = scrollParentRect.top - placeholderRect.top <= offset;
     } else {
@@ -55,6 +56,7 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
         // eslint-disable-next-line no-console
         console.warn('onLoad error:', error);
         updateState({ loading: false, error: true });
+        errorRecent.current = true;
       }
     }
   };
@@ -68,6 +70,7 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
 
   const clickErrorText = () => {
     updateState({ error: false });
+    errorRecent.current = false;
     check();
   };
 
@@ -107,6 +110,7 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
 
   useUpdateEffect(() => {
     updateState({ loading: props.loading, error: props.error });
+    errorRecent.current = props.error;
   }, [props.loading, props.error]);
 
   useUpdateEffect(() => {
