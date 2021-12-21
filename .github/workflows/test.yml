@@ -60,12 +60,6 @@ jobs:
   test:
     name: Testing and Coverage
     runs-on: ubuntu-latest
-    status:
-      # Disable patch since it is noisy and not correct
-      patch:
-        default:
-          enabled: no
-          if_not_found: success
     steps:
       - name: Checkout code
         uses: actions/checkout@master
