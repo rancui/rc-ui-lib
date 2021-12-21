@@ -1,0 +1,3630 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImagePreview basic usage 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={3}
+  overlay={true}
+  showIndex={true}
+  showIndicators={false}
+  startPosition={0}
+  swipeDuration={300}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+  >
+    <Portal
+      containerInfo={<body />}
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": null,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": null,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          />
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": undefined,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={false}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": undefined,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        />
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
+
+exports[`ImagePreview designate start position 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={3}
+  overlay={true}
+  showIndex={true}
+  showIndicators={false}
+  startPosition={2}
+  swipeDuration={300}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+  >
+    <Portal
+      containerInfo={<body />}
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": null,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": null,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          />
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": undefined,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={false}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": undefined,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        />
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
+
+exports[`ImagePreview emit onZoomChange event when zoom is 1 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={3}
+  overlay={true}
+  showIndex={true}
+  showIndicators={false}
+  startPosition={0}
+  swipeDuration={300}
+  visible={true}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+    visible={true}
+  >
+    <Portal
+      containerInfo={
+        <body
+          class="rc-overflow-hidden"
+        >
+          <div
+            class="rc-overlay rc-image-preview__overlay"
+            style="z-index: 2000; animation-duration: 300ms;"
+          />
+          <div
+            class="rc-popup rc-popup--center rc-image-preview"
+            style="z-index: 2000; animation-duration: 300ms;"
+          >
+            <div
+              class="rc-image-preview__swipe rc-swiper"
+              style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+            >
+              <div
+                class="rc-swiper__track rc-swiper__track--allow-touch-move"
+              >
+                <div
+                  class="rc-swiper__track-inner"
+                >
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -0%; transform: none;"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -100%; transform: translate3d(100%,0,0);"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -200%; transform: translate3d(-100%,0,0);"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rc-image-preview__index"
+            >
+              1 / 3
+            </div>
+          </div>
+        </body>
+      }
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        visible={true}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-overlay rc-image-preview__overlay"
+                style="z-index: 2000; animation-duration: 300ms;"
+              />,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": <div
+                  class="rc-overlay rc-image-preview__overlay"
+                  style="z-index: 2000; animation-duration: 300ms;"
+                />,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          >
+            <div
+              className="rc-overlay rc-image-preview__overlay"
+              onClick={[Function]}
+              style={
+                Object {
+                  "animationDuration": "300ms",
+                  "zIndex": 2000,
+                }
+              }
+            />
+          </Transition>
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        in={true}
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": <div
+              class="rc-popup rc-popup--center rc-image-preview"
+              style="z-index: 2000; animation-duration: 300ms;"
+            >
+              <div
+                class="rc-image-preview__swipe rc-swiper"
+                style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+              >
+                <div
+                  class="rc-swiper__track rc-swiper__track--allow-touch-move"
+                >
+                  <div
+                    class="rc-swiper__track-inner"
+                  >
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -0%; transform: none;"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -100%; transform: translate3d(100%,0,0);"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -200%; transform: translate3d(-100%,0,0);"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rc-image-preview__index"
+              >
+                1 / 3
+              </div>
+            </div>,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-popup rc-popup--center rc-image-preview"
+                style="z-index: 2000; animation-duration: 300ms;"
+              >
+                <div
+                  class="rc-image-preview__swipe rc-swiper"
+                  style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+                >
+                  <div
+                    class="rc-swiper__track rc-swiper__track--allow-touch-move"
+                  >
+                    <div
+                      class="rc-swiper__track-inner"
+                    >
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -0%; transform: none;"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -100%; transform: translate3d(100%,0,0);"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -200%; transform: translate3d(-100%,0,0);"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rc-image-preview__index"
+                >
+                  1 / 3
+                </div>
+              </div>,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        >
+          <div
+            className="rc-popup rc-popup--center rc-image-preview"
+            style={
+              Object {
+                "animationDuration": "300ms",
+                "display": undefined,
+                "zIndex": 2000,
+              }
+            }
+          >
+            <Swiper
+              allowTouchMove={true}
+              autoplay={false}
+              autoplayInterval={300}
+              className="rc-image-preview__swipe"
+              defaultIndex={0}
+              indicator={false}
+              loop={true}
+              onIndexChange={[Function]}
+              slideSize={100}
+              stuckAtBoundary={false}
+              trackOffset={0}
+            >
+              <div
+                className="rc-image-preview__swipe rc-swiper"
+                style={
+                  Object {
+                    "--rc-swipe-slide-size": "100%",
+                    "--rc-swipe-track-offset": "0%",
+                  }
+                }
+              >
+                <div
+                  className="rc-swiper__track rc-swiper__track--allow-touch-move"
+                  onClickCapture={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <div
+                    className="rc-swiper__track-inner"
+                  >
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-1.jpg"
+                      style={
+                        Object {
+                          "left": "-0%",
+                          "x": "0%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-0%",
+                            "transform": "none",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-1.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-1.jpg"
+                              maxZoom={3}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-2.jpg"
+                      style={
+                        Object {
+                          "left": "-100%",
+                          "x": "100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-100%",
+                            "transform": " translate3d(100%,0,0)",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-2.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-2.jpg"
+                              maxZoom={3}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-3.jpg"
+                      style={
+                        Object {
+                          "left": "-200%",
+                          "x": "-100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-200%",
+                            "transform": " translate3d(-100%,0,0)",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-3.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-3.jpg"
+                              maxZoom={3}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                  </div>
+                </div>
+              </div>
+            </Swiper>
+            <div
+              className="rc-image-preview__index"
+            >
+              1 / 3
+            </div>
+          </div>
+        </Transition>
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
+
+exports[`ImagePreview emit onZoomChange event when zoom is not 1 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={3}
+  overlay={true}
+  showIndex={true}
+  showIndicators={false}
+  startPosition={0}
+  swipeDuration={300}
+  visible={true}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+    visible={true}
+  >
+    <Portal
+      containerInfo={
+        <body
+          class="rc-overflow-hidden"
+        >
+          <div
+            class="rc-overlay rc-image-preview__overlay"
+            style="z-index: 2000; animation-duration: 300ms;"
+          />
+          <div
+            class="rc-popup rc-popup--center rc-image-preview"
+            style="z-index: 2000; animation-duration: 300ms;"
+          >
+            <div
+              class="rc-image-preview__swipe rc-swiper"
+              style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+            >
+              <div
+                class="rc-swiper__track rc-swiper__track--allow-touch-move"
+              >
+                <div
+                  class="rc-swiper__track-inner"
+                >
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -0%; transform: none;"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -100%; transform: translate3d(100%,0,0);"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -200%; transform: translate3d(-100%,0,0);"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rc-image-preview__index"
+            >
+              1 / 3
+            </div>
+          </div>
+        </body>
+      }
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        visible={true}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-overlay rc-image-preview__overlay"
+                style="z-index: 2000; animation-duration: 300ms;"
+              />,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": <div
+                  class="rc-overlay rc-image-preview__overlay"
+                  style="z-index: 2000; animation-duration: 300ms;"
+                />,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          >
+            <div
+              className="rc-overlay rc-image-preview__overlay"
+              onClick={[Function]}
+              style={
+                Object {
+                  "animationDuration": "300ms",
+                  "zIndex": 2000,
+                }
+              }
+            />
+          </Transition>
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        in={true}
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": <div
+              class="rc-popup rc-popup--center rc-image-preview"
+              style="z-index: 2000; animation-duration: 300ms;"
+            >
+              <div
+                class="rc-image-preview__swipe rc-swiper"
+                style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+              >
+                <div
+                  class="rc-swiper__track rc-swiper__track--allow-touch-move"
+                >
+                  <div
+                    class="rc-swiper__track-inner"
+                  >
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -0%; transform: none;"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -100%; transform: translate3d(100%,0,0);"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -200%; transform: translate3d(-100%,0,0);"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rc-image-preview__index"
+              >
+                1 / 3
+              </div>
+            </div>,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-popup rc-popup--center rc-image-preview"
+                style="z-index: 2000; animation-duration: 300ms;"
+              >
+                <div
+                  class="rc-image-preview__swipe rc-swiper"
+                  style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+                >
+                  <div
+                    class="rc-swiper__track rc-swiper__track--allow-touch-move"
+                  >
+                    <div
+                      class="rc-swiper__track-inner"
+                    >
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -0%; transform: none;"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -100%; transform: translate3d(100%,0,0);"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -200%; transform: translate3d(-100%,0,0);"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rc-image-preview__index"
+                >
+                  1 / 3
+                </div>
+              </div>,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        >
+          <div
+            className="rc-popup rc-popup--center rc-image-preview"
+            style={
+              Object {
+                "animationDuration": "300ms",
+                "display": undefined,
+                "zIndex": 2000,
+              }
+            }
+          >
+            <Swiper
+              allowTouchMove={true}
+              autoplay={false}
+              autoplayInterval={300}
+              className="rc-image-preview__swipe"
+              defaultIndex={0}
+              indicator={false}
+              loop={true}
+              onIndexChange={[Function]}
+              slideSize={100}
+              stuckAtBoundary={false}
+              trackOffset={0}
+            >
+              <div
+                className="rc-image-preview__swipe rc-swiper"
+                style={
+                  Object {
+                    "--rc-swipe-slide-size": "100%",
+                    "--rc-swipe-track-offset": "0%",
+                  }
+                }
+              >
+                <div
+                  className="rc-swiper__track rc-swiper__track--allow-touch-move"
+                  onClickCapture={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <div
+                    className="rc-swiper__track-inner"
+                  >
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-1.jpg"
+                      style={
+                        Object {
+                          "left": "-0%",
+                          "x": "0%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-0%",
+                            "transform": "none",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-1.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-1.jpg"
+                              maxZoom={3}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-2.jpg"
+                      style={
+                        Object {
+                          "left": "-100%",
+                          "x": "100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-100%",
+                            "transform": " translate3d(100%,0,0)",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-2.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-2.jpg"
+                              maxZoom={3}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-3.jpg"
+                      style={
+                        Object {
+                          "left": "-200%",
+                          "x": "-100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-200%",
+                            "transform": " translate3d(-100%,0,0)",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-3.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-3.jpg"
+                              maxZoom={3}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                  </div>
+                </div>
+              </div>
+            </Swiper>
+            <div
+              className="rc-image-preview__index"
+            >
+              1 / 3
+            </div>
+          </div>
+        </Transition>
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
+
+exports[`ImagePreview maxZoom 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={2}
+  overlay={true}
+  showIndex={true}
+  showIndicators={false}
+  startPosition={0}
+  swipeDuration={300}
+  visible={true}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+    visible={true}
+  >
+    <Portal
+      containerInfo={
+        <body
+          class="rc-overflow-hidden"
+        >
+          <div
+            class="rc-overlay rc-image-preview__overlay"
+            style="z-index: 2000; animation-duration: 300ms;"
+          />
+          <div
+            class="rc-popup rc-popup--center rc-image-preview"
+            style="z-index: 2000; animation-duration: 300ms;"
+          >
+            <div
+              class="rc-image-preview__swipe rc-swiper"
+              style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+            >
+              <div
+                class="rc-swiper__track rc-swiper__track--allow-touch-move"
+              >
+                <div
+                  class="rc-swiper__track-inner"
+                >
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -0%; transform: none;"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -100%; transform: translate3d(100%,0,0);"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rc-swiper__slide"
+                    style="left: -200%; transform: translate3d(-100%,0,0);"
+                  >
+                    <div
+                      class="rc-image-preview__item rc-swiper-item"
+                    >
+                      <div
+                        class="rc-image-preview__slide"
+                        data-testid="slide"
+                      >
+                        <div
+                          class="rc-image-preview__control"
+                          data-testid="control"
+                        >
+                          <div
+                            class="rc-image-preview__image-wrapper"
+                            style="transform: none;"
+                          >
+                            <div
+                              class="rc-image-preview__image rc-image rc-image--block"
+                            >
+                              <img
+                                alt="img"
+                                class="rc-image__img"
+                                src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                style="object-fit: contain;"
+                              />
+                              <div
+                                class="rc-image__loading"
+                              >
+                                <i
+                                  class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rc-image-preview__index"
+            >
+              1 / 3
+            </div>
+          </div>
+        </body>
+      }
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        visible={true}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-overlay rc-image-preview__overlay"
+                style="z-index: 2000; animation-duration: 300ms;"
+              />,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": <div
+                  class="rc-overlay rc-image-preview__overlay"
+                  style="z-index: 2000; animation-duration: 300ms;"
+                />,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          >
+            <div
+              className="rc-overlay rc-image-preview__overlay"
+              onClick={[Function]}
+              style={
+                Object {
+                  "animationDuration": "300ms",
+                  "zIndex": 2000,
+                }
+              }
+            />
+          </Transition>
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        in={true}
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": <div
+              class="rc-popup rc-popup--center rc-image-preview"
+              style="z-index: 2000; animation-duration: 300ms;"
+            >
+              <div
+                class="rc-image-preview__swipe rc-swiper"
+                style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+              >
+                <div
+                  class="rc-swiper__track rc-swiper__track--allow-touch-move"
+                >
+                  <div
+                    class="rc-swiper__track-inner"
+                  >
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -0%; transform: none;"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -100%; transform: translate3d(100%,0,0);"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-swiper__slide"
+                      style="left: -200%; transform: translate3d(-100%,0,0);"
+                    >
+                      <div
+                        class="rc-image-preview__item rc-swiper-item"
+                      >
+                        <div
+                          class="rc-image-preview__slide"
+                          data-testid="slide"
+                        >
+                          <div
+                            class="rc-image-preview__control"
+                            data-testid="control"
+                          >
+                            <div
+                              class="rc-image-preview__image-wrapper"
+                              style="transform: none;"
+                            >
+                              <div
+                                class="rc-image-preview__image rc-image rc-image--block"
+                              >
+                                <img
+                                  alt="img"
+                                  class="rc-image__img"
+                                  src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                  style="object-fit: contain;"
+                                />
+                                <div
+                                  class="rc-image__loading"
+                                >
+                                  <i
+                                    class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rc-image-preview__index"
+              >
+                1 / 3
+              </div>
+            </div>,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={true}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": <div
+                class="rc-popup rc-popup--center rc-image-preview"
+                style="z-index: 2000; animation-duration: 300ms;"
+              >
+                <div
+                  class="rc-image-preview__swipe rc-swiper"
+                  style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+                >
+                  <div
+                    class="rc-swiper__track rc-swiper__track--allow-touch-move"
+                  >
+                    <div
+                      class="rc-swiper__track-inner"
+                    >
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -0%; transform: none;"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -100%; transform: translate3d(100%,0,0);"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="rc-swiper__slide"
+                        style="left: -200%; transform: translate3d(-100%,0,0);"
+                      >
+                        <div
+                          class="rc-image-preview__item rc-swiper-item"
+                        >
+                          <div
+                            class="rc-image-preview__slide"
+                            data-testid="slide"
+                          >
+                            <div
+                              class="rc-image-preview__control"
+                              data-testid="control"
+                            >
+                              <div
+                                class="rc-image-preview__image-wrapper"
+                                style="transform: none;"
+                              >
+                                <div
+                                  class="rc-image-preview__image rc-image rc-image--block"
+                                >
+                                  <img
+                                    alt="img"
+                                    class="rc-image__img"
+                                    src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                    style="object-fit: contain;"
+                                  />
+                                  <div
+                                    class="rc-image__loading"
+                                  >
+                                    <i
+                                      class="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rc-image-preview__index"
+                >
+                  1 / 3
+                </div>
+              </div>,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        >
+          <div
+            className="rc-popup rc-popup--center rc-image-preview"
+            style={
+              Object {
+                "animationDuration": "300ms",
+                "display": undefined,
+                "zIndex": 2000,
+              }
+            }
+          >
+            <Swiper
+              allowTouchMove={true}
+              autoplay={false}
+              autoplayInterval={300}
+              className="rc-image-preview__swipe"
+              defaultIndex={0}
+              indicator={false}
+              loop={true}
+              onIndexChange={[Function]}
+              slideSize={100}
+              stuckAtBoundary={false}
+              trackOffset={0}
+            >
+              <div
+                className="rc-image-preview__swipe rc-swiper"
+                style={
+                  Object {
+                    "--rc-swipe-slide-size": "100%",
+                    "--rc-swipe-track-offset": "0%",
+                  }
+                }
+              >
+                <div
+                  className="rc-swiper__track rc-swiper__track--allow-touch-move"
+                  onClickCapture={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <div
+                    className="rc-swiper__track-inner"
+                  >
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-1.jpg"
+                      style={
+                        Object {
+                          "left": "-0%",
+                          "x": "0%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-0%",
+                            "transform": "none",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-1.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-1.jpg"
+                              maxZoom={2}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-1.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-2.jpg"
+                      style={
+                        Object {
+                          "left": "-100%",
+                          "x": "100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-100%",
+                            "transform": " translate3d(100%,0,0)",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-2.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-2.jpg"
+                              maxZoom={2}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-2.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                    <Animated(div)
+                      className="rc-swiper__slide"
+                      key=".$.$https=02//img.yzcdn.cn/vant/apple-3.jpg"
+                      style={
+                        Object {
+                          "left": "-200%",
+                          "x": "-100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="rc-swiper__slide"
+                        style={
+                          Object {
+                            "left": "-200%",
+                            "transform": " translate3d(-100%,0,0)",
+                          }
+                        }
+                      >
+                        <SwiperItem
+                          className="rc-image-preview__item"
+                          key=".$https=2//img.yzcdn.cn/vant/apple-3.jpg"
+                        >
+                          <div
+                            className="rc-image-preview__item rc-swiper-item"
+                          >
+                            <ImagePreviewItem
+                              image="https://img.yzcdn.cn/vant/apple-3.jpg"
+                              maxZoom={2}
+                              onTap={[Function]}
+                              onZoomChange={[Function]}
+                            >
+                              <div
+                                className="rc-image-preview__slide"
+                                data-testid="slide"
+                                onPointerMove={[Function]}
+                              >
+                                <div
+                                  className="rc-image-preview__control"
+                                  data-testid="control"
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onPointerCancel={[Function]}
+                                  onPointerDown={[Function]}
+                                  onPointerMove={[Function]}
+                                  onPointerUp={[Function]}
+                                >
+                                  <Animated(div)
+                                    className="rc-image-preview__image-wrapper"
+                                    style={
+                                      Object {
+                                        "scale": 1,
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="rc-image-preview__image-wrapper"
+                                      style={
+                                        Object {
+                                          "transform": "none",
+                                        }
+                                      }
+                                    >
+                                      <Image
+                                        block={true}
+                                        className="rc-image-preview__image"
+                                        errorIcon="photo-fail"
+                                        fit="contain"
+                                        loadingIcon="photo"
+                                        onClick={[Function]}
+                                        showError={true}
+                                        showLoading={true}
+                                        src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                      >
+                                        <div
+                                          className="rc-image-preview__image rc-image rc-image--block"
+                                          onClick={[Function]}
+                                          style={Object {}}
+                                        >
+                                          <img
+                                            alt="img"
+                                            className="rc-image__img"
+                                            onError={[Function]}
+                                            onLoad={[Function]}
+                                            src="https://img.yzcdn.cn/vant/apple-3.jpg"
+                                            style={
+                                              Object {
+                                                "objectFit": "contain",
+                                              }
+                                            }
+                                          />
+                                          <div
+                                            className="rc-image__loading"
+                                            onClick={[Function]}
+                                          >
+                                            <Icon
+                                              className="rc-image__loading-icon"
+                                              name="photo"
+                                              tag="i"
+                                            >
+                                              <Badge
+                                                className="rc-image__loading-icon van-icon van-icon-photo"
+                                                showZero={true}
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                                tag="i"
+                                              >
+                                                <i
+                                                  className="rc-badge__wrapper rc-image__loading-icon van-icon van-icon-photo"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                      "fontSize": undefined,
+                                                    }
+                                                  }
+                                                />
+                                              </Badge>
+                                            </Icon>
+                                          </div>
+                                        </div>
+                                      </Image>
+                                    </div>
+                                  </Animated(div)>
+                                </div>
+                              </div>
+                            </ImagePreviewItem>
+                          </div>
+                        </SwiperItem>
+                      </div>
+                    </Animated(div)>
+                  </div>
+                </div>
+              </div>
+            </Swiper>
+            <div
+              className="rc-image-preview__index"
+            >
+              1 / 3
+            </div>
+          </div>
+        </Transition>
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
+
+exports[`ImagePreview show close icon 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  closeable={true}
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={3}
+  overlay={true}
+  showIndex={true}
+  showIndicators={false}
+  startPosition={2}
+  swipeDuration={300}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+  >
+    <Portal
+      containerInfo={<body />}
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": null,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": null,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          />
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": undefined,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={false}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": undefined,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        />
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
+
+exports[`ImagePreview show indicators 1`] = `
+<ImagePreview
+  closeIcon="clear"
+  closeIconPosition="top-right"
+  images={
+    Array [
+      "https://img.yzcdn.cn/vant/apple-1.jpg",
+      "https://img.yzcdn.cn/vant/apple-2.jpg",
+      "https://img.yzcdn.cn/vant/apple-3.jpg",
+    ]
+  }
+  loop={true}
+  maxZoom={3}
+  overlay={true}
+  showIndex={false}
+  showIndicators={true}
+  startPosition={0}
+  swipeDuration={300}
+>
+  <Popup
+    className="rc-image-preview"
+    closeIcon="cross"
+    closeIconPosition="top-right"
+    closeOnClickOverlay={true}
+    duration={300}
+    lockScroll={true}
+    overlay={true}
+    overlayClass="rc-image-preview__overlay"
+    position="center"
+    teleport={[Function]}
+  >
+    <Portal
+      containerInfo={
+        <body
+          class=""
+        />
+      }
+    >
+      <Overlay
+        className="rc-image-preview__overlay"
+        duration={300}
+        lockScroll={true}
+        onClick={[Function]}
+        zIndex={2000}
+      >
+        <CSSTransition
+          classNames="rc-fade"
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": null,
+            }
+          }
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={true}
+            nodeRef={
+              Object {
+                "current": null,
+              }
+            }
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          />
+        </CSSTransition>
+      </Overlay>
+      <CSSTransition
+        classNames="rc-fade"
+        mountOnEnter={true}
+        nodeRef={
+          Object {
+            "current": undefined,
+          }
+        }
+        onEnter={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "exit": 300,
+          }
+        }
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={false}
+          mountOnEnter={true}
+          nodeRef={
+            Object {
+              "current": undefined,
+            }
+          }
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "exit": 300,
+            }
+          }
+          unmountOnExit={false}
+        />
+      </CSSTransition>
+    </Portal>
+  </Popup>
+</ImagePreview>
+`;
