@@ -177,7 +177,7 @@ exports[`Cascader should render option correctly when using defaultValue prop 1`
                   onClickCapture={[Function]}
                   onKeyDown={[Function]}
                   onKeyUp={[Function]}
-                  onMouseDown={[Function]}
+                  onTouchStart={[Function]}
                 >
                   <div
                     className="rc-swiper__track-inner"
@@ -490,7 +490,7 @@ exports[`Cascader when value change 1`] = `
                   onClickCapture={[Function]}
                   onKeyDown={[Function]}
                   onKeyUp={[Function]}
-                  onMouseDown={[Function]}
+                  onTouchStart={[Function]}
                 >
                   <div
                     className="rc-swiper__track-inner"
