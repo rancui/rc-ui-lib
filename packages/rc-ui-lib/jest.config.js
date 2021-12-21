@@ -1,6 +1,6 @@
 module.exports = {
   setupFiles: ['./tests/setup.js'],
-  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
+  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts', './tests/setupPointerEvent.ts'],
   testPathIgnorePatterns: ['/es/', '/lib/', '<rootDir>/node_modules/'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
