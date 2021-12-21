@@ -12,6 +12,14 @@
 
 ## 更新内容
 
+### [v0.3.0](https://github.com/rancui/rc-ui-lib/compare/v0.2.5...v0.3.0)
+
+`2021-12-08`
+
+**Feature**
+
+- 新增 Swiper 组件[a91908](https://github.com/rancui/rc-ui-lib/commit/a91908ba478294fd8204e86dd061a663a8248955)
+
 ### [v0.2.5](https://github.com/rancui/rc-ui-lib/compare/v0.2.4...v0.2.5)
 
 `2021-12-03`
