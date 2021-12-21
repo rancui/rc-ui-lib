@@ -1,19 +1,20 @@
 import React, { useContext, useRef, useState } from 'react';
 import classnames from 'classnames';
-import ConfigProviderContext from '../config-provider/ConfigProviderContext';
+import { ImagePreviewProps } from './PropsType';
 import { pick } from '../utils';
 import Icon from '../icon';
 import Swiper from '../swiper';
-import ImagePreviewItem from './ImagePreviewItem';
-import { ImagePreviewProps } from './PropsType';
+import type { SwiperInstance } from '../swiper';
 import Popup from '../popup';
-import { SwiperInstance } from '../swiper/PropsType';
+import ImagePreviewItem from './ImagePreviewItem';
+import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('image-preview', prefixCls);
-  const [active, setActive] = useState(() => props.startPosition);
+
   const swiperRef = useRef<SwiperInstance>(null);
+  const [active, setActive] = useState(() => props.startPosition);
 
   const onSwipeChange = (idx: number) => {
     if (active !== idx) {
@@ -25,15 +26,14 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   const renderImages = () => (
     <Swiper
       ref={swiperRef}
-      defaultIndex={active}
-      loop={props.loop}
       className={classnames(bem('swipe'))}
+      loop={props.loop}
       autoplayInterval={props.swipeDuration}
+      defaultIndex={active}
       onIndexChange={onSwipeChange}
       indicator={props.showIndicators}
     >
       {props.images.map((image, i) => (
-        // eslint-disable-next-line react/no-array-index-key
         <Swiper.Item className={classnames(bem('item'))} key={image}>
           <ImagePreviewItem
             maxZoom={props.maxZoom}
@@ -82,7 +82,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
 
   return (
     <Popup
-      className={classnames(props.className, bem())}
+      className={classnames(bem(), props.className)}
       overlayClass={classnames(bem('overlay'))}
       beforeClose={props.beforeClose}
       {...pick(props, ['visible', 'overlayStyle', 'closeOnPopstate', 'onClose', 'onClosed'])}
@@ -104,6 +104,7 @@ ImagePreview.defaultProps = {
   closeIcon: 'clear',
   closeIconPosition: 'top-right',
   showIndicators: false,
+  maxZoom: 3,
 };
 
 export default ImagePreview;

@@ -43,8 +43,8 @@ const ImagePreviewItem: React.FC<ImagePreviewItemProps> = (props) => {
         }
       },
       onPinch: (state) => {
-        const [d] = state.offset;
-        const currentZoom = state.last ? Math.max(Math.min(d, props.maxZoom), 1) : d;
+        const [offsetX] = state.offset;
+        const currentZoom = state.last ? Math.max(Math.min(offsetX, props.maxZoom), 1) : offsetX;
         api.start({
           zoom: currentZoom,
           immediate: !state.last,
@@ -77,19 +77,19 @@ const ImagePreviewItem: React.FC<ImagePreviewItemProps> = (props) => {
   return (
     <div
       className={classnames(bem('slide'))}
+      data-testid="slide"
       onPointerMove={(e) => {
         if (zoom.get() !== 1) {
           e.stopPropagation();
         }
       }}
     >
-      <div className={classnames(bem('control'))} {...bind()}>
+      <div className={classnames(bem('control'))} {...bind()} data-testid="control">
         <animated.div className={classnames(bem('image-wrapper'))} style={{ scale: zoom, x, y }}>
           <Image
             fit="contain"
             src={props.image}
             className={classnames(bem('image'))}
-            // lazyload={props.lazyload}
             onClick={() => {
               props.onTap?.();
             }}
