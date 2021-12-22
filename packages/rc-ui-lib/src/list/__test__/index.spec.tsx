@@ -1,7 +1,8 @@
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor, act } from '@testing-library/react';
 import List from '..';
 import Cell from '../../cell';
+import { sleep } from '../../../tests/utils';
 
 describe('List', () => {
   const mockRect = (el: Element, rect: Partial<DOMRect>) => {
@@ -29,10 +30,15 @@ describe('List', () => {
       },
     });
   });
-  it('should emit load event when reaching bottom', () => {
+  it('should emit load event when reaching bottom', async () => {
     const onLoad = jest.fn();
 
-    render(<List onLoad={onLoad} />);
+    await act(async () => {
+      const { rerender } = render(<List onLoad={onLoad} />);
+
+      await sleep(100);
+      rerender(<List finished onLoad={onLoad} />);
+    });
 
     expect(onLoad).toHaveBeenCalled();
   });
@@ -51,13 +57,11 @@ describe('List', () => {
     const { container } = render(<List finished finishedText="finished" onLoad={onLoad} />);
 
     expect(container).toMatchSnapshot();
-
     expect(onLoad).not.toBeCalled();
   });
 
   it('should render error slots correctly and do not trigger onLoad', async () => {
     const onLoad = jest.fn();
-
     const { getByText, container } = render(<List error errorText="errorTip!" />);
 
     expect(container).toMatchSnapshot();
@@ -65,7 +69,7 @@ describe('List', () => {
 
     const errorTextBox = getByText('errorTip!');
 
-    await waitFor(() => {
+    act(() => {
       fireEvent.click(errorTextBox);
     });
     expect(onLoad).toHaveBeenCalledTimes(0);
@@ -73,15 +77,19 @@ describe('List', () => {
 
   it('should render correctly when set direction', async () => {
     const onLoad = jest.fn();
-
     const { container, rerender } = render(<List direction="up" onLoad={onLoad} />);
 
-    rerender(<List direction="up" loading onLoad={onLoad} />);
-
-    rerender(<List direction="up" onLoad={onLoad} />);
+    await act(async () => {
+      rerender(<List direction="up" loading onLoad={onLoad} />);
+      await sleep(100);
+      rerender(<List direction="up" onLoad={onLoad} />);
+      await sleep(100);
+      rerender(<List direction="up" finished onLoad={onLoad} />);
+    });
 
     expect(container).toMatchSnapshot();
-    expect(onLoad).toHaveBeenCalledTimes(2);
+
+    expect(onLoad).toHaveBeenCalled();
   });
 
   it('should trigger load when scroll', async () => {

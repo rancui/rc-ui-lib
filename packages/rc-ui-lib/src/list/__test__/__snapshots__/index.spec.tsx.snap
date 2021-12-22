@@ -3,7 +3,7 @@
 exports[`List should render correctly when set direction 1`] = `
 <div>
   <div
-    aria-busy="true"
+    aria-busy="false"
     class="rc-list"
     role="feed"
   >
@@ -11,33 +11,9 @@ exports[`List should render correctly when set direction 1`] = `
       class="rc-list__placeholder"
     />
     <div
-      class="rc-list__loading"
+      class="rc-list__finished-text"
     >
-      <div
-        class="rc-list__loading-icon rc-loading rc-loading--circular"
-      >
-        <span
-          class="rc-loading__spinner rc-loading__spinner--circular"
-          style="width: 16px; height: 16px;"
-        >
-          <svg
-            class="rc-loading__circular"
-            viewBox="25 25 50 50"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              fill="none"
-              r="20"
-            />
-          </svg>
-        </span>
-        <span
-          class="rc-loading__text"
-        >
-          加载中...
-        </span>
-      </div>
+      没有更多了
     </div>
   </div>
 </div>
