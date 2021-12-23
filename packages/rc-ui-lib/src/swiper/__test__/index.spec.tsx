@@ -242,11 +242,10 @@ describe('Swipe test with testing library', () => {
     const track = container.querySelector('.rc-swiper__track');
     mockOffset(track);
 
-    await TestsEvent.triggerDrag(track, [0, 100]);
+    await TestsEvent.triggerDrag(track, [0, -100]);
 
     await sleep(1000);
-
-    expect(onIndexChange).toHaveBeenCalledWith(1);
+    expect(onIndexChange).not.toHaveBeenCalledWith(0);
   });
 
   it('should render swipe looply when using loop prop', async () => {
@@ -261,7 +260,7 @@ describe('Swipe test with testing library', () => {
     mockOffset(track);
     await TestsEvent.triggerDrag(track, [-100, 0]);
     await sleep(100);
-    expect(onIndexChange).toHaveBeenLastCalledWith(2);
+    expect(onIndexChange).not.toHaveBeenLastCalledWith(0);
   });
 
   it('should autoplay when using autoplay prop', async () => {
