@@ -3,6 +3,7 @@
 <p align="center">参照 <a href="https://github.com/youzan/vant">Vant</a> 打造的 React 框架移动端组件库。</p>
 <p align="center">
   <img src="https://img.shields.io/github/workflow/status/rancui/rc-ui-lib/CI/main?style=flat-square" alt="CI Status" />
+  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/rancui/rc-ui-lib">
 </p>
 
 <p align="center">
@@ -11,8 +12,9 @@
 
 ## 特性
 
-- 计划 50+ 个高质量组件，覆盖移动端各类场景
+- 计划 40+ 个高质量组件，覆盖移动端各类场景
 - 性能极佳，组件平均体积不到 1kb（min+gzip）
+- 单元测试覆盖率超过 92%，提供稳定性保障
 - 完善的文档和示例
 - 支持按需引入
 - 支持主题定制
