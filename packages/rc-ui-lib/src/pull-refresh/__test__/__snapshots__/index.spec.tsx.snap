@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PullRefresh should render different head content in different pulling status 1`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 0ms; transform: translate3d(0,20px, 0);"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      >
+        <div
+          class="rc-pull-refresh__text"
+        >
+          下拉即可刷新...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render different head content in different pulling status 2`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 0ms; transform: translate3d(0,75px, 0);"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      >
+        <div
+          class="rc-pull-refresh__text"
+        >
+          释放即可刷新...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render different head content in different pulling status 3`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms;"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render different head content in different pulling status 4`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms;"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render different head content in different pulling status 5`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms;"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render status slots correctly 1`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 0ms; transform: translate3d(0,20px, 0);"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      >
+        <img
+          alt="pulling"
+          class="doge"
+          src="https://img.yzcdn.cn/vant/doge.png"
+          style="transform: scale(0.25);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render status slots correctly 2`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 0ms; transform: translate3d(0,75px, 0);"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      >
+        <img
+          alt="loosing"
+          class="doge"
+          src="https://img.yzcdn.cn/vant/doge.png"
+          style=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render status slots correctly 3`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms;"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render success text correctly 1`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms; transform: translate3d(0,50px, 0);"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      >
+        <img
+          alt="success"
+          class="doge"
+          src="https://img.yzcdn.cn/vant/doge.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render success text correctly 2`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms;"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render success when onRefresh error 1`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms; transform: translate3d(0,50px, 0);"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      >
+        <img
+          alt="success"
+          class="doge"
+          src="https://img.yzcdn.cn/vant/doge.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PullRefresh should render success when onRefresh error 2`] = `
+<div>
+  <div
+    class="rc-pull-refresh"
+  >
+    <div
+      class="rc-pull-refresh__track"
+      style="transition-duration: 300ms;"
+    >
+      <div
+        class="rc-pull-refresh__head"
+      />
+    </div>
+  </div>
+</div>
+`;
