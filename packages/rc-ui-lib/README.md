@@ -4,6 +4,7 @@
 <p align="center">
   <img src="https://img.shields.io/github/workflow/status/rancui/rc-ui-lib/CI/main?style=flat-square" alt="CI Status" />
   <img alt="Codecov" src="https://img.shields.io/codecov/c/github/rancui/rc-ui-lib?color=%236CC73F&logo=%236CC73F&logoColor=%236CC73F&style=flat-square">
+  <img src="https://img.badgesize.io/https://unpkg.com/rc-ui-lib/lib/rc-ui-lib.min.js?compression=gzip&style=flat-square&label=gzip%20size&color=#4fc08d" alt="Gzip Size" />
 </p>
 <p align="center">
   🌈 <a href="https://rancui.github.io/rc-ui-lib/">文档网站（GitHub）</a>
