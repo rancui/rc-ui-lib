@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json';
 import { act } from 'react-dom/test-utils';
 import { sleep } from '../../../tests/utils';
 import { toArray } from '../../uploader/utils';
-import Icon from '../../icon';
 import Button from '../../button';
 import Field from '../../field';
 import Form from '..';
@@ -52,8 +51,17 @@ export function getField(wrapper, index: string | number = 0) {
 
 describe('Form', () => {
   let wrapper;
+  let spyConsole: jest.SpyInstance;
+  beforeEach(() => {
+    spyConsole = jest.spyOn(console, 'warn');
+    spyConsole.mockImplementation((message: string) => {
+      return null;
+    });
+  });
+
   afterEach(() => {
     wrapper.unmount();
+    spyConsole.mockRestore();
     jest.restoreAllMocks();
   });
 
@@ -140,6 +148,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
+
     expect(spy).toHaveBeenCalledTimes(1);
     await changeValue(getField(wrapper, 1), 'value1');
     // sync start
@@ -156,6 +165,10 @@ describe('Form', () => {
     //   [ react rerender once -> 3 ]
     // sync end
     expect(spy).toHaveBeenCalledTimes(3);
+
+    expect(spyConsole).toHaveBeenLastCalledWith(
+      "[FormItem] `shouldUpdate` and `dependencies` shouldn't be used together.",
+    );
   });
 
   it('when rules without reqiured props is set', async () => {
@@ -187,6 +200,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
+    expect(spyConsole).toHaveBeenCalledTimes(2);
   });
 
   it('when shouldUpdate and dependencies are not set', async () => {
@@ -196,6 +210,9 @@ describe('Form', () => {
       </Form>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
+    expect(spyConsole).toHaveBeenLastCalledWith(
+      '[FormItem] `children` of render props only work with `shouldUpdate` or `dependencies`.',
+    );
   });
 
   it('dependencies is set and name is not set ', async () => {
@@ -228,7 +245,5 @@ describe('Form', () => {
     await sleep(20);
     await wrapper.find('input').simulate('blur');
     expect(handleBlur).toHaveBeenCalled();
-
-    // expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

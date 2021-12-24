@@ -281,9 +281,15 @@ describe('Swipe test with testing library', () => {
   });
 
   it('should render correctly when Swiper not child', async () => {
+    const spyConsole: jest.SpyInstance = jest.spyOn(console, 'warn');
+    spyConsole.mockImplementation((message: string) => {
+      return null;
+    });
     const { container } = render(<Swiper style={swipeStyle} {...$props} />);
 
     expect(container).toMatchSnapshot();
+    expect(spyConsole).toHaveBeenCalledWith('[Swiper] `Swiper` needs at least one child.');
+    spyConsole.mockRestore();
   });
 
   it('should render correctly when using customer renderIndicator', async () => {
