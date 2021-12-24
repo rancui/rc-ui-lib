@@ -8,6 +8,7 @@ import Icon from '../icon';
 import Tabs from '../tabs';
 import { TabsClickTabEventParams } from '../tabs/PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
+import useMountedRef from '../hooks/use-mounted-ref';
 
 const INITIAL_STATE = {
   tabs: [],
@@ -21,6 +22,8 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   const [internalValue, setInternalValue] = useState(undefined);
   const [state, updateState] =
     useSetState<{ tabs: CascaderTab[]; activeTab: number }>(INITIAL_STATE);
+
+  const mountedRef = useMountedRef();
 
   const {
     text: textKey,
@@ -85,7 +88,9 @@ const Cascader: React.FC<CascaderProps> = (props) => {
         updateState({ tabs });
 
         setTimeout(() => {
-          updateState({ activeTab: tabs.length - 1 });
+          if (mountedRef.current) {
+            updateState({ activeTab: tabs.length - 1 });
+          }
         }, 0);
 
         return;
