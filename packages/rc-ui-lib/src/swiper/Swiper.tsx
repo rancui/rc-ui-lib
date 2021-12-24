@@ -21,6 +21,7 @@ import { bound } from '../utils/bound';
 import { devWarning } from '../utils/dev-log';
 import { noop } from '../utils';
 import { getRect } from '../hooks/use-rect';
+import useMountedRef from '../hooks/use-mounted-ref';
 
 function modulus(value: number, division: number) {
   const remainder = value % division;
@@ -80,6 +81,8 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     if (count <= 1) return false;
     return outerLoop;
   }, [count, outerLoop]);
+
+  const mountedRef = useMountedRef();
 
   const getSlidePixels = () => {
     const track = trackRef.current;
@@ -142,7 +145,9 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
         );
         swipeTo(index);
         window.setTimeout(() => {
-          setDragging(false);
+          if (mountedRef.current) {
+            setDragging(false);
+          }
         });
       }
     },
