@@ -52,7 +52,7 @@ export default (): React.ReactNode => {
           title="预览图片"
           isLink
           onClick={() => {
-            const destory = ImagePreview.open({ images });
+            const destory = () => ImagePreview.open({ images });
             setTimeout(() => destory(), 2000);
           }}
         />
