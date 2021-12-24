@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import Uploader, { UploaderInstance } from '..';
 import Icon from '../../icon';
-import { sleep } from '../../../tests/utils';
 import TestsDOM from '../../../tests/dom';
-import { UploaderPreviewItemProps, UploaderFileListItem, UploaderProps } from '../PropsType';
+import { UploaderFileListItem, UploaderProps } from '../PropsType';
+import { sleep } from '../../../tests/utils';
 
 describe('<Uploader/>', () => {
   const mockFile = new File([new ArrayBuffer(10000)], 'foo.png', {
@@ -204,6 +204,7 @@ describe('<Uploader/>', () => {
         onPreview(file.url);
       },
       onClosePreview,
+      previewImage: true,
       previewFullImage: true,
     });
 
@@ -408,6 +409,55 @@ describe('<Uploader/>', () => {
     fireEvent.click(buttonBox);
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('test closeImagePreview', async () => {
+    const Demo = () => {
+      const uploaderRef = useRef<UploaderInstance>(null);
+
+      const handleCloseImagePreview = () => {
+        uploaderRef.current?.closeImagePreview();
+      };
+      const $props = {
+        value: [
+          {
+            isImage: true,
+            url: 'https://dummyimage.com/300x200/fff.png',
+            status: 'done',
+            content: 'https://dummyimage.com/50/fff.png',
+          },
+        ],
+      };
+
+      return (
+        <div>
+          <Uploader ref={uploaderRef} {...$props} />
+          <button type="button" data-testid="button" onClick={handleCloseImagePreview}>
+            closeImagePreview
+          </button>
+        </div>
+      );
+    };
+
+    const { container, getByTestId } = render(<Demo />);
+
+    const image = TestsDOM.mustQuerySelector(container, '.rc-uploader__preview-image');
+
+    await waitFor(() => {
+      fireEvent.click(image);
+    });
+    const popup: HTMLElement = TestsDOM.mustQuerySelector(document.body, '.rc-image-preview');
+
+    expect(popup).toMatchSnapshot();
+
+    const buttonBox = getByTestId('button');
+
+    await waitFor(() => {
+      fireEvent.click(buttonBox);
+    });
+    await sleep(400);
+
+    expect(popup).toMatchSnapshot();
   });
 
   it('result-type as text', async () => {

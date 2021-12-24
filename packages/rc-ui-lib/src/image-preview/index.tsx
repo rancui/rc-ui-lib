@@ -71,7 +71,9 @@ ImagePreview.open = (props: ImagePreviewProps) => {
   };
   ReactDOM.render(<TempDialog />, container);
 
-  return destroy;
+  return {
+    close: destroy,
+  };
 };
 
 export default ImagePreview;

@@ -55,7 +55,9 @@ export interface ImagePreviewProps extends BaseTypeProps {
 export type ImagePreviewStatic = {
   (ImagePreviewProps): JSX.Element;
   /** 调用该函数后会直接在页面中展示图片预览界面 */
-  open: (OpenProps: Omit<ImagePreviewProps, 'visible'>) => () => void;
+  open: (OpenProps: Omit<ImagePreviewProps, 'visible'>) => {
+    close: ({ url, index }?: CloseParams) => void;
+  };
 };
 
 export interface ImagePreviewItemProps extends BaseTypeProps {
