@@ -42,34 +42,6 @@ export default () => {
 }
 ```
 
-### 懒加载
-
-当 Swiper 中含有图片时，可以通过设置图片 `lazyload` 属性来开启懒加载模式。在懒加载模式下，只会渲染当前页，上一页和下一页。
-
-```jsx
-import React from 'react';
-import { Image, Swiper } from 'rc-ui-lib';
-
-const images = [
-  'https://img.yzcdn.cn/vant/apple-1.jpg',
-  'https://img.yzcdn.cn/vant/apple-2.jpg',
-  'https://img.yzcdn.cn/vant/apple-3.jpg',
-  'https://img.yzcdn.cn/vant/apple-4.jpg',
-];
-
-export default () => {
-  return (
-    <Swiper>
-      {images.map((image) => (
-        <Swiper.Item key={image}>
-          <Image lazyload src={image} />
-        </Swiper.Item>
-      ))}
-    </Swiper>
-  );
-};
-```
-
 ### 监听 onIndexChange 事件
 
 在每一页轮播结束后，会触发 `onIndexChange` 事件。
