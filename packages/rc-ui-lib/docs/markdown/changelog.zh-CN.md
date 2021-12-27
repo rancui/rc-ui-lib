@@ -1,5 +1,9 @@
 # 更新日志
 
+### 介绍
+
+rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范。
+
 ### 提示
 
 当前文档为 rc-ui-lib 的更新日志
