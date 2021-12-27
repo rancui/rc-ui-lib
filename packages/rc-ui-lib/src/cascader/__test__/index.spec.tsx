@@ -7,8 +7,17 @@ import Cascader from '..';
 
 describe('Cascader', () => {
   let wrapper;
+  let spyConsole: jest.SpyInstance;
+  beforeEach(() => {
+    spyConsole = jest.spyOn(console, 'error');
+    spyConsole.mockImplementation((message: string) => {
+      return null;
+    });
+  });
+
   afterEach(() => {
     wrapper.unmount();
+    spyConsole.mockRestore();
     jest.restoreAllMocks();
   });
 
@@ -134,8 +143,6 @@ describe('Cascader', () => {
   test('should emit onClickTab event correctly', async () => {
     const onClickTab = jest.fn();
     wrapper = mount(<Cascader options={options} onClickTab={onClickTab} />);
-    // console.log('====onClickTab-bug===',wrapper.debug());
-    // console.log('====onClickTab-html===',wrapper.html());
 
     await wrapper.find('.rc-tab').simulate('click');
     expect(onClickTab).toHaveBeenCalled();
@@ -145,5 +152,10 @@ describe('Cascader', () => {
     wrapper = mount(<Cascader options={options} defaultValue={['330000']} />);
     await wrapper.setProps({ value: ['350000'] });
     expect(toJson(wrapper)).toMatchSnapshot();
+    expect(spyConsole).toHaveBeenLastCalledWith(
+      Error(
+        'Cascader: unable to match options correctly, Please check value or defaultValue props.',
+      ),
+    );
   });
 });
