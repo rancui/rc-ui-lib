@@ -1,11 +1,5 @@
 import { sep, join } from 'path';
-import {
-  lstatSync,
-  existsSync,
-  readdirSync,
-  readFileSync,
-  outputFileSync,
-} from 'fs-extra';
+import { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } from 'fs-extra';
 import merge from 'webpack-merge';
 import {
   SRC_DIR,
@@ -17,7 +11,7 @@ import { WebpackConfig } from './types';
 
 export const EXT_REGEXP = /\.\w+$/;
 export const DEMO_REGEXP = new RegExp(`\\${sep}demo$`);
-export const TEST_REGEXP = new RegExp(`\\${sep}test$`);
+export const TEST_REGEXP = new RegExp(`\\${sep}__test__$`);
 export const ASSET_REGEXP = /\.(png|jpe?g|gif|webp|ico|jfif|svg|woff2?|ttf)$/i;
 export const STYLE_REGEXP = /\.(css|less|scss)$/;
 export const SCRIPT_REGEXP = /\.(js|ts|jsx|tsx)$/;
@@ -49,7 +43,7 @@ export function getComponents() {
         }
 
         return false;
-      })
+      }),
     );
 }
 
@@ -64,7 +58,6 @@ export function isDemoDir(dir: string) {
 export function isTestDir(dir: string) {
   return TEST_REGEXP.test(dir);
 }
-
 
 export function isAsset(path: string) {
   return ASSET_REGEXP.test(path);
@@ -90,10 +83,7 @@ export function camelize(str: string): string {
 }
 
 export function pascalize(str: string): string {
-  return camelize(str).replace(
-    pascalizeRE,
-    (_, c1, c2) => c1.toUpperCase() + c2
-  );
+  return camelize(str).replace(pascalizeRE, (_, c1, c2) => c1.toUpperCase() + c2);
 }
 
 export function decamelize(str: string, sepc = '-') {
