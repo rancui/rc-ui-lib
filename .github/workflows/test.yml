@@ -84,9 +84,6 @@ jobs:
       - name: add chmod
         run: chmod -R 777 ./*
 
-      - name: clearCache
-        run: yarn clearCache
-
       - name: Test
         run: lerna exec --scope rc-ui-lib yarn test
 
