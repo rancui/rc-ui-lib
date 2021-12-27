@@ -1,8 +1,7 @@
 import execa from 'execa';
-import chokidar from 'chokidar';
 import { join, relative } from 'path';
 import { remove, copy, readdirSync, existsSync } from 'fs-extra';
-import { ora, consola, slimPath } from '../common/logger';
+import { ora, consola } from '../common/logger';
 import {
   isAsset,
   isDemoDir,
@@ -49,7 +48,6 @@ async function compileDir(dir: string) {
   await Promise.all(
     files.map((filename) => {
       const filePath = join(dir, filename);
-
       if (isDemoDir(filePath) || isTestDir(filePath)) {
         return remove(filePath);
       }
@@ -174,33 +172,6 @@ async function runBuildTasks() {
 
   consola.success('Compile successfully');
 }
-
-// function watchFileChange() {
-//   consola.info('Watching file changes...');
-
-//   chokidar.watch(SRC_DIR).on('change', async (path) => {
-//     if (isDemoDir(path) || isTestDir(path)) {
-//       return;
-//     }
-
-//     const spinner = ora('File changed, start compilation...').start();
-//     const esPath = path.replace(SRC_DIR, ES_DIR);
-//     const libPath = path.replace(SRC_DIR, LIB_DIR);
-
-//     try {
-//       await copy(path, esPath);
-//       await copy(path, libPath);
-//       await compileFile(esPath);
-//       await compileFile(libPath);
-//       await genStyleDepsMap();
-//       genComponentStyle({ cache: false });
-//       spinner.succeed(`Compiled: ${slimPath(path)}`);
-//     } catch (err) {
-//       spinner.fail(`Compile failed: ${path}`);
-//       console.log(err);
-//     }
-//   });
-// }
 
 export async function build() {
   setNodeEnv('production');
