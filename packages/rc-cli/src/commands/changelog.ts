@@ -1,12 +1,12 @@
 import { join } from 'path';
-import { createWriteStream, readFileSync } from 'fs-extra';
 import conventionalChangelog from 'conventional-changelog';
+import { createWriteStream, readFileSync } from 'fs-extra';
 import { ROOT } from '../common/constant';
 import { ora, slimPath } from '../common/logger';
 
 const DIST_FILE = join(ROOT, './changelog.generated.md');
-const MAIN_TEMPLATE = join(__dirname, '../../template/changelog-main.hbs');
 const HEADER_TEMPLATE = join(__dirname, '../../template/changelog-header.hbs');
+const MAIN_TEMPLATE = join(__dirname, '../../template/changelog-main.hbs');
 const COMMIT_TEMPLATE = join(__dirname, '../../template/changelog-commit.hbs');
 
 const mainTemplate = readFileSync(MAIN_TEMPLATE, 'utf-8');
@@ -17,17 +17,15 @@ function formatType(type: string) {
   const MAP: Record<string, string> = {
     fix: 'Bug Fixes',
     feat: 'Feature',
+    docs: 'Document',
     types: 'Types',
-    refactor: 'Refactor',
-    style: 'Style',
-    perf: 'Perf',
   };
 
   return MAP[type] || type;
 }
 
 function transform(item: any) {
-  if (item.type === 'chore' || item.type === 'test' || item.type === 'docs') {
+  if (item.type === 'chore' || item.type === 'test') {
     return null;
   }
 
@@ -56,9 +54,6 @@ export async function changelog(): Promise<void> {
         preset: 'angular',
         releaseCount: 2,
       },
-      null,
-      null,
-      null,
       {
         mainTemplate,
         headerPartial,
