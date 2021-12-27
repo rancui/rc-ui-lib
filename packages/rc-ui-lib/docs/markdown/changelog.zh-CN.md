@@ -16,6 +16,21 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+# [1.0.0](https://github.com/rancui/rc-ui-lib/compare/v0.3.0...v1.0.0)
+
+`2021-12-27`
+
+### Bug Fixes
+
+- List: 修复错误重新加载不触发 bug ([9644a30](https://github.com/rancui/rc-ui-lib/commit/9644a30050963b83091f97663420920bcd7fdffb))
+- Cascader: 修复销毁组件后仍然 setData 的问题 ([feafcfe](https://github.com/rancui/rc-ui-lib/commit/feafcfe8ab6ba593ef569a0195db9a454a48b0b9))
+- StepsItem: 修复在非激活状态标题的字体颜色 bug ([55e587f](https://github.com/rancui/rc-ui-lib/commit/55e587fc942ea2cf6d26ccf94d6ed7798fe347c2))
+- imagePreview: 修复组件关闭报错 bug ([059f6a1](https://github.com/rancui/rc-ui-lib/commit/059f6a1d90890540acfccffb5cd76a564982ec4d))
+
+**Feature**
+
+- 完成全部 42 个组件功能的查缺补漏及单元测试，测试覆盖率超过 96%。
+
 ### [v0.3.0](https://github.com/rancui/rc-ui-lib/compare/v0.2.5...v0.3.0)
 
 `2021-12-08`
