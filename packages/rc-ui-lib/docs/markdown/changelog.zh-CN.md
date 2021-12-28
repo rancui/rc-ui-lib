@@ -20,7 +20,7 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 `2021-12-27`
 
-### Bug Fixes
+**Bug Fixes**
 
 - List: 修复错误重新加载不触发 bug ([9644a30](https://github.com/rancui/rc-ui-lib/commit/9644a30050963b83091f97663420920bcd7fdffb))
 - Cascader: 修复销毁组件后仍然 setData 的问题 ([feafcfe](https://github.com/rancui/rc-ui-lib/commit/feafcfe8ab6ba593ef569a0195db9a454a48b0b9))
