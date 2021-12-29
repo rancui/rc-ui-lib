@@ -47,3 +47,7 @@ rc-ui-lib 支持现代浏览器以及 Chrome >= 51、iOS >= 10.0。
 修改代码请阅读我们的 [贡献指南](https://rancui.github.io/rc-ui-lib/#/zh-CN/contribution)。
 
 使用过程中发现任何问题都可以提 [Issue](https://github.com/rancui/rc-ui-lib/issues) 给我们，当然，我们也非常欢迎你给我们发 [PR](https://github.com/rancui/rc-ui-lib/pulls)。
+
+## 感谢
+
+[Vant](https://github.com/youzan/vant) - 感谢有赞团队对 vant 的辛苦维护，才让我们有了种种可能。

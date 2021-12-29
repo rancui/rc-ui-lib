@@ -2,7 +2,7 @@
 
 ### 介绍
 
-感谢你使用 rc-ui-lib。
+感谢你使用 `rc-ui-lib`。
 
 以下是关于提交反馈或代码的指南。在提交 issue 或者 PR 之前，请先花几分钟时间阅读以下文字。
 
@@ -36,8 +36,8 @@ rc-ui-lib
 ├─ docs      # 文档
 ├─ src       # 组件
 ├─ packages  # 子包
-├─ test      # 单测
-└─ typings     # 类型
+├─ tests     # 单测
+└─ typings   # 类型
 ```
 
 ### 添加新组件
@@ -49,8 +49,10 @@ src
 └─ button
    ├─ demo              # 示例代码
    ├─ __test__          # 单元测试
-   ├─ index.js          # 组件入口
+   ├─ index.tsx         # 组件入口
+   ├─ PropsType.ts      # 组件属性
    ├─ style/index.less  # 组件样式
+   ├─ style/var.less    # 样式变量
    ├─ README.md         # 中文文档
    └─ README.en-US.md   # 英文文档
 ```
@@ -72,11 +74,11 @@ src
 
 ### Pull Request 流程
 
-1. fork 主仓库，如果已经 fork 过，请同步主仓库的最新代码
-2. 基于 fork 后仓库的 `main` 分支新建一个分支，比如 `feat-button_color`
-3. 在新分支上进行开发，开发完成后，提 Pull Request 到主仓库的 `main` 分支
-4. Pull Request 会在 Review 通过后被合并到主仓库
-5. 等待 rc-ui-lib 发布版本
+- fork 主仓库，如果已经 fork 过，请同步主仓库的最新代码
+- 基于 fork 后仓库的 `main` 分支新建一个分支，比如 `feat-button_color`
+- 在新分支上进行开发，开发完成后，提 Pull Request 到主仓库的 `main` 分支
+- Pull Request 会在 Review 通过后被合并到主仓库
+- 等待 rc-ui-lib 发布版本
 
 ### 同步最新代码
 
