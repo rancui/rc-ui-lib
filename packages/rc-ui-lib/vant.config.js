@@ -14,7 +14,7 @@ module.exports = {
     locales: {
       'zh-CN': {
         title: 'RC-UI-LIB',
-        description: '轻量、可靠的移动端 React 组件库',
+        description: '轻量、可靠的移动端组件库',
         logo: 'https://img01.yzcdn.cn/vant/logo.png',
         langLabel: '中文',
         links: [
@@ -326,7 +326,7 @@ module.exports = {
         ],
       },
       'en-US': {
-        title: 'rc-ui-lib',
+        title: 'RC-UI-LIB',
         description: 'Mobile UI Components built on React',
         logo: 'https://img01.yzcdn.cn/vant/logo.png',
         langLabel: 'En',
@@ -336,11 +336,11 @@ module.exports = {
             url: 'https://github.com/rancui/rc-ui-lib',
           },
         ],
-        // searchConfig: {
-        //   apiKey: '90067aecdaa2c85220e2783cd305caac',
-        //   indexName: 'vant',
-        //   placeholder: 'Search...',
-        // },
+        searchConfig: {
+          apiKey: '90067aecdaa2c85220e2783cd305caac',
+          indexName: 'rc-ui-lib',
+          placeholder: 'Search...',
+        },
         nav: [
           {
             title: 'Essentials',
