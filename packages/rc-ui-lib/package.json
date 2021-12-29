@@ -1,6 +1,6 @@
 {
   "name": "rc-ui-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Mobile UI Components base on Vant",
   "main": "lib/index.js",
   "module": "es/index.js",
