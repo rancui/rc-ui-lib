@@ -12,7 +12,10 @@ function isElement(node: Element) {
   return node.tagName !== 'HTML' && node.tagName !== 'BODY' && node.nodeType === ELEMENT_NODE_TYPE;
 }
 
-export function getScrollParent(el: Element, root: ScrollElement = defaultRoot): ScrollElement {
+export function getScrollParent(
+  el: Element,
+  root: ScrollElement | undefined | null = defaultRoot,
+): ScrollElement {
   if (root === undefined) {
     root = window;
   }
