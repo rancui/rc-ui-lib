@@ -13,16 +13,6 @@ import { commitLint } from './commands/commit-lint';
 
 export const cliVersion: string = packageJson.version;
 
-process.env.REACT_VANT_CLI_VERSION = cliVersion;
+process.env.RC_CLI_VERSION = cliVersion;
 
-export {
-  dev,
-  lint,
-  test,
-  clean,
-  build,
-  release,
-  changelog,
-  buildSite,
-  commitLint,
-};
+export { dev, lint, test, clean, build, release, changelog, buildSite, commitLint };
