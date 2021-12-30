@@ -50,7 +50,7 @@ export default (): React.ReactNode => {
     }
   }, [errorList]);
 
-  const onLoadRefresh = async (isRefresh?) => {
+  const onLoadRefresh = async (isRefresh?: any) => {
     const data = await getData();
     setRefreshList((v) => {
       const newList = isRefresh ? data : [...v, ...data];

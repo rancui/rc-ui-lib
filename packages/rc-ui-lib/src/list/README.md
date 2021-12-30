@@ -101,11 +101,11 @@ List 组件可以与 [PullRefresh](#/zh-CN/pull-refresh) 组件结合使用，�
 ```
 
 ```js
-const listRef = useState < ListInstance > null;
+const listRef = useRef(null);
 const [finished, setFinished] = useState(false);
 const [refreshList, setRefreshList] = useState([]);
 
-const onLoadRefresh = async (isRefresh?) => {
+const onLoadRefresh = async (isRefresh) => {
   const data = await getData();
   setRefreshList((v) => {
     const newList = isRefresh ? data : [...v, ...data];
