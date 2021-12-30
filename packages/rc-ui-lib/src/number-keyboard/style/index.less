@@ -1,0 +1,153 @@
+@import './var.less';
+
+:root {
+  --rc-number-keyboard-background-color: @number-keyboard-background-color;
+  --rc-number-keyboard-key-height: @number-keyboard-key-height;
+  --rc-number-keyboard-key-font-size: @number-keyboard-key-font-size;
+  --rc-number-keyboard-key-active-color: @number-keyboard-key-active-color;
+  --rc-number-keyboard-key-background-color: @number-keyboard-key-background-color;
+  --rc-number-keyboard-delete-font-size: @number-keyboard-delete-font-size;
+  --rc-number-keyboard-title-color: @number-keyboard-title-color;
+  --rc-number-keyboard-title-height: @number-keyboard-title-height;
+  --rc-number-keyboard-title-font-size: @number-keyboard-title-font-size;
+  --rc-number-keyboard-close-padding: @number-keyboard-close-padding;
+  --rc-number-keyboard-close-color: @number-keyboard-close-color;
+  --rc-number-keyboard-close-font-size: @number-keyboard-close-font-size;
+  --rc-number-keyboard-button-text-color: @number-keyboard-button-text-color;
+  --rc-number-keyboard-button-background-color: @number-keyboard-button-background-color;
+  --rc-number-keyboard-z-index: @number-keyboard-z-index;
+}
+
+.rc-number-keyboard {
+  z-index: var(--rc-number-keyboard-z-index);
+  width: 100%;
+  padding-bottom: 22px;
+  background: var(--rc-number-keyboard-background-color);
+  user-select: none;
+
+  &--with-title {
+    border-radius: 20px 20px 0 0;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    height: var(--rc-number-keyboard-title-height);
+    padding-top: 6px;
+    color: var(--rc-number-keyboard-title-color);
+    font-size: var(--rc-number-keyboard-title-font-size);
+  }
+
+  &__title {
+    display: inline-block;
+    font-weight: normal;
+
+    &-left {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &__body {
+    display: flex;
+    padding: 6px 0 0 6px;
+  }
+
+  &__keys {
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+  }
+
+  &__close {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    padding: var(--rc-number-keyboard-close-padding);
+    color: var(--rc-number-keyboard-close-color);
+    font-size: var(--rc-number-keyboard-close-font-size);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__sidebar {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  &--unfit {
+    padding-bottom: 0;
+  }
+}
+
+.rc-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--rc-number-keyboard-key-height);
+  font-size: var(--rc-number-keyboard-key-font-size);
+  line-height: 1.5;
+  background: var(--rc-number-keyboard-key-background-color);
+  border-radius: var(--rc-border-radius-lg);
+  cursor: pointer;
+
+  &--large {
+    // height: 100% can't fill flex parent on legacy safari
+    // see: https://stackoverflow.com/questions/33636796
+    position: absolute;
+    top: 0;
+    right: 6px;
+    bottom: 6px;
+    left: 0;
+    height: auto;
+  }
+
+  &--blue,
+  &--delete {
+    font-size: var(--rc-number-keyboard-delete-font-size);
+  }
+
+  &--active {
+    background-color: var(--rc-number-keyboard-key-active-color);
+  }
+
+  &--blue {
+    color: var(--rc-number-keyboard-button-text-color);
+    background: var(--rc-number-keyboard-button-background-color);
+
+    &.rc-key--active {
+      opacity: var(--rc-active-opacity);
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    flex: 1;
+    flex-basis: 33%;
+    box-sizing: border-box;
+    padding: 0 6px 6px 0;
+
+    &--wider {
+      flex-basis: 66%;
+    }
+  }
+
+  &__delete-icon {
+    width: 32px;
+    height: 22px;
+  }
+
+  &__collapse-icon {
+    width: 30px;
+    height: 24px;
+  }
+
+  &__loading-icon {
+    color: var(--rc-number-keyboard-button-text-color);
+  }
+}
