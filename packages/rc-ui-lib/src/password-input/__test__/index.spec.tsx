@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import { NumberKeyboard, NumberKeyboardProps } from '../../number-keyboard';
-import { NumberKeyboardTheme } from '../../number-keyboard/PropsType';
+import { fireEvent, render, cleanup, act } from '@testing-library/react';
+import { PasswordInput, PasswordInputProps } from '..';
+import { NumberKeyboard } from '../../number-keyboard';
 import TestsEvent from '../../../tests/events';
 
 const clickKey = async (target) => {
@@ -10,13 +10,13 @@ const clickKey = async (target) => {
 };
 
 const $props = {
-  visible: true,
+  focused: false,
 };
 
-describe('NumberKeyboard', () => {
-  function createNumberKeyboard(props: NumberKeyboardProps) {
+describe('PasswordInput', () => {
+  function createPasswordInput(props: PasswordInputProps) {
     const { baseElement, getAllByRole, getByText, container, rerender, debug } = render(
-      <NumberKeyboard {...props} />,
+      <PasswordInput {...props} />,
     );
 
     return {
@@ -34,204 +34,91 @@ describe('NumberKeyboard', () => {
     jest.restoreAllMocks();
   });
 
-  it('should emit input event after clicking number key', async () => {
-    const onInput = jest.fn();
+  it('should emit onFocus event when security is touched', async () => {
+    const onFocus = jest.fn();
     const props = {
       ...$props,
-      onInput,
+      onFocus,
     };
 
-    const { getAllByRole } = createNumberKeyboard(props);
+    const { container } = createPasswordInput(props);
+    const wrapper = container.querySelector('.rc-password-input__security');
+    await TestsEvent.triggerTouch(wrapper, 'touchstart', [[0, 0]]);
+    expect(onFocus).toHaveBeenCalled();
+  });
+
+  // it('should emit onBlur event after clicking outside', async () => {
+  //   const onBlur = jest.fn();
+  //   const props = {
+  //     ...$props,
+  //     onBlur,
+  //   };
+
+  //   const { container } = createPasswordInput(props);
+  //   const wrapper = container.querySelector('.rc-password-input__security');
+  //   await TestsEvent.triggerTouch(wrapper, 'touchstart', [[0, 0]]);
+
+  //   await clickKey(document.body);
+
+  //   expect(onBlur).toHaveBeenCalled();
+  // });
+
+  it('should emit onChange event after input number', async () => {
+    const onChange = jest.fn();
+    const props = {
+      ...$props,
+      focused: true,
+      onChange,
+      keyboard: <NumberKeyboard />,
+    };
+
+    const { getAllByRole } = createPasswordInput(props);
     const key = getAllByRole('button')[0];
     await clickKey(key);
-    expect(onInput).toHaveBeenCalledWith('1');
+    expect(onChange).toHaveBeenCalledWith('1');
   });
 
-  it('should emit onDelete event after clicking delete key', async () => {
-    const onDelete = jest.fn();
+  it('should emit onFill event after input number', async () => {
+    const onFill = jest.fn();
     const props = {
       ...$props,
-      onDelete,
+      focused: true,
+      onFill,
+      keyboard: <NumberKeyboard />,
     };
 
-    const { getAllByRole } = createNumberKeyboard(props);
-    const key = getAllByRole('button')[11];
-    await clickKey(key);
-    expect(onDelete).toHaveBeenCalled();
+    const { getAllByRole } = createPasswordInput(props);
+    const key = getAllByRole('button');
+    await clickKey(key[0]);
+    await clickKey(key[1]);
+    await clickKey(key[2]);
+    await clickKey(key[3]);
+    await clickKey(key[4]);
+    await clickKey(key[5]);
+    expect(onFill).toHaveBeenCalledWith('123456');
   });
 
-  it('should emit onBlur event after clicking collapse key', async () => {
-    const onBlur = jest.fn();
+  it('should render error info correctly', async () => {
     const props = {
       ...$props,
-      onBlur,
+      errorInfo: 'error!',
     };
 
-    const { getAllByRole } = createNumberKeyboard(props);
-    const key = getAllByRole('button')[9];
-    await clickKey(key);
-    expect(onBlur).toHaveBeenCalled();
+    const { container } = createPasswordInput(props);
+
+    expect(container).toMatchSnapshot();
   });
 
-  it('should emit close event after clicking close button', async () => {
-    const onBlur = jest.fn();
-    const onClose = jest.fn();
-    const props = {
-      ...$props,
-      theme: 'custom' as NumberKeyboardTheme,
-      onBlur,
-      onClose,
-    };
+  // it('should emit onDelete event after clicking delete key', async () => {
+  //   const onDelete = jest.fn();
+  //   const props = {
+  //     ...$props,
+  //     onDelete,
+  //   };
 
-    const { getAllByRole } = createNumberKeyboard(props);
-    const key = getAllByRole('button')[12];
-    await clickKey(key);
-    expect(onBlur).toHaveBeenCalled();
-    expect(onClose).toHaveBeenCalled();
-  });
-
-  it('should render title and close button correctly', () => {
-    const props = {
-      ...$props,
-      title: 'Title',
-      closeButtonText: 'Close',
-    };
-
-    const { baseElement } = createNumberKeyboard(props);
-    expect(baseElement.querySelector('.rc-number-keyboard__header')).toMatchSnapshot();
-  });
-
-  it('should render titleLeft prop correctly', () => {
-    const props = {
-      ...$props,
-      titleLeft: <span>Custom Title Left</span>,
-    };
-
-    const { baseElement } = createNumberKeyboard(props);
-    expect(baseElement.querySelector('.rc-number-keyboard__header')).toMatchSnapshot();
-  });
-
-  it('should render loading icon when using close-button-loading prop', () => {
-    const props = {
-      ...$props,
-      theme: 'custom' as NumberKeyboardTheme,
-      closeButtonLoading: true,
-    };
-
-    const { baseElement } = createNumberKeyboard(props);
-
-    expect(baseElement.querySelector('.rc-key__loading-icon')).toBeTruthy();
-  });
-
-  it('should render extra key correctly when using extraKey prop', () => {
-    const props = {
-      ...$props,
-      extraKey: 'foo',
-    };
-
-    const { baseElement } = createNumberKeyboard(props);
-    expect(baseElement.querySelectorAll('.rc-key')[9]).toMatchSnapshot();
-  });
-
-  it('should render extra key correctly when using extraKey prop and extraKey is an array', async () => {
-    const props = {
-      ...$props,
-      theme: 'custom' as NumberKeyboardTheme,
-      extraKey: ['00', '.'],
-    };
-
-    const { baseElement } = createNumberKeyboard(props);
-
-    expect(baseElement.querySelector('.rc-number-keyboard')).toMatchSnapshot();
-  });
-
-  it('should emit blur event after clicking outside', async () => {
-    const onBlur = jest.fn();
-    const props = {
-      ...$props,
-      onBlur,
-    };
-
-    createNumberKeyboard(props);
-    await clickKey(document.body);
-    expect(onBlur).toHaveBeenCalled();
-  });
-
-  it('should not emit blur event after clicking outside when hideOnClickOutside is false', async () => {
-    const onBlur = jest.fn();
-    const props = {
-      ...$props,
-      hideOnClickOutside: false,
-      onBlur,
-    };
-
-    createNumberKeyboard(props);
-    await clickKey(document.body);
-    expect(onBlur).not.toHaveBeenCalled();
-  });
-
-  it('should add "rc-key--active" className to key when focused', async () => {
-    const { getAllByRole } = createNumberKeyboard($props);
-    const key = getAllByRole('button')[0];
-
-    await TestsEvent.triggerTouch(key, 'touchstart', [[0, 0]]);
-
-    expect(key.classList.contains('rc-key--active')).toBeTruthy();
-
-    await TestsEvent.triggerTouch(key, 'touchend', [[0, 0]]);
-
-    expect(key.classList.contains('rc-key--active')).toBeFalsy();
-  });
-
-  it('should remove "rc-key--active" className from key when touch moved', async () => {
-    const { getAllByRole } = createNumberKeyboard($props);
-    const key = getAllByRole('button')[0];
-
-    await TestsEvent.triggerTouch(key, 'touchstart', [[0, 0]]);
-
-    expect(key.classList.contains('rc-key--active')).toBeTruthy();
-
-    await TestsEvent.triggerTouch(key, 'touchmove', [[0, 0]]);
-
-    expect(key.classList.contains('rc-key--active')).toBeTruthy();
-
-    await TestsEvent.triggerTouch(key, 'touchmove', [[100, 0]]);
-
-    expect(key.classList.contains('rc-key--active')).toBeFalsy();
-
-    await TestsEvent.triggerTouch(key, 'touchend', [[0, 0]]);
-
-    expect(key.classList.contains('rc-key--active')).toBeFalsy();
-  });
-
-  it('should not render delete key when show-delete-key prop is false', () => {
-    const props = {
-      ...$props,
-      showDeleteKey: true,
-    };
-
-    const { container } = createNumberKeyboard(props);
-
-    expect(container.querySelector('.rc-key--delete')).toBeFalsy();
-  });
-
-  test('should shuffle key order when using random-key-order prop', () => {
-    const props = {
-      ...$props,
-      randomKeyOrder: true,
-    };
-
-    const { getAllByRole } = createNumberKeyboard(props);
-
-    const keys: number[] = [];
-    const clickKeys: number[] = [];
-
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 9; i++) {
-      keys.push(i + 1);
-      clickKeys.push(Number(getAllByRole('button')[i].innerText));
-    }
-
-    expect(keys.every((v, k) => keys[k] === clickKeys[k])).toEqual(false);
-  });
+  //   const { getAllByRole } = createPasswordInput(props);
+  //   const key = getAllByRole('button')[11];
+  //   await clickKey(key);
+  //   expect(onDelete).toHaveBeenCalled();
+  // });
 });

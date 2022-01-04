@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { components } from 'site-mobile-demo';
 import PasswordInput from '..';
 import { Toast, NumberKeyboard } from '../..';
 import './style.less';
 
 const initialValue = {
+  nativeInput: '123',
   showInfo: '123',
   addGutter: '123',
   basicUsage: '123',
@@ -15,98 +16,117 @@ const initialValue = {
 export default (): React.ReactNode => {
   const { DemoSection, DemoBlock } = components;
 
-  const [visible, setVisible] = useState<boolean>(false);
   const [values, setValues] = useState(initialValue);
+  const [current, setCurrent] = useState(null);
 
-  const [current, setCurrent] = useState('basicUsage');
+  const [errorInfo, setErrorInfo] = useState<string>('');
 
-  const handleFocuse = (type) => {
-    setCurrent(type);
-    setVisible(true);
+  const basicUsageRef = useRef(null);
+  const nativeInputRef = useRef(null);
+  const customLengthRef = useRef(null);
+  const addGutterRef = useRef(null);
+  const removeMaskRef = useRef(null);
+  const showInfoRef = useRef(null);
+
+  const refMap = {
+    showInfo: showInfoRef,
+    nativeInput: nativeInputRef,
+    addGutter: addGutterRef,
+    basicUsage: basicUsageRef,
+    removeMask: removeMaskRef,
+    customLength: customLengthRef,
   };
 
-  const numberKeyboardActions = {
-    onClose: () => {
-      Toast.info('closed');
-      setVisible(false);
-    },
-    onInput: (key: string) => {
-      setValues((v) => {
-        return {
-          ...v,
-          [current]: v[current] + key,
-        };
-      });
-    },
-    onDelete: () => {
-      setValues((v) => {
-        return {
-          ...v,
-          [current]: v[current].slice(0, v[current].length - 1),
-        };
-      });
-    },
-    onBlur: () => {
-      setVisible(false);
-    },
+  useEffect(() => {
+    if (current) {
+      const el = refMap[current].current;
+      const { top } = el.getBoundingClientRect();
+      window.scrollTo(0, window.pageYOffset + top);
+    }
+  }, [current]);
+
+  const handleFocus = (type) => {
+    setCurrent(type);
+  };
+
+  const handleBlur = () => {
+    setCurrent('');
+  };
+
+  const handleChange = (value, type) => {
+    console.log(value, type);
+  };
+
+  const handleFill = () => {
+    setErrorInfo('密码错误');
   };
 
   return (
     <DemoSection>
-      <DemoBlock card title="基础用法">
+      <DemoBlock ref={basicUsageRef} card title="基础用法">
         <PasswordInput
-          value={values.customLength}
+          value={values.basicUsage}
           focused={current === 'basicUsage'}
-          onFocus={() => handleFocuse('basicUsage')}
+          onFocus={() => handleFocus('basicUsage')}
+          onBlur={handleBlur}
+          onChange={(value) => handleChange(value, 'basicUsage')}
+          keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
-      <DemoBlock card title="自定义长度">
+      <DemoBlock ref={nativeInputRef} card title="原生键盘用法">
+        <PasswordInput
+          value={values.nativeInput}
+          focused={current === 'nativeInput'}
+          onFocus={() => handleFocus('nativeInput')}
+          onBlur={handleBlur}
+          onChange={(value) => handleChange(value, 'nativeInput')}
+        />
+      </DemoBlock>
+      <DemoBlock ref={customLengthRef} card title="自定义长度">
         <PasswordInput
           value={values.customLength}
           length={4}
           focused={current === 'customLength'}
-          onFocus={() => handleFocuse('customLength')}
+          onFocus={() => handleFocus('customLength')}
+          onBlur={handleBlur}
+          onChange={(value) => handleChange(value, 'customLength')}
+          keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
-      <DemoBlock card title="基础用法">
+      <DemoBlock ref={addGutterRef} card title="格子间距">
         <PasswordInput
-          value={values.customLength}
-          length={4}
-          focused={current === 'customLength'}
-          onFocus={() => handleFocuse('customLength')}
+          value={values.addGutter}
+          gutter={10}
+          focused={current === 'addGutter'}
+          onFocus={() => handleFocus('addGutter')}
+          onBlur={handleBlur}
+          onChange={(value) => handleChange(value, 'addGutter')}
+          keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
-      <DemoBlock card title="基础用法">
+      <DemoBlock ref={removeMaskRef} card title="明文展示">
         <PasswordInput
-          value={values.customLength}
-          length={4}
-          focused={current === 'customLength'}
-          onFocus={() => handleFocuse('customLength')}
+          value={values.removeMask}
+          mask={false}
+          focused={current === 'removeMask'}
+          onBlur={handleBlur}
+          onFocus={() => handleFocus('removeMask')}
+          keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
-      <DemoBlock card title="基础用法">
+      <DemoBlock ref={showInfoRef} card title="提示信息">
         <PasswordInput
-          value={values.customLength}
-          length={4}
-          focused={current === 'customLength'}
-          onFocus={() => handleFocuse('customLength')}
+          value={values.showInfo}
+          info="密码为 6 位数字"
+          errorInfo={errorInfo}
+          onFill={handleFill}
+          focused={current === 'showInfo'}
+          onFocus={() => handleFocus('showInfo')}
+          onBlur={handleBlur}
+          onChange={(value) => handleChange(value, 'showInfo')}
+          keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
-      <DemoBlock card title="基础用法">
-        <PasswordInput
-          value={values.customLength}
-          length={4}
-          focused={current === 'customLength'}
-          onFocus={() => handleFocuse('customLength')}
-        />
-      </DemoBlock>
-      <NumberKeyboard
-        visible={visible}
-        onClose={numberKeyboardActions.onClose}
-        onInput={numberKeyboardActions.onInput}
-        onDelete={numberKeyboardActions.onDelete}
-        onBlur={numberKeyboardActions.onBlur}
-      />
     </DemoSection>
   );
 };
