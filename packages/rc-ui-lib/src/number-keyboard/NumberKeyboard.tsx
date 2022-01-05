@@ -124,10 +124,7 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
     return null;
   };
 
-  if (hideOnClickOutside) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useClickAway(root, onBlur, 'touchstart');
-  }
+  useClickAway(root, onBlur, 'touchstart', hideOnClickOutside);
 
   return (
     <Popup
@@ -154,6 +151,7 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
 
 NumberKeyboard.defaultProps = {
   theme: 'default',
+  visible: false,
   extraKey: '',
   showDeleteKey: true,
   zIndex: 100,
