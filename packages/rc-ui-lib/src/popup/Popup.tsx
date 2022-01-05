@@ -182,6 +182,9 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
           props.className,
         )}
         onClick={props.onClick}
+        onMouseDown={(e) => {
+          e.preventDefault();
+        }}
       >
         {renderTitle()}
         {renderDescrition()}
