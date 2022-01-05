@@ -11,5 +11,6 @@ module.exports = {
     'no-explicit-any': 'off',
     'no-underscore-dangle': 'off',
     'react/default-props-match-prop-types': 0,
+    'no-plusplus': 'off',
   },
 };

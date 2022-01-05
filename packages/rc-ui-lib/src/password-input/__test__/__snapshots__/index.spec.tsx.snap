@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PasswordInput should render correctly when using gutter prop 1`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
+  >
+    <ul
+      class="rc-password-input__security"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`PasswordInput should render correctly when using length prop 1`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
+  >
+    <ul
+      class="rc-password-input__security rc-hairline--surround"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`PasswordInput should render correctly when using length prop 2`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
+  >
+    <ul
+      class="rc-password-input__security rc-hairline--surround"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`PasswordInput should render correctly when using mask prop 1`] = `
+<li
+  class="rc-password-input__item"
+>
+  1
+</li>
+`;
+
+exports[`PasswordInput should render error info correctly 1`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
+  >
+    <ul
+      class="rc-password-input__security rc-hairline--surround"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <div
+      class="rc-password-input__error-info"
+    >
+      error!
+    </div>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

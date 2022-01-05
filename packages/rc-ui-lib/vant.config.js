@@ -134,10 +134,10 @@ module.exports = {
                 path: 'number-keyboard',
                 title: 'NumberKeyboard 数字键盘',
               },
-              // {
-              //   path: 'password-input',
-              //   title: 'PasswordInput 密码输入框',
-              // },
+              {
+                path: 'password-input',
+                title: 'PasswordInput 密码输入框',
+              },
               // {
               //   path: 'picker',
               //   title: 'Picker 选择器',
