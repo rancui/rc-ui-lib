@@ -275,7 +275,7 @@ const formatter = (value) => value.replace(/\d/g, '');
 通过 ref 可以获取到 Field 实例并调用实例方法
 
 ```js
-const fieldRef = useRef < FieldInstance > null;
+const fieldRef = useRef(null);
 ```
 
 ```jsx
