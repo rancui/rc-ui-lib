@@ -823,6 +823,7 @@ exports[`ImagePreview emit onZoomChange event when zoom is 1 1`] = `
         >
           <div
             className="rc-popup rc-popup--center rc-image-preview"
+            onMouseDown={[Function]}
             style={
               Object {
                 "animationDuration": "300ms",
@@ -1871,6 +1872,7 @@ exports[`ImagePreview emit onZoomChange event when zoom is not 1 1`] = `
         >
           <div
             className="rc-popup rc-popup--center rc-image-preview"
+            onMouseDown={[Function]}
             style={
               Object {
                 "animationDuration": "300ms",
@@ -2919,6 +2921,7 @@ exports[`ImagePreview maxZoom 1`] = `
         >
           <div
             className="rc-popup rc-popup--center rc-image-preview"
+            onMouseDown={[Function]}
             style={
               Object {
                 "animationDuration": "300ms",
