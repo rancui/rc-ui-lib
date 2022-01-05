@@ -1,222 +1,257 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NumberKeyboard should render extra key correctly when using extraKey prop 1`] = `
-<div
-  class="rc-key"
-  role="button"
-  tabindex="0"
->
-  foo
-</div>
-`;
-
-exports[`NumberKeyboard should render extra key correctly when using extraKey prop and extraKey is an array 1`] = `
-<div
-  class="rc-number-keyboard"
->
+exports[`PasswordInput should render correctly when using gutter prop 1`] = `
+<div>
   <div
-    class="rc-number-keyboard__body"
+    class="rc-password-input"
+    tabindex="0"
   >
-    <div
-      class="rc-number-keyboard__keys"
+    <ul
+      class="rc-password-input__security"
     >
-      <div
-        class="rc-key__wrapper"
+      <li
+        class="rc-password-input__item"
       >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          1
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          2
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          3
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          4
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          5
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          6
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          7
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          8
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          9
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          00
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          0
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key"
-          role="button"
-          tabindex="0"
-        >
-          .
-        </div>
-      </div>
-    </div>
-    <div
-      class="rc-number-keyboard__sidebar"
-    >
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key rc-key--large rc-key--delete"
-          role="button"
-          tabindex="0"
-        >
-          <svg
-            class="rc-key__delete-icon"
-            viewBox="0 0 32 22"
-          >
-            <path
-              d="M28 0a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H10.4a2 2 0 0 1-1.4-.6L1 13.1c-.6-.5-.9-1.3-.9-2 0-1 .3-1.7.9-2.2L9 .6a2 2 0 0 1 1.4-.6zm0 2H10.4l-8.2 8.3a1 1 0 0 0-.3.7c0 .3.1.5.3.7l8.2 8.4H28a2 2 0 0 0 2-2V4c0-1.1-.9-2-2-2zm-5 4a1 1 0 0 1 .7.3 1 1 0 0 1 0 1.4L20.4 11l3.3 3.3c.2.2.3.5.3.7 0 .3-.1.5-.3.7a1 1 0 0 1-.7.3 1 1 0 0 1-.7-.3L19 12.4l-3.4 3.3a1 1 0 0 1-.6.3 1 1 0 0 1-.7-.3 1 1 0 0 1-.3-.7c0-.2.1-.5.3-.7l3.3-3.3-3.3-3.3A1 1 0 0 1 14 7c0-.3.1-.5.3-.7A1 1 0 0 1 15 6a1 1 0 0 1 .6.3L19 9.6l3.3-3.3A1 1 0 0 1 23 6z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        class="rc-key__wrapper"
-      >
-        <div
-          class="rc-key rc-key--blue rc-key--large"
-          role="button"
-          tabindex="0"
+        <i
+          style="visibility: hidden;"
         />
-      </div>
-    </div>
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-password-input__item"
+        style="margin-left: 10px;"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
 
-exports[`NumberKeyboard should render title and close button correctly 1`] = `
-<div
-  class="rc-number-keyboard__header"
->
-  <h2
-    class="rc-number-keyboard__title"
+exports[`PasswordInput should render correctly when using length prop 1`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
   >
-    Title
-  </h2>
-  <button
-    class="rc-number-keyboard__close"
-    type="button"
-  >
-    Close
-  </button>
+    <ul
+      class="rc-password-input__security rc-hairline--surround"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
 </div>
 `;
 
-exports[`NumberKeyboard should render titleLeft prop correctly 1`] = `
-<div
-  class="rc-number-keyboard__header"
->
-  <span
-    class="rc-number-keyboard__title-left"
+exports[`PasswordInput should render correctly when using length prop 2`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
   >
-    <span>
-      Custom Title Left
-    </span>
-  </span>
+    <ul
+      class="rc-password-input__security rc-hairline--surround"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`PasswordInput should render correctly when using mask prop 1`] = `
+<li
+  class="rc-password-input__item"
+>
+  1
+</li>
+`;
+
+exports[`PasswordInput should render error info correctly 1`] = `
+<div>
+  <div
+    class="rc-password-input"
+    tabindex="0"
+  >
+    <ul
+      class="rc-password-input__security rc-hairline--surround"
+    >
+      <li
+        class="rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+      <li
+        class="rc-hairline--left rc-password-input__item"
+      >
+        <i
+          style="visibility: hidden;"
+        />
+      </li>
+    </ul>
+    <div
+      class="rc-password-input__error-info"
+    >
+      error!
+    </div>
+    <input
+      class="rc-password-input__native-input"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+      value=""
+    />
+  </div>
 </div>
 `;
