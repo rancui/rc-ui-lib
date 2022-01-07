@@ -59,10 +59,8 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
           let position = offsetX + state.velocity[0] * state.direction[0] * 50;
           if (offsetX > 0) {
             position = Math.max(0, position);
-          } else if (offsetX < 0) {
-            position = Math.min(0, position);
           } else {
-            position = 0;
+            position = Math.min(0, position);
           }
           const nearestPosition = nearest([-rightWidth, 0, leftWidth], position);
           api.start({
@@ -158,14 +156,11 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     sideRef: React.MutableRefObject<HTMLDivElement>,
   ) => {
     const contentSlot = props[side];
-    if (contentSlot) {
-      return (
-        <div ref={sideRef} className={classNames(bem(side))} onClick={getClickHandler(side, true)}>
-          {contentSlot}
-        </div>
-      );
-    }
-    return null;
+    return contentSlot ? (
+      <div ref={sideRef} className={classNames(bem(side))} onClick={getClickHandler(side, true)}>
+        {contentSlot}
+      </div>
+    ) : null;
   };
 
   useImperativeHandle(ref, () => ({

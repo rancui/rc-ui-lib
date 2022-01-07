@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, cleanup, waitFor, act } from '@testing-library/react';
+import { render, cleanup, waitFor, act, fireEvent } from '@testing-library/react';
 import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
 import { Button, Cell } from '../..';
@@ -54,17 +54,13 @@ describe('SwipeCell test with testing library', () => {
   };
 
   const mockOffset = (c: Element) => {
-    Object.defineProperty(c, 'offsetHeight', {
-      configurable: true,
-      get: () => 100,
-    });
     Object.defineProperty(c, 'offsetWidth', {
       configurable: true,
       get: () => 100,
     });
   };
 
-  function createSwipeCell(props: Partial<SwipeCellProps>) {
+  function createSwipeCell(props?: Partial<SwipeCellProps>) {
     const swipeCellRef = React.createRef<SwipeCellInstance>();
 
     const { queryByTestId, container, rerender, debug } = render(
@@ -73,12 +69,7 @@ describe('SwipeCell test with testing library', () => {
         style={swipeStyle}
         name="swipeCell"
         left={<Button square type="primary" text="选择" />}
-        right={
-          <>
-            <Button square type="danger" text="删除" />
-            <Button square type="primary" text="收藏" />
-          </>
-        }
+        right={<Button square type="danger" text="删除" />}
         {...props}
       >
         <Cell title="单元格" value="内容" />
@@ -129,7 +120,7 @@ describe('SwipeCell test with testing library', () => {
       open('left');
     });
 
-    await sleep(100);
+    await sleep(1000);
 
     expect(onOpen).toHaveBeenCalledWith({
       name: 'swipeCell',
@@ -137,6 +128,19 @@ describe('SwipeCell test with testing library', () => {
     });
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('should emit onClick event when click swipe-cell', async () => {
+    const onClick = jest.fn();
+    const { container } = createSwipeCell({
+      ...$props,
+      onClick,
+    });
+
+    const wrap = container.querySelector('.rc-swipe-cell');
+    await fireEvent.click(wrap);
+
+    expect(onClick).toHaveBeenCalledWith('cell');
   });
 
   it('should close after calling close method', async () => {
@@ -155,7 +159,7 @@ describe('SwipeCell test with testing library', () => {
       swipeCellRef.current.close('outside');
     });
 
-    await sleep(100);
+    await sleep(1000);
 
     expect(onClose).toHaveBeenCalledWith({
       name: 'swipeCell',
@@ -169,8 +173,12 @@ describe('SwipeCell test with testing library', () => {
     });
 
     const track = container.querySelector('.rc-swipe-cell__wrapper');
-    mockOffset(track);
+    const leftSide = container.querySelector('.rc-swipe-cell__left');
+
+    mockOffset(leftSide);
     await TestsEvent.triggerDrag(track, [100, 0]);
+
+    await sleep(1000);
 
     expect(container).toMatchSnapshot();
   });
@@ -181,8 +189,91 @@ describe('SwipeCell test with testing library', () => {
     });
 
     const track = container.querySelector('.rc-swipe-cell__wrapper');
-    mockOffset(track);
+    const rightSide = container.querySelector('.rc-swipe-cell__right');
+
+    mockOffset(rightSide);
     await TestsEvent.triggerDrag(track, [-100, 0]);
+
+    await sleep(1000);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should call beforeClose before closing', async () => {
+    let position;
+    let instance;
+    const { container, swipeCellRef } = createSwipeCell({
+      ...$props,
+      beforeClose(params) {
+        ({ position, instance } = params);
+        if (position === 'right') {
+          instance.close();
+        }
+      },
+    });
+
+    const track = container.querySelector('.rc-swipe-cell__wrapper');
+    const rightSide = container.querySelector('.rc-swipe-cell__right');
+
+    mockOffset(rightSide);
+
+    await waitFor(async () => {
+      swipeCellRef.current.open('right');
+    });
+
+    fireEvent.click(track);
+    expect(position).toEqual('cell');
+
+    fireEvent.click(rightSide);
+    expect(position).toEqual('right');
+  });
+
+  it('should reset transform after short dragging', async () => {
+    const { container } = createSwipeCell();
+
+    const track = container.querySelector('.rc-swipe-cell__wrapper');
+    const leftSide = container.querySelector('.rc-swipe-cell__left');
+
+    mockOffset(leftSide);
+    await TestsEvent.triggerDrag(track, [0, 0]);
+    await sleep(1000);
+    await TestsEvent.triggerDrag(track, [5, 0]);
+    await sleep(1000);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should not allow to drag when using disabled prop', async () => {
+    const { container } = createSwipeCell({
+      ...$props,
+      disabled: true,
+    });
+
+    const track = container.querySelector('.rc-swipe-cell__wrapper');
+    const leftSide = container.querySelector('.rc-swipe-cell__left');
+
+    mockOffset(leftSide);
+    await TestsEvent.triggerDrag(track, [100, 0]);
+
+    await sleep(1000);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render correct when click content', async () => {
+    const { container, swipeCellRef } = createSwipeCell({
+      ...$props,
+    });
+
+    const content = container.querySelector('.rc-swipe-cell__content');
+
+    await waitFor(async () => {
+      swipeCellRef.current.open('left');
+    });
+
+    await fireEvent.click(content);
+
+    await sleep(1000);
 
     expect(container).toMatchSnapshot();
   });
