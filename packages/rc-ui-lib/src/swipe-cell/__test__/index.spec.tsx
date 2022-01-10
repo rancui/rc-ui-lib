@@ -204,16 +204,20 @@ describe('SwipeCell test with testing library', () => {
     let instance;
     const { container, swipeCellRef } = createSwipeCell({
       ...$props,
+      // eslint-disable-next-line consistent-return
       beforeClose(params) {
         ({ position, instance } = params);
         if (position === 'right') {
           instance.close();
+        } else {
+          return true;
         }
       },
     });
 
     const track = container.querySelector('.rc-swipe-cell__wrapper');
     const rightSide = container.querySelector('.rc-swipe-cell__right');
+    const leftSide = container.querySelector('.rc-swipe-cell__left');
 
     mockOffset(rightSide);
 
@@ -224,8 +228,19 @@ describe('SwipeCell test with testing library', () => {
     fireEvent.click(track);
     expect(position).toEqual('cell');
 
+    await waitFor(async () => {
+      swipeCellRef.current.open('right');
+    });
+
     fireEvent.click(rightSide);
     expect(position).toEqual('right');
+
+    await waitFor(async () => {
+      swipeCellRef.current.open('left');
+    });
+
+    fireEvent.click(leftSide);
+    expect(position).toEqual('left');
   });
 
   it('should reset transform after short dragging', async () => {
@@ -235,10 +250,12 @@ describe('SwipeCell test with testing library', () => {
     const leftSide = container.querySelector('.rc-swipe-cell__left');
 
     mockOffset(leftSide);
-    // await TestsEvent.triggerDrag(track, [0, 0]);
-    // await sleep(1000);
+
     await TestsEvent.triggerDrag(track, [-5, 0]);
-    await sleep(1000);
+
+    act(() => {
+      jest.advanceTimersByTime(500);
+    });
 
     expect(container).toMatchSnapshot();
   });
