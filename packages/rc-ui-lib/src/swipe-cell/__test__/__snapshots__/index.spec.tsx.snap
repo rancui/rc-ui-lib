@@ -295,7 +295,7 @@ exports[`SwipeCell test with testing library should reset transform after short 
   >
     <div
       class="rc-swipe-cell__wrapper"
-      style="transform: translate3d(100px,0,0);"
+      style="transform: none;"
     >
       <div
         class="rc-swipe-cell__left"
@@ -318,7 +318,7 @@ exports[`SwipeCell test with testing library should reset transform after short 
         class="rc-swipe-cell__content"
       >
         <div
-          style="pointer-events: none;"
+          style="pointer-events: unset;"
         >
           <div
             class="rc-cell"

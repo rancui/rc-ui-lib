@@ -235,9 +235,9 @@ describe('SwipeCell test with testing library', () => {
     const leftSide = container.querySelector('.rc-swipe-cell__left');
 
     mockOffset(leftSide);
-    await TestsEvent.triggerDrag(track, [0, 0]);
-    await sleep(1000);
-    await TestsEvent.triggerDrag(track, [5, 0]);
+    // await TestsEvent.triggerDrag(track, [0, 0]);
+    // await sleep(1000);
+    await TestsEvent.triggerDrag(track, [-5, 0]);
     await sleep(1000);
 
     expect(container).toMatchSnapshot();
