@@ -1,0 +1,80 @@
+@import './var.less';
+
+:root {
+  --rc-sidebar-width: @sidebar-width;
+  --rc-sidebar-font-size: @sidebar-font-size;
+  --rc-sidebar-line-height: @sidebar-line-height;
+  --rc-sidebar-text-color: @sidebar-text-color;
+  --rc-sidebar-disabled-text-color: @sidebar-disabled-text-color;
+  --rc-sidebar-padding: @sidebar-padding;
+  --rc-sidebar-active-color: @sidebar-active-color;
+  --rc-sidebar-background-color: @sidebar-background-color;
+  --rc-sidebar-selected-font-weight: @sidebar-selected-font-weight;
+  --rc-sidebar-selected-text-color: @sidebar-selected-text-color;
+  --rc-sidebar-selected-border-width: @sidebar-selected-border-width;
+  --rc-sidebar-selected-border-height: @sidebar-selected-border-height;
+  --rc-sidebar-selected-border-color: @sidebar-selected-border-color;
+  --rc-sidebar-selected-background-color: @sidebar-selected-background-color;
+}
+
+.rc-sidebar {
+  width: var(--rc-sidebar-width);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rc-sidebar-item {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  padding: var(--rc-sidebar-padding);
+  overflow: hidden;
+  color: var(--rc-sidebar-text-color);
+  font-size: var(--rc-sidebar-font-size);
+  line-height: var(--rc-sidebar-line-height);
+  background: var(--rc-sidebar-background-color);
+  cursor: pointer;
+  user-select: none;
+
+  &:active {
+    background-color: var(--rc-sidebar-active-color);
+  }
+
+  &:not(:last-child)::after {
+    border-bottom-width: 1px;
+  }
+
+  &__text {
+    word-break: break-all;
+  }
+
+  &--select {
+    color: var(--rc-sidebar-selected-text-color);
+    font-weight: var(--rc-sidebar-selected-font-weight);
+
+    &,
+    &:active {
+      background-color: var(--rc-sidebar-selected-background-color);
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: var(--rc-sidebar-selected-border-width);
+      height: var(--rc-sidebar-selected-border-height);
+      background-color: var(--rc-sidebar-selected-border-color);
+      transform: translateY(-50%);
+      content: '';
+    }
+  }
+
+  &--disabled {
+    color: var(--rc-sidebar-disabled-text-color);
+    cursor: not-allowed;
+
+    &:active {
+      background-color: var(--rc-sidebar-background-color);
+    }
+  }
+}
