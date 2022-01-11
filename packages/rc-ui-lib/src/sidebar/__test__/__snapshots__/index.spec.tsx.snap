@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar should render correcyly when using badge prop in SidebarItem 1`] = `
+<div>
+  <div
+    class="rc-sidebar"
+    role="tablist"
+  >
+    <div
+      aria-selected="true"
+      class="rc-sidebar-item rc-sidebar-item--select rc-sidebar-item--disabled"
+      role="tab"
+    >
+      <div
+        class="rc-badge__wrapper rc-sidebar-item__text"
+      >
+        标签名
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="rc-sidebar-item"
+      role="tab"
+      tabindex="0"
+    >
+      <div
+        class="rc-badge__wrapper rc-sidebar-item__text"
+      >
+        标签名
+        <div
+          class="rc-badge rc-badge--fixed"
+        >
+          5
+        </div>
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="rc-sidebar-item"
+      role="tab"
+      tabindex="0"
+    >
+      <div
+        class="rc-badge__wrapper rc-sidebar-item__text"
+      >
+        标签名
+        <div
+          class="rc-badge rc-badge--fixed"
+        >
+          20
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sidebar should render incorrectly when SidebarItem not parent 1`] = `<div />`;

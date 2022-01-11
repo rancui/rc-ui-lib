@@ -305,10 +305,10 @@ module.exports = {
               //   path: 'pagination',
               //   title: 'Pagination 分页',
               // },
-              // {
-              //   path: 'sidebar',
-              //   title: 'Sidebar 侧边导航',
-              // },
+              {
+                path: 'sidebar',
+                title: 'Sidebar 侧边导航',
+              },
               {
                 path: 'tabs',
                 title: 'Tabs 标签页',
