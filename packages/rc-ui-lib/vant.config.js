@@ -245,6 +245,10 @@ module.exports = {
                 title: 'ImagePreview 图片预览',
               },
               {
+                path: 'lazyload',
+                title: 'Lazyload 懒加载',
+              },
+              {
                 path: 'list',
                 title: 'List 列表',
               },

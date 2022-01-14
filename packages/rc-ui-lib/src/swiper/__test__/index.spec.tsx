@@ -272,7 +272,6 @@ describe('Swipe test with testing library', () => {
       onIndexChange,
     });
 
-    // await sleep(200);
     act(() => {
       jest.advanceTimersByTime(200);
     });

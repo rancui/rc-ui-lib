@@ -1,0 +1,48 @@
+import React, { useState, useEffect } from 'react';
+import { DEFAULT_EVENTS, hasIntersectionObserver, modeType } from './utils';
+import LazyloadImageEvent from './LazyloadImageEvent';
+import LazyLoadImageObserve from './LazyloadImageObserve';
+import { LazyloadImageProps } from './PropsType';
+
+const Lazyload: React.FC<LazyloadImageProps> = (props) => {
+  const [mode, setMode] = useState<keyof typeof modeType>('observer');
+
+  const { observer, ...resetProps } = props;
+
+  useEffect(() => {
+    const toSetMode = (value) => {
+      if (!hasIntersectionObserver && value === modeType.observer) {
+        value = modeType.event;
+      }
+      setMode(value);
+    };
+
+    toSetMode(observer ? modeType.observer : modeType.event);
+  }, [observer]);
+
+  return (
+    <>
+      {mode === modeType.event ? (
+        <LazyloadImageEvent {...resetProps} />
+      ) : (
+        <LazyLoadImageObserve {...resetProps} />
+      )}
+    </>
+  );
+};
+
+Lazyload.defaultProps = {
+  loading: null,
+  height: 0,
+  className: '',
+  observer: true,
+  eventOptions: {
+    scrollContainer: document.body,
+    offset: 0,
+    debounce: 300,
+    throttle: 0,
+    listenEvents: DEFAULT_EVENTS,
+  },
+};
+
+export default Lazyload;
