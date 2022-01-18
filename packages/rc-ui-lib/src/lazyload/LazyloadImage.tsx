@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { DEFAULT_EVENTS, hasIntersectionObserver, modeType } from './utils';
 import LazyloadImageEvent from './LazyloadImageEvent';
 import LazyLoadImageObserve from './LazyloadImageObserve';
+import { DEFAULT_EVENTS, hasIntersectionObserver, modeType } from './utils';
 import { LazyloadImageProps } from './PropsType';
 
 const Lazyload: React.FC<LazyloadImageProps> = (props) => {
@@ -33,8 +33,6 @@ const Lazyload: React.FC<LazyloadImageProps> = (props) => {
 
 Lazyload.defaultProps = {
   loading: null,
-  height: 0,
-  className: '',
   observer: true,
   eventOptions: {
     scrollContainer: document.body,

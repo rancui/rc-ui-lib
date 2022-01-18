@@ -52,7 +52,7 @@ export type LazyloadProps = {
 
 export type ImageProps = BaseTypeProps & {
   image: string;
-  loading?: React.ReactNode;
+  loading?: string;
   type?: LazyLoadImageType;
   errorImage?: string;
   onLoaded?: () => void;

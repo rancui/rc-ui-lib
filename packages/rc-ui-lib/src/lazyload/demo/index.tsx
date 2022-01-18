@@ -27,11 +27,12 @@ export default (): React.ReactNode => {
       </div>
     );
   };
+
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
         {images.map((image) => (
-          <Lazyload.Image key={image} image={image} height="300px" />
+          <Lazyload.Image observer={false} key={image} image={image} />
         ))}
       </DemoBlock>
       <DemoBlock title="背景图片懒加载">
@@ -41,8 +42,8 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="懒加载模块">
         {componentImageList.map((image) => (
-          <Lazyload key={image} loading={<Spain />}>
-            <img alt="" src={image} width="100%" height="300" />
+          <Lazyload key={image} loading={<Spain />} height="250">
+            <img alt="" src={image} width="100%" height="250" />
           </Lazyload>
         ))}
       </DemoBlock>

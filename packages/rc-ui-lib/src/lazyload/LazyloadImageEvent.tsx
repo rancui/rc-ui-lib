@@ -1,9 +1,9 @@
 import React, { useEffect, useContext, createElement } from 'react';
 import classNames from 'classnames';
 import { addCssClassName, DEFAULT_EVENTS, DEFAULT_URL, loadImage, setImage } from './utils';
+import useEventVisible from './utils/useEventVisible';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { LazyloadImageProps } from './PropsType';
-import useEventVisible from './utils/useEventVisible';
 
 const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
@@ -19,6 +19,7 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
     eventOptions,
     height,
     width,
+    onLoaded,
     ...restProps
   } = props;
 
@@ -36,6 +37,8 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
         .then((imagePath: string) => {
           setImage(target, imagePath);
           addCssClassName(target, bem('loaded') as string);
+          target.setAttribute('lazy', 'loaded');
+          target.removeAttribute('data-src');
           props.onLoaded?.();
         });
     }
@@ -75,8 +78,6 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
 
 LazyloadImage.defaultProps = {
   loading: null,
-  height: 'auto',
-  width: 'auto',
   eventOptions: {
     listenEvents: DEFAULT_EVENTS,
     scrollContainer: document.body,

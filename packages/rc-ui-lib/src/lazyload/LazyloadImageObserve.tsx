@@ -18,9 +18,9 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
     errorImage,
     eventOptions,
     observerOptions,
-    onLoaded,
     loading,
     className,
+    onLoaded,
     ...restProps
   } = props;
 
@@ -68,8 +68,6 @@ LazyloadImage.defaultProps = {
   image: '60',
   className: '',
   type: 'image',
-  height: 'auto',
-  width: 'auto',
 };
 
 export default LazyloadImage;

@@ -101,6 +101,8 @@ export default () => {
 | image           | 图片地址                      | _string_               | -       |
 | loading         | 加载时的图片                  | _string_               | -       |
 | errorImage      | 错误时的图片                  | _string_               | -       |
+| height          | 图片高度                      | _string_、_number_     | -       |
+| width           | 图片宽度                      | _string_、_number_     | -       |
 | type            | 加载类型                      | `image`、 `background` | `image` |
 | observer        | 是否使用 IntersectionObserver | _boolean_              | true    |
 | eventOptions    | 事件监听选项                  | _EventOptions_         | -       |

@@ -24,6 +24,7 @@ const useImageVisible = (
             setIsLoaded(true);
             addCssClassName(target, 'rc-lazyload__loaded');
             target.setAttribute('lazy', 'loaded');
+            target.removeAttribute('data-src');
           });
         });
     },
