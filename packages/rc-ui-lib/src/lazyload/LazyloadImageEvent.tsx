@@ -86,7 +86,7 @@ LazyloadImage.defaultProps = {
     throttle: 0,
   },
   type: 'image',
-  errorImage: '',
+  errorImage: DEFAULT_URL,
 };
 
 export default LazyloadImage;

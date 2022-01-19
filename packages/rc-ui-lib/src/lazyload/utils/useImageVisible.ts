@@ -9,6 +9,7 @@ const defaultObserverOptions = {
 
 const useImageVisible = (
   observerOptions: ObserverOptions = defaultObserverOptions,
+  errorImage: string,
 ): [(node: Element) => void, boolean] => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -19,13 +20,19 @@ const useImageVisible = (
         .forEach((entry) => {
           const target = entry.target as HTMLImageElement | HTMLElement;
           const url = target.dataset.src || '';
-          loadImage(url).then((imagePath: string) => {
-            setImage(target, imagePath);
-            setIsLoaded(true);
-            addCssClassName(target, 'rc-lazyload__loaded');
-            target.setAttribute('lazy', 'loaded');
-            target.removeAttribute('data-src');
-          });
+          loadImage(url)
+            .catch(() => {
+              setImage(target, errorImage);
+              addCssClassName(target, 'rc-lazyload__error');
+              target.setAttribute('lazy', 'error');
+            })
+            .then((imagePath: string) => {
+              setImage(target, imagePath);
+              setIsLoaded(true);
+              addCssClassName(target, 'rc-lazyload__loaded');
+              target.setAttribute('lazy', 'loaded');
+              target.removeAttribute('data-src');
+            });
         });
     },
     [setIsLoaded, isLoaded],

@@ -24,7 +24,7 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
     ...restProps
   } = props;
 
-  const [containerRef, hasLoaded] = useImageVisible(observerOptions);
+  const [containerRef, hasLoaded] = useImageVisible(observerOptions, errorImage);
 
   useEffect(() => {
     if (hasLoaded) {
