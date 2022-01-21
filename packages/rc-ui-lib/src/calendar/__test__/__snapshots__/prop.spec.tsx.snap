@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar prop should render correctly when using firstDayOfWeek prop 1`] = `
+<div>
+  <div
+    class="rc-calendar"
+  >
+    <div
+      class="rc-calendar__header"
+    >
+      <div
+        class="rc-calendar__header-title"
+      >
+        日期选择
+      </div>
+      <div
+        class="rc-calendar__header-subtitle"
+      />
+      <div
+        class="rc-calendar__weekdays"
+      >
+        <span
+          class="rc-calendar__weekday"
+        >
+          二
+        </span>
+        <span
+          class="rc-calendar__weekday"
+        >
+          三
+        </span>
+        <span
+          class="rc-calendar__weekday"
+        >
+          四
+        </span>
+        <span
+          class="rc-calendar__weekday"
+        >
+          五
+        </span>
+        <span
+          class="rc-calendar__weekday"
+        >
+          六
+        </span>
+        <span
+          class="rc-calendar__weekday"
+        >
+          日
+        </span>
+        <span
+          class="rc-calendar__weekday"
+        >
+          一
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-calendar__body"
+    >
+      <div
+        class="rc-calendar__month"
+      >
+        <div
+          class="rc-calendar__days"
+          role="grid"
+        >
+          <div
+            class="rc-calendar__month-mark"
+          >
+            1
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px; margin-left: 42.857142857142854%;"
+          >
+            1
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            2
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            3
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            4
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            5
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            6
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            7
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            8
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            9
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--selected"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            <div
+              class="rc-calendar__selected-day"
+              style="width: 64px; height: 64px; background: rgb(238, 10, 36);"
+            >
+              10
+            </div>
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            11
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            12
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            13
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            14
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            15
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            16
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            17
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            18
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            19
+          </div>
+          <div
+            class="rc-calendar__day"
+            role="gridcell"
+            style="height: 64px;"
+            tabindex="-1"
+          >
+            20
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            21
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            22
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            23
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            24
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            25
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            26
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            27
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            28
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            29
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            30
+          </div>
+          <div
+            class="rc-calendar__day rc-calendar__day--disabled"
+            role="gridcell"
+            style="height: 64px;"
+          >
+            31
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-calendar__footer rc-safe-area-bottom"
+    >
+      <button
+        class="rc-calendar__confirm rc-button rc-button--danger rc-button--normal rc-button--block rc-button--round"
+        style="color: rgb(255, 255, 255); background: rgb(238, 10, 36); border-color: #ee0a24;"
+        type="button"
+      >
+        <div
+          class="rc-button__content"
+        >
+          <span
+            class="rc-button__text"
+          >
+            确认
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Calendar prop showSubtitle prop 1`] = `<div />`;
+
+exports[`Calendar prop showtitle prop 1`] = `<div />`;
