@@ -44,4 +44,5 @@ export { default as NumberKeyboard } from './number-keyboard';
 export { default as PasswordInput } from './password-input';
 export { default as SwipeCell } from './swipe-cell';
 export { default as Sidebar } from './sidebar';
+export { default as Calendar } from './calendar';
 export * from './hooks';
