@@ -62,7 +62,7 @@ describe('test Lazyload by listen event', () => {
         }, 50);
       }
     } as unknown as ImageConstructor;
-    const { container, debug } = render(
+    const { container } = render(
       <Lazyload.Image errorImage={DEFAULT_URL} image="https://img.yzcdn.cn/vant/apple-5.jpg" />,
     );
     const wrapper = container.querySelector('.rc-lazyload-image');
@@ -78,7 +78,6 @@ describe('test Lazyload by listen event', () => {
       height: 400,
     });
     await sleep(1000);
-    debug();
     expect(container).toMatchSnapshot();
     global.Image = originImage;
   });

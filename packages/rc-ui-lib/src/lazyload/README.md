@@ -84,29 +84,29 @@ export default () => {
 
 ### LazyloadProps
 
-| 参数            | 说明                          | 类型               | 默认值 |
-| --------------- | ----------------------------- | ------------------ | ------ |
-| children        | 懒加载模块                    | _React.ReactNode_  | -      |
-| loading         | 加载时的组件                  | _React.ReactNode_  | -      |
-| height          | 占位高度                      | _string_、_number_ | 0      |
-| observer        | 是否使用 IntersectionObserver | _boolean_          | true   |
-| forceVisible    | 是否强制展示                  | _boolean_          | false  |
-| eventOptions    | 事件监听选项                  | _EventOptions_     |        |
-| observerOptions | ObserverOptions               | _ObserverOptions_  | -      |
+| 参数            | 说明                          | 类型               | 默认值  |
+| --------------- | ----------------------------- | ------------------ | ------- |
+| children        | 懒加载模块                    | _React.ReactNode_  | -       |
+| loading         | 加载时的组件                  | _React.ReactNode_  | -       |
+| height          | 占位高度                      | _string_\|_number_ | `0`     |
+| observer        | 是否使用 IntersectionObserver | _boolean_          | `true`  |
+| forceVisible    | 是否强制展示                  | _boolean_          | `false` |
+| eventOptions    | 事件监听选项                  | _EventOptions_     |         |
+| observerOptions | ObserverOptions               | _ObserverOptions_  | -       |
 
 ### LazyloadImageProps
 
-| 参数            | 说明                          | 类型                   | 默认值  |
-| --------------- | ----------------------------- | ---------------------- | ------- |
-| image           | 图片地址                      | _string_               | -       |
-| loading         | 加载时的图片                  | _string_               | -       |
-| errorImage      | 错误时的图片                  | _string_               | -       |
-| height          | 图片高度                      | _string_、_number_     | -       |
-| width           | 图片宽度                      | _string_、_number_     | -       |
-| type            | 加载类型                      | `image`、 `background` | `image` |
-| observer        | 是否使用 IntersectionObserver | _boolean_              | true    |
-| eventOptions    | 事件监听选项                  | _EventOptions_         | -       |
-| observerOptions | ObserverOptions               | _ObserverOptions_      | -       |
+| 参数            | 说明                          | 类型                           | 默认值  |
+| --------------- | ----------------------------- | ------------------------------ | ------- |
+| image           | 图片地址                      | _string_                       | -       |
+| loading         | 加载时的图片                  | _string_                       | -       |
+| errorImage      | 错误时的图片                  | _string_                       | -       |
+| height          | 图片高度                      | _string_\|_number_             | -       |
+| width           | 图片宽度                      | _string_\|_number_             | -       |
+| type            | 加载类型                      | **'image'**\| **'background'** | `image` |
+| observer        | 是否使用 IntersectionObserver | _boolean_                      | `true`  |
+| eventOptions    | 事件监听选项                  | _EventOptions_                 | -       |
+| observerOptions | ObserverOptions               | _ObserverOptions_              | -       |
 
 ### Events
 
@@ -116,21 +116,21 @@ export default () => {
 
 ### ObserverOptions
 
-| 参数       | 说明             | 类型                 | 默认值  |
-| ---------- | ---------------- | -------------------- | ------- |
-| root       | 适配器           | _Element_            | -       |
-| rootMargin | 图片 URL 过滤    | _string_             | -       |
-| threshold  | 是否能懒加载模块 | _number_、_number[]_ | `false` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| root | 指定根元素，用于检查目标的可见性 | _Element_ | - |
+| rootMargin | 根元素的外边距 | _string_ | - |
+| threshold | target 和 root 相交程度达到该值的时候 IntersectionObserver 注册的回调函数将会被执行 | _number_\|_number[]_ | `0` |
 
 ### EventOptions
 
-| 参数            | 说明             | 类型       | 默认值          |
-| --------------- | ---------------- | ---------- | --------------- |
-| scrollContainer | 滚动的容器       | _Element_  | `document.body` |
-| offset          | 偏移量           | _number_   | 0               |
-| listenEvents    | 监听的事件       | _string[]_ | `scroll`等      |
-| debounce        | 图片 URL 过滤    | _number_   | 300             |
-| throttle        | 是否能懒加载模块 | _number_   | -               |
+| 参数            | 说明                   | 类型       | 默认值          |
+| --------------- | ---------------------- | ---------- | --------------- |
+| scrollContainer | 滚动的容器             | _Element_  | `document.body` |
+| offset          | 偏移量                 | _number_   | `0`             |
+| listenEvents    | 监听的事件             | _string[]_ | `scroll`等      |
+| debounce        | 使用防抖并设置等待时间 | _number_   | `300`           |
+| throttle        | 使用节流并设置等待时间 | _number_   | -               |
 
 ### 类型定义
 
