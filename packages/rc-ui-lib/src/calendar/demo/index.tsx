@@ -235,7 +235,7 @@ export default (): React.ReactNode => {
           type="single"
           poppable={false}
           round
-          // showConfirm={false}
+          showConfirm={false}
           style={{ height: '500px' }}
         />
       </DemoBlock>
