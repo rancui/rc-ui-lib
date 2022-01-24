@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 type CalendarHeaderProps = {
-  title: string;
-  subtitle: string;
+  title: React.ReactNode | string;
+  subtitle: React.ReactNode | string;
   showTitle: boolean;
   showSubtitle: boolean;
   firstDayOfWeek: number;

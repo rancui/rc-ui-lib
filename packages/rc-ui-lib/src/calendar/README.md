@@ -16,18 +16,26 @@ import { Calendar } from 'rc-ui-lib';
 
 下面演示了结合单元格来使用日历组件的用法，日期选择完成后会触发 `confirm` 事件。
 
-```tsx
-export default () => {
-  const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
-  const onConfirm = (value) => {
-    show.value = false;
-    date.value = formatDate(value);
-  };
+```jsx
+import { useState } from 'react';
+import { Cell, Calendar } from 'rc-ui-lib';
 
+export default () => {
+  const [visible, setVisible] = useState(false);
+  const [text, setText] = useState('');
+
+  const formatDate = (date) => {
+    return `${date.getMonth() + 1}/${date.getDate()}`;
+  };
+  const onConfirm = (date) => {
+    const dateStr = formatDate(date);
+    setText(dateStr);
+    setVisible(false);
+  };
   return (
     <>
-      <Cell title="选择单个日期" value={date} onClick={() => setShow(true)} />
-      <Calendar show={show} onConfirm={onConfirm} />
+      <Cell title="选择单个日期" value={text} onClick={() => setVisible(true)} />
+      <Calendar visible={visible} onConfirm={onConfirm} />
     </>
   );
 };
@@ -37,30 +45,24 @@ export default () => {
 
 设置 `type` 为 `multiple` 后可以选择多个日期，此时 `confirm` 事件返回的 date 为数组结构，数组包含若干个选中的日期。
 
-```tsx
-<Cell title="选择多个日期" value={text} onClick={() => setShow(true)} />
-<Calendar show={show} type="multiple" onConfirm={onConfirm} />
-```
+```jsx
+import { useState } from 'react';
+import { Cell, Calendar } from 'rc-ui-lib';
 
-```js
-import { ref } from 'vue';
+export default () => {
+  const [visible, setVisible] = useState(false);
+  const [text, setText] = useState('');
 
-export default {
-  setup() {
-    const text = ref('');
-    const show = ref(false);
-
-    const onConfirm = (dates) => {
-      show.value = false;
-      text.value = `选择了 ${dates.length} 个日期`;
-    };
-
-    return {
-      text,
-      show,
-      onConfirm,
-    };
-  },
+  const onConfirm = (dates) => {
+    setText(`选择了 ${dates.length} 个日期`);
+    setVisible(false);
+  };
+  return (
+    <>
+      <Cell title="选择多个日期" value={text} onClick={() => setVisible(true)} />
+      <Calendar type="multiple" visible={visible} onConfirm={onConfirm} />
+    </>
+  );
 };
 ```
 
@@ -68,32 +70,25 @@ export default {
 
 设置 `type` 为 `range` 后可以选择日期区间，此时 `confirm` 事件返回的 date 为数组结构，数组第一项为开始时间，第二项为结束时间。
 
-```tsx
-<Cell title="选择日期区间" value={date} onClick={() => setShow(true)} />
-<Calendar show={show} type="range" onConfirm={onConfirm} />
-```
+```jsx
+import { useState } from 'react';
+import { Cell, Calendar } from 'rc-ui-lib';
 
-```js
-import { ref } from 'vue';
+export default () => {
+  const [visible, setVisible] = useState(false);
+  const [text, setText] = useState('');
 
-export default {
-  setup() {
-    const date = ref('');
-    const show = ref(false);
-
-    const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
-    const onConfirm = (values) => {
-      const [start, end] = values;
-      show.value = false;
-      date.value = `${formatDate(start)} - ${formatDate(end)}`;
-    };
-
-    return {
-      date,
-      show,
-      onConfirm,
-    };
-  },
+  const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
+  const onConfirm = ([start, end]) => {
+    setText(`${formatDate(start)} - ${formatDate(end)}`);
+    setVisible(false);
+  };
+  return (
+    <>
+      <Cell title="选择日期区间" value={text} onClick={() => setVisible(true)} />
+      <Calendar type="range" visible={visible} onConfirm={onConfirm} />
+    </>
+  );
 };
 ```
 
@@ -119,24 +114,11 @@ export default {
 
 通过 `minDate` 和 `maxDate` 定义日历的范围。
 
-```tsx
-<Calendar show={show} minDate={minDate} maxDate={maxDate} />
-```
+```jsx
+const minDate = new Date(2010, 0, 1);
+const maxDate = new Date(2010, 0, 31);
 
-```js
-import { ref } from 'vue';
-
-export default {
-  setup() {
-    const show = ref(false);
-
-    return {
-      show,
-      minDate: new Date(2010, 0, 1),
-      maxDate: new Date(2010, 0, 31),
-    };
-  },
-};
+<Calendar visible={visible} minDate={minDate} maxDate={maxDate} />;
 ```
 
 ### 自定义按钮文字
@@ -151,41 +133,31 @@ export default {
 
 通过传入 `formatter` 函数来对日历上每一格的内容进行格式化。
 
-```tsx
-<Calendar show={show} type="range" formatter={formatter} />
-```
+```jsx
+const formatter = (day) => {
+  const month = day.date.getMonth() + 1;
+  const date = day.date.getDate();
 
-```js
-export default {
-  setup() {
-    const formatter = (day) => {
-      const month = day.date.getMonth() + 1;
-      const date = day.date.getDate();
+  if (month === 5) {
+    if (date === 1) {
+      day.topInfo = '劳动节';
+    } else if (date === 4) {
+      day.topInfo = '青年节';
+    } else if (date === 11) {
+      day.text = '今天';
+    }
+  }
 
-      if (month === 5) {
-        if (date === 1) {
-          day.topInfo = '劳动节';
-        } else if (date === 4) {
-          day.topInfo = '青年节';
-        } else if (date === 11) {
-          day.text = '今天';
-        }
-      }
+  if (day.type === 'start') {
+    day.bottomInfo = '入住';
+  } else if (day.type === 'end') {
+    day.bottomInfo = '离店';
+  }
 
-      if (day.type === 'start') {
-        day.bottomInfo = '入住';
-      } else if (day.type === 'end') {
-        day.bottomInfo = '离店';
-      }
-
-      return day;
-    };
-
-    return {
-      formatter,
-    };
-  },
+  return day;
 };
+
+<Calendar visible={visible} type="range" formatter={formatter} />;
 ```
 
 ### 自定义弹出位置

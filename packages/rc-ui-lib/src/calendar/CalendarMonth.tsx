@@ -32,13 +32,6 @@ const CalendarMonth = forwardRef<CalendarMonthInstance, CalendarMonthProps>((pro
   const daysRef = useRef<HTMLDivElement>(null);
   const [monthRef, setMonthRef] = useState<HTMLDivElement>();
   const height = useRef(0);
-  // const monthRef = useCallback((node) => {
-  //   console.log(node);
-  //   if (node !== null) {
-  //     height.current = node.getBoundingClientRect().height;
-  //     console.log(height.current);
-  //   }
-  // }, []);
 
   useEffect(() => {
     if (monthRef) {
@@ -136,10 +129,6 @@ const CalendarMonth = forwardRef<CalendarMonthInstance, CalendarMonthProps>((pro
       return 'disabled';
     }
 
-    if (currentDate === null) {
-      return '';
-    }
-
     if (Array.isArray(currentDate)) {
       if (type === 'multiple') {
         return getMultipleDayType(day);
@@ -182,7 +171,6 @@ const CalendarMonth = forwardRef<CalendarMonthInstance, CalendarMonthProps>((pro
   }, [totalDay, offset]);
 
   const daysList = useMemo(() => {
-    console.log('重新得到dayslist');
     const days: CalendarDayItem[] = [];
     const year = props.date.getFullYear();
     const month = props.date.getMonth();
@@ -221,20 +209,21 @@ const CalendarMonth = forwardRef<CalendarMonthInstance, CalendarMonthProps>((pro
     }
   };
 
-  const renderDay = (item: CalendarDayItem, index: number) => (
-    <CalendarDay
-      key={index}
-      item={item}
-      index={index}
-      color={props.color}
-      offset={offset}
-      rowHeight={rowHeight}
-      onClick={onClick}
-    />
-  );
+  const renderDay = (item: CalendarDayItem, index: number) => {
+    return (
+      <CalendarDay
+        key={String(index)}
+        item={item}
+        index={index}
+        color={props.color}
+        offset={offset}
+        rowHeight={rowHeight}
+        onClick={onClick}
+      />
+    );
+  };
 
   const renderDays = () => {
-    console.log('渲染Days');
     return (
       <div ref={daysRef} role="grid" className={classNames(bem('days'))}>
         {renderMark()}

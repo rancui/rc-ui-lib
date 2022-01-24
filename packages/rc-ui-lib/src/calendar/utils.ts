@@ -24,9 +24,6 @@ export function compareDay(day1: Date, day2: Date): number {
   return compareMonthResult;
 }
 
-export const formatMonthTitle = (date: Date): string =>
-  `${date.getFullYear()}年/${date.getMonth() + 1}月`;
-
 export const cloneDate = (date: Date): Date => new Date(date);
 
 export const cloneDates = (dates: Date | Date[]): Date | Date[] =>
@@ -72,3 +69,6 @@ export const t = (key: string, ...args): string => {
   }
   return calendarLang[key];
 };
+
+export const formatMonthTitle = (date: Date): string =>
+  t('monthTitle', date.getFullYear(), date.getMonth() + 1);

@@ -31,8 +31,8 @@ export type CalendarDayProps = {
   index: number;
   offset?: number;
   rowHeight: string;
-  bottomInfo?: string;
-  topInfo?: string;
+  topInfoRender?: (day: CalendarDayItem) => React.ReactNode;
+  bottomInfoRender?: (day: CalendarDayItem) => React.ReactNode;
   onClick?: (item: CalendarDayItem) => void;
 };
 
@@ -48,10 +48,10 @@ export interface CalendarProps extends BaseTypeProps {
   closeOnClickOverlay?: boolean;
   safeAreaInsetBottom?: boolean;
   teleport?: TeleportType;
-
   show?: boolean;
   type?: CalendarType;
-  title?: string;
+  title?: React.ReactNode | string;
+  subtitle?: React.ReactNode | string;
   color?: string;
   readonly?: boolean;
   poppable?: boolean;
@@ -72,7 +72,9 @@ export interface CalendarProps extends BaseTypeProps {
   minDate?: Date;
   maxDate?: Date;
   firstDayOfWeek?: number;
-  footer?: React.ReactNode;
+  footer?: React.ReactNode | string;
+  topInfoRender?: (day: CalendarDayItem) => React.ReactNode;
+  bottomInfoRender?: (day: CalendarDayItem) => React.ReactNode;
   onClickSubtitle?: (ev: MouseEvent) => void;
   /** 点击确认后的回调 */
   onConfirm?: (v: Date | Date[]) => void;
@@ -99,6 +101,8 @@ export type CalendarMonthProps = {
   showSubtitle?: boolean;
   showMonthTitle?: boolean;
   firstDayOfWeek?: number;
+  topInfoRender?: (day: CalendarDayItem) => React.ReactNode;
+  bottomInfoRender?: (day: CalendarDayItem) => React.ReactNode;
   onClick?: (item: CalendarDayItem) => void;
 };
 

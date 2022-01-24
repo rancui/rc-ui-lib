@@ -18,6 +18,7 @@ const DEFAULT_PROPS = {
   confirmText: undefined,
   confirmDisabledText: undefined,
   firstDayOfWeek: 0,
+  currentDate: null,
 };
 
 export default (): React.ReactNode => {
@@ -101,6 +102,7 @@ export default (): React.ReactNode => {
         state.position = 'right';
         break;
       case 'maxRange':
+      case 'selectMultiple':
         state.maxRange = 3;
         break;
       case 'firstDayOfWeek':
@@ -233,7 +235,7 @@ export default (): React.ReactNode => {
           type="single"
           poppable={false}
           round
-          showConfirm={false}
+          // showConfirm={false}
           style={{ height: '500px' }}
         />
       </DemoBlock>

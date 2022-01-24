@@ -51,13 +51,21 @@ const CalendarDay: React.FC<CalendarDayProps> = (props) => {
   const renderTopInfo = () => {
     const { topInfo } = props.item;
 
-    return topInfo ? <div className={classNames(bem('top-info'))}>{topInfo}</div> : null;
+    return topInfo || props.topInfoRender ? (
+      <div key={String(index)} className={classNames(bem('top-info'))}>
+        {props.topInfoRender ? props.topInfoRender(props.item) : topInfo}
+      </div>
+    ) : null;
   };
 
   const renderBottomInfo = () => {
     const { bottomInfo } = props.item;
 
-    return bottomInfo ? <div className={classNames(bem('bottom-info'))}>{bottomInfo}</div> : null;
+    return bottomInfo || props.bottomInfoRender ? (
+      <div key={String(index)} className={classNames(bem('bottom-info'))}>
+        {props.bottomInfoRender ? props.bottomInfoRender(props.item) : bottomInfo}
+      </div>
+    ) : null;
   };
 
   const renderContent = () => {
@@ -84,7 +92,7 @@ const CalendarDay: React.FC<CalendarDayProps> = (props) => {
   };
   const { type, className } = props.item;
   return type === 'placeholder' ? (
-    <div className={classNames(bem('day'))} style={calcStyle} />
+    <div key={String(index)} className={classNames(bem('day'))} style={calcStyle} />
   ) : (
     <div
       role="gridcell"

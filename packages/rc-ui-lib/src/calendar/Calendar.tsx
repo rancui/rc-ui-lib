@@ -65,7 +65,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   };
 
   const getInitialDate = (defaultDate = props.defaultDate): Date | Date[] => {
-    console.log(defaultDate);
     if (defaultDate === null) {
       return defaultDate;
     }
@@ -131,6 +130,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   }, [props.type, currentDate]);
 
   const onScroll = () => {
+    if (!bodyRef.current) return;
     const top = getScrollTop(bodyRef.current);
     const bottom = top + bodyHeightRef.current;
 
@@ -172,7 +172,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
     monthsList.forEach((_, index) => {
       const visible = index >= visibleRange[0] - 1 && index <= visibleRange[1] + 1;
-      console.log(visible);
       monthRefs[index].setVisible(visible);
     });
 
@@ -193,7 +192,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
         }
         return false;
       });
-      console.log('to run onScroll');
       onScroll();
     });
   };
@@ -204,8 +202,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
     }
 
     const currentDate = date || getInitialDate();
-    console.log(`currentDate: ${currentDate}`);
-    console.log(`props.type: ${props.type}`);
     if (currentDate) {
       const targetDate =
         props.type === 'single' ? (currentDate as Date) : (currentDate as Date[])[0];
@@ -227,13 +223,12 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   };
 
   const reset = (date = getInitialDate()) => {
-    console.log('reset date:', date);
     setCurrentDate(date);
     scrollToCurrentDate(date);
   };
 
-  const onConfirm = () => {
-    props.onConfirm?.(cloneDates(currentDate));
+  const onConfirm = (date?: Date | Date[]) => {
+    props.onConfirm?.(cloneDates(date || currentDate));
   };
 
   const checkRange = (date: [Date, Date]) => {
@@ -252,7 +247,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
   const select = (date: Date | Date[], complete?: boolean) => {
     const toSetCurrentDate = (date: Date | Date[]) => {
-      console.log(date);
       setCurrentDate(date);
       props.onSelect?.(cloneDates(date));
     };
@@ -273,29 +267,9 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
     toSetCurrentDate(date);
 
     if (complete && !props.showConfirm) {
-      onConfirm();
+      onConfirm(date);
     }
   };
-
-  // get first disabled calendarDay between date range
-  const getDisabledDate = (
-    disabledDays: CalendarDayItem[],
-    startDay: Date,
-    date: Date,
-  ): Date | undefined =>
-    disabledDays.find(
-      (day) => compareDay(startDay, day.date!) === -1 && compareDay(day.date!, date) === -1,
-    )?.date;
-
-  // disabled calendarDay
-  const disabledDays = useMemo(
-    () =>
-      monthRefs.reduce((arr, ref) => {
-        arr.push(...(ref.disabledDays ?? []));
-        return arr;
-      }, [] as CalendarDayItem[]),
-    [monthRefs],
-  );
 
   const onClickDay = (item: CalendarDayItem) => {
     if (props.readonly || !item.date) {
@@ -316,18 +290,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
         const compareToStart = compareDay(date, startDay);
 
         if (compareToStart === 1) {
-          const disabledDay = getDisabledDate(disabledDays, startDay, date);
-
-          if (disabledDay) {
-            const endDay = getPrevDay(disabledDay);
-            if (compareDay(startDay, endDay) === -1) {
-              select([startDay, endDay]);
-            } else {
-              select([date]);
-            }
-          } else {
-            select([startDay, date], true);
-          }
+          select([startDay, date], true);
         } else if (compareToStart === -1) {
           select([date]);
         } else if (props.allowSameDay) {
@@ -337,7 +300,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
         select([date]);
       }
     } else if (type === 'multiple') {
-      console.log(currentDate);
       if (!currentDate) {
         select([date]);
         return;
@@ -349,7 +311,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
       if (selectedIndex !== -1) {
         const [unselectedDate] = dates.splice(selectedIndex, 1);
         props.onUnselect?.(cloneDate(unselectedDate));
-        console.log('选中已选, 重新设置', dates);
         setCurrentDate([...dates]);
       } else if (props.maxRange && dates.length >= props.maxRange) {
         Toast(props.rangePrompt || t('rangePrompt', props.maxRange));
@@ -403,7 +364,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
               className={classnames(bem('confirm'))}
               disabled={buttonDisabled}
               nativeType="button"
-              onClick={onConfirm}
+              onClick={() => onConfirm()}
             >
               {text || '确认'}
             </Button>
@@ -416,7 +377,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
     <div className={classnames(bem(), className)} style={style}>
       <CalendarHeader
         title={title}
-        subtitle={subtitle}
+        subtitle={props.subtitle || subtitle}
         showTitle={showTitle}
         showSubtitle={showSubtitle}
         firstDayOfWeek={firstDayOfWeek}
@@ -436,7 +397,6 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   }, [props.show]);
 
   useUpdateEffect(() => {
-    console.log('reset currentDate:', currentDate, props.type);
     reset(getInitialDate());
   }, [props.type, props.minDate, props.maxDate]);
 
@@ -480,6 +440,7 @@ Calendar.defaultProps = {
   showTitle: true,
   showSubtitle: true,
   showConfirm: true,
+  showRangePrompt: true,
   readonly: false,
   firstDayOfWeek: 0,
   footer: null,
