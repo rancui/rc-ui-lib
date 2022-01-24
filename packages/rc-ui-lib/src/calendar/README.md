@@ -200,9 +200,13 @@ const formatter = (day) => {
 | --- | --- | --- | --- |
 | type | 选择类型:<br>`single` 表示选择单个日期，<br>`multiple` 表示选择多个日期，<br>`range` 表示选择日期区间 | _string_ | `single` |
 | title | 日历标题 | _string_ | `日期选择` |
+| subtitle | 自定义日历副标题 | _string\|React.ReactNode_ | - |
 | color | 主题色，对底部按钮和选中日期生效 | _string_ | `#ee0a24` |
 | minDate | 可选择的最小日期 | _Date_ | 当前日期 |
 | maxDate | 可选择的最大日期 | _Date_ | 当前日期的六个月后 |
+| footer | 自定义底部区域内容 | _string\|React.ReactNode_ | - |
+| topInfoRender | 自定义日期上方的提示信息 | _(day: Day) => React.ReactNode_ | - |
+| bottomInfoRender | 自定义日期下方的提示信息 | _(day: Day) => React.ReactNode_ | - |
 | defaultDate | 默认选中的日期，`type` 为 `multiple` 或 `range` 时为数组，传入 `null` 表示默认不选择 | _Date \| Date[] \| null_ | 今天 |
 | rowHeight | 日期行高 | _number \| string_ | `64` |
 | formatter | 日期格式化函数 | _(day: Day) => Day_ | - |
@@ -229,7 +233,6 @@ const formatter = (day) => {
 | closeOnPopstate | 是否在页面回退时自动关闭 | _boolean_ | `true` |
 | closeOnClickOverlay | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
 | safeAreaInsetBottom | 是否开启[底部安全区适配](#/zh-CN/adrcced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_ | `true` |
-| teleport | 指定挂载的节点，等同于 Teleport 组件的 [to 属性](https://v3.cn.vuejs.org/api/built-in-components.html#teleport) | _string \| Element_ | - |
 
 ### Calendar Range Props
 
@@ -240,7 +243,7 @@ const formatter = (day) => {
 | maxRange | 日期区间最多可选天数 | _number \| string_ | 无限制 |
 | rangePrompt | 范围选择超过最多可选天数时的提示文案 | _string_ | `最多选择 xx 天` |
 | showRangePrompt | 范围选择超过最多可选天数时，是否展示提示文案 | _boolean_ | `true` |
-| allow-same-day | 是否允许日期范围的起止时间为同一天 | _boolean_ | `false` |
+| allowSameDay | 是否允许日期范围的起止时间为同一天 | _boolean_ | `false` |
 
 ### Calendar Multiple Props
 
@@ -268,27 +271,14 @@ const formatter = (day) => {
 
 | 事件名 | 说明 | 回调参数 |
 | --- | --- | --- |
-| select | 点击并选中任意日期时触发 | _value: Date \| Date[]_ |
-| confirm | 日期选择完成后触发，若 `showConfirm` 为 `true`，则点击确认按钮后触发 | _value: Date \| Date[]_ |
-| open | 打开弹出层时触发 | - |
-| close | 关闭弹出层时触发 | - |
-| opened | 打开弹出层且动画结束后触发 | - |
-| closed | 关闭弹出层且动画结束后触发 | - |
-| unselect | 当日历组件的 `type` 为 `multiple` 时，取消选中日期时触发 | _value: Date_ |
-| monthShow | 当某个月份进入可视区域时触发 | _{ date: Date, title: string }_ |
-| overRange | 范围选择超过最多可选天数时触发 | - |
-| click-subtitle | 点击日历副标题时触发 | _event: MouseEvent_ |
-
-### Slots
-
-| 名称         | 说明                     | 参数                    |
-| ------------ | ------------------------ | ----------------------- |
-| title        | 自定义标题               | -                       |
-| subtitle     | 自定义日历副标题         | -                       |
-| footer       | 自定义底部区域内容       | -                       |
-| confirm-text | 自定义确认按钮的内容     | _{ disabled: boolean }_ |
-| top-info     | 自定义日期上方的提示信息 | _day: Day_              |
-| bottom-info  | 自定义日期下方的提示信息 | _day: Day_              |
+| onSelect | 点击并选中任意日期时触发 | _value: Date \| Date[]_ |
+| onConfirm | 日期选择完成后触发，若 `showConfirm` 为 `true`，则点击确认按钮后触发 | _value: Date \| Date[]_ |
+| onClose | 关闭弹出层时触发 | - |
+| onClosed | 关闭弹出层且动画结束后触发 | - |
+| onUnselect | 当日历组件的 `type` 为 `multiple` 时，取消选中日期时触发 | _value: Date_ |
+| onMonthShow | 当某个月份进入可视区域时触发 | _{ date: Date, title: string }_ |
+| onOverRange | 范围选择超过最多可选天数时触发 | - |
+| onClickSubtitle | 点击日历副标题时触发 | _event: MouseEvent_ |
 
 ### 方法
 
