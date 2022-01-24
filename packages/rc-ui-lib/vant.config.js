@@ -106,10 +106,10 @@ module.exports = {
           {
             title: '表单组件',
             items: [
-              // {
-              //   path: 'calendar',
-              //   title: 'Calendar 日历',
-              // },
+              {
+                path: 'calendar',
+                title: 'Calendar 日历',
+              },
               {
                 path: 'cascader',
                 title: 'Cascader 级联选择',
