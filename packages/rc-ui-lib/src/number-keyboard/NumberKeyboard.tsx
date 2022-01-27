@@ -129,6 +129,7 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
   return (
     <Popup
       visible={visible}
+      preventDefaultMouseDown
       overlay={false}
       round={showTitle}
       zIndex={zIndex}

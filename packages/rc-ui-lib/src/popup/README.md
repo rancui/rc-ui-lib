@@ -97,6 +97,7 @@ const [showPopup, setShowPopup] = useState(false);
 | descrition | 弹出层描述 | _string_ | - |
 | lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 | destroyOnClose | 关闭时销毁 Popup 里的子元素 | _boolean_ | `false` |
+| preventDefaultMouseDown | 是否禁止 mouseDown 事件，禁止后可防止 onBlur 事件冒泡 | _boolean_ | `false` |
 | closeOnPopstate | 是否在页面回退时自动关闭 | _boolean_ | `false` |
 | closeOnClickOverlay | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
 | closeable | 是否显示关闭图标 | _boolean_ | `false` |

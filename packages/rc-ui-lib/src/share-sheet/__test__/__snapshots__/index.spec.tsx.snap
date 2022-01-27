@@ -73,6 +73,7 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
     onClose={[Function]}
     overlay={true}
     position="bottom"
+    preventDefaultMouseDown={false}
     round={true}
     safeAreaInsetBottom={true}
     teleport={[Function]}
