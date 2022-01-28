@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Icon from '../../icon';
+import { Icon } from '../..';
 import { Popup } from '..';
 
 describe('Popup', () => {
@@ -96,7 +96,7 @@ describe('Popup', () => {
 
   it('should render correct close icon when using close-icon prop', () => {
     wrapper = mount(<Popup visible closeable closeIcon="success" />);
-    expect(wrapper.find('.rc-popup__close-icon')).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render correct close icon when close-icon is JSX element', () => {
@@ -137,5 +137,12 @@ describe('Popup', () => {
     wrapper = mount(<Popup visible beforeClose={beforeClose} />);
     await wrapper.setProps({ visible: false });
     expect(beforeClose).toHaveBeenCalledTimes(0);
+  });
+
+  it('should not bubble blur event when set preventDefaultMouseDown prop ', async () => {
+    wrapper = mount(<Popup preventDefaultMouseDown visible />);
+    const popupWrapper = wrapper.find('.rc-popup');
+    popupWrapper.simulate('mousedown');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });
