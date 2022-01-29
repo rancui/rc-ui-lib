@@ -46,4 +46,6 @@ export { default as SwipeCell } from './swipe-cell';
 export { default as Sidebar } from './sidebar';
 export { default as Lazyload } from './lazyload';
 export { default as Calendar } from './calendar';
+export { default as Picker } from './picker';
+export { default as Popover } from './popover';
 export * from './hooks';
