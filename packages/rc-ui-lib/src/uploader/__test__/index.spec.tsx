@@ -448,6 +448,7 @@ describe('<Uploader/>', () => {
     });
     const popup: HTMLElement = TestsDOM.mustQuerySelector(document.body, '.rc-image-preview');
 
+    await sleep(600);
     expect(popup).toMatchSnapshot();
 
     const buttonBox = getByTestId('button');
@@ -455,7 +456,7 @@ describe('<Uploader/>', () => {
     await waitFor(() => {
       fireEvent.click(buttonBox);
     });
-    await sleep(400);
+    await sleep(600);
 
     expect(popup).toMatchSnapshot();
   });
