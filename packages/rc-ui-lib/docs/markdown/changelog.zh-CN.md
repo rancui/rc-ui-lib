@@ -16,7 +16,7 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
-# [v1.2.0](https://github.com/rancui/rc-ui-lib/compare/v1.1.0...v1.2.0)
+#### [v1.2.0](https://github.com/rancui/rc-ui-lib/compare/v1.1.0...v1.2.0)
 
 `2022-01-29`
 
@@ -31,7 +31,7 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 - 新增 Picker 组件 ([0ed372c](https://github.com/rancui/rc-ui-lib/commit/0ed372ca08e0bcbccd9b98d26be38f4e50771fef))
 - 新增 Popover 组件 ([34739bf](https://github.com/rancui/rc-ui-lib/commit/34739bf705347270ce8e2463a9d71f45fac6060d))
 
-# [v1.1.0](https://github.com/rancui/rc-ui-lib/compare/v1.0.1...v1.1.0)
+### [v1.1.0](https://github.com/rancui/rc-ui-lib/compare/v1.0.1...v1.1.0)
 
 `2022-01-11`
 
