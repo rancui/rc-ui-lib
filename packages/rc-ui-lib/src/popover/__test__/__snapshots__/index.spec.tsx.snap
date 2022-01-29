@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover should allow to custom the className and the color of action 1`] = `
+<div
+  class="rc-popover__action foo"
+  style="color: red;"
+  tabindex="0"
+>
+  <div
+    class="rc-popover__action-text rc-hairline--bottom"
+  >
+    Option
+  </div>
+</div>
+`;
+
+exports[`Popover should change icon class prefix when using icon-prefix prop 1`] = `
+<body
+  class="rc-overflow-hidden"
+>
+  <div>
+    <span
+      class="rc-popover__wrapper"
+    >
+      <div
+        class="reference"
+      />
+    </span>
+  </div>
+  <div
+    class="rc-popup rc-popover rc-popover--light rc-zoom-enter rc-zoom-enter-active"
+    data-popper-placement="bottom"
+    style="z-index: 2010; transition-duration: 300ms; position: absolute; left: 0px; top: 8px; margin: 0px;"
+  >
+    <div
+      class="rc-popover__arrow"
+    />
+    <div
+      class="rc-popover__content"
+      role="menu"
+    >
+      <div
+        class="rc-popover__action rc-popover__action--with-icon"
+        tabindex="0"
+      >
+        <i
+          class="rc-badge__wrapper rc-popover__action-icon my-icon my-icon-success"
+        />
+        <div
+          class="rc-popover__action-text rc-hairline--bottom"
+        >
+          foo
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover should watch placement prop and update location 1`] = `"<div style=\\"z-index: 2005; transition-duration: 300ms; position: absolute; left: 0px; top: -8px; margin: 0px;\\" class=\\"rc-popup rc-popover rc-popover--light rc-zoom-enter-done\\" data-popper-placement=\\"top\\"><div class=\\"rc-popover__arrow\\"></div><div role=\\"menu\\" class=\\"rc-popover__content\\"><div class=\\"rc-popover__action\\" tabindex=\\"0\\"><div class=\\"rc-popover__action-text rc-hairline--bottom\\">Option 1</div></div><div class=\\"rc-popover__action\\" tabindex=\\"0\\"><div class=\\"rc-popover__action-text rc-hairline--bottom\\">Option 2</div></div><div class=\\"rc-popover__action\\" tabindex=\\"0\\"><div class=\\"rc-popover__action-text rc-hairline--bottom\\">Option 3</div></div></div></div>"`;
+
+exports[`Popover should watch placement prop and update location 2`] = `"<div style=\\"z-index: 2005; transition-duration: 300ms; position: absolute; left: 0px; top: 8px; margin: 0px; display: none;\\" class=\\"rc-popup rc-popover rc-popover--light rc-zoom-exit-done\\" data-popper-placement=\\"bottom\\"><div class=\\"rc-popover__arrow\\"></div><div role=\\"menu\\" class=\\"rc-popover__content\\"><div class=\\"rc-popover__action\\" tabindex=\\"0\\"><div class=\\"rc-popover__action-text rc-hairline--bottom\\">Option 1</div></div><div class=\\"rc-popover__action\\" tabindex=\\"0\\"><div class=\\"rc-popover__action-text rc-hairline--bottom\\">Option 2</div></div><div class=\\"rc-popover__action\\" tabindex=\\"0\\"><div class=\\"rc-popover__action-text rc-hairline--bottom\\">Option 3</div></div></div></div>"`;

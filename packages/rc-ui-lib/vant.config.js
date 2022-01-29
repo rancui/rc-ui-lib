@@ -264,10 +264,10 @@ module.exports = {
                 path: 'notice-bar',
                 title: 'NoticeBar 通知栏',
               },
-              // {
-              //   path: 'popover',
-              //   title: 'Popover 气泡弹出框',
-              // },
+              {
+                path: 'popover',
+                title: 'Popover 气泡弹出框',
+              },
               // {
               //   path: 'progress',
               //   title: 'Progress 进度条',
