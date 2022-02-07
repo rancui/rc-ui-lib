@@ -73,11 +73,9 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   }, [zIndex.current, props.style, props.duration]);
 
   const open = () => {
-    if (!opened.current) {
-      zIndex.current = props.zIndex !== undefined ? +props.zIndex : globalZIndex++;
-      opened.current = true;
-      props.onOpen?.();
-    }
+    zIndex.current = props.zIndex !== undefined ? +props.zIndex : globalZIndex++;
+    opened.current = true;
+    props.onOpen?.();
   };
 
   const close = () => {
