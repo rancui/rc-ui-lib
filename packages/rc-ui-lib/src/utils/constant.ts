@@ -18,3 +18,5 @@ export const BORDER_UNSET_TOP_BOTTOM = `${BORDER}-unset--top-bottom`;
 
 // component type key
 export const COMPONENT_TYPE_KEY = '__RC_UI_LIB_COMPONENT';
+
+export const HAPTICS_FEEDBACK = 'rc-haptics-feedback';

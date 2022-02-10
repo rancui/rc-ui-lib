@@ -2,7 +2,7 @@ import React, { useRef, forwardRef, useImperativeHandle, isValidElement, useCont
 import classnames from 'classnames';
 
 import Loading from '../loading';
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import useScrollParent from '../hooks/use-scroll-parent';
 import useEventListener from '../hooks/use-event-listener';
 

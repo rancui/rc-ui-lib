@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { SliderProps, SliderValue } from './PropsType';
 import { addUnit, range, addNumber, getSizeStyle, stopPropagation } from '../utils';
 import { useTouch } from '../hooks/use-touch';
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import usePassiveHandler from '../hooks/usePassiveHandler';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 

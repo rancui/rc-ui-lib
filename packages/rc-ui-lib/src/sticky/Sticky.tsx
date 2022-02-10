@@ -7,7 +7,7 @@ import useEventListener from '../hooks/use-event-listener';
 import { getScrollTop, unitToPx, isHidden, getZIndexStyle, extend } from '../utils';
 import { StickyProps } from './PropsType';
 import { useSetState, useUpdateEffect, useVisibilityChange } from '../hooks';
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Sticky: React.FC<StickyProps> = (props) => {

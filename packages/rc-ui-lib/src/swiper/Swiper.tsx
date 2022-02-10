@@ -20,7 +20,7 @@ import useRefState from '../hooks/use-ref-state';
 import { bound } from '../utils/bound';
 import { devWarning } from '../utils/dev-log';
 import { noop } from '../utils';
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import useMountedRef from '../hooks/use-mounted-ref';
 
 function modulus(value: number, division: number) {

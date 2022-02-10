@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import Icon from '../icon';
 
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import useEventListener from '../hooks/use-event-listener';
 
 import { NoticeBarInstance, NoticeBarProps } from './PropsType';

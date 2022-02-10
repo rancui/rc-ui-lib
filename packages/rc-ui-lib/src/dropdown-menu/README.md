@@ -184,31 +184,31 @@ export default () => {
 | value | 选项值                                     | _number \| string_          |
 | icon  | 选项左侧[图标名称](#/zh-CN/icon)或图片链接 | _string \| React.ReactNode_ |
 
-### DropdownItem 方法
+### DropdownMenu 方法
 
-通过 ref 可以获取到 DropdownItem 实例并调用实例方法.
+通过 ref 可以获取到 DropdownMenu 实例并调用实例方法.
 
-| 方法名 | 说明                 | 参数                                                   | 返回值 |
-| ------ | -------------------- | ------------------------------------------------------ | ------ |
-| toggle | 切换指定菜单展示状态 | (show: _boolean_ , options: { immediate?: _boolean_ }) | -      |
+| 方法名 | 说明     | 参数 | 返回值 |
+| ------ | -------- | ---- | ------ |
+| close  | 关闭菜单 | -    | -      |
 
 ### 类型定义
 
 组件导出以下类型定义：
 
 ```js
-import type { DropdownItemInstance, DropdownItemOption } from 'rc-ui-lib';
+import type { DropdownMenuInstance } from 'rc-ui-lib';
 ```
 
-`DropdownItemInstance` 是组件 `DropdownItem` 实例的类型，用法如下：
+`DropdownMenuInstance` 是组件 `DropdownMenu` 实例的类型，用法如下：
 
 ```js
 import { useRef } from 'react';
-import type { DropdownItemInstance } from 'rc-ui-lib/es/dropdown-menu';
+import type { DropdownMenuInstance } from 'rc-ui-lib/es/dropdown-menu';
 
-const dropdownItemRef = useRef < DropdownItemInstance > null;
+const DropdownMenuRef = useRef < DropdownMenuInstance > null;
 
-dropdownItemRef.current?.toggle();
+DropdownMenuRef.current?.close();
 ```
 
 ## 主题定制
