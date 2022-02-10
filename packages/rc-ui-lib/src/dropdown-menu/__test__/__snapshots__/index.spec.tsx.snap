@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownMenu closeOnClickOutside  1`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar"
+      style=""
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            请选择
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-dropdown-item rc-dropdown-item--down"
+      style="z-index: 2000; top: 0px; display: block;"
+    >
+      <div
+        class="rc-overlay rc-fade-exit rc-fade-exit-active"
+        style="z-index: 2000; position: absolute; animation-duration: 200ms;"
+      />
+      <div
+        class="rc-popup rc-popup--top rc-dropdown-item__content rc-popup-slide-top-exit rc-popup-slide-top-exit-active"
+        style="z-index: 2000; transition-duration: 200ms;"
+      >
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            全部商品
+          </div>
+        </div>
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            新款商品
+          </div>
+        </div>
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            活动商品
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu direction up 1`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar"
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title rc-dropdown-menu__title--down"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            请选择
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-dropdown-item rc-dropdown-item--up"
+      style="z-index: 2000; bottom: 768px; display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu direction up 2`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar rc-dropdown-menu__bar--opened"
+      style="z-index: 2001;"
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title rc-dropdown-menu__title--active"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            请选择
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-dropdown-item rc-dropdown-item--up"
+      style="z-index: 2000; bottom: 768px; display: block;"
+    >
+      <div
+        class="rc-overlay rc-fade-enter rc-fade-enter-active"
+        style="z-index: 2001; position: absolute; animation-duration: 200ms;"
+      />
+      <div
+        class="rc-popup rc-popup--bottom rc-dropdown-item__content rc-popup-slide-bottom-enter rc-popup-slide-bottom-enter-active"
+        style="z-index: 2001; transition-duration: 200ms;"
+      >
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            全部商品
+          </div>
+        </div>
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            新款商品
+          </div>
+        </div>
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            活动商品
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu scroll 1`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar rc-dropdown-menu__bar--opened"
+      style="z-index: 2001;"
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title rc-dropdown-menu__title--down rc-dropdown-menu__title--active"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            请选择
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-dropdown-item rc-dropdown-item--down"
+      style="z-index: 2000; top: 0px; display: block;"
+    >
+      <div
+        class="rc-overlay rc-fade-enter rc-fade-enter-active"
+        style="z-index: 2010; position: absolute; animation-duration: 200ms;"
+      />
+      <div
+        class="rc-popup rc-popup--top rc-dropdown-item__content rc-popup-slide-top-enter rc-popup-slide-top-enter-active"
+        style="z-index: 2010; transition-duration: 200ms;"
+      >
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            全部商品
+          </div>
+        </div>
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            新款商品
+          </div>
+        </div>
+        <div
+          class="rc-cell rc-cell--clickable rc-dropdown-item__option"
+          role="button"
+        >
+          <div
+            class="rc-cell__title"
+          >
+            活动商品
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu should render correctly when prop activeColor is set 1`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar"
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            请选择
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-dropdown-item rc-dropdown-item--down"
+      style="z-index: 2000; top: 0px; display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu should render correctly when prop zIndex is set 1`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar"
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            请选择
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-dropdown-item rc-dropdown-item--down"
+      style="z-index: 3000; top: 0px; display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu teleport 1`] = `
+<div>
+  <div
+    class="rc-dropdown-menu"
+  >
+    <div
+      class="rc-dropdown-menu__bar"
+      style=""
+    >
+      <div
+        class="rc-dropdown-menu__item rc-haptics-feedback"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="rc-dropdown-menu__title"
+        >
+          <div
+            class="rc-ellipsis"
+          >
+            全部商品
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
