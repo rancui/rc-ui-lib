@@ -8,6 +8,7 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { render, cleanup, fireEvent, createEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { patchCreateEvent } from '../../../tests/events';
 import ImagePreview from '..';
 import ImagePreviewItem from '../ImagePreviewItem';
 
@@ -100,36 +101,12 @@ describe('ImagePreview', () => {
   });
 });
 
-export function patchCreateEvent(createEvents: any) {
-  // patching createEvent
-  for (const key in createEvents) {
-    if (key.indexOf('pointer') === 0) {
-      // @ts-ignore
-      const fn = createEvents[key.replace('pointer', 'mouse')];
-      if (!fn) continue;
-      // @ts-ignore
-      createEvents[key] = function (type, { pointerId = 1, pointerType = 'mouse', ...rest } = {}) {
-        const event = fn(type, rest);
-        event.pointerId = pointerId;
-        event.pointerType = pointerType;
-        const eventType = event.type;
-        Object.defineProperty(event, 'type', {
-          get() {
-            return eventType.replace('mouse', 'pointer');
-          },
-        });
-        return event;
-      };
-    }
-  }
-}
 afterAll(cleanup);
 patchCreateEvent(createEvent);
 describe('ImagePreviewItem', () => {
   it('test onDrag', async () => {
     const { queryAllByTestId, debug } = render(<ImagePreview images={images} visible />);
     const item = queryAllByTestId('control')[0];
-    // console.log('======item====', debug());
 
     fireEvent.mouseDown(item, {
       pointerId: 2,
