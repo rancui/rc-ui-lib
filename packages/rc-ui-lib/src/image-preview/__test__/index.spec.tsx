@@ -8,7 +8,6 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { render, cleanup, fireEvent, createEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { sleep } from '../../../tests/utils';
 import ImagePreview from '..';
 import ImagePreviewItem from '../ImagePreviewItem';
 
@@ -50,7 +49,6 @@ describe('ImagePreview', () => {
     );
     await wrapper.find('i.rc-image-preview__close-icon').simulate('click');
     expect(onClose).toHaveBeenCalled();
-    // onClose.mockRestore();
   });
 
   it('show indicators', async () => {
