@@ -16,7 +16,7 @@ import Toast from '../toast/index';
 import CalendarHeader from './CalendarHeader';
 import CalendarMonth from './CalendarMonth';
 import { useUpdateEffect } from '../hooks';
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import useRefs from '../hooks/use-refs';
 import {
   calcDateNum,

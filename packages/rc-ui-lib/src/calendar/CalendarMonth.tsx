@@ -13,7 +13,7 @@ import CalendarDay from './CalendarDay';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { compareDay, formatMonthTitle, getMonthEndDay, getNextDay, getPrevDay, t } from './utils';
 import { addUnit, setScrollTop } from '../utils';
-import { getRect } from '../hooks/use-rect';
+import { getRect } from '../hooks/get-rect';
 import {
   CalendarMonthInstance,
   CalendarMonthProps,

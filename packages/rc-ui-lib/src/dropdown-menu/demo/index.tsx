@@ -42,11 +42,6 @@ export default (): React.ReactNode => {
 
   return (
     <DemoSection className="demo-badge">
-      <DemoBlock title="滚动">
-        <DropdownMenu>
-          <DropdownMenu.Item name="item1" options={scrollList()} />
-        </DropdownMenu>
-      </DemoBlock>
       <DemoBlock title="基础用法">
         <DropdownMenu onChange={(v) => setMenuValue(v as any)}>
           <DropdownMenu.Item
@@ -103,6 +98,11 @@ export default (): React.ReactNode => {
         <DropdownMenu>
           <DropdownMenu.Item disabled name="item1" options={option1} />
           <DropdownMenu.Item disabled name="item2" options={option2} />
+        </DropdownMenu>
+      </DemoBlock>
+      <DemoBlock title="滚动">
+        <DropdownMenu direction="up">
+          <DropdownMenu.Item name="item1" options={scrollList()} />
         </DropdownMenu>
       </DemoBlock>
     </DemoSection>
