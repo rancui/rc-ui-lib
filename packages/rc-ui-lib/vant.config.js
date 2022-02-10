@@ -106,10 +106,10 @@ module.exports = {
           {
             title: '表单组件',
             items: [
-              // {
-              //   path: 'calendar',
-              //   title: 'Calendar 日历',
-              // },
+              {
+                path: 'calendar',
+                title: 'Calendar 日历',
+              },
               {
                 path: 'cascader',
                 title: 'Cascader 级联选择',
@@ -134,14 +134,14 @@ module.exports = {
                 path: 'number-keyboard',
                 title: 'NumberKeyboard 数字键盘',
               },
-              // {
-              //   path: 'password-input',
-              //   title: 'PasswordInput 密码输入框',
-              // },
-              // {
-              //   path: 'picker',
-              //   title: 'Picker 选择器',
-              // },
+              {
+                path: 'password-input',
+                title: 'PasswordInput 密码输入框',
+              },
+              {
+                path: 'picker',
+                title: 'Picker 选择器',
+              },
               {
                 path: 'radio',
                 title: 'Radio 单选框',
@@ -207,10 +207,10 @@ module.exports = {
                 path: 'share-sheet',
                 title: 'ShareSheet 分享面板',
               },
-              // {
-              //   path: 'swipe-cell',
-              //   title: 'SwipeCell 滑动单元格',
-              // },
+              {
+                path: 'swipe-cell',
+                title: 'SwipeCell 滑动单元格',
+              },
             ],
           },
           {
@@ -245,6 +245,10 @@ module.exports = {
                 title: 'ImagePreview 图片预览',
               },
               {
+                path: 'lazyload',
+                title: 'Lazyload 懒加载',
+              },
+              {
                 path: 'list',
                 title: 'List 列表',
               },
@@ -260,10 +264,10 @@ module.exports = {
                 path: 'notice-bar',
                 title: 'NoticeBar 通知栏',
               },
-              // {
-              //   path: 'popover',
-              //   title: 'Popover 气泡弹出框',
-              // },
+              {
+                path: 'popover',
+                title: 'Popover 气泡弹出框',
+              },
               // {
               //   path: 'progress',
               //   title: 'Progress 进度条',
@@ -305,10 +309,10 @@ module.exports = {
               //   path: 'pagination',
               //   title: 'Pagination 分页',
               // },
-              // {
-              //   path: 'sidebar',
-              //   title: 'Sidebar 侧边导航',
-              // },
+              {
+                path: 'sidebar',
+                title: 'Sidebar 侧边导航',
+              },
               {
                 path: 'tabs',
                 title: 'Tabs 标签页',

@@ -180,6 +180,11 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
           props.className,
         )}
         onClick={props.onClick}
+        onMouseDown={(e) => {
+          if (props.preventDefaultMouseDown) {
+            e.preventDefault();
+          }
+        }}
       >
         {renderTitle()}
         {renderDescrition()}
@@ -252,6 +257,7 @@ Popup.defaultProps = {
   closeIcon: 'cross',
   closeIconPosition: 'top-right',
   closeOnClickOverlay: true,
+  preventDefaultMouseDown: false,
   teleport: () => document.body,
 };
 

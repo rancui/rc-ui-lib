@@ -39,6 +39,7 @@ export default function useClickAway(
   target: BasicTarget | BasicTarget[],
   onClickAway: (event: EventType) => void,
   eventName: string = defaultEvent,
+  isEmit = true,
 ) {
   const onClickAwayRef = useRef(onClickAway);
   onClickAwayRef.current = onClickAway;
@@ -56,11 +57,14 @@ export default function useClickAway(
       }
       onClickAwayRef.current(event);
     };
-
-    document.addEventListener(eventName, handler);
+    if (isEmit) {
+      document.addEventListener(eventName, handler);
+    }
 
     return () => {
-      document.removeEventListener(eventName, handler);
+      if (isEmit) {
+        document.removeEventListener(eventName, handler);
+      }
     };
-  }, [target, eventName]);
+  }, [target, eventName, isEmit]);
 }

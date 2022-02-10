@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwipeCell test with testing library should allow to drag to show left part 1`] = `
+<div>
+  <div
+    class="rc-swipe-cell"
+  >
+    <div
+      class="rc-swipe-cell__wrapper"
+      style="transform: translate3d(100px,0,0);"
+    >
+      <div
+        class="rc-swipe-cell__left"
+      >
+        <button
+          class="rc-button rc-button--primary rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              选择
+            </span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="rc-swipe-cell__content"
+      >
+        <div
+          style="pointer-events: none;"
+        >
+          <div
+            class="rc-cell"
+          >
+            <div
+              class="rc-cell__title"
+            >
+              单元格
+            </div>
+            <div
+              class="rc-cell__value"
+            >
+              <span>
+                内容
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-swipe-cell__right"
+      >
+        <button
+          class="rc-button rc-button--danger rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              删除
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SwipeCell test with testing library should allow to drag to show right part 1`] = `
+<div>
+  <div
+    class="rc-swipe-cell"
+  >
+    <div
+      class="rc-swipe-cell__wrapper"
+      style="transform: translate3d(-100px,0,0);"
+    >
+      <div
+        class="rc-swipe-cell__left"
+      >
+        <button
+          class="rc-button rc-button--primary rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              选择
+            </span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="rc-swipe-cell__content"
+      >
+        <div
+          style="pointer-events: none;"
+        >
+          <div
+            class="rc-cell"
+          >
+            <div
+              class="rc-cell__title"
+            >
+              单元格
+            </div>
+            <div
+              class="rc-cell__value"
+            >
+              <span>
+                内容
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-swipe-cell__right"
+      >
+        <button
+          class="rc-button rc-button--danger rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              删除
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SwipeCell test with testing library should not allow to drag when using disabled prop 1`] = `
+<div>
+  <div
+    class="rc-swipe-cell"
+  >
+    <div
+      class="rc-swipe-cell__wrapper"
+      style="transform: none;"
+    >
+      <div
+        class="rc-swipe-cell__left"
+      >
+        <button
+          class="rc-button rc-button--primary rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              选择
+            </span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="rc-swipe-cell__content"
+      >
+        <div
+          style="pointer-events: unset;"
+        >
+          <div
+            class="rc-cell"
+          >
+            <div
+              class="rc-cell__title"
+            >
+              单元格
+            </div>
+            <div
+              class="rc-cell__value"
+            >
+              <span>
+                内容
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-swipe-cell__right"
+      >
+        <button
+          class="rc-button rc-button--danger rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              删除
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SwipeCell test with testing library should render correct when click content 1`] = `
+<div>
+  <div
+    class="rc-swipe-cell"
+  >
+    <div
+      class="rc-swipe-cell__wrapper"
+      style="transform: none;"
+    >
+      <div
+        class="rc-swipe-cell__left"
+      >
+        <button
+          class="rc-button rc-button--primary rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              选择
+            </span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="rc-swipe-cell__content"
+      >
+        <div
+          style="pointer-events: unset;"
+        >
+          <div
+            class="rc-cell"
+          >
+            <div
+              class="rc-cell__title"
+            >
+              单元格
+            </div>
+            <div
+              class="rc-cell__value"
+            >
+              <span>
+                内容
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-swipe-cell__right"
+      >
+        <button
+          class="rc-button rc-button--danger rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              删除
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SwipeCell test with testing library should reset transform after short dragging 1`] = `
+<div>
+  <div
+    class="rc-swipe-cell"
+  >
+    <div
+      class="rc-swipe-cell__wrapper"
+      style="transform: none;"
+    >
+      <div
+        class="rc-swipe-cell__left"
+      >
+        <button
+          class="rc-button rc-button--primary rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              选择
+            </span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="rc-swipe-cell__content"
+      >
+        <div
+          style="pointer-events: unset;"
+        >
+          <div
+            class="rc-cell"
+          >
+            <div
+              class="rc-cell__title"
+            >
+              单元格
+            </div>
+            <div
+              class="rc-cell__value"
+            >
+              <span>
+                内容
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-swipe-cell__right"
+      >
+        <button
+          class="rc-button rc-button--danger rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              删除
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SwipeCell test with testing library should swipe to specific side after calling the open method 1`] = `
+<div>
+  <div
+    class="rc-swipe-cell"
+  >
+    <div
+      class="rc-swipe-cell__wrapper"
+      style="transform: translate3d(100px,0,0);"
+    >
+      <div
+        class="rc-swipe-cell__left"
+      >
+        <button
+          class="rc-button rc-button--primary rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              选择
+            </span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="rc-swipe-cell__content"
+      >
+        <div
+          style="pointer-events: none;"
+        >
+          <div
+            class="rc-cell"
+          >
+            <div
+              class="rc-cell__title"
+            >
+              单元格
+            </div>
+            <div
+              class="rc-cell__value"
+            >
+              <span>
+                内容
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-swipe-cell__right"
+      >
+        <button
+          class="rc-button rc-button--danger rc-button--normal rc-button--square"
+        >
+          <div
+            class="rc-button__content"
+          >
+            <span
+              class="rc-button__text"
+            >
+              删除
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

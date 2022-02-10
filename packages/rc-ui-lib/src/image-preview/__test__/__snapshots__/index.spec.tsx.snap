@@ -29,6 +29,7 @@ exports[`ImagePreview basic usage 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
   >
     <Portal
@@ -149,6 +150,7 @@ exports[`ImagePreview designate start position 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
   >
     <Portal
@@ -270,6 +272,7 @@ exports[`ImagePreview emit onZoomChange event when zoom is 1 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
     visible={true}
   >
@@ -823,6 +826,7 @@ exports[`ImagePreview emit onZoomChange event when zoom is 1 1`] = `
         >
           <div
             className="rc-popup rc-popup--center rc-image-preview"
+            onMouseDown={[Function]}
             style={
               Object {
                 "animationDuration": "300ms",
@@ -1318,6 +1322,7 @@ exports[`ImagePreview emit onZoomChange event when zoom is not 1 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
     visible={true}
   >
@@ -1871,6 +1876,7 @@ exports[`ImagePreview emit onZoomChange event when zoom is not 1 1`] = `
         >
           <div
             className="rc-popup rc-popup--center rc-image-preview"
+            onMouseDown={[Function]}
             style={
               Object {
                 "animationDuration": "300ms",
@@ -2366,6 +2372,7 @@ exports[`ImagePreview maxZoom 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
     visible={true}
   >
@@ -2919,6 +2926,7 @@ exports[`ImagePreview maxZoom 1`] = `
         >
           <div
             className="rc-popup rc-popup--center rc-image-preview"
+            onMouseDown={[Function]}
             style={
               Object {
                 "animationDuration": "300ms",
@@ -3414,6 +3422,7 @@ exports[`ImagePreview show close icon 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
   >
     <Portal
@@ -3534,6 +3543,7 @@ exports[`ImagePreview show indicators 1`] = `
     overlay={true}
     overlayClass="rc-image-preview__overlay"
     position="center"
+    preventDefaultMouseDown={false}
     teleport={[Function]}
   >
     <Portal

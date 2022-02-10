@@ -16,6 +16,33 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### [v1.2.0](https://github.com/rancui/rc-ui-lib/compare/v1.1.0...v1.2.0)
+
+`2022-01-29`
+
+**Bug Fixes**
+
+- Popup: 修改 是否阻止 onMouseDown 事件 ([#36](https://github.com/rancui/rc-ui-lib/issues/36))
+
+**Features**
+
+- 新增 Calendar 组件 ([b6a256c](https://github.com/rancui/rc-ui-lib/commit/b6a256cb457291220850761292bd21c34912f1d0))
+- 新增 Lazyload 组件 ([6426d1c](https://github.com/rancui/rc-ui-lib/commit/6426d1ce03a86b608f7a4c5d5dc0e7a8dadcfe0c))
+- 新增 Picker 组件 ([0ed372c](https://github.com/rancui/rc-ui-lib/commit/0ed372ca08e0bcbccd9b98d26be38f4e50771fef))
+- 新增 Popover 组件 ([34739bf](https://github.com/rancui/rc-ui-lib/commit/34739bf705347270ce8e2463a9d71f45fac6060d))
+
+### [v1.1.0](https://github.com/rancui/rc-ui-lib/compare/v1.0.1...v1.1.0)
+
+`2022-01-11`
+
+**Features**
+
+- Popup: 新增 onMouseDown 事件，防止 onBlur 事件冒泡 ([5647f3f](https://github.com/rancui/rc-ui-lib/commit/5647f3faa583045e75d717ed58aec95407c30167))
+- 新增 Sidebar 组件 ([e19838e](https://github.com/rancui/rc-ui-lib/commit/e19838ee23d998f4b0e81ba627047c892fa806a4))
+- 新增 SwipeCell 组件 ([845b25d](https://github.com/rancui/rc-ui-lib/commit/845b25d81b24c0d25a8c3f7aff735e7256dcbf65))
+- 新增 NumberKeyboard 组件 ([cc3eb5d](https://github.com/rancui/rc-ui-lib/commit/cc3eb5ddce1062ca72ee1adbf5212c5aa606c263))
+- 新增 PasswordInput 组件 ([f89d842](https://github.com/rancui/rc-ui-lib/commit/f89d842de239f4f35a963a6239d1ddf9087ed6cc))
+
 ### [v1.0.0](https://github.com/rancui/rc-ui-lib/compare/v0.3.0...v1.0.0)
 
 `2021-12-27`

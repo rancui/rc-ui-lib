@@ -73,6 +73,7 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
     onClose={[Function]}
     overlay={true}
     position="bottom"
+    preventDefaultMouseDown={false}
     round={true}
     safeAreaInsetBottom={true}
     teleport={[Function]}
@@ -630,6 +631,7 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
         >
           <div
             className="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-share-sheet"
+            onMouseDown={[Function]}
             style={
               Object {
                 "display": undefined,
