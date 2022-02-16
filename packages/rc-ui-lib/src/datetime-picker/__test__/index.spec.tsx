@@ -1,25 +1,15 @@
 import React from 'react';
 import { render, cleanup, act, fireEvent } from '@testing-library/react';
-import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
-import DatePicker from '../DatePicker';
-import { DatePickerProps, DateTimePickerInstance } from '../PropsType';
+import DateTimePicker, { DateTimePickerInstance, DateTimePickerProps } from '..';
+import { getTrueValue } from '../utils';
 
-function filter(type: string, options: string[]): string[] {
-  const mod = type === 'year' ? 10 : 5;
-  return options.filter((option: string) => Number(option) % mod === 0);
-}
-
-function formatter(type: string, value: string): string {
-  return `${value} ${type}`;
-}
-
-describe('DatePicker', () => {
-  function createDatePicker(props?: Partial<DatePickerProps>) {
+describe('DateTimePicker', () => {
+  function createDatePicker(props?: Partial<DateTimePickerProps>) {
     const pickerRef = React.createRef<DateTimePickerInstance>();
 
     const { queryByTestId, container, rerender, debug } = render(
-      <DatePicker ref={pickerRef} {...props} />,
+      <DateTimePicker ref={pickerRef} {...props} />,
     );
 
     return {
@@ -36,132 +26,71 @@ describe('DatePicker', () => {
     jest.restoreAllMocks();
   });
 
-  it('default type', async () => {
+  it('should emit confirm event after clicking the confirm button', async () => {
     const onConfirm = jest.fn();
-    const date = new Date(2020, 10, 1, 0, 0);
 
     const { container } = createDatePicker({
-      value: date,
-      minDate: new Date(2020, 0, 1),
-      maxDate: new Date(2025, 10, 1),
       onConfirm,
     });
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);
 
-    expect(onConfirm.mock.calls[0][0].getFullYear()).toEqual(2020);
-
-    const columnWrapper = container.querySelector('.rc-picker-column');
-    await TestsEvent.triggerDrag(columnWrapper, [0, -100]);
-    await sleep(100);
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[1][0].getFullYear()).toEqual(2025);
+    expect(onConfirm).toHaveBeenCalledTimes(1);
   });
 
-  it('month-day type', async () => {
-    const onConfirm = jest.fn();
-    const date = new Date(2020, 10, 1, 0, 0);
+  it('should emit cancel event after clicking the cancel button', async () => {
+    const onCancel = jest.fn();
 
     const { container } = createDatePicker({
-      type: 'month-day',
+      onCancel,
+    });
+
+    const cancelBtn = container.querySelector('.rc-picker__cancel');
+    fireEvent.click(cancelBtn);
+
+    expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render time type correctly', async () => {
+    const { container } = createDatePicker({
+      type: 'time',
+      minHour: 22,
+      minMinute: 58,
+    });
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should allow to call getPicker method', async () => {
+    const { pickerRef } = createDatePicker({
+      type: 'time',
+    });
+
+    expect(pickerRef.current.getPicker()).toBeTruthy();
+  });
+
+  it('should emit value correctly when dynamic change min-date', async () => {
+    const onConfirm = jest.fn();
+    const date = new Date(2020, 10, 2, 10, 30);
+    const minDate = new Date(2010, 0, 1, 10, 30);
+
+    const { container, rerender } = createDatePicker({
       value: date,
-      minDate: new Date(2020, 0, 1),
-      maxDate: new Date(2025, 10, 1),
+      minDate,
       onConfirm,
     });
 
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
-    expect(onConfirm.mock.calls[0][0].getDate()).toEqual(1);
-
-    const columnWrapper = container.querySelector('.rc-picker-column');
-    await TestsEvent.triggerDrag(columnWrapper, [0, -300]);
     await sleep(100);
-    fireEvent.click(confirmBtn);
 
-    expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(11);
-    expect(onConfirm.mock.calls[1][0].getDate()).toEqual(1);
-
-    const columnWrapper2 = container.querySelectorAll('.rc-picker-column')[1];
-    await TestsEvent.triggerDrag(columnWrapper2, [0, -300]);
-    await sleep(100);
-    fireEvent.click(confirmBtn);
-    expect(onConfirm.mock.calls[2][0].getMonth()).toEqual(11);
-    expect(onConfirm.mock.calls[2][0].getDate()).toEqual(31);
-  });
-
-  it('year-month type', async () => {
-    const onConfirm = jest.fn();
-    const date = new Date(2020, 10, 1, 0, 0);
-
-    const { container } = createDatePicker({
-      type: 'year-month',
+    const props: DateTimePickerProps = {
       value: date,
-      minDate: new Date(2020, 0, 1),
-      maxDate: new Date(2025, 10, 1),
+      minDate: date,
       onConfirm,
-    });
+    };
+    rerender(<DateTimePicker {...props} />);
 
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-    expect(onConfirm.mock.calls[0][0].getFullYear()).toEqual(2020);
-    expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
-
-    const columnWrapper = container.querySelector('.rc-picker-column');
-    await TestsEvent.triggerDrag(columnWrapper, [0, -300]);
     await sleep(100);
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[1][0].getFullYear()).toEqual(2025);
-    expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(0);
-
-    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -300]);
-    await sleep(100);
-    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[1], [0, -300]);
-    await sleep(100);
-    fireEvent.click(confirmBtn);
-    expect(onConfirm.mock.calls[2][0].getFullYear()).toEqual(2025);
-    expect(onConfirm.mock.calls[2][0].getMonth()).toEqual(10);
-  });
-
-  it('datehour type', async () => {
-    const onConfirm = jest.fn();
-    const date = new Date(2020, 10, 1, 0, 0);
-
-    const { container } = createDatePicker({
-      type: 'datehour',
-      value: date,
-      minDate: new Date(2020, 0, 1),
-      maxDate: new Date(2025, 10, 1),
-      onConfirm,
-    });
-
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[0][0].getHours()).toEqual(0);
-
-    const columnWrapper = container.querySelectorAll('.rc-picker-column')[3];
-    await TestsEvent.triggerDrag(columnWrapper, [0, -300]);
-    await sleep(100);
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[1][0].getHours()).toEqual(23);
-  });
-
-  it('value has an initial value', async () => {
-    const onConfirm = jest.fn();
-    const date = new Date(2020, 10, 1, 0, 0);
-
-    const { container } = createDatePicker({
-      type: 'month-day',
-      value: date,
-      onConfirm,
-    });
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);
@@ -169,138 +98,54 @@ describe('DatePicker', () => {
     expect(onConfirm.mock.calls[0][0]).toEqual(date);
   });
 
-  it('minDate', async () => {
+  it('should update value correctly after calling setColumnIndex method', async () => {
     const onConfirm = jest.fn();
-    const minDate = new Date(2030, 0, 0, 0, 3);
+    const defaultDate = new Date(2020, 0, 1);
 
-    const { container } = createDatePicker({
-      minDate,
-      onConfirm,
-    });
-
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[0][0]).toEqual(minDate);
-  });
-
-  it('value has an initial value', async () => {
-    const onConfirm = jest.fn();
-    const defaultValue = new Date(2030, 0, 0, 0, 3);
-
-    const { container } = createDatePicker({
-      value: defaultValue,
-      onConfirm,
-    });
-
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[0][0]).toEqual(defaultValue);
-  });
-
-  it('filter prop', async () => {
-    const { container } = createDatePicker({
-      filter,
-      minDate: new Date(2020, 0, 1),
-      maxDate: new Date(2025, 10, 1),
-      value: new Date(2020, 10, 1, 0, 0),
-    });
-
-    expect(container).toMatchSnapshot();
-  });
-
-  it('formatter prop', async () => {
     const { container, pickerRef } = createDatePicker({
-      filter,
-      formatter,
-      minDate: new Date(2010, 0, 1),
-      maxDate: new Date(2025, 10, 1),
-      value: new Date(2020, 10, 1, 0, 0),
-    });
-
-    expect(container).toMatchSnapshot();
-
-    const columnWrapper = container.querySelector('.rc-picker-column');
-    await TestsEvent.triggerDrag(columnWrapper, [0, -100]);
-
-    expect(pickerRef.current.getPicker().getValues()).toEqual([
-      '2020 year',
-      '05 month',
-      '05 day',
-      '00 hour',
-      '00 minute',
-    ]);
-  });
-
-  it('cancel event', async () => {
-    const onCancel = jest.fn();
-
-    const { container } = createDatePicker({
-      onCancel,
-    });
-
-    const confirmBtn = container.querySelector('.rc-picker__cancel');
-    fireEvent.click(confirmBtn);
-
-    expect(onCancel).toHaveBeenCalled();
-  });
-
-  it('max-date prop', async () => {
-    const onConfirm = jest.fn();
-    const maxDate = new Date(2010, 5, 0, 0, 0);
-
-    const { container } = createDatePicker({
-      value: new Date(2020, 10, 30, 30, 30),
-      maxDate,
+      type: 'date',
+      value: defaultDate,
+      minDate: defaultDate,
+      maxDate: new Date(2020, 0, 30),
       onConfirm,
     });
 
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[0][0]).toEqual(maxDate);
-  });
-
-  it('min-date prop', async () => {
-    const onConfirm = jest.fn();
-    const minDate = new Date(2030, 0, 0, 0, 0);
-
-    const { container } = createDatePicker({
-      value: new Date(2020, 10, 30, 30, 30),
-      minDate,
-      onConfirm,
+    act(() => {
+      pickerRef.current.getPicker().setColumnIndex(2, 14);
     });
-
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
-
-    expect(onConfirm.mock.calls[0][0]).toEqual(minDate);
-  });
-
-  it('use min-date with filter', async () => {
-    const onConfirm = jest.fn();
-    const minDate = new Date(2030, 0, 0, 0, 3);
-    const maxDate = new Date(2040, 0, 0, 0, 0);
-
-    const { container } = createDatePicker({
-      value: new Date(2020, 0, 0, 0, 0),
-      maxDate,
-      minDate,
-      onConfirm,
-      filter(type: string, values: string[]) {
-        if (type === 'minute') {
-          return values.filter((value) => Number(value) % 30 === 0);
-        }
-
-        return values;
-      },
-    });
-
     await sleep(100);
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);
 
-    expect(onConfirm.mock.calls[0][0]).toEqual(new Date(2030, 0, 0, 0, 30));
+    expect(onConfirm.mock.calls[0][0]).toEqual(new Date(2020, 0, 15));
+  });
+
+  it('should update value correctly after calling setColumnValue method', async () => {
+    const onConfirm = jest.fn();
+    const defaultDate = new Date(2020, 0, 1);
+
+    const { container, pickerRef } = createDatePicker({
+      type: 'date',
+      value: defaultDate,
+      minDate: defaultDate,
+      maxDate: new Date(2020, 0, 30),
+      onConfirm,
+    });
+
+    act(() => {
+      pickerRef.current.getPicker().setColumnValue(2, '15');
+    });
+    await sleep(100);
+    const confirmBtn = container.querySelector('.rc-picker__confirm');
+    fireEvent.click(confirmBtn);
+
+    expect(onConfirm.mock.calls[0][0]).toEqual(new Date(2020, 0, 15));
+  });
+
+  it('test getTrueValue', () => {
+    expect(getTrueValue('')).toEqual(0);
+    expect(getTrueValue('rainbow')).toEqual(0);
+    expect(getTrueValue('rainbow7')).toEqual(7);
+    expect(getTrueValue('10')).toEqual(10);
   });
 });

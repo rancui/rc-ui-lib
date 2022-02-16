@@ -13,29 +13,14 @@ export default (): React.ReactNode => {
       <DemoBlock card title="选择年月日">
         <DatetimePicker
           title="选择年月日"
-          minDate={new Date(2030, 0, 0, 0, 3)}
-          maxDate={new Date(2040, 5, 0, 0, 0)}
-          value={new Date(2020, 0, 0, 0, 0)}
-          filter={(type: string, values: string[]): string[] => {
-            if (type === 'minute') {
-              return values.filter((value) => Number(value) % 30 === 0);
-            }
-
-            return values;
-          }}
-          onChange={(value) => console.log(value)}
-          onConfirm={(value) => console.log(value)}
-        />
-        {/* <DatetimePicker
-          title="选择年月日"
           type="date"
           minDate={new Date(2020, 0, 1)}
           maxDate={new Date(2025, 10, 1)}
           value={new Date()}
           onChange={(value) => console.log(value)}
-        /> */}
+        />
       </DemoBlock>
-      {/* <DemoBlock card title="选择年月">
+      <DemoBlock card title="选择年月">
         <DatetimePicker
           type="year-month"
           minDate={new Date(2020, 0, 1)}
@@ -71,7 +56,14 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择时间">
-        <DatetimePicker type="time" minHour="10" maxHour="20" value="12:00" />
+        <DatetimePicker
+          type="time"
+          minHour="10"
+          maxHour="20"
+          value="12:00"
+          onChange={(value) => console.log(value)}
+          onConfirm={(value) => console.log(value)}
+        />
       </DemoBlock>
       <DemoBlock card title="选择完整时间">
         <DatetimePicker
@@ -157,7 +149,7 @@ export default (): React.ReactNode => {
             value={new Date()}
           />
         </div>
-      </Popup> */}
+      </Popup>
     </DemoSection>
   );
 };
