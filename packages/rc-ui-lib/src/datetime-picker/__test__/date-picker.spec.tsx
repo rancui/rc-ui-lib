@@ -78,20 +78,13 @@ describe('DatePicker', () => {
     expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
     expect(onConfirm.mock.calls[0][0].getDate()).toEqual(1);
 
-    const columnWrapper = container.querySelector('.rc-picker-column');
-    await TestsEvent.triggerDrag(columnWrapper, [0, -500]);
+    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -500]);
+    await sleep(100);
+    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[1], [0, -500]);
     await sleep(100);
     fireEvent.click(confirmBtn);
-
     expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(11);
-    expect(onConfirm.mock.calls[1][0].getDate()).toEqual(1);
-
-    const columnWrapper2 = container.querySelectorAll('.rc-picker-column')[1];
-    await TestsEvent.triggerDrag(columnWrapper2, [0, -500]);
-    await sleep(100);
-    fireEvent.click(confirmBtn);
-    expect(onConfirm.mock.calls[2][0].getMonth()).toEqual(11);
-    expect(onConfirm.mock.calls[2][0].getDate()).toEqual(31);
+    expect(onConfirm.mock.calls[1][0].getDate()).toEqual(31);
   });
 
   it('year-month type', async () => {
@@ -111,14 +104,6 @@ describe('DatePicker', () => {
     await sleep(100);
     expect(onConfirm.mock.calls[0][0].getFullYear()).toEqual(2020);
     expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
-
-    // const columnWrapper = container.querySelector('.rc-picker-column');
-    // await TestsEvent.triggerDrag(columnWrapper, [0, -300]);
-    // await sleep(100);
-    // fireEvent.click(confirmBtn);
-    // await sleep(100);
-    // expect(onConfirm.mock.calls[1][0].getFullYear()).toEqual(2025);
-    // expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(0);
 
     await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -300]);
     await sleep(100);
