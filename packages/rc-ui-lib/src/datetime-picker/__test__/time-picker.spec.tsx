@@ -137,7 +137,7 @@ describe('DateTimePicker', () => {
     expect(onConfirm.mock.calls[0][0]).toEqual('00:00');
   });
 
-  it('should emit value correctly when dynamic change min-date', async () => {
+  it('should emit value correctly when dynamic change minMinute', async () => {
     const onConfirm = jest.fn();
 
     const { container, rerender } = createTimePicker({
@@ -163,6 +163,34 @@ describe('DateTimePicker', () => {
     await sleep(100);
 
     expect(onConfirm.mock.calls[0][0]).toEqual('12:30');
+  });
+
+  it('should emit value correctly when dynamic change minHour', async () => {
+    const onConfirm = jest.fn();
+
+    const { container, rerender } = createTimePicker({
+      onConfirm,
+      value: '12:00',
+      minHour: 0,
+    });
+
+    await sleep(100);
+
+    const props: TimePickerProps = {
+      minHour: 15,
+      value: '12:00',
+      onConfirm,
+    };
+    rerender(<TimePicker {...props} />);
+
+    await sleep(100);
+
+    const confirmBtn = container.querySelector('.rc-picker__confirm');
+    fireEvent.click(confirmBtn);
+
+    await sleep(100);
+
+    expect(onConfirm.mock.calls[0][0]).toEqual('15:00');
   });
 
   it('set max-hour & max-minute smaller than current then emit correct value', async () => {
