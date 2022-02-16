@@ -49,4 +49,5 @@ export { default as Lazyload } from './lazyload';
 export { default as Calendar } from './calendar';
 export { default as Picker } from './picker';
 export { default as Popover } from './popover';
+export { default as DatetimePicker } from './datetime-picker';
 export * from './hooks';
