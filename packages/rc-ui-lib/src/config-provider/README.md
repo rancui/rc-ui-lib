@@ -233,6 +233,6 @@ rc-ui-lib 中的 CSS 变量分为 **基础变量** 和 **组件变量**。组件
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | themeVars | 自定义主题变量 | _object_ | - |
-| prefixCls | 设置统一样式前缀。注意：需要配合 less 变量 [@rc-prefix]() 使用 | _string_ | `rv` |
+| prefixCls | 设置统一样式前缀。注意：需要配合 less 变量 [@rc-prefix]() 使用 | _string_ | `rc` |
 | iconPrefix | 所有图标的类名前缀，等同于 Icon 组件的 [classPrefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
 | tag | `ConfigProdiver`对应的 HTML 节点标签名 | _string_ | `div` |
