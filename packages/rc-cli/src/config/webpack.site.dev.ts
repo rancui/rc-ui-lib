@@ -89,6 +89,15 @@ export function getSiteDevBaseConfig(): WebpackConfig {
         filename: 'index.html',
         baiduAnalytics,
       }),
+      new HtmlWebpackPlugin({
+        title,
+        logo: siteConfig.logo,
+        description: siteConfig.description,
+        chunks: ['chunks', 'site-mobile'],
+        template: join(__dirname, '../../site/mobile/index.html'),
+        filename: 'mobile.html',
+        baiduAnalytics,
+      }),
     ],
   });
 }
