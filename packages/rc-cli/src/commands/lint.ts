@@ -8,11 +8,7 @@ type RunCommandMessages = {
   failed: string;
 };
 
-function runCommand(
-  cmd: string,
-  options: string[],
-  messages: RunCommandMessages
-) {
+function runCommand(cmd: string, options: string[], messages: RunCommandMessages) {
   const spinner = ora(messages.start).start();
 
   return new Promise((resolve) => {
@@ -30,27 +26,19 @@ function runCommand(
 }
 
 function eslint() {
-  return runCommand(
-    'eslint',
-    ['./src', '--fix', '--ext', SCRIPT_EXTS.join(',')],
-    {
-      start: 'Running eslint...',
-      succeed: 'ESLint Passed.',
-      failed: 'ESLint failed!',
-    }
-  );
+  return runCommand('eslint', ['./src', '--fix', '--ext', SCRIPT_EXTS.join(',')], {
+    start: 'Running eslint...',
+    succeed: 'ESLint Passed.',
+    failed: 'ESLint failed!',
+  });
 }
 
 function stylelint() {
-  return runCommand(
-    'stylelint',
-    ['src/**/*.css', 'src/**/*.vue', 'src/**/*.less', 'src/**/*.sass', '--fix'],
-    {
-      start: 'Running stylelint...',
-      succeed: 'Stylelint Passed.',
-      failed: 'Stylelint failed!',
-    }
-  );
+  return runCommand('stylelint', ['src/**/*.css', 'src/**/*.less', 'src/**/*.sass', '--fix'], {
+    start: 'Running stylelint...',
+    succeed: 'Stylelint Passed.',
+    failed: 'Stylelint failed!',
+  });
 }
 
 export async function lint() {
