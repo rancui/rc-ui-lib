@@ -47,7 +47,7 @@
     "*.{css,less}": "stylelint --fix"
   },
   "dependencies": {
-    "@rancui/cli": "^1.0.0"
+    "@rancui/cli": "^1.0.2"
   },
   "version": "1.0.14"
 }
