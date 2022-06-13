@@ -9,7 +9,6 @@ export const PageIndicator = memo<PageIndicatorProps>(
     const [bem] = createNamespace('indicator', prefixCls);
     const isVertical = direction === 'vertical';
     const dots: React.ReactElement[] = [];
-    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < props.total; i++) {
       dots.push(
         <div
@@ -26,7 +25,7 @@ export const PageIndicator = memo<PageIndicatorProps>(
     return (
       <div
         className={classnames(props.className, bem({ vertical: isVertical }))}
-        style={props.style}
+        style={{ color, ...props.style }}
       >
         {dots}
       </div>
