@@ -56,4 +56,5 @@ export interface SwiperInstance {
 
 export interface SwiperItemProps extends BaseTypeProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  children?: React.ReactNode;
 }

@@ -14,7 +14,7 @@ import { Swiper } from 'rc-ui-lib';
 
 ### 基础用法
 
-每个 Swiper.Item 代表一张轮播卡片，可以通过 `autoplay` 属性设置自动轮播的间隔。
+每个 Swiper.Item 代表一张轮播卡片，可以通过 `autoplayInterval` 属性设置自动轮播的间隔。
 
 ```jsx
 import React from 'react';
@@ -22,7 +22,7 @@ import { Swiper } from 'rc-ui-lib';
 
 export default () => {
   return (
-    <Swiper className="my-swipe" autoplay={3000}>
+    <Swiper className="my-swipe" autoplayInterval={3000}>
       <Swiper.Item>1</Swiper.Item>
       <Swiper.Item>2</Swiper.Item>
       <Swiper.Item>3</Swiper.Item>
@@ -64,7 +64,7 @@ export default () => {
 
 ### 纵向滚动
 
-设置 `vertical` 属性后滑块会纵向排列，此时需要指定滑块容器的高度。
+设置 `direction="vertical"` 属性后滑块会纵向排列，此时需要指定滑块容器的高度。
 
 ```jsx
 import React from 'react';
@@ -72,7 +72,7 @@ import { Swiper } from 'rc-ui-lib';
 
 export default () => {
   return (
-    <Swiper vertical>
+    <Swiper direction="vertical">
       <Swiper.Item>1</Swiper.Item>
       <Swiper.Item>2</Swiper.Item>
       <Swiper.Item>3</Swiper.Item>
@@ -130,7 +130,7 @@ import { Swiper } from 'rc-ui-lib';
 
 export default () => {
   return (
-    <Swiper style={{ height: 150 }} vertical slideSize={80} trackOffset={10}>
+    <Swiper style={{ height: 150 }} direction="vertical" slideSize={80} trackOffset={10}>
       <Swiper.Item>1</Swiper.Item>
       <Swiper.Item>2</Swiper.Item>
       <Swiper.Item>3</Swiper.Item>
@@ -185,8 +185,8 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| autoplay | 自动轮播间隔，单位为 ms | _number \| boolean_ | `false` |
-| autoplayInterval | 动画时长，单位为 ms | _number_ | `300` |
+| autoplayInterval | 自动轮播间隔，单位为 ms | _number \| boolean_ | `false` |
+| autoplayIntervalInterval | 动画时长，单位为 ms | _number_ | `300` |
 | defaultIndex | 初始位置索引值 | _number_ | `0` |
 | loop | 是否开启循环播放 | _boolean_ | `true` |
 | direction | 滚动方向 | _DirectionTypes_ | `horizontal` |
@@ -199,10 +199,10 @@ export default () => {
 
 ### DirectionTypes 格式
 
-| 名称       | 说明     | 类型     |
-| ---------- | -------- | -------- |
-| horizontal | 水平方向 | _string_ |
-| vertical   | 垂直方向 | _string_ |
+| 名称                 | 说明     | 类型     |
+| -------------------- | -------- | -------- |
+| horizontal           | 水平方向 | _string_ |
+| direction="vertical" | 垂直方向 | _string_ |
 
 ### IndicatorProps 格式
 
