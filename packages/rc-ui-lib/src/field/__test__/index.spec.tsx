@@ -277,11 +277,6 @@ describe('Field', () => {
     expect(toJson(wrapper.find('.rc-field__clear'))).toMatchSnapshot();
   });
 
-  it('should render correctly when error prop is set', async () => {
-    wrapper = mount(<Field type="text" placeholder="请输入用户名" error />);
-    expect(wrapper.find('.rc-field__control--error').exists()).toBeTruthy();
-  });
-
   it('should render error-message slot correctly', async () => {
     wrapper = mount(<Field type="text" errorMessage="this is an error message" />);
     expect(wrapper.find('.rc-field__error-message').text()).toEqual('this is an error message');

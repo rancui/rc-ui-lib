@@ -83,19 +83,18 @@ import { NoticeBar } from 'rc-ui-lib';
 
 ### Props
 
-| 参数                | 说明                                     | 类型                | 默认值    |
-| ------------------- | ---------------------------------------- | ------------------- | --------- |
-| mode                | 通知栏模式，可选值为 `closeable` `link`  | _string_            | `''`      |
-| text                | 通知文本内容                             | _ReactNode_         | `''`      |
-| color               | 通知文本颜色                             | _string_            | `#f60`    |
-| background          | 滚动条背景                               | _string_            | `#fff7cc` |
-| leftIcon            | 左侧图标                                 | _string\|ReactNode_ | -         |
-| rightIcon           | 自定义右侧图标                           |
-| _string\|ReactNode_ | -                                        |
-| delay               | 动画延迟时间 (s)                         | _number \| string_  | `1`       |
-| speed               | 滚动速率 (px/s)                          | _number \| string_  | `60`      |
-| scrollable          | 是否开启滚动播放，内容长度溢出时默认开启 | _boolean_           | -         |
-| wrapable            | 是否开启文本换行，只在禁用滚动时生效     | _boolean_           | `false`   |
+| 参数       | 说明                                     | 类型                | 默认值    |
+| ---------- | ---------------------------------------- | ------------------- | --------- |
+| mode       | 通知栏模式，可选值为 `closeable` `link`  | _string_            | `''`      |
+| text       | 通知文本内容                             | _ReactNode_         | `''`      |
+| color      | 通知文本颜色                             | _string_            | `#f60`    |
+| background | 滚动条背景                               | _string_            | `#fff7cc` |
+| leftIcon   | 左侧图标                                 | _string\|ReactNode_ | -         |
+| rightIcon  | 自定义右侧图标                           | _string\|ReactNode_ | -         |
+| delay      | 动画延迟时间 (s)                         | _number \| string_  | `1`       |
+| speed      | 滚动速率 (px/s)                          | _number \| string_  | `60`      |
+| scrollable | 是否开启滚动播放，内容长度溢出时默认开启 | _boolean_           | -         |
+| wrapable   | 是否开启文本换行，只在禁用滚动时生效     | _boolean_           | `false`   |
 
 ### Events
 

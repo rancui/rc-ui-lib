@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTimePicker should render time type correctly 1`] = `
+<div>
+  <div
+    class="rc-picker"
+  >
+    <div
+      class="rc-picker__toolbar"
+    >
+      <button
+        class="rc-picker__cancel"
+        type="button"
+      >
+        取消
+      </button>
+      <button
+        class="rc-picker__confirm"
+        type="button"
+      >
+        确认
+      </button>
+    </div>
+    <div
+      class="rc-picker__columns"
+      style="height: 220px;"
+    >
+      <div
+        class="rc-picker-column"
+      >
+        <ul
+          aria-hidden="true"
+          class="rc-picker-column__wrapper"
+          style="transition-duration: 0ms; transition-property: none; transform: translate3d(0,88px,0);"
+        >
+          <li
+            class="rc-picker-column__item rc-picker-column__item--selected"
+            role="button"
+            style="height: 44px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-ellipsis"
+            >
+              22
+            </div>
+          </li>
+          <li
+            class="rc-picker-column__item"
+            role="button"
+            style="height: 44px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-ellipsis"
+            >
+              23
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="rc-picker-column"
+      >
+        <ul
+          aria-hidden="true"
+          class="rc-picker-column__wrapper"
+          style="transition-duration: 0ms; transition-property: none; transform: translate3d(0,88px,0);"
+        >
+          <li
+            class="rc-picker-column__item rc-picker-column__item--selected"
+            role="button"
+            style="height: 44px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-ellipsis"
+            >
+              58
+            </div>
+          </li>
+          <li
+            class="rc-picker-column__item"
+            role="button"
+            style="height: 44px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-ellipsis"
+            >
+              59
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="rc-picker__mask"
+        style="background-size: 100% 88px;"
+      />
+      <div
+        class="rc-hairline-unset--top-bottom rc-picker__frame"
+        style="height: 44px;"
+      />
+    </div>
+  </div>
+</div>
+`;
