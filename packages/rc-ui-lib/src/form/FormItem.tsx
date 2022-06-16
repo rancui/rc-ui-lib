@@ -84,7 +84,7 @@ const FormItem: FC<FormItemProps> = (props) => {
     children,
     messageVariables,
     trigger = 'onChange',
-    validateTrigger,
+    validateTrigger = trigger,
     onClick,
     shouldUpdate,
     dependencies,
