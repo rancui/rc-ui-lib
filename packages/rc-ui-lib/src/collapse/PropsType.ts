@@ -11,6 +11,8 @@ export interface CollapseProps extends BaseTypeProps {
   border?: boolean;
   /** 当前展开面板的 name	 */
   value?: number | string | Array<number | string>;
+  /** 子组件	 */
+  children: ReactNode;
   /** 切换面板时触发	*/
   onChange?: (activeNames: number | string | Array<number | string>) => void;
 }
@@ -24,7 +26,9 @@ export interface CollapseItemProps extends CellProps {
   readonly?: boolean;
   /** @private */
   index?: number;
-  children: ReactNode;
+  /** 子组件	 */
+  children?: ReactNode;
+  // onClick: () => void;
 }
 
 export type CollapseItemInstance = {
