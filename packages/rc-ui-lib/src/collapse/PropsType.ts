@@ -12,7 +12,7 @@ export interface CollapseProps extends BaseTypeProps {
   /** 当前展开面板的 name	 */
   value?: number | string | Array<number | string>;
   /** 子组件	 */
-  children: ReactNode;
+  children?: ReactNode;
   /** 切换面板时触发	*/
   onChange?: (activeNames: number | string | Array<number | string>) => void;
 }
