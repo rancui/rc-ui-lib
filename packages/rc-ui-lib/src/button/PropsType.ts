@@ -1,3 +1,4 @@
+import React from 'react';
 import { LoadingType } from '../loading/PropsType';
 import { BaseTypeProps } from '../utils';
 
@@ -57,6 +58,10 @@ export interface ButtonProps extends BaseTypeProps {
    * 加载状态提示文字
    */
   loadingText?: string;
+  /**
+   * 子元素
+   */
+  children?: React.ReactNode;
   /**
    * 点击事件
    */
