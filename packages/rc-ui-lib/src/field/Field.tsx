@@ -102,11 +102,10 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
   }, [props.value]);
 
   const renderInput = () => {
-    const { type, error, name, rows, value, placeholder, disabled, readonly, onClickInput } = props;
+    const { type, name, rows, value, placeholder, disabled, readonly, onClickInput } = props;
     const controlClass = bem('control', [
       getProp('inputAlign'),
       {
-        error,
         custom: !!props.children,
         'min-height': props.type === 'textarea' && !props.autosize,
       },
