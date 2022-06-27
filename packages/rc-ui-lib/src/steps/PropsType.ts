@@ -20,6 +20,8 @@ export interface StepsProps extends BaseTypeProps {
   direction?: StepsDirection;
   /** 当前步骤对应的底部图标，可选值见 Icon 组件 */
   activeIcon?: string | React.ReactNode;
+  /** 子组件 */
+  children?: React.ReactNode;
   /** 点击步骤的标题或图标时触发	 */
   onClickStep?: (index: number) => void;
 }
@@ -29,4 +31,6 @@ export interface StepsItemProps extends BaseTypeProps {
   parent?: StepsProps;
   /** @private */
   index?: number;
+  /** 子组件 */
+  children?: React.ReactNode;
 }

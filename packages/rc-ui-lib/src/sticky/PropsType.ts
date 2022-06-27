@@ -20,6 +20,8 @@ export interface StickyComponentProps {
   offsetTop?: number | string;
   /** 吸底时与底部的距离，支持 px vw vh rem 单位，默认 px	 */
   offsetBottom?: number | string;
+  /** 子组件 */
+  children?: React.ReactNode;
   /** 滚动时触发	 */
   onScroll?: (e: ScrollEventParams) => void;
   /** 当吸顶状态改变时触发	 */

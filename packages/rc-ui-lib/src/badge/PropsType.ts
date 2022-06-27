@@ -24,6 +24,8 @@ export interface BadgeProps extends BaseTypeProps {
    * @default div
    */
   tag?: HtmlTagType;
+  /** 自元素 */
+  children?: React.ReactNode;
   onClick?: (e: React.MouseEvent) => void;
   onTouchStart?: (e: React.MouseEvent) => void;
 }

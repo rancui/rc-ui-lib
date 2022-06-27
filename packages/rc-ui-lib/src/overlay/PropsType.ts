@@ -12,6 +12,8 @@ export interface OverlayProps extends BaseTypeProps {
   duration?: number;
   /** 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动 */
   lockScroll?: boolean;
+  /** 自元素 */
+  children?: React.ReactNode;
   /** 点击时触发 */
   onClick?: (e: React.MouseEvent) => void;
 }

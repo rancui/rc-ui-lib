@@ -34,5 +34,6 @@ export interface NoticeBarProps extends BaseTypeProps {
   onClick?: (event: React.MouseEvent) => void;
   /** 每当滚动栏重新开始滚动时触发	 */
   onReplay?: () => void;
+  /** 自元素 */
   children?: React.ReactNode;
 }

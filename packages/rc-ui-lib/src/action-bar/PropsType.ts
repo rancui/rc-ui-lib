@@ -6,6 +6,8 @@ import { BaseTypeProps } from '../utils';
 export interface ActionBarProps extends BaseTypeProps {
   /** 是否开启底部安全区适配	 */
   safeAreaInsetBottom?: boolean;
+  /** 自元素 */
+  children?: React.ReactNode;
 }
 
 export interface ActionBarIconProps extends BaseTypeProps {
@@ -21,6 +23,8 @@ export interface ActionBarIconProps extends BaseTypeProps {
   iconPrefix?: string;
   /** 图标右上角徽标的内容	 */
   badge?: BadgeSettingProps;
+  /** 自元素 */
+  children?: React.ReactNode;
   /** 触发点击 */
   onClick?: (event: React.MouseEvent) => void;
 }
@@ -41,4 +45,6 @@ export interface ActionBarButtonProps extends BaseTypeProps {
   onClick?: (event: React.MouseEvent) => void;
   /**  @private */
   index?: number;
+  /** 自元素 */
+  children?: React.ReactNode;
 }

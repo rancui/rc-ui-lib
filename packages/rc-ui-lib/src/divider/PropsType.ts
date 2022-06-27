@@ -15,4 +15,6 @@ export interface DividerProps extends BaseTypeProps, React.HTMLAttributes<HTMLDi
    * @default 'center'
    */
   contentPosition?: DividerContentPosition;
+  /** 子元素 */
+  children?: React.ReactNode;
 }

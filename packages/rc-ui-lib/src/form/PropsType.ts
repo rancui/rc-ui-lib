@@ -7,7 +7,8 @@ import type { CellGroupProps } from '../cell/PropsType';
 import { FieldProps } from '../field/PropsType';
 
 export type FormLayout = 'vertical' | 'horizontal';
-export interface FormProps extends RcFormProps, Omit<CellGroupProps, 'title'>, BaseTypeProps {
+type OmitFromCellGroupProps = Omit<CellGroupProps, 'title'>;
+export interface FormProps extends RcFormProps, OmitFromCellGroupProps, BaseTypeProps {
   /** 表单布局 */
   layout?: FormLayout;
   /** 是否显示 label 后面的冒号 */
@@ -16,6 +17,7 @@ export interface FormProps extends RcFormProps, Omit<CellGroupProps, 'title'>, B
   footer?: React.ReactNode;
   /** 是否显示验证信息 */
   showValidateMessage?: boolean;
+  children?: React.ReactNode;
 }
 
 export type RenderChildren<Values = unknown> = (form: RcFormInstance<Values>) => React.ReactNode;

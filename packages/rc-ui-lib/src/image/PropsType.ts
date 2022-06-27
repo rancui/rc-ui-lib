@@ -44,6 +44,8 @@ export interface ImageProps extends BaseTypeProps {
    * @default 'photo'
    */
   loadingIcon?: string | React.ReactNode;
+  /** 自元素 */
+  children?: React.ReactNode;
   /** 图片加载完毕时触发	 */
   onLoad?: (e: React.MouseEvent<HTMLImageElement>) => void;
   /** 图片加载失败时触发	 */

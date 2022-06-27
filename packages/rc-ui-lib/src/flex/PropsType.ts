@@ -1,3 +1,4 @@
+import React from 'react';
 import { BaseTypeProps } from '../utils';
 
 export interface FlexProps extends BaseTypeProps {
@@ -23,6 +24,10 @@ export interface FlexProps extends BaseTypeProps {
    * @default 'start'
    */
   align?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
+  /**
+   * 子组件
+   */
+  children?: React.ReactNode;
 }
 
 export type FlexType = number | 'none' | 'auto' | string;
@@ -32,4 +37,8 @@ export interface FlexItemProps extends React.HTMLAttributes<HTMLDivElement>, Bas
   span?: number | string;
   /** flex 布局属性	 */
   flex?: FlexType;
+  /**
+   * 子组件
+   */
+  children?: React.ReactNode;
 }

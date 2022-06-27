@@ -48,9 +48,10 @@ export interface ListProps extends BaseTypeProps {
    * ```
    */
   autoCheck?: boolean;
+  /** 自元素 */
+  children?: React.ReactNode;
   /** 滚动条与底部距离小于 offset 时触发	 */
   onLoad?: () => Promise<unknown> | void;
-  children?: React.ReactNode;
 }
 
 export type ListInstance = {

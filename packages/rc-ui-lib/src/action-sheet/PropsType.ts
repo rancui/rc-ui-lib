@@ -33,6 +33,8 @@ export interface ActionSheetProps extends BaseTypeProps, SharedPopupProps {
   closeIcon?: string | React.ReactNode;
   /** 是否在点击选项后关闭	 */
   closeOnClickAction?: boolean;
+  /** 自元素 */
+  children?: React.ReactNode;
   /** 点击选项时触发，禁用或加载状态下不会触发	 */
   onSelect?: (item: ActionSheetAction, index: number) => void;
   /** 点击取消按钮时触发	 */

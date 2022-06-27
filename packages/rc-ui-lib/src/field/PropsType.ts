@@ -116,6 +116,8 @@ export interface FieldProps extends FieldCommonProps, BaseTypeProps, Partial<Cel
   intro?: React.ReactNode;
   /** 字段提示信息 */
   tooltip?: React.ReactNode | FieldTooltipProps;
+  /** 子元素 */
+  children?: React.ReactNode;
   /** 输入框获得焦点时触发 */
   onChange?: (val: string) => void;
   /** 输入框失去焦点时触发 */

@@ -21,6 +21,8 @@ export interface TabbarProps<T = number | string> extends BaseTypeProps {
   placeholder?: boolean;
   /** 是否开启底部安全区适配，设置 fixed 时默认开启	 */
   safeAreaInsetBottom?: boolean;
+  /** 子组件 */
+  children?: React.ReactNode;
   /** 切换标签时触发	 */
   onChange?: (name: T) => void;
 }

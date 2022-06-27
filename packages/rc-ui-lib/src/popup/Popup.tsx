@@ -79,6 +79,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const close = () => {
+    console.log('==opened.current==', opened.current);
+
     if (opened.current) {
       callInterceptor({
         interceptor: props.beforeClose,

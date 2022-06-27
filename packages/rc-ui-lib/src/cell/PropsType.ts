@@ -41,6 +41,9 @@ export interface CellProps extends BaseTypeProps {
   rightIcon?: React.ReactNode;
   /** 自定义单元格最右侧的额外内容 */
   extra?: React.ReactNode;
+  /** 子组件 */
+  children?: React.ReactNode;
+
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -51,4 +54,6 @@ export interface CellGroupProps extends BaseTypeProps {
   border?: boolean;
   /** 是否展示为圆角卡片风格 */
   inset?: boolean;
+  /** 子组件 */
+  children?: React.ReactNode;
 }

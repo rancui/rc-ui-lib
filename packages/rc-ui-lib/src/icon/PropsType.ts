@@ -25,6 +25,8 @@ export interface IconProps extends BaseTypeProps {
    * @default 'van-icon'
    */
   classPrefix?: string;
+  /** 自元素 */
+  children?: React.ReactNode;
   /** 点击图标时触发   */
   onClick?: (e: React.MouseEvent) => void;
   /** 触摸开始，多点触控 */

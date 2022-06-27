@@ -30,6 +30,7 @@ export interface NotifyProps extends BaseTypeProps {
   onOpened?: () => void;
   /** 弹出时的的父容器 */
   teleport?: TeleportType;
+  /** 自元素 */
   children?: React.ReactNode;
 }
 

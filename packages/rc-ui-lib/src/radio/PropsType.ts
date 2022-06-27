@@ -18,6 +18,8 @@ export interface RadioGroupProps<T = RadioValueType> extends BaseTypeProps {
   defaultValue?: T;
   /** 当绑定值变化时触发的事件	 */
   onChange?: (name: T) => void;
+  /** 子组件 */
+  children?: React.ReactNode;
 }
 
 export interface RadioProps<T = RadioValueType> extends CheckerProps<RadioGroupProps<T>> {

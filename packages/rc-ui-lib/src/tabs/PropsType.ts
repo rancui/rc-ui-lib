@@ -98,6 +98,8 @@ export interface TabsContentProps {
   count: number;
   duration: number | string;
   currentIndex: number;
+  /** 子组件 */
+  children?: React.ReactNode;
   onChange?: (index) => void;
 }
 

@@ -7,4 +7,6 @@ export interface EmptyProps extends BaseTypeProps {
   imageSize?: number | string;
   /** 图片下方的描述文字	 */
   description?: React.ReactNode;
+  /** 子元素 */
+  children?: React.ReactNode;
 }
