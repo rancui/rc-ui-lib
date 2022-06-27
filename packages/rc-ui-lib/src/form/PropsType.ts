@@ -17,6 +17,7 @@ export interface FormProps extends RcFormProps, OmitFromCellGroupProps, BaseType
   footer?: React.ReactNode;
   /** 是否显示验证信息 */
   showValidateMessage?: boolean;
+  /** 子元素 */
   children?: React.ReactNode;
 }
 

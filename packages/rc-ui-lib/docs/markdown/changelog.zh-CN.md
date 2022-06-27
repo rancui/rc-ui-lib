@@ -16,6 +16,32 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+## [1.3.3](https://github.com/rancui/rc-ui-lib/compare/v1.3.1...v1.3.3)
+
+`2022-06-13`
+
+**Bug Fixes**
+
+- Swiper: 修复 height 导致的显示异常 ([28b1906](https://github.com/rancui/rc-ui-lib/commit/28b1906f6bb054156acfd4e6a4d5072c979c692a))
+
+- Collapse: children 设为可选 ([34afa91](https://github.com/rancui/rc-ui-lib/commit/34afa91792ccddb94f1ddc14df8e49ebe0c3305f))
+
+### [v1.3.1](https://github.com/rancui/rc-ui-lib/compare/v1.3.0...v1.3.1)
+
+`2022-02-20`
+
+**Features**
+
+- DateTimePicker: 自定义 indicator 颜色 ([da1277a](https://github.com/rancui/rc-ui-lib/commit/64f424b37b96cedcb3c17bd25e9d603c5da1277a))
+
+### [v1.3.0](https://github.com/rancui/rc-ui-lib/compare/v1.2.0...v1.3.0)
+
+`2022-02-20`
+
+**Features**
+
+- 新增 DateTimePicker 组件 ([d643ff2](https://github.com/rancui/rc-ui-lib/commit/1be03ab3d06c008a137824a6e21c31acdd643ff2))
+
 ### [v1.2.0](https://github.com/rancui/rc-ui-lib/compare/v1.1.0...v1.2.0)
 
 `2022-01-29`
