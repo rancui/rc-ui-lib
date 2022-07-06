@@ -367,7 +367,7 @@ exports[`SwipeCell test with testing library should swipe to specific side after
   >
     <div
       class="rc-swipe-cell__wrapper"
-      style="transform: translate3d(100px,0,0);"
+      style="transform: translate3d(98.18506323701692px,0,0);"
     >
       <div
         class="rc-swipe-cell__left"
