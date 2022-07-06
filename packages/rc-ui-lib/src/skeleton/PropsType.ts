@@ -30,5 +30,5 @@ export interface SkeletonProps extends BaseTypeProps {
    */
   avatarShape?: 'square' | 'round';
   /** 子组件 */
-  children?: React.ReactNode;
+  children?: React.ReactElement;
 }
