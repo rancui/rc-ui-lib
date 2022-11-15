@@ -1,0 +1,81 @@
+@import './var.less';
+
+:root {
+  --rc-nav-bar-height: @nav-bar-height;
+  --rc-nav-bar-background-color: @nav-bar-background-color;
+  --rc-nav-bar-arrow-size: @nav-bar-arrow-size;
+  --rc-nav-bar-icon-color: @nav-bar-icon-color;
+  --rc-nav-bar-text-color: @nav-bar-text-color;
+  --rc-nav-bar-title-font-size: @nav-bar-title-font-size;
+  --rc-nav-bar-title-text-color: @nav-bar-title-text-color;
+  --rc-nav-bar-z-index: @nav-bar-z-index;
+}
+
+.@{rc-prefix}-nav-bar {
+  position: relative;
+  z-index: var(--rc-nav-bar-z-index);
+  line-height: var(--rc-line-height-lg);
+  text-align: center;
+  background: var(--rc-nav-bar-background-color);
+  user-select: none;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &--safe-area-inset-top {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .rc-icon {
+    color: var(--rc-nav-bar-icon-color);
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--rc-nav-bar-height);
+  }
+
+  &__arrow {
+    margin-right: var(--rc-padding-base);
+    font-size: var(--rc-nav-bar-arrow-size);
+  }
+
+  &__title {
+    max-width: 60%;
+    margin: 0 auto;
+    color: var(--rc-nav-bar-title-text-color);
+    font-weight: var(--rc-font-weight-bold);
+    font-size: var(--rc-nav-bar-title-font-size);
+  }
+
+  &__left,
+  &__right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--rc-padding-md);
+    font-size: var(--rc-font-size-md);
+    cursor: pointer;
+  }
+
+  &__left {
+    left: 0;
+  }
+
+  &__right {
+    right: 0;
+  }
+
+  &__text {
+    color: var(--rc-nav-bar-text-color);
+  }
+}

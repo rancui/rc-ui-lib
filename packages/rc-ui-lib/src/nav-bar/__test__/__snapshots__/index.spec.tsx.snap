@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should have safe-area-inset-top class when using safe-area-inset-top prop  1`] = `
+<NavBar
+  border={true}
+  fixed={false}
+  leftArea=""
+  leftArrow={false}
+  placeholder={false}
+  rightArea=""
+  safeAreaInsetTop={true}
+  title="foo"
+  zIndex={1}
+>
+  <div
+    className="rc-nav-bar rc-nav-bar--safe-area-inset-top rc-hairline--bottom"
+    style={
+      Object {
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="rc-nav-bar__content"
+    >
+      <div
+        className="rc-nav-bar__title van-ellipsis"
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</NavBar>
+`;
+
+exports[`NavBar should render ReactNode icon correct 1`] = `
+<NavBar
+  border={true}
+  fixed={false}
+  leftArea={
+    <Icon
+      color="#1989fa"
+      name="cart-o"
+      tag="i"
+    />
+  }
+  leftArrow={false}
+  placeholder={false}
+  rightArea=""
+  safeAreaInsetTop={false}
+  title="foo"
+  zIndex={1}
+>
+  <div
+    className="rc-nav-bar rc-hairline--bottom"
+    style={
+      Object {
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="rc-nav-bar__content"
+    >
+      <div
+        className="rc-nav-bar__left rc-haptics-feedback"
+        onClick={[Function]}
+      >
+        <span
+          className="rc-nav-bar__text"
+          key="left-area"
+        >
+          <Icon
+            color="#1989fa"
+            name="cart-o"
+            tag="i"
+          >
+            <Badge
+              className="van-icon van-icon-cart-o"
+              showZero={true}
+              style={
+                Object {
+                  "color": "#1989fa",
+                  "fontSize": undefined,
+                }
+              }
+              tag="i"
+            >
+              <i
+                className="rc-badge__wrapper van-icon van-icon-cart-o"
+                style={
+                  Object {
+                    "color": "#1989fa",
+                    "fontSize": undefined,
+                  }
+                }
+              />
+            </Badge>
+          </Icon>
+        </span>
+      </div>
+      <div
+        className="rc-nav-bar__title van-ellipsis"
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</NavBar>
+`;
+
+exports[`NavBar should render left area correct 1`] = `
+<NavBar
+  border={true}
+  fixed={false}
+  leftArea="speaker-s"
+  leftArrow={false}
+  placeholder={false}
+  rightArea=""
+  safeAreaInsetTop={false}
+  title="foo"
+  zIndex={1}
+>
+  <div
+    className="rc-nav-bar rc-hairline--bottom"
+    style={
+      Object {
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="rc-nav-bar__content"
+    >
+      <div
+        className="rc-nav-bar__left rc-haptics-feedback"
+        onClick={[Function]}
+      >
+        <span
+          className="rc-nav-bar__text"
+          key="left-area"
+        >
+          speaker-s
+        </span>
+      </div>
+      <div
+        className="rc-nav-bar__title van-ellipsis"
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</NavBar>
+`;
+
+exports[`NavBar should render right area correct 1`] = `
+<NavBar
+  border={true}
+  fixed={false}
+  leftArea=""
+  leftArrow={false}
+  placeholder={false}
+  rightArea="speaker-s"
+  safeAreaInsetTop={false}
+  title="foo"
+  zIndex={1}
+>
+  <div
+    className="rc-nav-bar rc-hairline--bottom"
+    style={
+      Object {
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="rc-nav-bar__content"
+    >
+      <div
+        className="rc-nav-bar__title van-ellipsis"
+      >
+        foo
+      </div>
+      <div
+        className="rc-nav-bar__right rc-haptics-feedback"
+        onClick={[Function]}
+      >
+        <span
+          className="rc-nav-bar__text"
+        >
+          speaker-s
+        </span>
+      </div>
+    </div>
+  </div>
+</NavBar>
+`;

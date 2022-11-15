@@ -301,10 +301,10 @@ module.exports = {
               //   path: 'index-bar',
               //   title: 'IndexBar 索引栏',
               // },
-              // {
-              //   path: 'nav-bar',
-              //   title: 'NavBar 导航栏',
-              // },
+              {
+                path: 'nav-bar',
+                title: 'NavBar 导航栏',
+              },
               // {
               //   path: 'pagination',
               //   title: 'Pagination 分页',
