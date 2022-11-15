@@ -109,6 +109,48 @@ exports[`NavBar should render ReactNode icon correct 1`] = `
 </NavBar>
 `;
 
+exports[`NavBar should render correct when set props fixed and placeholder 1`] = `
+<NavBar
+  border={true}
+  fixed={true}
+  leftArea=""
+  leftArrow={false}
+  placeholder={true}
+  rightArea=""
+  safeAreaInsetTop={false}
+  title="foo"
+  zIndex={1}
+>
+  <div
+    className="rc-nav-bar__placeholder"
+    style={
+      Object {
+        "height": "50px",
+      }
+    }
+  >
+    <div
+      className="rc-nav-bar rc-nav-bar--fixed rc-hairline--bottom"
+      style={
+        Object {
+          "zIndex": 1,
+        }
+      }
+    >
+      <div
+        className="rc-nav-bar__content"
+      >
+        <div
+          className="rc-nav-bar__title van-ellipsis"
+        >
+          foo
+        </div>
+      </div>
+    </div>
+  </div>
+</NavBar>
+`;
+
 exports[`NavBar should render left area correct 1`] = `
 <NavBar
   border={true}
@@ -142,6 +184,72 @@ exports[`NavBar should render left area correct 1`] = `
         >
           speaker-s
         </span>
+      </div>
+      <div
+        className="rc-nav-bar__title van-ellipsis"
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</NavBar>
+`;
+
+exports[`NavBar should render leftArrow correct 1`] = `
+<NavBar
+  border={true}
+  fixed={false}
+  leftArea=""
+  leftArrow={true}
+  placeholder={false}
+  rightArea=""
+  safeAreaInsetTop={false}
+  title="foo"
+  zIndex={1}
+>
+  <div
+    className="rc-nav-bar rc-hairline--bottom"
+    style={
+      Object {
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="rc-nav-bar__content"
+    >
+      <div
+        className="rc-nav-bar__left rc-haptics-feedback"
+        onClick={[Function]}
+      >
+        <Icon
+          className="rc-nav-bar__arrow"
+          key="icon"
+          name="arrow-left"
+          tag="i"
+        >
+          <Badge
+            className="rc-nav-bar__arrow van-icon van-icon-arrow-left"
+            showZero={true}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": undefined,
+              }
+            }
+            tag="i"
+          >
+            <i
+              className="rc-badge__wrapper rc-nav-bar__arrow van-icon van-icon-arrow-left"
+              style={
+                Object {
+                  "color": undefined,
+                  "fontSize": undefined,
+                }
+              }
+            />
+          </Badge>
+        </Icon>
       </div>
       <div
         className="rc-nav-bar__title van-ellipsis"

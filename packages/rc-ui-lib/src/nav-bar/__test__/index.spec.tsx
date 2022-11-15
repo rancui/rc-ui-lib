@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import NavBar from '..';
 import Icon from '../../icon';
+import { mockGetBoundingClientRect } from '../../utils/dom/mock';
 
 describe('NavBar', () => {
   let wrapper;
@@ -24,6 +25,18 @@ describe('NavBar', () => {
   it('should render ReactNode icon correct', async () => {
     wrapper = mount(<NavBar leftArea={<Icon name="cart-o" color="#1989fa" />} title="foo" />);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should render leftArrow correct', async () => {
+    wrapper = mount(<NavBar leftArrow title="foo" />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should render correct when set props fixed and placeholder', async () => {
+    const restore = mockGetBoundingClientRect({ height: 50 });
+    wrapper = mount(<NavBar fixed placeholder title="foo" />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+    restore();
   });
 
   it('should emit click-left event when clicking left text', async () => {

@@ -78,7 +78,6 @@ exports[`Form basic usage 1`] = `
               <Field
                 fieldContext={
                   Object {
-                    "_init": true,
                     "getFieldError": [Function],
                     "getFieldValue": [Function],
                     "getFieldWarning": [Function],
@@ -432,7 +431,6 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
               <Field
                 fieldContext={
                   Object {
-                    "_init": true,
                     "getFieldError": [Function],
                     "getFieldValue": [Function],
                     "getFieldWarning": [Function],
@@ -788,7 +786,6 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
               <Field
                 fieldContext={
                   Object {
-                    "_init": true,
                     "getFieldError": [Function],
                     "getFieldValue": [Function],
                     "getFieldWarning": [Function],
@@ -909,7 +906,6 @@ exports[`Form when shouldUpdate props is set 1`] = `
               <Field
                 fieldContext={
                   Object {
-                    "_init": true,
                     "getFieldError": [Function],
                     "getFieldValue": [Function],
                     "getFieldWarning": [Function],
