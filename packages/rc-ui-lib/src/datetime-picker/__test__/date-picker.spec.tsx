@@ -78,7 +78,7 @@ describe('DatePicker', () => {
     expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
     expect(onConfirm.mock.calls[0][0].getDate()).toEqual(1);
 
-    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -500]);
+    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -800]);
     await sleep(100);
     // await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[1], [0, -500]);
     // await sleep(100);
@@ -132,7 +132,7 @@ describe('DatePicker', () => {
     expect(onConfirm.mock.calls[0][0].getHours()).toEqual(0);
 
     const columnWrapper = container.querySelectorAll('.rc-picker-column')[3];
-    await TestsEvent.triggerDrag(columnWrapper, [0, -500]);
+    await TestsEvent.triggerDrag(columnWrapper, [0, -800]);
     await sleep(100);
     fireEvent.click(confirmBtn);
 
