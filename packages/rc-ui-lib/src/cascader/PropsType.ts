@@ -13,7 +13,7 @@ export type CascaderOption = {
   /** 子选项列表	 */
   children?: CascaderOption[];
   /** 为对应列添加额外的 class	 */
-  className?: unknown;
+  className?: string;
   // for custom filed names
   [key: string]: any;
 };
