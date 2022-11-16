@@ -21,7 +21,7 @@ export type CalendarDayItem = {
   text?: string | number;
   type?: CalendarDayType;
   topInfo?: string;
-  className?: unknown;
+  className?: string;
   bottomInfo?: string;
 };
 
