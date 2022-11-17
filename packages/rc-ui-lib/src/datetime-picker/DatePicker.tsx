@@ -5,6 +5,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  useCallback,
 } from 'react';
 
 import Picker, { PickerInstance } from '../picker';
@@ -17,23 +18,33 @@ import { padZero } from '../utils';
 import { doubleRaf } from '../utils/raf';
 
 const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, ref) => {
-  const formatValue = (value) => {
-    if (!isDate(value)) {
-      value = props.minDate;
+  const {
+    value,
+    formatter,
+    columnsOrder,
+    type: datePickerType,
+    filter,
+    minDate: datePickerMinDate,
+    maxDate: datePickerMaxDate,
+    ...pickerProps
+  } = props;
+
+  const formatValue = (date) => {
+    if (!isDate(date)) {
+      date = props.minDate;
     }
 
-    value = Math.max(value, props.minDate.getTime());
-    value = Math.min(value, props.maxDate.getTime());
+    date = Math.max(date, props.minDate.getTime());
+    date = Math.min(date, props.maxDate.getTime());
 
-    return new Date(value);
+    return new Date(date);
   };
 
   const pickerRef = useRef<PickerInstance>(null);
-  const [currentDate, setCurrentDate] = useState(formatValue(props.value));
-  const currentDateRef = useRef<Date>(null);
-  currentDateRef.current = currentDate;
+  const [currentDate, setCurrentDate] = useState(formatValue(value));
+  const currentDateRef = useRef<Date>(currentDate);
 
-  const getBoundary = (type: 'max' | 'min', value: Date) => {
+  const getBoundary = (type: 'max' | 'min', dateValue: Date) => {
     const boundary = props[`${type}Date`];
     const year = boundary.getFullYear();
     let month = 1;
@@ -43,18 +54,18 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
 
     if (type === 'max') {
       month = 12;
-      date = getMonthEndDay(value.getFullYear(), value.getMonth() + 1);
+      date = getMonthEndDay(dateValue.getFullYear(), dateValue.getMonth() + 1);
       hour = 23;
       minute = 59;
     }
 
-    if (value.getFullYear() === year) {
+    if (dateValue.getFullYear() === year) {
       month = boundary.getMonth() + 1;
-      if (value.getMonth() + 1 === month) {
+      if (dateValue.getMonth() + 1 === month) {
         date = boundary.getDate();
-        if (value.getDate() === date) {
+        if (dateValue.getDate() === date) {
           hour = boundary.getHours();
-          if (value.getHours() === hour) {
+          if (dateValue.getHours() === hour) {
             minute = boundary.getMinutes();
           }
         }
@@ -69,10 +80,15 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
       [`${type}Minute`]: minute,
     };
   };
-
   const ranges = useMemo(() => {
-    const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = getBoundary('max', currentDate);
-    const { minYear, minDate, minMonth, minHour, minMinute } = getBoundary('min', currentDate);
+    const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = getBoundary(
+      'max',
+      currentDateRef.current,
+    );
+    const { minYear, minDate, minMonth, minHour, minMinute } = getBoundary(
+      'min',
+      currentDateRef.current,
+    );
 
     let result = [
       {
@@ -114,13 +130,13 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
         break;
     }
 
-    if (props.columnsOrder) {
-      const columnsOrder = props.columnsOrder.concat(result.map((column) => column.type));
-      result.sort((a, b) => columnsOrder.indexOf(a.type) - columnsOrder.indexOf(b.type));
+    if (columnsOrder) {
+      const columnsOrderArr = columnsOrder.concat(result.map((column) => column.type));
+      result.sort((a, b) => columnsOrderArr.indexOf(a.type) - columnsOrderArr.indexOf(b.type));
     }
 
     return result;
-  }, [currentDate]);
+  }, [columnsOrder, props.type]);
 
   const originColumns = useMemo(
     () =>
@@ -130,8 +146,8 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
           return padZero(rangeArr[0] + index);
         }) as string[];
 
-        if (props.filter) {
-          values = props.filter(type, values);
+        if (filter) {
+          values = filter(type, values);
         }
 
         return {
@@ -139,12 +155,16 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
           values,
         };
       }),
-    [ranges],
+    [filter, ranges],
   );
 
-  const updateColumnValue = () => {
-    const { formatter } = props;
+  const columns = useMemo(() => {
+    return originColumns.map((column) => ({
+      values: column.values.map((e) => formatter(column.type, e)),
+    }));
+  }, [originColumns, formatter]);
 
+  const updateColumnValue = useCallback(() => {
     const values = originColumns.map((column) => {
       switch (column.type) {
         case 'year':
@@ -166,94 +186,91 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     doubleRaf(() => {
       pickerRef.current?.setValues(values);
     });
-  };
+  }, [currentDate, formatter, originColumns]);
 
-  const updateInnerValue = () => {
+  const updateInnerValue = (indexes: number[]) => {
     const { type } = props;
-    if (pickerRef.current) {
-      const indexes = pickerRef.current?.getIndexes();
-      const getValue = (datetimePickerColumnType: DatetimePickerColumnType) => {
-        let index = 0;
-        originColumns.forEach((column, columnIndex) => {
-          if (datetimePickerColumnType === column.type) {
-            index = columnIndex;
-          }
-        });
-        const { values } = originColumns[index];
-        return getTrueValue(values[indexes[index]]);
-      };
+    const getValue = (datetimePickerColumnType: DatetimePickerColumnType) => {
+      let index = 0;
+      originColumns.forEach((column, columnIndex) => {
+        if (datetimePickerColumnType === column.type) {
+          index = columnIndex;
+        }
+      });
+      const { values } = originColumns[index];
+      return getTrueValue(values[indexes[index]]);
+    };
 
-      let year = null;
-      let month = null;
-      let day = null;
-      if (type === 'month-day') {
-        year = (currentDate || props.minDate).getFullYear();
-        month = getValue('month');
-        day = getValue('day');
-      } else {
-        year = getValue('year');
-        month = getValue('month');
-        day = type === 'year-month' ? 1 : getValue('day');
-      }
-
-      const maxDay = getMonthEndDay(year, month);
-      day = day > maxDay ? maxDay : day;
-
-      let hour = 0;
-      let minute = 0;
-
-      if (type === 'datehour') {
-        hour = +getValue('hour');
-      }
-
-      if (type === 'datetime') {
-        hour = +getValue('hour');
-        minute = +getValue('minute');
-      }
-
-      const value = new Date(year, month - 1, day, hour, minute);
-      setCurrentDate(formatValue(value));
+    let year = null;
+    let month = null;
+    let day = null;
+    if (type === 'month-day') {
+      year = (currentDate || props.minDate).getFullYear();
+      month = getValue('month');
+      day = getValue('day');
+    } else {
+      year = getValue('year');
+      month = getValue('month');
+      day = type === 'year-month' ? 1 : getValue('day');
     }
+
+    const maxDay = getMonthEndDay(year, month);
+    day = day > maxDay ? maxDay : day;
+
+    let hour = 0;
+    let minute = 0;
+
+    if (type === 'datehour') {
+      hour = +getValue('hour');
+    }
+
+    if (type === 'datetime') {
+      hour = +getValue('hour');
+      minute = +getValue('minute');
+    }
+
+    return formatValue(new Date(year, month - 1, day, hour, minute));
   };
 
-  const onChange = () => {
-    updateInnerValue();
-    props.onChange?.(currentDateRef.current);
+  const onChange = (val, index) => {
+    if (pickerRef.current) {
+      const indexes = pickerRef.current.getIndexes();
+      const nextValue = updateInnerValue(indexes);
+      setCurrentDate(nextValue);
+      currentDateRef.current = nextValue;
+      props.onChange?.(nextValue);
+    }
   };
 
   const onConfirm = () => {
     props.onConfirm?.(currentDate);
   };
 
-  const columns = useMemo(() => {
-    return originColumns.map((column) => ({
-      values: column.values.map((value) => props.formatter(column.type, value)),
-    }));
-  }, [originColumns]);
+  useMount(() => {
+    setTimeout(() => {
+      if (pickerRef.current) {
+        const indexes = pickerRef.current?.getIndexes();
+        const nextValue = updateInnerValue(indexes);
+        setCurrentDate(nextValue);
+        currentDateRef.current = nextValue;
+      }
+    }, 0);
+  });
 
   useEffect(() => {
     updateColumnValue();
-  }, []);
+  }, [updateColumnValue]);
 
-  useMount(() => {
-    setTimeout(updateInnerValue, 0);
-  });
+  const { minDate, maxDate } = props;
 
   useUpdateEffect(() => {
-    updateInnerValue();
-  }, [props.filter, props.maxDate]);
+    const nextValue = formatValue(value);
 
-  useUpdateEffect(() => {
-    setTimeout(updateInnerValue, 0);
-  }, [props.minDate]);
-
-  useUpdateEffect(() => {
-    const value = formatValue(props.value);
-
-    if (value && value.valueOf() !== currentDate?.valueOf()) {
-      setCurrentDate(value);
+    if (nextValue && nextValue.valueOf() !== currentDate?.valueOf()) {
+      setCurrentDate(nextValue);
+      currentDateRef.current = nextValue;
     }
-  }, [props.value]);
+  }, [value, filter, minDate, maxDate]);
 
   useImperativeHandle(ref, () => ({
     getPicker: () => pickerRef.current,
@@ -261,7 +278,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
 
   return (
     <Picker
-      {...props}
+      {...pickerProps}
       ref={pickerRef}
       columns={columns}
       onChange={onChange}
