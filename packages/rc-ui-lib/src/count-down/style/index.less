@@ -1,0 +1,15 @@
+@import './var.less';
+
+:root {
+  --rc-count-down-text-color: @count-down-text-color;
+  --rc-count-down-font-size: @count-down-font-size;
+  --rc-count-down-line-height: @count-down-line-height;
+}
+
+.@{rc-prefix}-count-down {
+  display: block;
+  box-sizing: border-box;
+  color: var(--rc-count-down-text-color);
+  font-size: var(--rc-count-down-font-size);
+  line-height: var(--rc-count-down-line-height);
+}
