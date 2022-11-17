@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountDown test with testing library should format S milliseconds correctly 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    01-5
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should format SS milliseconds correctly 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    01-50
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should format complete time correctly 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    01-05-59-59-999
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should format incomplete time correctly 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    29-59-59-999
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should not start counting when auto-start prop is false 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    100
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should pause counting after calling the pause method 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    100
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should pause counting after calling the pause method 2`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    100
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should render correctly using renderChilden 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    <span
+      class="block"
+    >
+      0
+    </span>
+    <span
+      class="colon"
+    >
+      :
+    </span>
+    <span
+      class="block"
+    >
+      0
+    </span>
+    <span
+      class="colon"
+    >
+      :
+    </span>
+    <span
+      class="block"
+    >
+      1
+    </span>
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should reset time after calling the reset method 1`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    100
+  </div>
+</div>
+`;
+
+exports[`CountDown test with testing library should reset time after calling the reset method 2`] = `
+<div>
+  <div
+    class="rc-count-down"
+    role="timer"
+  >
+    100
+  </div>
+</div>
+`;

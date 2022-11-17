@@ -51,4 +51,5 @@ export { default as Picker } from './picker';
 export { default as Popover } from './popover';
 export { default as DatetimePicker } from './datetime-picker';
 export { default as NavBar } from './nav-bar';
+export { default as CountDown } from './count-down';
 export * from './hooks';
