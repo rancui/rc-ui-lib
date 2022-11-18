@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should re-calc width if showing pivot dynamically 1`] = `
+<div>
+  <div
+    class="rc-progress"
+    style="background: rgb(229, 229, 229); height: 4px;"
+  >
+    <span
+      class="rc-progress__portion"
+      style="width: 100%; background: rgb(25, 137, 250);"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress should re-calc width if showing pivot dynamically 2`] = `
+<div>
+  <div
+    class="rc-progress"
+    style="background: rgb(229, 229, 229); height: 4px;"
+  >
+    <span
+      class="rc-progress__portion"
+      style="width: 100%; background: rgb(25, 137, 250);"
+    />
+    <span
+      class="rc-progress__pivot"
+      style="color: white; left: 100%; transform: translate(-100%,-50%); background: rgb(25, 137, 250);"
+    >
+      test
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress should render correctly when using inactive prop 1`] = `
+<div>
+  <div
+    class="rc-progress"
+    style="background: rgb(229, 229, 229); height: 4px;"
+  >
+    <span
+      class="rc-progress__portion rc-progress__portion--inactive"
+      style="width: 50%;"
+    />
+    <span
+      class="rc-progress__pivot rc-progress__pivot--inactive"
+      style="color: white; left: 50%; transform: translate(-50%,-50%);"
+    >
+      50%
+    </span>
+  </div>
+</div>
+`;
