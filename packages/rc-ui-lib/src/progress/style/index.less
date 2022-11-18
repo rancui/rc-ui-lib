@@ -1,0 +1,55 @@
+@import './var.less';
+
+:root {
+  --rc-progress-height: @progress-height;
+  --rc-progress-color: @progress-color;
+  --rc-progress-inactive-color: @progress-inactive-color;
+  --rc-progress-background-color: @progress-background-color;
+  --rc-progress-pivot-padding: @progress-pivot-padding;
+  --rc-progress-pivot-text-color: @progress-pivot-text-color;
+  --rc-progress-pivot-font-size: @progress-pivot-font-size;
+  --rc-progress-pivot-line-height: @progress-pivot-line-height;
+  --rc-progress-pivot-background-color: @progress-pivot-background-color;
+}
+
+.@{rc-prefix}-progress {
+  position: relative;
+  height: var(--rc-progress-height);
+  background: var(--rc-progress-background-color);
+  border-radius: var(--rc-progress-height);
+
+  &__portion {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--rc-progress-color);
+    border-radius: inherit;
+    transform-origin: 0;
+    transition: all var(--rc-animation-duration-base) var(--rc-animation-timing-function-enter);
+
+    &--inactive {
+      background: var(--rc-progress-inactive-color);
+    }
+  }
+
+  &__pivot {
+    position: absolute;
+    top: 50%;
+    box-sizing: border-box;
+    min-width: 3.6em;
+    padding: var(--rc-progress-pivot-padding);
+    color: var(--rc-progress-pivot-text-color);
+    font-size: var(--rc-progress-pivot-font-size);
+    line-height: var(--rc-progress-pivot-line-height);
+    text-align: center;
+    word-break: keep-all;
+    background: var(--rc-progress-pivot-background-color);
+    border-radius: 1em;
+    transition: all var(--rc-animation-duration-base) var(--rc-animation-timing-function-enter);
+
+    &--inactive {
+      background: var(--rc-progress-inactive-color);
+    }
+  }
+}
