@@ -49,7 +49,68 @@ export default (): React.ReactNode => {
         </Form>
       </DemoBlock>
 
-      <DemoBlock title="校验规则">
+      <DemoBlock title="校验规则-触发时机onSubmit">
+        <Form
+          onFinish={onFinish}
+          validateTrigger="onSubmit"
+          footer={
+            <div style={{ margin: '16px 16px 0' }}>
+              <Button round nativeType="submit" type="primary" block>
+                提交
+              </Button>
+            </div>
+          }
+        >
+          <Form.Item
+            name="text1"
+            label="正则校验"
+            rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}
+          >
+            <Field placeholder="正则校验" />
+          </Form.Item>
+          <Form.Item
+            name="text2"
+            label="函数校验"
+            rules={[
+              {
+                validator: (_, value) => {
+                  if (/1\d{10}/.test(value)) {
+                    return Promise.resolve(true);
+                  }
+                  return Promise.reject(new Error('请输入正确的手机号码'));
+                },
+              },
+            ]}
+          >
+            <Field placeholder="函数校验" />
+          </Form.Item>
+          <Form.Item
+            label="异步函数校验"
+            name="text3"
+            rules={[
+              {
+                validator: (_, value) => {
+                  return new Promise((resolve, reject) => {
+                    Toast.loading('验证中...');
+
+                    setTimeout(() => {
+                      if (/\d{6}/.test(value)) {
+                        resolve(true);
+                      } else {
+                        reject(new Error('请输入正确内容'));
+                      }
+                      Toast.clear();
+                    }, 1000);
+                  });
+                },
+              },
+            ]}
+          >
+            <Field placeholder="异步函数校验" />
+          </Form.Item>
+        </Form>
+      </DemoBlock>
+      <DemoBlock title="校验规则-触发时机onChange">
         <Form
           onFinish={onFinish}
           footer={
@@ -62,7 +123,7 @@ export default (): React.ReactNode => {
         >
           <Form.Item
             name="text1"
-            label="正则校验"
+            label="正则校验2"
             rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}
           >
             <Field placeholder="正则校验" />

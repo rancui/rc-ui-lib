@@ -38,6 +38,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = (props) => {
     showValidateMessage,
     colon,
     layout,
+    validateTrigger,
     ...fieldProps
   } = props;
 
@@ -46,6 +47,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = (props) => {
   const context = useContext(FormContext);
   const itemLayout = layout ?? context.layout;
   const itemColon = colon ?? context.colon;
+  const itemValidateTrigger = validateTrigger ?? context.validateTrigger;
   const itemShowValidateMessage = showValidateMessage ?? context.showValidateMessage;
 
   const error = meta && meta.errors.length > 0;
@@ -60,6 +62,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = (props) => {
     colon: itemColon,
     error,
     errorMessage,
+    validateTrigger: itemValidateTrigger,
   };
 
   if (isFieldChildren) return React.cloneElement(children as React.ReactElement, attrs);
@@ -83,7 +86,7 @@ const FormItem: FC<FormItemProps> = (props) => {
     rules,
     children,
     messageVariables,
-    trigger = 'onChange',
+    trigger,
     validateTrigger = trigger,
     onClick,
     shouldUpdate,

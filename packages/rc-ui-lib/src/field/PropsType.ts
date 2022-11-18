@@ -59,6 +59,7 @@ export interface FieldCommonProps {
   rightIcon?: string | React.ReactNode;
   /** 输入内容格式化函数 */
   formatter?: (val: string | number) => string;
+  validateTrigger?: FieldValidateTrigger;
   /**
    * 格式化函数触发的时机
    * @default 'onChange'

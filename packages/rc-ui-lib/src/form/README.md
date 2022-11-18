@@ -48,7 +48,7 @@ export default () => {
 
 ### 校验规则
 
-通过 `rules` 定义表单校验规则，点击此处查看文档[rule](https://github.com/react-component/field-form#rule)。
+通过 `rules` 定义表单校验规则，`validateTrigger`修改校验触发时机，点击此处查看文档[rule](https://github.com/react-component/field-form#rule)。
 
 ```jsx
 import React from 'react';
@@ -65,6 +65,7 @@ export default () => {
     <Form
       form={form}
       onFinish={onFinish}
+      validateTrigger="onSubmit"
       footer={
         <div style={{ margin: '16px 16px 0' }}>
           <Button round nativeType="submit" type="primary" block>
@@ -293,6 +294,7 @@ export default () => {
 | inset | 是否展示为圆角卡片风格 | _boolean_ | `false` |
 | border | 是否显示外边框 | _boolean_ | `false` |
 | footer | 表单底部内容 | _ReactNode_ | - |
+| validateTrigger | 表单校验触发时机，可选值为 `onChange`、`onSubmit`，具体用法见下方表格 | _strting_ | `onChange` |
 
 > 更多 Form API 参见：[rc-field-form](https://github.com/react-component/field-form#form)
 
@@ -310,6 +312,7 @@ export default () => {
 | labelClass | 左侧文本额外类名 | _any_ | - |
 | labelWidth | 左侧文本宽度，默认单位为`px` | _number \| string_ | `6.2em` |
 | labelAlign | 左侧文本对齐方式，可选值为 `center` `right` | _string_ | `left` |
+| validateTrigger | 表单校验触发时机，优先级高于`Form`设置的值，可选值为 `onChange`、`onSubmit`，具体用法见下方表格 | _strting_ | `onChange` |
 
 > 更多 Form.ItemAPI 参见：[rc-field-form](https://github.com/react-component/field-form#field)
 
@@ -346,4 +349,14 @@ export default () => {
 | message | 错误提示文案 | _string_ |
 | validator | 自定义校验，接收 Promise 作为返回值 | _(rule, value, callback: (error?: string) => void, form) => Promise \| void_ |
 | pattern | 正则表达式匹配 | _RegExp_ |
-| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 validateTrigger 的子集 | _string\| string[]_ |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 validateTrigger 的子集 | _string_ |
+
+### validateTrigger 可选值
+
+通过 `validateTrigger` 属性可以自定义表单校验的触发时机。
+
+| 值       | 描述                                 |
+| -------- | ------------------------------------ |
+| onSubmit | 仅在提交表单时触发校验               |
+| onBlur   | 在提交表单和输入框失焦时触发校验     |
+| onChange | 在提交表单和输入框内容变化时触发校验 |
