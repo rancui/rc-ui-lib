@@ -1,10 +1,11 @@
 import React from 'react';
-import { FormLayout } from './PropsType';
+import { FormLayout, FormValidateTrigger } from './PropsType';
 
 export type FormContextType = {
   layout: FormLayout;
   colon: boolean;
   showValidateMessage: boolean;
+  validateTrigger?: FormValidateTrigger;
 };
 
 export const DEFAULT_FORM_CONTEXT: FormContextType = {

@@ -30,6 +30,7 @@ const Form = forwardRef<FormInstance, FormProps>((props, ref) => {
         layout,
         colon,
         showValidateMessage,
+        validateTrigger: formProps.validateTrigger,
       }}
     >
       <RcForm className={classnames(bem(), className)} style={style} ref={ref} {...formProps}>

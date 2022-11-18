@@ -7,6 +7,8 @@ import type { CellGroupProps } from '../cell/PropsType';
 import { FieldProps } from '../field/PropsType';
 
 export type FormLayout = 'vertical' | 'horizontal';
+
+export type FormValidateTrigger = 'onBlur' | 'onChange' | 'onSubmit';
 type OmitFromCellGroupProps = Omit<CellGroupProps, 'title'>;
 export interface FormProps extends RcFormProps, OmitFromCellGroupProps, BaseTypeProps {
   /** 表单布局 */
@@ -19,6 +21,7 @@ export interface FormProps extends RcFormProps, OmitFromCellGroupProps, BaseType
   showValidateMessage?: boolean;
   /** 子元素 */
   children?: React.ReactNode;
+  validateTrigger?: FormValidateTrigger;
 }
 
 export type RenderChildren<Values = unknown> = (form: RcFormInstance<Values>) => React.ReactNode;
@@ -33,7 +36,7 @@ export type MemoInputProps = {
 } & Record<string, unknown>;
 
 export type FormItemProps = RcFieldProps &
-  Pick<FormProps, 'showValidateMessage'> &
+  Pick<FormProps, 'showValidateMessage' | 'validateTrigger'> &
   Pick<
     FieldProps,
     | 'style'
@@ -73,6 +76,7 @@ export type FormItemLayoutProps = Pick<
   | 'labelAlign'
   | 'labelClass'
   | 'showValidateMessage'
+  | 'validateTrigger'
 > & {
   onClick?: (e?: React.MouseEvent) => void;
   htmlFor?: string;

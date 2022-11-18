@@ -72,7 +72,6 @@ exports[`Form basic usage 1`] = `
                   },
                 ]
               }
-              trigger="onChange"
               validateTrigger="onChange"
             >
               <Field
@@ -161,6 +160,7 @@ exports[`Form basic usage 1`] = `
                         "message": "A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
                       }
                     }
+                    undefined={[Function]}
                     value=""
                   >
                     <Cell
@@ -427,7 +427,6 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
           >
             <WrapperField
               name="name"
-              trigger="onChange"
               validateTrigger="onChange"
             >
               <Field
@@ -784,7 +783,6 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
         >
           <FormItem>
             <WrapperField
-              trigger="onChange"
               validateTrigger="onChange"
             >
               <Field
@@ -906,7 +904,6 @@ exports[`Form when shouldUpdate props is set 1`] = `
           >
             <WrapperField
               shouldUpdate={true}
-              trigger="onChange"
               validateTrigger="onChange"
             >
               <Field
