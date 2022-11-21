@@ -8,12 +8,14 @@ export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
   const [value, setValue] = useState(50);
 
+  const format = (rate) => Math.min(Math.max(rate, 0), 100);
+
   const add = () => {
-    setValue((e) => e + 20);
+    setValue((e) => format(e + 20));
   };
 
   const reduce = () => {
-    setValue((e) => e - 20);
+    setValue((e) => format(e - 20));
   };
 
   return (
