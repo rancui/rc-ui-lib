@@ -2,7 +2,7 @@
 import React, { FC, useRef, useContext } from 'react';
 import classnames from 'classnames';
 import { Field as RcField } from 'rc-field-form';
-import FieldContext from 'rc-field-form/lib/FieldContext';
+// import FieldContext from 'rc-field-form/lib/FieldContext'; s
 import type { Meta } from 'rc-field-form/lib/interface';
 import Field from '../field';
 import type {
@@ -98,7 +98,7 @@ const FormItem: FC<FormItemProps> = (props) => {
     ...fieldProps
   } = props;
 
-  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
+  const { validateTrigger: contextValidateTrigger } = useContext(FormContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
@@ -209,7 +209,9 @@ const FormItem: FC<FormItemProps> = (props) => {
 
           // We should keep user origin event handler
           const triggers = new Set<string>([
-            ...toArray<string>(trigger),
+            ...toArray<string>(
+              Object.keys(children.props).filter((item) => item.indexOf('on') === 0),
+            ),
             ...toArray<string>(mergedValidateTrigger as string),
           ]);
 
