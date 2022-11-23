@@ -45,6 +45,7 @@ const Form = forwardRef<FormInstance, FormProps>((props, ref) => {
 
 Form.defaultProps = {
   showValidateMessage: true,
+  validateTrigger: 'onChange',
 };
 
 export default Form;

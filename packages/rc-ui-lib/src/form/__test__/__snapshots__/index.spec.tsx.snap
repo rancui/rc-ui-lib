@@ -27,9 +27,11 @@ exports[`Form basic usage 1`] = `
   inset={true}
   layout="horizontal"
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -160,7 +162,7 @@ exports[`Form basic usage 1`] = `
                         "message": "A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
                       }
                     }
-                    undefined={[Function]}
+                    validateTrigger="onChange"
                     value=""
                   >
                     <Cell
@@ -300,6 +302,7 @@ exports[`Form basic usage 1`] = `
                 labelWidth="100"
                 onClick={[MockFunction]}
                 placeholder="请输入密码"
+                validateTrigger="onChange"
               >
                 <Cell
                   className="rc-field rc-field--label-center rc-form my-password"
@@ -407,9 +410,11 @@ exports[`Form basic usage 1`] = `
 exports[`Form when name props is set without shouldUpdate or dependencies 1`] = `
 <ForwardRef
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -486,6 +491,7 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
                     formatTrigger="onChange"
                     htmlFor="name"
                     required={false}
+                    validateTrigger="onChange"
                   >
                     <Cell
                       className="rc-field rc-form"
@@ -535,9 +541,11 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
 exports[`Form when noStyle props is set 1`] = `
 <ForwardRef
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -603,9 +611,11 @@ exports[`Form when noStyle props is set 1`] = `
 exports[`Form when rules with reqiured props is set 1`] = `
 <ForwardRef
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -639,6 +649,7 @@ exports[`Form when rules with reqiured props is set 1`] = `
                 errorMessage={null}
                 formatTrigger="onChange"
                 placeholder="请输入密码"
+                validateTrigger="onChange"
               >
                 <Cell
                   className="rc-field rc-form"
@@ -685,9 +696,11 @@ exports[`Form when rules with reqiured props is set 1`] = `
 exports[`Form when rules without reqiured props is set 1`] = `
 <ForwardRef
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -720,6 +733,7 @@ exports[`Form when rules without reqiured props is set 1`] = `
                 errorMessage={null}
                 formatTrigger="onChange"
                 placeholder="请输入密码"
+                validateTrigger="onChange"
               >
                 <Cell
                   className="rc-field rc-form"
@@ -766,9 +780,11 @@ exports[`Form when rules without reqiured props is set 1`] = `
 exports[`Form when shouldUpdate and dependencies are not set 1`] = `
 <ForwardRef
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -835,6 +851,7 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
                     formatTrigger="onChange"
                     htmlFor=""
                     required={false}
+                    validateTrigger="onChange"
                   >
                     <Cell
                       className="rc-field rc-form"
@@ -884,9 +901,11 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
 exports[`Form when shouldUpdate props is set 1`] = `
 <ForwardRef
   showValidateMessage={true}
+  validateTrigger="onChange"
 >
   <ForwardRef(Form)
     className="rc-form"
+    validateTrigger="onChange"
   >
     <form
       className="rc-form"
@@ -957,6 +976,7 @@ exports[`Form when shouldUpdate props is set 1`] = `
                     formatTrigger="onChange"
                     htmlFor=""
                     required={false}
+                    validateTrigger="onChange"
                   >
                     <Cell
                       className="rc-field rc-form"
