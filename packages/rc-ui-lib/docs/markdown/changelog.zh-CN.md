@@ -16,13 +16,19 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### [1.3.6](https://github.com/rancui/rc-ui-lib/compare/v1.3.5...v1.3.6)
+
+`2022-11-23` **Bug Fixes**
+
+- Filed: 修复 onChange 无法触发的问题
+
 ### [1.3.5](https://github.com/rancui/rc-ui-lib/compare/v1.3.4...v1.3.5)
 
-**Features**
+`2022-11-22`
 
 - 新增 CountDown 倒计时组件([831e59f](https://github.com/rancui/rc-ui-lib/commit/831e59f1062f6d591bd7d3e690b9b6315b0b4770))
 
-- 新增 Progress 进度条 组件([41ca9f4](https://github.com/rancui/rc-ui-lib/commit/41ca9f483a4a9b707a263dc63e4b70073b91f9c9))
+- 新增 Progress 进度条组件([41ca9f4](https://github.com/rancui/rc-ui-lib/commit/41ca9f483a4a9b707a263dc63e4b70073b91f9c9))
 
 ### [1.3.4](https://github.com/rancui/rc-ui-lib/compare/v1.3.3...v1.3.4)
 
