@@ -20,7 +20,7 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 `2022-11-23` **Bug Fixes**
 
-- Filed: 修复 onChange 无法触发的问题
+- Form: 修复 Field 组件中 onChange 事件无法触发的问题
 
 ### [1.3.5](https://github.com/rancui/rc-ui-lib/compare/v1.3.4...v1.3.5)
 
