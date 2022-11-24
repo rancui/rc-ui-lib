@@ -12,12 +12,13 @@
   ],
   "scripts": {
     "start": "rc-cli dev",
+    "lint": "rc-cli lint",
     "build": "rc-cli build",
     "release": "rc-cli release",
     "changelog": "rc-cli changelog",
     "build:site": "rc-cli build-site",
-    "release:site": "yarn build:site && gh-pages -d site",
-    "prepack": "yarn build",
+    "release:site": "pnpm build:site && gh-pages -d site",
+    "prepack": "pnpm build",
     "test": "rc-cli test --u --colors --coverage",
     "test:coverage": "open tests/coverage/index.html"
   },
@@ -58,7 +59,7 @@
     }
   },
   "devDependencies": {
-    "@rancui/cli": "^1.0.2",
+    "@rancui/cli": "workspace:*",
     "@types/classnames": "^2.2.11",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
