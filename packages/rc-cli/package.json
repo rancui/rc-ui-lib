@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "rimraf ./lib && tsc",
-    "release": "release-it",
+    "release": "pnpm build & release-it",
     "changelog": "rc-cli changelog",
     "prepare": "pnpm build"
   },
@@ -35,10 +35,11 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
+    "@popperjs/core": "^2.11.6",
     "@rancui/markdown-loader": "workspace:*",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
-    "@types/jest": "^26.0.15",
+    "@types/jest": "^27.0.3",
     "@vant/touch-emulator": "^1.3.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "address": "^1.1.2",

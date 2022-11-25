@@ -2,6 +2,7 @@
 module.exports = {
   name: 'rc-ui-lib',
   build: {
+    packageManager: 'pnpm',
     css: {
       preprocessor: 'less',
     },
