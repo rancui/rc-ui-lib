@@ -54,8 +54,11 @@ jobs:
         with:
           version: 6.20.3
 
-      - name: add chmod
-        run: chmod -R 777 ./*
+      # - name: add chmod
+      #   run: chmod -R 777 ./*
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run test cases
         run: npm run test
