@@ -102,7 +102,7 @@ describe('List', () => {
     const { container, rerender } = render(
       <List onLoad={onLoad} offset={100} immediateCheck={false}>
         {new Array(30).fill(0).map((_, i) => (
-          <Cell key={i} title={i} />
+          <Cell key={String(i)} title={i} />
         ))}
       </List>,
     );
@@ -131,7 +131,7 @@ describe('List', () => {
     rerender(
       <List finished offset={100} immediateCheck={false}>
         {new Array(30).fill(0).map((_, i) => (
-          <Cell key={i} title={i} />
+          <Cell key={String(i)} title={i} />
         ))}
       </List>,
     );

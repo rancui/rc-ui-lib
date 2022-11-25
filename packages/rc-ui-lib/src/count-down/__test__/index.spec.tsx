@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, cleanup, waitFor, act } from '@testing-library/react';
+import { render, cleanup, waitFor } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import CountDown, { CountDownInstance, CountDownProps } from '..';
 

@@ -42,14 +42,14 @@
 }
 .rc-cell::after {
   position: absolute;
-  box-sizing: border-box;
-  content: ' ';
-  pointer-events: none;
   right: var(--rc-padding-md);
   bottom: 0;
   left: var(--rc-padding-md);
+  box-sizing: border-box;
   border-bottom: 1px solid var(--rc-cell-border-color);
   transform: scaleY(0.5);
+  content: ' ';
+  pointer-events: none;
 }
 .rc-cell:last-child::after,
 .rc-cell--borderless::after {

@@ -257,7 +257,7 @@ describe('<Uploader/>', () => {
   });
 
   it('test previewCoverRender', async () => {
-    const { container, rerender } = createUploader({
+    const { container } = createUploader({
       value: [
         {
           // isImage: false,
@@ -311,7 +311,7 @@ describe('<Uploader/>', () => {
     expect(afterRead).toHaveBeenCalledTimes(0);
   });
 
-  it('should trigger oversize event when file size is overlimit', async () => {
+  it('should trigger oversize event when file size is over limit', async () => {
     const onChange = jest.fn();
     const onOversize = jest.fn();
 

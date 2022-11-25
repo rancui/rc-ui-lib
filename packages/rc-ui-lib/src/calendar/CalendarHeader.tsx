@@ -40,7 +40,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = (props) => {
     return (
       <div className={classNames(bem('weekdays'))}>
         {renderWeekDaysArr.map((text, index) => (
-          <span key={index} className={classNames(bem('weekday'))}>
+          <span key={String(index)} className={classNames(bem('weekday'))}>
             {text}
           </span>
         ))}

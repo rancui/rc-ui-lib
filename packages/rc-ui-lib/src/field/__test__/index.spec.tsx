@@ -1,10 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { doc } from 'prettier';
 import { sleep } from '../../../tests/utils';
 import Icon from '../../icon';
-import Dialog from '../../dialog';
 import { Field } from '..';
 
 describe('Field', () => {

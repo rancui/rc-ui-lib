@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export function noop(): void {}
 
 export const extend = Object.assign;

@@ -232,7 +232,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     return formatValue(new Date(year, month - 1, day, hour, minute));
   };
 
-  const onChange = (val, index) => {
+  const onChange = () => {
     if (pickerRef.current) {
       const indexes = pickerRef.current.getIndexes();
       const nextValue = updateInnerValue(indexes);

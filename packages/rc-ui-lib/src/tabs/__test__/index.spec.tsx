@@ -218,7 +218,7 @@ describe('Tabs test with testing library', () => {
     const onChange = jest.fn();
 
     const tabsRef = React.createRef<TabsInstance>();
-    const { container } = render(
+    render(
       <Tabs ref={tabsRef} onChange={onChange}>
         <Tabs.TabPane title="1">content1</Tabs.TabPane>
         <Tabs.TabPane disabled title="2">
