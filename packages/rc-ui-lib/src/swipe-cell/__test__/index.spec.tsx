@@ -48,7 +48,7 @@ describe('SwipeCell test with testing library', () => {
         } as any),
     );
 
-    return function () {
+    return () => {
       Element.prototype.getBoundingClientRect = originMethod;
     };
   };

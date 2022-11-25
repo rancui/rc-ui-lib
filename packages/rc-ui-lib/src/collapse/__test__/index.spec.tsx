@@ -11,7 +11,7 @@ describe('Collapse', () => {
   let spyConsole: jest.SpyInstance;
   beforeEach(() => {
     spyConsole = jest.spyOn(console, 'error');
-    spyConsole.mockImplementation((message: string) => {
+    spyConsole.mockImplementation(() => {
       return null;
     });
   });

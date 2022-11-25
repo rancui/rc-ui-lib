@@ -110,6 +110,7 @@ export function debounce(func, wait, immediate?) {
   };
 
   return function debounced() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     context = this;
     args = arguments;
     timestamp = +new Date();

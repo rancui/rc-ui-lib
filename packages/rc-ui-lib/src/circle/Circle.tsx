@@ -64,13 +64,13 @@ const Circle: React.FC<CircleProps> = (props) => {
     const animate = () => {
       const now = Date.now();
       const progress = Math.min((now - startTime) / duration, 1);
-      const rate = progress * (endRate - startRate) + startRate;
-      const crate = format(parseFloat(rate.toFixed(1)));
+      const tempRate = progress * (endRate - startRate) + startRate;
+      const crate = format(parseFloat(tempRate.toFixed(1)));
 
       setCurrentRate(crate);
       props.onChange?.(crate);
 
-      if (endRate > currentRate ? rate < endRate : rate > endRate) {
+      if (endRate > currentRate ? tempRate < endRate : tempRate > endRate) {
         rafId = raf(animate);
       }
     };
