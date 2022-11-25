@@ -49,7 +49,7 @@
     "@use-gesture/react": "^10.1.1",
     "@vant/icons": "^1.7.0",
     "@vant/popperjs": "^1.1.0",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.2",
     "rc-field-form": "^1.21.2",
     "react-transition-group": "^4.4.1"
   },
@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@rancui/cli": "workspace:*",
-    "@types/classnames": "^2.2.11",
+    "@rancui/linter": "workspace:*",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
     "gh-pages": "^3.2.3",
