@@ -1,6 +1,6 @@
 import { join } from 'path';
-import { existsSync, readdirSync } from 'fs-extra';
-import { SRC_DIR, SITE_MODILE_SHARED_FILE } from '../common/constant';
+import { existsSync, readdirSync } from 'fs';
+import { SRC_DIR, SITE_MOBILE_SHARED_FILE } from '../common/constant.js';
 import {
   pascalize,
   removeExt,
@@ -8,7 +8,7 @@ import {
   getVantConfig,
   smartOutputFile,
   normalizePath,
-} from '../common';
+} from '../common/index.js';
 
 type DemoItem = {
   name: string;
@@ -22,17 +22,12 @@ function genInstall() {
 
 function genImports(demos: DemoItem[]) {
   return demos
-    .map(
-      (item) =>
-        `import ${item.name} from '${removeExt(normalizePath(item.path))}';`
-    )
+    .map((item) => `import ${item.name} from '${removeExt(normalizePath(item.path))}';`)
     .join('\n');
 }
 
 function genExports(demos: DemoItem[]) {
-  return `export const demos = {\n  ${demos
-    .map((item) => item.name)
-    .join(',\n  ')}\n};`;
+  return `export const demos = {\n  ${demos.map((item) => item.name).join(',\n  ')}\n};`;
 }
 
 function genConfig(demos: DemoItem[]) {
@@ -41,9 +36,7 @@ function genConfig(demos: DemoItem[]) {
 
   function demoFilter(nav: any[]) {
     return nav.filter((group) => {
-      group.items = group.items.filter((item: any) =>
-        demoNames.includes(item.path)
-      );
+      group.items = group.items.filter((item: any) => demoNames.includes(item.path));
       return group.items.length;
     });
   }
@@ -82,5 +75,6 @@ export function genSiteMobileShared() {
   const dirs = readdirSync(SRC_DIR);
   const code = genCode(dirs);
 
-  smartOutputFile(SITE_MODILE_SHARED_FILE, code);
+  smartOutputFile(SITE_MOBILE_SHARED_FILE, code);
+  return code;
 }

@@ -79,4 +79,4 @@ iPhone X 等机型底部存在底部指示条，指示条的操作区域与页�
 <NumberKeyboard safeAreaInsetBottom />
 ```
 
-<img src="https://img.yzcdn.cn/vant/safearea.png">
+<img src="https://img.yzcdn.cn/vant/safearea.png" />

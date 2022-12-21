@@ -35,7 +35,7 @@ const Header = (props) => {
 
   const toggleVersionPop = () => {
     //@ts-ignore
-    const val = !this.showVersionPop;
+    const val = !showVersionPop;
     const action = val ? 'add' : 'remove';
     document.body[`${action}EventListener`]('click', checkHideVersionPop);
     setShowVersionPop(val);

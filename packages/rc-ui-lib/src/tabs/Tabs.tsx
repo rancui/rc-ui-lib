@@ -33,7 +33,7 @@ import {
   setRootScrollTop,
 } from '../utils';
 import { callInterceptor } from '../utils/interceptor';
-import { BORDER_TOP_BOTTOM } from '../utils/constant';
+import { BORDER_TOP_BOTTOM } from '../utils/constant.js';
 import { useSetState, useUpdateEffect } from '../hooks';
 import useEventListener from '../hooks/use-event-listener';
 import { isReachBottom } from './utils';

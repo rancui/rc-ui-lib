@@ -198,7 +198,7 @@ const formatter = (day) => {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 选择类型:<br>`single` 表示选择单个日期，<br>`multiple` 表示选择多个日期，<br>`range` 表示选择日期区间 | _string_ | `single` |
+| type | 选择类型:<br/>`single` 表示选择单个日期，<br/>`multiple` 表示选择多个日期，<br/>`range` 表示选择日期区间 | _string_ | `single` |
 | title | 日历标题 | _string_ | `日期选择` |
 | subtitle | 自定义日历副标题 | _string\|React.ReactNode_ | - |
 | color | 主题色，对底部按钮和选中日期生效 | _string_ | `#ee0a24` |

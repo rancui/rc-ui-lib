@@ -1,4 +1,4 @@
-import { getPostcssConfig } from '../common';
+import { getPostcssConfig } from '../common/index.js';
 
 type PostcssConfig = object & {
   plugins?: object;
@@ -19,7 +19,7 @@ function mergePostcssConfig(config1: PostcssConfig, config2: PostcssConfig) {
 
 const DEFAULT_CONFIG = {
   plugins: {
-    autoprefixer: {}
+    autoprefixer: {},
   },
 };
 

@@ -1,79 +1,57 @@
-import { transform, transformAsync } from '@babel/core';
-import chalk from 'chalk';
-import { readFileSync } from 'fs';
-import { outputFileSync, removeSync } from 'fs-extra';
-import { replaceExt } from '../common';
+import fse from 'fs-extra';
+import babel from '@babel/core';
+import esbuild, { type Format } from 'esbuild';
+import { sep } from 'path';
+import { isJsx, replaceExt, getVantConfig } from '../common/index.js';
+import { replaceCSSImportExt } from '../common/css.js';
+import { replaceScriptImportExt } from './get-deps.js';
 
-import { consola } from '../common/logger';
+const { readFileSync, removeSync, outputFileSync } = fse;
 
-function getDefaultJsCompileOpts(type, filePath) {
-  return {
-    filename: filePath,
-    presets: [
-      [
-        require.resolve('@babel/preset-env'),
-        {
-          targets: { browsers: ['last 2 versions', 'IE 10'] },
-          modules: type === 'esmodule' ? false : 'auto',
-        },
-      ],
-      [require.resolve('@babel/preset-typescript')],
-      [require.resolve('@babel/preset-react')],
-    ],
-    plugins: [
-      ...(type === 'commonjs'
-        ? [
-            [
-              require.resolve('@babel/plugin-transform-modules-commonjs'),
-              {
-                lazy: true,
-              },
-            ],
-          ]
-        : []),
-      [
-        require.resolve('@babel/plugin-transform-runtime'),
-        {
-          useESModules: type === 'esmodule',
-          version: require('@babel/runtime/package.json').version,
-        },
-      ],
-    ],
+export async function compileScript(filePath: string, format: Format): Promise<void> {
+  if (filePath.includes('.d.ts')) {
+    return;
   }
-}
 
-interface IBabelOpts {
-  file: any;
-  type: 'esm' | 'cjs';
-}
+  const extensionMap = getVantConfig().build?.extensions;
+  const extension = extensionMap?.[format] || '.js';
 
-export function compileJs(options: IBabelOpts) {
-  const { file, type } = options;
+  let code = readFileSync(filePath, 'utf-8');
 
-  consola.log(`Transform to ${type} for ${chalk.yellow(file.path)}`);
-  return transform(file.contents, getDefaultJsCompileOpts(type, file.path)).code;
-}
+  if (!filePath.includes(`${sep}style${sep}`)) {
+    code = replaceCSSImportExt(code);
+  }
+  code = replaceScriptImportExt(code, filePath, extension);
 
-export async function compileJsPath(filePath: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (filePath.includes('.d.ts')) {
-      resolve();
-      return;
+  if (isJsx(filePath)) {
+    const babelResult = await babel.transformAsync(code, {
+      filename: filePath,
+      babelrc: false,
+      presets: ['@babel/preset-typescript'],
+      plugins: [
+        [
+          '@vue/babel-plugin-jsx',
+          {
+            enableObjectSlots: false,
+          },
+        ],
+      ],
+    });
+    if (babelResult?.code) {
+      ({ code } = babelResult);
     }
+  }
 
-    const code = readFileSync(filePath, 'utf-8');
-    const type = process.env.BABEL_MODULE;
-
-    transformAsync(code, getDefaultJsCompileOpts(type, filePath))
-      .then((result) => {
-        if (result) {
-          const jsFilePath = replaceExt(filePath, '.js');
-
-          removeSync(filePath);
-          outputFileSync(jsFilePath, result.code);
-          resolve();
-        }
-      })
-      .catch(reject);
+  const esbuildResult = await esbuild.transform(code, {
+    loader: 'ts',
+    target: 'es2016',
+    format,
   });
+
+  ({ code } = esbuildResult);
+
+  const jsFilePath = replaceExt(filePath, extension);
+
+  removeSync(filePath);
+  outputFileSync(jsFilePath, code);
 }

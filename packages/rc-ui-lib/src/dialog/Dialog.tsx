@@ -7,7 +7,7 @@ import ActionBar from '../action-bar';
 
 import { DialogProps, DialogStatic } from './PropsType';
 import { addUnit, noop } from '../utils';
-import { BORDER_TOP, BORDER_LEFT } from '../utils/constant';
+import { BORDER_TOP, BORDER_LEFT } from '../utils/constant.js';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Dialog: React.FC<DialogProps> = (props) => {

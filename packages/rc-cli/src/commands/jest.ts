@@ -1,8 +1,10 @@
-import { runCLI } from 'jest';
-import { setNodeEnv } from '../common';
-import { ROOT, JEST_CONFIG_FILE } from '../common/constant';
+import jest from 'jest';
+import { setNodeEnv } from '../common/index.js';
+import { ROOT, JEST_CONFIG_FILE } from '../common/constant.js';
 
-export function test(command: any) {
+import type { Config } from '@jest/types';
+
+export function test(command: Config.Argv) {
   setNodeEnv('test');
 
   const config = {
@@ -20,10 +22,10 @@ export function test(command: any) {
     // make jest tests faster
     // see: https://ivantanev.com/make-jest-faster/
     maxWorkers: '50%',
+  } as Config.Argv;
 
-  } as any;
-
-  runCLI(config, [ROOT])
+  jest
+    .runCLI(config, [ROOT])
     .then((response) => {
       if (!response.results.success && !command.watch) {
         process.exit(1);

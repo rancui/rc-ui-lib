@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { CellGroupProps } from './PropsType';
-import { BORDER_TOP_BOTTOM } from '../utils/constant';
+import { BORDER_TOP_BOTTOM } from '../utils/constant.js';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const CellGroup: React.FC<CellGroupProps> = (props) => {

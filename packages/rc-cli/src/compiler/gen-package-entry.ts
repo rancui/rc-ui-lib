@@ -1,7 +1,6 @@
-import { get } from 'lodash';
 import { join } from 'path';
-import { pascalize, getComponents, smartOutputFile, normalizePath } from '../common';
-import { SRC_DIR, getPackageJson, getVantConfig } from '../common/constant';
+import { pascalize, getComponents, smartOutputFile, normalizePath } from '../common/index.js';
+import { SRC_DIR, getVantConfig } from '../common/constant.js';
 
 type PathResolver = (path: string) => string;
 
@@ -52,7 +51,7 @@ export function genPackageEntry({
 }) {
   const names = getComponents();
   const vantConfig = getVantConfig();
-  const namedExport = get(vantConfig, 'build.namedExport', false);
+  const namedExport = vantConfig.build?.namedExport || false;
   const content = `${genImports(names, pathResolver, namedExport)} 
   ${genExports(names, pathResolver, namedExport)}
   `;

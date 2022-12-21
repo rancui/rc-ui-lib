@@ -12,13 +12,13 @@ import {
   commitLint,
   changelog,
   cliVersion,
-} from '.';
+} from './index.js';
 
 const program = new Command();
 
 program.version(`@rancui/cli ${cliVersion}`);
 
-program.command('dev').description('Run webpack dev server').action(dev);
+program.command('dev').description('Run vite dev server').action(dev);
 
 program.command('lint').description('Run eslint and stylelint').action(lint);
 

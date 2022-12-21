@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import classnames from 'classnames';
 import { StepsItemProps } from './PropsType';
-import { BORDER } from '../utils/constant';
+import { BORDER } from '../utils/constant.js';
 import Icon from '../icon';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 

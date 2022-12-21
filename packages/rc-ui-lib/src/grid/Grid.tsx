@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { addUnit } from '../utils';
 
 import { GridProps } from './PropsType';
-import { BORDER_TOP } from '../utils/constant';
+import { BORDER_TOP } from '../utils/constant.js';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Grid: React.FC<GridProps> = ({ children, className, style, ...props }) => {

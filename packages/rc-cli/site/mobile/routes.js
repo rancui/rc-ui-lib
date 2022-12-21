@@ -80,6 +80,7 @@ function getRoutes() {
       meta: {},
     });
   }
+  console.log(routes);
 
   return routes;
 }

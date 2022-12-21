@@ -1,16 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import packageJson from '../package.json';
-import { dev } from './commands/dev';
-import { build } from './commands/build';
-import { test } from './commands/jest';
-import { lint } from './commands/lint';
-import { clean } from './commands/clean';
-import { release } from './commands/release';
-import { changelog } from './commands/changelog';
-import { buildSite } from './commands/build-site';
-import { commitLint } from './commands/commit-lint';
+import fs from 'fs';
+import { URL, fileURLToPath } from 'url';
 
+import { dev } from './commands/dev.js';
+import { build } from './commands/build.js';
+import { test } from './commands/jest.js';
+import { lint } from './commands/lint.js';
+import { clean } from './commands/clean.js';
+import { release } from './commands/release.js';
+import { changelog } from './commands/changelog.js';
+import { buildSite } from './commands/build-site.js';
+import { commitLint } from './commands/commit-lint.js';
+
+const packagePath = fileURLToPath(new URL('../package.json', import.meta.url));
+const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
 export const cliVersion: string = packageJson.version;
 
 process.env.RC_CLI_VERSION = cliVersion;

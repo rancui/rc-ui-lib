@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
-import { isMobile } from '../../../common/index';
+import { isMobile } from '../../../common/index.js';
 import ArrowRight from '../ArrowRight';
 import './index.less';
 
