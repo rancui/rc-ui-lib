@@ -3,7 +3,7 @@ import React, { ReactElement, useContext, useRef, useState } from 'react';
 import classnames from 'classnames';
 import CollapseContext from './CollapseContext';
 import { CollapseProps } from './PropsType';
-import { BORDER_TOP_BOTTOM } from '../utils/constant';
+import { BORDER_TOP_BOTTOM } from '../utils/constant.js';
 import { useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 

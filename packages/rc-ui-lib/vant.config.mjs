@@ -1,5 +1,4 @@
-/* eslint-disable no-param-reassign */
-module.exports = {
+export default {
   name: 'rc-ui-lib',
   build: {
     packageManager: 'pnpm',

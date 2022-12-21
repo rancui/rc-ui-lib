@@ -15,7 +15,7 @@ import Dialog from '../dialog';
 import { FieldInstance, FieldProps, FieldTooltipProps } from './PropsType';
 import { isDef, addUnit, formatNumber, isObject, preventDefault, resetScroll } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
-import { COMPONENT_TYPE_KEY } from '../utils/constant';
+import { COMPONENT_TYPE_KEY } from '../utils/constant.js';
 import { FieldFormatTrigger } from '.';
 
 const ICON_SIZE = '16px';

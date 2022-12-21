@@ -11,7 +11,7 @@ import React, {
 } from 'react';
 import classnames from 'classnames';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
-import { HAPTICS_FEEDBACK } from '../utils/constant';
+import { HAPTICS_FEEDBACK } from '../utils/constant.js';
 import { isDef } from '../utils';
 import useScrollParent from '../hooks/use-scroll-parent';
 import useClickAway from '../hooks/use-click-away';

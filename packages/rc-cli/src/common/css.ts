@@ -1,14 +1,13 @@
-import { get } from 'lodash';
 import { existsSync } from 'fs';
 import { join, isAbsolute } from 'path';
-import { getVantConfig } from '.';
-import { STYLE_DIR, SRC_DIR } from './constant';
+import { getVantConfig } from './index.js';
+import { STYLE_DIR, SRC_DIR } from './constant.js';
 
 type CSSLANG = 'css' | 'less' | 'scss';
 
 function getCssLang(): CSSLANG {
   const vantConfig = getVantConfig();
-  const preprocessor = get(vantConfig, 'build.css.preprocessor', 'less');
+  const preprocessor = vantConfig.build?.css?.preprocessor || 'less';
 
   if (preprocessor === 'sass') {
     return 'scss';
@@ -23,7 +22,7 @@ export function getCssBaseFile() {
   const vantConfig = getVantConfig();
   let path = join(STYLE_DIR, `base.${CSS_LANG}`);
 
-  const baseFile = get(vantConfig, 'build.css.base', '');
+  const baseFile = vantConfig.build?.css?.base || '';
   if (baseFile) {
     path = isAbsolute(baseFile) ? baseFile : join(SRC_DIR, baseFile);
   }
@@ -37,8 +36,6 @@ export function getCssBaseFile() {
 const IMPORT_STYLE_RE = /import\s+?(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g;
 
 // "import 'a.less';" => "import 'a.css';"
-export function replaceCssImport(code: string) {
-  return code.replace(IMPORT_STYLE_RE, (str) =>
-    str.replace(`.${CSS_LANG}`, '.css')
-  );
+export function replaceCSSImportExt(code: string) {
+  return code.replace(IMPORT_STYLE_RE, (str) => str.replace(`.${CSS_LANG}`, '.css'));
 }

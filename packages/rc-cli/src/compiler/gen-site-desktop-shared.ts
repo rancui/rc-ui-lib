@@ -1,14 +1,20 @@
 import glob from 'fast-glob';
 import { join, parse } from 'path';
-import { existsSync, readdirSync } from 'fs-extra';
-import { pascalize, removeExt, getVantConfig, smartOutputFile, normalizePath } from '../common';
+import { existsSync, readdirSync } from 'fs';
+import {
+  pascalize,
+  removeExt,
+  getVantConfig,
+  smartOutputFile,
+  normalizePath,
+} from '../common/index.js';
 import {
   SRC_DIR,
   DOCS_DIR,
   getPackageJson,
   VANT_CONFIG_FILE,
   SITE_DESKTOP_SHARED_FILE,
-} from '../common/constant';
+} from '../common/constant.js';
 
 type DocumentItem = {
   name: string;
@@ -105,4 +111,6 @@ ${genExportDocuments(documents)}
 ${genExportVersion()}
 `;
   smartOutputFile(SITE_DESKTOP_SHARED_FILE, code);
+
+  return code;
 }

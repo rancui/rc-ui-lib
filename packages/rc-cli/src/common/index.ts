@@ -1,13 +1,10 @@
 import { sep, join } from 'path';
-import { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } from 'fs-extra';
-import merge from 'webpack-merge';
-import {
-  SRC_DIR,
-  getVantConfig,
-  ROOT_WEBPACK_CONFIG_FILE,
-  ROOT_POSTCSS_CONFIG_FILE,
-} from './constant';
-import { WebpackConfig } from './types';
+import fse from 'fs-extra';
+import { createRequire } from 'module';
+import { InlineConfig, loadConfigFromFile, mergeConfig } from 'vite';
+import { SRC_DIR, getVantConfig, ROOT_POSTCSS_CONFIG_FILE } from './constant.js';
+
+const { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } = fse;
 
 export const EXT_REGEXP = /\.\w+$/;
 export const DEMO_REGEXP = new RegExp(`\\${sep}demo$`);
@@ -16,6 +13,7 @@ export const ASSET_REGEXP = /\.(png|jpe?g|gif|webp|ico|jfif|svg|woff2?|ttf)$/i;
 export const STYLE_REGEXP = /\.(css|less|scss)$/;
 export const SCRIPT_REGEXP = /\.(js|ts|jsx|tsx)$/;
 export const TYPESCRIPT_REGEXP = /\.(ts||tsx)$/;
+export const JSX_REGEXP = /\.(j|t)sx$/;
 export const ENTRY_EXTS = ['js', 'ts', 'tsx', 'jsx'];
 
 export function removeExt(path: string) {
@@ -71,6 +69,8 @@ export function isScript(path: string) {
   return SCRIPT_REGEXP.test(path) && !path.endsWith('.d.ts');
 }
 
+export const isJsx = (path: string) => JSX_REGEXP.test(path);
+
 export function isTsFile(path: string) {
   return TYPESCRIPT_REGEXP.test(path) && !path.endsWith('.d.ts');
 }
@@ -97,24 +97,9 @@ export function normalizePath(path: string): string {
   return path.replace(/\\/g, '/');
 }
 
-export function getWebpackConfig(defaultConfig: WebpackConfig) {
-  if (existsSync(ROOT_WEBPACK_CONFIG_FILE)) {
-    const config = require(ROOT_WEBPACK_CONFIG_FILE);
-
-    // 如果是函数形式，可能并不仅仅是添加额外的处理流程，而是在原有流程上进行修改
-    // 比如修改markdown-loader,添加options.enableMetaData
-    if (typeof config === 'function') {
-      return merge(defaultConfig, config(defaultConfig));
-    }
-
-    return merge(defaultConfig, config);
-  }
-
-  return defaultConfig;
-}
-
 export function getPostcssConfig() {
   if (existsSync(ROOT_POSTCSS_CONFIG_FILE)) {
+    const require = createRequire(import.meta.url);
     return require(ROOT_POSTCSS_CONFIG_FILE);
   }
 
@@ -153,6 +138,36 @@ export function smartOutputFile(filePath: string, content: string) {
   }
 
   outputFileSync(filePath, content);
+}
+
+export async function mergeCustomViteConfig(
+  config: InlineConfig,
+  mode: 'production' | 'development',
+): Promise<InlineConfig> {
+  const vantConfig = getVantConfig();
+  const configureVite = vantConfig.build?.configureVite;
+
+  const userConfig = await loadConfigFromFile(
+    {
+      mode,
+      command: mode === 'development' ? 'serve' : 'build',
+    },
+    undefined,
+    process.cwd(),
+  );
+
+  if (configureVite) {
+    const ret = configureVite(config);
+    if (ret) {
+      config = ret;
+    }
+  }
+
+  if (userConfig) {
+    return mergeConfig(config, userConfig.config);
+  }
+
+  return config;
 }
 
 export { getVantConfig };

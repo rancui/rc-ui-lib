@@ -73,8 +73,8 @@ export default () => {
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | row | 段落占位图行数 | _number \| string_ | `3` |
-| rowWidth | 段落占位图宽度，可传数组来设置每一行的宽度 | _number \| string \|<br>(number \| string)[]_ | `100%` |
-| rowHeight | 段落占位图高度，可传数组来设置每一行的高度 | _number \| string \|<br>(number \| string)[]_ | - |
+| rowWidth | 段落占位图宽度，可传数组来设置每一行的宽度 | _number \| string \|<br/>(number \| string)[]_ | `100%` |
+| rowHeight | 段落占位图高度，可传数组来设置每一行的高度 | _number \| string \|<br/>(number \| string)[]_ | - |
 | title | 是否显示标题占位图 | _boolean_ | `false` |
 | avatar | 是否显示头像占位图 | _boolean_ | `false` |
 | loading | 是否显示骨架屏，传 `false` 时会展示子组件内容 | _boolean_ | `true` |

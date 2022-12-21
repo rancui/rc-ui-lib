@@ -1,15 +1,17 @@
 import { join } from 'path';
-import { existsSync } from 'fs-extra';
-import { smartOutputFile, normalizePath } from '../common';
-import { CSS_LANG, getCssBaseFile } from '../common/css';
-import { SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant';
+import { existsSync } from 'fs';
+import { createRequire } from 'module';
+import { smartOutputFile, normalizePath } from '../common/index.js';
+import { CSS_LANG, getCssBaseFile } from '../common/css.js';
+import { SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant.js';
 
 type Options = {
-  outputPath: string;
+  outputPath?: string;
   pathResolver?: (path: string) => string;
 };
 
-export function genPackageStyle(options: Options) {
+export function genPackageStyle(options: Options = {}) {
+  const require = createRequire(import.meta.url);
   const styleDepsJson = require(STYLE_DEPS_JSON_FILE);
   const ext = `.${CSS_LANG}`;
 
@@ -42,5 +44,9 @@ export function genPackageStyle(options: Options) {
     .filter((item: string) => !!item)
     .join('\n');
 
-  smartOutputFile(options.outputPath, content);
+  if (options.outputPath) {
+    smartOutputFile(options.outputPath, content);
+  } else {
+    return content;
+  }
 }

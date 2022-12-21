@@ -1,14 +1,14 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 import { join } from 'path';
-import { existsSync } from 'fs-extra';
+import { existsSync } from 'fs';
 import {
   ROOT,
   SRC_DIR,
   JEST_SETUP_FILE,
   JEST_FILE_MOCK_FILE,
   JEST_STYLE_MOCK_FILE,
-} from '../common/constant';
+} from '../common/constant.js';
 
 const DEFAULT_CONFIG = {
   setupFilesAfterEnv: [JEST_SETUP_FILE],
@@ -17,7 +17,8 @@ const DEFAULT_CONFIG = {
   },
   moduleNameMapper: {
     '\\.(css|less|scss)$': JEST_STYLE_MOCK_FILE,
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': JEST_FILE_MOCK_FILE,
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      JEST_FILE_MOCK_FILE,
     'site-mobile-demo$': join(ROOT, 'tests/shared/demoWrapper'),
     '^rc-ui-lib$': SRC_DIR,
   },

@@ -1,21 +1,21 @@
 {
+  "extends": "../../tsconfig",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "allowJs": true,
+    "noImplicitThis": true,
     "importHelpers": true,
     "jsx": "react",
     "esModuleInterop": true,
     "declaration": true,
     "sourceMap": true,
     "pretty": true,
-    "baseUrl": "./",
-    "resolveJsonModule": true,
+    "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
       "rc-ui-lib": ["src/index.tsx"],
       "rc-ui-lib/es/*": ["src/*"]
     }
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "include": ["src/**/*", "docs/**/*", "tests/**/*"],
+  "exclude": ["tests/coverage/*", "tests/setup.js"]
 }

@@ -187,8 +187,8 @@ export default () => {
 | showUpload | 是否展示上传区域 | _boolean_ | `true` |
 | capture | 图片选取模式，可选值为 `camera` (直接调起摄像头) | _string_ | - |
 | afterRead | 文件读取完成后的回调函数 | _Function_ | - |
-| beforeRead | 文件读取前的回调函数，返回 `false` 可终止文件读取，<br>支持返回 `Promise` | _Function_ | - |
-| beforeDelete | 文件删除前的回调函数，返回 `false` 可终止文件读取，<br>支持返回 `Promise` | _Function_ | - |
+| beforeRead | 文件读取前的回调函数，返回 `false` 可终止文件读取，<br/>支持返回 `Promise` | _Function_ | - |
+| beforeDelete | 文件删除前的回调函数，返回 `false` 可终止文件读取，<br/>支持返回 `Promise` | _Function_ | - |
 | maxSize | 文件大小限制，单位为 `byte` | _number \| string \| (file: File) => boolean_ | - |
 | maxCount | 文件上传数量限制 | _number \| string_ | - |
 | resultType | 文件读取结果类型，可选值为 `file` `text` | _string_ | `dataUrl` |

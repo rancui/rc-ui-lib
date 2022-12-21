@@ -42,5 +42,13 @@
     "*.{css,less}": "stylelint --fix"
   },
   "version": "1.0.14",
-  "packageManager": "pnpm"
+  "engines": {
+    "pnpm": ">= 7.0.0"
+  },
+  "packageManager": "pnpm@7.17.1",
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.14"
+    }
+  }
 }

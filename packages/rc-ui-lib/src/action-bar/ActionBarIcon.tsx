@@ -33,7 +33,7 @@ const ActionBarIcon: React.FC<ActionBarIconProps> = (props) => {
     return null;
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     props.onClick?.(e);
   };
 

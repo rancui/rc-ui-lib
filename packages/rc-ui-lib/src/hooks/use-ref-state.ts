@@ -1,12 +1,19 @@
-import { useCallback, useRef, useState } from 'react';
-import type { Dispatch, SetStateAction, MutableRefObject } from 'react';
+// import { useCallback, useRef, useState } from 'react';
+// import type { Dispatch, SetStateAction, MutableRefObject } from 'react';
+// import { isFunction } from '../utils';
+
+// type StateType<T> = T | (() => T);
+
+// export default useRefState;
+
+import React, { useCallback, useRef, useState } from 'react';
 import { isFunction } from '../utils';
 
 type StateType<T> = T | (() => T);
 
-export default function useRefState<T>(
+const useRefState = <T>(
   initialState: StateType<T>,
-): [T, Dispatch<SetStateAction<T>>, MutableRefObject<T>] {
+): [T, React.Dispatch<React.SetStateAction<T>>, React.MutableRefObject<T>] => {
   const [state, setState] = useState<T>(initialState);
   const ref = useRef(state);
   const setRefState = useCallback(
@@ -19,4 +26,6 @@ export default function useRefState<T>(
     [state],
   );
   return [state, setRefState, ref];
-}
+};
+
+export default useRefState;

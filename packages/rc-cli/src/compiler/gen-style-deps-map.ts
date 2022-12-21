@@ -1,9 +1,9 @@
 import { relative, sep, join } from 'path';
-import { existsSync } from 'fs-extra';
-import { CSS_LANG } from '../common/css';
-import { getDeps, clearDepsCache, fillExt } from './get-deps';
-import { getComponents, smartOutputFile } from '../common';
-import { SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant';
+import { existsSync } from 'fs';
+import { CSS_LANG } from '../common/css.js';
+import { getDeps, clearDepsCache, fillExt } from './get-deps.js';
+import { getComponents, smartOutputFile } from '../common/index.js';
+import { SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant.js';
 
 function matchPath(path: string, component: string): boolean {
   const p = relative(SRC_DIR, path);
@@ -22,7 +22,7 @@ export function checkStyleExists(component: string) {
 // analyze component dependencies
 function analyzeComponentDeps(components: string[], component: string) {
   const checkList: string[] = [];
-  const componentEntry = fillExt(join(SRC_DIR, component, 'index'));
+  const componentEntry = fillExt(join(SRC_DIR, component, 'index')).path;
   const record = new Set();
 
   function search(filePath: string) {
@@ -102,15 +102,10 @@ export async function genStyleDepsMap() {
     const sequence = getSequence(components, map);
 
     Object.keys(map).forEach((key) => {
-      map[key] = map[key].sort(
-        (a, b) => sequence.indexOf(a) - sequence.indexOf(b)
-      );
+      map[key] = map[key].sort((a, b) => sequence.indexOf(a) - sequence.indexOf(b));
     });
 
-    smartOutputFile(
-      STYLE_DEPS_JSON_FILE,
-      JSON.stringify({ map, sequence }, null, 2)
-    );
+    smartOutputFile(STYLE_DEPS_JSON_FILE, JSON.stringify({ map, sequence }, null, 2));
 
     resolve(true);
   });
