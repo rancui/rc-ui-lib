@@ -221,7 +221,7 @@ describe('DatePicker', () => {
 
     const columnWrapper = container.querySelector('.rc-picker-column');
     await TestsEvent.triggerDrag(columnWrapper, [0, -100]);
-
+    await sleep(100);
     expect(pickerRef.current.getPicker().getValues()).toEqual([
       '2020 year',
       '05 month',
