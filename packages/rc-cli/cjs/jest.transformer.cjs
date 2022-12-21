@@ -1,10 +1,6 @@
 const babel = require('@babel/core');
 const esbuild = require('esbuild');
 
-// const { BABEL_MODULE, NODE_ENV } = process.env;
-// const isTest = NODE_ENV === 'test';
-// const useESModules = BABEL_MODULE !== 'commonjs' && !isTest;
-
 const isJsxFile = (path) => /\.(j|t)sx$/.test(path);
 const isTsxFile = (path) => /\.tsx$/.test(path);
 
@@ -15,15 +11,7 @@ const transformJsx = (code, path) => {
     presets: isTsxFile(path)
       ? ['@babel/preset-typescript', '@babel/preset-react']
       : ['@babel/preset-react'],
-    plugins: [
-      [
-        '@babel/plugin-transform-runtime',
-        {
-          corejs: false,
-          useESModules: true,
-        },
-      ],
-    ],
+    plugins: [],
   });
   return babelResult?.code || '';
 };
