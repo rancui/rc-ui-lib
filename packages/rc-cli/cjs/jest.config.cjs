@@ -10,6 +10,7 @@ const JEST_FILE_MOCK_FILE = join(__dirname, 'jest.file-mock.cjs');
 const JEST_STYLE_MOCK_FILE = join(__dirname, 'jest.style-mock.cjs');
 
 const DEFAULT_CONFIG = {
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: [JEST_SETUP_FILE],
   transform: {
     '\\.(js|jsx|ts|tsx)$': 'babel-jest',
@@ -27,6 +28,7 @@ const DEFAULT_CONFIG = {
   },
   testPathIgnorePatterns: ['/node_modules/', '_site', 'site'],
   transformIgnorePatterns: ['/node_modules/(?!(@rancui/cli))/'],
+  collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/demo/**'],
   coverageDirectory: './tests/coverage',
   snapshotSerializers: ['enzyme-to-json/serializer'],
