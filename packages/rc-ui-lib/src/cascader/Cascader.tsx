@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import React, { isValidElement, useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { CascaderOption, CascaderProps, CascaderTab } from './PropsType';
@@ -20,8 +19,9 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   const [bem] = createNamespace('cascader', prefixCls);
 
   const [internalValue, setInternalValue] = useState(undefined);
-  const [state, updateState] =
-    useSetState<{ tabs: CascaderTab[]; activeTab: number }>(INITIAL_STATE);
+  const [state, updateState] = useSetState<{ tabs: CascaderTab[]; activeTab: number }>(
+    INITIAL_STATE,
+  );
 
   const mountedRef = useMountedRef();
 

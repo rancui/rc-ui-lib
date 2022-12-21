@@ -13,7 +13,7 @@ import Popup from '../popup';
 import Icon from '../icon';
 // utils
 import { extend, pick } from '../utils';
-import { BORDER_BOTTOM } from '../utils/constant.js';
+import { BORDER_BOTTOM } from '../utils/constant';
 // hook
 import useClickAway from '../hooks/use-click-away';
 // type

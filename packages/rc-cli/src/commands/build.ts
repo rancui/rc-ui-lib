@@ -14,16 +14,17 @@ import {
   setNodeEnv,
 } from '../common/index.js';
 import { clean } from './clean.js';
-import { LIB_DIR, ES_DIR, SRC_DIR } from '../common/constant.js';
+import { LIB_DIR, ES_DIR, SRC_DIR, getVantConfig } from '../common/constant.js';
 import { genStyleDepsMap } from '../compiler/gen-style-deps-map.js';
 import { genComponentStyle } from '../compiler/gen-component-style.js';
 import { genPackageEntry } from '../compiler/gen-package-entry.js';
 import { genPackageStyle } from '../compiler/gen-package-style.js';
-import { CSS_LANG } from '../common/css.js';
 import { compileScript } from '../compiler/compile-js.js';
-// import { compilePackage } from '../compiler/compile-package';
 import { compileStyle } from '../compiler/compile-style.js';
+import { compileBundles } from '../compiler/compile-bundles.js';
+import { genWebStormTypes } from '../compiler/web-types/index.js';
 import { installDependencies } from '../common/manager.js';
+import { CSS_LANG } from '../common/css.js';
 
 import type { Format } from 'esbuild';
 
@@ -42,7 +43,6 @@ async function compileFile(filePath: string, format: Format) {
     return Promise.resolve();
   }
 
-  // return remove(filePath);
   return Promise.resolve();
 }
 
@@ -66,8 +66,7 @@ async function compileDir(dir: string, format: Format) {
 }
 
 async function copySourceCode() {
-  await copy(SRC_DIR, ES_DIR);
-  await copy(SRC_DIR, LIB_DIR);
+  return Promise.all([copy(SRC_DIR, ES_DIR), copy(SRC_DIR, LIB_DIR)]);
 }
 
 async function buildPackageScriptEntry() {
@@ -117,9 +116,10 @@ async function buildCJSOutputs() {
 }
 
 async function buildBundledOutputs() {
+  const config = getVantConfig();
   setModuleEnv('esmodule');
-  // await compilePackage(false);
-  // await compilePackage(true);
+  await compileBundles();
+  genWebStormTypes(config.build?.tagPrefix);
 }
 
 const tasks = [
@@ -158,7 +158,6 @@ const tasks = [
 ];
 
 async function runBuildTasks() {
-  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < tasks.length; i++) {
     const { task, text } = tasks[i];
     const spinner = ora(text).start();

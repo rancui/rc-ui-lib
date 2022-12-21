@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Icon from '../icon';
 import Loading from '../loading';
 import { ButtonProps } from './PropsType';
-import { BORDER_SURROUND, WHITE } from '../utils/constant.js';
+import { BORDER_SURROUND, WHITE } from '../utils/constant';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Button: React.FC<ButtonProps> = (props) => {

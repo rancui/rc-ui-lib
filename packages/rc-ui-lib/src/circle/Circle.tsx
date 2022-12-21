@@ -30,7 +30,6 @@ const Circle: React.FC<CircleProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('circle', prefixCls);
 
-  // eslint-disable-next-line no-plusplus
   const id = `rc-circle-${uid++}`;
 
   const [currentRate, setCurrentRate] = useState(() => props.defaultRate || 0);

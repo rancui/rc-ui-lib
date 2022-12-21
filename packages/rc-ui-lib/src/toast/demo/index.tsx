@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React from 'react';
 import { components } from 'site-mobile-demo';

@@ -1,5 +1,4 @@
 /* eslint-disable no-return-assign */
-/* eslint-disable no-plusplus */
 import React, {
   forwardRef,
   useContext,

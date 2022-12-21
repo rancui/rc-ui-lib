@@ -10,7 +10,7 @@ import classNames from 'classnames';
 
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { PasswordInputInstance, PasswordInputProps } from '.';
-import { BORDER_LEFT, BORDER_SURROUND } from '../utils/constant.js';
+import { BORDER_LEFT, BORDER_SURROUND } from '../utils/constant';
 import { addUnit } from '../utils';
 import useUpdateEffect from '../hooks/use-update-effect';
 import { NumberKeyboardProps } from '../number-keyboard';

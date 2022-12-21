@@ -50,7 +50,6 @@ export function useLockScroll(rootRef: RefObject<HTMLElement>, shouldLock: boole
       document.body.classList.add(BODY_LOCK_CLASS);
     }
 
-    // eslint-disable-next-line no-plusplus
     totalLockCount++;
   };
 
@@ -59,7 +58,6 @@ export function useLockScroll(rootRef: RefObject<HTMLElement>, shouldLock: boole
       document.removeEventListener('touchstart', touch.start);
       document.removeEventListener('touchmove', onTouchMove);
 
-      // eslint-disable-next-line no-plusplus
       totalLockCount--;
 
       if (!totalLockCount) {

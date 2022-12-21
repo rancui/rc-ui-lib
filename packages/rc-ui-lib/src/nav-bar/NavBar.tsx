@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Icon from '../icon';
 
 import { getZIndexStyle } from '../utils';
-import { BORDER_BOTTOM, HAPTICS_FEEDBACK } from '../utils/constant.js';
+import { BORDER_BOTTOM, HAPTICS_FEEDBACK } from '../utils/constant';
 import useHeight from '../hooks/use-height';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import type { NavBarProps } from './PropsType';

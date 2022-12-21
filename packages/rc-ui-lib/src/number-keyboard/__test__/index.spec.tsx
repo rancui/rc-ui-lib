@@ -226,7 +226,6 @@ describe('NumberKeyboard', () => {
     const keys: number[] = [];
     const clickKeys: number[] = [];
 
-    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 9; i++) {
       keys.push(i + 1);
       clickKeys.push(Number(getAllByRole('button')[i].innerText));

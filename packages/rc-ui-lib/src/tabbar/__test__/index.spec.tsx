@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Tabbar } from '..';
-import { BORDER_TOP_BOTTOM } from '../../utils/constant.js';
+import { BORDER_TOP_BOTTOM } from '../../utils/constant';
 import { sleep } from '../../../tests/utils';
 import { mockGetBoundingClientRect } from '../../utils/dom/mock';
 
