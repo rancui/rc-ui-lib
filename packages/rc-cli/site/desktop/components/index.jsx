@@ -6,7 +6,7 @@ import Content from './Content';
 import Simulator from './Simulator';
 
 const Doc = (props) => {
-  const { lang, versions, simulator, langConfigs, config, hideSimulator, currentCompnentName } =
+  const { lang, versions, simulator, langConfigs, config, hideSimulator, currentComponentName } =
     props;
   return (
     <div className="vant-doc">
@@ -19,7 +19,7 @@ const Doc = (props) => {
       />
       <Nav lang={lang} navConfig={config.nav} />
       <Container hasSimulator={!!simulator && !hideSimulator}>
-        <Content currentCompnentName={currentCompnentName}>{props.children}</Content>
+        <Content currentComponentName={currentComponentName}>{props.children}</Content>
       </Container>
       {simulator && !hideSimulator && <Simulator src={simulator} />}
     </div>

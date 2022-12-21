@@ -1,6 +1,6 @@
 import React from 'react';
-import { Loading } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Loading } from '../..';
 import './style.less';
 
 export default (): React.ReactNode => {

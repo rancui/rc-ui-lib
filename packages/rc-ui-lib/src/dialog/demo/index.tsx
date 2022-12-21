@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Dialog, Cell, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Dialog, Cell, Toast } from '../..';
 
 import './style.less';
 

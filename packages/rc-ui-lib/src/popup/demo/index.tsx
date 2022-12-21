@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useReducer } from 'react';
-import { Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell } from '../..';
 import Popup from '..';
 import './style.less';
 

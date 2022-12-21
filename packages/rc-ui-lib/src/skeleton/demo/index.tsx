@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Flex, Typography, Switch } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Flex, Typography, Switch } from '../..';
 import Skeleton from '..';
 import './style.less';
 

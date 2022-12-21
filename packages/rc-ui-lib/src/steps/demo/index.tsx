@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Button } from '../..';
 import Steps from '..';
 import './style.less';
 

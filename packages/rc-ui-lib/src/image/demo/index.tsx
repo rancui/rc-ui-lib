@@ -1,6 +1,6 @@
 import React from 'react';
-import { Flex, Loading } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Flex, Loading } from '../..';
 import Image from '..';
 import './style.less';
 

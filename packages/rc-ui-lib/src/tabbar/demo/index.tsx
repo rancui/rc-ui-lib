@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Toast } from '../..';
 import Tabbar from '..';
 import './style.less';
 

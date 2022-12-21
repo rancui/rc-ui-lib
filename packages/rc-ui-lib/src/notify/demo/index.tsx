@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Cell, Icon, Flex } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell, Icon, Flex } from '../..';
 import Notify from '..';
 import './style.less';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Divider } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Divider } from '../..';
 import './style.less';
 
 export default (): React.ReactNode => {

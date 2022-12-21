@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Cell, Switch, Button } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell, Switch, Button } from '../..';
 import Toast, { DropdownMenu } from '..';
 import { DropdownMenuInstance } from '../PropsType';
 import './style.less';
