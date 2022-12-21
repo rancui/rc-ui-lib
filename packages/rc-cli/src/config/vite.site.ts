@@ -2,14 +2,7 @@ import { join } from 'path';
 import react from '@vitejs/plugin-react';
 import mdx from '../plugin/index.js';
 import { injectHtml } from 'vite-plugin-html';
-import {
-  ES_DIR,
-  SITE_DESKTOP_SHARED_FILE,
-  SITE_DIST_DIR,
-  SITE_MOBILE_DEMO_FILE,
-  SITE_MOBILE_SHARED_FILE,
-  SITE_SRC_DIR,
-} from '../common/constant.js';
+import { ES_DIR, SITE_DIST_DIR, SITE_MOBILE_DEMO_FILE, SITE_SRC_DIR } from '../common/constant.js';
 import { setBuildTarget, getVantConfig, isDev } from '../common/index.js';
 import { genSiteMobileShared } from '../compiler/gen-site-mobile-shared.js';
 import { genSiteDesktopShared } from '../compiler/gen-site-desktop-shared.js';
@@ -132,8 +125,6 @@ export function getViteConfigForSiteDev(): InlineConfig {
       alias: {
         'rc-ui-lib': ES_DIR,
         'site-mobile-demo': SITE_MOBILE_DEMO_FILE,
-        'site-mobile-shared': SITE_MOBILE_SHARED_FILE,
-        'site-desktop-shared': SITE_DESKTOP_SHARED_FILE,
       },
     },
   };

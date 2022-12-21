@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { Button } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Button } from '../..';
 import Sticky from '..';
 import './style.less';
 

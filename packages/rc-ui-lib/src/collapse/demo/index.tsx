@@ -1,6 +1,6 @@
 import React from 'react';
-import { Icon } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Icon } from '../..';
 import Collapse from '..';
 import './style.less';
 

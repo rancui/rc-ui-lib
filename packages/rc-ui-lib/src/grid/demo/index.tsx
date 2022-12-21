@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Image } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Grid, Image } from '../..';
 import './style.less';
 
 export default (): React.ReactNode => {

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Toast } from '../..';
 import Tabs from '..';
 import './style.less';
 

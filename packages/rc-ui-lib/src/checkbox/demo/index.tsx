@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useRef, useState } from 'react';
-import { Button, Cell, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Button, Cell, Toast } from '../..';
 import { CheckboxGroupInstance } from '../PropsType';
 import { Checkbox } from '..';
 import './style.less';

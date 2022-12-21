@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Toast, Button } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Toast, Button } from '../..';
 import Uploader, { UploaderFileListItem } from '..';
 import './style.less';
 

@@ -1,14 +1,8 @@
 import { join } from 'path';
 import { existsSync, readdirSync } from 'fs';
-import { SRC_DIR, SITE_MOBILE_SHARED_FILE } from '../common/constant.js';
-import {
-  pascalize,
-  removeExt,
-  decamelize,
-  getVantConfig,
-  smartOutputFile,
-  normalizePath,
-} from '../common/index.js';
+import { SRC_DIR } from '../common/constant.js';
+import { pascalize, removeExt, decamelize, getVantConfig, normalizePath } from '../common/index.js';
+import { CSS_LANG } from '../common/css.js';
 
 type DemoItem = {
   name: string;
@@ -16,13 +10,12 @@ type DemoItem = {
   component: string;
 };
 
-function genInstall() {
-  return `import './package-style';`;
-}
-
 function genImports(demos: DemoItem[]) {
   return demos
-    .map((item) => `import ${item.name} from '${removeExt(normalizePath(item.path))}';`)
+    .map((item) => {
+      const path = removeExt(normalizePath(item.path));
+      return `const ${item.name} = () => import('${path}')`;
+    })
     .join('\n');
 }
 
@@ -64,8 +57,9 @@ function genCode(components: string[]) {
     }))
     .filter((item) => existsSync(item.path));
 
-  return `${genInstall()}
+  return `import 'package-style.${CSS_LANG}';
  ${genImports(demos)}
+
  ${genExports(demos)}
  ${genConfig(demos)}
 `;
@@ -75,6 +69,5 @@ export function genSiteMobileShared() {
   const dirs = readdirSync(SRC_DIR);
   const code = genCode(dirs);
 
-  smartOutputFile(SITE_MOBILE_SHARED_FILE, code);
   return code;
 }

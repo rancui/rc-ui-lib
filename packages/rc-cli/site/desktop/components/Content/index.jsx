@@ -4,7 +4,7 @@ import './index.less';
 
 export default (props) => {
   return (
-    <div className={cls('vant-doc-content', `vant-doc-content--${props.currentCompnentName}`)}>
+    <div className={cls('vant-doc-content', `vant-doc-content--${props.currentComponentName}`)}>
       {props.children}
     </div>
   );

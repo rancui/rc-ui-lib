@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { CountDown, Grid } from 'rc-ui-lib';
+import { CountDown, Grid } from '../..';
 import { components } from 'site-mobile-demo';
 import './style.less';
 import { CurrentTime } from 'rc-ui-lib/es/hooks/use-count-down';
