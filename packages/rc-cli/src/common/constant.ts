@@ -33,6 +33,7 @@ export const CACHE_DIR = join(ROOT, 'node_modules/.cache');
 
 // Relative paths
 const __dirname = dirname(fileURLToPath(import.meta.url));
+export const CJS_DIR = join(__dirname, '..', '..', 'cjs');
 export const DIST_DIR = join(__dirname, '../../dist');
 export const SITE_DIR = join(__dirname, '../../site');
 export const CONFIG_DIR = join(__dirname, '../config');
@@ -48,13 +49,12 @@ export const SITE_MOBILE_DEMO_FILE = join(DIST_DIR, 'site-mobile-demo.js');
 export const STYLE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json');
 
 // Config files
-export const BABEL_CONFIG_FILE = join(CONFIG_DIR, 'babel.config.js');
-export const POSTCSS_CONFIG_FILE = join(CONFIG_DIR, 'postcss.config.js');
-export const JEST_SETUP_FILE = join(CONFIG_DIR, 'jest.setup.js');
-export const JEST_CONFIG_FILE = join(CONFIG_DIR, 'jest.config.js');
-export const JEST_TRANSFORM_FILE = join(CONFIG_DIR, 'jest.transform.js');
-export const JEST_FILE_MOCK_FILE = join(CONFIG_DIR, 'jest.file-mock.js');
-export const JEST_STYLE_MOCK_FILE = join(CONFIG_DIR, 'jest.style-mock.js');
+export const POSTCSS_CONFIG_FILE = join(CJS_DIR, 'postcss.config.cjs');
+export const JEST_SETUP_FILE = join(CJS_DIR, 'jest.setup.cjs');
+export const JEST_CONFIG_FILE = join(CJS_DIR, 'jest.config.cjs');
+export const JEST_TRANSFORM_FILE = join(CJS_DIR, 'jest.transform.cjs');
+export const JEST_FILE_MOCK_FILE = join(CJS_DIR, 'jest.file-mock.cjs');
+export const JEST_STYLE_MOCK_FILE = join(CJS_DIR, 'jest.style-mock.cjs');
 
 export const SCRIPT_EXTS = ['.js', '.jsx', '.ts', '.tsx'];
 export const STYLE_EXTS = ['.css', '.less', '.scss'];

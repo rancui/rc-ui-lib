@@ -1,14 +1,13 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
-import { join } from 'path';
-import { existsSync } from 'fs';
-import {
-  ROOT,
-  SRC_DIR,
-  JEST_SETUP_FILE,
-  JEST_FILE_MOCK_FILE,
-  JEST_STYLE_MOCK_FILE,
-} from '../common/constant.js';
+const { join } = require('path');
+const { existsSync } = require('fs');
+const { ROOT } = require('./shared.cjs');
+
+const SRC_DIR = join(ROOT, 'src');
+const JEST_SETUP_FILE = join(__dirname, 'jest.setup.cjs');
+const JEST_FILE_MOCK_FILE = join(__dirname, 'jest.file-mock.cjs');
+const JEST_STYLE_MOCK_FILE = join(__dirname, 'jest.style-mock.cjs');
 
 const DEFAULT_CONFIG = {
   setupFilesAfterEnv: [JEST_SETUP_FILE],
@@ -23,6 +22,9 @@ const DEFAULT_CONFIG = {
     '^rc-ui-lib$': SRC_DIR,
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
+  transform: {
+    '\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/@rancui/cli/cjs/jest.transformer.cjs',
+  },
   testPathIgnorePatterns: ['/node_modules/', '_site', 'site'],
   transformIgnorePatterns: ['/node_modules/(?!(@rancui/cli))/'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/demo/**'],

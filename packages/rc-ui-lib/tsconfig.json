@@ -16,6 +16,6 @@
       "rc-ui-lib/es/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "docs/**/*", "tests/**/*"],
+  "include": ["src/**/*", "docs/**/*", "tests/**/*", "typings/**/*"],
   "exclude": ["tests/coverage/*", "tests/setup.js"]
 }

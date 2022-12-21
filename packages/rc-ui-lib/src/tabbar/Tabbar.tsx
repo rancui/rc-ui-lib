@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react';
 import classnames from 'classnames';
 import { TabbarProps } from './PropsType';
 import { getZIndexStyle } from '../utils';
-import { BORDER_TOP_BOTTOM } from '../utils/constant.js';
+import { BORDER_TOP_BOTTOM } from '../utils/constant';
 import useHeight from '../hooks/use-height';
 import TabbarContext from './TabbarContext';
 import useMergedState from '../hooks/use-merged-state';

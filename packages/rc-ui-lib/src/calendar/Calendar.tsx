@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable no-plusplus */
 import React, {
   forwardRef,
   useContext,

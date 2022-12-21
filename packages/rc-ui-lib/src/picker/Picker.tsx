@@ -14,7 +14,7 @@ import { PickerProps, PickerInstance } from './PropsType';
 import useRefs from '../hooks/use-refs';
 import { extend, preventDefault, unitToPx } from '../utils';
 import { PickerObjectColumn } from '.';
-import { BORDER_UNSET_TOP_BOTTOM } from '../utils/constant.js';
+import { BORDER_UNSET_TOP_BOTTOM } from '../utils/constant';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import useEventListener from '../hooks/use-event-listener';
 

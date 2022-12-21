@@ -52,4 +52,5 @@ export { default as Popover } from './popover';
 export { default as DatetimePicker } from './datetime-picker';
 export { default as NavBar } from './nav-bar';
 export { default as CountDown } from './count-down';
+export { default as Progress } from './progress';
 export * from './hooks';

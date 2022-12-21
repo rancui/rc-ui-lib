@@ -13,7 +13,7 @@ import type {
 } from './PropsType';
 import { toArray } from '../uploader/utils';
 import { FIELD_KEY } from '../field/Field';
-import { COMPONENT_TYPE_KEY } from '../utils/constant.js';
+import { COMPONENT_TYPE_KEY } from '../utils/constant';
 import { FormContext } from './FormContext';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
