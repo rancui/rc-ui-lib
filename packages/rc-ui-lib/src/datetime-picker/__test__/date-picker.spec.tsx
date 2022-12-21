@@ -137,6 +137,7 @@ describe('DatePicker', () => {
     await TestsEvent.triggerDrag(columnWrapper, [0, -800]);
     await sleep(100);
     fireEvent.click(confirmBtn);
+    await sleep(100);
 
     expect(onConfirm.mock.calls[1][0].getHours()).toEqual(23);
   });
