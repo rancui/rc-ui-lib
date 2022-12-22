@@ -14,19 +14,4 @@ module.exports = {
     'no-use-before-define': 0,
     'react/default-props-match-prop-types': 0,
   },
-  overrides: [
-    {
-      files: ['src/**/*'],
-      excludedFiles: ['**/test/*', '**/demo/*'],
-      rules: {
-        // since we target ES2015 for baseline support, we need to forbid object
-        // rest spread usage (both assign and destructure)
-        'no-restricted-syntax': [
-          'error',
-          'ObjectExpression > SpreadElement',
-          'ObjectPattern > RestElement',
-        ],
-      },
-    },
-  ],
 };

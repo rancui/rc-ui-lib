@@ -1,3 +1,31 @@
+import * as path from 'path';
+import * as fs from 'fs';
+
+let parserOptions: {
+  tsconfigRootDir?: string;
+  project?: string;
+  createDefaultProgram?: boolean;
+} = {
+  project: './tsconfig.json',
+};
+
+if (!fs.existsSync(path.join(process.env.PWD || '.', './tsconfig.json'))) {
+  parserOptions = {
+    tsconfigRootDir: __dirname,
+    project: './tsconfig.json',
+    /**
+     * parserOptions.createDefaultProgram
+     * Default .false
+     * This option allows you to request that when the setting is specified,
+     * files will be allowed when not included in the projects defined by the provided files.
+     * Using this option will incur significant performance costs.
+     * This option is primarily included for backwards-compatibility.
+     * See the project section above for more information.projecttsconfig.json
+     */
+    createDefaultProgram: true,
+  };
+}
+
 module.exports = {
   root: true,
   extends: [
@@ -101,9 +129,5 @@ module.exports = {
     'space-before-function-paren': 0,
     'import/extensions': 0,
   },
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
-    ecmaVersion: 2019,
-    sourceType: 'module',
-  },
+  parserOptions,
 };
