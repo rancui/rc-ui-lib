@@ -6,7 +6,7 @@ import ActionBarContext from './ActionBarContext';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const ActionBarButton: React.FC<ActionBarButtonProps> = (props) => {
-  const { type, icon, text, color, loading, disabled, index } = props;
+  const { type, icon, text, color, loading, disabled, index = 1 } = props;
 
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('action-bar-button', prefixCls);
