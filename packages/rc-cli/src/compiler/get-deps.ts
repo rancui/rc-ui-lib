@@ -95,10 +95,7 @@ export function getDeps(filePath: string) {
 }
 
 /**
- * 1. Replace .vue extension
- * @example "import App from 'App.vue';" => "import App from 'App.xxx';"
- *
- * 2. if using .mjs or .cjs, complete the import path
+ * 1. if using .mjs or .cjs, complete the import path
  * @example import './foo' -> import './foo.mjs'
  * @example import './foo' -> import './foo/index.mjs'
  */
@@ -109,12 +106,6 @@ export function replaceScriptImportExt(code: string, filePath: string, ext: stri
     code = code.replace(imports[index], newImport);
     imports[index] = newImport;
   };
-
-  imports.forEach((line, index) => {
-    if (line.includes('.vue')) {
-      updateImport(index, line.replace('.vue', ext));
-    }
-  });
 
   if (ext === '.mjs' || ext === '.cjs') {
     imports.forEach((line, index) => {

@@ -6,9 +6,10 @@ import React, {
   useEffect,
   useImperativeHandle,
 } from 'react';
-import { Picker, useUpdateEffect } from '..';
+import { Picker } from '..';
 import { DateTimePickerInstance, TimePickerProps } from './PropsType';
 import { PickerInstance } from '../picker';
+import { useUpdateEffect } from '../hooks';
 import { padZero, range } from '../utils';
 import { times } from './utils';
 

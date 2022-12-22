@@ -15,11 +15,12 @@
     "allowJs": true,
     "noImplicitThis": true,
     "isolatedModules": true,
+    "skipLibCheck": true,
     "paths": {
       "rc-ui-lib": ["src/index.tsx"],
       "rc-ui-lib/es/*": ["src/*"]
     }
   },
   "include": ["src/**/*", "docs/**/*", "tests/**/*", "typings/**/*"],
-  "exclude": ["tests/coverage/*", "tests/setup.js", "tests/setupPointerEvent.ts"]
+  "exclude": ["tests/coverage/*", "tests/setup.js", "tests/setupPointerEvent.ts", "node_modules"]
 }

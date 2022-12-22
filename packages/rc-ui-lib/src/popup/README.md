@@ -72,7 +72,7 @@ const [showPopup, setShowPopup] = useState(false);
   visible={show}
   closeable
   title="标题"
-  descrition="这是一段很长很长的描述"
+  description="这是一段很长很长的描述"
   style={{ height: '30%' }}
   position="bottom"
   round
@@ -94,7 +94,7 @@ const [showPopup, setShowPopup] = useState(false);
 | duration | 动画时长，单位秒 | _number \| string_ | `0.3` |
 | round | 是否显示圆角 | _boolean_ | `false` |
 | title | 弹出层标题 | _string_ | - |
-| descrition | 弹出层描述 | _string_ | - |
+| description | 弹出层描述 | _string_ | - |
 | lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 | destroyOnClose | 关闭时销毁 Popup 里的子元素 | _boolean_ | `false` |
 | preventDefaultMouseDown | 是否禁止 mouseDown 事件，禁止后可防止 onBlur 事件冒泡 | _boolean_ | `false` |
@@ -103,7 +103,7 @@ const [showPopup, setShowPopup] = useState(false);
 | closeable | 是否显示关闭图标 | _boolean_ | `false` |
 | closeIcon | 关闭图标名称或图片链接 | _string_ | `cross` |
 | closeIconPosition | 关闭图标位置，可选值为`top-left`<br/>`bottom-left` `bottom-right` | _string_ | `top-right` |
-| transition | 动画类名，等价于 [transtion](https://v3.cn.vuejs.org/api/built-in-components.html#transition) 的`name`属性 | _string_ | - |
+| transition | 动画类名，等价于 transtion 的`name`属性 | _string_ | - |
 | teleport | 指定挂载的节点 | _HTMLElement_ | _(() => HTMLElement)_ |
 | safeAreaInsetBottom | 是否开启[底部安全区适配](#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_ | `false` |
 

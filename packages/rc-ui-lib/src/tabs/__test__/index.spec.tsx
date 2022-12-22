@@ -9,7 +9,7 @@ import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
 import Tabs from '..';
-import TestElements from './components/testElement';
+import TestElements from './testElement';
 import { TabsInstance } from '../PropsType';
 
 describe('Tabs', () => {

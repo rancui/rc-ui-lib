@@ -109,9 +109,9 @@ describe('Popup', () => {
     expect(wrapper.find('.rc-popup__title').text()).toEqual('标题');
   });
 
-  it('should render correctly when using descrition prop', () => {
-    wrapper = mount(<Popup visible descrition="descrition" />);
-    expect(wrapper.find('.rc-popup__descrition').text()).toEqual('descrition');
+  it('should render correctly when using description prop', () => {
+    wrapper = mount(<Popup visible description="description" />);
+    expect(wrapper.find('.rc-popup__description').text()).toEqual('description');
   });
 
   it('should change icon class prefix when using icon-prefix prop', () => {

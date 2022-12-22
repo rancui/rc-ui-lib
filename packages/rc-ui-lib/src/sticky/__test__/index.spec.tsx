@@ -1,7 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React, { useRef } from 'react';
 import Sticky from '../index';
-import TestContainer from './components/testContainer';
+import TestContainer from './testContainer';
 
 describe('Sticky', () => {
   Object.defineProperty(window.HTMLElement.prototype, 'clientHeight', {
