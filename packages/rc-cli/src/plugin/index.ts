@@ -40,7 +40,7 @@ const parser = new MarkdownIt({
   slugify,
 });
 
-const mdjsx = (options: Options = {}): Plugin => {
+const mdx = (options: Options = {}): Plugin => {
   return {
     name: 'markdown-plugin',
     enforce: 'pre',
@@ -67,4 +67,4 @@ const mdjsx = (options: Options = {}): Plugin => {
   };
 };
 
-export default mdjsx;
+export default mdx;

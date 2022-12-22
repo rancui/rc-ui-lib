@@ -1,17 +1,13 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable no-console */
-/* eslint-disable */
+/* eslint-disable func-names */
+// @ts-nocheck
 if (window.PointerEvent) {
   console.error('ERROR: patching PointerEvent is no longer necessary');
 } else {
   // console.log('Setup: patching PointerEvent');
-  // @ts-ignore
   window.PointerEvent = window.MouseEvent;
   // document.createEvent = null // prevents https://github.com/facebook/react/blob/master/packages/shared/invokeGuardedCallbackImpl.js
-  // @ts-ignore
   window.onpointerdown = true; // prevents lib warning during tests
-  // @ts-ignore
-  window.ontouchstart = true; // prevents lib warning during tests
+  window.ontouchstart = true; // prevents\rules\naming-convention lib warning during tests
   // patching window
   const _windowAddEventListener = window.addEventListener;
   window.addEventListener = function (type, fn, options) {
@@ -33,15 +29,12 @@ if (window.PointerEvent) {
     this._removeEventListener = _removeEventListener;
     this._removeEventListener(type.replace('pointer', 'mouse'), fn, options);
   };
-  // @ts-ignore
   EventTarget.prototype.setPointerCapture = function (pointerId) {
     this.pointerId = pointerId;
   };
-  // @ts-ignore
   EventTarget.prototype.hasPointerCapture = function (pointerId) {
     return this.pointerId === pointerId;
   };
-  // @ts-ignore
   EventTarget.prototype.releasePointerCapture = function (pointerId) {
     if (this.pointerId === pointerId) this.pointerId = null;
   };

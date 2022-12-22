@@ -1,21 +1,25 @@
 {
-  "extends": "../../tsconfig",
   "compilerOptions": {
-    "allowJs": true,
-    "noImplicitThis": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "importHelpers": true,
     "jsx": "react",
     "esModuleInterop": true,
     "declaration": true,
     "sourceMap": true,
     "pretty": true,
-    "isolatedModules": true,
+    "baseUrl": "./",
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noImplicitThis": true,
+    "isolatedModules": true,
     "paths": {
       "rc-ui-lib": ["src/index.tsx"],
       "rc-ui-lib/es/*": ["src/*"]
     }
   },
   "include": ["src/**/*", "docs/**/*", "tests/**/*", "typings/**/*"],
-  "exclude": ["tests/coverage/*", "tests/setup.js"]
+  "exclude": ["tests/coverage/*", "tests/setup.js", "tests/setupPointerEvent.ts"]
 }
