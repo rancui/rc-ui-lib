@@ -22,13 +22,12 @@ import { genPackageStyle } from '../compiler/gen-package-style.js';
 import { compileScript } from '../compiler/compile-js.js';
 import { compileStyle } from '../compiler/compile-style.js';
 import { compileBundles } from '../compiler/compile-bundles.js';
-import { genWebStormTypes } from '../compiler/web-types/index.js';
 import { installDependencies } from '../common/manager.js';
 import { CSS_LANG } from '../common/css.js';
 
 import type { Format } from 'esbuild';
 
-const { remove, copy, readdirSync, existsSync } = fse;
+const { remove, copy, readdir, existsSync } = fse;
 
 async function compileFile(filePath: string, format: Format) {
   if (isScript(filePath)) {
@@ -46,21 +45,37 @@ async function compileFile(filePath: string, format: Format) {
   return Promise.resolve();
 }
 
-async function compileDir(dir: string, format: Format) {
-  const files = readdirSync(dir);
+/**
+ * Pre-compile
+ * 1. Remove unneeded dirs
+ */
+async function preCompileDir(dir: string) {
+  const files = await readdir(dir);
 
   await Promise.all(
     files.map((filename) => {
       const filePath = join(dir, filename);
+
       if (isDemoDir(filePath) || isTestDir(filePath)) {
-        return remove(filePath);
+        return remove(filePath, (err) => {
+          if (err) console.log(filePath, err);
+        });
       }
-
       if (isDir(filePath)) {
-        return compileDir(filePath, format);
+        return preCompileDir(filePath);
       }
+      return Promise.resolve();
+    }),
+  );
+}
 
-      return compileFile(filePath, format);
+async function compileDir(dir: string, format: Format) {
+  const files = await readdir(dir);
+
+  await Promise.all(
+    files.map((filename: string) => {
+      const filePath = join(dir, filename);
+      return isDir(filePath) ? compileDir(filePath, format) : compileFile(filePath, format);
     }),
   );
 }
@@ -96,6 +111,8 @@ async function buildPackageStyleEntry() {
 }
 
 async function buildTypeDeclarations() {
+  await Promise.all([preCompileDir(ES_DIR), preCompileDir(LIB_DIR)]);
+
   const tsConfig = join(process.cwd(), 'tsconfig.declaration.json');
 
   if (existsSync(tsConfig)) {
@@ -119,7 +136,6 @@ async function buildBundledOutputs() {
   const config = getVantConfig();
   setModuleEnv('esmodule');
   await compileBundles();
-  genWebStormTypes(config.build?.tagPrefix);
 }
 
 const tasks = [

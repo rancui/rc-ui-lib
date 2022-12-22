@@ -67,6 +67,7 @@ export function throttle(fn, threshold = 250, scope?) {
   let last;
   let deferTimer;
   return () => {
+    // @ts-ignore
     const context = scope || this;
 
     const now = +new Date();
@@ -110,7 +111,7 @@ export function debounce(func, wait, immediate?) {
   };
 
   return function debounced() {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    // @ts-ignore
     context = this;
     args = arguments;
     timestamp = +new Date();

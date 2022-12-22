@@ -35,8 +35,8 @@ import { Button } from 'rc-ui-lib';
 ### Disabled
 
 ```jsx
-<Button disabled type="primary">Diabled</Button>
-<Button disabled type="primary">Diabled</Button>
+<Button disabled type="primary">Disabled</Button>
+<Button disabled type="primary">Disabled</Button>
 ```
 
 ### Loading
@@ -85,7 +85,7 @@ import { Button } from 'rc-ui-lib';
 
 ```jsx
 <Button type="primary" url="/vant/mobile.html">URL</Button>
-<Button type="primary" to="index">Vue Router</Button>
+<Button type="primary" to="index">React Router</Button>
 ```
 
 ### Custom Color
@@ -123,7 +123,7 @@ import { Button } from 'rc-ui-lib';
 | loading-type | Loading type, can be set to `spinner` | _string_ | `circular` |
 | loading-size | Loading icon size | _string_ | `20px` |
 | url | Link URL | _string_ | - |
-| to | Target route of the link, same as using vue-router | _string \| object_ | - |
+| to | Target route of the link | _string \| object_ | - |
 | replace | If true, the navigation will not leave a history record | _boolean_ | `false` |
 
 ### Events

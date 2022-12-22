@@ -41,12 +41,12 @@ export function getViteConfigForPackage({
       // terser has better compression than esbuild
       minify: minify ? 'terser' : false,
       rollupOptions: {
-        external: [...external, 'vue'],
+        external,
         output: {
           dir: LIB_DIR,
           exports: 'named',
           globals: {
-            vue: 'Vue',
+            react: 'React',
           },
         },
       },

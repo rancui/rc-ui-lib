@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Sticky from '../..';
+import Sticky from '..';
 
 const TestContainer: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);

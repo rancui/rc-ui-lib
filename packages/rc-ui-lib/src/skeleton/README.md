@@ -53,9 +53,9 @@ export default () => {
         <Flex className="demo-preview">
           <img alt="" src="https://img.yzcdn.cn/vant/logo.png" />
           <div className="demo-content">
-            <Typography.Title>关于 Vant</Typography.Title>
+            <Typography.Title>关于 rc-ui-lib</Typography.Title>
             <Typography.Text type="secondary">
-              Vant 是一套轻量、可靠的移动端 Vue
+              rc-ui-lib 是一套轻量、可靠的移动端 React
               组件库，提供了丰富的基础组件和业务组件，帮助开发者快速搭建移动应用。
             </Typography.Text>
           </div>

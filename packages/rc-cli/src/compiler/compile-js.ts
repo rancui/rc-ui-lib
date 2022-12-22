@@ -27,15 +27,8 @@ export async function compileScript(filePath: string, format: Format): Promise<v
     const babelResult = await babel.transformAsync(code, {
       filename: filePath,
       babelrc: false,
-      presets: ['@babel/preset-typescript'],
-      plugins: [
-        [
-          '@vue/babel-plugin-jsx',
-          {
-            enableObjectSlots: false,
-          },
-        ],
-      ],
+      presets: ['@babel/preset-typescript', '@babel/preset-react'],
+      plugins: [],
     });
     if (babelResult?.code) {
       ({ code } = babelResult);
