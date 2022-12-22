@@ -2,11 +2,12 @@ import { join } from 'path';
 import react from '@vitejs/plugin-react';
 import mdx from '../plugin/index.js';
 import { injectHtml } from 'vite-plugin-html';
-import { ES_DIR, SITE_DIST_DIR, SITE_MOBILE_DEMO_FILE, SITE_SRC_DIR } from '../common/constant.js';
+import { ES_DIR, SITE_DIST_DIR, SITE_SRC_DIR } from '../common/constant.js';
 import { setBuildTarget, getVantConfig, isDev } from '../common/index.js';
 import { genSiteMobileShared } from '../compiler/gen-site-mobile-shared.js';
 import { genSiteDesktopShared } from '../compiler/gen-site-desktop-shared.js';
 import { genPackageStyle } from '../compiler/gen-package-style.js';
+import { genDemoMobileShared } from '../compiler/gen-demo-mobile-shared.js';
 import { CSS_LANG } from '../common/css.js';
 import type { InlineConfig, PluginOption } from 'vite';
 
@@ -46,6 +47,9 @@ function vitePluginGenVantBaseCode(): PluginOption {
   const virtualMobileModuleId = 'site-mobile-shared';
   const resolvedMobileVirtualModuleId = `rc-cli:${virtualMobileModuleId}`;
 
+  const virtualMobileDemoId = 'site-mobile-demo';
+  const resolvedMobileVirtualDemoId = `rc-cli:${virtualMobileDemoId}`;
+
   const virtualDesktopModuleId = 'site-desktop-shared';
   const resolvedDesktopVirtualModuleId = `rc-cli:${virtualDesktopModuleId}`;
 
@@ -60,6 +64,10 @@ function vitePluginGenVantBaseCode(): PluginOption {
         return resolvedMobileVirtualModuleId;
       }
 
+      if (id === virtualMobileDemoId) {
+        return resolvedMobileVirtualDemoId;
+      }
+
       if (id === virtualDesktopModuleId) {
         return resolvedDesktopVirtualModuleId;
       }
@@ -72,6 +80,8 @@ function vitePluginGenVantBaseCode(): PluginOption {
       switch (id) {
         case resolvedMobileVirtualModuleId:
           return genSiteMobileShared();
+        case resolvedMobileVirtualDemoId:
+          return genDemoMobileShared();
         case resolvedDesktopVirtualModuleId:
           return genSiteDesktopShared();
         case resolvedPackageStyleVirtualModuleId:
@@ -124,7 +134,6 @@ export function getViteConfigForSiteDev(): InlineConfig {
     resolve: {
       alias: {
         'rc-ui-lib': ES_DIR,
-        'site-mobile-demo': SITE_MOBILE_DEMO_FILE,
       },
     },
   };

@@ -14,6 +14,7 @@
     "start": "rc-cli dev",
     "lint": "rc-cli lint",
     "build": "rc-cli build",
+    "type": "tsc -p tsconfig.json",
     "release": "rc-cli release",
     "changelog": "rc-cli changelog",
     "build:site": "rc-cli build-site",

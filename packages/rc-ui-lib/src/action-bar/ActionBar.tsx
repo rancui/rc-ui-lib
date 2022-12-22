@@ -20,11 +20,13 @@ const ActionBar: React.FC<ActionBarProps> = (props) => {
       >
         {React.Children.toArray(props.children)
           .filter(Boolean)
-          .map((child: React.ReactFragment, index: number) =>
-            React.cloneElement(child, {
+          .map((child: React.ReactFragment, index: number) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            return React.cloneElement(child, {
               index,
-            }),
-          )}
+            });
+          })}
       </div>
     </ActionBarContext.Provider>
   );

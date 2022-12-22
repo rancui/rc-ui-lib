@@ -1,7 +1,7 @@
 import { join } from 'path';
 import fse from 'fs-extra';
-import { SITE_MOBILE_COMPONENTS, SITE_MOBILE_DEMO_FILE } from '../common/constant.js';
-import { pascalize, smartOutputFile, normalizePath } from '../common/index.js';
+import { SITE_MOBILE_COMPONENTS } from '../common/constant.js';
+import { pascalize, normalizePath } from '../common/index.js';
 
 type DemoItem = {
   name: string;
@@ -21,7 +21,7 @@ function genDemoExports(demo_components: DemoItem[]) {
     .join(',\n  ')}\n};`;
 }
 
-function genCode() {
+export function genDemoMobileShared() {
   const demos = ['DemoBlock', 'DemoSection']
     .map((component) => ({
       component,
@@ -36,8 +36,3 @@ function genCode() {
 `;
 }
 
-export function genDemoMobileShared() {
-  const code = genCode();
-
-  smartOutputFile(SITE_MOBILE_DEMO_FILE, code);
-}

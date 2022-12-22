@@ -45,7 +45,6 @@ export const SITE_MOBILE_COMPONENTS = join(SITE_DIR, 'mobile', 'components');
 // Dist files
 export const PACKAGE_ENTRY_FILE = join(DIST_DIR, 'package-entry.js');
 export const PACKAGE_STYLE_FILE = join(DIST_DIR, 'package-style.css');
-export const SITE_MOBILE_DEMO_FILE = join(DIST_DIR, 'site-mobile-demo.js');
 export const STYLE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json');
 
 // Config files
