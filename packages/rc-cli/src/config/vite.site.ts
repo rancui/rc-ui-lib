@@ -59,7 +59,6 @@ function vitePluginGenVantBaseCode(): PluginOption {
   return {
     name: 'vite-plugin(rc-cli):gen-site-base-code',
     resolveId(id) {
-      console.log(id);
       if (id === virtualMobileModuleId) {
         return resolvedMobileVirtualModuleId;
       }
@@ -130,6 +129,7 @@ export function getViteConfigForSiteDev(): InlineConfig {
 
     server: {
       host: '0.0.0.0',
+      port: 8080,
     },
     resolve: {
       alias: {
