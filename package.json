@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "start": "pnpm -r --filter ./packages/rc-ui-lib start",
     "build": "pnpm -r --filter ./packages/rc-ui-lib build",
