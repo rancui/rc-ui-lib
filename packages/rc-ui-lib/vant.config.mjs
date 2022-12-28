@@ -15,7 +15,7 @@ export default {
       'zh-CN': {
         title: 'RC-UI-LIB',
         description: '轻量、可靠的移动端组件库',
-        logo: 'https://img01.yzcdn.cn/vant/logo.png',
+        logo: '/rc-ui-lib.png',
         langLabel: '中文',
         links: [
           {
@@ -326,51 +326,6 @@ export default {
           {
             title: '业务组件',
             items: [],
-          },
-        ],
-      },
-      'en-US': {
-        title: 'RC-UI-LIB',
-        description: 'Mobile UI Components built on React',
-        logo: 'https://img01.yzcdn.cn/vant/logo.png',
-        langLabel: 'En',
-        links: [
-          {
-            logo: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-            url: 'https://github.com/rancui/rc-ui-lib',
-          },
-        ],
-        searchConfig: {
-          apiKey: '90067aecdaa2c85220e2783cd305caac',
-          indexName: 'rc-ui-lib',
-          placeholder: 'Search...',
-        },
-        nav: [
-          {
-            title: 'Essentials',
-            items: [
-              {
-                path: 'home',
-                title: 'Introduction',
-              },
-              {
-                path: 'quickstart',
-                title: 'Quickstart',
-              },
-              {
-                path: 'theme',
-                title: 'Custom Theme',
-              },
-            ],
-          },
-          {
-            title: 'Basic Components',
-            items: [
-              {
-                path: 'button',
-                title: 'Button',
-              },
-            ],
           },
         ],
       },
