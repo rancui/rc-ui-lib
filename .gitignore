@@ -19,7 +19,7 @@ yarn-error.json
 es
 lib
 dist
-packages/rc-ui-lib/site
+packages/rc-ui-lib/site-dist
 packages/rc-ui-lib/**/*.css
 
 # log file

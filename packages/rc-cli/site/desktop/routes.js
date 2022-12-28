@@ -51,7 +51,7 @@ const getRoutes = () => {
     const { component, lang } = parseName(name);
 
     if (component === 'home') {
-      addHomeRoute(documents[name], lang);
+      addHomeRoute(lazy(documents[name]), lang);
     }
 
     if (lang) {
