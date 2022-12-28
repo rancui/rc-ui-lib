@@ -6,7 +6,7 @@
 
 ### 组件实例方法
 
-rc-ui-lib 中的许多组件提供了实例方法，调用实例方法时，我们需要通过 [useRef](https://v3.cn.vuejs.org/guide/component-template-refs.html) 来引用组件实例，我们可以通过`ref.current`访问到对应的组件实例，并调用上面的实例方法。
+rc-ui-lib 中的许多组件提供了实例方法，调用实例方法时，我们需要通过 [useRef](https://beta.reactjs.org/apis/react/useRef) 来引用组件实例，我们可以通过`ref.current`访问到对应的组件实例，并调用上面的实例方法。
 
 ```jsx
 import { useRef } from 'react';
@@ -79,4 +79,4 @@ iPhone X 等机型底部存在底部指示条，指示条的操作区域与页�
 <NumberKeyboard safeAreaInsetBottom />
 ```
 
-<img src="https://img.yzcdn.cn/vant/safearea.png">
+<img src="https://img.yzcdn.cn/vant/safearea.png" />

@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from '../..';
+import Tabs from '..';
 
 const TestElements: React.FC = () => {
   const [insert, setInsert] = React.useState(false);

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { components } from 'site-mobile-demo';
 import PasswordInput from '..';
-import { Toast, NumberKeyboard } from '../..';
+import { NumberKeyboard } from '../..';
 import './style.less';
 
 const initialValue = {
@@ -16,7 +16,7 @@ const initialValue = {
 export default (): React.ReactNode => {
   const { DemoSection, DemoBlock } = components;
 
-  const [values, setValues] = useState(initialValue);
+  const [values] = useState(initialValue);
   const [current, setCurrent] = useState(null);
 
   const [errorInfo, setErrorInfo] = useState<string>('');

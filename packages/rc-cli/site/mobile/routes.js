@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { demos, config } from 'site-mobile-shared';
 import { decamelize } from '../common';
 import { getLang, setDefaultLang } from '../common/locales';
@@ -18,6 +19,7 @@ export function getLangFromRoute(pathname) {
 }
 
 function getRoutes() {
+  console.log(demos);
   const routes = [];
   const names = Object.keys(demos);
   const langs = locales ? Object.keys(locales) : [];
@@ -48,7 +50,7 @@ function getRoutes() {
         routes.push({
           name: `${lang}/${component}`,
           path: `/${lang}/${component}`,
-          component: demos[name],
+          component: lazy(demos[name]),
           meta: {
             name,
             lang,
@@ -59,7 +61,7 @@ function getRoutes() {
       routes.push({
         name,
         path: `/${component}`,
-        component: demos[name],
+        component: lazy(demos[name]),
         meta: {
           name,
         },
@@ -80,6 +82,7 @@ function getRoutes() {
       meta: {},
     });
   }
+  console.log(routes);
 
   return routes;
 }

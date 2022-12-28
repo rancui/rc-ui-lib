@@ -1,8 +1,8 @@
 // some modules with missing type definitions
 declare module 'execa';
 declare module 'hash-sum';
-declare module 'clean-css';
+declare module '@babel/core';
 declare module 'release-it';
 declare module 'conventional-changelog';
-declare module '@vant/markdown-vetur';
-declare module '@babel/helper-plugin-utils';
+declare module 'commander';
+declare module 'markdown-it-anchor';

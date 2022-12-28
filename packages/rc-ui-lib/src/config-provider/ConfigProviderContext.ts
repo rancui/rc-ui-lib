@@ -8,7 +8,7 @@ export const defaultIconPrefixCls = 'van-icon';
 export interface ConfigProviderContextState {
   iconPrefix?: string;
   prefixCls?: string;
-  createNamespace?: (name?: string, prefix?: string) => CreateNamespaceReturn;
+  createNamespace: (name: string, prefix?: string) => CreateNamespaceReturn;
 }
 
 export const INITIAL_STATE = {

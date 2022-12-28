@@ -226,7 +226,7 @@ const formatter = (value) => value.replace(/\d/g, '');
 | value | 当前输入的值 | _number \| string_ | - |
 | label | 输入框左侧文本 | _string_ | - |
 | name | 名称，提交表单的标识符 | _string_ | - |
-| type | 输入框类型, 可选值为 `tel` `digit`<br>`number` `textarea` `password` 等 | _string_ | `text` |
+| type | 输入框类型, 可选值为 `tel` `digit`<br/>`number` `textarea` `password` 等 | _string_ | `text` |
 | size | 大小，可选值为 `large` | _string_ | - |
 | maxlength | 输入的最大字符数 | _number \| string_ | - |
 | placeholder | 输入框占位提示文字 | _string_ | - |
@@ -251,7 +251,7 @@ const formatter = (value) => value.replace(/\d/g, '');
 | labelAlign | 左侧文本对齐方式，可选值为 `center` `right` | _string_ | `left` |
 | inputAlign | 输入框对齐方式，可选值为 `center` `right` | _string_ | `left` |
 | errorMessageAlign | 错误提示文案对齐方式，可选值为 `center` `right` | _string_ | `left` |
-| autosize | 是否自适应内容高度，只对 textarea 有效，<br>可传入对象,如 { maxHeight: 100, minHeight: 50 }，<br>单位为`px` | _boolean \| object_ | `false` |
+| autosize | 是否自适应内容高度，只对 textarea 有效，<br/>可传入对象,如 { maxHeight: 100, minHeight: 50 }，<br/>单位为`px` | _boolean \| object_ | `false` |
 | leftIcon | 左侧图标 | _string\|ReactNode_ | - |
 | rightIcon | 右侧图标 | _string\|ReactNode_ | - |
 | iconPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |

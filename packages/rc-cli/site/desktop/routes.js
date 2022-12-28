@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { config, documents } from 'site-desktop-shared';
 import { decamelize } from '../common';
 import { getLang, setDefaultLang } from '../common/locales';
@@ -32,6 +33,7 @@ export function getLangFromRoute(pathname) {
 }
 
 const getRoutes = () => {
+  console.log(documents);
   const routes = [];
   const names = Object.keys(documents);
 
@@ -49,14 +51,14 @@ const getRoutes = () => {
     const { component, lang } = parseName(name);
 
     if (component === 'home') {
-      addHomeRoute(documents[name], lang);
+      addHomeRoute(lazy(documents[name]), lang);
     }
 
     if (lang) {
       routes.push({
         name: `${lang}/${component}`,
         path: `/${lang}/${component}`,
-        component: documents[name],
+        component: lazy(documents[name]),
         state: {
           lang,
           name: component,
@@ -66,7 +68,7 @@ const getRoutes = () => {
       routes.push({
         name: `${component}`,
         path: `/${component}`,
-        component: documents[name],
+        component: lazy(documents[name]),
         meta: {
           name: component,
         },

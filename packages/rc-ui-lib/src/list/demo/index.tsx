@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useRef, useState, useEffect } from 'react';
-import { Tabs, Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Tabs, Cell } from '../..';
 import List from '../index';
 import PullRefresh from '../../pull-refresh';
 

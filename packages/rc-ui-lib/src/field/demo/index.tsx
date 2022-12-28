@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect, useRef } from 'react';
-import { Cell, Button, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell, Button, Toast } from '../..';
 import Field from '..';
 import './style.less';
 

@@ -50,7 +50,7 @@ describe('Swipe test with testing library', () => {
         } as any),
     );
 
-    return function () {
+    return () => {
       Element.prototype.getBoundingClientRect = originMethod;
     };
   };
@@ -281,7 +281,7 @@ describe('Swipe test with testing library', () => {
 
   it('should render correctly when Swiper not child', async () => {
     const spyConsole: jest.SpyInstance = jest.spyOn(console, 'warn');
-    spyConsole.mockImplementation((message: string) => {
+    spyConsole.mockImplementation(() => {
       return null;
     });
     const { container } = render(<Swiper style={swipeStyle} {...$props} />);

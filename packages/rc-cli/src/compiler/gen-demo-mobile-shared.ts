@@ -1,10 +1,7 @@
 import { join } from 'path';
-import { pathExistsSync } from 'fs-extra';
-import {
-  SITE_MOBILE_COMPONENTS,
-  SITE_MODILE_DEMO_FILE,
-} from '../common/constant';
-import { pascalize, smartOutputFile, normalizePath } from '../common';
+import fse from 'fs-extra';
+import { SITE_MOBILE_COMPONENTS } from '../common/constant.js';
+import { pascalize, normalizePath } from '../common/index.js';
 
 type DemoItem = {
   name: string;
@@ -24,14 +21,14 @@ function genDemoExports(demo_components: DemoItem[]) {
     .join(',\n  ')}\n};`;
 }
 
-function genCode() {
+export function genDemoMobileShared() {
   const demos = ['DemoBlock', 'DemoSection']
     .map((component) => ({
       component,
       name: pascalize(component),
       path: join(SITE_MOBILE_COMPONENTS, component),
     }))
-    .filter((item) => pathExistsSync(item.path));
+    .filter((item) => fse.pathExistsSync(item.path));
 
   return `
  ${genDemoImports(demos)}
@@ -39,8 +36,3 @@ function genCode() {
 `;
 }
 
-export function genDemoMobileShared() {
-  const code = genCode();
-
-  smartOutputFile(SITE_MODILE_DEMO_FILE, code);
-}

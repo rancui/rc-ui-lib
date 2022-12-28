@@ -1,6 +1,6 @@
 import React from 'react';
-import { Empty, Tabs, Button } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Empty, Tabs, Button } from '../..';
 import './style.less';
 
 export default (): React.ReactNode => {

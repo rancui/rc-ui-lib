@@ -140,7 +140,7 @@ export default () => {
 | className | 自定义类名 | _string \| Array \| object_ | - |
 | closeable | 是否显示关闭图标 | _boolean_ | `false` |
 | closeIcon | 关闭图标名称或图片链接 | _string_ | `clear` |
-| closeIconPosition | 关闭图标位置，可选值为 `top-left`<br>`bottom-left` `bottom-right` | _string_ | `top-right` |
+| closeIconPosition | 关闭图标位置，可选值为 `top-left`<br/>`bottom-left` `bottom-right` | _string_ | `top-right` |
 | overlayStyle | 自定义遮罩层样式 | _object_ | - |
 | onClose | 关闭时的回调函数 | _Function_ | - |
 | onClosed | 完全关闭时的回调 | _Function_ | - |

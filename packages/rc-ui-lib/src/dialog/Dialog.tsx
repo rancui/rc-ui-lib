@@ -1,4 +1,4 @@
-import React, { isValidElement, useContext } from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames';
 
 import Popup from '../popup';

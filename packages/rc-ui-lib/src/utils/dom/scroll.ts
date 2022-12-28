@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import { raf, cancelRaf } from '../raf';
 import { isIOS as checkIsIOS } from '../validate/system';
 

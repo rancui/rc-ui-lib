@@ -35,7 +35,7 @@ export default (): React.ReactNode => {
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
-        <Swiper autoplayInterval={5000}>{items}</Swiper>
+        <Swiper autoplayInterval={5000} defaultIndex={1}>{items}</Swiper>
       </DemoBlock>
       <DemoBlock title="懒加载">
         <Swiper>

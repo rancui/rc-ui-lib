@@ -1,14 +1,8 @@
 import glob from 'fast-glob';
 import { join, parse } from 'path';
-import { existsSync, readdirSync } from 'fs-extra';
-import { pascalize, removeExt, getVantConfig, smartOutputFile, normalizePath } from '../common';
-import {
-  SRC_DIR,
-  DOCS_DIR,
-  getPackageJson,
-  VANT_CONFIG_FILE,
-  SITE_DESKTOP_SHARED_FILE,
-} from '../common/constant';
+import { existsSync, readFileSync, readdirSync } from 'fs';
+import { pascalize, removeExt, getVantConfig, normalizePath } from '../common/index.js';
+import { SRC_DIR, DOCS_DIR, getPackageJson, VANT_CONFIG_FILE } from '../common/constant.js';
 
 type DocumentItem = {
   name: string;
@@ -81,10 +75,13 @@ function genExportVersion() {
   return `export const packageVersion = '${getPackageJson().version}';`;
 }
 
-// 引入所有.md
-// ps: 这里需要使用 loader 转译 markdown
 function genImportDocuments(items: DocumentItem[]) {
-  return items.map((item) => `import ${item.name} from '${normalizePath(item.path)}';`).join('\n');
+  return items
+    .map((item) => {
+      const path = normalizePath(item.path);
+      return `const ${item.name} = () => import('${path}');`;
+    })
+    .join('\n');
 }
 
 // 导出所有.md
@@ -94,15 +91,23 @@ function genExportDocuments(items: DocumentItem[]) {
 };`;
 }
 
+function genVantConfigContent() {
+  const content = readFileSync(VANT_CONFIG_FILE, 'utf-8');
+  return content.replace('export default', 'const config =');
+}
+
 export function genSiteDesktopShared() {
   const dirs = readdirSync(SRC_DIR);
   const documents = resolveDocuments(dirs);
 
-  const code = `${genImportConfig()}
-${genImportDocuments(documents)}
+  const code = `${genImportDocuments(documents)}
+
+${genVantConfigContent()}
+
 ${genExportConfig()}
 ${genExportDocuments(documents)}
 ${genExportVersion()}
 `;
-  smartOutputFile(SITE_DESKTOP_SHARED_FILE, code);
+
+  return code;
 }

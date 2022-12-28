@@ -42,7 +42,7 @@ exports[`ImagePreview basic usage 1`] = `
         onClick={[Function]}
         zIndex={2000}
       >
-        <CSSTransition
+        <CSSTransition2
           classNames="rc-fade"
           mountOnEnter={true}
           nodeRef={
@@ -53,7 +53,7 @@ exports[`ImagePreview basic usage 1`] = `
           timeout={300}
           unmountOnExit={true}
         >
-          <Transition
+          <Transition2
             appear={false}
             enter={true}
             exit={true}
@@ -73,9 +73,9 @@ exports[`ImagePreview basic usage 1`] = `
             timeout={300}
             unmountOnExit={true}
           />
-        </CSSTransition>
+        </CSSTransition2>
       </Overlay>
-      <CSSTransition
+      <CSSTransition2
         classNames="rc-fade"
         mountOnEnter={true}
         nodeRef={
@@ -91,7 +91,7 @@ exports[`ImagePreview basic usage 1`] = `
           }
         }
       >
-        <Transition
+        <Transition2
           appear={false}
           enter={true}
           exit={true}
@@ -115,7 +115,7 @@ exports[`ImagePreview basic usage 1`] = `
           }
           unmountOnExit={false}
         />
-      </CSSTransition>
+      </CSSTransition2>
     </Portal>
   </Popup>
 </ImagePreview>
@@ -163,7 +163,7 @@ exports[`ImagePreview designate start position 1`] = `
         onClick={[Function]}
         zIndex={2000}
       >
-        <CSSTransition
+        <CSSTransition2
           classNames="rc-fade"
           mountOnEnter={true}
           nodeRef={
@@ -174,7 +174,7 @@ exports[`ImagePreview designate start position 1`] = `
           timeout={300}
           unmountOnExit={true}
         >
-          <Transition
+          <Transition2
             appear={false}
             enter={true}
             exit={true}
@@ -194,9 +194,9 @@ exports[`ImagePreview designate start position 1`] = `
             timeout={300}
             unmountOnExit={true}
           />
-        </CSSTransition>
+        </CSSTransition2>
       </Overlay>
-      <CSSTransition
+      <CSSTransition2
         classNames="rc-fade"
         mountOnEnter={true}
         nodeRef={
@@ -212,7 +212,7 @@ exports[`ImagePreview designate start position 1`] = `
           }
         }
       >
-        <Transition
+        <Transition2
           appear={false}
           enter={true}
           exit={true}
@@ -236,7 +236,7 @@ exports[`ImagePreview designate start position 1`] = `
           }
           unmountOnExit={false}
         />
-      </CSSTransition>
+      </CSSTransition2>
     </Portal>
   </Popup>
 </ImagePreview>
@@ -285,7 +285,7 @@ exports[`ImagePreview show close icon 1`] = `
         onClick={[Function]}
         zIndex={2000}
       >
-        <CSSTransition
+        <CSSTransition2
           classNames="rc-fade"
           mountOnEnter={true}
           nodeRef={
@@ -296,7 +296,7 @@ exports[`ImagePreview show close icon 1`] = `
           timeout={300}
           unmountOnExit={true}
         >
-          <Transition
+          <Transition2
             appear={false}
             enter={true}
             exit={true}
@@ -316,9 +316,9 @@ exports[`ImagePreview show close icon 1`] = `
             timeout={300}
             unmountOnExit={true}
           />
-        </CSSTransition>
+        </CSSTransition2>
       </Overlay>
-      <CSSTransition
+      <CSSTransition2
         classNames="rc-fade"
         mountOnEnter={true}
         nodeRef={
@@ -334,7 +334,7 @@ exports[`ImagePreview show close icon 1`] = `
           }
         }
       >
-        <Transition
+        <Transition2
           appear={false}
           enter={true}
           exit={true}
@@ -358,7 +358,7 @@ exports[`ImagePreview show close icon 1`] = `
           }
           unmountOnExit={false}
         />
-      </CSSTransition>
+      </CSSTransition2>
     </Portal>
   </Popup>
 </ImagePreview>
@@ -410,7 +410,7 @@ exports[`ImagePreview show indicators 1`] = `
         onClick={[Function]}
         zIndex={2000}
       >
-        <CSSTransition
+        <CSSTransition2
           classNames="rc-fade"
           mountOnEnter={true}
           nodeRef={
@@ -421,7 +421,7 @@ exports[`ImagePreview show indicators 1`] = `
           timeout={300}
           unmountOnExit={true}
         >
-          <Transition
+          <Transition2
             appear={false}
             enter={true}
             exit={true}
@@ -441,9 +441,9 @@ exports[`ImagePreview show indicators 1`] = `
             timeout={300}
             unmountOnExit={true}
           />
-        </CSSTransition>
+        </CSSTransition2>
       </Overlay>
-      <CSSTransition
+      <CSSTransition2
         classNames="rc-fade"
         mountOnEnter={true}
         nodeRef={
@@ -459,7 +459,7 @@ exports[`ImagePreview show indicators 1`] = `
           }
         }
       >
-        <Transition
+        <Transition2
           appear={false}
           enter={true}
           exit={true}
@@ -483,7 +483,7 @@ exports[`ImagePreview show indicators 1`] = `
           }
           unmountOnExit={false}
         />
-      </CSSTransition>
+      </CSSTransition2>
     </Portal>
   </Popup>
 </ImagePreview>

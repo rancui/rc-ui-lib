@@ -245,7 +245,7 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
         visible={true}
         zIndex={2000}
       >
-        <CSSTransition
+        <CSSTransition2
           classNames="rc-fade"
           in={true}
           mountOnEnter={true}
@@ -260,7 +260,7 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
           timeout={300}
           unmountOnExit={true}
         >
-          <Transition
+          <Transition2
             appear={false}
             enter={true}
             exit={true}
@@ -293,10 +293,10 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
                 }
               }
             />
-          </Transition>
-        </CSSTransition>
+          </Transition2>
+        </CSSTransition2>
       </Overlay>
-      <CSSTransition
+      <CSSTransition2
         classNames="rc-popup-slide-bottom"
         in={true}
         mountOnEnter={true}
@@ -459,7 +459,7 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
           }
         }
       >
-        <Transition
+        <Transition2
           appear={false}
           enter={true}
           exit={true}
@@ -802,8 +802,8 @@ exports[`ShareSheet should render multi Line when option item is array 1`] = `
               取消
             </button>
           </div>
-        </Transition>
-      </CSSTransition>
+        </Transition2>
+      </CSSTransition2>
     </Portal>
   </Popup>
 </ShareSheet>

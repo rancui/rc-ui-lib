@@ -1,6 +1,4 @@
-import { ConfigAPI } from '@babel/core';
-
-module.exports = (api?: ConfigAPI) => {
+module.exports = (api) => {
   if (api) {
     api.cache.never();
   }
@@ -42,5 +40,3 @@ module.exports = (api?: ConfigAPI) => {
     ].filter(Boolean),
   };
 };
-
-export default module.exports;

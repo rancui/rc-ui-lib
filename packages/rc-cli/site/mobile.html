@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%- title %></title>
+    <% if (description) { %>
+    <meta name="description" content="<%- description %>" />
+    <% } %>
+    <link rel="icon" type="image/png" href="<%- logo %>" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
+    />
+    <%- meta %>
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <% if (headHtml) { %> <%- headHtml %> <% } %> <% if (enableVConsole) { %>
+    <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
+    <script>
+      var vConsole = new window.VConsole();
+    </script>
+    <% } %>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/mobile/main.jsx"></script>
+    <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
+    <script>
+      // VConsole will be exported to `window.VConsole` by default.
+      if (window.location.href.indexOf('__debug__=true') > -1) {
+        new window.VConsole();
+      }
+    </script>
+  </body>
+</html>

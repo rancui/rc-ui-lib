@@ -5,7 +5,7 @@ exports[`Overlay should render default slot correctly 1`] = `
   duration={300}
   lockScroll={true}
 >
-  <CSSTransition
+  <CSSTransition2
     classNames="rc-fade"
     mountOnEnter={true}
     nodeRef={
@@ -16,7 +16,7 @@ exports[`Overlay should render default slot correctly 1`] = `
     timeout={300}
     unmountOnExit={true}
   >
-    <Transition
+    <Transition2
       appear={false}
       enter={true}
       exit={true}
@@ -36,6 +36,6 @@ exports[`Overlay should render default slot correctly 1`] = `
       timeout={300}
       unmountOnExit={true}
     />
-  </CSSTransition>
+  </CSSTransition2>
 </Overlay>
 `;

@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   ignorePatterns: ['/.*'],
   rules: {
     '@typescript-eslint/no-explicit-any': 0,

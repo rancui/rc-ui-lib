@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ActionSheet } from '..';
 import toJson from 'enzyme-to-json';
+import { ActionSheet } from '..';
 import { sleep } from '../../../tests/utils';
 
 describe('Popup', () => {

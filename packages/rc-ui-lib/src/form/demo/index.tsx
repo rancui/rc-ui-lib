@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { Field, Rate, Checkbox, Radio, Switch, Toast, Button, Uploader } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Field, Rate, Checkbox, Radio, Switch, Toast, Button, Uploader } from '../..';
 import Form from '..';
 import './style.less';
 

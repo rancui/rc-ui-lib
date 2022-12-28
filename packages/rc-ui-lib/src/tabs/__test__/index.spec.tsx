@@ -9,7 +9,7 @@ import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
 import Tabs from '..';
-import TestElements from './components/testElement';
+import TestElements from './testElement';
 import { TabsInstance } from '../PropsType';
 
 describe('Tabs', () => {
@@ -218,7 +218,7 @@ describe('Tabs test with testing library', () => {
     const onChange = jest.fn();
 
     const tabsRef = React.createRef<TabsInstance>();
-    const { container } = render(
+    render(
       <Tabs ref={tabsRef} onChange={onChange}>
         <Tabs.TabPane title="1">content1</Tabs.TabPane>
         <Tabs.TabPane disabled title="2">

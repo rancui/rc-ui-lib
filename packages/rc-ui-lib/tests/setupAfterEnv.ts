@@ -1,10 +1,11 @@
+import React from "react";
 import toMatchRenderedSnapshot from './matchers/rendered-snapshot';
 
+global.React = React;
 expect.extend({
   toMatchRenderedSnapshot,
 });
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 window.scrollTo = (x, y) => {
   document.documentElement.scrollTop = y;

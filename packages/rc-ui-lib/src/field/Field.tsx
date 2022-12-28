@@ -160,7 +160,7 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
 
     const handleCompositionStart: React.CompositionEventHandler<
       HTMLInputElement | HTMLTextAreaElement
-    > = (e) => {
+    > = (_) => {
       setCompositing(true);
     };
 

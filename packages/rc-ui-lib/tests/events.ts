@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable class-methods-use-this */
 import { CreateObject, fireEvent, waitFor } from '@testing-library/react';
 

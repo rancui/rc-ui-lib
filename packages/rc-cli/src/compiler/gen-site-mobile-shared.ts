@@ -1,14 +1,8 @@
 import { join } from 'path';
-import { existsSync, readdirSync } from 'fs-extra';
-import { SRC_DIR, SITE_MODILE_SHARED_FILE } from '../common/constant';
-import {
-  pascalize,
-  removeExt,
-  decamelize,
-  getVantConfig,
-  smartOutputFile,
-  normalizePath,
-} from '../common';
+import { existsSync, readdirSync } from 'fs';
+import { SRC_DIR } from '../common/constant.js';
+import { pascalize, removeExt, decamelize, getVantConfig, normalizePath } from '../common/index.js';
+import { CSS_LANG } from '../common/css.js';
 
 type DemoItem = {
   name: string;
@@ -16,23 +10,17 @@ type DemoItem = {
   component: string;
 };
 
-function genInstall() {
-  return `import './package-style';`;
-}
-
 function genImports(demos: DemoItem[]) {
   return demos
-    .map(
-      (item) =>
-        `import ${item.name} from '${removeExt(normalizePath(item.path))}';`
-    )
+    .map((item) => {
+      const path = removeExt(normalizePath(item.path));
+      return `const ${item.name} = () => import('${path}')`;
+    })
     .join('\n');
 }
 
 function genExports(demos: DemoItem[]) {
-  return `export const demos = {\n  ${demos
-    .map((item) => item.name)
-    .join(',\n  ')}\n};`;
+  return `export const demos = {\n  ${demos.map((item) => item.name).join(',\n  ')}\n};`;
 }
 
 function genConfig(demos: DemoItem[]) {
@@ -41,9 +29,7 @@ function genConfig(demos: DemoItem[]) {
 
   function demoFilter(nav: any[]) {
     return nav.filter((group) => {
-      group.items = group.items.filter((item: any) =>
-        demoNames.includes(item.path)
-      );
+      group.items = group.items.filter((item: any) => demoNames.includes(item.path));
       return group.items.length;
     });
   }
@@ -71,8 +57,9 @@ function genCode(components: string[]) {
     }))
     .filter((item) => existsSync(item.path));
 
-  return `${genInstall()}
+  return `import 'package-style.${CSS_LANG}';
  ${genImports(demos)}
+
  ${genExports(demos)}
  ${genConfig(demos)}
 `;
@@ -82,5 +69,5 @@ export function genSiteMobileShared() {
   const dirs = readdirSync(SRC_DIR);
   const code = genCode(dirs);
 
-  smartOutputFile(SITE_MODILE_SHARED_FILE, code);
+  return code;
 }

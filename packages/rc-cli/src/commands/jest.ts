@@ -1,11 +1,19 @@
-import { runCLI } from 'jest';
-import { setNodeEnv } from '../common';
-import { ROOT, JEST_CONFIG_FILE } from '../common/constant';
+import jest from 'jest';
+import { setNodeEnv } from '../common/index.js';
+import { genPackageEntry } from '../compiler/gen-package-entry.js';
+import { ROOT, JEST_CONFIG_FILE, PACKAGE_ENTRY_FILE } from '../common/constant.js';
 
-export function test(command: any) {
+import type { Config } from '@jest/types';
+
+export async function test(command: Config.Argv) {
   setNodeEnv('test');
 
+  genPackageEntry({
+    outputPath: PACKAGE_ENTRY_FILE,
+  });
+
   const config = {
+    // showConfig: true,
     rootDir: ROOT,
     watch: command.watch,
     config: JEST_CONFIG_FILE,
@@ -20,10 +28,9 @@ export function test(command: any) {
     // make jest tests faster
     // see: https://ivantanev.com/make-jest-faster/
     maxWorkers: '50%',
-
-  } as any;
-
-  runCLI(config, [ROOT])
+  } as Config.Argv;
+  jest
+    .runCLI(config, [ROOT])
     .then((response) => {
       if (!response.results.success && !command.watch) {
         process.exit(1);

@@ -54,7 +54,7 @@ describe('Form', () => {
   let spyConsole: jest.SpyInstance;
   beforeEach(() => {
     spyConsole = jest.spyOn(console, 'warn');
-    spyConsole.mockImplementation((message: string) => {
+    spyConsole.mockImplementation(() => {
       return null;
     });
   });

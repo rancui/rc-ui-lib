@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell } from '../..';
 import ShareSheet from '..';
 import './style.less';
 

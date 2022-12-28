@@ -98,7 +98,7 @@ const initValue = ['1'];
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| initValue | 默认打开的面板 name | 手风琴模式：_number \| string_<br>非手风琴模式：_(number \| string)[]_ | - |
+| initValue | 默认打开的面板 name | 手风琴模式：_number \| string_<br/>非手风琴模式：_(number \| string)[]_ | - |
 | value | 当前展开面板的 name | _number \| string_ \| _(number \| string)[]_ | - |
 | accordion | 是否开启手风琴模式 | _boolean_ | `false` |
 | border | 是否显示外边框 | _boolean_ | `true` |

@@ -6,9 +6,10 @@ import React, {
   useEffect,
   useImperativeHandle,
 } from 'react';
-import { Picker, useUpdateEffect } from '..';
+import { Picker } from '..';
 import { DateTimePickerInstance, TimePickerProps } from './PropsType';
 import { PickerInstance } from '../picker';
+import { useUpdateEffect } from '../hooks';
 import { padZero, range } from '../utils';
 import { times } from './utils';
 
@@ -94,7 +95,7 @@ const TimePicker = forwardRef<DateTimePickerInstance, TimePickerProps>((props, r
   const onConfirm = () => props.onConfirm?.(currentDate as unknown as Date);
   const onCancel = () => props.onCancel();
 
-  const onChange = (value) => {
+  const onChange = (_) => {
     updateInnerValue();
     setTimeout(() => {
       props.onChange?.(currentDateRef as unknown as Date);

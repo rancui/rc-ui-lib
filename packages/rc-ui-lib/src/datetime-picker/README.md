@@ -191,7 +191,7 @@ DatetimePicker 通过 type 属性来定义需要选择的时间类型，type 为
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 时间类型，可选值为 `date` `time` <br> `year-month` `month-day` `datehour` | _string_ | `datetime` |
+| type | 时间类型，可选值为 `date` `time` <br/> `year-month` `month-day` `datehour` | _string_ | `datetime` |
 | title | 顶部栏标题 | _ReactNode_ | `''` |
 | confirmButtonText | 确认按钮文字 | _ReactNode_ | `确认` |
 | cancelButtonText | 取消按钮文字 | _string_ | `取消` |
@@ -200,7 +200,7 @@ DatetimePicker 通过 type 属性来定义需要选择的时间类型，type 为
 | readonly | 是否为只读状态，只读状态下无法切换选项 | _boolean_ | `false` |
 | filter | 选项过滤函数 | _(type: string, values: string[]) => string[]_ | - |
 | formatter | 选项格式化函数 | _(type: string, value: string) => string_ | - |
-| columnsOrder | 自定义列排序数组, 子项可选值为<br> `year`、`month`、`day`、`hour`、`minute` | _string[]_ | - |
+| columnsOrder | 自定义列排序数组, 子项可选值为<br/> `year`、`month`、`day`、`hour`、`minute` | _string[]_ | - |
 | itemHeight | 选项高度，支持 `px` `vw` `vh` `rem` 单位，默认 `px` | _number \| string_ | `44` |
 | visibleItemCount | 可见的选项个数 | _number \| string_ | `6` |
 | swipeDuration | 快速滑动时惯性滚动的时长，单位`ms` | _number \| string_ | `1000` |

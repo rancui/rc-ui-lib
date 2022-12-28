@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sidebar should render correcyly when using badge prop in SidebarItem 1`] = `
+exports[`Sidebar should render correctly when using badge prop in SidebarItem 1`] = `
 <div>
   <div
     class="rc-sidebar"

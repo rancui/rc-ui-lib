@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { CountDown, Grid } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
-import './style.less';
 import { CurrentTime } from 'rc-ui-lib/es/hooks/use-count-down';
+import { CountDown, Grid } from '../..';
 import { CountDownInstance } from '../PropsType';
+import './style.less';
 
 export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
@@ -22,13 +22,13 @@ export default (): React.ReactNode => {
     );
   };
   const start = () => {
-    CountDownRef.current.start();
+    CountDownRef.current?.start();
   };
   const pause = () => {
-    CountDownRef.current.pause();
+    CountDownRef.current?.pause();
   };
   const reset = () => {
-    CountDownRef.current.reset();
+    CountDownRef.current?.reset();
   };
 
   return (

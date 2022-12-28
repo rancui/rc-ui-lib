@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import React, {
   useMemo,
   useState,
@@ -52,7 +51,7 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('popup', prefixCls);
 
-  const { round, visible, closeable, title, descrition, children, duration, closeIcon, position } =
+  const { round, visible, closeable, title, description, children, duration, closeIcon, position } =
     props;
   const opened = useRef(false);
   const zIndex = useRef<number>(props.zIndex ?? globalZIndex);
@@ -156,8 +155,8 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const renderDescrition = () => {
-    if (descrition) {
-      return <div className={classnames(bem('descrition'))}>{descrition}</div>;
+    if (description) {
+      return <div className={classnames(bem('description'))}>{description}</div>;
     }
     return null;
   };

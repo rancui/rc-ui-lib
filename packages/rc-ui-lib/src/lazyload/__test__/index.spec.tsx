@@ -143,7 +143,6 @@ describe('test Lazyload by observer', () => {
   const originImage = global.Image;
   beforeEach(() => {
     // IntersectionObserver isn't available in test environment
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     global.IntersectionObserver = class IntersectionObserver {
       callback: any;

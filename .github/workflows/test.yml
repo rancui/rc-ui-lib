@@ -4,12 +4,15 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [main]
+    branches:
+      - '**'
 
   pull_request:
-    branches: [main, dev]
+    branches:
+      - main
+
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,77 +21,66 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
-      - name: Cache lerna
-        id: cache
-        uses: actions/cache@v2
+      - name: Install pnpm
+        run: npm i pnpm@7 -g
+
+      - uses: actions/setup-node@v2
         with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-2
+          node-version: '16'
+          cache: 'pnpm'
 
-      - name: Install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn bootstrap
-  compile-cli:
-    name: building cli
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@master
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Restore lerna
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-2
+      - name: Run linter
+        run: npm run lint
 
-      - name: Cache cli
-        uses: actions/cache@v2
-        with:
-          path: packages/rc-cli/lib
-          key: ${{ runner.os }}-cli-${{ github.sha }}
-
-      - name: build
-        run: yarn build:cli
-
-    needs: setup
   test:
     name: Testing and Coverage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           # codecov.io requires a fetch depth > 1.
           fetch-depth: 2
 
-      - name: Restore lerna
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}-2
+      - name: Install pnpm
+        run: npm i pnpm@7 -g
 
-      - name: Restore cli
-        uses: actions/cache@v2
-        with:
-          path: packages/rc-cli/lib
-          key: ${{ runner.os }}-cli-${{ github.sha }}
+      # - name: add chmod
+      #   run: chmod -R 777 ./*
 
-      - name: add chmod
-        run: chmod -R 777 ./*
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Test
-        run: lerna exec --scope rc-ui-lib yarn test
+      - name: Run test cases
+        run: npm run test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-    needs: compile-cli
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install pnpm
+        run: npm i pnpm@7 -g
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Run build
+        run: npm run build

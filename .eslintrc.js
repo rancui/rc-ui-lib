@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   extends: [require.resolve('@rancui/linter/dist/eslint')],
   ignorePatterns: ['/.*'],
   rules: {

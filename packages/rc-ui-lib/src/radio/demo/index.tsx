@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Cell, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell, Toast } from '../..';
 import { Radio } from '..';
 import './style.less';
 

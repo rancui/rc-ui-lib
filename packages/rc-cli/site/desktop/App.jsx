@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, Suspense } from 'react';
 import { Switch, Route, Redirect, useLocation, useHistory } from 'react-router-dom';
 import { config, packageVersion } from 'site-desktop-shared';
 
@@ -35,7 +35,7 @@ const App = () => {
     return getLangFromRoute(pathname);
   }, [pathname]);
 
-  const currentCompnentName = useMemo(() => pathname.replace(/\/.*\//, ''), [pathname]);
+  const currentComponentName = useMemo(() => pathname.replace(/\/.*\//, ''), [pathname]);
 
   const localeConfig = useMemo(() => {
     const { locales } = config.site;
@@ -63,7 +63,7 @@ const App = () => {
 
     const navItems = localeConfig.nav.reduce((result, nav) => [...result, ...nav.items], []);
 
-    const current = navItems.find((item) => item.path === currentCompnentName);
+    const current = navItems.find((item) => item.path === currentComponentName);
 
     if (current && current.title) {
       title = `${current.title} - ${title}`;
@@ -92,22 +92,24 @@ const App = () => {
       versions={versions}
       simulator={simulator}
       hideSimulator={hideSimulator}
-      currentCompnentName={currentCompnentName}
+      currentComponentName={currentComponentName}
     >
-      <Switch>
-        {routes.map((route) =>
-          route.redirect ? (
-            <Redirect key={route.path} to={route.redirect(pathname)} />
-          ) : (
-            <Route
-              key={route.path}
-              exact={route.exact}
-              path={route.path}
-              render={(props) => <route.component {...props} routes={route.routes} />}
-            />
-          ),
-        )}
-      </Switch>
+      <Suspense fallback={<div style={{ height: '110vh' }}></div>}>
+        <Switch>
+          {routes.map((route) =>
+            route.redirect ? (
+              <Redirect key={route.path} to={route.redirect(pathname)} />
+            ) : (
+              <Route
+                key={route.path}
+                exact={route.exact}
+                path={route.path}
+                render={(props) => <route.component {...props} routes={route.routes} />}
+              />
+            ),
+          )}
+        </Switch>
+      </Suspense>
     </Doc>
   );
 };

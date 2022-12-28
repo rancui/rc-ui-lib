@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, cleanup, waitFor, act } from '@testing-library/react';
+import { render, cleanup, waitFor } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import CountDown, { CountDownInstance, CountDownProps } from '..';
 
@@ -76,9 +76,9 @@ describe('CountDown test with testing library', () => {
     const preSnapshot = container.querySelector('.rc-count-down').innerHTML;
 
     await sleep(100);
-    const laternapshot = container.querySelector('.rc-count-down').innerHTML;
+    const laterSnapshot = container.querySelector('.rc-count-down').innerHTML;
 
-    expect(preSnapshot).not.toEqual(laternapshot);
+    expect(preSnapshot).not.toEqual(laterSnapshot);
   });
 
   it('should not start counting when auto-start prop is false', async () => {

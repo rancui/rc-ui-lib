@@ -20,11 +20,12 @@ const ActionBar: React.FC<ActionBarProps> = (props) => {
       >
         {React.Children.toArray(props.children)
           .filter(Boolean)
-          .map((child: React.ReactElement, index: number) =>
-            React.cloneElement(child, {
+          .map((child: React.ReactFragment, index: number) => {
+            // @ts-ignore
+            return React.cloneElement(child, {
               index,
-            }),
-          )}
+            });
+          })}
       </div>
     </ActionBarContext.Provider>
   );

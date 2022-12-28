@@ -10,7 +10,7 @@ describe('Cascader', () => {
   let spyConsole: jest.SpyInstance;
   beforeEach(() => {
     spyConsole = jest.spyOn(console, 'error');
-    spyConsole.mockImplementation((message: string) => {
+    spyConsole.mockImplementation(() => {
       return null;
     });
   });
@@ -59,7 +59,7 @@ describe('Cascader', () => {
     });
   });
 
-  it('will not emit onChange event when using disalbed prop', async () => {
+  it('will not emit onChange event when using disabled prop', async () => {
     const items = [
       {
         text: '广东省',

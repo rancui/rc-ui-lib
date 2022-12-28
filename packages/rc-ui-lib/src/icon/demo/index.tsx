@@ -1,7 +1,7 @@
 import React from 'react';
 import icons from '@vant/icons';
-import { Flex, Icon, Tabs, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Flex, Icon, Tabs, Toast } from '../..';
 import './style.less';
 
 const IconFont = Icon.createFromIconfontCN('//at.alicdn.com/t/font_2763890_w471tfudy4d.js');

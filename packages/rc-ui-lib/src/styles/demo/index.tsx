@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
 import { CSSTransition } from 'react-transition-group';
+import { Cell } from '../..';
 import './style.less';
 
 export default (): React.ReactNode => {

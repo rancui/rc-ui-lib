@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useReducer } from 'react';
-import { Cell } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Cell } from '../..';
 import Popup from '..';
 import './style.less';
 
@@ -261,7 +261,7 @@ export default (): React.ReactNode => {
         visible={state.showTitle}
         closeable
         title="标题"
-        descrition="这是一段很长很长的描述这是一段很长很长的描述这是一段很长很长的描述这是一段很长很长的描述"
+        description="这是一段很长很长的描述这是一段很长很长的描述这是一段很长很长的描述这是一段很长很长的描述"
         style={{ height: '30%' }}
         position="bottom"
         round

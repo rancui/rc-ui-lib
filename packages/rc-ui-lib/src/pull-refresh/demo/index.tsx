@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useMemo } from 'react';
-import { Tabs, Toast } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
+import { Tabs, Toast } from '../..';
 import './style.less';
 import PullRefresh from '../index';
 

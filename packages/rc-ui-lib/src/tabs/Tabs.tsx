@@ -236,7 +236,6 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
 
   const getCurrentIndexOnScroll = () => {
     const scrollOffset = offsetTopPx + tabHeightRef.current;
-    // eslint-disable-next-line no-plusplus
     for (let index = 0; index < contentRefs.length; index++) {
       const $el = contentRefs[index];
       const top = getVisibleTop($el);

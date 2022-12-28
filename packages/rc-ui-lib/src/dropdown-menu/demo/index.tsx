@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Cell, Switch, Button } from 'rc-ui-lib';
 import { components } from 'site-mobile-demo';
-import { DropdownMenu } from '..';
-import { DropdownMenuInstance, DropdownItemInstance } from '../PropsType';
+import { Cell, Switch, Button } from '../..';
+import Toast, { DropdownMenu } from '..';
+import { DropdownMenuInstance } from '../PropsType';
 import './style.less';
 
 const option1 = [
@@ -37,6 +37,7 @@ export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
 
   const onConfirm = (e) => {
+    Toast(e);
     dropdownMenuRef.current?.close();
   };
 

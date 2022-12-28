@@ -14,14 +14,22 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - name: Install pnpm
+        run: npm i pnpm@7 -g
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+
       - name: Install dependencies
-        run: yarn bootstrap
+        run: pnpm install
 
       - name: Build Site
-        run: yarn build:site
+        run: npm run build:site
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
-          folder: packages/rc-ui-lib/site
+          folder: packages/rc-ui-lib/site-dist

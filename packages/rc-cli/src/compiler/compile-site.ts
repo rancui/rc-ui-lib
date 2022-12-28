@@ -1,75 +1,43 @@
 import chalk from 'chalk';
-import address from 'address';
-import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
-import { get } from 'lodash';
-import { getPort } from 'portfinder';
-import { GREEN } from '../common/constant';
-import { getSiteDevConfig } from '../config/webpack.site.dev';
-import { getSitePrdConfig } from '../config/webpack.site.prd';
+import { createRequire } from 'module';
+import { createServer, build } from 'vite';
+import { GREEN, PACKAGE_ENTRY_FILE } from '../common/constant.js';
 
-function logServerInfo(port: number) {
-  const local = `http://localhost:${port}/`;
-  const network = `http://${address.ip()}:${port}/`;
+import { getViteConfigForSiteDev, getViteConfigForSiteProd } from '../config/vite.site.js';
+import { mergeCustomViteConfig } from '../common/index.js';
+import { genPackageEntry } from './gen-package-entry.js';
+import { genStyleDepsMap } from './gen-style-deps-map.js';
 
-  console.log('\n  Site running at:\n');
-  console.log(`  ${chalk.bold('Local')}:    ${chalk.hex(GREEN)(local)} `);
-  console.log(`  ${chalk.bold('Network')}:  ${chalk.hex(GREEN)(network)}`);
-}
-
-function runDevServer(
-  port: number,
-  config: ReturnType<typeof getSiteDevConfig>
-) {
-  const server = new WebpackDevServer(webpack(config), config.devServer);
-
-  // this is a hack to disable wds status log
-  (server as any).showStatus = function servers() {};
-
-  const host = get(config.devServer, 'host', 'localhost');
-  server.listen(port, host, (err?: Error) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-}
-
-function watch() {
-  const config = getSiteDevConfig();
-
-  getPort(
-    {
-      port: config.devServer!.port,
-    },
-    (err, port) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-
-      logServerInfo(port);
-      runDevServer(port, config);
-    }
-  );
-}
-
-function build() {
+export function genSiteEntry(): Promise<void> {
   return new Promise((resolve, reject) => {
-    const config = getSitePrdConfig();
-    webpack(config, (err, stats) => {
-      if (err || stats.hasErrors()) {
-        reject();
-      } else {
-        resolve(1);
-      }
-    });
+    genStyleDepsMap()
+      .then(() => {
+        genPackageEntry({
+          outputPath: PACKAGE_ENTRY_FILE,
+        });
+        resolve();
+      })
+      .catch((err) => {
+        console.log(err);
+        reject(err);
+      });
   });
 }
 
 export async function compileSite(production = false) {
+  await genSiteEntry();
   if (production) {
-    await build();
+    const config = await mergeCustomViteConfig(getViteConfigForSiteProd(), 'production');
+    await build(config);
   } else {
-    watch();
+    const config = await mergeCustomViteConfig(getViteConfigForSiteDev(), 'development');
+    const server = await createServer(config);
+    await server.listen(config.server?.port);
+
+    const require = createRequire(import.meta.url);
+    const { version } = require('vite/package.json');
+    const viteInfo = chalk.hex(GREEN)(`vite v${version}`);
+    console.log(`\n  ${viteInfo}${chalk.hex(GREEN)(` dev server running at:\n`)}`);
+    server.printUrls();
   }
 }

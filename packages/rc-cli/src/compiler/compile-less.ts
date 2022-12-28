@@ -1,25 +1,13 @@
-import { render, FileManager } from 'less';
-import { readFileSync } from 'fs-extra';
-
-// less plugin to resolve tilde
-class TildeResolver extends FileManager {
-  loadFile(filename: string, ...args: any[]) {
-    filename = filename.replace('~', '');
-    return FileManager.prototype.loadFile.apply(this, [filename, ...args]);
-  }
-}
-
-const TildeResolverPlugin = {
-  install(lessInstance: unknown, pluginManager: any) {
-    pluginManager.addFileManager(new TildeResolver());
-  },
-};
+import less from 'less';
+import { join } from 'path';
+import { readFileSync } from 'fs';
+import { CWD } from '../common/constant.js';
 
 export async function compileLess(filePath: string) {
   const source = readFileSync(filePath, 'utf-8');
-  const { css } = await render(source, {
+  const { css } = await less.render(source, {
     filename: filePath,
-    plugins: [TildeResolverPlugin],
+    paths: [join(CWD, 'node_modules')],
   });
 
   return css;

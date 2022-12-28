@@ -80,7 +80,6 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
   };
 
   const getScoreByPosition = (x: number) => {
-    // eslint-disable-next-line no-plusplus
     for (let i = ranges.current.length - 1; i > 0; i--) {
       if (x > ranges.current[i].left) {
         return ranges.current[i].score;

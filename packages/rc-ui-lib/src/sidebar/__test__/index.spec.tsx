@@ -40,7 +40,7 @@ describe('Sidebar', () => {
     expect(onClick).toHaveBeenCalledWith(0);
   });
 
-  it('should not  emit change event when disabled SidebarItem is clicked', async () => {
+  it('should not emit change event when disabled SidebarItem is clicked', async () => {
     const onChange = jest.fn();
 
     const { container } = render(
@@ -55,7 +55,7 @@ describe('Sidebar', () => {
     expect(onChange).not.toHaveBeenCalled();
   });
 
-  it('should render correcyly when using badge prop in SidebarItem', async () => {
+  it('should render correctly when using badge prop in SidebarItem', async () => {
     const { container } = render(
       <Sidebar>
         <Sidebar.Item title="标签名" disabled />
@@ -68,7 +68,7 @@ describe('Sidebar', () => {
 
   it('should render incorrectly when SidebarItem not parent', async () => {
     const spyConsole: jest.SpyInstance = jest.spyOn(console, 'error');
-    spyConsole.mockImplementation((message: string) => {
+    spyConsole.mockImplementation(() => {
       return null;
     });
     // eslint-disable-next-line react/no-children-prop

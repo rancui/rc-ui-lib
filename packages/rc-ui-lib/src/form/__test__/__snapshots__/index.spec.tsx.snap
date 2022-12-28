@@ -29,7 +29,7 @@ exports[`Form basic usage 1`] = `
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -76,7 +76,7 @@ exports[`Form basic usage 1`] = `
               }
               validateTrigger="onChange"
             >
-              <Field
+              <Field2
                 fieldContext={
                   Object {
                     "_init": true,
@@ -259,7 +259,7 @@ exports[`Form basic usage 1`] = `
                     </Cell>
                   </ForwardRef>
                 </FormItemLayout>
-              </Field>
+              </Field2>
             </WrapperField>
           </FormItem>
           <FormItem
@@ -403,7 +403,7 @@ exports[`Form basic usage 1`] = `
         </div>
       </div>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;
 
@@ -412,7 +412,7 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -434,7 +434,7 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
               name="name"
               validateTrigger="onChange"
             >
-              <Field
+              <Field2
                 fieldContext={
                   Object {
                     "_init": true,
@@ -528,13 +528,13 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
                     </Cell>
                   </ForwardRef>
                 </FormItemLayout>
-              </Field>
+              </Field2>
             </WrapperField>
           </FormItem>
         </div>
       </CellGroup>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;
 
@@ -543,7 +543,7 @@ exports[`Form when noStyle props is set 1`] = `
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -604,7 +604,7 @@ exports[`Form when noStyle props is set 1`] = `
         </div>
       </CellGroup>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;
 
@@ -613,7 +613,7 @@ exports[`Form when rules with reqiured props is set 1`] = `
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -689,7 +689,7 @@ exports[`Form when rules with reqiured props is set 1`] = `
         </div>
       </CellGroup>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;
 
@@ -698,7 +698,7 @@ exports[`Form when rules without reqiured props is set 1`] = `
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -773,7 +773,7 @@ exports[`Form when rules without reqiured props is set 1`] = `
         </div>
       </CellGroup>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;
 
@@ -782,7 +782,7 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -801,7 +801,7 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
             <WrapperField
               validateTrigger="onChange"
             >
-              <Field
+              <Field2
                 fieldContext={
                   Object {
                     "_init": true,
@@ -888,13 +888,13 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
                     </Cell>
                   </ForwardRef>
                 </FormItemLayout>
-              </Field>
+              </Field2>
             </WrapperField>
           </FormItem>
         </div>
       </CellGroup>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;
 
@@ -903,7 +903,7 @@ exports[`Form when shouldUpdate props is set 1`] = `
   showValidateMessage={true}
   validateTrigger="onChange"
 >
-  <ForwardRef(Form)
+  <ForwardRef(Form2)
     className="rc-form"
     validateTrigger="onChange"
   >
@@ -925,7 +925,7 @@ exports[`Form when shouldUpdate props is set 1`] = `
               shouldUpdate={true}
               validateTrigger="onChange"
             >
-              <Field
+              <Field2
                 fieldContext={
                   Object {
                     "_init": true,
@@ -1045,12 +1045,12 @@ exports[`Form when shouldUpdate props is set 1`] = `
                     </Cell>
                   </ForwardRef>
                 </FormItemLayout>
-              </Field>
+              </Field2>
             </WrapperField>
           </FormItem>
         </div>
       </CellGroup>
     </form>
-  </ForwardRef(Form)>
+  </ForwardRef(Form2)>
 </ForwardRef>
 `;

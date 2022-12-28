@@ -1,7 +1,7 @@
 import execa from 'execa';
 import { join, relative } from 'path';
-import { remove, copy, readdirSync, existsSync } from 'fs-extra';
-import { ora, consola } from '../common/logger';
+import fse from 'fs-extra';
+import { ora, consola } from '../common/logger.js';
 import {
   isAsset,
   isDemoDir,
@@ -12,22 +12,26 @@ import {
   setBuildTarget,
   setModuleEnv,
   setNodeEnv,
-} from '../common';
-import { clean } from './clean';
-import { LIB_DIR, ES_DIR, SRC_DIR } from '../common/constant';
-import { genStyleDepsMap } from '../compiler/gen-style-deps-map';
-import { genComponentStyle } from '../compiler/gen-component-style';
-import { genPackageEntry } from '../compiler/gen-package-entry';
-import { genPackageStyle } from '../compiler/gen-package-style';
-import { CSS_LANG } from '../common/css';
-import { compileJsPath } from '../compiler/compile-js';
-import { compilePackage } from '../compiler/compile-package';
-import { compileStyle } from '../compiler/compile-style';
-import { installDependencies } from '../common/manager';
+} from '../common/index.js';
+import { clean } from './clean.js';
+import { LIB_DIR, ES_DIR, SRC_DIR, getVantConfig } from '../common/constant.js';
+import { genStyleDepsMap } from '../compiler/gen-style-deps-map.js';
+import { genComponentStyle } from '../compiler/gen-component-style.js';
+import { genPackageEntry } from '../compiler/gen-package-entry.js';
+import { genPackageStyle } from '../compiler/gen-package-style.js';
+import { compileScript } from '../compiler/compile-js.js';
+import { compileStyle } from '../compiler/compile-style.js';
+import { compileBundles } from '../compiler/compile-bundles.js';
+import { installDependencies } from '../common/manager.js';
+import { CSS_LANG } from '../common/css.js';
 
-async function compileFile(filePath: string) {
+import type { Format } from 'esbuild';
+
+const { remove, copy, readdir, existsSync } = fse;
+
+async function compileFile(filePath: string, format: Format) {
   if (isScript(filePath)) {
-    return compileJsPath(filePath);
+    return compileScript(filePath, format);
   }
 
   if (isStyle(filePath)) {
@@ -38,32 +42,46 @@ async function compileFile(filePath: string) {
     return Promise.resolve();
   }
 
-  // return remove(filePath);
   return Promise.resolve();
 }
 
-async function compileDir(dir: string) {
-  const files = readdirSync(dir);
+/**
+ * Pre-compile
+ * 1. Remove unneeded dirs
+ */
+async function preCompileDir(dir: string) {
+  const files = await readdir(dir);
 
   await Promise.all(
     files.map((filename) => {
       const filePath = join(dir, filename);
+
       if (isDemoDir(filePath) || isTestDir(filePath)) {
-        return remove(filePath);
+        return remove(filePath, (err) => {
+          if (err) console.log(filePath, err);
+        });
       }
-
       if (isDir(filePath)) {
-        return compileDir(filePath);
+        return preCompileDir(filePath);
       }
+      return Promise.resolve();
+    }),
+  );
+}
 
-      return compileFile(filePath);
+async function compileDir(dir: string, format: Format) {
+  const files = await readdir(dir);
+
+  await Promise.all(
+    files.map((filename: string) => {
+      const filePath = join(dir, filename);
+      return isDir(filePath) ? compileDir(filePath, format) : compileFile(filePath, format);
     }),
   );
 }
 
 async function copySourceCode() {
-  await copy(SRC_DIR, ES_DIR);
-  await copy(SRC_DIR, LIB_DIR);
+  return Promise.all([copy(SRC_DIR, ES_DIR), copy(SRC_DIR, LIB_DIR)]);
 }
 
 async function buildPackageScriptEntry() {
@@ -93,6 +111,8 @@ async function buildPackageStyleEntry() {
 }
 
 async function buildTypeDeclarations() {
+  await Promise.all([preCompileDir(ES_DIR), preCompileDir(LIB_DIR)]);
+
   const tsConfig = join(process.cwd(), 'tsconfig.declaration.json');
 
   if (existsSync(tsConfig)) {
@@ -103,19 +123,19 @@ async function buildTypeDeclarations() {
 async function buildESMOutputs() {
   setModuleEnv('esmodule');
   setBuildTarget('package');
-  await compileDir(ES_DIR);
+  await compileDir(ES_DIR, 'esm');
 }
 
 async function buildCJSOutputs() {
   setModuleEnv('commonjs');
   setBuildTarget('package');
-  await compileDir(LIB_DIR);
+  await compileDir(LIB_DIR, 'cjs');
 }
 
 async function buildBundledOutputs() {
+  const config = getVantConfig();
   setModuleEnv('esmodule');
-  await compilePackage(false);
-  await compilePackage(true);
+  await compileBundles();
 }
 
 const tasks = [
@@ -154,7 +174,6 @@ const tasks = [
 ];
 
 async function runBuildTasks() {
-  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < tasks.length; i++) {
     const { task, text } = tasks[i];
     const spinner = ora(text).start();
