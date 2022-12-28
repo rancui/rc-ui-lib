@@ -1,13 +1,19 @@
 import jest from 'jest';
 import { setNodeEnv } from '../common/index.js';
-import { ROOT, JEST_CONFIG_FILE } from '../common/constant.js';
+import { genPackageEntry } from '../compiler/gen-package-entry.js';
+import { ROOT, JEST_CONFIG_FILE, PACKAGE_ENTRY_FILE } from '../common/constant.js';
 
 import type { Config } from '@jest/types';
 
-export function test(command: Config.Argv) {
+export async function test(command: Config.Argv) {
   setNodeEnv('test');
 
+  genPackageEntry({
+    outputPath: PACKAGE_ENTRY_FILE,
+  });
+
   const config = {
+    // showConfig: true,
     rootDir: ROOT,
     watch: command.watch,
     config: JEST_CONFIG_FILE,
@@ -23,7 +29,6 @@ export function test(command: Config.Argv) {
     // see: https://ivantanev.com/make-jest-faster/
     maxWorkers: '50%',
   } as Config.Argv;
-
   jest
     .runCLI(config, [ROOT])
     .then((response) => {

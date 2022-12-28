@@ -5,5 +5,5 @@
     "outDir": "./lib",
     "declaration": true
   },
-  "include": ["src/**/*", "cjs/babel.config.ts"]
+  "include": ["src/**/*"]
 }

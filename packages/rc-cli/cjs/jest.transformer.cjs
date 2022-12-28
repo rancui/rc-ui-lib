@@ -9,9 +9,22 @@ const transformJsx = (code, path) => {
     filename: path,
     babelrc: false,
     presets: isTsxFile(path)
-      ? ['@babel/preset-typescript', '@babel/preset-react']
-      : ['@babel/preset-react'],
-    plugins: [],
+      ? [
+          ['@babel/preset-env', { targets: { node: 'current' } }],
+          '@babel/preset-typescript',
+          '@babel/preset-react',
+        ]
+      : [['@babel/preset-env', { targets: { node: 'current' } }], '@babel/preset-react'],
+    plugins: [
+      '@babel/plugin-transform-modules-commonjs',
+      [
+        '@babel/plugin-transform-runtime',
+        {
+          corejs: false,
+          useESModules: false,
+        },
+      ],
+    ],
   });
   return babelResult?.code || '';
 };
@@ -21,6 +34,7 @@ const transformScript = (code) =>
     target: 'es2016',
     format: 'cjs',
     loader: 'ts',
+    sourcemap: true,
   }).code;
 
 module.exports = {

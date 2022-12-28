@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
 import DatePicker from '../DatePicker';
@@ -134,10 +134,12 @@ describe('DatePicker', () => {
     expect(onConfirm.mock.calls[0][0].getHours()).toEqual(0);
 
     const columnWrapper = container.querySelectorAll('.rc-picker-column')[3];
-    await TestsEvent.triggerDrag(columnWrapper, [0, -800]);
-    await sleep(100);
-    fireEvent.click(confirmBtn);
-    await sleep(100);
+    await waitFor(() => {
+      TestsEvent.triggerDrag(columnWrapper, [0, -800]);
+    });
+    await waitFor(() => {
+      fireEvent.click(confirmBtn);
+    });
 
     expect(onConfirm.mock.calls[1][0].getHours()).toEqual(23);
   });

@@ -12,7 +12,7 @@
     "baseUrl": "./",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
+    "allowJs": false,
     "noImplicitThis": true,
     "isolatedModules": true,
     "skipLibCheck": true,
@@ -22,5 +22,5 @@
     }
   },
   "include": ["src/**/*", "docs/**/*", "tests/**/*", "typings/**/*"],
-  "exclude": ["tests/coverage/*", "tests/setup.js", "tests/setupPointerEvent.ts", "node_modules"]
+  "exclude": ["tests/coverage/*", "tests/setupPointerEvent.ts", "node_modules"]
 }
