@@ -52,7 +52,7 @@ const Header = (props) => {
       <div className="vant-doc-row">
         <div className="vant-doc-header__top">
           <a className="vant-doc-header__logo">
-            <img alt="vant" src={config.logo} />
+            <img alt="rc-ui-lib" src={config.logo} />
             <span>{config.title}</span>
           </a>
           {config.searchConfig && <SearchInput lang={lang} searchConfig={config.searchConfig} />}

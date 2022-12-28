@@ -59,7 +59,7 @@ export default (): React.ReactNode => {
           onClick={() =>
             Toast({
               message: '自定义图片',
-              icon: 'https://img01.yzcdn.cn/vant/logo.png',
+              icon: 'https://rancui.github.io/rc-ui-lib/rc-ui-lib.png',
             })
           }
         />
