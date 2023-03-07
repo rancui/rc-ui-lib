@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import type { MouseEvent } from 'react';
 import { TextEllipsisProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
-import useEventListener from '../../es/hooks/use-event-listener';
+import useEventListener from '../hooks/use-event-listener';
 
 const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
