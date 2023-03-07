@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { components } from 'site-mobile-demo';
-import { CurrentTime } from 'rc-ui-lib/es/hooks/use-count-down';
+import { CurrentTime } from '../../hooks/use-count-down';
 import { CountDown, Grid } from '../..';
 import { CountDownInstance } from '../PropsType';
 import './style.less';

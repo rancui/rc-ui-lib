@@ -50,6 +50,7 @@ export { default as Switch } from './switch';
 export { default as Tabbar } from './tabbar';
 export { default as Tabs } from './tabs';
 export { default as Tag } from './tag';
+export { default as TextEllipsis } from './text-ellipsis';
 export { default as Toast } from './toast';
 export { default as Typography } from './typography';
 export { default as Uploader } from './uploader';

@@ -284,6 +284,10 @@ export default {
                 path: 'tag',
                 title: 'Tag 标签',
               },
+              {
+                path: 'text-ellipsis',
+                title: 'TextEllipsis 文本省略',
+              },
             ],
           },
           {

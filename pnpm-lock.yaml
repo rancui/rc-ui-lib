@@ -214,8 +214,8 @@ importers:
       '@types/enzyme': ^3.10.12
       '@types/enzyme-to-json': ^1.5.4
       '@types/jest': ^27.0.3
-      '@types/react': ^16.9.55
-      '@types/react-dom': ^16.9.9
+      '@types/react': ^17.0.3
+      '@types/react-dom': ^17.0.3
       '@types/react-transition-group': ^4.4.5
       '@use-gesture/react': ^10.1.1
       '@vant/icons': ^1.7.0
@@ -241,8 +241,8 @@ importers:
       '@types/enzyme': 3.10.12
       '@types/enzyme-to-json': 1.5.4
       '@types/jest': 27.5.2
-      '@types/react': 16.14.34
-      '@types/react-dom': 16.9.17
+      '@types/react': 17.0.52
+      '@types/react-dom': 17.0.18
       '@types/react-transition-group': 4.4.5
       gh-pages: 3.2.3
       react: 17.0.2
@@ -2452,12 +2452,6 @@ packages:
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom/16.9.17:
-    resolution: {integrity: sha512-qSRyxEsrm5btPXnowDOs5jSkgT8ldAA0j6Qp+otHUh+xHzy3sXmgNfyhucZjAjkgpdAUw9rJe0QRtX/l+yaS4g==}
-    dependencies:
-      '@types/react': 16.14.34
-    dev: true
-
   /@types/react-dom/17.0.18:
     resolution: {integrity: sha512-rLVtIfbwyur2iFKykP2w0pl/1unw26b5td16d5xMgp7/yjTHomkyxPYChFoCr/FtEX1lN9wY6lFj1qvKdS5kDw==}
     dependencies:
@@ -2482,14 +2476,6 @@ packages:
     resolution: {integrity: sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==}
     dependencies:
       '@types/react': 17.0.52
-    dev: true
-
-  /@types/react/16.14.34:
-    resolution: {integrity: sha512-b99nWeGGReLh6aKBppghVqp93dFJtgtDOzc8NXM6hewD8PQ2zZG5kBLgbx+VJr7Q7WBMjHxaIl3dwpwwPIUgyA==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.2
-      csstype: 3.1.1
     dev: true
 
   /@types/react/17.0.52:
