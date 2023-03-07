@@ -112,7 +112,7 @@ const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
 TextEllipsis.defaultProps = {
   rows: 1,
   expandText: '',
-  collapseText: ''
+  collapseText: '',
 };
 
 export default TextEllipsis;

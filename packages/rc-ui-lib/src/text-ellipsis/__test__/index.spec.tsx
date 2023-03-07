@@ -1,37 +1,88 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { Tag } from '..';
+import { fireEvent, render } from '@testing-library/react';
+import TextEllipsis from '../index';
+import { sleep } from '../../../tests/utils';
+import { mockHTMLElementOffset } from '../../../tests/dom';
 
-describe('Tag', () => {
-  let wrapper;
+const originGetComputedStyle = window.getComputedStyle;
 
-  afterEach(() => {
-    wrapper.unmount();
+const lineHeight = 20;
+
+const content =
+  'Vant is a lightweight, customizable mobile component library that was open sourced in 2017. Currently Vant officially provides Vue 2 version, Vue 3 version and WeChat applet version, and the community team maintains React version and Alipay applet version.';
+
+describe('TextEllipsis', () => {
+  mockHTMLElementOffset();
+  window.getComputedStyle = (el) => {
+    const style = originGetComputedStyle(el);
+    style.lineHeight = `${lineHeight}px`;
+    return style;
+  };
+  Object.defineProperty(window.HTMLElement.prototype, 'clientHeight', {
+    get() {
+      if (this.innerText.includes('...')) {
+        const row = Math.ceil(
+          (this.innerText.replace(/\.\.\./g, '中').length / content.length) * 4,
+        );
+        return lineHeight * row;
+      }
+      return lineHeight * 4;
+    },
   });
 
-  it('should emit close event when clicking the close icon', () => {
-    const onClose = jest.fn();
-    wrapper = mount(<Tag closeable onClose={onClose} />);
-    wrapper.find('.rc-tag__close').at(0).simulate('click');
-    expect(onClose).toHaveBeenCalledTimes(1);
+  afterAll(() => {
+    window.getComputedStyle = originGetComputedStyle;
   });
 
-  it('should hide tag when the show prop is false', () => {
-    wrapper = mount(<Tag visible={false} />);
-    expect(wrapper.html()).toMatchSnapshot();
+  it('should render content correctly', async () => {
+    const { container } = render(<TextEllipsis content={content} />);
+    await sleep(100);
+    expect(container).toMatchSnapshot();
   });
 
-  it('should not trigger click event when clicking the close icon', () => {
+  it('Expand and Collapse should be work', async () => {
+    const { container } = render(
+      <TextEllipsis content={content} expandText="expand" collapseText="collapse" />,
+    );
+
+    await sleep(100);
+    expect(container.querySelector('.rc-text-ellipsis').innerHTML.includes('...')).toBeTruthy();
+
+    const action = container.querySelector('.rc-text-ellipsis__action');
+    await fireEvent.click(action);
+
+    expect(container.querySelector('.rc-text-ellipsis').innerHTML.includes('...')).toBeFalsy();
+  });
+
+  it('should emit click event after Expand/Collapse is clicked', async () => {
     const onClick = jest.fn();
-    wrapper = mount(<Tag closeable onClick={onClick} />);
-    wrapper.find('.rc-tag__close').at(0).simulate('click');
-    expect(onClick).toHaveBeenCalledTimes(0);
-    wrapper.simulate('click');
+    const { container } = render(
+      <TextEllipsis
+        content={content}
+        expandText="expand"
+        collapseText="collapse"
+        onClick={onClick}
+      />,
+    );
+
+    const action = container.querySelector('.rc-text-ellipsis__action');
+
+    await fireEvent.click(action);
+    await sleep(100);
+
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should render border-color correctly', () => {
-    wrapper = mount(<Tag plain color="red" textColor="blue" />);
-    expect(wrapper.html()).toMatchSnapshot();
+  it('text not exceeded', async () => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      value: lineHeight,
+    });
+
+    const shortContent = 'rc-ui-lib is nb';
+    const { container } = render(<TextEllipsis content={shortContent} />);
+
+    await sleep(100);
+
+    expect(container.querySelector('.rc-text-ellipsis').innerHTML.includes('...')).toBeFalsy();
   });
 });
