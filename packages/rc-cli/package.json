@@ -54,6 +54,7 @@
     "conventional-changelog": "^3.1.24",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.1",
+    "esbuild": "^0.14.54",
     "execa": "^5.1.1",
     "fast-glob": "^3.2.4",
     "front-matter": "^4.0.2",
@@ -80,6 +81,7 @@
     "vite-plugin-html": "^2.1.2"
   },
   "devDependencies": {
+    "@jest/types": "^26.6.2",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^27.0.3",
     "@types/less": "^3.0.3",

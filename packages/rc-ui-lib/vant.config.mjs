@@ -15,7 +15,7 @@ export default {
       'zh-CN': {
         title: 'RC-UI-LIB',
         description: '轻量、可靠的移动端组件库',
-        logo: '/rc-ui-lib.png',
+        logo: 'https://rancui.github.io/rc-ui-lib/rc-ui-lib.png',
         langLabel: '中文',
         links: [
           {

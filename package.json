@@ -13,7 +13,8 @@
     "changelog": "pnpm -r --filter ./packages/rc-ui-lib changelog",
     "test": "pnpm -r --filter ./packages/rc-ui-lib test",
     "lint": "pnpm -r --filter ./packages/rc-ui-lib lint",
-    "lint:prettier": "prettier --write  \"packages/rc-ui-lib/src/**/*.{js,json,ts,tsx,css,less,md}\""
+    "lint:prettier": "prettier --write  \"packages/rc-ui-lib/src/**/*.{js,json,ts,tsx,css,less,md}\"",
+    "clean": "rimraf node_modules"
   },
   "repository": {
     "type": "git",
