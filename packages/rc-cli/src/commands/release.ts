@@ -4,7 +4,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const PLUGIN_PATH = join(__dirname, '../compiler/vant-cli-release-plugin.js');
+const PLUGIN_PATH = join(__dirname, '../compiler/rc-cli-release-plugin.js');
 
 export async function release(command: { tag?: string }) {
   await releaseIt({
