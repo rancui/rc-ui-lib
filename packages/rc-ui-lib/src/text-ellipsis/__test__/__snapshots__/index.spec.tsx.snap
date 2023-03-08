@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextEllipsis should render content correctly 1`] = `
+<div>
+  <div
+    class="rc-text-ellipsis"
+  >
+    Vant is a lightweight, customizable mobile component library that was open sourced in 2017. Currently Vant officially provides Vue 2 version, Vue 3 version and WeChat applet version, and the community team maintains React version and Alipay applet version...
+    <span
+      class="rc-text-ellipsis__action"
+    />
+  </div>
+</div>
+`;
