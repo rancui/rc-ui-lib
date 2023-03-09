@@ -16,6 +16,12 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### [2.0.0](https://github.com/rancui/rc-ui-lib/compare/v1.3.6...v2.0.0)
+
+`2023-03-08` **Features**
+
+- 新增 TextEllipsis 组件
+
 ### [1.3.6](https://github.com/rancui/rc-ui-lib/compare/v1.3.5...v1.3.6)
 
 `2022-11-23` **Bug Fixes**
