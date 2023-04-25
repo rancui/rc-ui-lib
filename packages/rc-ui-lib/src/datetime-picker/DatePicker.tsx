@@ -16,6 +16,7 @@ import { useMount, useUpdateEffect } from '../hooks';
 import { isDate } from '../utils/validate/date';
 import { padZero } from '../utils';
 import { doubleRaf } from '../utils/raf';
+import useRefState from '../hooks/use-ref-state';
 
 const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, ref) => {
   const {
@@ -41,8 +42,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
   };
 
   const pickerRef = useRef<PickerInstance>(null);
-  const [currentDate, setCurrentDate] = useState(formatValue(value));
-  const currentDateRef = useRef<Date>(currentDate);
+  const [currentDate, setCurrentDate, currentDateRef] = useRefState(formatValue(value));
 
   const getBoundary = (type: 'max' | 'min', dateValue: Date) => {
     const boundary = props[`${type}Date`];
@@ -136,7 +136,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     }
 
     return result;
-  }, [columnsOrder, props.type]);
+  }, [columnsOrder, props.type, currentDateRef.current]);
 
   const originColumns = useMemo(
     () =>
@@ -237,7 +237,6 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
       const indexes = pickerRef.current.getIndexes();
       const nextValue = updateInnerValue(indexes);
       setCurrentDate(nextValue);
-      currentDateRef.current = nextValue;
       props.onChange?.(nextValue);
     }
   };
@@ -252,7 +251,6 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
         const indexes = pickerRef.current?.getIndexes();
         const nextValue = updateInnerValue(indexes);
         setCurrentDate(nextValue);
-        currentDateRef.current = nextValue;
       }
     }, 0);
   });
@@ -268,7 +266,6 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
 
     if (nextValue && nextValue.valueOf() !== currentDate?.valueOf()) {
       setCurrentDate(nextValue);
-      currentDateRef.current = nextValue;
     }
   }, [value, filter, minDate, maxDate]);
 

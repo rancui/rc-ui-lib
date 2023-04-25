@@ -79,12 +79,12 @@ describe('DatePicker', () => {
     expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
     expect(onConfirm.mock.calls[0][0].getDate()).toEqual(1);
 
-    // await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -800]);
-    // await sleep(400);
+    await TestsEvent.triggerDrag(container.querySelectorAll('.rc-picker-column')[0], [0, -800]);
+    await sleep(400);
 
-    // fireEvent.click(confirmBtn);
-    // expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(11);
-    // expect(onConfirm.mock.calls[1][0].getDate()).toEqual(31);
+    fireEvent.click(confirmBtn);
+    expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(11);
+    expect(onConfirm.mock.calls[1][0].getDate()).toEqual(1);
   });
 
   it('year-month type', async () => {
