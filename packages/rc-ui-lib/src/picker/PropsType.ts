@@ -54,6 +54,20 @@ export type PickerExpose = {
   setColumnValues: (index: number, options: PickerOption[]) => void;
 };
 
+export type PickerColumnExpose = {
+  state: {
+    offset: number;
+    duration: number;
+    options: PickerOption;
+  };
+  getIndex: () => number;
+  getOptions: () => PickerOption[];
+  setIndex: (indexes: number) => void;
+  getValue: () => PickerOption;
+  setValue: (value: string) => void;
+  setOptions: (option: PickerOption[]) => void;
+};
+
 export type PickerInstance = PickerExpose;
 export interface Column {
   values?: string[];
@@ -97,7 +111,7 @@ export interface PickerCommonProps extends BaseTypeProps {
   /** 自定义选项下方内容	 */
   columnsBottom?: React.ReactNode;
   /** 自定义确认按钮内容	 */
-  optionRender?: (option: string | object) => React.ReactNode;
+  optionRender?: (option: string | PickerOption) => React.ReactNode;
 }
 
 export interface PickerSingleProps extends PickerCommonProps {
@@ -128,6 +142,6 @@ export interface PickerColumnProps extends BaseTypeProps {
   swipeDuration?: number | string;
   visibleItemCount?: number | string;
   initialOptions?: PickerOption[];
-  optionRender?: (option: string | object) => React.ReactNode;
+  optionRender?: (option: string | PickerOption) => React.ReactNode;
   onChange?: (value?: number | string, index?: number) => void;
 }
