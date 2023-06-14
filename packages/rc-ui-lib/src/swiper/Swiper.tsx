@@ -289,12 +289,13 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
   const dragProps = { ...(props.allowTouchMove ? bind() : {}) };
 
   const stopPropagationProps: Partial<Record<any, any>> = {};
-  for (const key of props.stopPropagation) {
+  props.stopPropagation.forEach(key => {
     const prop = eventToPropRecord[key];
     stopPropagationProps[prop] = function (e: Event) {
       e.stopPropagation();
     };
-  }
+  })
+
 
   const mergedProps = mergeFuncProps(dragProps, stopPropagationProps);
 
