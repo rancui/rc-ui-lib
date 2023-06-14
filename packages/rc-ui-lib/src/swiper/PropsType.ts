@@ -4,6 +4,8 @@ import { BaseTypeProps } from '../utils';
 type DirectionTypes = 'horizontal' | 'vertical';
 type IndicatorColorTypes = 'primary' | 'white';
 
+type PropagationEvent = "mousedown" | "mousemove" | "mouseup"
+
 export type PageIndicatorProps = {
   total: number;
   current: number;
@@ -43,6 +45,8 @@ export interface SwiperProps extends BaseTypeProps {
   stuckAtBoundary?: boolean;
   /** 子元素 */
   children?: React.ReactElement | React.ReactElement[];
+  /** 阻止事件冒泡  */
+  stopPropagation?: PropagationEvent[];
 }
 
 export interface SwiperInstance {

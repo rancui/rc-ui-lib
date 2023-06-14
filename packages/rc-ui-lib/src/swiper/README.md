@@ -196,6 +196,11 @@ export default () => {
 | stuckAtBoundary | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | _boolean_ | `false` |
 | indicator | 自定义指示器 | _boolean \| (total, current) => ReactNode_ | - |
 | indicatorProps | 指示器属性 | _IndicatorProps_ | - |
+| stopPropagation | 阻止某些事件的冒泡[2.0.2] | _PropagationEvent[]_ | [] |
+
+```ts
+type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown';
+```
 
 ### DirectionTypes 格式
 
