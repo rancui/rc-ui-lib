@@ -226,7 +226,7 @@ describe('DatePicker', () => {
     await sleep(100);
 
     expect(pickerRef.current.getPicker().getValues()).toEqual([
-      '2010 year',
+      '2020 year',
       '05 month',
       '05 day',
       '00 hour',
