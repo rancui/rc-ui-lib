@@ -160,6 +160,7 @@ exports[`Cascader should render option correctly when using defaultValue prop 1`
               loop={false}
               onIndexChange={[Function]}
               slideSize={100}
+              stopPropagation={Array []}
               stuckAtBoundary={false}
               trackOffset={0}
             >
@@ -473,6 +474,7 @@ exports[`Cascader when value change 1`] = `
               loop={false}
               onIndexChange={[Function]}
               slideSize={100}
+              stopPropagation={Array []}
               stuckAtBoundary={false}
               trackOffset={0}
             >

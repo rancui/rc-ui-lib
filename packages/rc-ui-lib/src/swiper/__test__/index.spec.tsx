@@ -303,4 +303,27 @@ describe('Swipe test with testing library', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('stop propagation should be work', async () => {
+    const onMouseDown = jest.fn();
+    const onMouseMove = jest.fn();
+    const onMouseUp = jest.fn();
+
+    const { container } = render(
+      <Swiper style={swipeStyle} stopPropagation={['mousedown', 'mousemove', 'mouseup']}>
+        <Swiper.Item>1</Swiper.Item>
+        <Swiper.Item>2</Swiper.Item>
+        <Swiper.Item>3</Swiper.Item>
+      </Swiper>,
+    );
+
+    const track = container.querySelector('.rc-swiper__track');
+    mockOffset(track);
+    await TestsEvent.triggerDrag(track, [-100, 0]);
+    await sleep(100);
+
+    expect(onMouseDown).not.toBeCalled();
+    expect(onMouseMove).not.toBeCalled();
+    expect(onMouseUp).not.toBeCalled();
+  });
 });

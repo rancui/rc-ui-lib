@@ -21,17 +21,28 @@ import { devWarning } from '../utils/dev-log';
 import { noop } from '../utils';
 import { getRect } from '../hooks/get-rect';
 import useMountedRef from '../hooks/use-mounted-ref';
+import { mergeFuncProps } from '../utils/with-func-props';
 
 function modulus(value: number, division: number) {
   const remainder = value % division;
   return remainder < 0 ? remainder + division : remainder;
 }
 
+const eventToPropRecord = {
+  mousedown: 'onMouseDown',
+  mousemove: 'onMouseMove',
+  mouseup: 'onMouseUp',
+} as const;
+
+let currentUid: undefined | {};
+
 const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('swiper', prefixCls);
 
   const { loop: outerLoop, autoplay, direction, autoplayInterval } = props;
+
+  const [uid] = useState({});
 
   const lock = useRef<boolean>(false);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -123,10 +134,24 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     [count],
   );
 
+  const dragCancelRef = useRef<(() => void) | null>(null);
+  function forceCancelDrag() {
+    dragCancelRef.current?.();
+    draggingRef.current = false;
+  }
+
   const bind = useDrag(
     (state) => {
-      if (lock.current) return;
+      dragCancelRef.current = state.cancel;
+      if (!state.intentional) return;
+      if (state.first && !currentUid) {
+        currentUid = uid;
+      }
+      if (currentUid !== uid) return;
+      currentUid = state.last ? undefined : uid;
       const slidePixels = getSlidePixels();
+
+      if (lock.current) return;
       if (!slidePixels) return;
       const paramIndex = isVertical ? 1 : 0;
       const offset = state.offset[paramIndex];
@@ -203,6 +228,7 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     if (draggingRef.current) {
       e.stopPropagation();
     }
+    forceCancelDrag();
   };
 
   function swipeTo(index: number, immediate = false) {
@@ -260,6 +286,18 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     devWarning('Swiper', '`Swiper` needs at least one child.');
   }
 
+  const dragProps = { ...(props.allowTouchMove ? bind() : {}) };
+
+  const stopPropagationProps: Partial<Record<any, any>> = {};
+  for (const key of props.stopPropagation) {
+    const prop = eventToPropRecord[key];
+    stopPropagationProps[prop] = function (e: Event) {
+      e.stopPropagation();
+    };
+  }
+
+  const mergedProps = mergeFuncProps(dragProps, stopPropagationProps);
+
   return (
     <div
       ref={setRoot}
@@ -274,7 +312,7 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
           }),
         )}
         onClickCapture={onClickCapture}
-        {...(props.allowTouchMove ? bind() : {})}
+        {...mergedProps}
       >
         <div
           className={classnames(
@@ -318,6 +356,7 @@ Swiper.defaultProps = {
   slideSize: 100,
   stuckAtBoundary: false,
   trackOffset: 0,
+  stopPropagation: [],
 };
 
 Swiper.displayName = 'Swiper';
