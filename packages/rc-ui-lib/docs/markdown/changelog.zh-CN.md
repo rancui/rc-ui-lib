@@ -16,6 +16,24 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+## [2.0.3](https://github.com/rancui/rc-ui-lib/compare/v2.0.2...v2.0.3)
+
+`2023-06-20` **Features**
+
+- PasswordInput: 新增可清空输入框内容的 ref 函数 ([24a5331](https://github.com/rancui/rc-ui-lib/commit/24a53317f5000accf65854284ec01f5492b28540))
+
+### [2.0.2](https://github.com/rancui/rc-ui-lib/compare/v2.0.1...v2.0.2)
+
+`2023-06-14` **Features**
+
+- DateTimePicker: 新增嵌套功能、添加 stopPropagation 属性([4dd65dd](https://github.com/rancui/rc-ui-lib/commit/4dd65dd73de8eaaa61c42f569279bb82e8a331ec))
+
+### [2.0.1](https://github.com/rancui/rc-ui-lib/compare/v1.3.6...v2.0.0)
+
+`2023-04-25` **Bug Fixes**
+
+- DateTimePicker: 修复级联选择选项没有刷新的问题
+
 ### [2.0.0](https://github.com/rancui/rc-ui-lib/compare/v1.3.6...v2.0.0)
 
 `2023-03-08` **Features**
@@ -38,7 +56,9 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ### [1.3.4](https://github.com/rancui/rc-ui-lib/compare/v1.3.3...v1.3.4)
 
-`2022-06-27` **Bug Fixes**
+`2022-06-27`
+
+**Bug Fixes**
 
 - 显性增加 children 属性，修复部分场景出错([829569d](https://github.com/rancui/rc-ui-lib/commit/829569df7479b7b6967b55b8d4e557424d69fece))
 
