@@ -32,4 +32,9 @@ export interface PasswordInputProps {
 export type PasswordInputInstance = {
   focus: () => void;
   blur: () => void;
+  /**
+   * 清空密码
+   * @returns
+   */
+  resetValue: () => void;
 };

@@ -63,6 +63,9 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
       onBlur();
       nativeInputRef.current?.blur();
     },
+    resetValue: () => {
+      setInputValue('');
+    },
   }));
 
   const onTouchStart = (event) => {

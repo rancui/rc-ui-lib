@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { components } from 'site-mobile-demo';
 import PasswordInput from '..';
+import Button from '../../button';
 import { NumberKeyboard } from '../..';
 import './style.less';
+
+import type { PasswordInputInstance } from '..';
 
 const initialValue = {
   nativeInput: '123',
@@ -11,12 +14,13 @@ const initialValue = {
   basicUsage: '123',
   removeMask: '123',
   customLength: '123',
+  setValue: '123',
 };
 
 export default (): React.ReactNode => {
   const { DemoSection, DemoBlock } = components;
 
-  const [values] = useState(initialValue);
+  const [values, setValues] = useState(initialValue);
   const [current, setCurrent] = useState(null);
 
   const [errorInfo, setErrorInfo] = useState<string>('');
@@ -27,6 +31,9 @@ export default (): React.ReactNode => {
   const addGutterRef = useRef(null);
   const removeMaskRef = useRef(null);
   const showInfoRef = useRef(null);
+  const setValueRef = useRef(null);
+
+  const psdRef = useRef<PasswordInputInstance>(null);
 
   const refMap = {
     showInfo: showInfoRef,
@@ -35,6 +42,7 @@ export default (): React.ReactNode => {
     basicUsage: basicUsageRef,
     removeMask: removeMaskRef,
     customLength: customLengthRef,
+    setValue: setValueRef,
   };
 
   useEffect(() => {
@@ -125,6 +133,27 @@ export default (): React.ReactNode => {
           onBlur={handleBlur}
           onChange={(value) => handleChange(value, 'showInfo')}
           keyboard={<NumberKeyboard />}
+        />
+      </DemoBlock>
+      <DemoBlock ref={setValueRef} card title="手动清空密码">
+        <Button
+          type="primary"
+          onClick={() => {
+            psdRef.current?.resetValue();
+          }}
+          style={{
+            margin: 'var(--rc-password-input-margin) var(--rc-padding-md)',
+          }}
+        >
+          清空密码
+        </Button>
+        <PasswordInput
+          ref={psdRef}
+          value={values.setValue}
+          mask={false}
+          focused={current === 'setValue'}
+          onBlur={handleBlur}
+          onFocus={() => handleFocus('setValue')}
         />
       </DemoBlock>
     </DemoSection>

@@ -145,12 +145,20 @@ const handleFill = () => {
 | onBlur   | 输入框失焦回调 | -             |
 | onFocus  | 输入框聚焦回调 | -             |
 
+### Ref
+
+| 事件名     | 说明                                     | 回调参数 |
+| ---------- | ---------------------------------------- | -------- |
+| focus      | 输入框聚焦回调，若是原生输入则会自动聚焦 | -        |
+| blur       | 输入框失焦，若是原生输入则会自动失焦     | -        |
+| resetValue | 清空输入框                               | -        |
+
 ### 类型定义
 
 组件导出以下类型定义：
 
 ```js
-import type { PasswordInputProps } from 'rc-ui-lib';
+import type { PasswordInputProps, PasswordInputInstance } from 'rc-ui-lib';
 ```
 
 ## 主题定制
