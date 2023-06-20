@@ -16,7 +16,7 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
-## [2.0.3](https://github.com/rancui/rc-ui-lib/compare/v2.0.2...v2.0.3)
+### [2.0.3](https://github.com/rancui/rc-ui-lib/compare/v2.0.2...v2.0.3)
 
 `2023-06-20` **Features**
 
