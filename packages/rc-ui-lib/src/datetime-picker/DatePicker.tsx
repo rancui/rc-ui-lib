@@ -4,7 +4,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
+  memo,
   useCallback,
 } from 'react';
 
@@ -35,7 +35,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
       date = props.minDate;
     }
 
-    date = Math.max(date, props.minDate.getTime());
+    date = Math.max(new Date(date).getTime(), props.minDate.getTime());
     date = Math.min(date, props.maxDate.getTime());
 
     return new Date(date);
@@ -43,6 +43,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
 
   const pickerRef = useRef<PickerInstance>(null);
   const [currentDate, setCurrentDate, currentDateRef] = useRefState(formatValue(value));
+
 
   const getBoundary = (type: 'max' | 'min', dateValue: Date) => {
     const boundary = props[`${type}Date`];
@@ -245,15 +246,15 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     props.onConfirm?.(currentDate);
   };
 
-  useMount(() => {
-    setTimeout(() => {
-      if (pickerRef.current) {
-        const indexes = pickerRef.current?.getIndexes();
-        const nextValue = updateInnerValue(indexes);
-        setCurrentDate(nextValue);
-      }
-    }, 0);
-  });
+  // useMount(() => {
+  //   setTimeout(() => {
+  //     if (pickerRef.current) {
+  //       const indexes = pickerRef.current?.getIndexes();
+  //       const nextValue = updateInnerValue(indexes);
+  //       setCurrentDate(nextValue);
+  //     }
+  //   }, 0);
+  // });
 
   useEffect(() => {
     updateColumnValue();
@@ -296,4 +297,4 @@ DatePicker.defaultProps = {
 
 DatePicker.displayName = 'DatePicker';
 
-export default DatePicker;
+export default memo(DatePicker);

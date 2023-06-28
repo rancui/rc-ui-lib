@@ -12,8 +12,8 @@ export default function useRefState<T>(
   const setRefState = useCallback(
     (patch) => {
       setState((prevState) => {
-        // eslint-disable-next-line no-return-assign
-        return (ref.current = isFunction(patch) ? patch(prevState) : patch);
+        // 仅判断 patch 是否是函数
+        return isFunction(patch) ? patch(prevState) : patch;
       });
     },
     [state],
