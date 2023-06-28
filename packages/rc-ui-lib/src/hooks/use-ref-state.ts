@@ -13,7 +13,7 @@ export default function useRefState<T>(
     (patch) => {
       setState((prevState) => {
         // eslint-disable-next-line no-return-assign
-        return (ref.current = isFunction(patch) ? patch(prevState) : patch);
+        return (ref.current === isFunction(patch) ? patch(prevState) : patch);
       });
     },
     [state],
