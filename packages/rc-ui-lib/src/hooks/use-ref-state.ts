@@ -12,6 +12,7 @@ export default function useRefState<T>(
   const setRefState = useCallback(
     (patch) => {
       setState((prevState) => {
+        // 仅判断 patch 是否是函数
         return isFunction(patch) ? patch(prevState) : patch;
       });
     },
