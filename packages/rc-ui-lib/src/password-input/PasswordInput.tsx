@@ -68,11 +68,6 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
     },
   }));
 
-  const onTouchStart = (event) => {
-    event.stopPropagation();
-    props.onFocus?.();
-  };
-
   const renderPoints = () => {
     const Points: JSX.Element[] = [];
     const { mask, gutter } = props;
@@ -114,7 +109,6 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
       >
         <ul
           className={classNames(bem('security'), { [BORDER_SURROUND]: !props.gutter })}
-          onTouchStart={onTouchStart}
         >
           {renderPoints()}
         </ul>
