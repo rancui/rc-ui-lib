@@ -73,6 +73,8 @@ describe('DatePicker', () => {
       onConfirm,
     });
 
+    await sleep(400);
+
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);
 
@@ -83,7 +85,7 @@ describe('DatePicker', () => {
     await sleep(400);
 
     fireEvent.click(confirmBtn);
-    // expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(11);
+    expect(onConfirm.mock.calls[1][0].getMonth()).toEqual(11);
     expect(onConfirm.mock.calls[1][0].getDate()).toEqual(1);
   });
 
@@ -100,9 +102,10 @@ describe('DatePicker', () => {
       onConfirm,
     });
 
+    await sleep(100);
+
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);
-    await sleep(100);
     expect(onConfirm.mock.calls[0][0].getFullYear()).toEqual(2020);
     expect(onConfirm.mock.calls[0][0].getMonth()).toEqual(10);
 
@@ -154,6 +157,8 @@ describe('DatePicker', () => {
       onConfirm,
     });
 
+    await sleep(400);
+
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);
 
@@ -183,6 +188,8 @@ describe('DatePicker', () => {
       value: defaultValue,
       onConfirm,
     });
+
+    await sleep(400);
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     fireEvent.click(confirmBtn);

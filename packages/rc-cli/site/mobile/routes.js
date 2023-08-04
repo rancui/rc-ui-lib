@@ -19,7 +19,6 @@ export function getLangFromRoute(pathname) {
 }
 
 function getRoutes() {
-  console.log(demos);
   const routes = [];
   const names = Object.keys(demos);
   const langs = locales ? Object.keys(locales) : [];
@@ -82,7 +81,6 @@ function getRoutes() {
       meta: {},
     });
   }
-  console.log(routes);
 
   return routes;
 }
