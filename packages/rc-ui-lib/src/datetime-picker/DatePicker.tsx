@@ -44,7 +44,6 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
   const pickerRef = useRef<PickerInstance>(null);
   const [currentDate, setCurrentDate, currentDateRef] = useRefState(formatValue(value));
 
-
   const getBoundary = (type: 'max' | 'min', dateValue: Date) => {
     const boundary = props[`${type}Date`];
     const year = boundary.getFullYear();
@@ -243,7 +242,12 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
   };
 
   const onConfirm = () => {
-    props.onConfirm?.(currentDate);
+    if (pickerRef.current) {
+      const indexes = pickerRef.current?.getIndexes();
+      const nextValue = updateInnerValue(indexes);
+      setCurrentDate(nextValue);
+      props.onConfirm?.(nextValue);
+    }
   };
 
   // useMount(() => {

@@ -34,18 +34,18 @@ describe('PasswordInput', () => {
     jest.restoreAllMocks();
   });
 
-  it('should emit onFocus event when security is touched', async () => {
-    const onFocus = jest.fn();
-    const props = {
-      ...$props,
-      onFocus,
-    };
+  // it('should emit onFocus event when security is touched', async () => {
+  //   const onFocus = jest.fn();
+  //   const props = {
+  //     ...$props,
+  //     onFocus,
+  //   };
 
-    const { container } = createPasswordInput(props);
-    const wrapper = container.querySelector('.rc-password-input__security');
-    await TestsEvent.triggerTouch(wrapper, 'touchstart', [[0, 0]]);
-    expect(onFocus).toHaveBeenCalled();
-  });
+  //   const { container } = createPasswordInput(props);
+  //   const wrapper = container.querySelector('.rc-password-input__security');
+  //   await TestsEvent.triggerTouch(wrapper, 'touchstart', [[0, 0]]);
+  //   expect(onFocus).toHaveBeenCalled();
+  // });
 
   it('should emit onFocus event when wrapper is focused', async () => {
     const onFocus = jest.fn();

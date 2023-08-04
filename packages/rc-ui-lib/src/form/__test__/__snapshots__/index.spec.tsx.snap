@@ -99,6 +99,7 @@ exports[`Form basic usage 1`] = `
                     "validateTrigger": "onChange",
                   }
                 }
+                isListField={false}
                 key="_username"
                 name={
                   Array [
@@ -130,6 +131,7 @@ exports[`Form basic usage 1`] = `
                         "username",
                       ],
                       "touched": false,
+                      "validated": false,
                       "validating": false,
                       "warnings": Array [],
                     }
@@ -457,6 +459,7 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
                     "validateTrigger": "onChange",
                   }
                 }
+                isListField={false}
                 key="_name"
                 name={
                   Array [
@@ -476,6 +479,7 @@ exports[`Form when name props is set without shouldUpdate or dependencies 1`] = 
                         "name",
                       ],
                       "touched": false,
+                      "validated": false,
                       "validating": false,
                       "warnings": Array [],
                     }
@@ -824,6 +828,7 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
                     "validateTrigger": "onChange",
                   }
                 }
+                isListField={false}
                 key="_"
                 trigger="onChange"
                 validateTrigger="onChange"
@@ -836,6 +841,7 @@ exports[`Form when shouldUpdate and dependencies are not set 1`] = `
                       "errors": Array [],
                       "name": Array [],
                       "touched": false,
+                      "validated": false,
                       "validating": false,
                       "warnings": Array [],
                     }
@@ -948,6 +954,7 @@ exports[`Form when shouldUpdate props is set 1`] = `
                     "validateTrigger": "onChange",
                   }
                 }
+                isListField={false}
                 key="_"
                 shouldUpdate={true}
                 trigger="onChange"
@@ -961,6 +968,7 @@ exports[`Form when shouldUpdate props is set 1`] = `
                       "errors": Array [],
                       "name": Array [],
                       "touched": false,
+                      "validated": false,
                       "validating": false,
                       "warnings": Array [],
                     }

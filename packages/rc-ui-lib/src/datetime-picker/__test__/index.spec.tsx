@@ -110,6 +110,8 @@ describe('DateTimePicker', () => {
       onConfirm,
     });
 
+    await sleep(100);
+
     act(() => {
       pickerRef.current.getPicker().setColumnIndex(2, 14);
     });
@@ -131,6 +133,8 @@ describe('DateTimePicker', () => {
       maxDate: new Date(2020, 0, 30),
       onConfirm,
     });
+
+    await sleep(100);
 
     act(() => {
       pickerRef.current.getPicker().setColumnValue(2, '15');
