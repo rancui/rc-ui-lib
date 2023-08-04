@@ -16,6 +16,27 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### [2.0.5](https://github.com/rancui/rc-ui-lib/compare/v2.0.4...v2.0.5)
+
+`2023-08-04`
+
+**Bug Fixes**
+
+- PasswordInput： 修复组件阻止默认事件问题
+- DateTimePicker：修改 atePicker 中 confirm 时拿不到最新值的问题
+
+### [2.0.4](https://github.com/rancui/rc-ui-lib/compare/v2.0.3...v2.0.4)
+
+`2023-07-28`
+
+**Bug Fixes**
+
+- DateTimePicker: useRefState hook 判断逻辑的调整 以及 修复设置 value 无效问题
+
+**Features**
+
+- DateTimePicker: 新增清空输入框 ref 函数
+
 ### [2.0.3](https://github.com/rancui/rc-ui-lib/compare/v2.0.2...v2.0.3)
 
 `2023-06-20` **Features**
