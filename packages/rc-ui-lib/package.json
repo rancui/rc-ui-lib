@@ -15,7 +15,7 @@
     "lint": "rc-cli lint",
     "build": "rc-cli build",
     "type": "tsc -p tsconfig.json",
-    "release": "cp ../../README.md ./ && rc-cli release && rm ./README.md",
+    "release": "cpy ../../README.md . --flat && rc-cli release && rimraf ./README.md",
     "changelog": "rc-cli changelog",
     "build:site": "rc-cli build-site",
     "release:site": "pnpm build:site && gh-pages -d site",

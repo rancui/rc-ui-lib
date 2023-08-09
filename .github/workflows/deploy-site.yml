@@ -5,7 +5,6 @@ on:
     branches: [main]
     paths:
       - 'packages/rc-ui-lib/docs/**'
-      - 'packages/rc-ui-lib/src/**'
 
 jobs:
   build-and-deploy:
