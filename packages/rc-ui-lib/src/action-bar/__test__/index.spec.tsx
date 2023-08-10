@@ -1,10 +1,9 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import Icon from '../../icon';
 import ActionBar from '..';
 import { sleep } from '../../../tests/utils';
 import { mockGetBoundingClientRect } from '../../utils/dom/mock';
-import { cleanup, fireEvent, render } from '@testing-library/react';
 
 describe('ActionBar', () => {
   afterEach(() => {

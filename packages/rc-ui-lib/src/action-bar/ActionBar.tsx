@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { ActionBarProps } from './PropsType';
 import ActionBarContext from './ActionBarContext';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
-import useHeight from '../hooks/use-height';
+import { usePlaceholder } from '../hooks/use-placeholder';
 
 const ActionBar: React.FC<ActionBarProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
@@ -12,17 +12,7 @@ const ActionBar: React.FC<ActionBarProps> = (props) => {
 
   const children = useMemo(() => React.Children.toArray(props.children), [props.children]);
 
-  const renderPlaceholder = (renderContent: () => React.ReactElement) => {
-    const height = useHeight(root);
-    return (
-      <div
-        className={classnames(bem('placeholder'))}
-        style={{ height: height ? `${height}px` : undefined }}
-      >
-        {renderContent()}
-      </div>
-    );
-  };
+  const renderPlaceholder = usePlaceholder(root, bem);
 
   const renderActionBar = () => (
     <ActionBarContext.Provider value={{ parent: { children } }}>
