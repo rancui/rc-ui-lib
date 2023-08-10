@@ -78,6 +78,7 @@ export default () => {
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | safeAreaInsetBottom | 是否开启[底部安全区适配](#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_ | `true` |
+| placeholder | 是否在标签位置生成一个等高的占位元素 | _boolean_ | `false` |
 
 ### ActionBarIcon Props
 
@@ -87,7 +88,7 @@ export default () => {
 | icon | 图标 | _string\|ReactNode_ | - |
 | color | 图标颜色 | _string_ | `#323233` |
 | iconClass | 图标额外类名 | _string_ | - |
-| icoPrefix | 图标类名前缀，等同于 Icon 组件的 [classPrefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
+| iconPrefix | 图标类名前缀，等同于 Icon 组件的 [classPrefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
 | badge | 图标右上角徽标设置 | _BadgeProps_ | - |
 | onClick | 点击事件 | _(event) => void_ | - |
 
@@ -96,7 +97,7 @@ export default () => {
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | text | 按钮文字 | _ReactNode_ | - |
-| type | 按钮类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
+| type | 按钮类型，可选值为 `default` `primary` `info` `warning` `danger` | _string_ | `default` |
 | color | 按钮颜色，支持传入 `linear-gradient` 渐变色 | _string_ | - |
 | icon | 左侧[图标名称](#/zh-CN/icon)或图片链接 | _string_ | - |
 | disabled | 是否禁用按钮 | _boolean_ | `false` |
