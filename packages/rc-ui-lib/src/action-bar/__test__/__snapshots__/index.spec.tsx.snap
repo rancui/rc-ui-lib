@@ -1,1023 +1,447 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionBar basic usage with ActionBar.Icon 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarIcon
-      icon="chat-o"
-      index={0}
-      key=".0"
-      text="客服"
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          name="chat-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-chat-o"
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        客服
-      </div>
-    </ActionBarIcon>
-    <ActionBarIcon
-      icon="cart-o"
-      index={1}
-      key=".1"
-      text="购物车"
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
+      />
+      客服
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          name="cart-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-cart-o"
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        购物车
-      </div>
-    </ActionBarIcon>
-    <ActionBarIcon
-      icon="shop-o"
-      index={2}
-      key=".2"
-      text="店铺"
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
+      />
+      购物车
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          name="shop-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-shop-o"
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-shop-o"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        店铺
-      </div>
-    </ActionBarIcon>
-    <ActionBarButton
-      index={3}
-      key=".3"
-      text="立即购买"
-      type="danger"
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-shop-o"
+      />
+      店铺
+    </div>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-action-bar-button--first rc-button rc-button--danger rc-button--large"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-action-bar-button--first"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="danger"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-action-bar-button--first rc-button rc-button--danger rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              立即购买
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
+          立即购买
+        </span>
+      </div>
+    </button>
   </div>
-</ActionBar>
+</div>
 `;
 
-exports[`ActionBar should allow to disable safe-area-inset-bottom prop 1`] = `"<div class=\\"rc-action-bar\\"><div role=\\"button\\" class=\\"rc-action-bar-icon\\" tabindex=\\"0\\"><div class=\\"rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o\\"></div>客服</div><div role=\\"button\\" class=\\"rc-action-bar-icon\\" tabindex=\\"0\\"><div class=\\"rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o\\"></div>购物车</div><div role=\\"button\\" class=\\"rc-action-bar-icon\\" tabindex=\\"0\\"><div class=\\"rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-shop-o\\"></div>店铺</div></div>"`;
+exports[`ActionBar should allow to disable safe-area-inset-bottom prop 1`] = `
+<div>
+  <div
+    class="rc-action-bar"
+  >
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
+      />
+      客服
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
+      />
+      购物车
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-shop-o"
+      />
+      店铺
+    </div>
+  </div>
+</div>
+`;
 
 exports[`ActionBar should render correctly when color prop in ActionBarIcon 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarIcon
-      color="#ee0a24"
-      icon="chat-o"
-      index={0}
-      key=".0"
-      text="客服"
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          color="#ee0a24"
-          name="chat-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-chat-o"
-            showZero={true}
-            style={
-              Object {
-                "color": "#ee0a24",
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
-              style={
-                Object {
-                  "color": "#ee0a24",
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        客服
-      </div>
-    </ActionBarIcon>
-    <ActionBarIcon
-      icon="cart-o"
-      index={1}
-      key=".1"
-      text="购物车"
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
+        style="color: rgb(238, 10, 36);"
+      />
+      客服
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          name="cart-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-cart-o"
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        购物车
-      </div>
-    </ActionBarIcon>
-    <ActionBarIcon
-      color="#ff5000"
-      icon="star"
-      index={2}
-      key=".2"
-      text="店铺"
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
+      />
+      购物车
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          color="#ff5000"
-          name="star"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-star"
-            showZero={true}
-            style={
-              Object {
-                "color": "#ff5000",
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-star"
-              style={
-                Object {
-                  "color": "#ff5000",
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        店铺
-      </div>
-    </ActionBarIcon>
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-star"
+        style="color: rgb(255, 80, 0);"
+      />
+      店铺
+    </div>
   </div>
-</ActionBar>
+</div>
 `;
 
 exports[`ActionBar should render correctly when icon prop in ActionBarIcon 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarIcon
-      color="#ee0a24"
-      icon="chat-o"
-      index={0}
-      key=".0"
-      text="客服"
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
+        style="color: rgb(238, 10, 36);"
+      />
+      客服
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="rc-badge__wrapper rc-action-bar-icon__icon"
       >
-        <Icon
-          className="rc-action-bar-icon__icon"
-          color="#ee0a24"
-          name="chat-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-chat-o"
-            showZero={true}
-            style={
-              Object {
-                "color": "#ee0a24",
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
-              style={
-                Object {
-                  "color": "#ee0a24",
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
-        客服
-      </div>
-    </ActionBarIcon>
-    <ActionBarIcon
-      icon={
-        <Icon
-          name="shop-o"
-          tag="i"
+        <i
+          class="rc-badge__wrapper van-icon van-icon-shop-o"
         />
-      }
-      index={1}
-      key=".1"
-      text="购物车"
-    >
-      <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <Badge
-          className="rc-action-bar-icon__icon"
-          showZero={true}
-          tag="div"
-        >
-          <div
-            className="rc-badge__wrapper rc-action-bar-icon__icon"
-          >
-            <Icon
-              name="shop-o"
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-shop-o"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-shop-o"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-        </Badge>
-        购物车
       </div>
-    </ActionBarIcon>
+      购物车
+    </div>
   </div>
-</ActionBar>
+</div>
 `;
 
 exports[`ActionBar should render correctly when using badge prop in ActionBarIcon 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarIcon
-      badge={
-        Object {
-          "dot": true,
-        }
-      }
-      icon="chat-o"
-      index={0}
-      key=".0"
-      text="客服"
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
       >
-        <Icon
-          badge={
-            Object {
-              "dot": true,
-            }
-          }
-          className="rc-action-bar-icon__icon"
-          name="chat-o"
-          tag="div"
-        >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-chat-o"
-            dot={true}
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            >
-              <div
-                className="rc-badge rc-badge--dot rc-badge--fixed"
-                style={
-                  Object {
-                    "background": undefined,
-                  }
-                }
-              />
-            </div>
-          </Badge>
-        </Icon>
-        客服
+        <div
+          class="rc-badge rc-badge--dot rc-badge--fixed"
+        />
       </div>
-    </ActionBarIcon>
-    <ActionBarIcon
-      badge={
-        Object {
-          "content": 5,
-        }
-      }
-      icon="cart-o"
-      index={1}
-      key=".1"
-      text="购物车"
+      客服
+    </div>
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
+        class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
       >
-        <Icon
-          badge={
-            Object {
-              "content": 5,
-            }
-          }
-          className="rc-action-bar-icon__icon"
-          name="cart-o"
-          tag="div"
+        <div
+          class="rc-badge rc-badge--fixed"
         >
-          <Badge
-            className="rc-action-bar-icon__icon van-icon van-icon-cart-o"
-            content={5}
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="div"
-          >
-            <div
-              className="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            >
-              <div
-                className="rc-badge rc-badge--fixed"
-                style={
-                  Object {
-                    "background": undefined,
-                  }
-                }
-              >
-                5
-              </div>
-            </div>
-          </Badge>
-        </Icon>
-        购物车
+          5
+        </div>
       </div>
-    </ActionBarIcon>
+      购物车
+    </div>
   </div>
-</ActionBar>
+</div>
 `;
 
 exports[`ActionBar should render correctly when using color prop in ActionBarButton 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarButton
-      color="red"
-      index={0}
-      key=".0"
-      text="加入购物车"
-      type="warning"
+    <button
+      class="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
+      style="color: rgb(255, 255, 255); background: red; border-color: red;"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first"
-        color="red"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="warning"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "red",
-              "borderColor": "red",
-              "color": "#fff",
-            }
-          }
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              加入购物车
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
-    <ActionBarButton
-      color="linear-gradient(to right, #ffd01e, #ff8917)"
-      index={1}
-      key=".1"
-      text="立即购买"
-      type="danger"
+          加入购物车
+        </span>
+      </div>
+    </button>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
+      style="color: rgb(255, 255, 255); border: 0px;"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last"
-        color="linear-gradient(to right, #ffd01e, #ff8917)"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="danger"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "linear-gradient(to right, #ffd01e, #ff8917)",
-              "border": 0,
-              "color": "#fff",
-            }
-          }
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              立即购买
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
+          立即购买
+        </span>
+      </div>
+    </button>
   </div>
-</ActionBar>
+</div>
 `;
 
 exports[`ActionBar should render correctly when using icon prop in ActionBarButton 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarButton
-      icon="shop-o"
-      index={0}
-      key=".0"
-      text="加入购物车"
-      type="warning"
+    <button
+      class="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first"
-        icon="shop-o"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="warning"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
-        >
-          <div
-            className="rc-button__content"
-          >
-            <Icon
-              className="rc-button__icon"
-              name="shop-o"
-              tag="i"
-            >
-              <Badge
-                className="rc-button__icon van-icon van-icon-shop-o"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper rc-button__icon van-icon van-icon-shop-o"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              加入购物车
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
-    <ActionBarButton
-      icon={
-        <Icon
-          name="chat-o"
-          tag="i"
+        <i
+          class="rc-badge__wrapper rc-button__icon van-icon van-icon-shop-o"
         />
-      }
-      index={1}
-      key=".1"
-      text="立即购买"
-      type="danger"
-    >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last"
-        icon={
-          <Icon
-            name="chat-o"
-            tag="i"
-          />
-        }
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="danger"
-      >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <Icon
-              name="chat-o"
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-chat-o"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-chat-o"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              立即购买
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
+          加入购物车
+        </span>
+      </div>
+    </button>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
+    >
+      <div
+        class="rc-button__content"
+      >
+        <i
+          class="rc-badge__wrapper van-icon van-icon-chat-o"
+        />
+        <span
+          class="rc-button__text"
+        >
+          立即购买
+        </span>
+      </div>
+    </button>
   </div>
-</ActionBar>
+</div>
 `;
 
 exports[`ActionBar should render correctly when using type prop and text prop in ActionBarButton 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarButton
-      index={0}
-      key=".0"
-      text="加入购物车"
-      type="warning"
+    <button
+      class="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="warning"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              加入购物车
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
-    <ActionBarButton
-      index={1}
-      key=".1"
-      text="立即购买"
-      type="danger"
+          加入购物车
+        </span>
+      </div>
+    </button>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="danger"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              立即购买
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
+          立即购买
+        </span>
+      </div>
+    </button>
   </div>
-</ActionBar>
+</div>
+`;
+
+exports[`ActionBar should render placeholder element when using placeholder prop 1`] = `
+<div>
+  <div
+    class="rc-action-bar__placeholder"
+    style="height: 50px;"
+  >
+    <div
+      class="rc-action-bar"
+    >
+      <div
+        class="rc-action-bar-icon"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
+        />
+        客服
+      </div>
+      <div
+        class="rc-action-bar-icon"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
+        />
+        购物车
+      </div>
+      <div
+        class="rc-action-bar-icon"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-shop-o"
+        />
+        店铺
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`ActionBar when ActionBarButton does not wrapperd by ActionBar 1`] = `
 <div>
-  <ActionBarButton
-    text="加入购物车"
-    type="warning"
-  >
-    <Button
-      className="rc-action-bar-button rc-action-bar-button--warning"
-      iconPosition="left"
-      size="large"
-      tag="button"
-      type="warning"
+  <div>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--warning rc-button rc-button--warning rc-button--large"
     >
-      <button
-        className="rc-action-bar-button rc-action-bar-button--warning rc-button rc-button--warning rc-button--large"
-        onClick={[Function]}
-        style={Object {}}
+      <div
+        class="rc-button__content"
       >
-        <div
-          className="rc-button__content"
+        <span
+          class="rc-button__text"
         >
-          <span
-            className="rc-button__text"
-            key="text"
-          >
-            加入购物车
-          </span>
-        </div>
-      </button>
-    </Button>
-  </ActionBarButton>
-  <ActionBarButton
-    text="立即购买"
-    type="danger"
-  >
-    <Button
-      className="rc-action-bar-button rc-action-bar-button--danger"
-      iconPosition="left"
-      size="large"
-      tag="button"
-      type="danger"
+          加入购物车
+        </span>
+      </div>
+    </button>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--danger rc-button rc-button--danger rc-button--large"
     >
-      <button
-        className="rc-action-bar-button rc-action-bar-button--danger rc-button rc-button--danger rc-button--large"
-        onClick={[Function]}
-        style={Object {}}
+      <div
+        class="rc-button__content"
       >
-        <div
-          className="rc-button__content"
+        <span
+          class="rc-button__text"
         >
-          <span
-            className="rc-button__text"
-            key="text"
-          >
-            立即购买
-          </span>
-        </div>
-      </button>
-    </Button>
-  </ActionBarButton>
+          立即购买
+        </span>
+      </div>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`ActionBar when ActionBarButton has children 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarButton
-      index={0}
-      key=".0"
-      type="warning"
+    <button
+      class="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="warning"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--warning rc-action-bar-button--first rc-button rc-button--warning rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              加入购物车
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
-    <ActionBarButton
-      index={1}
-      key=".1"
-      type="danger"
+          加入购物车
+        </span>
+      </div>
+    </button>
+    <button
+      class="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
     >
-      <Button
-        className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last"
-        iconPosition="left"
-        size="large"
-        tag="button"
-        type="danger"
+      <div
+        class="rc-button__content"
       >
-        <button
-          className="rc-action-bar-button rc-action-bar-button--danger rc-action-bar-button--last rc-button rc-button--danger rc-button--large"
-          onClick={[Function]}
-          style={Object {}}
+        <span
+          class="rc-button__text"
         >
-          <div
-            className="rc-button__content"
-          >
-            <span
-              className="rc-button__text"
-              key="text"
-            >
-              立即购买
-            </span>
-          </div>
-        </button>
-      </Button>
-    </ActionBarButton>
+          立即购买
+        </span>
+      </div>
+    </button>
   </div>
-</ActionBar>
+</div>
 `;
 
 exports[`ActionBar when icon prop in ActionBarIcon is not isValidElement 1`] = `
-<ActionBar
-  safeAreaInsetBottom={true}
->
+<div>
   <div
-    className="rc-action-bar rc-safe-area-bottom"
+    class="rc-action-bar rc-safe-area-bottom"
   >
-    <ActionBarIcon
-      color="#ee0a24"
-      icon={123}
-      index={0}
-      key=".0"
-      text="客服"
+    <div
+      class="rc-action-bar-icon"
+      role="button"
+      tabindex="0"
     >
-      <div
-        className="rc-action-bar-icon"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        客服
-      </div>
-    </ActionBarIcon>
+      客服
+    </div>
   </div>
-</ActionBar>
+</div>
 `;

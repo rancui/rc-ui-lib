@@ -6,6 +6,8 @@ import { BaseTypeProps } from '../utils';
 export interface ActionBarProps extends BaseTypeProps {
   /** 是否开启底部安全区适配	 */
   safeAreaInsetBottom?: boolean;
+  /** 是否在标签位置生成一个等高的占位元素  */
+  placeholder?: boolean;
   /** 自元素 */
   children?: React.ReactNode;
 }
