@@ -22,7 +22,7 @@ function formatType(type: string) {
   const MAP: Record<string, string> = {
     fix: 'Bug Fixes',
     feat: 'Feature',
-    docs: 'Document',
+    // docs: 'Document',
     types: 'Types',
   };
 
@@ -30,7 +30,7 @@ function formatType(type: string) {
 }
 
 function transform(item: any) {
-  if (item.type === 'chore' || item.type === 'test') {
+  if (item.type === 'chore' || item.type === 'test' || item.type === 'docs') {
     return null;
   }
 
@@ -90,7 +90,7 @@ async function updateChangelog(spinner: ora.Ora) {
       return;
     }
     const generatedText = readFileSync(DIST_FILE);
-    const insertIndex = match.index + match[0].length + 4;
+    const insertIndex = match.index + match[0].length + 2;
     const updatedContent =
       content.slice(0, insertIndex) + generatedText + '\r\n' + content.slice(insertIndex);
     fse.writeFile(CHANGELOG_MD, updatedContent, 'utf8', (err) => {
