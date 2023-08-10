@@ -16,7 +16,33 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
-### [2.0.5](https://github.com/rancui/rc-ui-lib/compare/v2.0.4...v2.0.5)
+##### [v2.0.6](https://github.com/rancui/rc-ui-lib/compare/v2.0.5...v2.0.6)
+
+`2023-08-10`
+
+**Document**
+
+- update changelog.zh-CN.md [983618](https://github.com/rancui/rc-ui-lib/commit/9836185903540cb4bfd12baa3ffc66053176455d)
+
+**Feature**
+
+- ActionBar: 新增 placeholder 属性 [#62](https://github.com/rancui/rc-ui-lib/issues/62)
+### [v2.0.5](https://github.com/rancui/rc-ui-lib/compare/v2.0.3...v2.0.5)
+
+`2023-08-04`
+
+**Bug Fixes**
+
+- DateTimePicker 设置 value 无效 [#59](https://github.com/rancui/rc-ui-lib/issues/59)
+- pubish  error [aaef17](https://github.com/rancui/rc-ui-lib/commit/aaef179995cdf3f430395f5aac60b59f7c4d5eca)
+- 修复PasswordInput组件阻止默认事件问题 [#60](https://github.com/rancui/rc-ui-lib/issues/60)
+
+**Document**
+
+- update changelog.zh-CN.md [5db505](https://github.com/rancui/rc-ui-lib/commit/5db5053c521d2684120691fc9e3fe24255055608)
+- update changlog.zh-CN.md [2ac02b](https://github.com/rancui/rc-ui-lib/commit/2ac02b87874879230a19820865dd8fbb60b84b33)
+
+# [2.0.5](https://github.com/rancui/rc-ui-lib/compare/v2.0.4...v2.0.5)
 
 `2023-08-04`
 
