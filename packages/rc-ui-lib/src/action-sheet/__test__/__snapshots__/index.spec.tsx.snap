@@ -11,6 +11,7 @@ Array [
     <Badge
       className="rc-action-sheet__close van-icon van-icon-success"
       onClick={[Function]}
+      position="top-right"
       showZero={true}
       style={
         Object {
@@ -35,6 +36,7 @@ Array [
   <Badge
     className="rc-action-sheet__close van-icon van-icon-success"
     onClick={[Function]}
+    position="top-right"
     showZero={true}
     style={
       Object {

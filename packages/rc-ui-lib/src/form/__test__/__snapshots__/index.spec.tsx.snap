@@ -209,6 +209,7 @@ exports[`Form basic usage 1`] = `
                             >
                               <Badge
                                 className="van-icon van-icon-question-o"
+                                position="top-right"
                                 showZero={true}
                                 style={
                                   Object {

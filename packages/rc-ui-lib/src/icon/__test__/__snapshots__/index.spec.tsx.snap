@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon should render badge correctly 1`] = `"<div class=\\"rc-badge rc-badge--fixed\\">9</div>"`;
+exports[`Icon should render badge correctly 1`] = `"<div class=\\"rc-badge rc-badge--top-right rc-badge--fixed\\">9</div>"`;
 
 exports[`Icon should render correctly when createFromIconfontCN 1`] = `
 <Iconfont
@@ -14,6 +14,7 @@ exports[`Icon should render correctly when createFromIconfontCN 1`] = `
   >
     <Badge
       className="van-icon van-icon-cuIcon-classify"
+      position="top-right"
       showZero={true}
       style={
         Object {
@@ -49,7 +50,7 @@ exports[`Icon should render correctly when createFromIconfontCN 1`] = `
 
 exports[`Icon should render default slot correctly 1`] = `"<i class=\\"rc-badge__wrapper van-icon van-icon-success\\">Default Slot</i>"`;
 
-exports[`Icon should render dot correctly 1`] = `"<div class=\\"rc-badge rc-badge--dot rc-badge--fixed\\"></div>"`;
+exports[`Icon should render dot correctly 1`] = `"<div class=\\"rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed\\"></div>"`;
 
 exports[`Icon should render icon with builtin icon name correctly 1`] = `"<i class=\\"rc-badge__wrapper van-icon van-icon-success\\"></i>"`;
 

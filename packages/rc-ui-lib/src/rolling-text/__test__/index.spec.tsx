@@ -109,7 +109,7 @@ describe('RollingText test', () => {
     act(() => {
       rollingTextRef.current.reset();
     });
-    await sleep();
+
     expect(container.querySelector(itemWrapperClass).classList).not.toContain(animationClass);
     await sleep(50);
     expect(container.querySelector(itemWrapperClass).classList).toContain(animationClass);

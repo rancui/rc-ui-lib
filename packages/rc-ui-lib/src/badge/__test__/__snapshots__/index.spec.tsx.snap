@@ -1,105 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render content slot correctly 1`] = `
-<Badge
-  content={
-    <Icon
-      className="badge-icon"
-      name="success"
-      tag="i"
-    />
-  }
-  showZero={true}
-  tag="div"
->
+exports[`Badge should render className prop correctly 1`] = `
+<div>
   <div
-    className="rc-badge__wrapper"
+    class="test-badge rc-badge rc-badge--top-right"
+  >
+    <i
+      class="rc-badge__wrapper badge-icon van-icon van-icon-success"
+    />
+  </div>
+</div>
+`;
+
+exports[`Badge should render content prop correctly 1`] = `
+<div>
+  <div
+    class="rc-badge__wrapper"
   >
     <div
-      className="child"
+      class="child"
     />
     <div
-      className="rc-badge rc-badge--fixed"
-      style={
-        Object {
-          "background": undefined,
-        }
-      }
+      class="rc-badge rc-badge--top-right rc-badge--fixed"
     >
-      <Icon
-        className="badge-icon"
-        name="success"
-        tag="i"
-      >
-        <Badge
-          className="badge-icon van-icon van-icon-success"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper badge-icon van-icon van-icon-success"
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
+      <i
+        class="rc-badge__wrapper badge-icon van-icon van-icon-success"
+      />
     </div>
   </div>
-</Badge>
+</div>
 `;
 
-exports[`should render nothing when content is empty string 1`] = `
-<Badge
-  content=""
-  showZero={true}
-  tag="div"
-/>
-`;
+exports[`Badge should render nothing when content is empty string 1`] = `<div />`;
 
-exports[`should render nothing when content is undefined 1`] = `
-<Badge
-  content="undefined"
-  showZero={true}
-  tag="div"
->
+exports[`Badge should render nothing when content is undefined 1`] = `
+<div>
   <div
-    className="rc-badge"
-    style={
-      Object {
-        "background": undefined,
-      }
-    }
+    class="rc-badge rc-badge--top-right"
   >
     undefined
   </div>
-</Badge>
+</div>
 `;
 
-exports[`should render nothing when content is zero 1`] = `
-<Badge
-  content="0"
-  showZero={true}
-  tag="div"
->
+exports[`Badge should render nothing when content is zero 1`] = `
+<div>
   <div
-    className="rc-badge"
-    style={
-      Object {
-        "background": undefined,
-      }
-    }
+    class="rc-badge rc-badge--top-right"
   >
     0
   </div>
-</Badge>
+</div>
 `;

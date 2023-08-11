@@ -24,7 +24,7 @@ export async function test(command: Config.Argv) {
     debug: command.debug,
     coverage: command.coverage,
     colors: command.colors,
-    updateSnapshot: command.u,
+    updateSnapshot: command.updateSnapshot,
     // make jest tests faster
     // see: https://ivantanev.com/make-jest-faster/
     maxWorkers: '50%',

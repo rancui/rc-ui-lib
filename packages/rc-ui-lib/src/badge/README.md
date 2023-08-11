@@ -18,16 +18,16 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="5">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="10">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="Hot">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge dot>
-  <div class="child" />
+  <div className="child" />
 </Badge>
 
 <style>
@@ -46,13 +46,13 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="20" max="9">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="50" max="20">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="200" max="99">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 ```
 
@@ -62,13 +62,13 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content="5" color="#1989fa">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge content="10" color="#1989fa">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 <Badge dot color="#1989fa">
-  <div class="child" />
+  <div className="child" />
 </Badge>
 ```
 
@@ -76,7 +76,7 @@ import { Badge } from 'rc-ui-lib';
 
 ```jsx
 <Badge content={<Icon name="success" className="badge-icon" />}>
-  <div class="child" />
+  <div className="child" />
 </Badge>
 ```
 
@@ -87,6 +87,22 @@ import { Badge } from 'rc-ui-lib';
   line-height: 16px;
 }
 ```
+### 自定义徽标位置
+
+通过 `position` 属性来设置徽标的位置。
+
+```jsx
+<Badge content="10" position="top-left">
+  <div className="child" />
+</Badge>
+<Badge content="10" position="bottom-left">
+  <div className="child" />
+</Badge>
+<Badge content="10" position="bottom-right">
+  <div className="child" />
+</Badge>
+```
+
 
 ### 独立展示
 
@@ -110,12 +126,20 @@ import { Badge } from 'rc-ui-lib';
 | max | 最大值，超过最大值会显示 `{max}+`，仅当 content 为数字时有效 | _number \| string_ | - |
 | offset | 设置徽标的偏移量，数组的两项分别对应水平和垂直方向的偏移量，默认单位为 `px` | _[number \| string, number \| string]_ | - |
 | showZero | 当 content 为数字 0 时，是否展示徽标 | _boolean_ | `true` |
+| position | 徽标位置，可选值为 `top-left` `bottom-left` `bottom-right` | _string_ | `top-right` |
 
 ### 事件
 
 | 事件名  | 说明       | 回调参数       |
 | ------- | ---------- | -------------- |
 | onClick | 点击时触发 | _event: Event_ |
+
+### 类型定义
+
+组件导出以下类型定义：
+
+```ts
+import type { BadgeProps, BadgePosition, BadgeThemeVars } from 'rc-ui-lib';
 
 ## 主题定制
 

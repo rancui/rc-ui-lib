@@ -1,99 +1,200 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { cleanup, render } from '@testing-library/react';
 import Badge from '../index';
 import Icon from '../../icon';
+import { sleep } from '../../../tests/utils';
 
-it('should render nothing when content is empty string', () => {
-  const wrapper = mount(<Badge content="" />);
-
-  expect(toJson(wrapper)).toMatchSnapshot();
-});
-
-it('should render nothing when content is undefined', () => {
-  const wrapper = mount(<Badge content="undefined" />);
-
-  expect(toJson(wrapper)).toMatchSnapshot();
-});
-
-it('should render nothing when content is zero', () => {
-  const wrapper = mount(<Badge content="0" />);
-
-  expect(toJson(wrapper)).toMatchSnapshot();
-});
-
-it('should render content slot correctly', () => {
-  const wrapper = mount(
-    <Badge content={<Icon name="success" className="badge-icon" />}>
-      <div className="child" />
-    </Badge>,
-  );
-
-  expect(toJson(wrapper)).toMatchSnapshot();
-});
-
-it('should change dot position when using offset prop', async () => {
-  const wrapper = mount(
-    <Badge dot offset={[2, 4]}>
-      <div className="child" />
-    </Badge>,
-  );
-
-  const badge = wrapper.find('.rc-badge');
-  expect(badge.props().style.top).toEqual('4px');
-  expect(badge.props().style.right).toEqual('-2px');
-
-  await wrapper.setProps({
-    offset: [-2, -4],
+describe('Badge', () => {
+  afterEach(() => {
+    cleanup();
+    jest.restoreAllMocks();
   });
-  expect(wrapper.find('.rc-badge').props().style.top).toEqual('-4px');
-  expect(wrapper.find('.rc-badge').props().style.right).toEqual('2px');
-});
+  it('should render nothing when content is empty string', () => {
+    const { container } = render(<Badge content="" />);
 
-it('should change dot position when using offset prop with custom unit', async () => {
-  const wrapper = mount(
-    <Badge dot offset={['2rem', '4em']}>
-      <div className="child" />
-    </Badge>,
-  );
-
-  const badge = wrapper.find('.rc-badge');
-  expect(badge.getDOMNode().style.top).toEqual('4em');
-  expect(badge.getDOMNode().style.right).toEqual('-2rem');
-
-  await wrapper.setProps({
-    offset: ['-2rem', '-4em'],
+    expect(container).toMatchSnapshot();
   });
 
-  expect(wrapper.find('.rc-badge').props().style.top).toEqual('-4em');
-  expect(wrapper.find('.rc-badge').props().style.right).toEqual('2rem');
-});
+  it('should render nothing when content is undefined', () => {
+    const { container } = render(<Badge content="undefined" />);
 
-it('should change dot position when using offset prop without children', () => {
-  const wrapper = mount(<Badge dot offset={[2, 4]} />);
+    expect(container).toMatchSnapshot();
+  });
 
-  const badge = wrapper.find('.rc-badge');
-  expect(badge.props().style.marginTop).toEqual('4px');
-  expect(badge.props().style.marginLeft).toEqual('2px');
-});
+  it('should render nothing when content is zero', () => {
+    const { container } = render(<Badge content="0" />);
 
-it('should not render zero when show-zero is false', async () => {
-  const wrapper = mount(
-    <Badge content="0">
-      <div className="child" />
-    </Badge>,
-  );
+    expect(container).toMatchSnapshot();
+  });
 
-  expect(wrapper.find('.rc-badge').exists()).toBeTruthy();
-  await wrapper.setProps({ showZero: false });
-  expect(wrapper.find('.rc-badge').exists()).toEqual(false);
-});
+  it('should render className prop correctly', () => {
+    const { container } = render(
+      <Badge className="test-badge" content={<Icon name="success" className="badge-icon" />} />,
+    );
 
-it('can set custom max count', () => {
-  const wrapper = mount(
-    <Badge content={100} max={99}>
-      news
-    </Badge>,
-  );
-  expect(wrapper.find('.rc-badge').text()).toBe('99+');
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render content prop correctly', () => {
+    const { container } = render(
+      <Badge content={<Icon name="success" className="badge-icon" />}>
+        <div className="child" />
+      </Badge>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should change dot position when using offset prop', async () => {
+    const { container, rerender } = render(
+      <Badge dot offset={[2, 4]}>
+        <div className="child" />
+      </Badge>,
+    );
+
+    const style = getComputedStyle(container.querySelector('.rc-badge'));
+    expect(style.top).toEqual('4px');
+    expect(style.right).toEqual('-2px');
+
+    rerender(
+      <Badge dot offset={[-2, -4]}>
+        <div className="child" />
+      </Badge>,
+    );
+
+    await sleep(100);
+    const style2 = getComputedStyle(container.querySelector('.rc-badge'));
+    expect(style2.top).toEqual('-4px');
+    expect(style2.right).toEqual('2px');
+  });
+
+  it('should change dot position when using offset prop with custom unit', async () => {
+    const { container, rerender } = render(
+      <Badge dot offset={['2rem', '4em']}>
+        <div className="child" />
+      </Badge>,
+    );
+
+    const style = getComputedStyle(container.querySelector('.rc-badge'));
+    expect(style.top).toEqual('4em');
+    expect(style.right).toEqual('-2rem');
+
+    rerender(
+      <Badge dot offset={['-2rem', '-4em']}>
+        <div className="child" />
+      </Badge>,
+    );
+
+    await sleep(10);
+    const style2 = getComputedStyle(container.querySelector('.rc-badge'));
+
+    expect(style2.top).toEqual('-4em');
+    expect(style2.right).toEqual('2rem');
+  });
+
+  it('should change dot position when using offset prop without children', () => {
+    const { container } = render(<Badge dot offset={[2, 4]} />);
+
+    const badge = container.querySelector('.rc-badge');
+    const style = getComputedStyle(badge);
+    expect(style.marginTop).toEqual('4px');
+    expect(style.marginLeft).toEqual('2px');
+  });
+
+  it('should not render zero when show-zero is false', async () => {
+    const { container, rerender } = render(
+      <Badge content="0">
+        <div className="child" />
+      </Badge>,
+    );
+
+    expect(container.querySelector('.rc-badge')).toBeTruthy();
+
+    rerender(
+      <Badge content="0" showZero={false}>
+        <div className="child" />
+      </Badge>,
+    );
+
+    await sleep(10);
+
+    expect(container.querySelector('.rc-badge')).toBeFalsy();
+  });
+
+  it('can set custom max count', () => {
+    const { container } = render(
+      <Badge content={100} max={99}>
+        news
+      </Badge>,
+    );
+    expect(container.querySelector('.rc-badge').textContent).toBe('99+');
+  });
+
+  it('should change dot position when using offset prop and position is bottom-right', async () => {
+    const { container, rerender } = render(
+      <Badge dot offset={[2, '-4rem']} position="bottom-right">
+        news
+      </Badge>,
+    );
+
+    const badge = container.querySelector('.rc-badge');
+    const style = getComputedStyle(badge);
+
+    expect(style.bottom).toEqual('4rem');
+    expect(style.right).toEqual('-2px');
+
+    rerender(
+      <Badge dot offset={['2rem', -4]} position="bottom-right">
+        news
+      </Badge>,
+    );
+
+    await sleep(10);
+
+    const style2 = getComputedStyle(container.querySelector('.rc-badge'));
+
+    expect(style2.bottom).toEqual('4px');
+    expect(style2.right).toEqual('-2rem');
+  });
+
+  it('should change dot position when using offset prop and position is bottom-left', async () => {
+    const { container, rerender } = render(
+      <Badge dot offset={[2, '-4rem']} position="bottom-left">
+        news
+      </Badge>,
+    );
+
+    const badge = container.querySelector('.rc-badge');
+    const style = getComputedStyle(badge);
+
+    expect(style.bottom).toEqual('4rem');
+    expect(style.left).toEqual('2px');
+
+    rerender(
+      <Badge dot offset={['2rem', 4]} position="bottom-left">
+        news
+      </Badge>,
+    );
+
+    await sleep(10);
+
+    const style2 = getComputedStyle(container.querySelector('.rc-badge'));
+
+    expect(style2.bottom).toEqual('-4px');
+    expect(style2.left).toEqual('2rem');
+  });
+
+  it('should change dot position when using offset prop and position is top-left', async () => {
+    const { container } = render(
+      <Badge dot offset={[2, '-4rem']} position="top-left">
+        news
+      </Badge>,
+    );
+
+    const badge = container.querySelector('.rc-badge');
+    const style = getComputedStyle(badge);
+
+    expect(style.top).toEqual('-4rem');
+    expect(style.left).toEqual('2px');
+  });
 });

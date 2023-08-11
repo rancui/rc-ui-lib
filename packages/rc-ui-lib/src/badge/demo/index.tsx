@@ -20,6 +20,9 @@ export default (): React.ReactNode => {
         <Badge dot>
           <div className="child" />
         </Badge>
+        <Badge content={10} offset={['2rem', -4]} position="bottom-right">
+          <div className="child" />
+        </Badge>
       </DemoBlock>
       <DemoBlock title="最大值">
         <Badge content={20} max={9}>
@@ -51,6 +54,17 @@ export default (): React.ReactNode => {
           <div className="child" />
         </Badge>
         <Badge content={<Icon name="down" className="badge-icon" />}>
+          <div className="child" />
+        </Badge>
+      </DemoBlock>
+      <DemoBlock title="自定义徽标位置">
+        <Badge content={10} position="top-left">
+          <div className="child" />
+        </Badge>
+        <Badge content={10} position="bottom-left">
+          <div className="child" />
+        </Badge>
+        <Badge content={10} position="bottom-right">
           <div className="child" />
         </Badge>
       </DemoBlock>
