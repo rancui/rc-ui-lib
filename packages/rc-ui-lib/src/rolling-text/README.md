@@ -155,12 +155,12 @@ import type {
 `RollingTextInstance` 是组件实例的类型，用法如下：
 
 ```ts
-import { ref } from 'vue';
+import { useRef } from 'react';
 import type { RollingTextInstance } from 'rc-ui-lib';
 
-const rollingTextRef = ref<RollingTextInstance>();
+const rollingTextRef = useRef<RollingTextInstance>();
 
-rollingTextRef.value?.start();
+rollingTextRef.current?.start();
 ```
 
 ## 主题定制
