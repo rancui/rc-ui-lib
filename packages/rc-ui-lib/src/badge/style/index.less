@@ -30,11 +30,33 @@
 
   &--fixed {
     position: absolute;
+    transform-origin: 100%;
+  }
+
+  &--top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &--top-right {
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
-    transform-origin: 100%;
   }
+
+  &--bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+  }
+
+  &--bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+  }
+
 
   &--dot {
     width: var(--rc-badge-dot-size);
@@ -42,6 +64,8 @@
     height: var(--rc-badge-dot-size);
     background-color: var(--rc-badge-dot-color);
     border-radius: 100%;
+    border: none;
+    padding: 0;
   }
 
   &__wrapper {

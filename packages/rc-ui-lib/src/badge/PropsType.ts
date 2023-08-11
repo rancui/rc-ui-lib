@@ -4,6 +4,8 @@ import { BaseTypeProps } from '../utils';
 /** HTML 标签	 */
 export type HtmlTagType = keyof HTMLElementTagNameMap;
 
+export type BadgePosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
 export interface BadgeProps extends BaseTypeProps {
   /** 徽标内容 */
   content?: number | string | React.ReactNode;
@@ -24,6 +26,7 @@ export interface BadgeProps extends BaseTypeProps {
    * @default div
    */
   tag?: HtmlTagType;
+  position?: BadgePosition;
   /** 自元素 */
   children?: React.ReactNode;
   onClick?: (e: React.MouseEvent) => void;
@@ -34,3 +37,16 @@ export type BadgeSettingProps = Omit<
   BadgeProps,
   'children' | 'tag' | 'onClick' | 'style' | 'className'
 >;
+
+export type BadgeThemeVars = {
+  badgeSize?: string;
+  badgeColor?: string;
+  badgePadding?: string;
+  badgeFontSize?: string;
+  badgeFontWeight?: string;
+  badgeBorderWidth?: string;
+  badgeBackground?: string;
+  badgeDotColor?: string;
+  badgeDotSize?: string;
+  badgeFont?: string;
+};

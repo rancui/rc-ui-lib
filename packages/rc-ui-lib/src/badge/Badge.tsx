@@ -12,15 +12,12 @@ const Badge: React.FC<BadgeProps> = (props) => {
   const [bem] = createNamespace('badge', prefixCls);
 
   const hasContent = () => {
-    // if (props.content) {
-    //   return true;
-    // }
     return isDef(content) && content !== '' && (showZero || +content !== 0);
   };
 
   const renderContent = () => {
     if (!dot && hasContent()) {
-      if (isDef(max) && isNumeric(content?.toString()) && +content > max) {
+      if (isDef(max) && isNumeric(content?.toString()) && +content > +max) {
         return `${max}+`;
       }
 
@@ -28,6 +25,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
     }
     return null;
   };
+
+  const getOffsetWithMinusString = (val: string) =>
+    val.startsWith('-') ? val.replace('-', '') : `-${val}`;
 
   const renderBadge = () => {
     if (hasContent() || props.dot) {
@@ -37,13 +37,20 @@ const Badge: React.FC<BadgeProps> = (props) => {
 
       if (props.offset) {
         const [x, y] = props.offset;
+        const { position } = props;
+        const [offsetY, offsetX] = position.split('-') as ['top' | 'bottom', 'left' | 'right'];
 
         if (props.children) {
-          style.top = addUnit(y);
-          if (typeof x === 'number') {
-            style.right = addUnit(-x);
+          if (typeof y === 'number') {
+            style[offsetY] = addUnit(offsetY === 'top' ? y : -y);
           } else {
-            style.right = x.startsWith('-') ? x.replace('-', '') : `-${x}`;
+            style[offsetY] = offsetY === 'top' ? addUnit(y) : getOffsetWithMinusString(y);
+          }
+
+          if (typeof x === 'number') {
+            style[offsetX] = addUnit(offsetX === 'left' ? x : -x);
+          } else {
+            style[offsetX] = offsetX === 'left' ? addUnit(x) : getOffsetWithMinusString(x);
           }
         } else {
           style.marginTop = addUnit(y);
@@ -60,7 +67,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
             {
               [props.className]: props.className && !props.children,
             },
-            bem({ dot: props.dot, fixed: !!props.children }),
+            bem([props.position, { dot: props.dot, fixed: !!props.children }]),
           )}
           style={style}
         >
@@ -91,6 +98,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
 Badge.defaultProps = {
   tag: 'div',
   showZero: true,
+  position: 'top-right',
 };
 
 export default Badge;
