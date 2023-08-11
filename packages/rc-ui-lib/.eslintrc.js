@@ -5,6 +5,14 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/naming-convention': 0,
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
     'no-console': 0,

@@ -38,6 +38,7 @@ export { default as Progress } from './progress';
 export { default as PullRefresh } from './pull-refresh';
 export { default as Radio } from './radio';
 export { default as Rate } from './rate';
+export { default as RollingText } from './rolling-text';
 export { default as ShareSheet } from './share-sheet';
 export { default as Sidebar } from './sidebar';
 export { default as Skeleton } from './skeleton';

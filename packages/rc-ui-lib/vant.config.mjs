@@ -273,6 +273,10 @@ export default {
                 title: 'Progress 进度条',
               },
               {
+                path: 'rolling-text',
+                title: 'RollingText 翻滚文本',
+              },
+              {
                 path: 'sticky',
                 title: 'Sticky 粘性布局',
               },

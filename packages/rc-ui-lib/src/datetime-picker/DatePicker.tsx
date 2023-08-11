@@ -12,7 +12,7 @@ import Picker, { PickerInstance } from '../picker';
 
 import { DatePickerProps, DatetimePickerColumnType, DateTimePickerInstance } from './PropsType';
 import { getMonthEndDay, getTrueValue, times } from './utils';
-import { useMount, useUpdateEffect } from '../hooks';
+import { useUpdateEffect } from '../hooks';
 import { isDate } from '../utils/validate/date';
 import { padZero } from '../utils';
 import { doubleRaf } from '../utils/raf';

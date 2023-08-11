@@ -1,0 +1,74 @@
+
+:root {
+  --rc-rolling-text-background: inherit;
+  --rc-rolling-text-color: var(--rc-text-color);
+  --rc-rolling-text-font-size: var(--rc-font-size-md);
+  --rc-rolling-text-gap: 0;
+  --rc-rolling-text-item-width: 15px;
+  --rc-rolling-text-item-border-radius: 0;
+}
+
+.rc-rolling-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rc-rolling-text-color);
+  font-size: var(--rc-rolling-text-font-size);
+}
+
+.rc-rolling-text-item {
+  width: var(--rc-rolling-text-item-width);
+  margin-right: var(--rc-rolling-text-gap);
+  overflow: hidden;
+  background: var(--rc-rolling-text-background);
+  border-radius: var(--rc-rolling-text-item-border-radius);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__box {
+    overflow: hidden;
+
+    &--animate {
+      animation: rc-up var(--rc-duration) ease-in-out var(--rc-delay);
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+  }
+
+  &__item {
+    text-align: center;
+  }
+}
+
+.rc-rolling-text-item--down {
+  .rc-rolling-text-item__box {
+    transform: translateY(var(--rc-translate));
+
+    &--animate {
+      animation-name: rc-down;
+    }
+  }
+}
+
+@keyframes rc-down {
+  0% {
+    transform: translateY(var(--rc-translate));
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rc-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(var(--rc-translate));
+  }
+}
+
