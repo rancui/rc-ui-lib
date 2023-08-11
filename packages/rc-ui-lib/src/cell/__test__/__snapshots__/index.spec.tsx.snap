@@ -212,6 +212,7 @@ exports[`Cell should render icon slot correctly 1`] = `
     >
       <Badge
         className="rc-cell__left-icon van-icon van-icon-location-o"
+        position="top-right"
         showZero={true}
         style={
           Object {

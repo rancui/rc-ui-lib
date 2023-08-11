@@ -22,6 +22,7 @@ exports[`ConfigProvider when using themeVars prop 1`] = `
     >
       <Badge
         className="van-icon van-icon-success"
+        position="top-right"
         showZero={true}
         style={
           Object {

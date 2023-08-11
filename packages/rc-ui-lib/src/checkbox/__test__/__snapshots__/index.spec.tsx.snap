@@ -125,6 +125,7 @@ exports[`Checkbox.Group render value correctly 1`] = `
             >
               <Badge
                 className="van-icon van-icon-success"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {
@@ -220,6 +221,7 @@ exports[`Checkbox.Group render value correctly 1`] = `
             >
               <Badge
                 className="van-icon van-icon-success"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {
@@ -315,6 +317,7 @@ exports[`Checkbox.Group render value correctly 1`] = `
             >
               <Badge
                 className="van-icon van-icon-success"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {
@@ -427,6 +430,7 @@ exports[`Checkbox.Group renders correctly 1`] = `
             >
               <Badge
                 className="van-icon van-icon-success"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {
@@ -524,6 +528,7 @@ exports[`Checkbox.Group renders correctly 1`] = `
             >
               <Badge
                 className="van-icon van-icon-success"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {
@@ -620,6 +625,7 @@ exports[`Checkbox.Group renders correctly 1`] = `
             >
               <Badge
                 className="van-icon van-icon-success"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {

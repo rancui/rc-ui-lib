@@ -53,6 +53,7 @@ exports[`Cascader should render option correctly when using defaultValue prop 1`
         <Badge
           className="rc-cascader__close-icon van-icon van-icon-cross"
           onClick={[Function]}
+          position="top-right"
           showZero={true}
           style={
             Object {
@@ -253,6 +254,7 @@ exports[`Cascader should render option correctly when using defaultValue prop 1`
                                     >
                                       <Badge
                                         className="rc-cascader__selected-icon van-icon van-icon-success"
+                                        position="top-right"
                                         showZero={true}
                                         style={
                                           Object {
@@ -367,6 +369,7 @@ exports[`Cascader when value change 1`] = `
         <Badge
           className="rc-cascader__close-icon van-icon van-icon-cross"
           onClick={[Function]}
+          position="top-right"
           showZero={true}
           style={
             Object {
@@ -567,6 +570,7 @@ exports[`Cascader when value change 1`] = `
                                     >
                                       <Badge
                                         className="rc-cascader__selected-icon van-icon van-icon-success"
+                                        position="top-right"
                                         showZero={true}
                                         style={
                                           Object {

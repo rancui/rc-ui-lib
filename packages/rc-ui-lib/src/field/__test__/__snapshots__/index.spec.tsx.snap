@@ -12,6 +12,7 @@ Array [
     <Badge
       className="rc-field__clear van-icon van-icon-cross"
       onTouchStart={[Function]}
+      position="top-right"
       showZero={true}
       style={
         Object {
@@ -36,6 +37,7 @@ Array [
   <Badge
     className="rc-field__clear van-icon van-icon-cross"
     onTouchStart={[Function]}
+    position="top-right"
     showZero={true}
     style={
       Object {
@@ -145,6 +147,7 @@ exports[`Field should render extra slot correctly 1`] = `
       >
         <Badge
           className="van-icon van-icon-success"
+          position="top-right"
           showZero={true}
           style={
             Object {

@@ -43,6 +43,7 @@ exports[`Tabs should not render zero badge when show-zero-badge prop is false 1`
           >
             <Badge
               content={0}
+              position="top-right"
               showZero={true}
               tag="div"
             >
@@ -53,7 +54,7 @@ exports[`Tabs should not render zero badge when show-zero-badge prop is false 1`
                   className="rc-tab__text rc-tab__text--ellipsis"
                 />
                 <div
-                  className="rc-badge rc-badge--fixed"
+                  className="rc-badge rc-badge--top-right rc-badge--fixed"
                   style={
                     Object {
                       "background": undefined,
@@ -83,6 +84,7 @@ exports[`Tabs should not render zero badge when show-zero-badge prop is false 1`
           >
             <Badge
               content={0}
+              position="top-right"
               showZero={false}
               tag="div"
             >
@@ -207,6 +209,7 @@ exports[`Tabs should render card type correctly 1`] = `
           >
             <Badge
               content={1}
+              position="top-right"
               showZero={true}
               tag="div"
             >
@@ -217,7 +220,7 @@ exports[`Tabs should render card type correctly 1`] = `
                   className="rc-tab__text rc-tab__text--ellipsis"
                 />
                 <div
-                  className="rc-badge rc-badge--fixed"
+                  className="rc-badge rc-badge--top-right rc-badge--fixed"
                   style={
                     Object {
                       "background": undefined,
@@ -253,6 +256,7 @@ exports[`Tabs should render card type correctly 1`] = `
           >
             <Badge
               dot={true}
+              position="top-right"
               showZero={true}
               tag="div"
             >
@@ -263,7 +267,7 @@ exports[`Tabs should render card type correctly 1`] = `
                   className="rc-tab__text rc-tab__text--ellipsis"
                 />
                 <div
-                  className="rc-badge rc-badge--dot rc-badge--fixed"
+                  className="rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed"
                   style={
                     Object {
                       "background": undefined,

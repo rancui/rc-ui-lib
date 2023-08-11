@@ -47,6 +47,7 @@ exports[`Collapse should render CollapseItem correctly 1`] = `
             >
               <Badge
                 className="rc-cell__left-icon van-icon van-icon-shop-o"
+                position="top-right"
                 showZero={true}
                 style={
                   Object {

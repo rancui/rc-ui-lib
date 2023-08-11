@@ -180,7 +180,7 @@ exports[`ActionBar should render correctly when using badge prop in ActionBarIco
         class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-chat-o"
       >
         <div
-          class="rc-badge rc-badge--dot rc-badge--fixed"
+          class="rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed"
         />
       </div>
       客服
@@ -194,7 +194,7 @@ exports[`ActionBar should render correctly when using badge prop in ActionBarIco
         class="rc-badge__wrapper rc-action-bar-icon__icon van-icon van-icon-cart-o"
       >
         <div
-          class="rc-badge rc-badge--fixed"
+          class="rc-badge rc-badge--top-right rc-badge--fixed"
         >
           5
         </div>

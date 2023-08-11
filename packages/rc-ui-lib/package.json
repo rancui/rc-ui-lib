@@ -20,7 +20,7 @@
     "build:site": "rc-cli build-site",
     "release:site": "pnpm build:site && gh-pages -d site",
     "prepack": "pnpm build",
-    "test": "rc-cli test --u --colors --coverage",
+    "test": "rc-cli test --colors --coverage",
     "test:coverage": "open tests/coverage/index.html"
   },
   "author": "rancui",

@@ -51,6 +51,7 @@ exports[`Grid should render correctly when text prop is ReactNode 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -126,6 +127,7 @@ exports[`Grid should render correctly when using text prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -251,6 +253,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -312,6 +315,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -373,6 +377,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -434,6 +439,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -496,6 +502,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -558,6 +565,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -620,6 +628,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -682,6 +691,7 @@ exports[`Grid should render correctly with index prop 1`] = `
           >
             <Badge
               className="rc-grid-item__icon van-icon van-icon-photo-o"
+              position="top-right"
               showZero={true}
               style={
                 Object {
@@ -714,7 +724,7 @@ exports[`Grid should render correctly with index prop 1`] = `
 </Grid>
 `;
 
-exports[`Grid should render icon correctly 1`] = `"<div class=\\"rc-grid rc-hairline--top\\"><div class=\\"rc-grid-item\\" style=\\"flex-basis: 25%;\\"><div class=\\"rc-grid-item__content rc-grid-item__content--center rc-hairline\\"><i class=\\"rc-badge__wrapper rc-grid-item__icon van-icon van-icon-success\\" style=\\"color: red;\\"><div class=\\"rc-badge rc-badge--fixed\\">1</div></i></div></div></div>"`;
+exports[`Grid should render icon correctly 1`] = `"<div class=\\"rc-grid rc-hairline--top\\"><div class=\\"rc-grid-item\\" style=\\"flex-basis: 25%;\\"><div class=\\"rc-grid-item__content rc-grid-item__content--center rc-hairline\\"><i class=\\"rc-badge__wrapper rc-grid-item__icon van-icon van-icon-success\\" style=\\"color: red;\\"><div class=\\"rc-badge rc-badge--top-right rc-badge--fixed\\">1</div></i></div></div></div>"`;
 
 exports[`Grid should render square grid with gutter correctly 1`] = `
 <Grid
