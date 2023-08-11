@@ -1,0 +1,1075 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RollingText test should render comp 1`] = `
+<div>
+  <div
+    class="rc-rolling-text"
+  >
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -1640px; --rc-duration: 2s; --rc-delay: 0s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -1680px; --rc-duration: 2s; --rc-delay: 0.2s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -1720px; --rc-duration: 2s; --rc-delay: 0.4s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          9
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          8
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          7
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          6
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          5
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          4
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          3
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          2
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          1
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          0
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RollingText test should render correctly when using textList prop 1`] = `
+<div>
+  <div
+    class="rc-rolling-text"
+  >
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -240px; --rc-duration: 1s; --rc-delay: 0s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          g
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          f
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          e
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          d
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          c
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          b
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          a
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -240px; --rc-duration: 1s; --rc-delay: 0.2s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          g
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          f
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          e
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          d
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          c
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          b
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          a
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -240px; --rc-duration: 1s; --rc-delay: 0.4s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          g
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          f
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          e
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          d
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          c
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          b
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          a
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -240px; --rc-duration: 1s; --rc-delay: 0.6000000000000001s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          g
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          f
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          e
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          d
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          c
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          b
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          a
+        </div>
+      </div>
+    </div>
+    <div
+      class="rc-rolling-text-item rc-rolling-text-item--down"
+      style="height: 40px; --rc-translate: -240px; --rc-duration: 1s; --rc-delay: 0.8s;"
+    >
+      <div
+        class="rc-rolling-text-item__box rc-rolling-text-item__box--animate"
+      >
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          g
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          f
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          e
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          d
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          c
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          b
+        </div>
+        <div
+          class="rc-rolling-text-item__item"
+          style="line-height: 40px;"
+        >
+          a
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
