@@ -28,3 +28,7 @@ export interface WatermarkProps extends BaseTypeProps {
    */
   children?: React.ReactNode;
 }
+
+export type WatermarkThemeVars = {
+  watermarkZIndex?: number | string;
+};
