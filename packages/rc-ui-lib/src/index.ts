@@ -55,4 +55,5 @@ export { default as TextEllipsis } from './text-ellipsis';
 export { default as Toast } from './toast';
 export { default as Typography } from './typography';
 export { default as Uploader } from './uploader';
+export { default as Watermark } from './watermark';
 export * from './hooks';
