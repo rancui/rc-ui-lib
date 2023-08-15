@@ -74,7 +74,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         xmlnsXlink="http://www.w3.org/1999/xlink"
         style={{
           padding: `0 ${gapX}px ${gapY}px 0`,
-          opacity: opacity,
+          opacity,
           display: 'none',
         }}
       >
@@ -85,17 +85,17 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const makeImageToBase64 = (url: string) => {
     const canvas = document.createElement('canvas');
-    const image = new Image();
-    image.crossOrigin = 'anonymous';
-    image.referrerPolicy = 'no-referrer';
-    image.onload = () => {
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
+    const imageEl = new Image();
+    imageEl.crossOrigin = 'anonymous';
+    imageEl.referrerPolicy = 'no-referrer';
+    imageEl.onload = () => {
+      canvas.width = imageEl.naturalWidth;
+      canvas.height = imageEl.naturalHeight;
       const ctx = canvas.getContext('2d');
-      ctx?.drawImage(image, 0, 0);
+      ctx?.drawImage(imageEl, 0, 0);
       setImageBase64(canvas.toDataURL());
     };
-    image.src = url;
+    imageEl.src = url;
   };
   const makeSvgToBlobUrl = (svgStr: string) => {
     // svg MIME type: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
