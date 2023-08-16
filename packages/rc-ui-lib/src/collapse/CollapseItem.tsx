@@ -79,7 +79,7 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
   };
 
   const renderTitle = () => {
-    const { border, disabled, children, readonly, ...others } = props;
+    const { border, disabled, children: _children, readonly, ...others } = props;
 
     return (
       <Cell

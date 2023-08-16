@@ -1,90 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Collapse should render CollapseItem correctly 1`] = `
-<Collapse
-  border={true}
-  initValue={Array []}
-  value={Array []}
->
+<div>
   <div
-    className="rc-collapse rc-hairline--top-bottom"
+    class="rc-collapse rc-hairline--top-bottom"
   >
-    <CollapseItem
-      border={true}
-      icon="shop-o"
-      index={0}
-      isLink={true}
-      key=".0"
-      name="first"
-      rightIcon="question-o"
-      title="标题1"
-      value="this is value"
+    <div
+      class="rc-collapse-item"
     >
       <div
-        className="rc-collapse-item"
+        class="rc-cell rc-cell--clickable rc-collapse-item__title"
+        role="button"
       >
-        <Cell
-          aria-expanded="false"
-          className="rc-collapse-item__title"
-          icon="shop-o"
-          index={0}
-          isLink={true}
-          name="first"
-          onClick={[Function]}
-          rightIcon="question-o"
-          title="标题1"
-          value="this is value"
+        <i
+          class="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
+        />
+        <div
+          class="rc-cell__title"
         >
-          <div
-            className="rc-cell rc-cell--clickable rc-collapse-item__title"
-            onClick={[Function]}
-            role="button"
-          >
-            <Icon
-              className="rc-cell__left-icon"
-              name="shop-o"
-              tag="i"
-            >
-              <Badge
-                className="rc-cell__left-icon van-icon van-icon-shop-o"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-shop-o"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-            <div
-              className="rc-cell__title"
-            >
-              标题1
-            </div>
-            <div
-              className="rc-cell__value"
-            >
-              <span>
-                this is value
-              </span>
-            </div>
-            question-o
-          </div>
-        </Cell>
+          标题1
+        </div>
+        <div
+          class="rc-cell__value"
+        >
+          <span>
+            this is value
+          </span>
+        </div>
+        question-o
       </div>
-    </CollapseItem>
+    </div>
   </div>
-</Collapse>
+</div>
+`;
+
+exports[`Collapse when value is change 1`] = `
+<div>
+  <div
+    class="rc-collapse rc-hairline--top-bottom"
+  >
+    <div
+      class="rc-collapse-item"
+    >
+      <div
+        class="rc-cell rc-cell--clickable rc-collapse-item__title rc-collapse-item__title--expanded"
+        role="button"
+      >
+        <div
+          class="rc-cell__title"
+        >
+          标题1
+        </div>
+        <i
+          class="rc-badge__wrapper rc-cell__right-icon van-icon van-icon-arrow"
+        />
+      </div>
+      <div
+        class="rc-collapse-item__wrapper"
+      >
+        <div
+          class="rc-collapse-item__content"
+        >
+          内容
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

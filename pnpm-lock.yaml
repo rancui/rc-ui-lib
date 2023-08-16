@@ -331,12 +331,6 @@ importers:
       '@testing-library/react':
         specifier: ^12.1.2
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
-      '@types/enzyme':
-        specifier: ^3.10.12
-        version: 3.10.13
-      '@types/enzyme-to-json':
-        specifier: ^1.5.4
-        version: 1.5.4
       '@types/jest':
         specifier: ^27.0.3
         version: 27.5.2
@@ -2487,19 +2481,7 @@ packages:
     resolution: {integrity: sha512-Kt7Cdjjdi2XWSfrZ53v4Of0wG3ZcmaegFXjMmz9tfNrZSkzzo36G0AL1YqSdcIA78Etjt6E609pt5h1xnQkPUw==}
     dependencies:
       '@types/node': 14.18.52
-
-  /@types/enzyme-to-json@1.5.4:
-    resolution: {integrity: sha512-fVVzq0fYyzv+P/elB0HtTIpltNXK8Fs4LxGpTdQQ6cQMPNbVm3aZQkCYalBfZip2hTo8kNLtGTH8phP+Pi2FOw==}
-    dependencies:
-      '@types/enzyme': 3.10.13
-    dev: true
-
-  /@types/enzyme@3.10.13:
-    resolution: {integrity: sha512-FCtoUhmFsud0Yx9fmZk179GkdZ4U9B0GFte64/Md+W/agx0L5SxsIIbhLBOxIb9y2UfBA4WQnaG1Od/UsUQs9Q==}
-    dependencies:
-      '@types/cheerio': 0.22.31
-      '@types/react': 16.14.43
-    dev: true
+    dev: false
 
   /@types/estree@1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
@@ -2666,14 +2648,6 @@ packages:
     resolution: {integrity: sha512-VnCdSxfcm08KjsJVQcfBmhEQAPnLB8G08hAxn39azX1qYBQ/5RVQuoHuKIcfKOdncuaUvEpFKFzEvbtIMsfVew==}
     dependencies:
       '@types/react': 17.0.62
-    dev: true
-
-  /@types/react@16.14.43:
-    resolution: {integrity: sha512-7zdjv7jvoLLQg1tTvpQsm+hyNUMT2mPlNV1+d0I8fbGhkJl82spopMyBlu4wb1dviZAxpGdk5eHu/muacknnfw==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
     dev: true
 
   /@types/react@17.0.62:

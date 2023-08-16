@@ -1,41 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Overlay should render default slot correctly 1`] = `
-<Overlay
-  duration={300}
-  lockScroll={true}
+<div
+  class="rc-overlay"
+  style="animation-duration: 300ms;"
 >
-  <CSSTransition2
-    classNames="rc-fade"
-    mountOnEnter={true}
-    nodeRef={
-      Object {
-        "current": null,
-      }
-    }
-    timeout={300}
-    unmountOnExit={true}
-  >
-    <Transition2
-      appear={false}
-      enter={true}
-      exit={true}
-      in={false}
-      mountOnEnter={true}
-      nodeRef={
-        Object {
-          "current": null,
-        }
-      }
-      onEnter={[Function]}
-      onEntered={[Function]}
-      onEntering={[Function]}
-      onExit={[Function]}
-      onExited={[Function]}
-      onExiting={[Function]}
-      timeout={300}
-      unmountOnExit={true}
-    />
-  </CSSTransition2>
-</Overlay>
+  Custom Default
+</div>
 `;

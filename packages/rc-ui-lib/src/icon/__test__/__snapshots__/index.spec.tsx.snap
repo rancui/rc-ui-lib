@@ -1,57 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon should render badge correctly 1`] = `"<div class=\\"rc-badge rc-badge--top-right rc-badge--fixed\\">9</div>"`;
-
-exports[`Icon should render correctly when createFromIconfontCN 1`] = `
-<Iconfont
-  color="#f44336"
-  name="cuIcon-classify"
->
-  <Icon
-    color="#f44336"
-    name="cuIcon-classify"
-    tag="i"
+exports[`Icon should change root tag after using tag prop 1`] = `
+<div>
+  <div
+    class="rc-badge__wrapper van-icon van-icon-success"
   >
-    <Badge
-      className="van-icon van-icon-cuIcon-classify"
-      position="top-right"
-      showZero={true}
-      style={
-        Object {
-          "color": "#f44336",
-          "fontSize": undefined,
-        }
-      }
-      tag="i"
-    >
-      <i
-        className="rc-badge__wrapper van-icon van-icon-cuIcon-classify"
-        style={
-          Object {
-            "color": "#f44336",
-            "fontSize": undefined,
-          }
-        }
-      >
-        <svg
-          fill="currentColor"
-          height="1em"
-          width="1em"
-        >
-          <use
-            xlinkHref="#cuIcon-classify"
-          />
-        </svg>
-      </i>
-    </Badge>
-  </Icon>
-</Iconfont>
+    Default Slot
+  </div>
+</div>
 `;
 
-exports[`Icon should render default slot correctly 1`] = `"<i class=\\"rc-badge__wrapper van-icon van-icon-success\\">Default Slot</i>"`;
+exports[`Icon should render badge correctly 1`] = `
+<div
+  class="rc-badge rc-badge--top-right rc-badge--fixed"
+>
+  9
+</div>
+`;
 
-exports[`Icon should render dot correctly 1`] = `"<div class=\\"rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed\\"></div>"`;
+exports[`Icon should render correctly when createFromIconfontCN 1`] = `
+<div>
+  <i
+    class="rc-badge__wrapper van-icon van-icon-cuIcon-classify"
+    style="color: rgb(244, 67, 54);"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      width="1em"
+    >
+      <use
+        xlink:href="#cuIcon-classify"
+      />
+    </svg>
+  </i>
+</div>
+`;
 
-exports[`Icon should render icon with builtin icon name correctly 1`] = `"<i class=\\"rc-badge__wrapper van-icon van-icon-success\\"></i>"`;
+exports[`Icon should render default slot correctly 1`] = `
+<div>
+  <i
+    class="rc-badge__wrapper van-icon van-icon-success"
+  >
+    Default Slot
+  </i>
+</div>
+`;
 
-exports[`Icon should render icon with url name correctly 1`] = `"<i class=\\"rc-badge__wrapper van-icon\\"><img class=\\"rc-icon__image\\" src=\\"https://img.yzcdn.com/icon.jpg\\" alt=\\"https://img.yzcdn.com/icon.jpg\\"></i>"`;
+exports[`Icon should render dot correctly 1`] = `
+<div
+  class="rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed"
+/>
+`;
+
+exports[`Icon should render icon with builtin icon name correctly 1`] = `
+<div>
+  <i
+    class="rc-badge__wrapper van-icon van-icon-success"
+  />
+</div>
+`;
+
+exports[`Icon should render icon with url name correctly 1`] = `
+<div>
+  <i
+    class="rc-badge__wrapper van-icon"
+  >
+    <img
+      alt="https://img.yzcdn.com/icon.jpg"
+      class="rc-icon__image"
+      src="https://img.yzcdn.com/icon.jpg"
+    />
+  </i>
+</div>
+`;

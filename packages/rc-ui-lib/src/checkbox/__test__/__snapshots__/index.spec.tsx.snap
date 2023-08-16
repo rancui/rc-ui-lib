@@ -1,660 +1,206 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox render Custom icon correctly 1`] = `
-<div
-  aria-checked="true"
-  class="rc-checkbox"
-  role="checkbox"
-  tabindex="0"
->
+<div>
   <div
-    class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
+    aria-checked="true"
+    class="rc-checkbox"
+    role="checkbox"
+    tabindex="0"
   >
-    <img
-      alt=""
-      src="https://img.yzcdn.cn/vant/user-active.png"
-    />
+    <div
+      class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
+    >
+      <img
+        alt=""
+        src="https://img.yzcdn.cn/vant/user-active.png"
+      />
+    </div>
+    <span
+      class="rc-checkbox__label"
+    >
+      自定义图标
+    </span>
   </div>
-  <span
-    class="rc-checkbox__label"
-  >
-    自定义图标
-  </span>
 </div>
 `;
 
 exports[`Checkbox renders correctly 1`] = `
-<div
-  aria-checked="true"
-  class="rc-checkbox"
-  role="checkbox"
-  tabindex="0"
->
+<div>
   <div
-    class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
+    aria-checked="true"
+    class="rc-checkbox"
+    role="checkbox"
+    tabindex="0"
   >
-    <i
-      class="rc-badge__wrapper van-icon van-icon-success"
-    />
+    <div
+      class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
+    >
+      <i
+        class="rc-badge__wrapper van-icon van-icon-success"
+      />
+    </div>
+    <span
+      class="rc-checkbox__label"
+    >
+      Label
+    </span>
   </div>
-  <span
-    class="rc-checkbox__label"
-  >
-    Label
-  </span>
 </div>
 `;
 
-exports[`Checkbox should adjust label position when using label-position prop 1`] = `"<div role=\\"checkbox\\" class=\\"rc-checkbox\\" tabindex=\\"0\\" aria-checked=\\"true\\"><span class=\\"rc-checkbox__label rc-checkbox__label--left\\">Label</span><div class=\\"rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked\\"><i class=\\"rc-badge__wrapper van-icon van-icon-success\\"></i></div></div>"`;
+exports[`Checkbox should adjust label position when using label-position prop 1`] = `
+<div>
+  <div
+    aria-checked="true"
+    class="rc-checkbox"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span
+      class="rc-checkbox__label rc-checkbox__label--left"
+    >
+      Label
+    </span>
+    <div
+      class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
+    >
+      <i
+        class="rc-badge__wrapper van-icon van-icon-success"
+      />
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Checkbox.Group render value correctly 1`] = `
-<ForwardRef
-  defaultValue={Array []}
-  value={
-    Array [
-      "0",
-    ]
-  }
->
+<div>
   <div
-    className="rc-checkbox-group"
+    class="rc-checkbox-group"
   >
-    <Checkbox
-      bindGroup={true}
-      key=".0"
-      name="0"
+    <div
+      aria-checked="true"
+      class="rc-checkbox"
+      role="checkbox"
+      tabindex="0"
     >
-      <Checker
-        bem={[Function]}
-        bindGroup={true}
-        checked={true}
-        name="0"
-        onToggle={[Function]}
-        parent={
-          Object {
-            "props": Object {
-              "children": Array [
-                <Checkbox
-                  bindGroup={true}
-                  name="0"
-                >
-                  选项一
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="1"
-                >
-                  选项二
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="2"
-                >
-                  选项三
-                </Checkbox>,
-              ],
-              "defaultValue": Array [],
-              "value": Array [
-                "0",
-              ],
-            },
-          }
-        }
-        role="checkbox"
-        shape="round"
+      <div
+        class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
       >
-        <div
-          aria-checked={true}
-          className="rc-checkbox"
-          onClick={[Function]}
-          role="checkbox"
-          tabIndex={0}
-        >
-          <div
-            className="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
-            style={
-              Object {
-                "fontSize": undefined,
-              }
-            }
-          >
-            <Icon
-              name="success"
-              style={Object {}}
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <span
-            className="rc-checkbox__label"
-          >
-            选项一
-          </span>
-        </div>
-      </Checker>
-    </Checkbox>
-    <Checkbox
-      bindGroup={true}
-      key=".1"
-      name="1"
+        <i
+          class="rc-badge__wrapper van-icon van-icon-success"
+        />
+      </div>
+      <span
+        class="rc-checkbox__label"
+      >
+        选项一
+      </span>
+    </div>
+    <div
+      aria-checked="false"
+      class="rc-checkbox"
+      role="checkbox"
+      tabindex="0"
     >
-      <Checker
-        bem={[Function]}
-        bindGroup={true}
-        checked={false}
-        name="1"
-        onToggle={[Function]}
-        parent={
-          Object {
-            "props": Object {
-              "children": Array [
-                <Checkbox
-                  bindGroup={true}
-                  name="0"
-                >
-                  选项一
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="1"
-                >
-                  选项二
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="2"
-                >
-                  选项三
-                </Checkbox>,
-              ],
-              "defaultValue": Array [],
-              "value": Array [
-                "0",
-              ],
-            },
-          }
-        }
-        role="checkbox"
-        shape="round"
+      <div
+        class="rc-checkbox__icon rc-checkbox__icon--round"
       >
-        <div
-          aria-checked={false}
-          className="rc-checkbox"
-          onClick={[Function]}
-          role="checkbox"
-          tabIndex={0}
-        >
-          <div
-            className="rc-checkbox__icon rc-checkbox__icon--round"
-            style={
-              Object {
-                "fontSize": undefined,
-              }
-            }
-          >
-            <Icon
-              name="success"
-              style={Object {}}
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <span
-            className="rc-checkbox__label"
-          >
-            选项二
-          </span>
-        </div>
-      </Checker>
-    </Checkbox>
-    <Checkbox
-      bindGroup={true}
-      key=".2"
-      name="2"
+        <i
+          class="rc-badge__wrapper van-icon van-icon-success"
+        />
+      </div>
+      <span
+        class="rc-checkbox__label"
+      >
+        选项二
+      </span>
+    </div>
+    <div
+      aria-checked="false"
+      class="rc-checkbox"
+      role="checkbox"
+      tabindex="0"
     >
-      <Checker
-        bem={[Function]}
-        bindGroup={true}
-        checked={false}
-        name="2"
-        onToggle={[Function]}
-        parent={
-          Object {
-            "props": Object {
-              "children": Array [
-                <Checkbox
-                  bindGroup={true}
-                  name="0"
-                >
-                  选项一
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="1"
-                >
-                  选项二
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="2"
-                >
-                  选项三
-                </Checkbox>,
-              ],
-              "defaultValue": Array [],
-              "value": Array [
-                "0",
-              ],
-            },
-          }
-        }
-        role="checkbox"
-        shape="round"
+      <div
+        class="rc-checkbox__icon rc-checkbox__icon--round"
       >
-        <div
-          aria-checked={false}
-          className="rc-checkbox"
-          onClick={[Function]}
-          role="checkbox"
-          tabIndex={0}
-        >
-          <div
-            className="rc-checkbox__icon rc-checkbox__icon--round"
-            style={
-              Object {
-                "fontSize": undefined,
-              }
-            }
-          >
-            <Icon
-              name="success"
-              style={Object {}}
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <span
-            className="rc-checkbox__label"
-          >
-            选项三
-          </span>
-        </div>
-      </Checker>
-    </Checkbox>
+        <i
+          class="rc-badge__wrapper van-icon van-icon-success"
+        />
+      </div>
+      <span
+        class="rc-checkbox__label"
+      >
+        选项三
+      </span>
+    </div>
   </div>
-</ForwardRef>
+</div>
 `;
 
 exports[`Checkbox.Group renders correctly 1`] = `
-<ForwardRef
-  defaultValue={Array []}
-  value={
-    Array [
-      "1",
-    ]
-  }
->
+<div>
   <div
-    className="rc-checkbox-group"
+    class="rc-checkbox-group"
   >
-    <Checkbox
-      bindGroup={true}
-      key=".0"
-      name="0"
+    <div
+      aria-checked="false"
+      class="rc-checkbox"
+      role="checkbox"
+      tabindex="0"
     >
-      <Checker
-        bem={[Function]}
-        bindGroup={true}
-        checked={false}
-        name="0"
-        onToggle={[Function]}
-        parent={
-          Object {
-            "props": Object {
-              "children": Array [
-                <Checkbox
-                  bindGroup={true}
-                  name="0"
-                >
-                  选项一
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  checked={true}
-                  name="1"
-                >
-                  选项二
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="2"
-                >
-                  选项三
-                </Checkbox>,
-              ],
-              "defaultValue": Array [],
-              "value": Array [
-                "1",
-              ],
-            },
-          }
-        }
-        role="checkbox"
-        shape="round"
+      <div
+        class="rc-checkbox__icon rc-checkbox__icon--round"
       >
-        <div
-          aria-checked={false}
-          className="rc-checkbox"
-          onClick={[Function]}
-          role="checkbox"
-          tabIndex={0}
-        >
-          <div
-            className="rc-checkbox__icon rc-checkbox__icon--round"
-            style={
-              Object {
-                "fontSize": undefined,
-              }
-            }
-          >
-            <Icon
-              name="success"
-              style={Object {}}
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <span
-            className="rc-checkbox__label"
-          >
-            选项一
-          </span>
-        </div>
-      </Checker>
-    </Checkbox>
-    <Checkbox
-      bindGroup={true}
-      checked={true}
-      key=".1"
-      name="1"
+        <i
+          class="rc-badge__wrapper van-icon van-icon-success"
+        />
+      </div>
+      <span
+        class="rc-checkbox__label"
+      >
+        选项一
+      </span>
+    </div>
+    <div
+      aria-checked="true"
+      class="rc-checkbox"
+      role="checkbox"
+      tabindex="0"
     >
-      <Checker
-        bem={[Function]}
-        bindGroup={true}
-        checked={true}
-        name="1"
-        onToggle={[Function]}
-        parent={
-          Object {
-            "props": Object {
-              "children": Array [
-                <Checkbox
-                  bindGroup={true}
-                  name="0"
-                >
-                  选项一
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  checked={true}
-                  name="1"
-                >
-                  选项二
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="2"
-                >
-                  选项三
-                </Checkbox>,
-              ],
-              "defaultValue": Array [],
-              "value": Array [
-                "1",
-              ],
-            },
-          }
-        }
-        role="checkbox"
-        shape="round"
+      <div
+        class="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
       >
-        <div
-          aria-checked={true}
-          className="rc-checkbox"
-          onClick={[Function]}
-          role="checkbox"
-          tabIndex={0}
-        >
-          <div
-            className="rc-checkbox__icon rc-checkbox__icon--round rc-checkbox__icon--checked"
-            style={
-              Object {
-                "fontSize": undefined,
-              }
-            }
-          >
-            <Icon
-              name="success"
-              style={Object {}}
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <span
-            className="rc-checkbox__label"
-          >
-            选项二
-          </span>
-        </div>
-      </Checker>
-    </Checkbox>
-    <Checkbox
-      bindGroup={true}
-      key=".2"
-      name="2"
+        <i
+          class="rc-badge__wrapper van-icon van-icon-success"
+        />
+      </div>
+      <span
+        class="rc-checkbox__label"
+      >
+        选项二
+      </span>
+    </div>
+    <div
+      aria-checked="false"
+      class="rc-checkbox"
+      role="checkbox"
+      tabindex="0"
     >
-      <Checker
-        bem={[Function]}
-        bindGroup={true}
-        checked={false}
-        name="2"
-        onToggle={[Function]}
-        parent={
-          Object {
-            "props": Object {
-              "children": Array [
-                <Checkbox
-                  bindGroup={true}
-                  name="0"
-                >
-                  选项一
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  checked={true}
-                  name="1"
-                >
-                  选项二
-                </Checkbox>,
-                <Checkbox
-                  bindGroup={true}
-                  name="2"
-                >
-                  选项三
-                </Checkbox>,
-              ],
-              "defaultValue": Array [],
-              "value": Array [
-                "1",
-              ],
-            },
-          }
-        }
-        role="checkbox"
-        shape="round"
+      <div
+        class="rc-checkbox__icon rc-checkbox__icon--round"
       >
-        <div
-          aria-checked={false}
-          className="rc-checkbox"
-          onClick={[Function]}
-          role="checkbox"
-          tabIndex={0}
-        >
-          <div
-            className="rc-checkbox__icon rc-checkbox__icon--round"
-            style={
-              Object {
-                "fontSize": undefined,
-              }
-            }
-          >
-            <Icon
-              name="success"
-              style={Object {}}
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <span
-            className="rc-checkbox__label"
-          >
-            选项三
-          </span>
-        </div>
-      </Checker>
-    </Checkbox>
+        <i
+          class="rc-badge__wrapper van-icon van-icon-success"
+        />
+      </div>
+      <span
+        class="rc-checkbox__label"
+      >
+        选项三
+      </span>
+    </div>
   </div>
-</ForwardRef>
+</div>
 `;

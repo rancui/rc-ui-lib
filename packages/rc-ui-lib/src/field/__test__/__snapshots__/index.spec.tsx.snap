@@ -1,352 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Field should change clear icon when using clear-icon prop 1`] = `
-Array [
-  <Icon
-    className="rc-field__clear"
-    name="cross"
-    onTouchStart={[Function]}
-    size="16px"
-    tag="i"
-  >
-    <Badge
-      className="rc-field__clear van-icon van-icon-cross"
-      onTouchStart={[Function]}
-      position="top-right"
-      showZero={true}
-      style={
-        Object {
-          "color": undefined,
-          "fontSize": "16px",
-        }
-      }
-      tag="i"
-    >
-      <i
-        className="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
-        onTouchStart={[Function]}
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": "16px",
-          }
-        }
-      />
-    </Badge>
-  </Icon>,
-  <Badge
-    className="rc-field__clear van-icon van-icon-cross"
-    onTouchStart={[Function]}
-    position="top-right"
-    showZero={true}
-    style={
-      Object {
-        "color": undefined,
-        "fontSize": "16px",
-      }
-    }
-    tag="i"
-  >
-    <i
-      className="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
-      onTouchStart={[Function]}
-      style={
-        Object {
-          "color": undefined,
-          "fontSize": "16px",
-        }
-      }
-    />
-  </Badge>,
-  <i
-    className="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
-    onTouchStart={[Function]}
-    style={
-      Object {
-        "color": undefined,
-        "fontSize": "16px",
-      }
-    }
-  />,
-]
+<i
+  class="rc-badge__wrapper rc-field__clear van-icon van-icon-cross"
+  style="font-size: 16px;"
+/>
 `;
 
 exports[`Field should render colon when using colon prop 1`] = `
 <div
-  className="rc-cell__title rc-field__label"
-  style={Object {}}
+  class="rc-cell__title rc-field__label"
 >
   world
   :
 </div>
 `;
 
+exports[`Field should render correctly when readonly 1`] = `
+<div>
+  <div
+    class="rc-cell rc-field"
+  >
+    <div
+      class="rc-cell__title rc-field__label"
+    >
+      label
+    </div>
+    <div
+      class="rc-cell__value rc-field__value"
+    >
+      <div
+        class="rc-field__body"
+      >
+        <input
+          class="rc-field__control"
+          placeholder=""
+          readonly=""
+          type="text"
+          value="abc"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Field should render error-message slot correctly 1`] = `
 <div
-  className="rc-field__error-message"
+  class="rc-field__error-message"
 >
   this is an error message
 </div>
 `;
 
 exports[`Field should render extra slot correctly 1`] = `
-<ForwardRef
-  clearIcon="clear"
-  clearTrigger="focus"
-  extra={
-    <Icon
-      name="success"
-      tag="i"
-    />
-  }
-  formatTrigger="onChange"
-  type="text"
-  value="test"
->
-  <Cell
-    className="rc-field"
-    extra={
-      <Icon
-        name="success"
-        tag="i"
-      />
-    }
-    icon={null}
-    title={null}
-    titleClass="rc-field__label"
-    titleStyle={Object {}}
-    valueClass="rc-field__value"
+<div>
+  <div
+    class="rc-cell rc-field"
   >
     <div
-      className="rc-cell rc-field"
+      class="rc-cell__value rc-cell__value--alone rc-field__value"
     >
       <div
-        className="rc-cell__value rc-cell__value--alone rc-field__value"
+        class="rc-field__body"
       >
-        <div
-          className="rc-field__body"
-        >
-          <input
-            className="rc-field__control"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onCompositionEnd={[Function]}
-            onCompositionStart={[Function]}
-            onCompositionUpdate={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            placeholder=""
-            type="text"
-            value="test"
-          />
-        </div>
+        <input
+          class="rc-field__control"
+          placeholder=""
+          type="text"
+          value="test"
+        />
       </div>
-      <Icon
-        name="success"
-        tag="i"
-      >
-        <Badge
-          className="van-icon van-icon-success"
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper van-icon van-icon-success"
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
     </div>
-  </Cell>
-</ForwardRef>
+    <i
+      class="rc-badge__wrapper van-icon van-icon-success"
+    />
+  </div>
+</div>
 `;
 
 exports[`Field should render label slot correctly 1`] = `
 <div
-  className="rc-cell__title rc-field__label"
-  style={Object {}}
+  class="rc-cell__title rc-field__label"
 >
   Lable
 </div>
 `;
 
 exports[`Field should render textarea when type is textarea 1`] = `
-<ForwardRef
-  autosize={true}
-  clearIcon="clear"
-  clearTrigger="focus"
-  formatTrigger="onChange"
-  type="textarea"
->
-  <Cell
-    className="rc-field"
-    icon={null}
-    title={null}
-    titleClass="rc-field__label"
-    titleStyle={Object {}}
-    valueClass="rc-field__value"
+<div>
+  <div
+    class="rc-cell rc-field"
   >
     <div
-      className="rc-cell rc-field"
+      class="rc-cell__value rc-cell__value--alone rc-field__value"
     >
       <div
-        className="rc-cell__value rc-cell__value--alone rc-field__value"
+        class="rc-field__body"
       >
-        <div
-          className="rc-field__body"
-        >
-          <textarea
-            className="rc-field__control"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onCompositionEnd={[Function]}
-            onCompositionStart={[Function]}
-            onCompositionUpdate={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            placeholder=""
-          />
-        </div>
+        <textarea
+          class="rc-field__control"
+          placeholder=""
+          style="height: auto;"
+        />
       </div>
     </div>
-  </Cell>
-</ForwardRef>
+  </div>
+</div>
 `;
 
 exports[`Field should render word limit correctly 1`] = `
-<ForwardRef
-  clearIcon="clear"
-  clearTrigger="focus"
-  formatTrigger="onChange"
-  maxlength={3}
-  onChange={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          "wor",
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  showWordLimit={true}
-  type="textarea"
->
-  <Cell
-    className="rc-field rc-field--min-height"
-    icon={null}
-    title={null}
-    titleClass="rc-field__label"
-    titleStyle={Object {}}
-    valueClass="rc-field__value"
+<div>
+  <div
+    class="rc-cell rc-field rc-field--min-height"
   >
     <div
-      className="rc-cell rc-field rc-field--min-height"
+      class="rc-cell__value rc-cell__value--alone rc-field__value"
     >
       <div
-        className="rc-cell__value rc-cell__value--alone rc-field__value"
+        class="rc-field__body"
       >
-        <div
-          className="rc-field__body"
+        <textarea
+          class="rc-field__control rc-field__control--min-height"
+          placeholder=""
+        />
+      </div>
+      <div
+        class="rc-field__word-limit"
+      >
+        <span
+          class="rc-field__word-num"
         >
-          <textarea
-            className="rc-field__control rc-field__control--min-height"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onCompositionEnd={[Function]}
-            onCompositionStart={[Function]}
-            onCompositionUpdate={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            placeholder=""
-          />
-        </div>
-        <div
-          className="rc-field__word-limit"
-        >
-          <span
-            className="rc-field__word-num"
-          >
-            0
-          </span>
-          /
-          3
-        </div>
+          0
+        </span>
+        /
+        3
       </div>
     </div>
-  </Cell>
-</ForwardRef>
+  </div>
+</div>
 `;
 
 exports[`Field should render word limit correctly when value is undefined 1`] = `
-<ForwardRef
-  clearIcon="clear"
-  clearTrigger="focus"
-  formatTrigger="onChange"
-  maxlength={3}
-  showWordLimit={true}
-  type="text"
->
-  <Cell
-    className="rc-field"
-    icon={null}
-    title={null}
-    titleClass="rc-field__label"
-    titleStyle={Object {}}
-    valueClass="rc-field__value"
+<div>
+  <div
+    class="rc-cell rc-field"
   >
     <div
-      className="rc-cell rc-field"
+      class="rc-cell__value rc-cell__value--alone rc-field__value"
     >
       <div
-        className="rc-cell__value rc-cell__value--alone rc-field__value"
+        class="rc-field__body"
       >
-        <div
-          className="rc-field__body"
+        <input
+          class="rc-field__control"
+          placeholder=""
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="rc-field__word-limit"
+      >
+        <span
+          class="rc-field__word-num"
         >
-          <input
-            className="rc-field__control"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onCompositionEnd={[Function]}
-            onCompositionStart={[Function]}
-            onCompositionUpdate={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            placeholder=""
-            type="text"
-          />
-        </div>
-        <div
-          className="rc-field__word-limit"
-        >
-          <span
-            className="rc-field__word-num"
-          >
-            0
-          </span>
-          /
-          3
-        </div>
+          0
+        </span>
+        /
+        3
       </div>
     </div>
-  </Cell>
-</ForwardRef>
+  </div>
+</div>
 `;

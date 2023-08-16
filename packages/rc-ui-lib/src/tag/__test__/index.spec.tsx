@@ -1,37 +1,35 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Tag } from '..';
 
 describe('Tag', () => {
-  let wrapper;
-
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
   });
 
-  it('should emit close event when clicking the close icon', () => {
+  it('should emit close event when clicking the close icon', async () => {
     const onClose = jest.fn();
-    wrapper = mount(<Tag closeable onClose={onClose} />);
-    wrapper.find('.rc-tag__close').at(0).simulate('click');
+    const { container } = render(<Tag closeable onClose={onClose} />);
+    await fireEvent.click(container.querySelector('.rc-tag__close'));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('should hide tag when the show prop is false', () => {
-    wrapper = mount(<Tag visible={false} />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(<Tag visible={false} />);
+    expect(container).toMatchSnapshot();
   });
 
-  it('should not trigger click event when clicking the close icon', () => {
+  it('should not trigger click event when clicking the close icon', async () => {
     const onClick = jest.fn();
-    wrapper = mount(<Tag closeable onClick={onClick} />);
-    wrapper.find('.rc-tag__close').at(0).simulate('click');
+    const { container } = render(<Tag closeable onClick={onClick} />);
+    await fireEvent.click(container.querySelector('.rc-tag__close'));
     expect(onClick).toHaveBeenCalledTimes(0);
-    wrapper.simulate('click');
+    await fireEvent.click(container.querySelector('.rc-tag'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should render border-color correctly', () => {
-    wrapper = mount(<Tag plain color="red" textColor="blue" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(<Tag plain color="red" textColor="blue" />);
+    expect(container).toMatchSnapshot();
   });
 });

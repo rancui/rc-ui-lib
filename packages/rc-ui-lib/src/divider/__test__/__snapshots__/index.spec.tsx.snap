@@ -1,13 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Divider should render correctly 1`] = `
-<Divider
-  contentPosition="center"
-  hairline={true}
->
+<div>
   <div
-    className="rc-divider rc-divider--hairline"
+    class="rc-divider rc-divider--hairline"
     role="separator"
   />
-</Divider>
+</div>
 `;

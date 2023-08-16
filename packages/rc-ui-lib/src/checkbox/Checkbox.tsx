@@ -20,7 +20,7 @@ const CheckBox = forwardRef<CheckboxInstance, CheckboxProps>((props, ref) => {
     const value = context.checked.slice();
 
     if (isChecked) {
-      const overlimit = max && value.length >= max;
+      const overlimit = max && value.length >= +max;
 
       if (!overlimit && value.indexOf(name) === -1) {
         value.push(name);

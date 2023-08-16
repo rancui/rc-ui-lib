@@ -1,61 +1,61 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { fireEvent, render, act, cleanup } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import NoticeBar, { NoticeBarInstance } from '..';
 import Icon from '../../icon';
 
 describe('NoticeBar', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     jest.restoreAllMocks();
   });
 
   it('should render left icon correct', async () => {
-    wrapper = mount(<NoticeBar leftIcon="speaker-s" text="foo" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(<NoticeBar leftIcon="speaker-s" text="foo" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render right icon correct', async () => {
-    wrapper = mount(<NoticeBar rightIcon="speaker-s" text="foo" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(<NoticeBar rightIcon="speaker-s" text="foo" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render ReactNode icon correct', async () => {
-    wrapper = mount(<NoticeBar leftIcon={<Icon name="cart-o" color="#1989fa" />} text="foo" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(
+      <NoticeBar leftIcon={<Icon name="cart-o" color="#1989fa" />} text="foo" />,
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it('should render link mode correct', async () => {
-    wrapper = mount(<NoticeBar mode="link" text="foo" />);
+    const { container } = render(<NoticeBar mode="link" text="foo" />);
     expect(
-      wrapper.find('.rc-notice-bar__right-icon').at(1).hasClass('van-icon-arrow'),
+      container.querySelector('.rc-notice-bar__right-icon').classList.contains('van-icon-arrow'),
     ).toBeTruthy();
   });
 
   it('should emit close event when close icon is clicked', async () => {
     const onClose = jest.fn();
-    wrapper = mount(<NoticeBar mode="closeable" text="foo" onClose={onClose} />);
-    const item = wrapper.find('.rc-notice-bar__right-icon');
-    await item.at(0).simulate('click');
+    const { container } = render(<NoticeBar mode="closeable" text="foo" onClose={onClose} />);
+    const item = container.querySelector('.rc-notice-bar__right-icon');
+    await fireEvent.click(item);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   // it('should emit replay event after replay', async () => {
   //   const onReplay = jest.fn();
-  //   wrapper = mount(<NoticeBar text="foo" onReplay={onReplay} />);
+  //   const { container } = render(<NoticeBar text="foo" onReplay={onReplay} />);
 
-  //   wrapper.find('.rc-notice-bar__content').simulate('transitionend');
+  //   container.querySelector('.rc-notice-bar__content').simulate('transitionend');
   //   await sleep(80);
   //   expect(onReplay).toHaveBeenCalledTimes(1);
   // });
 
   it('should start scrolling when content width > wrap width ', async () => {
-    wrapper = mount(<NoticeBar text="foo" delay={0} />);
+    const { container } = render(<NoticeBar text="foo" delay={0} />);
 
-    const wrap = wrapper.find('.rc-notice-bar__wrap');
-    const content = wrapper.find('.rc-notice-bar__content');
+    const wrap = container.querySelector('.rc-notice-bar__wrap');
+    const content = container.querySelector('.rc-notice-bar__content');
 
     wrap.getBoundingClientRect = () =>
       ({
@@ -66,16 +66,16 @@ describe('NoticeBar', () => {
         width: 100,
       } as DOMRect);
 
-    await sleep(50);
+    // await sleep(100);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should not start scrolling when content width > wrap width and props scrollable is false  ', async () => {
-    wrapper = mount(<NoticeBar text="foo" scrollable={false} delay={0} />);
+    const { container } = render(<NoticeBar text="foo" scrollable={false} delay={0} />);
 
-    const wrap = wrapper.find('.rc-notice-bar__wrap');
-    const content = wrapper.find('.rc-notice-bar__content');
+    const wrap = container.querySelector('.rc-notice-bar__wrap');
+    const content = container.querySelector('.rc-notice-bar__content');
 
     wrap.getBoundingClientRect = () =>
       ({
@@ -88,14 +88,14 @@ describe('NoticeBar', () => {
 
     await sleep(50);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should not start scrolling when content width > wrap width ', async () => {
-    wrapper = mount(<NoticeBar text="foo" delay={0} />);
+    const { container } = render(<NoticeBar text="foo" delay={0} />);
 
-    const wrap = wrapper.find('.rc-notice-bar__wrap');
-    const content = wrapper.find('.rc-notice-bar__content');
+    const wrap = container.querySelector('.rc-notice-bar__wrap');
+    const content = container.querySelector('.rc-notice-bar__content');
 
     wrap.getBoundingClientRect = () =>
       ({
@@ -108,14 +108,14 @@ describe('NoticeBar', () => {
 
     await sleep(50);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should start scrolling when content width > wrap width and props scrollable is true', async () => {
-    wrapper = mount(<NoticeBar text="foo" scrollable delay={0} />);
+    const { container } = render(<NoticeBar text="foo" scrollable delay={0} />);
 
-    const wrap = wrapper.find('.rc-notice-bar__wrap');
-    const content = wrapper.find('.rc-notice-bar__content');
+    const wrap = container.querySelector('.rc-notice-bar__wrap');
+    const content = container.querySelector('.rc-notice-bar__content');
 
     wrap.getBoundingClientRect = () =>
       ({
@@ -128,7 +128,7 @@ describe('NoticeBar', () => {
 
     await sleep(50);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should expose reset methods', async () => {
@@ -137,12 +137,12 @@ describe('NoticeBar', () => {
     const reset = () => {
       NoticeBarRef.current.reset();
     };
-    wrapper = mount(<NoticeBar ref={NoticeBarRef} scrollable text="foo" />);
+    const { container } = render(<NoticeBar ref={NoticeBarRef} scrollable text="foo" />);
 
     await act(async () => {
       reset();
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

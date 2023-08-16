@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import Icon from '../../icon';
 import BaseToast from '../Toast';
@@ -7,6 +7,7 @@ import Toast from '..';
 
 describe('Toast', () => {
   afterEach(() => {
+    cleanup();
     jest.restoreAllMocks();
   });
 
@@ -23,34 +24,36 @@ describe('Toast', () => {
   });
 
   it('should change overlay style after using overlay-style prop', async () => {
-    const wrapper = mount(<BaseToast visible overlay overlayStyle={{ background: 'red' }} />);
+    render(<BaseToast visible overlay overlayStyle={{ background: 'red' }} />);
     await sleep();
-    expect(wrapper.find('.rc-overlay').getDOMNode().style.background).toEqual('red');
+    expect(getComputedStyle(document.querySelector('.rc-overlay')).background).toEqual('red');
   });
 
-  it('should emit close event when using closeOnClick prop and clicked', () => {
+  it('should emit close event when using closeOnClick prop and clicked', async () => {
+    Toast.clear();
     const onClose = jest.fn();
-    const wrapper = shallow(<BaseToast visible closeOnClick onClose={onClose} />);
-    wrapper.find('.rc-toast').simulate('click');
+    render(<BaseToast visible closeOnClick onClose={onClose} className="test-toast" />);
+    await fireEvent.click(document.querySelector('.test-toast'));
+
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('show loading toast', async () => {
-    const wrapper = mount(<BaseToast className="loading-toast" />);
-    await sleep(3000);
-    expect(wrapper.find('.loading-toast').exists()).toBeTruthy();
+    render(<BaseToast visible className="loading-toast" />);
+    await sleep(10);
+    expect(document.querySelector('.loading-toast')).toBeTruthy();
   });
 
   it('should render correctly when icon prop is string', async () => {
-    const wrapper = mount(<BaseToast icon="start-o" />);
+    render(<BaseToast visible icon="start-o" />);
     await sleep(10);
-    expect(wrapper.find('.rc-icon-star-o')).toBeTruthy();
+    expect(document.querySelector('.van-icon-start-o')).toBeTruthy();
   });
 
   it('should render correctly when icon prop is jsx', async () => {
-    const wrapper = mount(<BaseToast icon={<Icon name="shop-o" />} />);
+    render(<BaseToast visible icon={<Icon name="shop-o" />} />);
     await sleep(10);
-    expect(wrapper.find('.rc-icon-shop-o')).toBeTruthy();
+    expect(document.querySelector('.van-icon-shop-o')).toBeTruthy();
   });
 
   it('icon-prefix prop', async () => {

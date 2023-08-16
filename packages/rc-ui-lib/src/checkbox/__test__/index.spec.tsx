@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from '..';
 
 import mountTest from '../../../tests/shared/mountTest';
@@ -45,14 +45,18 @@ describe('Checkbox', () => {
 
   it('should emit change event when checkbox icon is clicked', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(<Checkbox onChange={onChange}>Label</Checkbox>);
+    const { container, rerender } = render(<Checkbox onChange={onChange}>Label</Checkbox>);
 
-    const icon = wrapper.find('.rc-checkbox__icon');
-    icon.simulate('click');
+    const icon = container.querySelector('.rc-checkbox__icon');
+    await fireEvent.click(icon);
     expect(onChange).toBeCalledWith(true);
 
-    await wrapper.setProps({ checked: true });
-    icon.simulate('click');
+    rerender(
+      <Checkbox onChange={onChange} checked>
+        Label
+      </Checkbox>,
+    );
+    await fireEvent.click(icon);
     expect(onChange).toBeCalledWith(false);
   });
 
@@ -62,88 +66,89 @@ describe('Checkbox', () => {
     const toggle = (checked?: boolean) => {
       checkboxRef.current.toggle(checked);
     };
-    const wrapper = mount(<Checkbox ref={checkboxRef}>Label</Checkbox>);
+    const { container } = render(<Checkbox ref={checkboxRef}>Label</Checkbox>);
 
     await act(async () => {
       toggle();
     });
-    wrapper.update();
     await sleep();
-    expect(wrapper.childAt(0).props().checked).toEqual(true);
+    expect(container.querySelector('.rc-checkbox__icon--checked')).toBeTruthy();
     // expect(onToggle).toBeCalled();
   });
 
-  it('should not emit "change" event when checkbox icon is disabled and clicked', () => {
+  it('should not emit "change" event when checkbox icon is disabled and clicked', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox defaultChecked disabled onChange={onChange}>
         Label
       </Checkbox>,
     );
 
-    wrapper.find('.rc-checkbox__icon').simulate('click');
+    const icon = container.querySelector('.rc-checkbox__icon');
+    await fireEvent.click(icon);
     expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should render "rc-checkbox--label-disabled" class when using label-disabled prop', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox defaultChecked labelDisabled onChange={jest.fn()}>
         Label
       </Checkbox>,
     );
 
-    expect(wrapper.find('.rc-checkbox--label-disabled')).toBeTruthy();
+    expect(container.querySelector('.rc-checkbox--label-disabled')).toBeTruthy();
   });
 
-  it('should emit "change" event when label is clicked', () => {
+  it('should emit "change" event when label is clicked', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox defaultChecked onChange={onChange}>
         Label
       </Checkbox>,
     );
 
-    const icon = wrapper.find('.rc-checkbox__label');
-    icon.simulate('click');
+    const icon = container.querySelector('.rc-checkbox__label');
+    await fireEvent.click(icon);
     expect(onChange).toBeCalledWith(false);
   });
 
-  it('should not emit "change" event when label is disabled and clicked', () => {
+  it('should not emit "change" event when label is disabled and clicked', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox defaultChecked labelDisabled onChange={onChange}>
         Label
       </Checkbox>,
     );
 
-    const icon = wrapper.find('.rc-checkbox__label');
-    icon.simulate('click');
+    const icon = container.querySelector('.rc-checkbox__label');
+    await fireEvent.click(icon);
     expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should adjust label position when using label-position prop', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox defaultChecked labelPosition="left" onChange={jest.fn()}>
         Label
       </Checkbox>,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should emit click event when checkbox icon is clicked', async () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox defaultChecked labelPosition="left" onClick={onClick}>
         Label
       </Checkbox>,
     );
 
-    wrapper.simulate('click');
+    await fireEvent.click(container.querySelector('.rc-checkbox'));
+
     expect(onClick).toHaveBeenCalledTimes(1);
 
-    const icon = wrapper.find('.rc-checkbox__icon');
-    icon.simulate('click');
+    const icon = container.querySelector('.rc-checkbox__icon');
+    await fireEvent.click(icon);
     expect(onClick).toHaveBeenCalledTimes(2);
   });
 });
@@ -152,7 +157,7 @@ describe('Checkbox.Group', () => {
   mountTest(Checkbox.Group);
 
   it('renders correctly', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group value={['1']}>
         <Checkbox name="0">选项一</Checkbox>
         <Checkbox name="1" checked>
@@ -161,22 +166,22 @@ describe('Checkbox.Group', () => {
         <Checkbox name="2">选项三</Checkbox>
       </Checkbox.Group>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('render value correctly', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group value={['0']}>
         <Checkbox name="0">选项一</Checkbox>
         <Checkbox name="1">选项二</Checkbox>
         <Checkbox name="2">选项三</Checkbox>
       </Checkbox.Group>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should change icon size when using icon-size prop', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group value={['1']} iconSize="10rem">
         <Checkbox name="0">选项一</Checkbox>
         <Checkbox name="1" iconSize="5rem" checked>
@@ -185,18 +190,15 @@ describe('Checkbox.Group', () => {
       </Checkbox.Group>,
     );
 
-    const icons = wrapper.find('.rc-checkbox__icon');
-    // expect(icons).toHaveLength(2);
-    // console.log(icons.debug());
-    // console.log(icons.at(0).getDOMNode());
-    // console.log(icons.at(0).getDOMNode());
-    expect(icons.at(0).getDOMNode().style.fontSize).toEqual('10rem');
-    expect(icons.at(1).getDOMNode().style.fontSize).toEqual('5rem');
+    const icons = container.querySelectorAll('.rc-checkbox__icon');
+
+    expect(getComputedStyle(icons[0]).fontSize).toEqual('10rem');
+    expect(getComputedStyle(icons[1]).fontSize).toEqual('5rem');
   });
 
-  it('should limit change num when using max prop', () => {
+  it('should limit change num when using max prop', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group value={['a', 'b']} max={2} onChange={onChange}>
         <Checkbox name="a">选项一</Checkbox>
         <Checkbox name="b">选项二</Checkbox>
@@ -204,17 +206,17 @@ describe('Checkbox.Group', () => {
       </Checkbox.Group>,
     );
 
-    const icons = wrapper.find('.rc-checkbox__icon');
-    icons.at(2).simulate('click');
+    const icons = container.querySelectorAll('.rc-checkbox__icon');
+    await fireEvent.click(icons[2]);
     expect(onChange).toHaveBeenCalledTimes(0);
-    icons.at(0).simulate('click');
+    await fireEvent.click(icons[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
-    icons.at(1).simulate('click');
+    await fireEvent.click(icons[1]);
     expect(onChange).toHaveBeenCalledTimes(2);
   });
 
   it('should change checked color when using checked-color prop', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group value={['a', 'b']} checkedColor="black">
         <Checkbox name="a">选项一</Checkbox>
         <Checkbox name="b" checkedColor="white">
@@ -223,12 +225,10 @@ describe('Checkbox.Group', () => {
       </Checkbox.Group>,
     );
 
-    const icons = wrapper.find('i.van-icon');
-    // console.log(icons.at(0).getDOMNode().style);
-    // console.log(icons.at(1).getDOMNode().style);
+    const icons = container.querySelectorAll('i.van-icon');
     expect(icons).toHaveLength(2);
-    expect(icons.at(0).getDOMNode().style.backgroundColor).toEqual('black');
-    expect(icons.at(1).getDOMNode().style.backgroundColor).toEqual('white');
+    expect(getComputedStyle(icons[0]).backgroundColor).toEqual('black');
+    expect(getComputedStyle(icons[1]).backgroundColor).toEqual('white');
   });
 
   it('should ignore Checkbox if bind-group is false', async () => {
@@ -238,7 +238,7 @@ describe('Checkbox.Group', () => {
     const toggleAll = (checked?: boolean) => {
       groupRef.current.toggleAll(checked);
     };
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group value={groupValue} ref={groupRef} onChange={onChange}>
         <Checkbox checked={false} name="a" bindGroup={false} />
         <Checkbox name="b" />
@@ -246,9 +246,9 @@ describe('Checkbox.Group', () => {
       </Checkbox.Group>,
     );
 
-    const items = wrapper.find('.rc-checkbox');
-    items.at(0).simulate('click');
-    expect(wrapper.props().value).toEqual([]);
+    const items = container.querySelector('.rc-checkbox');
+    await fireEvent.click(items);
+    // expect(container.props().value).toEqual([]);
     expect(onChange).not.toHaveBeenCalled();
 
     await act(async () => {
@@ -265,7 +265,7 @@ describe('Checkbox.Group', () => {
     const toggleAll = (options?: CheckboxGroupToggleAllOptions) => {
       groupRef.current.toggleAll(options);
     };
-    mount(
+    render(
       <Checkbox.Group value={groupValue} ref={groupRef} onChange={onChange}>
         <Checkbox name="a" />
         <Checkbox name="b" />

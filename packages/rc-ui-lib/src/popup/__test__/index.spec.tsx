@@ -1,148 +1,148 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Icon } from '../..';
 import { Popup } from '..';
 
 describe('Popup', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     jest.restoreAllMocks();
   });
 
   it('should change z-index when using z-index prop', async () => {
-    wrapper = mount(<Popup position="bottom" visible style={{ height: '30%', zIndex: 1500 }} />);
-    expect(wrapper.find('.rc-popup').getDOMNode().style.zIndex).toEqual('1500');
-    // expect(wrapper.find('.rc-overlay').getDOMNode().style.zIndex).toEqual('1500');
+    render(<Popup position="bottom" visible style={{ height: '30%', zIndex: 1500 }} />);
+    expect(getComputedStyle(document.querySelector('.rc-popup')).zIndex).toEqual('1500');
   });
 
   it('should lock scroll when visibled', async () => {
-    wrapper = mount(<Popup />);
+    const { rerender } = render(<Popup />);
     expect(document.body.classList.contains('rc-overflow-hidden')).toBeFalsy();
-    await wrapper.setProps({ visible: true });
+    rerender(<Popup visible />);
     expect(document.body.classList.contains('rc-overflow-hidden')).toBeTruthy();
   });
 
   it('should allow to using teleport prop', async () => {
     const div = document.createElement('div');
-    wrapper = mount(<Popup visible teleport={div} />);
+    render(<Popup visible teleport={div} />);
 
     expect(div.querySelector('.rc-popup')).toBeTruthy();
   });
 
   it('should render overlay by default', () => {
-    wrapper = mount(<Popup visible />);
-    expect(wrapper.find('.rc-overlay')).toBeTruthy();
+    render(<Popup visible />);
+    expect(document.querySelector('.rc-overlay')).toBeTruthy();
   });
 
   it('should not render overlay when overlay prop is false', () => {
-    wrapper = mount(<Popup visible overlay={false} />);
-    expect(wrapper.hasClass('rc-overlay')).toBeFalsy();
+    render(<Popup visible overlay={false} />);
+    expect(document.querySelector('rc-overlay')).toBeFalsy();
   });
   it('should emit click-overlay event when overlay is clicked', async () => {
     const onClickOverlay = jest.fn();
-    wrapper = mount(<Popup visible onClickOverlay={onClickOverlay} />);
-    const overlay = wrapper.find('.rc-overlay');
-    overlay.simulate('click');
+    render(<Popup visible onClickOverlay={onClickOverlay} />);
+    const overlay = document.querySelector('.rc-overlay');
+    await fireEvent.click(overlay);
     expect(onClickOverlay).toHaveBeenCalled();
   });
 
   it('should emit open event when visible prop is set to true', async () => {
     const onOpen = jest.fn();
-    wrapper = mount(<Popup visible={false} onOpen={onOpen} />);
-    await wrapper.setProps({ visible: true });
+    const { rerender } = render(<Popup visible={false} onOpen={onOpen} />);
+    rerender(<Popup visible onOpen={onOpen} />);
     expect(onOpen).toHaveBeenCalledTimes(1);
   });
 
   it('should emit close event when visible prop is set to false', async () => {
     const onClickOverlay = jest.fn();
     const onClose = jest.fn();
-    wrapper = mount(<Popup onClickOverlay={onClickOverlay} onClose={onClose} />);
-    wrapper.setProps({ visible: true });
-    const overlay = wrapper.find('.rc-overlay');
-    await overlay.simulate('click');
-    wrapper.setProps({ visible: false });
+    const { rerender } = render(<Popup onClickOverlay={onClickOverlay} onClose={onClose} />);
+    rerender(<Popup onClickOverlay={onClickOverlay} onClose={onClose} visible />);
+
+    const overlay = document.querySelector('.rc-overlay');
+    await fireEvent.click(overlay);
+    rerender(<Popup onClickOverlay={onClickOverlay} onClose={onClose} visible={false} />);
     expect(onClickOverlay).toHaveBeenCalled();
     expect(onClose).toHaveBeenCalled();
   });
 
   it('should change duration when using duration prop', () => {
-    wrapper = mount(<Popup visible duration={500} />);
-    const popup = wrapper.find('.rc-popup');
-    const overlay = wrapper.find('.rc-overlay');
-    expect(popup.getDOMNode().style.animationDuration).toEqual('500ms');
-    expect(overlay.getDOMNode().style.animationDuration).toEqual('500ms');
+    render(<Popup visible duration={500} />);
+    const popup = document.querySelector('.rc-popup');
+    const overlay = document.querySelector('.rc-overlay');
+    expect(getComputedStyle(popup).animationDuration).toEqual('500ms');
+    expect(getComputedStyle(overlay).animationDuration).toEqual('500ms');
   });
 
   it('should have "rc-popup--round" class when setting the round prop', () => {
-    wrapper = mount(<Popup visible round />);
-    expect(wrapper.find('.rc-popup--round').exists()).toBeTruthy();
+    render(<Popup visible round />);
+    expect(document.querySelector('.rc-popup--round')).toBeTruthy();
   });
 
   it('should render close icon when using closeable prop', () => {
-    wrapper = mount(<Popup visible closeable />);
-    expect(wrapper.find('.rc-popup__close-icon').exists()).toBeTruthy();
+    render(<Popup visible closeable />);
+    expect(document.querySelector('.rc-popup__close-icon')).toBeTruthy();
   });
 
   it('should emit click-close-icon event when close icon is clicked', async () => {
     const onClickCloseIcon = jest.fn();
-    wrapper = mount(
-      <Popup visible closeable closeIcon="success" onClickCloseIcon={onClickCloseIcon} />,
-    );
-    const icon = wrapper.find('.rc-popup__close-icon').at(0);
-    await icon.simulate('click');
+    render(<Popup visible closeable closeIcon="success" onClickCloseIcon={onClickCloseIcon} />);
+    const icon = document.querySelector('.rc-popup__close-icon');
+    await fireEvent.click(icon);
     expect(onClickCloseIcon).toHaveBeenCalled();
   });
 
   it('should render correct close icon when using close-icon prop', () => {
-    wrapper = mount(<Popup visible closeable closeIcon="success" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    render(<Popup visible closeable closeIcon="success" />);
+    expect(document.querySelector('.rc-popup')).toMatchSnapshot();
   });
 
   it('should render correct close icon when close-icon is JSX element', () => {
-    wrapper = mount(<Popup visible closeable closeIcon={<Icon name="shop-o" />} />);
-    expect(wrapper.find('Icon').exists()).toBeTruthy();
+    render(<Popup visible closeable closeIcon={<Icon name="shop-o" />} />);
+    expect(document.querySelector('.van-icon')).toBeTruthy();
   });
 
   it('should render correctly when using title prop', () => {
-    wrapper = mount(<Popup visible title="标题" />);
-    expect(wrapper.find('.rc-popup__title').text()).toEqual('标题');
+    render(<Popup visible title="标题" />);
+    expect(document.querySelector('.rc-popup__title').textContent).toEqual('标题');
   });
 
   it('should render correctly when using description prop', () => {
-    wrapper = mount(<Popup visible description="description" />);
-    expect(wrapper.find('.rc-popup__description').text()).toEqual('description');
+    render(<Popup visible description="description" />);
+    expect(document.querySelector('.rc-popup__description').textContent).toEqual('description');
   });
 
   it('should change icon class prefix when using icon-prefix prop', () => {
-    wrapper = mount(<Popup visible closeable iconPrefix="my-icon" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    render(<Popup visible closeable iconPrefix="my-icon" />);
+    expect(document.querySelector('.rc-popup')).toMatchSnapshot();
   });
 
   it('should allow to prevent close with before-close prop', async () => {
     const onClickOverlay = jest.fn();
-    wrapper = mount(<Popup visible beforeClose={() => false} onClickOverlay={onClickOverlay} />);
+    const { rerender } = render(
+      <Popup visible beforeClose={() => false} onClickOverlay={onClickOverlay} />,
+    );
 
-    const overlay = wrapper.find('.rc-overlay');
-    overlay.simulate('click');
+    const overlay = document.querySelector('.rc-overlay');
+    await fireEvent.click(overlay);
     expect(overlay).toBeTruthy();
 
-    await wrapper.setProps({ beforeClose: () => true });
-    overlay.simulate('click');
-    expect(overlay.exists());
+    rerender(<Popup visible beforeClose={() => true} onClickOverlay={onClickOverlay} />);
+
+    await fireEvent.click(overlay);
+    expect(overlay).toBeTruthy();
   });
 
   it('should not call before-close when visible prop becomes false', async () => {
     const beforeClose = jest.fn();
-    wrapper = mount(<Popup visible beforeClose={beforeClose} />);
-    await wrapper.setProps({ visible: false });
+    const { rerender } = render(<Popup visible beforeClose={beforeClose} />);
+    rerender(<Popup visible={false} beforeClose={beforeClose} />);
     expect(beforeClose).toHaveBeenCalledTimes(0);
   });
 
   it('should not bubble blur event when set preventDefaultMouseDown prop ', async () => {
-    wrapper = mount(<Popup preventDefaultMouseDown visible />);
-    const popupWrapper = wrapper.find('.rc-popup');
-    popupWrapper.simulate('mousedown');
-    expect(wrapper.html()).toMatchSnapshot();
+    render(<Popup preventDefaultMouseDown visible />);
+    const popupWrapper = document.querySelector('.rc-popup');
+    await fireEvent.mouseDown(popupWrapper);
+    expect(document.querySelector('.rc-popup')).toMatchSnapshot();
   });
 });

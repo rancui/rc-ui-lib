@@ -1,161 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button renders correctly 1`] = `
-<button
-  class="rc-button rc-button--default rc-button--normal"
->
-  <div
-    class="rc-button__content"
-  />
-</button>
+<div>
+  <button
+    class="rc-button rc-button--default rc-button--normal"
+  >
+    <div
+      class="rc-button__content"
+    />
+  </button>
+</div>
 `;
 
 exports[`Button should change icon class prefix when using icon-prefix prop 1`] = `
-<Button
-  icon="success"
-  iconPosition="left"
-  iconPrefix="my-icon"
-  size="normal"
-  tag="button"
-  type="default"
->
+<div>
   <button
-    className="rc-button rc-button--default rc-button--normal"
-    onClick={[Function]}
-    style={Object {}}
+    class="rc-button rc-button--default rc-button--normal"
   >
     <div
-      className="rc-button__content"
+      class="rc-button__content"
     >
-      <Icon
-        className="rc-button__icon"
-        classPrefix="my-icon"
-        name="success"
-        tag="i"
-      >
-        <Badge
-          className="rc-button__icon my-icon my-icon-success"
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper rc-button__icon my-icon my-icon-success"
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
+      <i
+        class="rc-badge__wrapper rc-button__icon my-icon my-icon-success"
+      />
     </div>
   </button>
-</Button>
+</div>
 `;
 
 exports[`Button should render buttton group correctly 1`] = `
-<ButtonGroup>
+<div>
   <div
-    className="rc-button-group"
+    class="rc-button-group"
   >
-    <Button
-      iconPosition="left"
-      size="normal"
-      tag="button"
-      type="primary"
+    <button
+      class="rc-button rc-button--primary rc-button--normal"
     >
-      <button
-        className="rc-button rc-button--primary rc-button--normal"
-        onClick={[Function]}
-        style={Object {}}
+      <div
+        class="rc-button__content"
       >
-        <div
-          className="rc-button__content"
+        <span
+          class="rc-button__text"
         >
-          <span
-            className="rc-button__text"
-            key="text"
-          >
-            next step
-          </span>
-        </div>
-      </button>
-    </Button>
+          next step
+        </span>
+      </div>
+    </button>
   </div>
-</ButtonGroup>
+</div>
 `;
 
 exports[`Button should render correctly when icon is JSX element 1`] = `
-<Button
-  icon={
-    <Icon
-      name="shop-o"
-      tag="i"
-    />
-  }
-  iconPosition="left"
-  size="normal"
-  tag="button"
-  type="default"
->
+<div>
   <button
-    className="rc-button rc-button--default rc-button--normal"
-    onClick={[Function]}
-    style={Object {}}
+    class="rc-button rc-button--default rc-button--normal"
   >
     <div
-      className="rc-button__content"
+      class="rc-button__content"
     >
-      <Icon
-        name="shop-o"
-        tag="i"
-      >
-        <Badge
-          className="van-icon van-icon-shop-o"
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper van-icon van-icon-shop-o"
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
+      <i
+        class="rc-badge__wrapper van-icon van-icon-shop-o"
+      />
     </div>
   </button>
-</Button>
+</div>
 `;
 
 exports[`Button should render empty button without errors 1`] = `
-<button
-  class="rc-button rc-button--default rc-button--normal"
->
-  <div
-    class="rc-button__content"
+<div>
+  <button
+    class="rc-button rc-button--default rc-button--normal"
   >
-    <span
-      class="rc-button__text"
-    />
-  </div>
-</button>
+    <div
+      class="rc-button__content"
+    >
+      <span
+        class="rc-button__text"
+      />
+    </div>
+  </button>
+</div>
 `;

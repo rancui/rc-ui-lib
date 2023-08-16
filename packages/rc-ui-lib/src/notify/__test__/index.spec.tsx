@@ -1,12 +1,10 @@
 // import React from 'react';
-// import { mount } from 'enzyme';
+// import { fireEvent, render } from '@testing-library/react';
 import { Notify, NotifyNamespace } from '..';
 import { sleep } from '../../../tests/utils';
 
 describe('Notify', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper?.unmount();
     jest.restoreAllMocks();
   });
 

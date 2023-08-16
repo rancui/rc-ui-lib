@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import { ShareSheet } from '..';
 
@@ -20,84 +19,82 @@ const optionsMuli = [
 ];
 
 describe('ShareSheet', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     jest.restoreAllMocks();
   });
 
   test('should render cancel text when using cancel-text prop', async () => {
-    wrapper = mount(<ShareSheet visible cancelText="foo" />);
+    const { rerender } = render(<ShareSheet visible cancelText="foo" />);
 
-    expect(toJson(wrapper.find('.rc-share-sheet__cancel'))).toMatchSnapshot();
+    expect(document.querySelector('.rc-share-sheet__cancel')).toMatchSnapshot();
 
-    await wrapper.setProps({ cancelText: '' });
-    expect(wrapper.find('.rc-share-sheet__cancel').exists()).toBeFalsy();
+    rerender(<ShareSheet visible cancelText="" />);
+    expect(document.querySelector('.rc-share-sheet__cancel')).toBeFalsy();
   });
 
   test('should render description and title when using description prop and title prop', async () => {
-    wrapper = mount(<ShareSheet visible description="foo" title="hoo" />);
+    const { rerender } = render(<ShareSheet visible description="foo" title="hoo" />);
 
-    expect(wrapper.find('.rc-share-sheet__description').html()).toMatchSnapshot();
-    expect(wrapper.find('.rc-share-sheet__title').html()).toMatchSnapshot();
-
-    await wrapper.setProps({ description: '' });
-    expect(wrapper.find('.rc-share-sheet__description').exists()).toBeFalsy();
+    expect(document.querySelector('.rc-share-sheet__description')).toMatchSnapshot();
+    expect(document.querySelector('.rc-share-sheet__title')).toMatchSnapshot();
+    rerender(<ShareSheet visible description="" title="hoo" />);
+    expect(document.querySelector('.rc-share-sheet__description')).toBeFalsy();
   });
 
   test('should allow to custom the className of option', () => {
-    wrapper = mount(
+    render(
       <ShareSheet
         visible
         options={[{ name: 'Link', icon: 'link', className: 'foo', description: 'hoo' }]}
       />,
     );
 
-    const option = wrapper.find('.rc-share-sheet__option');
+    const option = document.querySelector('.rc-share-sheet__option');
 
-    expect(option.hasClass('foo')).toBeTruthy();
+    expect(option.classList.contains('foo')).toBeTruthy();
   });
   // description
 
   test('should render multi Line when option item is array', () => {
-    wrapper = mount(<ShareSheet visible options={optionsMuli} />);
+    render(<ShareSheet visible options={optionsMuli} />);
 
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(document.querySelector('.rc-share-sheet')).toMatchSnapshot();
   });
 
-  test('should emit select event when an option is clicked', () => {
+  test('should emit select event when an option is clicked', async () => {
     const onSelect = jest.fn();
-    wrapper = mount(
+    render(
       <ShareSheet visible options={[{ icon: 'wechat', name: 'wechat' }]} onSelect={onSelect} />,
     );
 
-    wrapper.find('.rc-share-sheet__option').at(0).simulate('click');
+    await fireEvent.click(document.querySelector('.rc-share-sheet__option'));
     expect(onSelect).toHaveBeenCalledWith({ icon: 'wechat', name: 'wechat' }, 0);
   });
 
-  test('should emit cancel event when the cancel button is clicked', () => {
+  test('should emit cancel event when the cancel button is clicked', async () => {
     const onCancel = jest.fn();
-    wrapper = mount(<ShareSheet visible onCancel={onCancel} />);
+    render(<ShareSheet visible onCancel={onCancel} />);
 
-    wrapper.find('.rc-share-sheet__cancel').simulate('click');
+    await fireEvent.click(document.querySelector('.rc-share-sheet__cancel'));
 
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
 
   test('should emit click-overlay event when overlay is clicked', async () => {
     const onCancel = jest.fn();
-    wrapper = mount(<ShareSheet visible cancelText="foo" onCancel={onCancel} />);
+    render(<ShareSheet visible cancelText="foo" onCancel={onCancel} />);
 
     await sleep();
 
-    const overlay = wrapper.find('.rc-overlay')!;
-    overlay.simulate('click');
+    const overlay = document.querySelector('.rc-overlay');
+    await fireEvent.click(overlay);
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
 
-  test('should have "van-popup--round" class when setting the round prop', async () => {
-    wrapper = mount(<ShareSheet visible round />);
+  test('should have "rc-popup--round" class when setting the round prop', async () => {
+    render(<ShareSheet visible round />);
 
-    expect(wrapper.find('.rc-popup--round').exists()).toBeTruthy();
+    expect(document.querySelector('.rc-popup--round')).toBeTruthy();
   });
 });

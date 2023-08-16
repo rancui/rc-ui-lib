@@ -1,14 +1,14 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import { mount } from 'enzyme';
 
 export default function mountTest(Component: React.ComponentType) {
   describe(`mount and unmount`, () => {
     // https://github.com/ant-design/ant-design/pull/18441
     it(`component could be updated and unmounted without errors`, () => {
-      const wrapper = mount(<Component />);
+      const { rerender, unmount } = render(<Component />);
       expect(() => {
-        wrapper.setProps({});
-        wrapper.unmount();
+        rerender(<Component />);
+        unmount();
       }).not.toThrow();
     });
   });
