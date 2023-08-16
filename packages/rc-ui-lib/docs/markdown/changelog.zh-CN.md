@@ -26,9 +26,10 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 **Feature**
 
-- Badge: Badge 组件新增 position 属性 [#65](https://github.com/rancui/rc-ui-lib/issues/65)
+- Badge: 新增 position 属性 [#65](https://github.com/rancui/rc-ui-lib/issues/65)
 - RollingText: 新增 RollingText 组件 [#64](https://github.com/rancui/rc-ui-lib/issues/64)
 - Watermark: 新增水印组件 [#67](https://github.com/rancui/rc-ui-lib/issues/67)
+
 ### [2.0.6](https://github.com/rancui/rc-ui-lib/compare/v2.0.5...v2.0.6)
 
 `2023-08-10`
