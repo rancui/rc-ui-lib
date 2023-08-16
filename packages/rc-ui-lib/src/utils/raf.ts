@@ -1,4 +1,4 @@
-import { inBrowser } from '.';
+import { inBrowser } from './base';
 
 const root = (inBrowser ? window : global) as unknown as Window;
 
