@@ -292,6 +292,10 @@ export default {
                 path: 'text-ellipsis',
                 title: 'TextEllipsis 文本省略',
               },
+              {
+                path: 'watermark',
+                title: 'Watermark 水印',
+              },
             ],
           },
           {

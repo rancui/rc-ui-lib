@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Watermark should render content 1`] = `
+<div>
+  <div
+    class="rc-water-mark"
+    style="z-index: 100; background-image: url(); background-size: 100px 100px;"
+  >
+    <div>
+      <svg
+        height="100"
+        style="padding: 0px 0px 0px 0px; display: none;"
+        viewBox="0 0 100 100"
+        width="100"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <foreignobject
+          height="100"
+          width="100"
+          x="0"
+          y="0"
+        >
+          <div
+            style="transform-origin: center; transform: rotate(-22deg);"
+            xmlns="http://www.w3.org/1999/xhtml"
+          >
+            <span
+              style="color: rgb(220, 222, 224);"
+            >
+              rc-ui-lib
+            </span>
+          </div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Watermark should render html 1`] = `
+<div>
+  <div
+    class="rc-water-mark"
+    style="z-index: 100; background-image: url(); background-size: 150px 100px;"
+  >
+    <div>
+      <svg
+        height="100"
+        style="padding: 0px 0px 0px 0px; display: none;"
+        viewBox="0 0 150 100"
+        width="150"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <foreignobject
+          height="100"
+          width="150"
+          x="0"
+          y="0"
+        >
+          <div
+            style="transform-origin: center; transform: rotate(-22deg);"
+            xmlns="http://www.w3.org/1999/xhtml"
+          >
+            <div>
+              <p
+                style="mix-blend-mode: difference; color: rgb(255, 255, 255);"
+              >
+                rc watermark
+              </p>
+            </div>
+          </div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Watermark should render image 1`] = `
+<div>
+  <div
+    class="rc-water-mark"
+    style="z-index: 100; background-image: url(); background-size: 180px 90px;"
+  >
+    <div>
+      <svg
+        height="90"
+        style="padding: 0px 0px 0px 0px; display: none;"
+        viewBox="0 0 180 90"
+        width="180"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <image
+          height="90"
+          href="data:image/png;base64,00"
+          style="transform-origin: center; transform: rotate(-22deg);"
+          width="180"
+          x="0"
+          xlink:href="data:image/png;base64,00"
+          y="0"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Watermark should render image and test opacity 1`] = `
+<div>
+  <div
+    class="rc-water-mark"
+    style="z-index: 100; background-image: url(); background-size: 180px 90px;"
+  >
+    <div>
+      <svg
+        height="90"
+        style="padding: 0px 0px 0px 0px; opacity: 0.2; display: none;"
+        viewBox="0 0 180 90"
+        width="180"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <image
+          height="90"
+          href="data:image/png;base64,00"
+          style="transform-origin: center; transform: rotate(-22deg);"
+          width="180"
+          x="0"
+          xlink:href="data:image/png;base64,00"
+          y="0"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Watermark test false value fullPage 1`] = `
+<div>
+  <div
+    class="rc-water-mark rc-water-mark--full"
+    style="z-index: 100; background-image: url(); background-size: 100px 100px;"
+  >
+    <div>
+      <svg
+        height="100"
+        style="padding: 0px 0px 0px 0px; opacity: 0.2; display: none;"
+        viewBox="0 0 100 100"
+        width="100"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <foreignobject
+          height="100"
+          width="100"
+          x="0"
+          y="0"
+        >
+          <div
+            style="transform-origin: center; transform: rotate(-22deg);"
+            xmlns="http://www.w3.org/1999/xhtml"
+          >
+            <span
+              style="color: rgb(220, 222, 224);"
+            >
+              rc-ui-lib
+            </span>
+          </div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Watermark test width, height, rotate, zIndex 1`] = `
+<div>
+  <div
+    class="rc-water-mark"
+    style="z-index: 999; background-image: url(); background-size: 180px 90px;"
+  >
+    <div>
+      <svg
+        height="90"
+        style="padding: 0px 0px 0px 0px; display: none;"
+        viewBox="0 0 180 90"
+        width="180"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <foreignobject
+          height="90"
+          width="180"
+          x="0"
+          y="0"
+        >
+          <div
+            style="transform-origin: center; transform: rotate(22deg);"
+            xmlns="http://www.w3.org/1999/xhtml"
+          >
+            <span
+              style="color: rgb(220, 222, 224);"
+            >
+              rc-ui-lib
+            </span>
+          </div>
+        </foreignobject>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
