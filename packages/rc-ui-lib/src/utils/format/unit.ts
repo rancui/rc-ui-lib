@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { CSSProperties } from 'react';
-import { isDef, inBrowser } from '..';
+import { isDef, inBrowser } from '../base';
 import { isNumeric } from '../validate/number';
 
 export function addUnit(value?: string | number): string | undefined {
