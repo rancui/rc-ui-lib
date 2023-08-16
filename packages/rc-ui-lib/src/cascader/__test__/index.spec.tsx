@@ -1,12 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { sleep } from '../../../tests/utils';
 import Icon from '../../icon';
 import Cascader from '..';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 
 describe('Cascader', () => {
-  let wrapper;
   let spyConsole: jest.SpyInstance;
   beforeEach(() => {
     spyConsole = jest.spyOn(console, 'error');
@@ -16,7 +14,7 @@ describe('Cascader', () => {
   });
 
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     spyConsole.mockRestore();
     jest.restoreAllMocks();
   });
@@ -36,10 +34,11 @@ describe('Cascader', () => {
 
   it('should emit change event when active option changed', async () => {
     const onChange = jest.fn();
-    wrapper = mount(<Cascader options={options} onChange={onChange} />);
+    render(<Cascader options={options} onChange={onChange} />);
 
     await sleep();
-    wrapper.find('.rc-cascader__option').at(0).simulate('click');
+    const optionElement = document.querySelector('.rc-cascader__option');
+    await fireEvent.click(optionElement);
 
     const firstOption = options[0];
     expect(onChange.mock.calls[0][0]).toEqual({
@@ -49,7 +48,10 @@ describe('Cascader', () => {
     });
 
     await sleep();
-    wrapper.find('.rc-cascader__options').at(1).find('.rc-cascader__option').simulate('click');
+    const option = document
+      .querySelectorAll('.rc-swiper__slide')[1]
+      .querySelectorAll('.rc-cascader__option')[0];
+    await fireEvent.click(option);
 
     const secondOption = options[0].children[0];
     expect(onChange.mock.calls[1][0]).toEqual({
@@ -69,18 +71,20 @@ describe('Cascader', () => {
       },
     ];
     const onChange = jest.fn();
-    wrapper = mount(<Cascader options={items} onChange={onChange} />);
+    render(<Cascader options={items} onChange={onChange} />);
     await sleep();
-    wrapper.find('.rc-cascader__option').at(0).simulate('click');
+    const option = document.querySelector('.rc-cascader__option');
+    await fireEvent.click(option);
     expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should emit finish event when all options is selected', async () => {
     const option = { value: '1', text: 'foo' };
     const onFinish = jest.fn();
-    wrapper = mount(<Cascader options={[option]} onFinish={onFinish} />);
+    render(<Cascader options={[option]} onFinish={onFinish} />);
     await sleep();
-    wrapper.find('.rc-cascader__option').simulate('click');
+    const optionElement = document.querySelector('.rc-cascader__option');
+    await fireEvent.click(optionElement);
 
     expect(onFinish.mock.calls[0][0]).toEqual({
       value: option.value,
@@ -89,69 +93,75 @@ describe('Cascader', () => {
     });
   });
 
-  it('should emit close event when close icon is clicked', () => {
+  it('should emit close event when close icon is clicked', async () => {
     const onClose = jest.fn();
-    wrapper = mount(<Cascader onClose={onClose} />);
-    wrapper.find(Icon).props().onClick();
+    render(<Cascader onClose={onClose} />);
+    const close = document.querySelector('.rc-cascader__close-icon');
+    await fireEvent.click(close);
     expect(onClose).toHaveBeenCalled();
   });
 
   it('should not render close icon when closeable is false', () => {
-    wrapper = mount(<Cascader closeable={false} />);
-    expect(wrapper.find('.rc-cascader__close-icon').exists()).toBeFalsy();
+    render(<Cascader closeable={false} />);
+    expect(document.querySelector('.rc-cascader__close-icon')).toBeFalsy();
   });
 
   it('should change close icon when close-icon prop is string', () => {
-    wrapper = mount(<Cascader closeIcon="success" />);
-    expect(wrapper.find(Icon).props().name).toEqual('success');
+    render(<Cascader closeIcon="success" />);
+    expect(
+      document.querySelector('.rc-cascader__close-icon').classList.contains('van-icon-success'),
+    ).toBeTruthy();
   });
 
   it('should change close icon when close-icon is ValidElement', () => {
-    wrapper = mount(<Cascader closeIcon={<Icon name="shop-o" />} />);
-    expect(wrapper.find('i.van-icon-shop-o').exists()).toBeTruthy();
+    render(<Cascader closeIcon={<Icon name="shop-o" />} />);
+    expect(document.querySelector('i.van-icon-shop-o')).toBeTruthy();
   });
 
   it('should change close icon when close-icon is not ValidElement', () => {
-    wrapper = mount(<Cascader closeIcon={123} />);
-    expect(wrapper.find('i.van-icon-shop-o').exists()).toBeFalsy();
+    render(<Cascader closeIcon={123} />);
+    expect(document.querySelector('i.van-icon-shop-o')).toBeFalsy();
   });
 
   test('should render title slot correctly', () => {
-    wrapper = mount(<Cascader title="Custom Title" />);
-    expect(wrapper.find('.rc-cascader__title').html()).toMatchSnapshot();
+    render(<Cascader title="Custom Title" />);
+    expect(document.querySelector('.rc-cascader__title')).toMatchSnapshot();
   });
 
   test('should render option correctly when using optionRender prop', async () => {
     const optionItem = { value: '1', text: 'foo' };
-    wrapper = mount(
+    render(
       <Cascader
         options={[optionItem]}
         optionRender={({ option }) => `Custom Option ${option.text}`}
       />,
     );
     await sleep();
-    expect(wrapper.find('.rc-cascader__option').text()).toEqual('Custom Option foo');
+    expect(document.querySelector('.rc-cascader__option').textContent).toEqual('Custom Option foo');
   });
 
   test('should render option correctly when using defaultValue prop', async () => {
     Date.now = jest.fn(() => 1482363367071);
-    wrapper = mount(<Cascader options={options} defaultValue={['330000']} />);
+    render(<Cascader options={options} defaultValue={['330000']} />);
     await sleep();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(document.querySelector('.rc-cascader')).toMatchSnapshot();
   });
 
   test('should emit onClickTab event correctly', async () => {
     const onClickTab = jest.fn();
-    wrapper = mount(<Cascader options={options} onClickTab={onClickTab} />);
+    render(<Cascader options={options} onClickTab={onClickTab} />);
 
-    await wrapper.find('.rc-tab').simulate('click');
+    const tab = document.querySelector('.rc-tab');
+    await fireEvent.click(tab);
     expect(onClickTab).toHaveBeenCalled();
   });
 
   test('when value change', async () => {
-    wrapper = mount(<Cascader options={options} defaultValue={['330000']} />);
-    await wrapper.setProps({ value: ['350000'] });
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { rerender } = render(<Cascader options={options} defaultValue={['330000']} />);
+
+    rerender(<Cascader options={options} defaultValue={['330000']} value={['350000']} />);
+
+    expect(document.querySelector('.rc-cascader')).toMatchSnapshot();
     expect(spyConsole).toHaveBeenLastCalledWith(
       Error(
         'Cascader: unable to match options correctly, Please check value or defaultValue props.',

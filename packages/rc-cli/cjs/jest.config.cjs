@@ -26,7 +26,6 @@ const DEFAULT_CONFIG = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/demo/**', '!**/test/**'],
   coverageDirectory: './tests/coverage',
-  snapshotSerializers: ['enzyme-to-json/serializer'],
 };
 
 function readRootConfig() {

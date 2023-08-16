@@ -1,57 +1,56 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { cleanup, render } from '@testing-library/react';
 import Button from '../../button';
 import { Network } from '../Network';
 import Empty from '..';
 
 describe('Empty', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
   });
 
   it('should render image correctly', () => {
-    wrapper = mount(<Empty image="search" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Empty image="search" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render description correctly', () => {
-    wrapper = mount(<Empty description="description" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Empty description="description" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render bottom correctly', () => {
-    wrapper = mount(
+    const { container } = render(
       <Empty>
         <Button round type="primary" className="bottom-button">
           按钮
         </Button>
       </Empty>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render svg when image is network component', () => {
-    wrapper = mount(<Empty image={Network} />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Empty image={Network} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render svg when prop image is network', () => {
-    wrapper = mount(<Empty image="network" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Empty image="network" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should change image size when using image-size prop', async () => {
-    wrapper = mount(<Empty image="search" imageSize={50} />);
+    const { container, rerender } = render(<Empty image="search" imageSize={50} />);
 
-    const image = wrapper.find('.rc-empty__image');
+    const style = getComputedStyle(container.querySelector('.rc-empty__image'));
 
-    expect(image.getDOMNode().style.width).toEqual('50px');
-    expect(image.getDOMNode().style.height).toEqual('50px');
+    expect(style.width).toEqual('50px');
+    expect(style.height).toEqual('50px');
 
-    await wrapper.setProps({ imageSize: '1vw' });
-    expect(image.getDOMNode().style.width).toEqual('1vw');
-    expect(image.getDOMNode().style.height).toEqual('1vw');
+    rerender(<Empty image="search" imageSize="1vw" />);
+    const style2 = getComputedStyle(container.querySelector('.rc-empty__image'));
+    expect(style2.width).toEqual('1vw');
+    expect(style2.height).toEqual('1vw');
   });
 });

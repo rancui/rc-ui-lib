@@ -1,28 +1,25 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { fireEvent, render } from '@testing-library/react';
 import { Steps } from '..';
 import { Icon } from '../../icon';
 
 describe('Steps', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper?.unmount();
     jest.restoreAllMocks();
   });
 
   test('should render correctly', () => {
-    wrapper = mount(
+    const { container } = render(
       <Steps active={0}>
         <Steps.Item>B</Steps.Item>
         <Steps.Item>A</Steps.Item>
       </Steps>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   test('should render custom icon correctly', () => {
-    wrapper = mount(
+    const { container } = render(
       <Steps
         active={1}
         activeIcon={<Icon name="success" />}
@@ -34,12 +31,12 @@ describe('Steps', () => {
         <Steps.Item>C</Steps.Item>
       </Steps>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
-  test('should emit click-step event when step is clicked', () => {
+  test('should emit click-step event when step is clicked', async () => {
     const onClickStep = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Steps active={1} onClickStep={onClickStep}>
         <Steps.Item>A</Steps.Item>
         <Steps.Item>B</Steps.Item>
@@ -47,62 +44,61 @@ describe('Steps', () => {
       </Steps>,
     );
 
-    wrapper.find('.rc-step').at(0).simulate('click');
+    await fireEvent.click(container.querySelector('.rc-step'));
     expect(onClickStep).toHaveBeenCalledTimes(0);
 
-    wrapper.find('.rc-step__title').at(0).simulate('click');
+    await fireEvent.click(container.querySelector('.rc-step__title'));
     expect(onClickStep).toHaveBeenCalledWith(0);
 
-    wrapper.find('.rc-step__circle-container').at(2).simulate('click');
+    await fireEvent.click(container.querySelectorAll('.rc-step__circle-container')[2]);
     expect(onClickStep).toHaveBeenCalledTimes(2);
     expect(onClickStep).toHaveBeenLastCalledWith(2);
   });
 
   test('should change inactive color when using inactive-color prop', () => {
-    wrapper = mount(
+    const { container } = render(
       <Steps active={0} inactiveColor="red">
         <Steps.Item>A</Steps.Item>
         <Steps.Item>B</Steps.Item>
       </Steps>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   test('should change inactive icon when using inactive-icon prop', () => {
-    wrapper = mount(
+    const { container } = render(
       <Steps active={0} inactiveIcon="foo">
         <Steps.Item>A</Steps.Item>
         <Steps.Item>B</Steps.Item>
       </Steps>,
     );
 
-    const steps = wrapper.find('.rc-step').at(1);
-    expect(steps.find('.van-icon-foo').exists()).toBeTruthy();
-    expect(steps.html()).toMatchSnapshot();
+    expect(container.querySelector('.van-icon-foo')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 
   test('should change finish icon when using finish-icon prop', () => {
-    wrapper = mount(
+    const { container } = render(
       <Steps active={1} finishIcon="foo">
         <Steps.Item>A</Steps.Item>
         <Steps.Item>B</Steps.Item>
       </Steps>,
     );
 
-    const firstStep = wrapper.find('.rc-step');
-    expect(firstStep.find('.van-icon-foo').exists()).toBeTruthy();
-    expect(toJson(firstStep)).toMatchSnapshot();
+    const firstStep = container.querySelector('.rc-step');
+    expect(firstStep.querySelector('.van-icon-foo')).toBeTruthy();
+    expect(firstStep).toMatchSnapshot();
   });
 
   test('should render icon-prefix correctly', () => {
-    wrapper = mount(
+    const { container } = render(
       <Steps active={1} iconPrefix="custom-icon">
         <Steps.Item>A</Steps.Item>
         <Steps.Item>B</Steps.Item>
       </Steps>,
     );
 
-    const steps = wrapper.find('.rc-step').at(1);
-    expect(toJson(steps)).toMatchSnapshot();
+    const steps = container.querySelector('.rc-step');
+    expect(steps).toMatchSnapshot();
   });
 });

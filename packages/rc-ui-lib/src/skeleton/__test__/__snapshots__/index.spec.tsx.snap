@@ -2,8 +2,7 @@
 
 exports[`Skeleton should change avatar shape when using avatar-shape prop 1`] = `
 <div
-  className="rc-skeleton__avatar rc-skeleton__avatar--square"
-  style={Object {}}
+  class="rc-skeleton__avatar rc-skeleton__avatar--square"
 />
 `;
 
@@ -12,149 +11,66 @@ exports[`Skeleton should change avatar size when using avatar-size prop: 20rem 1
 exports[`Skeleton should change avatar size when using avatar-size prop: 20ren 1`] = `"20rem"`;
 
 exports[`Skeleton should render default slot when loading is false 1`] = `
-<Skeleton
-  animate={true}
-  avatarShape="round"
-  loading={false}
-  round={true}
-  row={3}
-  rowWidth="100%"
->
+<div>
   <div>
     Content
   </div>
-</Skeleton>
+</div>
 `;
 
 exports[`Skeleton should render with row height array correctly 1`] = `
-<Skeleton
-  animate={true}
-  avatarShape="round"
-  loading={true}
-  round={true}
-  row={4}
-  rowHeight={
-    Array [
-      "10px",
-      30,
-      "1rem",
-    ]
-  }
-  rowWidth="100%"
->
+<div>
   <div
-    className="rc-skeleton rc-skeleton--animate rc-skeleton--round"
+    class="rc-skeleton rc-skeleton--animate rc-skeleton--round"
   >
     <div
-      className="rc-skeleton__content"
+      class="rc-skeleton__content"
     >
       <div
-        className="rc-skeleton__row"
-        key="0"
-        style={
-          Object {
-            "height": "10px",
-            "width": "100%",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 100%; height: 10px;"
       />
       <div
-        className="rc-skeleton__row"
-        key="1"
-        style={
-          Object {
-            "height": "30px",
-            "width": "100%",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 100%; height: 30px;"
       />
       <div
-        className="rc-skeleton__row"
-        key="2"
-        style={
-          Object {
-            "height": "1rem",
-            "width": "100%",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 100%; height: 1rem;"
       />
       <div
-        className="rc-skeleton__row"
-        key="3"
-        style={
-          Object {
-            "height": undefined,
-            "width": "60%",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 60%;"
       />
     </div>
   </div>
-</Skeleton>
+</div>
 `;
 
 exports[`Skeleton should render with row width array correctly 1`] = `
-<Skeleton
-  animate={true}
-  avatarShape="round"
-  loading={true}
-  round={true}
-  row={4}
-  rowWidth={
-    Array [
-      "100%",
-      30,
-      "5rem",
-    ]
-  }
->
+<div>
   <div
-    className="rc-skeleton rc-skeleton--animate rc-skeleton--round"
+    class="rc-skeleton rc-skeleton--animate rc-skeleton--round"
   >
     <div
-      className="rc-skeleton__content"
+      class="rc-skeleton__content"
     >
       <div
-        className="rc-skeleton__row"
-        key="0"
-        style={
-          Object {
-            "height": undefined,
-            "width": "100%",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 100%;"
       />
       <div
-        className="rc-skeleton__row"
-        key="1"
-        style={
-          Object {
-            "height": undefined,
-            "width": "30px",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 30px;"
       />
       <div
-        className="rc-skeleton__row"
-        key="2"
-        style={
-          Object {
-            "height": undefined,
-            "width": "5rem",
-          }
-        }
+        class="rc-skeleton__row"
+        style="width: 5rem;"
       />
       <div
-        className="rc-skeleton__row"
-        key="3"
-        style={
-          Object {
-            "height": undefined,
-            "width": undefined,
-          }
-        }
+        class="rc-skeleton__row"
       />
     </div>
   </div>
-</Skeleton>
+</div>
 `;

@@ -1,58 +1,56 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { cleanup, render } from '@testing-library/react';
 import { Skeleton } from '..';
 
 describe('Skeleton', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     jest.restoreAllMocks();
   });
 
   it('should render with row width array correctly', async () => {
-    wrapper = mount(<Skeleton row={4} rowWidth={['100%', 30, '5rem']} />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Skeleton row={4} rowWidth={['100%', 30, '5rem']} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with row height array correctly', async () => {
-    wrapper = mount(<Skeleton row={4} rowHeight={['10px', 30, '1rem']} />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Skeleton row={4} rowHeight={['10px', 30, '1rem']} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render default slot when loading is false', () => {
-    wrapper = mount(
+    const { container } = render(
       <Skeleton loading={false}>
         <div>Content</div>
       </Skeleton>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should change avatar size when using avatar-size prop', () => {
-    wrapper = mount(<Skeleton avatar avatarSize="20rem" />);
+    const { container } = render(<Skeleton avatar avatarSize="20rem" />);
 
-    const avatar = wrapper.find('.rc-skeleton__avatar');
-    expect(avatar.getDOMNode().style.width).toMatchSnapshot('20rem');
-    expect(avatar.getDOMNode().style.height).toMatchSnapshot('20ren');
+    const avatar = container.querySelector('.rc-skeleton__avatar');
+    expect(getComputedStyle(avatar).width).toMatchSnapshot('20rem');
+    expect(getComputedStyle(avatar).height).toMatchSnapshot('20ren');
   });
 
   it('should change avatar shape when using avatar-shape prop', () => {
-    wrapper = mount(<Skeleton avatar avatarShape="square" />);
-    expect(toJson(wrapper.find('.rc-skeleton__avatar'))).toMatchSnapshot();
+    const { container } = render(<Skeleton avatar avatarShape="square" />);
+    expect(container.querySelector('.rc-skeleton__avatar')).toMatchSnapshot();
   });
 
   it('should be round when using round prop', () => {
-    wrapper = mount(<Skeleton title round avatar />);
-    expect(wrapper.find('.rc-skeleton--round').exists()).toBeTruthy();
+    const { container } = render(<Skeleton title round avatar />);
+    expect(container.querySelector('.rc-skeleton--round')).toBeTruthy();
   });
 
   it('should allow to disable animation', async () => {
-    wrapper = mount(<Skeleton row={1} />);
+    const { container, rerender } = render(<Skeleton row={1} />);
 
-    expect(wrapper.find('.rc-skeleton--animate').exists()).toBeTruthy();
+    expect(container.querySelector('.rc-skeleton--animate')).toBeTruthy();
 
-    await wrapper.setProps({ animate: false });
-    expect(wrapper.find('.rc-skeleton--animate').exists()).toBeFalsy();
+    rerender(<Skeleton row={1} animate={false} />);
+    expect(container.querySelector('.rc-skeleton--animate')).toBeFalsy();
   });
 });

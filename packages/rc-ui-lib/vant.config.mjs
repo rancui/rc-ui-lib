@@ -256,10 +256,10 @@ export default {
                 path: 'skeleton',
                 title: 'Skeleton 骨架屏',
               },
-              // {
-              //   path: 'steps',
-              //   title: 'Steps 步骤条',
-              // },
+              {
+                path: 'steps',
+                title: 'Steps 步骤条',
+              },
               {
                 path: 'notice-bar',
                 title: 'NoticeBar 通知栏',

@@ -1,75 +1,73 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { cleanup, render } from '@testing-library/react';
 import Cell from '..';
 
 describe('Cell', () => {
-  let wrapper;
-
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     jest.restoreAllMocks();
   });
 
   it('should render value slot correctly', () => {
-    wrapper = mount(<Cell value="Custom Value" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Cell value="Custom Value" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render title slot correctly', () => {
-    wrapper = mount(<Cell title="Custom Title" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Cell title="Custom Title" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render label slot correctly', () => {
-    wrapper = mount(<Cell title="Title" label="Custom Label" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Cell title="Title" label="Custom Label" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render icon slot correctly', () => {
-    wrapper = mount(<Cell icon="location-o" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = render(<Cell icon="location-o" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render extra slot correctly', () => {
-    wrapper = mount(<Cell title="Title" value="Value" extra="Custom Extra" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(<Cell title="Title" value="Value" extra="Custom Extra" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should change arrow direction when using arrow-direction prop', () => {
-    wrapper = mount(<Cell title="Title" value="Value" isLink arrowDirection="down" />);
-    expect(wrapper.find('.rc-cell__right-icon').exists()).toBeTruthy();
-    expect(wrapper.find('.van-icon-arrow-down').exists()).toBeTruthy();
+    const { container } = render(<Cell title="Title" value="Value" isLink arrowDirection="down" />);
+    expect(container.querySelector('.rc-cell__right-icon')).toBeTruthy();
+    expect(container.querySelector('.van-icon-arrow-down')).toBeTruthy();
   });
 
   it('should change title style when using title-style prop', () => {
-    wrapper = mount(<Cell title="Title" titleStyle={{ color: 'red' }} />);
-    const title = wrapper.find('.rc-cell__title');
-    expect(title.getDOMNode().style.color).toEqual('red');
+    const { container } = render(<Cell title="Title" titleStyle={{ color: 'red' }} />);
+    const title = container.querySelector('.rc-cell__title');
+    const style = getComputedStyle(title);
+    expect(style.color).toEqual('red');
   });
 
   it('should change icon class prefix when using icon-prefix prop', () => {
-    wrapper = mount(<Cell title="Title" icon="success" iconPrefix="my-icon" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    const { container } = render(<Cell title="Title" icon="success" iconPrefix="my-icon" />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should allow to disable clicakble when using is-link prop', () => {
-    wrapper = mount(<Cell title="Title" isLink clickable={false} />);
-    expect(wrapper.find('.rc-cell--clickable').exists()).toBeTruthy();
+    const { container } = render(<Cell title="Title" isLink clickable={false} />);
+    expect(container.querySelector('.rc-cell--clickable')).toBeTruthy();
   });
 
   it('should render correctly when wrapperd with Cell.Group', () => {
-    wrapper = mount(
+    const { container } = render(
       <Cell.Group>
         <Cell title="单元格" value="内容" />
         <Cell title="单元格" value="内容" label="描述信息" />
       </Cell.Group>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render correctly when using title prop in Cell.Group', () => {
-    wrapper = mount(
+    const { container } = render(
       <div>
         <Cell.Group title="分组1">
           <Cell title="单元格" value="内容" />
@@ -79,16 +77,16 @@ describe('Cell', () => {
         </Cell.Group>
       </div>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render correctly when using inset prop in Cell.Group', () => {
-    wrapper = mount(
+    const { container } = render(
       <Cell.Group inset>
         <Cell title="单元格" value="内容" />
         <Cell title="单元格" value="内容" label="描述信息" />
       </Cell.Group>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

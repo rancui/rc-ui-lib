@@ -1,1470 +1,503 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs should not render zero badge when show-zero-badge prop is false 1`] = `
-<ForwardRef
-  active={0}
-  duration={300}
-  ellipsis={true}
-  lazyRender={true}
-  offsetTop={0}
-  swipeThreshold={5}
-  type="line"
->
+<div>
   <div
-    className="rc-tabs rc-tabs--line"
+    class="rc-tabs rc-tabs--line"
   >
     <div
-      className="rc-tabs__wrap"
+      class="rc-tabs__wrap"
     >
       <div
-        className="rc-tabs__nav rc-tabs__nav--line"
+        class="rc-tabs__nav rc-tabs__nav--line"
         role="tablist"
-        style={
-          Object {
-            "background": undefined,
-            "borderColor": undefined,
-          }
-        }
       >
-        <ForwardRef
-          badge={0}
-          isActive={true}
-          key=".0"
-          onClick={[Function]}
-          scrollable={false}
-          showZeroBadge={true}
-          type="line"
-        >
-          <div
-            aria-selected={true}
-            className="rc-tab rc-tab--active"
-            onClick={[Function]}
-            style={Object {}}
-          >
-            <Badge
-              content={0}
-              position="top-right"
-              showZero={true}
-              tag="div"
-            >
-              <div
-                className="rc-badge__wrapper"
-              >
-                <span
-                  className="rc-tab__text rc-tab__text--ellipsis"
-                />
-                <div
-                  className="rc-badge rc-badge--top-right rc-badge--fixed"
-                  style={
-                    Object {
-                      "background": undefined,
-                    }
-                  }
-                >
-                  0
-                </div>
-              </div>
-            </Badge>
-          </div>
-        </ForwardRef>
-        <ForwardRef
-          badge={0}
-          isActive={false}
-          key=".1"
-          onClick={[Function]}
-          scrollable={false}
-          showZeroBadge={false}
-          type="line"
-        >
-          <div
-            aria-selected={false}
-            className="rc-tab"
-            onClick={[Function]}
-            style={Object {}}
-          >
-            <Badge
-              content={0}
-              position="top-right"
-              showZero={false}
-              tag="div"
-            >
-              <div
-                className="rc-badge__wrapper"
-              >
-                <span
-                  className="rc-tab__text rc-tab__text--ellipsis"
-                />
-              </div>
-            </Badge>
-          </div>
-        </ForwardRef>
         <div
-          className="rc-tabs__line"
-          style={
-            Object {
-              "backgroundColor": undefined,
-            }
-          }
+          aria-selected="true"
+          class="rc-tab rc-tab--active"
+        >
+          <div
+            class="rc-badge__wrapper"
+          >
+            <span
+              class="rc-tab__text rc-tab__text--ellipsis"
+            />
+            <div
+              class="rc-badge rc-badge--top-right rc-badge--fixed"
+            >
+              0
+            </div>
+          </div>
+        </div>
+        <div
+          aria-selected="false"
+          class="rc-tab"
+        >
+          <div
+            class="rc-badge__wrapper"
+          >
+            <span
+              class="rc-tab__text rc-tab__text--ellipsis"
+            />
+          </div>
+        </div>
+        <div
+          class="rc-tabs__line"
         />
       </div>
     </div>
-    <TabsContent
-      count={2}
-      currentIndex={0}
-      duration={300}
-      inited={true}
-      lazyRender={true}
-      onChange={[Function]}
+    <div
+      class="rc-tabs__content"
     >
       <div
-        className="rc-tabs__content"
+        class="rc-tab__pane"
+        role="tabpanel"
+        style="display: block;"
       >
-        <ForwardRef
-          badge={0}
-          index={0}
-          key=".0"
-          showZeroBadge={true}
-        >
-          <div
-            className="rc-tab__pane"
-            role="tabpanel"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
-          >
-            1
-          </div>
-        </ForwardRef>
-        <ForwardRef
-          badge={0}
-          index={1}
-          key=".1"
-          showZeroBadge={false}
-        >
-          <div
-            className="rc-tab__pane"
-            role="tabpanel"
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-          />
-        </ForwardRef>
+        1
       </div>
-    </TabsContent>
+      <div
+        class="rc-tab__pane"
+        role="tabpanel"
+        style="display: none;"
+      />
+    </div>
   </div>
-</ForwardRef>
+</div>
 `;
 
 exports[`Tabs should render card type correctly 1`] = `
-<ForwardRef
-  active={0}
-  color="#ff0000"
-  duration={300}
-  ellipsis={true}
-  lazyRender={true}
-  offsetTop={0}
-  swipeThreshold={5}
-  type="card"
->
+<div>
   <div
-    className="rc-tabs rc-tabs--card"
+    class="rc-tabs rc-tabs--card"
   >
     <div
-      className="rc-tabs__wrap"
+      class="rc-tabs__wrap"
     >
       <div
-        className="rc-tabs__nav rc-tabs__nav--card"
+        class="rc-tabs__nav rc-tabs__nav--card"
         role="tablist"
-        style={
-          Object {
-            "background": undefined,
-            "borderColor": "#ff0000",
-          }
-        }
+        style="border-color: #ff0000;"
       >
-        <ForwardRef
-          badge={1}
-          color="#ff0000"
-          isActive={true}
-          key=".0"
-          onClick={[Function]}
-          scrollable={false}
-          showZeroBadge={true}
-          type="card"
+        <div
+          aria-selected="true"
+          class="rc-tab rc-tab--active"
+          style="border-color: #ff0000; background-color: rgb(255, 0, 0);"
         >
           <div
-            aria-selected={true}
-            className="rc-tab rc-tab--active"
-            onClick={[Function]}
-            style={
-              Object {
-                "backgroundColor": "#ff0000",
-                "borderColor": "#ff0000",
-              }
-            }
+            class="rc-badge__wrapper"
           >
-            <Badge
-              content={1}
-              position="top-right"
-              showZero={true}
-              tag="div"
+            <span
+              class="rc-tab__text rc-tab__text--ellipsis"
+            />
+            <div
+              class="rc-badge rc-badge--top-right rc-badge--fixed"
             >
-              <div
-                className="rc-badge__wrapper"
-              >
-                <span
-                  className="rc-tab__text rc-tab__text--ellipsis"
-                />
-                <div
-                  className="rc-badge rc-badge--top-right rc-badge--fixed"
-                  style={
-                    Object {
-                      "background": undefined,
-                    }
-                  }
-                >
-                  1
-                </div>
-              </div>
-            </Badge>
+              1
+            </div>
           </div>
-        </ForwardRef>
-        <ForwardRef
-          color="#ff0000"
-          dot={true}
-          isActive={false}
-          key=".1"
-          onClick={[Function]}
-          scrollable={false}
-          showZeroBadge={true}
-          type="card"
+        </div>
+        <div
+          aria-selected="false"
+          class="rc-tab"
+          style="border-color: #ff0000; color: rgb(255, 0, 0);"
         >
           <div
-            aria-selected={false}
-            className="rc-tab"
-            onClick={[Function]}
-            style={
-              Object {
-                "borderColor": "#ff0000",
-                "color": "#ff0000",
-              }
-            }
+            class="rc-badge__wrapper"
           >
-            <Badge
-              dot={true}
-              position="top-right"
-              showZero={true}
-              tag="div"
-            >
-              <div
-                className="rc-badge__wrapper"
-              >
-                <span
-                  className="rc-tab__text rc-tab__text--ellipsis"
-                />
-                <div
-                  className="rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed"
-                  style={
-                    Object {
-                      "background": undefined,
-                    }
-                  }
-                />
-              </div>
-            </Badge>
+            <span
+              class="rc-tab__text rc-tab__text--ellipsis"
+            />
+            <div
+              class="rc-badge rc-badge--top-right rc-badge--dot rc-badge--fixed"
+            />
           </div>
-        </ForwardRef>
-        <ForwardRef
-          color="#ff0000"
-          isActive={false}
-          key=".2"
-          onClick={[Function]}
-          renderTitle={
+        </div>
+        <div
+          aria-selected="false"
+          class="rc-tab"
+          style="border-color: #ff0000; color: rgb(255, 0, 0);"
+        >
+          <span
+            class="rc-tab__text rc-tab__text--ellipsis"
+          >
             <h3>
               haha
             </h3>
-          }
-          scrollable={false}
-          showZeroBadge={true}
-          type="card"
+          </span>
+        </div>
+        <div
+          aria-selected="false"
+          class="rc-tab"
+          style="border-color: #ff0000; color: rgb(255, 0, 0);"
         >
-          <div
-            aria-selected={false}
-            className="rc-tab"
-            onClick={[Function]}
-            style={
-              Object {
-                "borderColor": "#ff0000",
-                "color": "#ff0000",
-              }
-            }
+          <span
+            class="rc-tab__text rc-tab__text--ellipsis"
           >
-            <span
-              className="rc-tab__text rc-tab__text--ellipsis"
-            >
-              <h3>
-                haha
-              </h3>
-            </span>
-          </div>
-        </ForwardRef>
-        <ForwardRef
-          color="#ff0000"
-          isActive={false}
-          key=".3"
-          onClick={[Function]}
-          renderTitle={[Function]}
-          scrollable={false}
-          showZeroBadge={true}
-          type="card"
-        >
-          <div
-            aria-selected={false}
-            className="rc-tab"
-            onClick={[Function]}
-            style={
-              Object {
-                "borderColor": "#ff0000",
-                "color": "#ff0000",
-              }
-            }
-          >
-            <span
-              className="rc-tab__text rc-tab__text--ellipsis"
-            >
-              <h3>
-                false
-              </h3>
-            </span>
-          </div>
-        </ForwardRef>
+            <h3>
+              false
+            </h3>
+          </span>
+        </div>
       </div>
     </div>
-    <TabsContent
-      count={4}
-      currentIndex={0}
-      duration={300}
-      inited={true}
-      lazyRender={true}
-      onChange={[Function]}
+    <div
+      class="rc-tabs__content"
     >
       <div
-        className="rc-tabs__content"
+        class="rc-tab__pane"
+        role="tabpanel"
+        style="display: block;"
       >
-        <ForwardRef
-          badge={1}
-          index={0}
-          key=".0"
-          showZeroBadge={true}
-        >
-          <div
-            className="rc-tab__pane"
-            role="tabpanel"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
-          >
-            1
-          </div>
-        </ForwardRef>
-        <ForwardRef
-          dot={true}
-          index={1}
-          key=".1"
-          showZeroBadge={true}
-        >
-          <div
-            className="rc-tab__pane"
-            role="tabpanel"
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-          />
-        </ForwardRef>
-        <ForwardRef
-          index={2}
-          key=".2"
-          renderTitle={
-            <h3>
-              haha
-            </h3>
-          }
-          showZeroBadge={true}
-        >
-          <div
-            className="rc-tab__pane"
-            role="tabpanel"
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-          />
-        </ForwardRef>
-        <ForwardRef
-          index={3}
-          key=".3"
-          renderTitle={[Function]}
-          showZeroBadge={true}
-        >
-          <div
-            className="rc-tab__pane"
-            role="tabpanel"
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-          />
-        </ForwardRef>
+        1
       </div>
-    </TabsContent>
+      <div
+        class="rc-tab__pane"
+        role="tabpanel"
+        style="display: none;"
+      />
+      <div
+        class="rc-tab__pane"
+        role="tabpanel"
+        style="display: none;"
+      />
+      <div
+        class="rc-tab__pane"
+        role="tabpanel"
+        style="display: none;"
+      />
+    </div>
   </div>
-</ForwardRef>
+</div>
 `;
 
 exports[`Tabs should render correctly when lazy-render 1`] = `
 <div
-  className="rc-tabs__content"
+  class="rc-tabs__content"
 >
-  <ForwardRef
-    index={0}
-    key=".0"
-    name="a"
-    showZeroBadge={true}
-    title="title1"
+  <div
+    class="rc-tab__pane"
+    role="tabpanel"
+    style="display: block;"
   >
-    <div
-      className="rc-tab__pane"
-      role="tabpanel"
-      style={
-        Object {
-          "display": "block",
-        }
-      }
-    >
-      Tab
-    </div>
-  </ForwardRef>
-  <ForwardRef
-    index={1}
-    key=".1"
-    name="b"
-    showZeroBadge={true}
-    title="title2"
-  >
-    <div
-      className="rc-tab__pane"
-      role="tabpanel"
-      style={
-        Object {
-          "display": "none",
-        }
-      }
-    />
-  </ForwardRef>
+    Tab
+  </div>
+  <div
+    class="rc-tab__pane"
+    role="tabpanel"
+    style="display: none;"
+  />
 </div>
 `;
 
 exports[`Tabs should render correctly when lazy-render 2`] = `
 <div
-  className="rc-tabs__content"
+  class="rc-tabs__content"
 >
-  <ForwardRef
-    index={0}
-    key=".0"
-    name="a"
-    showZeroBadge={true}
-    title="title1"
+  <div
+    class="rc-tab__pane"
+    role="tabpanel"
+    style="display: block;"
   >
-    <div
-      className="rc-tab__pane"
-      role="tabpanel"
-      style={
-        Object {
-          "display": "block",
-        }
-      }
-    >
-      Tab
-    </div>
-  </ForwardRef>
-  <ForwardRef
-    index={1}
-    key=".1"
-    name="b"
-    showZeroBadge={true}
-    title="title2"
+    Tab
+  </div>
+  <div
+    class="rc-tab__pane"
+    role="tabpanel"
+    style="display: none;"
   >
-    <div
-      className="rc-tab__pane"
-      role="tabpanel"
-      style={
-        Object {
-          "display": "none",
-        }
-      }
-    >
-      Tab
-    </div>
-  </ForwardRef>
+    Tab
+  </div>
 </div>
 `;
 
 exports[`Tabs should render correctly when set scrollspy prop 1`] = `
-<div
-  className="test-rab"
->
-  <ForwardRef
-    active={0}
-    duration={300}
-    ellipsis={true}
-    lazyRender={true}
-    offsetTop={0}
-    onChange={[MockFunction]}
-    scrollspy={
-      Object {
-        "autoFocusLast": true,
-        "reachBottomThreshold": 50,
-      }
-    }
-    sticky={true}
-    swipeThreshold={5}
-    type="line"
+<div>
+  <div
+    class="test-rab"
   >
     <div
-      className="rc-tabs rc-tabs--line"
+      class="rc-tabs rc-tabs--line"
     >
-      <Sticky
-        container={
-          Object {
-            "current": <div
-              class="rc-tabs rc-tabs--line"
-            >
-              <div>
-                <div
-                  class="rc-sticky"
-                >
-                  <div
-                    class="rc-tabs__wrap"
-                  >
-                    <div
-                      class="rc-tabs__nav rc-tabs__nav--line"
-                      role="tablist"
-                    >
-                      <div
-                        aria-selected="true"
-                        class="rc-tab rc-tab--active"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title0
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title1
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title2
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title3
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title4
-                        </span>
-                      </div>
-                      <div
-                        class="rc-tabs__line"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rc-tabs__content"
-              >
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    0
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    1
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    2
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    3
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    4
-                  </div>
-                </div>
-              </div>
-            </div>,
-          }
-        }
-        offsetBottom={0}
-        offsetTop={0}
-        onChange={[Function]}
-        onScroll={[Function]}
-        position="top"
-      >
+      <div>
         <div
-          style={null}
+          class="rc-sticky"
         >
           <div
-            className="rc-sticky"
-            style={null}
+            class="rc-tabs__wrap"
           >
             <div
-              className="rc-tabs__wrap"
+              class="rc-tabs__nav rc-tabs__nav--line"
+              role="tablist"
             >
               <div
-                className="rc-tabs__nav rc-tabs__nav--line"
-                role="tablist"
-                style={
-                  Object {
-                    "background": undefined,
-                    "borderColor": undefined,
-                  }
-                }
+                aria-selected="true"
+                class="rc-tab rc-tab--active"
               >
-                <ForwardRef
-                  isActive={true}
-                  key=".$0"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title0"
-                  type="line"
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
                 >
-                  <div
-                    aria-selected={true}
-                    className="rc-tab rc-tab--active"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title0
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$1"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title1"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title1
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$2"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title2"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title2
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$3"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title3"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title3
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$4"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title4"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title4
-                    </span>
-                  </div>
-                </ForwardRef>
-                <div
-                  className="rc-tabs__line"
-                  style={
-                    Object {
-                      "backgroundColor": undefined,
-                    }
-                  }
-                />
+                  title0
+                </span>
               </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title1
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title2
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title3
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title4
+                </span>
+              </div>
+              <div
+                class="rc-tabs__line"
+              />
             </div>
           </div>
         </div>
-      </Sticky>
-      <TabsContent
-        count={5}
-        currentIndex={0}
-        duration={300}
-        inited={true}
-        lazyRender={true}
-        onChange={[Function]}
+      </div>
+      <div
+        class="rc-tabs__content"
       >
         <div
-          className="rc-tabs__content"
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
         >
-          <ForwardRef
-            index={0}
-            key=".$0"
-            showZeroBadge={true}
-            title="title0"
+          <div
+            style="height: 80px;"
           >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                0
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={1}
-            key=".$1"
-            showZeroBadge={true}
-            title="title1"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                1
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={2}
-            key=".$2"
-            showZeroBadge={true}
-            title="title2"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                2
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={3}
-            key=".$3"
-            showZeroBadge={true}
-            title="title3"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                3
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={4}
-            key=".$4"
-            showZeroBadge={true}
-            title="title4"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                4
-              </div>
-            </div>
-          </ForwardRef>
+            内容 
+            0
+          </div>
         </div>
-      </TabsContent>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            1
+          </div>
+        </div>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            2
+          </div>
+        </div>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            3
+          </div>
+        </div>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            4
+          </div>
+        </div>
+      </div>
     </div>
-  </ForwardRef>
+  </div>
 </div>
 `;
 
 exports[`Tabs should render correctly when set scrollspy prop 2`] = `
-<div
-  className="test-rab"
->
-  <ForwardRef
-    active={0}
-    duration={300}
-    ellipsis={true}
-    lazyRender={true}
-    offsetTop={0}
-    onChange={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            2,
-            "title2",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-    scrollspy={
-      Object {
-        "autoFocusLast": true,
-        "reachBottomThreshold": 50,
-      }
-    }
-    sticky={true}
-    swipeThreshold={5}
-    type="line"
+<div>
+  <div
+    class="test-rab"
   >
     <div
-      className="rc-tabs rc-tabs--line"
+      class="rc-tabs rc-tabs--line"
     >
-      <Sticky
-        container={
-          Object {
-            "current": <div
-              class="rc-tabs rc-tabs--line"
-            >
-              <div>
-                <div
-                  class="rc-sticky"
-                >
-                  <div
-                    class="rc-tabs__wrap"
-                  >
-                    <div
-                      class="rc-tabs__nav rc-tabs__nav--line"
-                      role="tablist"
-                    >
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title0
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title1
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="true"
-                        class="rc-tab rc-tab--active"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title2
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title3
-                        </span>
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="rc-tab"
-                      >
-                        <span
-                          class="rc-tab__text rc-tab__text--ellipsis"
-                        >
-                          title4
-                        </span>
-                      </div>
-                      <div
-                        class="rc-tabs__line"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rc-tabs__content"
-              >
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    0
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    1
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    2
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    3
-                  </div>
-                </div>
-                <div
-                  class="rc-tab__pane"
-                  role="tabpanel"
-                  style="display: block;"
-                >
-                  <div
-                    style="height: 80px;"
-                  >
-                    内容 
-                    4
-                  </div>
-                </div>
-              </div>
-            </div>,
-          }
-        }
-        offsetBottom={0}
-        offsetTop={0}
-        onChange={[Function]}
-        onScroll={[Function]}
-        position="top"
-      >
+      <div>
         <div
-          style={null}
+          class="rc-sticky"
         >
           <div
-            className="rc-sticky"
-            style={null}
+            class="rc-tabs__wrap"
           >
             <div
-              className="rc-tabs__wrap"
+              class="rc-tabs__nav rc-tabs__nav--line"
+              role="tablist"
             >
               <div
-                className="rc-tabs__nav rc-tabs__nav--line"
-                role="tablist"
-                style={
-                  Object {
-                    "background": undefined,
-                    "borderColor": undefined,
-                  }
-                }
+                aria-selected="false"
+                class="rc-tab"
               >
-                <ForwardRef
-                  isActive={false}
-                  key=".$0"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title0"
-                  type="line"
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
                 >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title0
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$1"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title1"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title1
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={true}
-                  key=".$2"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title2"
-                  type="line"
-                >
-                  <div
-                    aria-selected={true}
-                    className="rc-tab rc-tab--active"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title2
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$3"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title3"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title3
-                    </span>
-                  </div>
-                </ForwardRef>
-                <ForwardRef
-                  isActive={false}
-                  key=".$4"
-                  onClick={[Function]}
-                  scrollable={false}
-                  showZeroBadge={true}
-                  title="title4"
-                  type="line"
-                >
-                  <div
-                    aria-selected={false}
-                    className="rc-tab"
-                    onClick={[Function]}
-                    style={Object {}}
-                  >
-                    <span
-                      className="rc-tab__text rc-tab__text--ellipsis"
-                    >
-                      title4
-                    </span>
-                  </div>
-                </ForwardRef>
-                <div
-                  className="rc-tabs__line"
-                  style={
-                    Object {
-                      "backgroundColor": undefined,
-                    }
-                  }
-                />
+                  title0
+                </span>
               </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title1
+                </span>
+              </div>
+              <div
+                aria-selected="true"
+                class="rc-tab rc-tab--active"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title2
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title3
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="rc-tab"
+              >
+                <span
+                  class="rc-tab__text rc-tab__text--ellipsis"
+                >
+                  title4
+                </span>
+              </div>
+              <div
+                class="rc-tabs__line"
+              />
             </div>
           </div>
         </div>
-      </Sticky>
-      <TabsContent
-        count={5}
-        currentIndex={2}
-        duration={300}
-        inited={true}
-        lazyRender={true}
-        onChange={[Function]}
+      </div>
+      <div
+        class="rc-tabs__content"
       >
         <div
-          className="rc-tabs__content"
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
         >
-          <ForwardRef
-            index={0}
-            key=".$0"
-            showZeroBadge={true}
-            title="title0"
+          <div
+            style="height: 80px;"
           >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                0
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={1}
-            key=".$1"
-            showZeroBadge={true}
-            title="title1"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                1
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={2}
-            key=".$2"
-            showZeroBadge={true}
-            title="title2"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                2
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={3}
-            key=".$3"
-            showZeroBadge={true}
-            title="title3"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                3
-              </div>
-            </div>
-          </ForwardRef>
-          <ForwardRef
-            index={4}
-            key=".$4"
-            showZeroBadge={true}
-            title="title4"
-          >
-            <div
-              className="rc-tab__pane"
-              role="tabpanel"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "80px",
-                  }
-                }
-              >
-                内容 
-                4
-              </div>
-            </div>
-          </ForwardRef>
+            内容 
+            0
+          </div>
         </div>
-      </TabsContent>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            1
+          </div>
+        </div>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            2
+          </div>
+        </div>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            3
+          </div>
+        </div>
+        <div
+          class="rc-tab__pane"
+          role="tabpanel"
+          style="display: block;"
+        >
+          <div
+            style="height: 80px;"
+          >
+            内容 
+            4
+          </div>
+        </div>
+      </div>
     </div>
-  </ForwardRef>
+  </div>
 </div>
 `;
 

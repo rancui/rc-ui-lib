@@ -1,12 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dialog should render button text correctly 1`] = `"<div class=\\"rc-hairline--top rc-dialog__footer\\"><button class=\\"rc-dialog__cancel rc-button rc-button--default rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">Custom Cancel</span></div></button><button class=\\"rc-dialog__confirm rc-hairline--left rc-button rc-button--default rc-button--large\\"><div class=\\"rc-button__content\\"><span class=\\"rc-button__text\\">Custom Confirm</span></div></button></div>"`;
+exports[`Dialog should render button text correctly 1`] = `
+<div
+  class="rc-hairline--top rc-dialog__footer"
+>
+  <button
+    class="rc-dialog__cancel rc-button rc-button--default rc-button--large"
+  >
+    <div
+      class="rc-button__content"
+    >
+      <span
+        class="rc-button__text"
+      >
+        Custom Cancel
+      </span>
+    </div>
+  </button>
+  <button
+    class="rc-dialog__confirm rc-hairline--left rc-button rc-button--default rc-button--large"
+  >
+    <div
+      class="rc-button__content"
+    >
+      <span
+        class="rc-button__text"
+      >
+        Custom Confirm
+      </span>
+    </div>
+  </button>
+</div>
+`;
 
-exports[`Dialog should render default slot correctly 1`] = `"<div class=\\"rc-dialog__content rc-dialog__content--isolated\\"><div class=\\"rc-dialog__message\\">Custom Message</div></div>"`;
+exports[`Dialog should render default slot correctly 1`] = `
+<div
+  class="rc-dialog__content rc-dialog__content--isolated"
+>
+  <div
+    class="rc-dialog__message"
+  >
+    Custom Message
+  </div>
+</div>
+`;
 
 exports[`Dialog should render title slot correctly 1`] = `
 <div
-  className="rc-dialog__header rc-dialog__header--isolated"
+  class="rc-dialog__header rc-dialog__header--isolated"
 >
   Custom Title
 </div>

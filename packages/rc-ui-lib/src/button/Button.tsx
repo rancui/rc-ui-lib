@@ -69,18 +69,15 @@ const Button: React.FC<ButtonProps> = (props) => {
   }
 
   const renderLoadingIcon = () => {
-    if (loading) {
-      const { loadingSize = '20px', loadingType } = props;
-      return (
-        <Loading
-          className={classnames(bem('loading'))}
-          size={loadingSize}
-          type={loadingType}
-          color={type === 'default' ? undefined : ''}
-        />
-      );
-    }
-    return null;
+    const { loadingSize = '20px', loadingType } = props;
+    return (
+      <Loading
+        className={classnames(bem('loading'))}
+        size={loadingSize}
+        type={loadingType}
+        color={type === 'default' ? undefined : ''}
+      />
+    );
   };
 
   const renderIcon = () => {

@@ -3,8 +3,6 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
@@ -13,16 +11,14 @@ import TestElements from './testElement';
 import { TabsInstance } from '../PropsType';
 
 describe('Tabs', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper?.unmount();
     jest.restoreAllMocks();
   });
 
   it('should emit click-tab event when tab is clicked', async () => {
     const onClickTab = jest.fn();
 
-    wrapper = mount(
+    const { container } = render(
       <Tabs onClickTab={onClickTab}>
         <Tabs.TabPane title="title1">1</Tabs.TabPane>
         <Tabs.TabPane title="title2">2</Tabs.TabPane>
@@ -30,9 +26,9 @@ describe('Tabs', () => {
     );
 
     await sleep();
-    const tabs = wrapper.find('.rc-tab');
+    const tabs = container.querySelector('.rc-tab');
 
-    await tabs.at(0).simulate('click');
+    await fireEvent.click(tabs);
     expect(onClickTab).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 0,
@@ -45,7 +41,7 @@ describe('Tabs', () => {
   it('should not emit change event when TabPane is disabled and tab is clicked', async () => {
     const onChange = jest.fn();
 
-    wrapper = mount(
+    const { container } = render(
       <Tabs onChange={onChange}>
         <Tabs.TabPane title="title1">1</Tabs.TabPane>
         <Tabs.TabPane disabled title="title2">
@@ -56,21 +52,21 @@ describe('Tabs', () => {
     );
 
     await sleep();
-    const tabs = wrapper.find('.rc-tab');
+    const tabs = container.querySelectorAll('.rc-tab');
 
-    await tabs.at(1).simulate('click');
+    await fireEvent.click(tabs[1]);
     expect(onChange).toHaveBeenCalledTimes(0);
-    await tabs.at(0).simulate('click');
+    await fireEvent.click(tabs[0]);
     expect(onChange).toHaveBeenCalledTimes(0);
-    await tabs.at(2).simulate('click');
+    await fireEvent.click(tabs[2]);
     expect(onChange).toHaveBeenCalledTimes(1);
-    await tabs.at(2).simulate('click');
+    await fireEvent.click(tabs[2]);
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   it('should match active tab by name when using name prop', async () => {
     const onClickTab = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Tabs active="a" onClickTab={onClickTab}>
         <Tabs.TabPane title="title1" name="a">
           Tab
@@ -80,8 +76,8 @@ describe('Tabs', () => {
         </Tabs.TabPane>
       </Tabs>,
     );
-    const item = wrapper.find('.rc-tab').at(1);
-    await item.simulate('click');
+    const item = container.querySelectorAll('.rc-tab');
+    await fireEvent.click(item[1]);
     expect(onClickTab).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'b',
@@ -92,7 +88,7 @@ describe('Tabs', () => {
   });
 
   it('should not render zero badge when show-zero-badge prop is false', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Tabs>
         <Tabs.TabPane badge={0}>1</Tabs.TabPane>
         <Tabs.TabPane badge={0} showZeroBadge={false}>
@@ -101,11 +97,11 @@ describe('Tabs', () => {
       </Tabs>,
     );
     await sleep();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render card type correctly', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Tabs active={0} type="card" color="#ff0000">
         <Tabs.TabPane badge={1}>1</Tabs.TabPane>
         <Tabs.TabPane dot>2</Tabs.TabPane>
@@ -114,11 +110,11 @@ describe('Tabs', () => {
       </Tabs>,
     );
     await sleep();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render correctly when lazy-render', async () => {
-    wrapper = mount(
+    const { container, rerender } = render(
       <Tabs active="a" lazyRender>
         <Tabs.TabPane title="title1" name="a">
           Tab
@@ -129,13 +125,20 @@ describe('Tabs', () => {
       </Tabs>,
     );
     await sleep();
-    expect(toJson(wrapper.find('.rc-tabs__content'))).toMatchSnapshot();
+    expect(container.querySelector('.rc-tabs__content')).toMatchSnapshot();
 
-    await wrapper.setProps({
-      lazyRender: false,
-    });
+    rerender(
+      <Tabs active="a" lazyRender={false}>
+        <Tabs.TabPane title="title1" name="a">
+          Tab
+        </Tabs.TabPane>
+        <Tabs.TabPane title="title2" name="b">
+          Tab
+        </Tabs.TabPane>
+      </Tabs>,
+    );
 
-    expect(toJson(wrapper.find('.rc-tabs__content'))).toMatchSnapshot();
+    expect(container.querySelector('.rc-tabs__content')).toMatchSnapshot();
   });
 
   it('should render correctly when set scrollspy prop', async () => {
@@ -145,7 +148,7 @@ describe('Tabs', () => {
       autoFocusLast: true,
       reachBottomThreshold: 50,
     };
-    wrapper = mount(
+    const { container } = render(
       <div className="test-rab">
         <Tabs sticky scrollspy={scrollspyConfig} onChange={onChange}>
           {[0, 1, 2, 3, 4].map((item) => (
@@ -156,12 +159,12 @@ describe('Tabs', () => {
         </Tabs>
       </div>,
     );
-    const tabs = wrapper.find('.rc-tab');
+    const tabs = container.querySelectorAll('.rc-tab');
     await sleep();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    tabs.at(2).simulate('click');
+    expect(container).toMatchSnapshot();
+    fireEvent.click(tabs[2]);
     expect(onChange).toHaveBeenCalledWith(2, 'title2');
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 

@@ -10,5 +10,5 @@ module.exports = {
     '!**/**/PropsType.ts',
     '!**/test/**',
   ],
-  // testMatch: ['**/badge/__test__/**/*.[jt]s?(x)'],
+  // testMatch: ['**/image-preview/__test__/**/*.spec.[jt]s?(x)'],
 };

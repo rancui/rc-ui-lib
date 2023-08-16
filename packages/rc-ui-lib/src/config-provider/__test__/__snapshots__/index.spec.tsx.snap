@@ -1,48 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConfigProvider when using themeVars prop 1`] = `
-<ConfigProvider
-  tag="div"
-  themeVars={
-    Object {
-      "color": "red",
-    }
-  }
->
+<div>
   <div
-    style={
-      Object {
-        "--rc-color": "red",
-      }
-    }
+    style="--rc-color: red;"
   >
-    <Icon
-      name="success"
-      tag="i"
-    >
-      <Badge
-        className="van-icon van-icon-success"
-        position="top-right"
-        showZero={true}
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
-        tag="i"
-      >
-        <i
-          className="rc-badge__wrapper van-icon van-icon-success"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-        />
-      </Badge>
-    </Icon>
+    <i
+      class="rc-badge__wrapper van-icon van-icon-success"
+    />
   </div>
-</ConfigProvider>
+</div>
 `;

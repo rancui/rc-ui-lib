@@ -1,849 +1,306 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid should render correctly when icon is ReactNode 1`] = `"<div class=\\"rc-grid rc-hairline--top\\"><div class=\\"rc-grid-item\\" style=\\"flex-basis: 25%;\\"><div class=\\"rc-grid-item__content rc-grid-item__content--center rc-hairline\\"><div class=\\"rc-badge__wrapper\\"><i class=\\"rc-badge__wrapper van-icon van-icon-shop-o\\"></i></div></div></div></div>"`;
+exports[`Grid should render correctly when icon is ReactNode 1`] = `
+<div>
+  <div
+    class="rc-grid rc-hairline--top"
+  >
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%;"
+    >
+      <div
+        class="rc-grid-item__content rc-grid-item__content--center rc-hairline"
+      >
+        <div
+          class="rc-badge__wrapper"
+        >
+          <i
+            class="rc-badge__wrapper van-icon van-icon-shop-o"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Grid should render correctly when text prop is ReactNode 1`] = `
-<Grid
-  border={true}
-  center={true}
-  columnNum={4}
->
+<div>
   <div
-    className="rc-grid rc-hairline--top"
-    style={
-      Object {
-        "paddingLeft": undefined,
-      }
-    }
+    class="rc-grid rc-hairline--top"
   >
-    <GridItem
-      icon="photo-o"
-      index={0}
-      key=".0"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-        }
-      }
-      text={
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%;"
+    >
+      <div
+        class="rc-grid-item__content rc-grid-item__content--center rc-hairline"
+      >
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
         <div>
           world
         </div>
-      }
-    >
-      <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-          }
-        }
-      >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-hairline"
-        >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <div>
-            world
-          </div>
-        </div>
       </div>
-    </GridItem>
+    </div>
   </div>
-</Grid>
+</div>
 `;
 
 exports[`Grid should render correctly when using text prop 1`] = `
-<Grid
-  border={true}
-  center={true}
-  columnNum={4}
->
+<div>
   <div
-    className="rc-grid rc-hairline--top"
-    style={
-      Object {
-        "paddingLeft": undefined,
-      }
-    }
+    class="rc-grid rc-hairline--top"
   >
-    <GridItem
-      icon="photo-o"
-      index={0}
-      key=".0"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-        }
-      }
-      text="hello,world!"
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            hello,world!
-          </span>
-        </div>
+          hello,world!
+        </span>
       </div>
-    </GridItem>
+    </div>
   </div>
-</Grid>
+</div>
 `;
 
 exports[`Grid should render correctly with children 1`] = `
-<Grid
-  border={true}
-  center={true}
-  columnNum={4}
->
+<div>
   <div
-    className="rc-grid rc-hairline--top"
-    style={
-      Object {
-        "paddingLeft": undefined,
-      }
-    }
+    class="rc-grid rc-hairline--top"
   >
-    <GridItem
-      icon="photo-o"
-      index={0}
-      key=".0"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-        }
-      }
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-hairline"
-        >
-          hello,world!
-        </div>
+        hello,world!
       </div>
-    </GridItem>
+    </div>
   </div>
-</Grid>
+</div>
 `;
 
 exports[`Grid should render correctly with index prop 1`] = `
-<Grid
-  border={true}
-  center={true}
-  columnNum={4}
-  gutter={10}
->
+<div>
   <div
-    className="rc-grid"
-    style={
-      Object {
-        "paddingLeft": "10px",
-      }
-    }
+    class="rc-grid"
+    style="padding-left: 10px;"
   >
-    <GridItem
-      icon="photo-o"
-      index={0}
-      key=".$0"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={1}
-      key=".$1"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={2}
-      key=".$2"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={3}
-      key=".$3"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={4}
-      key=".$4"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px; margin-top: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "marginTop": "10px",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={5}
-      key=".$5"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px; margin-top: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "marginTop": "10px",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={6}
-      key=".$6"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px; margin-top: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "marginTop": "10px",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
-    <GridItem
-      icon="photo-o"
-      index={7}
-      key=".$7"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 4,
-          "gutter": 10,
-        }
-      }
-      text="文字"
+    </div>
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%; padding-right: 10px; margin-top: 10px;"
     >
       <div
-        className="rc-grid-item"
-        style={
-          Object {
-            "flexBasis": "25%",
-            "marginTop": "10px",
-            "paddingRight": "10px",
-          }
-        }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
       >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--surround rc-hairline"
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
+        />
+        <span
+          class="rc-grid-item__text"
         >
-          <Icon
-            className="rc-grid-item__icon"
-            name="photo-o"
-            tag="i"
-          >
-            <Badge
-              className="rc-grid-item__icon van-icon van-icon-photo-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-photo-o"
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
-          <span
-            className="rc-grid-item__text"
-          >
-            文字
-          </span>
-        </div>
+          文字
+        </span>
       </div>
-    </GridItem>
+    </div>
   </div>
-</Grid>
+</div>
 `;
 
-exports[`Grid should render icon correctly 1`] = `"<div class=\\"rc-grid rc-hairline--top\\"><div class=\\"rc-grid-item\\" style=\\"flex-basis: 25%;\\"><div class=\\"rc-grid-item__content rc-grid-item__content--center rc-hairline\\"><i class=\\"rc-badge__wrapper rc-grid-item__icon van-icon van-icon-success\\" style=\\"color: red;\\"><div class=\\"rc-badge rc-badge--top-right rc-badge--fixed\\">1</div></i></div></div></div>"`;
+exports[`Grid should render icon correctly 1`] = `
+<div>
+  <div
+    class="rc-grid rc-hairline--top"
+  >
+    <div
+      class="rc-grid-item"
+      style="flex-basis: 25%;"
+    >
+      <div
+        class="rc-grid-item__content rc-grid-item__content--center rc-hairline"
+      >
+        <i
+          class="rc-badge__wrapper rc-grid-item__icon van-icon van-icon-success"
+          style="color: red;"
+        >
+          <div
+            class="rc-badge rc-badge--top-right rc-badge--fixed"
+          >
+            1
+          </div>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Grid should render square grid with gutter correctly 1`] = `
-<Grid
-  border={true}
-  center={true}
-  columnNum={2}
-  gutter={10}
-  square={true}
->
+<div>
   <div
-    className="rc-grid"
-    style={
-      Object {
-        "paddingLeft": "10px",
-      }
-    }
+    class="rc-grid"
+    style="padding-left: 10px;"
   >
-    <GridItem
-      index={0}
-      key=".0"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 2,
-          "gutter": 10,
-          "square": true,
-        }
-      }
+    <div
+      class="rc-grid-item rc-grid-item--square"
+      style="flex-basis: 50%; padding-top: 50%;"
     >
       <div
-        className="rc-grid-item rc-grid-item--square"
-        style={
-          Object {
-            "flexBasis": "50%",
-            "paddingTop": "50%",
-          }
-        }
-      >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--square rc-grid-item__content--surround rc-hairline"
-          style={
-            Object {
-              "bottom": "10px",
-              "height": "auto",
-              "right": "10px",
-            }
-          }
-        />
-      </div>
-    </GridItem>
-    <GridItem
-      index={1}
-      key=".1"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 2,
-          "gutter": 10,
-          "square": true,
-        }
-      }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--square rc-grid-item__content--surround rc-hairline"
+        style="right: 10px; bottom: 10px; height: auto;"
+      />
+    </div>
+    <div
+      class="rc-grid-item rc-grid-item--square"
+      style="flex-basis: 50%; padding-top: 50%;"
     >
       <div
-        className="rc-grid-item rc-grid-item--square"
-        style={
-          Object {
-            "flexBasis": "50%",
-            "paddingTop": "50%",
-          }
-        }
-      >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--square rc-grid-item__content--surround rc-hairline"
-          style={
-            Object {
-              "bottom": "10px",
-              "height": "auto",
-              "right": "10px",
-            }
-          }
-        />
-      </div>
-    </GridItem>
-    <GridItem
-      index={2}
-      key=".2"
-      parent={
-        Object {
-          "border": true,
-          "center": true,
-          "columnNum": 2,
-          "gutter": 10,
-          "square": true,
-        }
-      }
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--square rc-grid-item__content--surround rc-hairline"
+        style="right: 10px; bottom: 10px; height: auto;"
+      />
+    </div>
+    <div
+      class="rc-grid-item rc-grid-item--square"
+      style="flex-basis: 50%; padding-top: 50%;"
     >
       <div
-        className="rc-grid-item rc-grid-item--square"
-        style={
-          Object {
-            "flexBasis": "50%",
-            "paddingTop": "50%",
-          }
-        }
-      >
-        <div
-          className="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--square rc-grid-item__content--surround rc-hairline"
-          style={
-            Object {
-              "bottom": "10px",
-              "height": "auto",
-              "right": "10px",
-            }
-          }
-        />
-      </div>
-    </GridItem>
+        class="rc-grid-item__content rc-grid-item__content--center rc-grid-item__content--square rc-grid-item__content--surround rc-hairline"
+        style="right: 10px; bottom: 10px; height: auto;"
+      />
+    </div>
   </div>
-</Grid>
+</div>
 `;

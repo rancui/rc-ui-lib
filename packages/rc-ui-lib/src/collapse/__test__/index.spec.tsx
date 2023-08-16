@@ -1,13 +1,10 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import toJson from 'enzyme-to-json';
 import Cell from '../../cell';
 import Collapse from '..';
 import { CollapseItemInstance } from '../PropsType';
+import { cleanup, act, render, fireEvent } from '@testing-library/react';
 
 describe('Collapse', () => {
-  let wrapper;
   let spyConsole: jest.SpyInstance;
   beforeEach(() => {
     spyConsole = jest.spyOn(console, 'error');
@@ -17,13 +14,13 @@ describe('Collapse', () => {
   });
 
   afterEach(() => {
-    wrapper.unmount();
+    cleanup;
     spyConsole.mockRestore();
   });
 
   // it('should update value when title is clicked', async () => {
   //   const onChange = jest.fn();
-  //   wrapper = mount(
+  //   const { container } = render(
   //     <Collapse value={[]} initValue="1" onChange={onChange}>
   //       <Collapse.Item title="标题1" name="first">
   //         内容
@@ -33,14 +30,14 @@ describe('Collapse', () => {
   //       </Collapse.Item>
   //     </Collapse>,
   //   );
-  //   const title = wrapper.find(Cell).at(0).children('.rc-collapse-item__title');
+  //   const title = container.querySelector(Cell).children('.rc-collapse-item__title');
   //   await title.simulate('click');
   //   expect(onChange).toHaveBeenCalledWith(['first']);
   // });
 
   it('should update value when title is clicked in accordion mode', async () => {
     const onChange = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Collapse value="" initValue="1" accordion onChange={onChange}>
         <Collapse.Item title="标题1" name="first">
           内容
@@ -50,13 +47,13 @@ describe('Collapse', () => {
         </Collapse.Item>
       </Collapse>,
     );
-    const title = wrapper.find(Cell).at(0).children('.rc-collapse-item__title');
-    await title.simulate('click');
+    const title = container.querySelector('.rc-cell.rc-collapse-item__title');
+    await fireEvent.click(title);
     expect(onChange).toHaveBeenCalledWith('first');
   });
 
   it('should render CollapseItem correctly', () => {
-    wrapper = mount(
+    const { container } = render(
       <Collapse value={[]}>
         <Collapse.Item
           title="标题1"
@@ -69,12 +66,12 @@ describe('Collapse', () => {
         </Collapse.Item>
       </Collapse>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should not render border when border prop is false', () => {
-    wrapper = mount(<Collapse border={false} />);
-    expect(wrapper.find('.rc-hairline--top-bottom').exists()).toBeFalsy();
+    const { container } = render(<Collapse border={false} />);
+    expect(container.querySelector('.rc-hairline--top-bottom')).toBeFalsy();
   });
 
   it('should toggle collapse after calling the toggle method', async () => {
@@ -85,7 +82,7 @@ describe('Collapse', () => {
       CollapseItemRef.current.toggle(value);
     };
 
-    wrapper = mount(
+    const { container } = render(
       <Collapse initValue={[]} onChange={onChange}>
         <Collapse.Item title="标题1" name="first" ref={CollapseItemRef}>
           内容
@@ -114,7 +111,7 @@ describe('Collapse', () => {
       CollapseItemRef.current.toggle(value);
     };
 
-    wrapper = mount(
+    const { container } = render(
       <Collapse initValue="" accordion onChange={onChange}>
         <Collapse.Item title="标题1" name="first" ref={CollapseItemRef}>
           内容
@@ -137,17 +134,17 @@ describe('Collapse', () => {
 
   it('should be readonly when using readonly prop', async () => {
     const onChange = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Collapse initValue="" onChange={onChange}>
         <Collapse.Item title="标题1" name="first" readonly>
           内容
         </Collapse.Item>
       </Collapse>,
     );
-    const title = wrapper.find(Cell).children('.rc-collapse-item__title');
-    await title.simulate('click');
+    const title = container.querySelector('.rc-cell.rc-collapse-item__title');
+    await fireEvent.click(title);
     expect(onChange).not.toHaveBeenCalled();
-    expect(wrapper.find('i').exists()).toBeFalsy();
+    expect(container.querySelector('i')).toBeFalsy();
     expect(spyConsole).toHaveBeenCalledWith(
       '[rc-ui-lib] Collapse: "value" should be Array in non-accordion mode',
     );
@@ -155,24 +152,24 @@ describe('Collapse', () => {
 
   it('should be readonly when using disabled prop', async () => {
     const onChange = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Collapse initValue="" onChange={onChange}>
         <Collapse.Item title="标题1" name="first" disabled>
           内容
         </Collapse.Item>
       </Collapse>,
     );
-    const title = wrapper.find(Cell).children('.rc-collapse-item__title');
-    await title.simulate('click');
+    const title = container.querySelector('.rc-cell.rc-collapse-item__title');
+    await fireEvent.click(title);
     expect(onChange).not.toHaveBeenCalled();
-    expect(wrapper.find('.rc-collapse-item__title--disabled').exists()).toBeTruthy();
+    expect(container.querySelector('.rc-collapse-item__title--disabled')).toBeTruthy();
     expect(spyConsole).toHaveBeenCalledWith(
       '[rc-ui-lib] Collapse: "value" should be Array in non-accordion mode',
     );
   });
 
   it('when value is change', async () => {
-    wrapper = mount(
+    const { container, rerender } = render(
       <Collapse initValue="" accordion value="">
         <Collapse.Item title="标题1" name="first">
           内容
@@ -180,9 +177,17 @@ describe('Collapse', () => {
       </Collapse>,
     );
 
-    const title = wrapper.find(Cell).children('.rc-collapse-item__title');
-    title.simulate('click');
-    await wrapper.setProps({ value: 'first' });
-    expect(wrapper.props().value).toEqual('first');
+    const title = container.querySelector('.rc-cell.rc-collapse-item__title');
+    await fireEvent.click(title);
+
+    rerender(
+      <Collapse initValue="" accordion value="first">
+        <Collapse.Item title="标题1" name="first">
+          内容
+        </Collapse.Item>
+      </Collapse>,
+    );
+    // expect(wrapper.props().value).toEqual('first');
+    expect(container).toMatchSnapshot();
   });
 });
