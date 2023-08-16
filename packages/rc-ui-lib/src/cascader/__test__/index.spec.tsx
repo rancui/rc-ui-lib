@@ -1,8 +1,8 @@
 import React from 'react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import Icon from '../../icon';
 import Cascader from '..';
-import { cleanup, fireEvent, render } from '@testing-library/react';
 
 describe('Cascader', () => {
   let spyConsole: jest.SpyInstance;

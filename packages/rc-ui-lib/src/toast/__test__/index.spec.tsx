@@ -1,9 +1,9 @@
 import React from 'react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import Icon from '../../icon';
 import BaseToast from '../Toast';
 import Toast from '..';
-import { render, fireEvent, cleanup } from '@testing-library/react';
 
 describe('Toast', () => {
   afterEach(() => {

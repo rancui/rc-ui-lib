@@ -1,8 +1,7 @@
 import * as React from 'react';
-import Cell from '../../cell';
+import { cleanup, act, render, fireEvent } from '@testing-library/react';
 import Collapse from '..';
 import { CollapseItemInstance } from '../PropsType';
-import { cleanup, act, render, fireEvent } from '@testing-library/react';
 
 describe('Collapse', () => {
   let spyConsole: jest.SpyInstance;
@@ -14,7 +13,7 @@ describe('Collapse', () => {
   });
 
   afterEach(() => {
-    cleanup;
+    cleanup();
     spyConsole.mockRestore();
   });
 
@@ -82,7 +81,7 @@ describe('Collapse', () => {
       CollapseItemRef.current.toggle(value);
     };
 
-    const { container } = render(
+    render(
       <Collapse initValue={[]} onChange={onChange}>
         <Collapse.Item title="标题1" name="first" ref={CollapseItemRef}>
           内容
@@ -111,7 +110,7 @@ describe('Collapse', () => {
       CollapseItemRef.current.toggle(value);
     };
 
-    const { container } = render(
+    render(
       <Collapse initValue="" accordion onChange={onChange}>
         <Collapse.Item title="标题1" name="first" ref={CollapseItemRef}>
           内容

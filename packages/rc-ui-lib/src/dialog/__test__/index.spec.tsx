@@ -1,7 +1,7 @@
 import React from 'react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import Dialog from '..';
 import Button from '../../button';
-import { cleanup, fireEvent, render } from '@testing-library/react';
 
 describe('Dialog', () => {
   afterEach(() => {
@@ -10,19 +10,19 @@ describe('Dialog', () => {
   });
 
   it('should change confirm button color when using confirm-button-color prop', () => {
-    const { container } = render(<Dialog visible confirmButtonColor="red" />);
+    render(<Dialog visible confirmButtonColor="red" />);
     const confirmButton = document.querySelector('.rc-dialog__confirm');
     expect(getComputedStyle(confirmButton).color).toEqual('red');
   });
 
   it('should change cancel button color when using cancel-button-color prop', () => {
-    const { container } = render(<Dialog visible showCancelButton cancelButtonColor="red" />);
+    render(<Dialog visible showCancelButton cancelButtonColor="red" />);
     const cancelButton = document.querySelector('.rc-dialog__cancel');
     expect(getComputedStyle(cancelButton).color).toEqual('red');
   });
 
   it('should render button text correctly', () => {
-    const { container } = render(
+    render(
       <Dialog
         visible
         showCancelButton
@@ -34,13 +34,13 @@ describe('Dialog', () => {
   });
 
   it('should render default slot correctly', () => {
-    const { container } = render(<Dialog visible message="Custom Message" />);
+    render(<Dialog visible message="Custom Message" />);
     expect(document.querySelector('.rc-dialog__message').textContent).toEqual('Custom Message');
     expect(document.querySelector('.rc-dialog__content')).toMatchSnapshot();
   });
 
   it('should render title slot correctly', () => {
-    const { container } = render(<Dialog visible title="Custom Title" />);
+    render(<Dialog visible title="Custom Title" />);
     expect(document.querySelector('.rc-dialog__header').textContent).toEqual('Custom Title');
     expect(document.querySelector('.rc-dialog__header')).toMatchSnapshot();
   });
@@ -69,29 +69,25 @@ describe('Dialog', () => {
   });
 
   it('should update width when using width prop', async () => {
-    const { container } = render(<Dialog visible width={200} />);
+    render(<Dialog visible width={200} />);
     const style = getComputedStyle(document.querySelector('.rc-dialog'));
     expect(style.width).toEqual('200px');
   });
 
   it('should render footer correctly', () => {
-    const { container } = render(
-      <Dialog visible message="message" footer={<Button>Footer</Button>} />,
-    );
+    render(<Dialog visible message="message" footer={<Button>Footer</Button>} />);
     expect(document.querySelector('.rc-dialog .rc-button__text').textContent).toEqual('Footer');
   });
 
   it('should correctly when showCancelButton prop is true', () => {
-    const { container } = render(<Dialog visible message="message" showCancelButton />);
+    render(<Dialog visible message="message" showCancelButton />);
     expect(
       document.querySelector('.rc-dialog .rc-dialog__cancel .rc-button__text').textContent,
     ).toEqual('取消');
   });
 
   it('should correctly when theme prop is round-button', () => {
-    const { container } = render(
-      <Dialog visible message="message" theme="round-button" showCancelButton />,
-    );
+    render(<Dialog visible message="message" theme="round-button" showCancelButton />);
     expect(document.querySelectorAll('.rc-dialog__footer .rc-button')).toHaveLength(2);
   });
 });

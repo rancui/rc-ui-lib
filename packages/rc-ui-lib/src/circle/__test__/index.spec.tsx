@@ -10,7 +10,7 @@ describe('Circle', () => {
 
   it('should update to final rate immediately if speed is 0', async () => {
     const onChange = jest.fn();
-    const { container } = render(<Circle rate={50} speed={0} onChange={onChange} />);
+    render(<Circle rate={50} speed={0} onChange={onChange} />);
     // await wrapper.setProps({ rate: 150 });
     // expect(wrapper.props().rate).toEqual(150);
     await sleep(50);
@@ -116,7 +116,7 @@ describe('Circle', () => {
 
   it('hould emit onChange event during animation', async () => {
     const onChange = jest.fn();
-    const { container } = render(<Circle speed={150} rate={150} onChange={onChange} />);
+    render(<Circle speed={150} rate={150} onChange={onChange} />);
     await sleep(50);
     expect(onChange).toHaveBeenCalled();
   });

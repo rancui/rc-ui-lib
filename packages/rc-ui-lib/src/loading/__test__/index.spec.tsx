@@ -9,29 +9,29 @@ describe('Loading', () => {
   });
 
   it('should change loading size when using size prop', () => {
-    const { container } = render(<Loading size={20} />);
+    render(<Loading size={20} />);
     const spinner = document.querySelector('.rc-loading__spinner');
     expect(getComputedStyle(spinner).width).toEqual('20px');
     expect(getComputedStyle(spinner).height).toEqual('20px');
   });
 
   it('should change text font-size when using text-size prop', () => {
-    const { container } = render(<Loading textSize={20}>Text</Loading>);
+    render(<Loading textSize={20}>Text</Loading>);
     expect(getComputedStyle(document.querySelector('.rc-loading__text')).fontSize).toEqual('20px');
   });
 
   it('should change text color when using text-color prop', async () => {
-    const { container } = render(<Loading textColor="red">Loading Text</Loading>);
+    render(<Loading textColor="red">Loading Text</Loading>);
     expect(getComputedStyle(document.querySelector('.rc-loading__text')).color).toBe('red');
   });
 
   it('should change text color when using color prop', async () => {
-    const { container } = render(<Loading color="green">Loading Text</Loading>);
+    render(<Loading color="green">Loading Text</Loading>);
     expect(getComputedStyle(document.querySelector('.rc-loading__text')).color).toBe('green');
   });
 
   it('should change text color to textColor when using color & textColor prop', async () => {
-    const { container } = render(
+    render(
       <Loading color="green" textColor="red">
         Loading Text
       </Loading>,
@@ -40,12 +40,12 @@ describe('Loading', () => {
   });
 
   it('should render correctly when using type is spinner', async () => {
-    const { container } = render(<Loading type="spinner" />);
+    render(<Loading type="spinner" />);
     expect(document.querySelectorAll('i')).toHaveLength(12);
   });
 
   it('should render correctly when using type is ball', async () => {
-    const { container } = render(<Loading type="ball" />);
+    render(<Loading type="ball" />);
     expect(document.querySelector('.rc-loading__ball')).toBeTruthy();
   });
 });

@@ -1,6 +1,5 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
-import Icon from '../../icon';
 import { Radio } from '..';
 
 describe('Radio', () => {

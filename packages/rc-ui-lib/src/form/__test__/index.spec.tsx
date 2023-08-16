@@ -214,7 +214,7 @@ describe('Form', () => {
 
   it('dependencies is set and name is not set ', async () => {
     let x = 0;
-    const { container } = render(
+    render(
       <Form>
         <Form.Item dependencies={['field_1']}>
           {() => {

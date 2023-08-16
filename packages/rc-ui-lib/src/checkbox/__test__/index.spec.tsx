@@ -1,5 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from '..';
 
 import mountTest from '../../../tests/shared/mountTest';
@@ -10,7 +11,6 @@ import {
   CheckboxGroupToggleAllOptions,
   CheckboxInstance,
 } from '../PropsType';
-import { fireEvent, render } from '@testing-library/react';
 
 describe('Checkbox', () => {
   mountTest(Checkbox);

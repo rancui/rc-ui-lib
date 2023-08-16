@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { ActionSheet } from '..';
 import { sleep } from '../../../tests/utils';
 

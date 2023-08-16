@@ -31,7 +31,7 @@ const scrollList = () => {
 
 export default (): React.ReactNode => {
   const [value, setValue] = useState<Record<string, string | number>>({});
-  const [menuValue, setMenuValue] = useState<Record<string, string | number>>({});
+  // const [menuValue, setMenuValue] = useState<Record<string, string | number>>({});
   const dropdownMenuRef = useRef<DropdownMenuInstance>(null);
 
   const { DemoBlock, DemoSection } = components;
@@ -44,7 +44,11 @@ export default (): React.ReactNode => {
   return (
     <DemoSection className="demo-badge">
       <DemoBlock title="基础用法">
-        <DropdownMenu onChange={(v) => setMenuValue(v as any)}>
+        <DropdownMenu
+          onChange={(v) => {
+            console.log(v as any);
+          }}
+        >
           <DropdownMenu.Item
             name="item1"
             defaultValue={{ text: '全部商品', value: 0 }}
