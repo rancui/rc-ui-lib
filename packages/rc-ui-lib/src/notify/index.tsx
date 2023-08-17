@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import ReactDOM from 'react-dom';
-
 import { extend, isObject, noop, once } from '../utils';
 import { NotifyOptions, NotifyProps, NotifyStatic } from './PropsType';
 
 import Notify from './Notify';
 import { resolveContainer } from '../utils/dom/getContainer';
+import { unmount, render } from '../utils/dom/render';
 import { lockClick } from '../toast/lock-click';
 
 const NotifyNamespace = {} as NotifyStatic;
@@ -54,7 +53,7 @@ const show = (p: string | NotifyProps) => {
 
     // clearDOM after animation
     const internalOnClosed = () => {
-      const unmountResult = ReactDOM.unmountComponentAtNode(container);
+      const unmountResult = unmount(container);
       if (unmountResult && container.parentNode) {
         container.parentNode.removeChild(container);
       }
@@ -93,7 +92,7 @@ const show = (p: string | NotifyProps) => {
     );
   };
 
-  ReactDOM.render(<TempNotify />, container);
+  render(<TempNotify />, container);
 
   return destroy;
 };
