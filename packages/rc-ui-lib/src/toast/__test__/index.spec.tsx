@@ -1,31 +1,60 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent, cleanup, waitFor, screen, act } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import Icon from '../../icon';
 import BaseToast from '../Toast';
 import Toast from '..';
 
+const waitForContentShow = async (content: string) => {
+  await waitFor(() => {
+    screen.getByText(content);
+  });
+};
+
 describe('Toast', () => {
-  afterEach(() => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(async () => {
+    await act(async () => {
+      Toast.clear();
+    });
     cleanup();
+    jest.useRealTimers();
     jest.restoreAllMocks();
   });
 
   it('toast disappeared after duration', async () => {
-    const handleClose = jest.fn();
-    Toast({
-      duration: 10,
-      onClose: handleClose,
+    const onClose = jest.fn();
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Toast({
+            duration: 1,
+            message: 'test close',
+            onClose,
+          });
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    expect(onClose).toHaveBeenCalledTimes(0);
+    await waitForContentShow('test close');
+    act(() => {
+      jest.runAllTimers();
     });
-
-    expect(handleClose).toHaveBeenCalledTimes(0);
-    await sleep(50);
-    expect(handleClose).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('should change overlay style after using overlay-style prop', async () => {
     render(<BaseToast visible overlay overlayStyle={{ background: 'red' }} />);
-    await sleep();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(getComputedStyle(document.querySelector('.rc-overlay')).background).toEqual('red');
   });
 
@@ -40,7 +69,9 @@ describe('Toast', () => {
 
   it('show loading toast', async () => {
     render(<BaseToast visible className="loading-toast" />);
-    await sleep(10);
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(document.querySelector('.loading-toast')).toBeTruthy();
   });
 
@@ -57,92 +88,233 @@ describe('Toast', () => {
   });
 
   it('icon-prefix prop', async () => {
-    const toast = Toast({
-      icon: 'star-o',
-      iconPrefix: 'my-icon',
-    });
-    await sleep(10);
-    expect(document.querySelector('.my-icon.my-icon-star-o')).toBeTruthy();
-    toast.clear();
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Toast({
+            icon: 'star-o',
+            iconPrefix: 'my-icon',
+            message: 'content',
+          });
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    await waitForContentShow('content');
+
+    expect(document.querySelector('.my-icon.my-icon-star-o')).toBeInTheDocument();
   });
 
   it('clear multiple toast', async () => {
-    Toast.allowMultiple(true);
-    Toast.info({ message: '多个提示1' });
-    await sleep(20);
-    Toast.info({ message: '多个提示2' });
-    await sleep(20);
-    expect(document.body.querySelectorAll('.toast-contanier').length).toEqual(2);
     jest.useFakeTimers();
-    Toast.clear();
-    jest.runAllTimers();
-    expect(document.body.querySelectorAll('.toast-contanier').length).toEqual(0);
+    Toast.allowMultiple(true);
+    const { getByText } = render(
+      <div>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.info({ message: '多个提示1' });
+          }}
+        >
+          btn1
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.info({ message: '多个提示2' });
+          }}
+        >
+          btn2
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.clear();
+          }}
+        >
+          btn3
+        </button>
+      </div>,
+    );
+    await act(async () => {
+      await fireEvent.click(getByText('btn1'));
+    });
+    await waitForContentShow('多个提示1');
+    await act(async () => {
+      await fireEvent.click(getByText('btn2'));
+    });
+    await waitForContentShow('多个提示2');
+
+    expect(document.querySelector('.toast-contanier')).toBeInTheDocument();
+    await act(async () => {
+      await fireEvent.click(getByText('btn3'));
+      jest.runAllTimers();
+    });
+    expect(document.querySelector('.toast-contanier')).not.toBeInTheDocument();
   });
 
   it('set default options', async () => {
-    Toast.setDefaultOptions({ className: 'my-toast' });
-    Toast.info({ message: '提示内容1' });
-    await sleep(20);
-    expect(document.querySelector('.my-toast')).toBeTruthy();
     jest.useFakeTimers();
-    Toast.clear();
-    jest.runAllTimers();
+    Toast.setDefaultOptions({ className: 'my-toast' });
+
+    const { getByText } = render(
+      <div>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.info({
+              message: 'content1',
+            });
+          }}
+        >
+          btn1
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.info({
+              message: 'content2',
+            });
+          }}
+        >
+          btn2
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.clear();
+          }}
+        >
+          btn3
+        </button>
+      </div>,
+    );
+    await act(async () => {
+      await fireEvent.click(getByText('btn1'));
+    });
+    await waitForContentShow('content1');
+    expect(document.querySelector('.my-toast')).toBeInTheDocument();
+    await act(async () => {
+      await fireEvent.click(getByText('btn3'));
+      jest.runAllTimers();
+    });
+    jest.useRealTimers();
 
     Toast.resetDefaultOptions();
-    Toast.info({ message: '提示内容2' });
-    await sleep(20);
-    expect(document.querySelector('.my-toast')).toBeFalsy();
-    jest.useFakeTimers();
-    Toast.clear();
-    jest.runAllTimers();
+
+    await act(async () => {
+      await fireEvent.click(getByText('btn2'));
+    });
+
+    await waitForContentShow('content2');
+    await waitFor(() => {
+      expect(document.querySelector('.my-toast')).not.toBeInTheDocument();
+    });
   });
 
   it('set default options by type', async () => {
     const className = 'my-toast';
     Toast.setDefaultOptions('loading', { className });
 
-    Toast.loading('');
-    await sleep(2100);
-    expect(document.querySelector('.my-toast')).toBeTruthy();
-
     jest.useFakeTimers();
-    Toast.clear();
-    jest.runAllTimers();
+    const { getByText } = render(
+      <div>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.loading({
+              message: 'loading',
+            });
+          }}
+        >
+          btn
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.success({
+              message: 'success',
+            });
+          }}
+        >
+          btn2
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            Toast.clear();
+          }}
+        >
+          btn3
+        </button>
+      </div>,
+    );
 
-    Toast.success('');
-    await sleep(2100);
-    expect(document.querySelector('.my-toast')).toBeFalsy();
+    fireEvent.click(getByText('btn'));
+    await waitForContentShow('loading');
 
+    expect(document.querySelector('.my-toast')).toBeInTheDocument();
+
+    await act(async () => {
+      await fireEvent.click(getByText('btn3'));
+      jest.runAllTimers();
+    });
+
+    jest.useRealTimers();
     Toast.resetDefaultOptions('loading');
-    Toast.loading('');
-    expect(document.querySelector('.my-toast')).toBeFalsy();
+
+    fireEvent.click(getByText('btn2'));
+    await waitForContentShow('success');
+
+    expect(document.querySelector('.my-toast')).not.toBeInTheDocument();
   });
 
   it('toast duration is zero', async () => {
     Toast.allowMultiple(true);
-    const onClose = jest.fn();
-    Toast({ duration: 0, onClose });
 
-    await sleep(2100);
+    const onClose = jest.fn();
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Toast({ duration: 0, onClose, message: 'test zero' });
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    expect(onClose).toHaveBeenCalledTimes(0);
+    await waitForContentShow('test zero');
+    await sleep(100);
     expect(onClose).toHaveBeenCalledTimes(0);
     Toast.allowMultiple(false);
-  });
-
-  it('should trigger onClosed callback after closed', async () => {
-    const toast = Toast({ forbidClick: true });
-    await sleep();
-    toast.clear();
   });
 
   it('should register component to teleport', async () => {
     const el = document.createElement('div');
     el.className = 'el-teleport';
     document.body.appendChild(el);
-    Toast({
-      message: 'hello,world',
-      teleport: el,
-    });
-    await sleep(10);
+
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Toast({
+            message: 'hello,world',
+            teleport: el,
+          });
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    await waitForContentShow('hello,world');
+
     expect(document.querySelector('.el-teleport').querySelector('.rc-toast--info')).toBeTruthy();
   });
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, cleanup, act, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import { sleep } from '../../../tests/utils';
 import DateTimePicker, { DateTimePickerInstance, DateTimePickerProps } from '..';
 import { getTrueValue } from '../utils';
@@ -34,7 +35,9 @@ describe('DateTimePicker', () => {
     });
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm).toHaveBeenCalledTimes(1);
   });
@@ -47,7 +50,9 @@ describe('DateTimePicker', () => {
     });
 
     const cancelBtn = container.querySelector('.rc-picker__cancel');
-    fireEvent.click(cancelBtn);
+    if (cancelBtn) {
+      await fireEvent.click(cancelBtn);
+    }
 
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
@@ -67,7 +72,7 @@ describe('DateTimePicker', () => {
       type: 'time',
     });
 
-    expect(pickerRef.current.getPicker()).toBeTruthy();
+    expect(pickerRef.current?.getPicker()).toBeTruthy();
   });
 
   it('should emit value correctly when dynamic change min-date', async () => {
@@ -93,7 +98,9 @@ describe('DateTimePicker', () => {
     await sleep(100);
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm.mock.calls[0][0]).toEqual(date);
   });
@@ -112,12 +119,14 @@ describe('DateTimePicker', () => {
 
     await sleep(100);
 
-    act(() => {
-      pickerRef.current.getPicker().setColumnIndex(2, 14);
+    await act(() => {
+      pickerRef.current?.getPicker().setColumnIndex(2, 14);
     });
     await sleep(100);
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm.mock.calls[0][0]).toEqual(new Date(2020, 0, 15));
   });
@@ -136,12 +145,14 @@ describe('DateTimePicker', () => {
 
     await sleep(100);
 
-    act(() => {
-      pickerRef.current.getPicker().setColumnValue(2, '15');
+    await act(() => {
+      pickerRef.current?.getPicker().setColumnValue(2, '15');
     });
     await sleep(100);
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm.mock.calls[0][0]).toEqual(new Date(2020, 0, 15));
   });

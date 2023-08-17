@@ -48,9 +48,9 @@ export function setImage(
 export function loadImage(imagePath: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.src = imagePath;
     img.onload = () => resolve(imagePath);
     img.onerror = (err) => reject(err);
+    img.src = imagePath;
   });
 }
 

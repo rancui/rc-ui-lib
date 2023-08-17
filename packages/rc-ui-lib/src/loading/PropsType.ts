@@ -24,6 +24,4 @@ export interface LoadingProps extends BaseTypeProps {
   textColor?: string;
   /** 类型 */
   type?: LoadingType;
-  /** 自元素 */
-  children?: React.ReactNode;
 }

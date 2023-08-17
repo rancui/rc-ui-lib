@@ -17,6 +17,7 @@ import { isDef, addUnit, formatNumber, isObject, preventDefault, resetScroll } f
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { COMPONENT_TYPE_KEY } from '../utils/constant';
 import { FieldFormatTrigger } from '.';
+import type { DialogProps } from '../dialog/PropsType';
 
 const ICON_SIZE = '16px';
 
@@ -336,7 +337,7 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     const { tooltip } = props;
     if (tooltip) {
       let icon = (<Icon name="question-o" />) as React.ReactNode;
-      let dialogProps = { message: tooltip };
+      let dialogProps: DialogProps = { message: tooltip as React.ReactNode };
       if (!(React.isValidElement(tooltip) || typeof tooltip === 'string')) {
         const { icon: customIcon, ...customDialogProps } = tooltip as FieldTooltipProps;
         icon = customIcon || icon;

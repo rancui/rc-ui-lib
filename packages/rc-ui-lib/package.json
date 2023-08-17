@@ -20,7 +20,7 @@
     "build:site": "rc-cli build-site",
     "release:site": "pnpm build:site && gh-pages -d site",
     "prepack": "pnpm build",
-    "test": "rc-cli test --u --colors --coverage",
+    "test": "rc-cli test --colors --coverage",
     "test:coverage": "open tests/coverage/index.html"
   },
   "author": "rancui",
@@ -46,7 +46,7 @@
     "frontend"
   ],
   "dependencies": {
-    "@react-spring/web": "^9.3.1",
+    "@react-spring/web": "^9.6.1",
     "@use-gesture/react": "^10.1.1",
     "@vant/icons": "^1.7.0",
     "@vant/popperjs": "^1.1.0",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, act, waitFor, screen } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import { Calendar, CalendarInstance, CalendarProps } from '..';
 import { minDate, maxDate } from './utils';
@@ -15,7 +15,7 @@ const $props = {
 describe('Calendar prop', () => {
   function createCalendar(props: CalendarProps) {
     const calendarRef = React.createRef<CalendarInstance>();
-    const { baseElement, container, rerender, debug } = render(
+    const { baseElement, container, rerender, debug, unmount, getByText } = render(
       <Calendar ref={calendarRef} {...props} />,
     );
 
@@ -25,11 +25,18 @@ describe('Calendar prop', () => {
       container,
       rerender,
       debug,
+      unmount,
+      getByText,
     };
   }
 
-  afterEach(() => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(async () => {
     cleanup();
+    jest.useRealTimers();
   });
 
   test('should limit max range when using max-range prop and type is range', async () => {
@@ -42,12 +49,24 @@ describe('Calendar prop', () => {
       onConfirm,
       onSelect,
     };
+    jest.useFakeTimers();
     const { container } = createCalendar(props);
 
     const days = container.querySelectorAll('.rc-calendar__day');
-    await fireEvent.click(days[12]);
-    await fireEvent.click(days[18]);
 
+    await waitFor(() => {
+      screen.getByText('13');
+    });
+    await act(async () => {
+      await fireEvent.click(days[12]);
+    });
+    await act(async () => {
+      await fireEvent.click(days[18]);
+    });
+
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onSelect).toHaveBeenNthCalledWith(1, [new Date(2010, 0, 13)]);
     expect(onSelect).toHaveBeenNthCalledWith(2, [new Date(2010, 0, 13), new Date(2010, 0, 15)]);
 
@@ -64,13 +83,26 @@ describe('Calendar prop', () => {
       onSelect,
     };
     const { container } = createCalendar(props);
-
+    await waitFor(() => {
+      screen.getByText('13');
+    });
     const days = container.querySelectorAll('.rc-calendar__day');
-    await fireEvent.click(days[13]);
-    await fireEvent.click(days[14]);
-    await fireEvent.click(days[15]);
+    await act(async () => {
+      await fireEvent.click(days[13]);
+    });
+    await act(async () => {
+      await fireEvent.click(days[14]);
+    });
+    await act(async () => {
+      await fireEvent.click(days[15]);
+    });
+    // await act(() => {
+    //   jest.runAllTimers();
+    // });
 
-    expect(onSelect).toBeCalledTimes(2);
+    await waitFor(() => {
+      expect(onSelect).toBeCalledTimes(2);
+    });
   });
 
   test('showtitle prop', async () => {
@@ -121,7 +153,9 @@ describe('Calendar prop', () => {
     const { container } = createCalendar(props);
 
     const confirm = container.querySelector('.rc-calendar__confirm');
-    await fireEvent.click(confirm);
+    await act(async () => {
+      await fireEvent.click(confirm);
+    });
 
     expect(onConfirm).toHaveBeenCalledWith(new Date(2200, 0, 1));
   });
@@ -137,8 +171,9 @@ describe('Calendar prop', () => {
     const { container } = createCalendar(props);
 
     const confirm = container.querySelector('.rc-calendar__confirm');
-    await fireEvent.click(confirm);
-
+    await act(async () => {
+      await fireEvent.click(confirm);
+    });
     expect(onConfirm).toHaveBeenCalledWith(new Date(1800, 0, 2));
   });
 
@@ -148,8 +183,12 @@ describe('Calendar prop', () => {
       show: true,
       onMonthShow,
     };
+    jest.useFakeTimers();
     createCalendar(props);
-    await sleep(200);
+
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(onMonthShow).toHaveBeenCalled();
   });
@@ -177,8 +216,9 @@ describe('Calendar prop', () => {
     const { container, rerender } = createCalendar(props);
 
     const days = container.querySelectorAll('.rc-calendar__day');
-    await fireEvent.click(days[13]);
-
+    await act(async () => {
+      await fireEvent.click(days[13]);
+    });
     expect(onSelect).not.toBeCalled();
 
     const props2: CalendarProps = {
@@ -187,8 +227,9 @@ describe('Calendar prop', () => {
     };
 
     rerender(<Calendar {...props2} />);
-
-    await fireEvent.click(days[13]);
+    await act(async () => {
+      await fireEvent.click(days[13]);
+    });
     expect(onSelect).toHaveBeenCalled();
   });
 
@@ -206,7 +247,6 @@ describe('Calendar prop', () => {
     const days = container.querySelectorAll('.rc-calendar__day');
     await fireEvent.click(days[12]);
     await fireEvent.click(days[18]);
-
     expect(onOverRange).toHaveBeenCalledTimes(1);
   });
 });

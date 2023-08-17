@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, cleanup, waitFor } from '@testing-library/react';
+import { fireEvent, render, cleanup, act } from '@testing-library/react';
 import TestsEvent from '../../../tests/events';
 import { sleep } from '../../../tests/utils';
 import { Popover, PopoverInstance, PopoverProps } from '..';
@@ -111,7 +111,7 @@ describe('Popover', () => {
     const { container, rerender } = createPopover(props);
     await fireEvent.click(container.querySelector('.rc-popover__wrapper'));
     await sleep(400);
-    expect(root.innerHTML).toMatchSnapshot();
+    expect(root).toMatchSnapshot();
 
     const props2: PopoverProps = {
       ...props,
@@ -122,7 +122,7 @@ describe('Popover', () => {
 
     await fireEvent.click(container.querySelector('.rc-popover__wrapper'));
     await sleep(400);
-    expect(root.innerHTML).toMatchSnapshot();
+    expect(root).toMatchSnapshot();
   });
 
   it('should close popover when touch outside content', async () => {
@@ -198,18 +198,17 @@ describe('Popover', () => {
 
     await fireEvent.click(container.querySelector('.rc-popover__wrapper'));
 
-    await waitFor(() => {
+    await act(() => {
       popoverRef.current.show();
     });
     expect(getComputedStyle(baseElement.querySelector('.rc-popover')).display).toBe('block');
 
-    await waitFor(() => {
+    await act(() => {
       popoverRef.current.hide();
     });
     await sleep(400);
     expect(getComputedStyle(baseElement.querySelector('.rc-popover')).display).toBe('none');
-
-    await waitFor(() => {
+    await act(() => {
       popoverRef.current.show();
     });
     expect(getComputedStyle(baseElement.querySelector('.rc-popover')).display).toBe('block');

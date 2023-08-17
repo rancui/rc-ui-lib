@@ -33,7 +33,6 @@ export function getLangFromRoute(pathname) {
 }
 
 const getRoutes = () => {
-  console.log(documents);
   const routes = [];
   const names = Object.keys(documents);
 

@@ -69,8 +69,8 @@ export default (): React.ReactNode => {
 
   return (
     <DemoSection>
-      <Tabs sticky>
-        <Tabs.TabPane title="基本用法" onChange={() => setFinished(false)}>
+      <Tabs sticky onChange={() => setFinished(false)}>
+        <Tabs.TabPane title="基本用法">
           <List finished={finished} onLoad={onLoad}>
             {list.length
               ? list.map((_, i) => {

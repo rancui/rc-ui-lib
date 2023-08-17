@@ -66,7 +66,7 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
 
   const onClickWrapper = () => {
     if (props.trigger === 'click') {
-      updateShow(!visible);
+      updateShow((e) => !e);
     }
   };
 

@@ -28,14 +28,14 @@
 ## 快速开始
 
 ```jsx
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Button } from 'rc-ui-lib';
 
 function App() {
   return <Button>Default Button</Button>;
 }
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.createRoot(mountNode).render(<App />);
 ```
 
 ## 浏览器支持

@@ -40,6 +40,7 @@ export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
   const popover = useRef<PopoverInstance>(null);
   const popover1 = useRef<PopoverInstance>(null);
+  const popover2 = useRef<PopoverInstance>(null);
   const [visible, setVisible] = useState(false);
   const [placement, updatePlacement] = useState(placements[0]);
 
@@ -56,7 +57,6 @@ export default (): React.ReactNode => {
           placement="bottom-start"
           actions={actions}
           onSelect={select}
-          trigger="manual"
           reference={<Button type="primary">浅色风格</Button>}
         />
         <Popover
@@ -112,6 +112,18 @@ export default (): React.ReactNode => {
             ))}
           </Grid>
         </Popover>
+      </DemoBlock>
+      <DemoBlock title="手动控制">
+        <Popover
+          placement="bottom-start"
+          trigger="manual"
+          ref={popover2}
+          actions={iconActions}
+          onSelect={select}
+          reference={<Button type="primary">展示图标</Button>}
+        />
+        <Button onClick={() => popover2.current?.show()}>显示</Button>
+        <Button onClick={() => popover2.current?.hide()}>关闭</Button>
       </DemoBlock>
     </DemoSection>
   );

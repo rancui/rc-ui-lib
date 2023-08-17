@@ -151,7 +151,7 @@ describe('Picker', () => {
     const { container } = createPicker({
       showToolbar: true,
       columns: ['foo', 'bar'],
-      optionRender: (item) => item,
+      optionRender: (item) => item.toString(),
     });
     expect(container).toMatchSnapshot();
   });
