@@ -1,5 +1,5 @@
 import React, { useMemo, Suspense } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import ScrollTop from './components/ScrollTop';
 import DemoNav from './components/DemoNav';
@@ -20,22 +20,27 @@ const App = () => {
       <DemoNav title={title} />
       <ScrollTop />
       <Suspense fallback={<div></div>}>
-        <Switch>
+        <Routes>
           {routes.map((route) => {
             return route.redirect ? (
-              <Redirect key={route.path} to={route.redirect(pathname)} />
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<Navigate to={route.redirect(pathname)} replace />}
+              />
             ) : (
               <Route
                 key={route.path}
                 exact={route.exact}
                 path={route.path}
-                render={(props) => {
-                  return <route.component {...props} meta={route.meta} routes={route.routes} />;
-                }}
+                element={route.component}
+                // render={(props) => {
+                //   return <route.component {...props} meta={route.meta} routes={route.routes} />;
+                // }}
               />
             );
           })}
-        </Switch>
+        </Routes>
       </Suspense>
     </div>
   );

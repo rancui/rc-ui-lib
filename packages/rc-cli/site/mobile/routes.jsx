@@ -28,7 +28,7 @@ function getRoutes() {
       routes.push({
         path: `/${lang}`,
         exact: true,
-        component: DemoHome,
+        component: <DemoHome />,
         meta: { lang },
       });
     });
@@ -36,7 +36,7 @@ function getRoutes() {
     routes.push({
       path: '/',
       exact: true,
-      component: DemoHome,
+      component: <DemoHome />,
       meta: {},
     });
   }
@@ -46,10 +46,11 @@ function getRoutes() {
 
     if (langs.length) {
       langs.forEach((lang) => {
+        const Component = lazy(demos[name]);
         routes.push({
           name: `${lang}/${component}`,
           path: `/${lang}/${component}`,
-          component: lazy(demos[name]),
+          component: <Component />,
           meta: {
             name,
             lang,
@@ -57,10 +58,11 @@ function getRoutes() {
         });
       });
     } else {
+      const Component = lazy(demos[name]);
       routes.push({
         name,
         path: `/${component}`,
-        component: lazy(demos[name]),
+        component: <Component />,
         meta: {
           name,
         },
