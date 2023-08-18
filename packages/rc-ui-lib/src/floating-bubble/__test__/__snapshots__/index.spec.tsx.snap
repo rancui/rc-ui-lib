@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FloatingBubble should render correctly when icon set 1`] = `<div />`;
+
+exports[`FloatingBubble should teleport body when default 1`] = `<div />`;

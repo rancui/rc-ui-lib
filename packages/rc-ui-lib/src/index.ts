@@ -56,4 +56,5 @@ export { default as Toast } from './toast';
 export { default as Typography } from './typography';
 export { default as Uploader } from './uploader';
 export { default as Watermark } from './watermark';
+export { default as FloatingBubble } from './floating-bubble';
 export * from './hooks';

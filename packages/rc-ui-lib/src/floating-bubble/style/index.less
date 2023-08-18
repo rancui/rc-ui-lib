@@ -1,0 +1,39 @@
+:root {
+  --rc-floating-bubble-size: 48px;
+  --rc-floating-bubble-initial-gap: 24px;
+  --rc-floating-bubble-icon-size: 28px;
+  --rc-floating-bubble-background: var(--rc-primary-color);
+  --rc-floating-bubble-color: var(--rc-primary-color);
+  --rc-floating-bubble-z-index: 999;
+  --rc-floating-bubble-border-radius: var(--rc-border-radius-lg);
+}
+.rc-floating-bubble {
+  position: fixed;
+  top: 0;
+  right: var(--rc-floating-bubble-initial-gap);
+  bottom: var(--rc-floating-bubble-initial-gap);
+  left: 0;
+  z-index: var(--rc-floating-bubble-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--rc-floating-bubble-size);
+  height: var(--rc-floating-bubble-size);
+  overflow: hidden;
+  color: var(--rc-floating-bubble-color);
+  background: var(--rc-floating-bubble-background);
+  border-radius: var(--rc-floating-bubble-border-radius);
+  cursor: pointer;
+  transition: transform var(--rc-animation-duration-base);
+  user-select: none;
+  touch-action: none;
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &__icon {
+    font-size: var(--rc-floating-bubble-icon-size);
+  }
+}
