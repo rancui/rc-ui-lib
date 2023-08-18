@@ -55,7 +55,7 @@ describe('Dialog', () => {
   it('should emit close event when show prop is set to false', async () => {
     const onClose = jest.fn();
     const onClickCloseIcon = jest.fn();
-    const { container, rerender } = render(
+    const { rerender } = render(
       <Dialog onClose={onClose} closeable onClickCloseIcon={onClickCloseIcon} />,
     );
     rerender(<Dialog onClose={onClose} closeable visible onClickCloseIcon={onClickCloseIcon} />);

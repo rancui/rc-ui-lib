@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts', './tests/setupPointerEvent.ts'],
+  // setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   testPathIgnorePatterns: ['/es/', '/lib/', '/node_modules/'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
@@ -10,5 +10,5 @@ module.exports = {
     '!**/**/PropsType.ts',
     '!**/test/**',
   ],
-  // testMatch: ['**/image-preview/__test__/**/*.spec.[jt]s?(x)'],
+  // testMatch: ['**/swipe-cell/__test__/**/*.spec.[jt]s?(x)'],
 };

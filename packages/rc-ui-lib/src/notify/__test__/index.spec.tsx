@@ -1,32 +1,65 @@
 // import React from 'react';
 // import { fireEvent, render } from '@testing-library/react';
+import React from 'react';
+import { act, cleanup, render, waitFor, screen, fireEvent } from '@testing-library/react';
 import { Notify, NotifyNamespace } from '..';
 import { sleep } from '../../../tests/utils';
 
+const waitForContentShow = async (content: string) => {
+  await waitFor(() => {
+    screen.getByText(content);
+  });
+};
+
 describe('Notify', () => {
-  afterEach(() => {
+  afterEach(async () => {
+    await act(async () => {
+      Notify.clear();
+    });
+    cleanup();
     jest.restoreAllMocks();
+    document.body.innerHTML = '';
   });
 
   test('should not throw error if calling clear method before render notify', () => {
-    Notify.clear();
+    expect(() => {
+      Notify.clear();
+    }).not.toThrow();
   });
 
   test('should render Notify correctly', async () => {
-    Notify.show('test');
-    await sleep(10);
-    expect(document.querySelector('.rc-notify')).toMatchSnapshot();
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Notify.show('content');
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    await waitForContentShow('content');
+    expect(getByText('content')).toBeInTheDocument();
   });
 
   test('should add "rc-notify--success" class when type is success', async () => {
-    Notify.show({
-      message: 'test',
-      type: 'success',
-    });
-
-    await sleep(0);
-    const notify = document.querySelector('.rc-notify');
-    expect(notify.classList.contains('rc-notify--success')).toBeTruthy();
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Notify.show({
+            message: 'content success',
+            type: 'success',
+          });
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    await waitForContentShow('content success');
+    expect(document.querySelector('.rc-notify--success')).toBeInTheDocument();
   });
 
   test('should change default duration after calling setDefaultOptions method', () => {
@@ -44,13 +77,26 @@ describe('Notify', () => {
 
   test('should call onClose option when closing', async () => {
     const onClose = jest.fn();
-    Notify.show({
-      message: 'test',
-      onClose,
-      duration: 1,
+    jest.useFakeTimers();
+    const { getByText } = render(
+      <button
+        type="button"
+        onClick={() => {
+          Notify.show({
+            message: 'test close',
+            onClose,
+            duration: 1,
+          });
+        }}
+      >
+        btn
+      </button>,
+    );
+    fireEvent.click(getByText('btn'));
+    await waitForContentShow('test close');
+    act(() => {
+      jest.runAllTimers();
     });
-
-    await sleep(20);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

@@ -9,13 +9,11 @@ exports[`NavBar should have safe-area-inset-top class when using safe-area-inset
     <div
       class="rc-nav-bar__content"
     >
-      
       <div
         class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
-      
     </div>
   </div>
 </div>
@@ -47,7 +45,6 @@ exports[`NavBar should render ReactNode icon correct 1`] = `
       >
         foo
       </div>
-      
     </div>
   </div>
 </div>
@@ -66,13 +63,11 @@ exports[`NavBar should render correct when set props fixed and placeholder 1`] =
       <div
         class="rc-nav-bar__content"
       >
-        
         <div
           class="rc-nav-bar__title van-ellipsis"
         >
           foo
         </div>
-        
       </div>
     </div>
   </div>
@@ -102,7 +97,6 @@ exports[`NavBar should render left area correct 1`] = `
       >
         foo
       </div>
-      
     </div>
   </div>
 </div>
@@ -123,14 +117,12 @@ exports[`NavBar should render leftArrow correct 1`] = `
         <i
           class="rc-badge__wrapper rc-nav-bar__arrow van-icon van-icon-arrow-left"
         />
-        
       </div>
       <div
         class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
-      
     </div>
   </div>
 </div>
@@ -145,7 +137,6 @@ exports[`NavBar should render right area correct 1`] = `
     <div
       class="rc-nav-bar__content"
     >
-      
       <div
         class="rc-nav-bar__title van-ellipsis"
       >

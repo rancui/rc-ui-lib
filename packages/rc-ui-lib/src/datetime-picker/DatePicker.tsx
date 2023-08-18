@@ -236,7 +236,9 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     if (pickerRef.current) {
       const indexes = pickerRef.current.getIndexes();
       const nextValue = updateInnerValue(indexes);
-      setCurrentDate(nextValue);
+      if (nextValue && nextValue.valueOf() !== currentDate?.valueOf()) {
+        setCurrentDate(nextValue);
+      }
       props.onChange?.(nextValue);
     }
   };
@@ -245,20 +247,12 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     if (pickerRef.current) {
       const indexes = pickerRef.current?.getIndexes();
       const nextValue = updateInnerValue(indexes);
-      setCurrentDate(nextValue);
+      if (nextValue && nextValue.valueOf() !== currentDate?.valueOf()) {
+        setCurrentDate(nextValue);
+      }
       props.onConfirm?.(nextValue);
     }
   };
-
-  // useMount(() => {
-  //   setTimeout(() => {
-  //     if (pickerRef.current) {
-  //       const indexes = pickerRef.current?.getIndexes();
-  //       const nextValue = updateInnerValue(indexes);
-  //       setCurrentDate(nextValue);
-  //     }
-  //   }, 0);
-  // });
 
   useEffect(() => {
     updateColumnValue();

@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { extend, isObject } from '../utils';
 import { resolveContainer } from '../utils/dom/getContainer';
 import { lockClick } from './lock-click';
 import { ToastProps, ToastInstance, ToastReturnType, ToastType } from './PropsType';
 import BaseToast from './Toast';
+import { render, unmount } from '../utils/dom/render';
 
 const defaultOptions: ToastProps = {
   icon: '',
@@ -70,7 +70,7 @@ const Toast = (toastProps?: string | ToastProps): unknown => {
       if (state.forbidClick) {
         lockClick(false);
       }
-      const unmountResult = ReactDOM.unmountComponentAtNode(container);
+      const unmountResult = unmount(container);
       if (unmountResult && container.parentNode) {
         container.parentNode.removeChild(container);
       }
@@ -119,7 +119,7 @@ const Toast = (toastProps?: string | ToastProps): unknown => {
     );
   };
 
-  ReactDOM.render(<TempToast />, container);
+  render(<TempToast />, container);
 
   return instance;
 };

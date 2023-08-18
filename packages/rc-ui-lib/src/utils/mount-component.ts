@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { createElement, useRef, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import { render, unmount } from './dom/render';
 
 export function mountComponent(RootComponent, callback) {
   const root = document.createElement('div');
@@ -14,7 +14,7 @@ export function mountComponent(RootComponent, callback) {
         toggle,
         clear,
         unmount() {
-          ReactDOM.unmountComponentAtNode(root);
+          unmount(root);
           if (root.parentNode) {
             root.parentNode.removeChild(root);
           }
@@ -29,5 +29,5 @@ export function mountComponent(RootComponent, callback) {
   const app = createElement(Container);
   document.body.appendChild(root);
 
-  ReactDOM.render(app, root);
+  render(app, root);
 }

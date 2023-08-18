@@ -5,7 +5,7 @@ import { DEFAULT_EVENTS, hasIntersectionObserver, modeType } from './utils';
 import { LazyloadImageProps } from './PropsType';
 
 const Lazyload: React.FC<LazyloadImageProps> = (props) => {
-  const [mode, setMode] = useState<keyof typeof modeType>('observer');
+  const [mode, setMode] = useState<keyof typeof modeType>();
 
   const { observer, ...resetProps } = props;
 
@@ -24,9 +24,9 @@ const Lazyload: React.FC<LazyloadImageProps> = (props) => {
     <>
       {mode === modeType.event ? (
         <LazyloadImageEvent {...resetProps} />
-      ) : (
+      ) : mode === modeType.observer ? (
         <LazyLoadImageObserve {...resetProps} />
-      )}
+      ) : null}
     </>
   );
 };

@@ -84,4 +84,4 @@ export type FormItemLayoutProps = Pick<
   layout?: FormLayout;
   /** @private */
   isFieldChildren?: boolean;
-};
+} & BaseTypeProps;

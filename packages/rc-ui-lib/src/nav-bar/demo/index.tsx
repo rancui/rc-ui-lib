@@ -1,14 +1,14 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { components } from 'site-mobile-demo';
 import NavBar from '..';
 import { Toast, Icon } from '../..';
 import './style.less';
 
 export default (): React.ReactNode => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { DemoBlock, DemoSection } = components;
-  const onClickLeft = () => history.goBack();
+  const onClickLeft = () => navigate(-1);
 
   const onClickRight = () => Toast('按钮');
   return (

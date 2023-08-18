@@ -25,10 +25,10 @@ import { NavBar } from 'rc-ui-lib';
 在导航栏实现返回上级功能。
 
 ```jsx
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default (): React.ReactNode => {
-  const history = useHistory();
-  const onClickLeft = () => history.goBack();
+  const navigate = useNavigate();
+  const onClickLeft = () => navigate(-1);
   return <NavBar title="标题" leftArea="返回" leftArrow onClickLeft={onClickLeft} />;
 };
 ```
@@ -39,10 +39,10 @@ export default (): React.ReactNode => {
 
 ```jsx
 import { Toast } from 'rc-ui-lib';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default (): React.ReactNode => {
-  const history = useHistory();
-  const onClickLeft = () => history.goBack();
+  const navigate = useNavigate();
+  const onClickLeft = () => navigate(-1);
   const onClickRight = () => Toast('按钮');
   return (
     <NavBar

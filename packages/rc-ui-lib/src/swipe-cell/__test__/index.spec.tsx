@@ -120,6 +120,9 @@ describe('SwipeCell test with testing library', () => {
       open('left');
     });
 
+    await act(() => {
+      jest.useRealTimers();
+    });
     await sleep(1000);
 
     expect(onOpen).toHaveBeenCalledWith({
@@ -127,7 +130,9 @@ describe('SwipeCell test with testing library', () => {
       position: 'left',
     });
 
-    expect(container).toMatchSnapshot();
+    await waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
   });
 
   it('should emit onClick event when click swipe-cell', async () => {
@@ -159,6 +164,9 @@ describe('SwipeCell test with testing library', () => {
       swipeCellRef.current.close('outside');
     });
 
+    await act(() => {
+      jest.useRealTimers();
+    });
     await sleep(1000);
 
     expect(onClose).toHaveBeenCalledWith({
@@ -176,8 +184,13 @@ describe('SwipeCell test with testing library', () => {
     const leftSide = container.querySelector('.rc-swipe-cell__left');
 
     mockOffset(leftSide);
-    await TestsEvent.triggerDrag(track, [100, 0]);
+    await act(async () => {
+      await TestsEvent.triggerDrag(track, [100, 0]);
+    });
 
+    await act(() => {
+      jest.useRealTimers();
+    });
     await sleep(1000);
 
     expect(container).toMatchSnapshot();
@@ -194,6 +207,9 @@ describe('SwipeCell test with testing library', () => {
     mockOffset(rightSide);
     await TestsEvent.triggerDrag(track, [-100, 0]);
 
+    await act(() => {
+      jest.useRealTimers();
+    });
     await sleep(1000);
 
     expect(container).toMatchSnapshot();
@@ -253,9 +269,10 @@ describe('SwipeCell test with testing library', () => {
 
     await TestsEvent.triggerDrag(track, [-5, 0]);
 
-    act(() => {
-      jest.advanceTimersByTime(500);
+    await act(() => {
+      jest.useRealTimers();
     });
+    await sleep(1000);
 
     expect(container).toMatchSnapshot();
   });
@@ -272,6 +289,9 @@ describe('SwipeCell test with testing library', () => {
     mockOffset(leftSide);
     await TestsEvent.triggerDrag(track, [100, 0]);
 
+    await act(() => {
+      jest.useRealTimers();
+    });
     await sleep(1000);
 
     expect(container).toMatchSnapshot();
@@ -290,6 +310,9 @@ describe('SwipeCell test with testing library', () => {
 
     await fireEvent.click(content);
 
+    await act(() => {
+      jest.useRealTimers();
+    });
     await sleep(1000);
 
     expect(container).toMatchSnapshot();

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, cleanup, waitFor } from '@testing-library/react';
+import { render, cleanup, waitFor, act } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import CountDown, { CountDownInstance, CountDownProps } from '..';
 
@@ -36,15 +36,17 @@ describe('CountDown test with testing library', () => {
   it('should emit finish event when finished', async () => {
     Object.defineProperty(window, 'inBrowser', { value: true });
     const onFinish = jest.fn();
-
+    jest.useFakeTimers();
     createCountDown({
-      time: 1,
+      time: 10,
       onFinish,
     });
 
     expect(onFinish).not.toHaveBeenCalled();
 
-    await sleep(100);
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(onFinish).toHaveBeenCalled();
   });
@@ -52,30 +54,35 @@ describe('CountDown test with testing library', () => {
   it('should emit finish event when finished and millisecond is true', async () => {
     Object.defineProperty(window, 'inBrowser', { value: true });
     const onFinish = jest.fn();
-
+    jest.useFakeTimers();
     createCountDown({
-      time: 1,
+      time: 10,
       millisecond: true,
       onFinish,
     });
 
     expect(onFinish).not.toHaveBeenCalled();
 
-    await sleep(100);
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(onFinish).toHaveBeenCalled();
   });
 
   it('should re-render after some time', async () => {
     Object.defineProperty(window, 'inBrowser', { value: true });
-
+    jest.useFakeTimers();
     const { container } = createCountDown({
       time: 1000,
       format: 'SSS',
     });
     const preSnapshot = container.querySelector('.rc-count-down').innerHTML;
 
-    await sleep(100);
+    act(() => {
+      jest.runAllTimers();
+    });
+
     const laterSnapshot = container.querySelector('.rc-count-down').innerHTML;
 
     expect(preSnapshot).not.toEqual(laterSnapshot);
@@ -152,6 +159,8 @@ describe('CountDown test with testing library', () => {
     await waitFor(async () => {
       countDownRef.current.reset();
     });
+
+    await sleep(50);
 
     expect(container).toMatchSnapshot();
   });

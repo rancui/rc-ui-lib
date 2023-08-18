@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import ReactDOM from 'react-dom';
-
 import { noop } from '../utils';
 import { AlertDialogProps, DialogProps, DialogStatic } from './PropsType';
 
 import BaseDialog from './Dialog';
 import { resolveContainer } from '../utils/dom/getContainer';
+import { unmount, render } from '../utils/dom/render';
 
 const Dialog = BaseDialog as DialogStatic;
 
@@ -54,7 +53,7 @@ Dialog.show = (props: DialogProps) => {
       if (onClosed) {
         onClosed();
       }
-      const unmountResult = ReactDOM.unmountComponentAtNode(container);
+      const unmountResult = unmount(container);
       if (unmountResult && container.parentNode) {
         container.parentNode.removeChild(container);
       }
@@ -100,7 +99,7 @@ Dialog.show = (props: DialogProps) => {
       />
     );
   };
-  ReactDOM.render(<TempDialog />, container);
+  render(<TempDialog />, container);
 
   return destroy;
 };
