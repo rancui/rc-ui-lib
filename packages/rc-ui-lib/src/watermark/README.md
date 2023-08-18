@@ -2,7 +2,7 @@
 
 ### 介绍
 
-给页面的某个区域加上水印，支持文字和图案。请升级 rc-ui-lib 到 >= 2.1.0 版本来使用该组件。
+给页面的某个区域加上水印，支持文字和图案。请升级 `rc-ui-lib` 到 >= 2.1.0 版本来使用该组件。
 
 ### 引入
 
@@ -84,14 +84,14 @@ import { Watermark } from 'rc-ui-lib';
 | --- | --- | --- | --- |
 | width | 水印宽度 | _number_ | `100` |
 | height | 水印高度 | _number_ | `100` |
-| z-index | 水印的 z-index | _number \| string_ | `100` |
+| zIndex | 水印的 z-index | _number \| string_ | `100` |
 | content | 文字水印的内容 | _string_ | - |
 | image | 图片水印的内容，如果与 `content` 同时传入，优先使用图片水印 | _string_ | - |
 | rotate | 水印的旋转角度 | _number \| string_ | `-22` |
-| full-page | 水印是否全屏显示 | _boolean_ | `false` |
-| gap-x | 水印之间的水平间隔 | _number_ | `0` |
-| gap-y | 水印之间的垂直间隔 | _number_ | `0` |
-| text-color | 文字水印的颜色 | _string_ | `#dcdee0` |
+| fullPage | 水印是否全屏显示 | _boolean_ | `false` |
+| gapX | 水印之间的水平间隔 | _number_ | `0` |
+| gapY | 水印之间的垂直间隔 | _number_ | `0` |
+| textColor | 文字水印的颜色 | _string_ | `#dcdee0` |
 | opacity | 水印的透明度 | _number_ | - |
 
 ## 主题定制

@@ -188,6 +188,10 @@ export default {
                 title: 'DropdownMenu 下拉菜单',
               },
               {
+                path: 'floating-bubble',
+                title: 'FloatingBubble 浮动气泡',
+              },
+              {
                 path: 'loading',
                 title: 'Loading 加载',
               },
