@@ -29,7 +29,7 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
   });
 
   const [dragging, setDragging] = useState(false);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [initialized, setInitialized] = useState(false);
   const boundary = useMemo(() => {
     return {
@@ -71,7 +71,6 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
     if (axis === 'lock') return;
     if (!touch.isTap.current) {
       if (axis === 'x' || axis === 'xy') {
-        if (touch.deltaX.current === 0) return;
         let nextX = prevX.current + touch.deltaX.current;
         if (nextX < boundary.left) nextX = boundary.left;
         if (nextX > boundary.right) nextX = boundary.right;
@@ -90,29 +89,30 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
   });
   const onTouchEnd = () => {
     setDragging(false);
-    setTimeout(() => {
-      if (magnetic === 'x') {
-        const nextX = closest([boundary.left, boundary.right], state.x);
-        setState({ x: nextX });
+    // setTimeout(() => {
+    if (magnetic === 'x') {
+      const nextX = closest([boundary.left, boundary.right], state.x);
+      setState({ x: nextX });
+    }
+    if (magnetic === 'y') {
+      const nextY = closest([boundary.top, boundary.bottom], state.y);
+      setState({ y: nextY });
+    }
+    if (!touch.isTap.current) {
+      const updateOffset = pick(state, ['x', 'y']);
+
+      if (prevX.current !== updateOffset.x || prevY.current !== updateOffset.y) {
+        props?.onOffsetChange?.(updateOffset);
       }
-      if (magnetic === 'y') {
-        const nextY = closest([boundary.top, boundary.bottom], state.y);
-        setState({ y: nextY });
-      }
-      if (!touch.isTap.current) {
-        const updateOffset = pick(state, ['x', 'y']);
-        if (prevX.current !== updateOffset.x || prevY.current !== updateOffset.y) {
-          props?.onOffsetChange?.(updateOffset);
-        }
-      }
-    }, 0);
+    }
+    // }, 0);
   };
   useEffect(() => {
-    setShow(true);
-    setTimeout(() => {
-      updateState();
-      setInitialized(true);
-    }, 0);
+    // setShow(true);
+    // setTimeout(() => {
+    updateState();
+    setInitialized(true);
+    // }, 0);
     return () => {
       if (teleport) setShow(false);
     };
@@ -129,7 +129,7 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
           onTouchCancel={onTouchEnd}
           onClick={(e) => {
             if (touch.isTap.current) {
-              onClick(e);
+              onClick?.(e);
             }
           }}
           style={rootStyle}
