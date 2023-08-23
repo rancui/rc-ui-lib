@@ -9,10 +9,7 @@
 }
 .rc-floating-bubble {
   position: fixed;
-  top: 0;
-  right: var(--rc-floating-bubble-initial-gap);
-  bottom: var(--rc-floating-bubble-initial-gap);
-  left: 0;
+  inset: 0 var(--rc-floating-bubble-initial-gap) var(--rc-floating-bubble-initial-gap) 0;
   z-index: var(--rc-floating-bubble-z-index);
   display: flex;
   align-items: center;
