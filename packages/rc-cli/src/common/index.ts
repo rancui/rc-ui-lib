@@ -45,30 +45,12 @@ export function getComponents() {
     );
 }
 
-export function isDir(dir: string) {
-  return lstatSync(dir).isDirectory();
-}
-
-export function isDemoDir(dir: string) {
-  return DEMO_REGEXP.test(dir);
-}
-
-export function isTestDir(dir: string) {
-  return TEST_REGEXP.test(dir);
-}
-
-export function isAsset(path: string) {
-  return ASSET_REGEXP.test(path);
-}
-
-export function isStyle(path: string) {
-  return STYLE_REGEXP.test(path);
-}
-
-export function isScript(path: string) {
-  return SCRIPT_REGEXP.test(path) && !path.endsWith('.d.ts');
-}
-
+export const isDir = (dir: string) => lstatSync(dir).isDirectory();
+export const isDemoDir = (dir: string) => DEMO_REGEXP.test(dir);
+export const isTestDir = (dir: string) => TEST_REGEXP.test(dir);
+export const isAsset = (path: string) => ASSET_REGEXP.test(path);
+export const isStyle = (path: string) => STYLE_REGEXP.test(path);
+export const isScript = (path: string) => SCRIPT_REGEXP.test(path);
 export const isJsx = (path: string) => JSX_REGEXP.test(path);
 
 export function isTsFile(path: string) {

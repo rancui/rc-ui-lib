@@ -66,6 +66,7 @@
     "ora": "^5.1.0",
     "postcss": "^8.1.7",
     "postcss-load-config": "^4.0.1",
+    "qrcode.react": "^3.1.0",
     "react-router-dom": "^6.15.0",
     "release-it": "^15.4.1",
     "rehype-highlight": "^6.0.0",
