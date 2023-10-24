@@ -1,9 +1,11 @@
 import { parse } from 'path';
-import { readFileSync, writeFileSync } from 'fs';
+import fse from 'fs-extra';
 import { replaceExt } from '../common/index.js';
 import { compileCss } from './compile-css.js';
 import { compileLess } from './compile-less.js';
 import { consola } from '../common/logger.js';
+
+const { readFileSync, writeFileSync, removeSync } = fse;
 
 async function compileFile(filePath: string) {
   const parsedPath = parse(filePath);
@@ -24,6 +26,6 @@ async function compileFile(filePath: string) {
 
 export async function compileStyle(filePath: string) {
   const css = await compileFile(filePath);
-
+  removeSync(filePath);
   writeFileSync(replaceExt(filePath, '.css'), css);
 }

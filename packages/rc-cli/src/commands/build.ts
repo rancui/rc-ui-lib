@@ -42,7 +42,7 @@ async function compileFile(filePath: string, format: Format) {
     return Promise.resolve();
   }
 
-  return Promise.resolve();
+  return remove(filePath);
 }
 
 /**
@@ -133,7 +133,6 @@ async function buildCJSOutputs() {
 }
 
 async function buildBundledOutputs() {
-  const config = getVantConfig();
   setModuleEnv('esmodule');
   await compileBundles();
 }

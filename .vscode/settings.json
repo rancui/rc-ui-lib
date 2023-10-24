@@ -99,5 +99,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.words": ["esbuild", "pluginutils", "swipeable"]
+  "cSpell.words": [
+    "esbuild",
+    "pluginutils",
+    "postcssrc",
+    "swipeable"
+  ]
 }
