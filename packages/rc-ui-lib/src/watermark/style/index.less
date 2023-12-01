@@ -1,0 +1,14 @@
+:root {
+  --rc-water-mark-z-index: 100;
+}
+
+.rc-water-mark {
+  position: absolute;
+  inset: 0;
+  z-index: var(--rc-water-mark-z-index);
+  background-repeat: repeat;
+  pointer-events: none;
+  &--full {
+    position: fixed;
+  }
+}

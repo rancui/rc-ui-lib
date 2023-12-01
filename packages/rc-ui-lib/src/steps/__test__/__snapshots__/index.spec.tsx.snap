@@ -1,575 +1,272 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Steps should change finish icon when using finish-icon prop 1`] = `
-Array [
-  <div
-    className="rc-hairline rc-step rc-step--horizontal rc-step--finish"
-  >
-    <div
-      className="rc-step__title"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      A
-    </div>
-    <div
-      className="rc-step__circle-container"
-      onClick={[Function]}
-    >
-      <Icon
-        className="rc-step__icon rc-step__icon--finish"
-        name="foo"
-        tag="i"
-      >
-        <Badge
-          className="rc-step__icon rc-step__icon--finish van-icon van-icon-foo"
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper rc-step__icon rc-step__icon--finish van-icon van-icon-foo"
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
-    </div>
-    <div
-      className="rc-step__line"
-      style={
-        Object {
-          "background": undefined,
-        }
-      }
-    />
-  </div>,
-  <div
-    className="rc-hairline rc-step rc-step--horizontal rc-step--process"
-  >
-    <div
-      className="rc-step__title rc-step__title--active"
-      onClick={[Function]}
-      style={
-        Object {
-          "color": undefined,
-        }
-      }
-    >
-      B
-    </div>
-    <div
-      className="rc-step__circle-container"
-      onClick={[Function]}
-    >
-      <Icon
-        className="rc-step__icon rc-step__icon--active"
-        name="checked"
-        tag="i"
-      >
-        <Badge
-          className="rc-step__icon rc-step__icon--active van-icon van-icon-checked"
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper rc-step__icon rc-step__icon--active van-icon van-icon-checked"
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
-    </div>
-    <div
-      className="rc-step__line"
-      style={
-        Object {
-          "background": undefined,
-        }
-      }
-    />
-  </div>,
-]
-`;
-
-exports[`Steps should change inactive color when using inactive-color prop 1`] = `"<div class=\\"rc-steps rc-steps--horizontal\\"><div class=\\"rc-steps__items\\"><div class=\\"rc-hairline rc-step rc-step--horizontal rc-step--process\\"><div class=\\"rc-step__title rc-step__title--active\\">A</div><div class=\\"rc-step__circle-container\\"><i class=\\"rc-badge__wrapper rc-step__icon rc-step__icon--active van-icon van-icon-checked\\"></i></div><div class=\\"rc-step__line\\" style=\\"background: red;\\"></div></div><div class=\\"rc-hairline rc-step rc-step--horizontal rc-step--waiting\\"><div class=\\"rc-step__title\\" style=\\"color: red;\\">B</div><div class=\\"rc-step__circle-container\\"><i class=\\"rc-step__circle\\" style=\\"background: red;\\"></i></div><div class=\\"rc-step__line\\" style=\\"background: red;\\"></div></div></div></div>"`;
-
-exports[`Steps should change inactive icon when using inactive-icon prop 1`] = `"<div class=\\"rc-hairline rc-step rc-step--horizontal rc-step--waiting\\"><div class=\\"rc-step__title\\">B</div><div class=\\"rc-step__circle-container\\"><i class=\\"rc-badge__wrapper rc-step__icon van-icon van-icon-foo\\"></i></div><div class=\\"rc-step__line\\"></div></div>"`;
-
-exports[`Steps should render correctly 1`] = `
-<Steps
-  active={0}
-  activeIcon="checked"
-  direction="horizontal"
+<div
+  class="rc-hairline rc-step rc-step--horizontal rc-step--finish"
 >
   <div
-    className="rc-steps rc-steps--horizontal"
+    class="rc-step__title"
+  >
+    A
+  </div>
+  <div
+    class="rc-step__circle-container"
+  >
+    <i
+      class="rc-badge__wrapper rc-step__icon rc-step__icon--finish van-icon van-icon-foo"
+    />
+  </div>
+  <div
+    class="rc-step__line"
+  />
+</div>
+`;
+
+exports[`Steps should change inactive color when using inactive-color prop 1`] = `
+<div>
+  <div
+    class="rc-steps rc-steps--horizontal"
   >
     <div
-      className="rc-steps__items"
+      class="rc-steps__items"
     >
-      <StepsItem
-        index={0}
-        key=".0"
-        parent={
-          Object {
-            "active": 0,
-            "activeIcon": "checked",
-            "direction": "horizontal",
-          }
-        }
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--process"
       >
         <div
-          className="rc-hairline rc-step rc-step--horizontal rc-step--process"
+          class="rc-step__title rc-step__title--active"
         >
-          <div
-            className="rc-step__title rc-step__title--active"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-          >
-            B
-          </div>
-          <div
-            className="rc-step__circle-container"
-            onClick={[Function]}
-          >
-            <Icon
-              className="rc-step__icon rc-step__icon--active"
-              name="checked"
-              tag="i"
-            >
-              <Badge
-                className="rc-step__icon rc-step__icon--active van-icon van-icon-checked"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper rc-step__icon rc-step__icon--active van-icon van-icon-checked"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <div
-            className="rc-step__line"
-            style={
-              Object {
-                "background": undefined,
-              }
-            }
+          A
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper rc-step__icon rc-step__icon--active van-icon van-icon-checked"
           />
         </div>
-      </StepsItem>
-      <StepsItem
-        index={1}
-        key=".1"
-        parent={
-          Object {
-            "active": 0,
-            "activeIcon": "checked",
-            "direction": "horizontal",
-          }
-        }
+        <div
+          class="rc-step__line"
+          style="background: red;"
+        />
+      </div>
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--waiting"
       >
         <div
-          className="rc-hairline rc-step rc-step--horizontal rc-step--waiting"
+          class="rc-step__title"
+          style="color: red;"
         >
-          <div
-            className="rc-step__title"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-          >
-            A
-          </div>
-          <div
-            className="rc-step__circle-container"
-            onClick={[Function]}
-          >
-            <i
-              className="rc-step__circle"
-              style={
-                Object {
-                  "background": undefined,
-                }
-              }
-            />
-          </div>
-          <div
-            className="rc-step__line"
-            style={
-              Object {
-                "background": undefined,
-              }
-            }
+          B
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-step__circle"
+            style="background: red;"
           />
         </div>
-      </StepsItem>
+        <div
+          class="rc-step__line"
+          style="background: red;"
+        />
+      </div>
     </div>
   </div>
-</Steps>
+</div>
+`;
+
+exports[`Steps should change inactive icon when using inactive-icon prop 1`] = `
+<div>
+  <div
+    class="rc-steps rc-steps--horizontal"
+  >
+    <div
+      class="rc-steps__items"
+    >
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--process"
+      >
+        <div
+          class="rc-step__title rc-step__title--active"
+        >
+          A
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper rc-step__icon rc-step__icon--active van-icon van-icon-checked"
+          />
+        </div>
+        <div
+          class="rc-step__line"
+        />
+      </div>
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--waiting"
+      >
+        <div
+          class="rc-step__title"
+        >
+          B
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper rc-step__icon van-icon van-icon-foo"
+          />
+        </div>
+        <div
+          class="rc-step__line"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Steps should render correctly 1`] = `
+<div>
+  <div
+    class="rc-steps rc-steps--horizontal"
+  >
+    <div
+      class="rc-steps__items"
+    >
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--process"
+      >
+        <div
+          class="rc-step__title rc-step__title--active"
+        >
+          B
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper rc-step__icon rc-step__icon--active van-icon van-icon-checked"
+          />
+        </div>
+        <div
+          class="rc-step__line"
+        />
+      </div>
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--waiting"
+      >
+        <div
+          class="rc-step__title"
+        >
+          A
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-step__circle"
+          />
+        </div>
+        <div
+          class="rc-step__line"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Steps should render custom icon correctly 1`] = `
-<Steps
-  active={1}
-  activeIcon={
-    <Icon
-      name="success"
-      tag="i"
-    />
-  }
-  direction="horizontal"
-  finishIcon={
-    <Icon
-      name="finish"
-      tag="i"
-    />
-  }
-  inactiveIcon={
-    <Icon
-      name="fail"
-      tag="i"
-    />
-  }
->
+<div>
   <div
-    className="rc-steps rc-steps--horizontal"
+    class="rc-steps rc-steps--horizontal"
   >
     <div
-      className="rc-steps__items"
+      class="rc-steps__items"
     >
-      <StepsItem
-        index={0}
-        key=".0"
-        parent={
-          Object {
-            "active": 1,
-            "activeIcon": <Icon
-              name="success"
-              tag="i"
-            />,
-            "direction": "horizontal",
-            "finishIcon": <Icon
-              name="finish"
-              tag="i"
-            />,
-            "inactiveIcon": <Icon
-              name="fail"
-              tag="i"
-            />,
-          }
-        }
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--finish"
       >
         <div
-          className="rc-hairline rc-step rc-step--horizontal rc-step--finish"
+          class="rc-step__title"
         >
-          <div
-            className="rc-step__title"
-            onClick={[Function]}
-            style={Object {}}
-          >
-            B
-          </div>
-          <div
-            className="rc-step__circle-container"
-            onClick={[Function]}
-          >
-            <Icon
-              name="finish"
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-finish"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-finish"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <div
-            className="rc-step__line"
-            style={
-              Object {
-                "background": undefined,
-              }
-            }
+          B
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper van-icon van-icon-finish"
           />
         </div>
-      </StepsItem>
-      <StepsItem
-        index={1}
-        key=".1"
-        parent={
-          Object {
-            "active": 1,
-            "activeIcon": <Icon
-              name="success"
-              tag="i"
-            />,
-            "direction": "horizontal",
-            "finishIcon": <Icon
-              name="finish"
-              tag="i"
-            />,
-            "inactiveIcon": <Icon
-              name="fail"
-              tag="i"
-            />,
-          }
-        }
+        <div
+          class="rc-step__line"
+        />
+      </div>
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--process"
       >
         <div
-          className="rc-hairline rc-step rc-step--horizontal rc-step--process"
+          class="rc-step__title rc-step__title--active"
         >
-          <div
-            className="rc-step__title rc-step__title--active"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-          >
-            A
-          </div>
-          <div
-            className="rc-step__circle-container"
-            onClick={[Function]}
-          >
-            <Icon
-              name="success"
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-success"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-success"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <div
-            className="rc-step__line"
-            style={
-              Object {
-                "background": undefined,
-              }
-            }
+          A
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper van-icon van-icon-success"
           />
         </div>
-      </StepsItem>
-      <StepsItem
-        index={2}
-        key=".2"
-        parent={
-          Object {
-            "active": 1,
-            "activeIcon": <Icon
-              name="success"
-              tag="i"
-            />,
-            "direction": "horizontal",
-            "finishIcon": <Icon
-              name="finish"
-              tag="i"
-            />,
-            "inactiveIcon": <Icon
-              name="fail"
-              tag="i"
-            />,
-          }
-        }
+        <div
+          class="rc-step__line"
+        />
+      </div>
+      <div
+        class="rc-hairline rc-step rc-step--horizontal rc-step--waiting"
       >
         <div
-          className="rc-hairline rc-step rc-step--horizontal rc-step--waiting"
+          class="rc-step__title"
         >
-          <div
-            className="rc-step__title"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-          >
-            C
-          </div>
-          <div
-            className="rc-step__circle-container"
-            onClick={[Function]}
-          >
-            <Icon
-              name="fail"
-              tag="i"
-            >
-              <Badge
-                className="van-icon van-icon-fail"
-                position="top-right"
-                showZero={true}
-                style={
-                  Object {
-                    "color": undefined,
-                    "fontSize": undefined,
-                  }
-                }
-                tag="i"
-              >
-                <i
-                  className="rc-badge__wrapper van-icon van-icon-fail"
-                  style={
-                    Object {
-                      "color": undefined,
-                      "fontSize": undefined,
-                    }
-                  }
-                />
-              </Badge>
-            </Icon>
-          </div>
-          <div
-            className="rc-step__line"
-            style={
-              Object {
-                "background": undefined,
-              }
-            }
+          C
+        </div>
+        <div
+          class="rc-step__circle-container"
+        >
+          <i
+            class="rc-badge__wrapper van-icon van-icon-fail"
           />
         </div>
-      </StepsItem>
+        <div
+          class="rc-step__line"
+        />
+      </div>
     </div>
   </div>
-</Steps>
+</div>
 `;
 
 exports[`Steps should render icon-prefix correctly 1`] = `
 <div
-  className="rc-hairline rc-step rc-step--horizontal rc-step--process"
+  class="rc-hairline rc-step rc-step--horizontal rc-step--finish"
 >
   <div
-    className="rc-step__title rc-step__title--active"
-    onClick={[Function]}
-    style={
-      Object {
-        "color": undefined,
-      }
-    }
+    class="rc-step__title"
   >
-    B
+    A
   </div>
   <div
-    className="rc-step__circle-container"
-    onClick={[Function]}
+    class="rc-step__circle-container"
   >
-    <Icon
-      className="rc-step__icon rc-step__icon--active"
-      classPrefix="custom-icon"
-      name="checked"
-      tag="i"
-    >
-      <Badge
-        className="rc-step__icon rc-step__icon--active custom-icon custom-icon-checked"
-        position="top-right"
-        showZero={true}
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
-        tag="i"
-      >
-        <i
-          className="rc-badge__wrapper rc-step__icon rc-step__icon--active custom-icon custom-icon-checked"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-        />
-      </Badge>
-    </Icon>
+    <i
+      class="rc-step__circle"
+    />
   </div>
   <div
-    className="rc-step__line"
-    style={
-      Object {
-        "background": undefined,
-      }
-    }
+    class="rc-step__line"
   />
 </div>
 `;

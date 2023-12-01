@@ -53,11 +53,36 @@ exports[`PullRefresh should render different head content in different pulling s
   >
     <div
       class="rc-pull-refresh__track"
-      style="transition-duration: 300ms;"
+      style="transition-duration: 300ms; transform: translate3d(0,50px, 0);"
     >
       <div
         class="rc-pull-refresh__head"
-      />
+      >
+        <div
+          class="rc-pull-refresh__loading rc-loading rc-loading--circular"
+        >
+          <span
+            class="rc-loading__spinner rc-loading__spinner--circular"
+          >
+            <svg
+              class="rc-loading__circular"
+              viewBox="25 25 50 50"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                fill="none"
+                r="20"
+              />
+            </svg>
+          </span>
+          <span
+            class="rc-loading__text"
+          >
+            加载中...
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -70,11 +95,36 @@ exports[`PullRefresh should render different head content in different pulling s
   >
     <div
       class="rc-pull-refresh__track"
-      style="transition-duration: 300ms;"
+      style="transition-duration: 300ms; transform: translate3d(0,50px, 0);"
     >
       <div
         class="rc-pull-refresh__head"
-      />
+      >
+        <div
+          class="rc-pull-refresh__loading rc-loading rc-loading--circular"
+        >
+          <span
+            class="rc-loading__spinner rc-loading__spinner--circular"
+          >
+            <svg
+              class="rc-loading__circular"
+              viewBox="25 25 50 50"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                fill="none"
+                r="20"
+              />
+            </svg>
+          </span>
+          <span
+            class="rc-loading__text"
+          >
+            加载中...
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -152,11 +202,18 @@ exports[`PullRefresh should render status slots correctly 3`] = `
   >
     <div
       class="rc-pull-refresh__track"
-      style="transition-duration: 300ms;"
+      style="transition-duration: 300ms; transform: translate3d(0,50px, 0);"
     >
       <div
         class="rc-pull-refresh__head"
-      />
+      >
+        <img
+          alt="loading"
+          class="doge"
+          src="https://img.yzcdn.cn/vant/doge-fire.jpg"
+          style=""
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -203,29 +260,6 @@ exports[`PullRefresh should render success text correctly 2`] = `
 `;
 
 exports[`PullRefresh should render success when onRefresh error 1`] = `
-<div>
-  <div
-    class="rc-pull-refresh"
-  >
-    <div
-      class="rc-pull-refresh__track"
-      style="transition-duration: 300ms; transform: translate3d(0,50px, 0);"
-    >
-      <div
-        class="rc-pull-refresh__head"
-      >
-        <img
-          alt="success"
-          class="doge"
-          src="https://img.yzcdn.cn/vant/doge.png"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`PullRefresh should render success when onRefresh error 2`] = `
 <div>
   <div
     class="rc-pull-refresh"

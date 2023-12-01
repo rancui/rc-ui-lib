@@ -6,9 +6,9 @@ import { useTouch } from '../hooks/use-touch';
 
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { KeyType } from './PropsType';
-import { preventDefault } from '../utils';
+import { BaseTypeProps, preventDefault } from '../utils';
 
-interface NumberKeyboardKeyProps {
+interface NumberKeyboardKeyProps extends BaseTypeProps {
   type: KeyType;
   text: string | number;
   color?: string;

@@ -1,33 +1,31 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { cleanup, render } from '@testing-library/react';
 import Icon from '../../icon';
 import ConfigProvider from '..';
 
 describe('ConfigProvider', () => {
-  let wrapper;
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
   });
 
   it('when using themeVars prop', () => {
     const themeVars = {
       color: 'red',
     };
-    wrapper = mount(
+    const { container } = render(
       <ConfigProvider themeVars={themeVars}>
         <Icon name="success" />
       </ConfigProvider>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('when using iconPrefix prop', () => {
-    wrapper = mount(
+    const { container } = render(
       <ConfigProvider iconPrefix="my-icon">
         <Icon name="success" />
       </ConfigProvider>,
     );
-    expect(wrapper.find('i.my-icon-success').exists()).toBeTruthy();
+    expect(container.querySelector('i.my-icon-success')).toBeTruthy();
   });
 });

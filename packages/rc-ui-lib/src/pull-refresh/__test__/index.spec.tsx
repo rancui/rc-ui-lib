@@ -20,9 +20,11 @@ describe('PullRefresh', () => {
 
     const track = TestsDOM.mustQuerySelector(container, '.rc-pull-refresh__track');
 
-    // pulling
-    await TestsEvent.triggerTouch(track, 'touchstart', [[0, 0]]);
-    await TestsEvent.triggerTouch(track, 'touchmove', [[0, 20]]);
+    await act(async () => {
+      // pulling
+      await TestsEvent.triggerTouch(track, 'touchstart', [[0, 0]]);
+      await TestsEvent.triggerTouch(track, 'touchmove', [[0, 20]]);
+    });
 
     expect(container).toMatchSnapshot();
 
@@ -108,6 +110,10 @@ describe('PullRefresh', () => {
 
     await TestsEvent.triggerDrag(track, [0, 10]);
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(onRefresh).not.toBeCalled();
   });
 
@@ -131,6 +137,10 @@ describe('PullRefresh', () => {
     });
 
     await TestsEvent.triggerDrag(track, [0, 100]);
+
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onRefresh).toBeCalled();
   });
 
@@ -202,9 +212,9 @@ describe('PullRefresh', () => {
 
     const track = TestsDOM.mustQuerySelector(container, '.rc-pull-refresh__track');
 
-    await TestsEvent.triggerDrag(track, [0, 100]);
-
-    expect(container).toMatchSnapshot();
+    await act(async() => {
+      await TestsEvent.triggerDrag(track, [0, 100]);
+    });
 
     act(() => {
       jest.runAllTimers();

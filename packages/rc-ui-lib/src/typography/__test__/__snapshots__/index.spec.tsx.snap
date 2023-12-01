@@ -1,101 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typography render correctly 1`] = `
-<Text>
-  <TypographyBase
-    renderType="text"
+<div>
+  <div
+    class="rc-typography rc-typography--md rc-typography--text"
   >
-    <div
-      className="rc-typography rc-typography--md rc-typography--text"
-    >
-      这是一条文本
-    </div>
-  </TypographyBase>
-</Text>
+    这是一条文本
+  </div>
+</div>
 `;
 
 exports[`Typography render correctly when ellipsis has value 1`] = `
-<Text
-  ellipsis={2}
->
-  <TypographyBase
-    ellipsis={2}
-    renderType="text"
+<div>
+  <div
+    class="rc-typography rc-typography--md rc-typography--text rc-multi-ellipsis--l2"
   >
-    <div
-      className="rc-typography rc-typography--md rc-typography--text rc-multi-ellipsis--l2"
-    >
-       
-      In the process of internal desktop applications development, many different design specs and implementations would be involved
-    </div>
-  </TypographyBase>
-</Text>
+     
+    In the process of internal desktop applications development, many different design specs and implementations would be involved
+  </div>
+</div>
 `;
 
 exports[`Typography render correctly when using ellipsis prop 1`] = `
-<Text
-  ellipsis={true}
->
-  <TypographyBase
-    ellipsis={true}
-    renderType="text"
+<div>
+  <div
+    class="rc-typography rc-typography--md rc-typography--text rc-ellipsis"
   >
-    <div
-      className="rc-typography rc-typography--md rc-typography--text rc-ellipsis"
-    >
-      In the process of internal desktop applications development, many different design specs and implementations would be involved
-    </div>
-  </TypographyBase>
-</Text>
+    In the process of internal desktop applications development, many different design specs and implementations would be involved
+  </div>
+</div>
 `;
 
 exports[`Typography render correctly when using level prop 1`] = `
-<Title
-  level={1}
->
-  <TypographyBase
-    level={1}
-    renderType="title"
+<div>
+  <div
+    class="rc-typography rc-typography--md rc-typography--title rc-typography--l1"
   >
-    <div
-      className="rc-typography rc-typography--md rc-typography--title rc-typography--l1"
-    >
-      一级测试标题
-    </div>
-  </TypographyBase>
-</Title>
+    一级测试标题
+  </div>
+</div>
 `;
 
 exports[`Typography render correctly when using type prop 1`] = `
-<Text
-  type="danger"
->
-  <TypographyBase
-    renderType="text"
-    type="danger"
+<div>
+  <div
+    class="rc-typography rc-typography--danger rc-typography--md rc-typography--text"
   >
-    <div
-      className="rc-typography rc-typography--danger rc-typography--md rc-typography--text"
-    >
-      这是一条文本
-    </div>
-  </TypographyBase>
-</Text>
+    这是一条文本
+  </div>
+</div>
 `;
 
 exports[`Typography render correctly when using underline prop 1`] = `
-<Text
-  underline={true}
->
-  <TypographyBase
-    renderType="text"
-    underline={true}
+<div>
+  <div
+    class="rc-typography rc-typography--md rc-typography--text rc-typography--underline"
   >
-    <div
-      className="rc-typography rc-typography--md rc-typography--text rc-typography--underline"
-    >
-      这是一条文本
-    </div>
-  </TypographyBase>
-</Text>
+    这是一条文本
+  </div>
+</div>
 `;

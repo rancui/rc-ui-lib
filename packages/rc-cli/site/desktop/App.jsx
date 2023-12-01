@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, Suspense } from 'react';
-import { Switch, Route, Redirect, useLocation, useHistory } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { config, packageVersion } from 'site-desktop-shared';
 
 import { isMobile } from '../common';
@@ -10,23 +10,24 @@ import './index.less';
 
 const App = () => {
   const { pathname } = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
+
+  const handleMessage = (event) => {
+    if (event.data.pathname && pathname !== event.data.pathname) {
+      navigate(event.data.pathname);
+    }
+  };
 
   useEffect(() => {
     if (isMobile) {
       window.location.replace(`mobile.html${window.location.hash}`);
     }
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
   }, []);
 
-  window.addEventListener(
-    'message',
-    (event) => {
-      if (event.data.pathname && pathname !== event.data.pathname) {
-        history.push(event.data.pathname);
-      }
-    },
-    false,
-  );
+  window.addEventListener('message', handleMessage, false);
 
   const path = window.location.pathname.replace(/\/index(\.html)?/, '/');
   const simulator = `${path}mobile.html${window.location.hash}`;
@@ -95,20 +96,27 @@ const App = () => {
       currentComponentName={currentComponentName}
     >
       <Suspense fallback={<div style={{ height: '110vh' }}></div>}>
-        <Switch>
+        <Routes>
           {routes.map((route) =>
             route.redirect ? (
-              <Redirect key={route.path} to={route.redirect(pathname)} />
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<Navigate to={route.redirect(pathname)} replace />}
+              />
             ) : (
               <Route
                 key={route.path}
                 exact={route.exact}
                 path={route.path}
-                render={(props) => <route.component {...props} routes={route.routes} />}
+                element={route.component}
+                // render={(props) => (
+                //   <route.component {...props} element={route.component} routes={route.routes} />
+                // )}
               />
             ),
           )}
-        </Switch>
+        </Routes>
       </Suspense>
     </Doc>
   );

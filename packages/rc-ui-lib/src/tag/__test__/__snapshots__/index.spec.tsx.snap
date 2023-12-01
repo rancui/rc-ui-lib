@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tag should hide tag when the show prop is false 1`] = `""`;
+exports[`Tag should hide tag when the show prop is false 1`] = `<div />`;
 
-exports[`Tag should render border-color correctly 1`] = `"<span style=\\"color: blue; border-color: red;\\" class=\\"rc-tag rc-tag--plain rc-tag--default\\"></span>"`;
+exports[`Tag should render border-color correctly 1`] = `
+<div>
+  <span
+    class="rc-tag rc-tag--plain rc-tag--default"
+    style="color: blue; border-color: red;"
+  />
+</div>
+`;

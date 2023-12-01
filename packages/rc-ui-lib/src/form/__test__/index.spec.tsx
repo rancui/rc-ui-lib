@@ -1,7 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import { act } from 'react-dom/test-utils';
+import { fireEvent, render, act, cleanup } from '@testing-library/react';
 import { sleep } from '../../../tests/utils';
 import { toArray } from '../../uploader/utils';
 import Button from '../../button';
@@ -10,12 +8,12 @@ import Form from '..';
 
 export type InternalNamePath = (string | number)[];
 export type NamePath = string | number | InternalNamePath;
-const changeValue = async (wrapper, value) => {
-  wrapper.find('input').simulate('change', { target: { value } });
+const changeValue = async (container, value) => {
+  const input = container.querySelector('input');
+  await fireEvent.change(input, { target: { value } });
   await act(async () => {
     await sleep();
   });
-  wrapper.update();
 };
 
 export function getNamePath(path: NamePath | null): InternalNamePath {
@@ -31,13 +29,13 @@ export function matchNamePath(
   }
   return namePath.every((nameUnit, i) => changedNamePath[i] === nameUnit);
 }
-export function getField(wrapper, index: string | number = 0) {
+export function getField(container, index: string | number = 0) {
   if (typeof index === 'number') {
-    return wrapper.find(Field).at(index);
+    return container.querySelectorAll('.rc-field')[index];
   }
 
   const name = getNamePath(index);
-  const fields = wrapper.find(Field);
+  const fields = container.querySelector(Field);
   for (let i = 0; i < fields.length; i += 1) {
     const field = fields.at(i);
     const fieldName = getNamePath(field.props().name);
@@ -50,7 +48,6 @@ export function getField(wrapper, index: string | number = 0) {
 }
 
 describe('Form', () => {
-  let wrapper;
   let spyConsole: jest.SpyInstance;
   beforeEach(() => {
     spyConsole = jest.spyOn(console, 'warn');
@@ -60,14 +57,14 @@ describe('Form', () => {
   });
 
   afterEach(() => {
-    wrapper.unmount();
+    cleanup();
     spyConsole.mockRestore();
     jest.restoreAllMocks();
   });
 
   it('basic usage', async () => {
     const onClick = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Form
         layout="horizontal"
         colon
@@ -107,32 +104,32 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('when noStyle props is set', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item noStyle>
           <Field placeholder="请输入密码" />
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('when shouldUpdate props is set', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item shouldUpdate>{() => <Field placeholder="请输入密码" />}</Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("shouldn't work when shouldUpdate is set", async () => {
     const spy = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item dependencies={['field_2']} shouldUpdate={() => true}>
           {() => {
@@ -150,7 +147,7 @@ describe('Form', () => {
     );
 
     expect(spy).toHaveBeenCalledTimes(1);
-    await changeValue(getField(wrapper, 1), 'value1');
+    await changeValue(getField(container, 1), 'value1');
     // sync start
     //   valueUpdate -> rerender by shouldUpdate
     //   depsUpdate  -> rerender by deps
@@ -158,7 +155,7 @@ describe('Form', () => {
     // sync end
     expect(spy).toHaveBeenCalledTimes(2);
 
-    await changeValue(getField(wrapper, 2), 'value2');
+    await changeValue(getField(container, 2), 'value2');
     // sync start
     //   valueUpdate -> rerender by shouldUpdate
     //   depsUpdate  -> rerender by deps
@@ -172,44 +169,44 @@ describe('Form', () => {
   });
 
   it('when rules without reqiured props is set', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}>
           <Field placeholder="请输入密码" />
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('when rules with reqiured props is set', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item rules={[{ pattern: /\d{6}/, message: '请输入6位数字', required: true }]}>
           <Field placeholder="请输入密码" />
         </Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('when name props is set without shouldUpdate or dependencies', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item name="name">{() => <Field placeholder="请输入密码" />}</Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(spyConsole).toHaveBeenCalledTimes(2);
   });
 
   it('when shouldUpdate and dependencies are not set', async () => {
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item>{() => <Field placeholder="请输入密码" />}</Form.Item>
       </Form>,
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(spyConsole).toHaveBeenLastCalledWith(
       '[FormItem] `children` of render props only work with `shouldUpdate` or `dependencies`.',
     );
@@ -217,7 +214,7 @@ describe('Form', () => {
 
   it('dependencies is set and name is not set ', async () => {
     let x = 0;
-    wrapper = mount(
+    render(
       <Form>
         <Form.Item dependencies={['field_1']}>
           {() => {
@@ -234,16 +231,17 @@ describe('Form', () => {
 
   it('when children is not validElement', async () => {
     const handleBlur = jest.fn();
-    wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item name="test" trigger="blur">
           <Field placeholder="请输入密码" onBlur={handleBlur} />
         </Form.Item>
       </Form>,
     );
-    wrapper.find('input').simulate('focus');
+    const input = container.querySelector('input');
+    await fireEvent.focus(input);
     await sleep(20);
-    await wrapper.find('input').simulate('blur');
+    await fireEvent.blur(input);
     expect(handleBlur).toHaveBeenCalled();
   });
 });

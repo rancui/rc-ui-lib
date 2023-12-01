@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useMemo, useRef } from 'react';
+import React, { ReactNode, useCallback, useContext, useMemo, useRef } from 'react';
 import classnames from 'classnames';
 import { PullRefreshProps, PullRefreshStatus } from './PropsType';
 import { getScrollTop, preventDefault } from '../utils';
@@ -78,9 +78,9 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
 
   const getStatusText = () => {
     if (state.status === 'normal') {
-      return '';
+      return '' as ReactNode;
     }
-    return props[`${state.status}Text`];
+    return props[`${state.status}Text`] as ReactNode;
   };
 
   const renderStatus = () => {

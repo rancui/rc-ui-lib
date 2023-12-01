@@ -1,3 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rate should render gutter when using gutter prop 1`] = `"<div role=\\"radiogroup\\" class=\\"rc-rate\\" tabindex=\\"0\\"><div role=\\"radio\\" style=\\"padding-right: 10px;\\" class=\\"rc-rate__item\\" tabindex=\\"0\\" aria-setsize=\\"5\\" aria-posinset=\\"1\\" aria-checked=\\"false\\"><i class=\\"rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o\\" style=\\"font-size: 20px;\\"></i></div><div role=\\"radio\\" style=\\"padding-right: 10px;\\" class=\\"rc-rate__item\\" tabindex=\\"0\\" aria-setsize=\\"5\\" aria-posinset=\\"2\\" aria-checked=\\"false\\"><i class=\\"rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o\\" style=\\"font-size: 20px;\\"></i></div><div role=\\"radio\\" style=\\"padding-right: 10px;\\" class=\\"rc-rate__item\\" tabindex=\\"0\\" aria-setsize=\\"5\\" aria-posinset=\\"3\\" aria-checked=\\"false\\"><i class=\\"rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o\\" style=\\"font-size: 20px;\\"></i></div><div role=\\"radio\\" style=\\"padding-right: 10px;\\" class=\\"rc-rate__item\\" tabindex=\\"0\\" aria-setsize=\\"5\\" aria-posinset=\\"4\\" aria-checked=\\"false\\"><i class=\\"rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o\\" style=\\"font-size: 20px;\\"></i></div><div role=\\"radio\\" class=\\"rc-rate__item\\" tabindex=\\"0\\" aria-setsize=\\"5\\" aria-posinset=\\"5\\" aria-checked=\\"false\\"><i class=\\"rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o\\" style=\\"font-size: 20px;\\"></i></div></div>"`;
+exports[`Rate should render gutter when using gutter prop 1`] = `
+<div>
+  <div
+    class="rc-rate"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="1"
+      aria-setsize="5"
+      class="rc-rate__item"
+      role="radio"
+      style="padding-right: 10px;"
+      tabindex="0"
+    >
+      <i
+        class="rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o"
+        style="font-size: 20px;"
+      />
+    </div>
+    <div
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="5"
+      class="rc-rate__item"
+      role="radio"
+      style="padding-right: 10px;"
+      tabindex="0"
+    >
+      <i
+        class="rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o"
+        style="font-size: 20px;"
+      />
+    </div>
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="5"
+      class="rc-rate__item"
+      role="radio"
+      style="padding-right: 10px;"
+      tabindex="0"
+    >
+      <i
+        class="rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o"
+        style="font-size: 20px;"
+      />
+    </div>
+    <div
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
+      class="rc-rate__item"
+      role="radio"
+      style="padding-right: 10px;"
+      tabindex="0"
+    >
+      <i
+        class="rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o"
+        style="font-size: 20px;"
+      />
+    </div>
+    <div
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
+      class="rc-rate__item"
+      role="radio"
+      tabindex="0"
+    >
+      <i
+        class="rc-badge__wrapper rc-rate__icon van-icon van-icon-star-o"
+        style="font-size: 20px;"
+      />
+    </div>
+  </div>
+</div>
+`;

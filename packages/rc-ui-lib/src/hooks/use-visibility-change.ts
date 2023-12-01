@@ -9,7 +9,7 @@ export default function useVisibilityChange(
   useEffect(() => {
     // compatibility: https://caniuse.com/#feat=intersectionobserver
     if (!inBrowser || !window.IntersectionObserver) {
-      return null;
+      return undefined;
     }
     const observer = new IntersectionObserver(
       (entries) => {

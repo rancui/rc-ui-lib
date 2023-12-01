@@ -33,7 +33,6 @@ export function getLangFromRoute(pathname) {
 }
 
 const getRoutes = () => {
-  console.log(documents);
   const routes = [];
   const names = Object.keys(documents);
 
@@ -42,7 +41,7 @@ const getRoutes = () => {
       name: lang,
       exact: true,
       path: `/${lang || ''}`,
-      component: Home,
+      component: <Home />,
       state: { lang },
     });
   }
@@ -55,20 +54,22 @@ const getRoutes = () => {
     }
 
     if (lang) {
+      const Component = lazy(documents[name]);
       routes.push({
         name: `${lang}/${component}`,
         path: `/${lang}/${component}`,
-        component: lazy(documents[name]),
+        component: <Component />,
         state: {
           lang,
           name: component,
         },
       });
     } else {
+      const Component = lazy(documents[name]);
       routes.push({
         name: `${component}`,
         path: `/${component}`,
-        component: lazy(documents[name]),
+        component: <Component />,
         meta: {
           name: component,
         },
@@ -87,6 +88,7 @@ const getRoutes = () => {
       redirect: () => '/',
     });
   }
+
   return routes;
 };
 

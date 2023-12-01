@@ -1,83 +1,116 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popup should allow to custom close icon with closeIcon prop 1`] = `
-Array [
-  <Icon
-    className="rc-action-sheet__close"
-    name="success"
-    onClick={[Function]}
-    tag="i"
-  >
-    <Badge
-      className="rc-action-sheet__close van-icon van-icon-success"
-      onClick={[Function]}
-      position="top-right"
-      showZero={true}
-      style={
-        Object {
-          "color": undefined,
-          "fontSize": undefined,
-        }
-      }
-      tag="i"
-    >
-      <i
-        className="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
-      />
-    </Badge>
-  </Icon>,
-  <Badge
-    className="rc-action-sheet__close van-icon van-icon-success"
-    onClick={[Function]}
-    position="top-right"
-    showZero={true}
-    style={
-      Object {
-        "color": undefined,
-        "fontSize": undefined,
-      }
-    }
-    tag="i"
-  >
-    <i
-      className="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
-      onClick={[Function]}
-      style={
-        Object {
-          "color": undefined,
-          "fontSize": undefined,
-        }
-      }
-    />
-  </Badge>,
-  <i
-    className="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
-    onClick={[Function]}
-    style={
-      Object {
-        "color": undefined,
-        "fontSize": undefined,
-      }
-    }
-  />,
-]
-`;
-
-exports[`Popup should render default slot correctly 1`] = `"<div style=\\"z-index: 2000; animation-duration: 300ms;\\" class=\\"rc-overlay\\"></div><div style=\\"z-index: 2000; transition-duration: 300ms;\\" class=\\"rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-action-sheet\\"><div class=\\"rc-action-sheet__header\\">Title<i class=\\"rc-badge__wrapper rc-action-sheet__close van-icon van-icon-cross\\"></i></div><div class=\\"rc-action-sheet__content\\">Default</div></div>"`;
-
-exports[`Popup should render description correctly 1`] = `
 <div
-  className="rc-action-sheet__description"
+  class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-action-sheet"
+  style="z-index: 2000; transition-duration: 300ms;"
 >
-  This is a description
+  <div
+    class="rc-action-sheet__header"
+  >
+    Title
+    <i
+      class="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-success"
+    />
+  </div>
+  <div
+    class="rc-action-sheet__content"
+  />
 </div>
 `;
 
-exports[`Popup should render subname correctly 1`] = `"<button type=\\"button\\" class=\\"rc-action-sheet__item\\"><span class=\\"rc-action-sheet__name\\">Option</span><div class=\\"rc-action-sheet__subname\\">Subname</div></button>"`;
+exports[`Popup should allow to custom close icon with closeIcon prop 2`] = `
+<div
+  class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-action-sheet"
+  style="z-index: 2000; transition-duration: 300ms;"
+>
+  <div
+    class="rc-action-sheet__header"
+  >
+    Title
+    <div
+      class="rc-action-sheet__close"
+    >
+      <i>
+        X
+      </i>
+    </div>
+  </div>
+  <div
+    class="rc-action-sheet__content"
+  />
+</div>
+`;
+
+exports[`Popup should render default slot correctly 1`] = `
+<div
+  class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-action-sheet"
+  style="z-index: 2000; transition-duration: 300ms;"
+>
+  <div
+    class="rc-action-sheet__header"
+  >
+    Title
+    <i
+      class="rc-badge__wrapper rc-action-sheet__close van-icon van-icon-cross"
+    />
+  </div>
+  <div
+    class="rc-action-sheet__content"
+  >
+    Default
+  </div>
+</div>
+`;
+
+exports[`Popup should render description correctly 1`] = `
+<div
+  class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-action-sheet"
+  style="z-index: 2000; transition-duration: 300ms;"
+>
+  <div
+    class="rc-action-sheet__description"
+  >
+    This is a description
+  </div>
+  <div
+    class="rc-action-sheet__content"
+  />
+</div>
+`;
+
+exports[`Popup should render subname correctly 1`] = `
+<div
+  class="rc-popup rc-popup--round rc-popup--bottom rc-safe-area-bottom rc-action-sheet"
+  style="z-index: 2000; transition-duration: 300ms;"
+>
+  <div
+    class="rc-action-sheet__content"
+  >
+    <button
+      class="rc-action-sheet__item"
+      type="button"
+    >
+      <span
+        class="rc-action-sheet__name"
+      >
+        Option
+      </span>
+      <div
+        class="rc-action-sheet__subname"
+      >
+        Subname
+      </div>
+    </button>
+  </div>
+  <div
+    class="rc-action-sheet__gap"
+  />
+  <button
+    class="rc-action-sheet__cancel"
+    type="button"
+  >
+    Cancel
+  </button>
+</div>
+`;

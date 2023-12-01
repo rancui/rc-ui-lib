@@ -1,4 +1,4 @@
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 import { ReactElement } from 'react';
 
 export default function toMatchRenderedSnapshot(
@@ -6,7 +6,8 @@ export default function toMatchRenderedSnapshot(
   jsx: ReactElement<unknown>,
 ): { message(): string; pass: boolean } {
   try {
-    expect(render(jsx)).toMatchSnapshot();
+    const { container } = render(jsx);
+    expect(container).toMatchSnapshot();
 
     return {
       message: () => 'expected JSX not to match snapshot',

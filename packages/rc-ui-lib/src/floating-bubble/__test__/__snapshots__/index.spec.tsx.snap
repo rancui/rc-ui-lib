@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FloatingBubble should render correctly when icon set 1`] = `
+<div
+  class="rc-floating-bubble"
+  style="transform: translate3d(952px, 696px, 0);"
+>
+  <i
+    class="rc-badge__wrapper rc-floating-bubble__icon van-icon van-icon-chat-o"
+  />
+</div>
+`;
+
+exports[`FloatingBubble should teleport body when default 1`] = `<div />`;

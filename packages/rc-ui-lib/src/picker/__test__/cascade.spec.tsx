@@ -76,6 +76,7 @@ describe('Picker cascade', () => {
     expect(pickColumnText(onConfirm.mock.calls[0][0])).toEqual(['A1', 'B1', 'C1']);
 
     await TestsEvent.triggerDrag(container.querySelector('.rc-picker-column'), [0, -100]);
+    await sleep(100);
     expect(pickColumnText(onChange.mock.calls[0][0])).toEqual(['A2', 'B3', 'C5']);
 
     fireEvent.click(confirmBtn);
@@ -147,6 +148,8 @@ describe('Picker cascade', () => {
     act(() => {
       pickerRef.current.setColumnIndex(0, 1);
     });
+
+    await sleep(100);
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
 

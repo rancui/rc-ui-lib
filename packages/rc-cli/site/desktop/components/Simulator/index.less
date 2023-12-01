@@ -8,10 +8,13 @@
   box-sizing: border-box;
   width: @zf-doc-simulator-width;
   min-width: @zf-doc-simulator-width;
-  overflow: hidden;
-  background: #fafafa;
-  border-radius: @zf-doc-border-radius;
-  box-shadow: 0 8px 12px #ebedf0;
+  text-align: center;
+  iframe {
+    overflow: hidden;
+    background: #fafafa;
+    border-radius: @zf-doc-border-radius;
+    box-shadow: 0 8px 12px #ebedf0;
+  }
   @media (max-width: 1100px) {
     right: auto;
     left: 750px;
@@ -27,5 +30,25 @@
   iframe {
     display: block;
     width: 100%;
+  }
+  &__actions{
+    margin-top: 20px;
+    padding: 5px 15px;
+    border-radius: 18px;
+    background: #d3e3fd;
+    display: inline-flex;
+    &__item {
+      margin: 0 5px;
+      color: #5f5f5f;
+    }
+    svg {
+      opacity: .7;
+      display: block;
+      width: 20px;
+      transition: opacity .2s;
+      &:hover{
+        opacity: 1;
+      }
+    }
   }
 }

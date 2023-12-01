@@ -233,7 +233,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   const checkRange = (date: [Date, Date]) => {
     const { maxRange, rangePrompt, showRangePrompt } = props;
 
-    if (maxRange && calcDateNum(date) > maxRange) {
+    if (maxRange && calcDateNum(date) > +maxRange) {
       if (showRangePrompt) {
         Toast(rangePrompt || t('rangePrompt', maxRange));
       }
@@ -311,7 +311,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
         const [unselectedDate] = dates.splice(selectedIndex, 1);
         props.onUnselect?.(cloneDate(unselectedDate));
         setCurrentDate([...dates]);
-      } else if (props.maxRange && dates.length >= props.maxRange) {
+      } else if (props.maxRange && dates.length >= +props.maxRange) {
         Toast(props.rangePrompt || t('rangePrompt', props.maxRange));
       } else {
         select([...dates, date]);

@@ -56,7 +56,7 @@ export const JEST_TRANSFORM_FILE = join(CJS_DIR, 'jest.transform.cjs');
 export const JEST_FILE_MOCK_FILE = join(CJS_DIR, 'jest.file-mock.cjs');
 export const JEST_STYLE_MOCK_FILE = join(CJS_DIR, 'jest.style-mock.cjs');
 
-export const SCRIPT_EXTS = ['.js', '.jsx', '.ts', '.tsx'];
+export const SCRIPT_EXTS = ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs'];
 export const STYLE_EXTS = ['.css', '.less', '.scss'];
 
 export function getPackageJson() {

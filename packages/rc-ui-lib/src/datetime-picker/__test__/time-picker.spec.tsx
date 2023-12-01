@@ -18,11 +18,12 @@ describe('DateTimePicker', () => {
   function createTimePicker(props?: Partial<TimePickerProps>) {
     const pickerRef = React.createRef<DateTimePickerInstance>();
 
-    const { queryByTestId, container, rerender, debug } = render(
+    const { queryByTestId, container, rerender, debug, baseElement } = render(
       <TimePicker ref={pickerRef} {...props} />,
     );
 
     return {
+      baseElement,
       container,
       rerender,
       debug,
@@ -79,9 +80,11 @@ describe('DateTimePicker', () => {
     const columnWrapper = container.querySelector('.rc-picker-column');
     await TestsEvent.triggerDrag(columnWrapper, [0, -100]);
     await sleep(100);
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
-    expect(pickerRef.current.getPicker().getValues()).toEqual(['20 hour', '00 minute']);
+    expect(pickerRef.current?.getPicker().getValues()).toEqual(['20 hour', '00 minute']);
   });
 
   it('should emit confirm event after clicking the confirm button', async () => {
@@ -95,8 +98,11 @@ describe('DateTimePicker', () => {
     const columnWrapper = container.querySelector('.rc-picker-column');
     await TestsEvent.triggerDrag(columnWrapper, [0, -300]);
 
+    await sleep(100);
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm.mock.calls[0][0]).toEqual('23:00');
   });
@@ -109,7 +115,9 @@ describe('DateTimePicker', () => {
     });
 
     const cancelBtn = container.querySelector('.rc-picker__cancel');
-    fireEvent.click(cancelBtn);
+    if (cancelBtn) {
+      await fireEvent.click(cancelBtn);
+    }
 
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
@@ -132,7 +140,9 @@ describe('DateTimePicker', () => {
     await sleep(100);
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm.mock.calls[0][0]).toEqual('00:00');
   });
@@ -158,7 +168,9 @@ describe('DateTimePicker', () => {
     await sleep(100);
 
     const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     await sleep(100);
 
@@ -168,7 +180,7 @@ describe('DateTimePicker', () => {
   it('should emit value correctly when dynamic change minHour', async () => {
     const onConfirm = jest.fn();
 
-    const { container, rerender } = createTimePicker({
+    const { rerender, baseElement } = createTimePicker({
       onConfirm,
       value: '12:00',
       minHour: 0,
@@ -185,8 +197,10 @@ describe('DateTimePicker', () => {
 
     await sleep(100);
 
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    const confirmBtn = baseElement.querySelector('.rc-picker__confirm');
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     await sleep(100);
 
@@ -196,7 +210,7 @@ describe('DateTimePicker', () => {
   it('set max-hour & max-minute smaller than current then emit correct value', async () => {
     const onConfirm = jest.fn();
 
-    const { container, rerender } = createTimePicker({
+    const { baseElement, rerender } = createTimePicker({
       onConfirm,
       value: '23:59',
     });
@@ -212,8 +226,10 @@ describe('DateTimePicker', () => {
 
     await sleep(100);
 
-    const confirmBtn = container.querySelector('.rc-picker__confirm');
-    fireEvent.click(confirmBtn);
+    const confirmBtn = baseElement.querySelector('.rc-picker__confirm');
+    if (confirmBtn) {
+      await fireEvent.click(confirmBtn);
+    }
 
     expect(onConfirm.mock.calls[0][0]).toEqual('00:00');
   });

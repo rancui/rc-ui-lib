@@ -10,6 +10,10 @@ const JEST_STYLE_MOCK_FILE = join(__dirname, 'jest.style-mock.cjs');
 const DEFAULT_CONFIG = {
   testEnvironment: 'jsdom',
   setupFiles: [JEST_SETUP_FILE],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/tests/setupAfterEnv.ts',
+  ],
   moduleNameMapper: {
     '\\.(css|less|scss)$': JEST_STYLE_MOCK_FILE,
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -26,7 +30,6 @@ const DEFAULT_CONFIG = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/demo/**', '!**/test/**'],
   coverageDirectory: './tests/coverage',
-  snapshotSerializers: ['enzyme-to-json/serializer'],
 };
 
 function readRootConfig() {

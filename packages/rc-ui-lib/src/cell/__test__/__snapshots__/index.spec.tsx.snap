@@ -1,294 +1,250 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cell should change icon class prefix when using icon-prefix prop 1`] = `"<div class=\\"rc-cell\\"><i class=\\"rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success\\"></i><div class=\\"rc-cell__title\\">Title</div></div>"`;
+exports[`Cell should change icon class prefix when using icon-prefix prop 1`] = `
+<div>
+  <div
+    class="rc-cell"
+  >
+    <i
+      class="rc-badge__wrapper rc-cell__left-icon my-icon my-icon-success"
+    />
+    <div
+      class="rc-cell__title"
+    >
+      Title
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Cell should render correctly when using inset prop in Cell.Group 1`] = `
-<CellGroup
-  border={true}
-  inset={true}
->
+<div>
   <div
-    className="rc-cell-group rc-cell-group--inset"
+    class="rc-cell-group rc-cell-group--inset"
   >
-    <Cell
-      title="单元格"
-      value="内容"
+    <div
+      class="rc-cell"
     >
       <div
-        className="rc-cell"
+        class="rc-cell__title"
       >
-        <div
-          className="rc-cell__title"
-        >
-          单元格
-        </div>
-        <div
-          className="rc-cell__value"
-        >
-          <span>
-            内容
-          </span>
-        </div>
+        单元格
       </div>
-    </Cell>
-    <Cell
-      label="描述信息"
-      title="单元格"
-      value="内容"
+      <div
+        class="rc-cell__value"
+      >
+        <span>
+          内容
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-cell"
     >
       <div
-        className="rc-cell"
+        class="rc-cell__title"
       >
+        单元格
         <div
-          className="rc-cell__title"
+          class="rc-cell__label"
         >
-          单元格
-          <div
-            className="rc-cell__label"
-          >
-            描述信息
-          </div>
-        </div>
-        <div
-          className="rc-cell__value"
-        >
-          <span>
-            内容
-          </span>
+          描述信息
         </div>
       </div>
-    </Cell>
+      <div
+        class="rc-cell__value"
+      >
+        <span>
+          内容
+        </span>
+      </div>
+    </div>
   </div>
-</CellGroup>
+</div>
 `;
 
 exports[`Cell should render correctly when using title prop in Cell.Group 1`] = `
 <div>
-  <CellGroup
-    border={true}
-    title="分组1"
-  >
+  <div>
     <div
-      className="rc-cell-group__title"
+      class="rc-cell-group__title"
     >
       分组1
     </div>
     <div
-      className="rc-cell-group rc-hairline--top-bottom"
+      class="rc-cell-group rc-hairline--top-bottom"
     >
-      <Cell
-        title="单元格"
-        value="内容"
+      <div
+        class="rc-cell"
       >
         <div
-          className="rc-cell"
+          class="rc-cell__title"
         >
-          <div
-            className="rc-cell__title"
-          >
-            单元格
-          </div>
-          <div
-            className="rc-cell__value"
-          >
-            <span>
-              内容
-            </span>
-          </div>
+          单元格
         </div>
-      </Cell>
+        <div
+          class="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
     </div>
-  </CellGroup>
-  <CellGroup
-    border={true}
-    title="分组2"
-  >
     <div
-      className="rc-cell-group__title"
+      class="rc-cell-group__title"
     >
       分组2
     </div>
     <div
-      className="rc-cell-group rc-hairline--top-bottom"
+      class="rc-cell-group rc-hairline--top-bottom"
     >
-      <Cell
-        title="单元格"
-        value="内容"
+      <div
+        class="rc-cell"
       >
         <div
-          className="rc-cell"
+          class="rc-cell__title"
         >
-          <div
-            className="rc-cell__title"
-          >
-            单元格
-          </div>
-          <div
-            className="rc-cell__value"
-          >
-            <span>
-              内容
-            </span>
-          </div>
+          单元格
         </div>
-      </Cell>
+        <div
+          class="rc-cell__value"
+        >
+          <span>
+            内容
+          </span>
+        </div>
+      </div>
     </div>
-  </CellGroup>
+  </div>
 </div>
 `;
 
 exports[`Cell should render correctly when wrapperd with Cell.Group 1`] = `
-<CellGroup
-  border={true}
->
+<div>
   <div
-    className="rc-cell-group rc-hairline--top-bottom"
+    class="rc-cell-group rc-hairline--top-bottom"
   >
-    <Cell
-      title="单元格"
-      value="内容"
+    <div
+      class="rc-cell"
     >
       <div
-        className="rc-cell"
+        class="rc-cell__title"
       >
-        <div
-          className="rc-cell__title"
-        >
-          单元格
-        </div>
-        <div
-          className="rc-cell__value"
-        >
-          <span>
-            内容
-          </span>
-        </div>
+        单元格
       </div>
-    </Cell>
-    <Cell
-      label="描述信息"
-      title="单元格"
-      value="内容"
+      <div
+        class="rc-cell__value"
+      >
+        <span>
+          内容
+        </span>
+      </div>
+    </div>
+    <div
+      class="rc-cell"
     >
       <div
-        className="rc-cell"
+        class="rc-cell__title"
       >
+        单元格
         <div
-          className="rc-cell__title"
+          class="rc-cell__label"
         >
-          单元格
-          <div
-            className="rc-cell__label"
-          >
-            描述信息
-          </div>
-        </div>
-        <div
-          className="rc-cell__value"
-        >
-          <span>
-            内容
-          </span>
+          描述信息
         </div>
       </div>
-    </Cell>
+      <div
+        class="rc-cell__value"
+      >
+        <span>
+          内容
+        </span>
+      </div>
+    </div>
   </div>
-</CellGroup>
+</div>
 `;
 
-exports[`Cell should render extra slot correctly 1`] = `"<div class=\\"rc-cell\\"><div class=\\"rc-cell__title\\">Title</div><div class=\\"rc-cell__value\\"><span>Value</span></div>Custom Extra</div>"`;
+exports[`Cell should render extra slot correctly 1`] = `
+<div>
+  <div
+    class="rc-cell"
+  >
+    <div
+      class="rc-cell__title"
+    >
+      Title
+    </div>
+    <div
+      class="rc-cell__value"
+    >
+      <span>
+        Value
+      </span>
+    </div>
+    Custom Extra
+  </div>
+</div>
+`;
 
 exports[`Cell should render icon slot correctly 1`] = `
-<Cell
-  icon="location-o"
->
+<div>
   <div
-    className="rc-cell"
+    class="rc-cell"
   >
-    <Icon
-      className="rc-cell__left-icon"
-      name="location-o"
-      tag="i"
-    >
-      <Badge
-        className="rc-cell__left-icon van-icon van-icon-location-o"
-        position="top-right"
-        showZero={true}
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
-        tag="i"
-      >
-        <i
-          className="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-location-o"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-        />
-      </Badge>
-    </Icon>
+    <i
+      class="rc-badge__wrapper rc-cell__left-icon van-icon van-icon-location-o"
+    />
   </div>
-</Cell>
+</div>
 `;
 
 exports[`Cell should render label slot correctly 1`] = `
-<Cell
-  label="Custom Label"
-  title="Title"
->
+<div>
   <div
-    className="rc-cell"
+    class="rc-cell"
   >
     <div
-      className="rc-cell__title"
+      class="rc-cell__title"
     >
       Title
       <div
-        className="rc-cell__label"
+        class="rc-cell__label"
       >
         Custom Label
       </div>
     </div>
   </div>
-</Cell>
+</div>
 `;
 
 exports[`Cell should render title slot correctly 1`] = `
-<Cell
-  title="Custom Title"
->
+<div>
   <div
-    className="rc-cell"
+    class="rc-cell"
   >
     <div
-      className="rc-cell__title"
+      class="rc-cell__title"
     >
       Custom Title
     </div>
   </div>
-</Cell>
+</div>
 `;
 
 exports[`Cell should render value slot correctly 1`] = `
-<Cell
-  value="Custom Value"
->
+<div>
   <div
-    className="rc-cell"
+    class="rc-cell"
   >
     <div
-      className="rc-cell__value rc-cell__value--alone"
+      class="rc-cell__value rc-cell__value--alone"
     >
       <span>
         Custom Value
       </span>
     </div>
   </div>
-</Cell>
+</div>
 `;

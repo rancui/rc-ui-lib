@@ -35,7 +35,13 @@ export default (): React.ReactNode => {
   return (
     <DemoSection>
       <DemoBlock card title="基础用法">
-        <Field value={value1} label="文本" onChange={setValue1} placeholder="请输入文本" />
+        <Field
+          value={value1}
+          label="文本"
+          onChange={setValue1}
+          name="123"
+          placeholder="请输入文本"
+        />
       </DemoBlock>
 
       <DemoBlock card title="自定义类型">

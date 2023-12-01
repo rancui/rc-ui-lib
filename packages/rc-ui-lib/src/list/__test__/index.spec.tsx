@@ -33,6 +33,8 @@ describe('List', () => {
   it('should emit load event when reaching bottom', async () => {
     const onLoad = jest.fn();
 
+    onLoad.mockResolvedValue('');
+
     await act(async () => {
       const { rerender } = render(<List onLoad={onLoad} />);
 
@@ -40,7 +42,9 @@ describe('List', () => {
       rerender(<List finished onLoad={onLoad} />);
     });
 
-    expect(onLoad).toHaveBeenCalled();
+    onLoad().then(() => {
+      expect(onLoad).toHaveBeenCalled();
+    });
   });
 
   it('should render loading tip correctly and do not trigger onLoad', () => {

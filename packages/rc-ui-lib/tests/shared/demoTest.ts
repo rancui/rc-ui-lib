@@ -1,6 +1,6 @@
+import { render } from '@testing-library/react';
 import glob from 'glob';
 import { join } from 'path';
-import { render } from 'enzyme';
 
 type Options = {
   skip?: boolean;
@@ -18,8 +18,8 @@ export default function demoTest(component: string, options: Options = {}) {
     const path = join(process.cwd(), file);
     testMethod(`renders ${file} correctly`, () => {
       const demo = require(path).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = render(demo());
-      expect(wrapper).toMatchSnapshot();
+      const { container } = render(demo());
+      expect(container).toMatchSnapshot();
     });
   });
 }

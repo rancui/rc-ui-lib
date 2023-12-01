@@ -1,6 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import React from 'react';
-import { fireEvent, render, cleanup, waitFor } from '@testing-library/react';
+import { fireEvent, render, cleanup } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import { Lazyload } from '..';
 import { sleep } from '../../../tests/utils';
 import { DEFAULT_URL } from '../utils';
@@ -47,21 +48,21 @@ describe('test Lazyload by listen event', () => {
       height: 400,
     });
 
-    await sleep(1000);
+    await sleep(500);
 
     expect(container).toMatchSnapshot();
   });
   it('lazyload should render correctly when load image failed', async () => {
     global.Image = class {
       onerror: () => void;
-
-      constructor() {
-        this.onerror = jest.fn();
-        setTimeout(() => {
-          this.onerror();
-        }, 50);
-      }
     } as unknown as ImageConstructor;
+
+    Object.defineProperty(Image.prototype, 'src', {
+      set() {
+        this.onerror();
+      },
+    });
+
     const { container } = render(
       <Lazyload.Image errorImage={DEFAULT_URL} image="https://img.yzcdn.cn/vant/apple-5.jpg" />,
     );
@@ -77,7 +78,7 @@ describe('test Lazyload by listen event', () => {
       width: 375,
       height: 400,
     });
-    await sleep(1000);
+    await sleep(500);
     expect(container).toMatchSnapshot();
     global.Image = originImage;
   });
@@ -97,14 +98,13 @@ describe('test Lazyload by listen event', () => {
   it('LazyloadImage should emit onLoaded event when use listen event', async () => {
     global.Image = class {
       onload: () => void;
-
-      constructor() {
-        this.onload = jest.fn();
-        setTimeout(() => {
-          this.onload();
-        }, 50);
-      }
     } as unknown as ImageConstructor;
+
+    Object.defineProperty(Image.prototype, 'src', {
+      set() {
+        this.onload();
+      },
+    });
     const onLoaded = jest.fn();
 
     const { container } = render(
@@ -127,11 +127,11 @@ describe('test Lazyload by listen event', () => {
       height: 400,
     });
 
-    await waitFor(() => {
+    await act(() => {
       fireEvent.scroll(window, { target: { pageYOffset: 30 } });
     });
 
-    await sleep(1000);
+    await sleep(500);
 
     expect(onLoaded).toHaveBeenCalled();
     global.Image = originImage;
@@ -152,7 +152,6 @@ describe('test Lazyload by observer', () => {
       }
 
       observe(element: HTMLElement) {
-        console.log(element);
         this.callback([{ isIntersecting: true, target: element }]);
       }
 
@@ -160,17 +159,15 @@ describe('test Lazyload by observer', () => {
 
       unobserve: () => void;
     };
-
     global.Image = class {
       onload: () => void;
-
-      constructor() {
-        this.onload = jest.fn();
-        setTimeout(() => {
-          this.onload();
-        }, 50);
-      }
     } as unknown as ImageConstructor;
+
+    Object.defineProperty(Image.prototype, 'src', {
+      set() {
+        this.onload();
+      },
+    });
   });
 
   afterEach(() => {

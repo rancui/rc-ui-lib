@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { isMobile } from '../../../common/index.js';
 import ArrowRight from '../ArrowRight';
 import './index.less';
@@ -7,7 +7,7 @@ import './index.less';
 const DemoHomeNav = (props) => {
   const { lang, group } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const base = useMemo(() => {
     return lang ? `/${lang}` : '';
@@ -22,7 +22,7 @@ const DemoHomeNav = (props) => {
             className="demo-home-nav__block"
             key={navItem.path}
             onClick={() => {
-              history.push(`${base}/${navItem.path}`);
+              navigate(`${base}/${navItem.path}`);
               if (!isMobile && window !== window.top) {
                 window.top.postMessage({ pathname: `${base}/${navItem.path}` }, window.top);
               }

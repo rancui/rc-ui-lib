@@ -43,9 +43,9 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
     let isReachEdge = false;
     const placeholderRect = getRect(placeholder.current);
     if (direction === 'up') {
-      isReachEdge = scrollParentRect.top - placeholderRect.top <= offset;
+      isReachEdge = scrollParentRect.top - placeholderRect.top <= +offset;
     } else {
-      isReachEdge = placeholderRect.bottom - scrollParentRect.bottom <= offset;
+      isReachEdge = placeholderRect.bottom - scrollParentRect.bottom <= +offset;
     }
     if (isReachEdge) {
       try {

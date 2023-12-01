@@ -39,7 +39,7 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
           addCssClassName(target, bem('loaded') as string);
           target.setAttribute('lazy', 'loaded');
           target.removeAttribute('data-src');
-          props.onLoaded?.();
+          onLoaded?.();
         });
     }
   }, [visible]);

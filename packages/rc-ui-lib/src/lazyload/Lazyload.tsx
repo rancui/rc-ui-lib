@@ -5,7 +5,7 @@ import LazyLoadObserve from './LazyloadObserve';
 import { LazyloadProps } from './PropsType';
 
 const Lazyload: React.FC<LazyloadProps> = (props) => {
-  const [mode, setMode] = useState<keyof typeof modeType>('observer');
+  const [mode, setMode] = useState<keyof typeof modeType>();
 
   const { observer, eventOptions, ...resetProps } = props;
 
@@ -24,9 +24,9 @@ const Lazyload: React.FC<LazyloadProps> = (props) => {
     <>
       {mode === modeType.event ? (
         <LazyloadEvent {...resetProps} {...eventOptions} />
-      ) : (
+      ) : mode === modeType.observer ? (
         <LazyLoadObserve {...resetProps} />
-      )}
+      ) : null}
     </>
   );
 };

@@ -188,6 +188,10 @@ export default {
                 title: 'DropdownMenu 下拉菜单',
               },
               {
+                path: 'floating-bubble',
+                title: 'FloatingBubble 浮动气泡',
+              },
+              {
                 path: 'loading',
                 title: 'Loading 加载',
               },
@@ -256,10 +260,10 @@ export default {
                 path: 'skeleton',
                 title: 'Skeleton 骨架屏',
               },
-              // {
-              //   path: 'steps',
-              //   title: 'Steps 步骤条',
-              // },
+              {
+                path: 'steps',
+                title: 'Steps 步骤条',
+              },
               {
                 path: 'notice-bar',
                 title: 'NoticeBar 通知栏',
@@ -291,6 +295,10 @@ export default {
               {
                 path: 'text-ellipsis',
                 title: 'TextEllipsis 文本省略',
+              },
+              {
+                path: 'watermark',
+                title: 'Watermark 水印',
               },
             ],
           },

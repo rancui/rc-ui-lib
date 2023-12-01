@@ -36,4 +36,10 @@ const DemoHome = (props) => {
   );
 };
 
+DemoHome.defaultProps = {
+  meta: {
+    lang: 'zh-CN'
+  }
+}
+
 export default DemoHome;

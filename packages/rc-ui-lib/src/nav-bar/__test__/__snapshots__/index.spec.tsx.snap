@@ -1,307 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavBar should have safe-area-inset-top class when using safe-area-inset-top prop  1`] = `
-<NavBar
-  border={true}
-  fixed={false}
-  leftArea=""
-  leftArrow={false}
-  placeholder={false}
-  rightArea=""
-  safeAreaInsetTop={true}
-  title="foo"
-  zIndex={1}
->
+<div>
   <div
-    className="rc-nav-bar rc-nav-bar--safe-area-inset-top rc-hairline--bottom"
-    style={
-      Object {
-        "zIndex": 1,
-      }
-    }
+    class="rc-nav-bar rc-nav-bar--safe-area-inset-top rc-hairline--bottom"
+    style="z-index: 1;"
   >
     <div
-      className="rc-nav-bar__content"
+      class="rc-nav-bar__content"
     >
       <div
-        className="rc-nav-bar__title van-ellipsis"
+        class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
     </div>
   </div>
-</NavBar>
+</div>
 `;
 
 exports[`NavBar should render ReactNode icon correct 1`] = `
-<NavBar
-  border={true}
-  fixed={false}
-  leftArea={
-    <Icon
-      color="#1989fa"
-      name="cart-o"
-      tag="i"
-    />
-  }
-  leftArrow={false}
-  placeholder={false}
-  rightArea=""
-  safeAreaInsetTop={false}
-  title="foo"
-  zIndex={1}
->
+<div>
   <div
-    className="rc-nav-bar rc-hairline--bottom"
-    style={
-      Object {
-        "zIndex": 1,
-      }
-    }
+    class="rc-nav-bar rc-hairline--bottom"
+    style="z-index: 1;"
   >
     <div
-      className="rc-nav-bar__content"
+      class="rc-nav-bar__content"
     >
       <div
-        className="rc-nav-bar__left rc-haptics-feedback"
-        onClick={[Function]}
+        class="rc-nav-bar__left rc-haptics-feedback"
       >
         <span
-          className="rc-nav-bar__text"
-          key="left-area"
+          class="rc-nav-bar__text"
         >
-          <Icon
-            color="#1989fa"
-            name="cart-o"
-            tag="i"
-          >
-            <Badge
-              className="van-icon van-icon-cart-o"
-              position="top-right"
-              showZero={true}
-              style={
-                Object {
-                  "color": "#1989fa",
-                  "fontSize": undefined,
-                }
-              }
-              tag="i"
-            >
-              <i
-                className="rc-badge__wrapper van-icon van-icon-cart-o"
-                style={
-                  Object {
-                    "color": "#1989fa",
-                    "fontSize": undefined,
-                  }
-                }
-              />
-            </Badge>
-          </Icon>
+          <i
+            class="rc-badge__wrapper van-icon van-icon-cart-o"
+            style="color: rgb(25, 137, 250);"
+          />
         </span>
       </div>
       <div
-        className="rc-nav-bar__title van-ellipsis"
+        class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
     </div>
   </div>
-</NavBar>
+</div>
 `;
 
 exports[`NavBar should render correct when set props fixed and placeholder 1`] = `
-<NavBar
-  border={true}
-  fixed={true}
-  leftArea=""
-  leftArrow={false}
-  placeholder={true}
-  rightArea=""
-  safeAreaInsetTop={false}
-  title="foo"
-  zIndex={1}
->
+<div>
   <div
-    className="rc-nav-bar__placeholder"
-    style={
-      Object {
-        "height": "50px",
-      }
-    }
+    class="rc-nav-bar__placeholder"
+    style="height: 50px;"
   >
     <div
-      className="rc-nav-bar rc-nav-bar--fixed rc-hairline--bottom"
-      style={
-        Object {
-          "zIndex": 1,
-        }
-      }
+      class="rc-nav-bar rc-nav-bar--fixed rc-hairline--bottom"
+      style="z-index: 1;"
     >
       <div
-        className="rc-nav-bar__content"
+        class="rc-nav-bar__content"
       >
         <div
-          className="rc-nav-bar__title van-ellipsis"
+          class="rc-nav-bar__title van-ellipsis"
         >
           foo
         </div>
       </div>
     </div>
   </div>
-</NavBar>
+</div>
 `;
 
 exports[`NavBar should render left area correct 1`] = `
-<NavBar
-  border={true}
-  fixed={false}
-  leftArea="speaker-s"
-  leftArrow={false}
-  placeholder={false}
-  rightArea=""
-  safeAreaInsetTop={false}
-  title="foo"
-  zIndex={1}
->
+<div>
   <div
-    className="rc-nav-bar rc-hairline--bottom"
-    style={
-      Object {
-        "zIndex": 1,
-      }
-    }
+    class="rc-nav-bar rc-hairline--bottom"
+    style="z-index: 1;"
   >
     <div
-      className="rc-nav-bar__content"
+      class="rc-nav-bar__content"
     >
       <div
-        className="rc-nav-bar__left rc-haptics-feedback"
-        onClick={[Function]}
+        class="rc-nav-bar__left rc-haptics-feedback"
       >
         <span
-          className="rc-nav-bar__text"
-          key="left-area"
+          class="rc-nav-bar__text"
         >
           speaker-s
         </span>
       </div>
       <div
-        className="rc-nav-bar__title van-ellipsis"
+        class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
     </div>
   </div>
-</NavBar>
+</div>
 `;
 
 exports[`NavBar should render leftArrow correct 1`] = `
-<NavBar
-  border={true}
-  fixed={false}
-  leftArea=""
-  leftArrow={true}
-  placeholder={false}
-  rightArea=""
-  safeAreaInsetTop={false}
-  title="foo"
-  zIndex={1}
->
+<div>
   <div
-    className="rc-nav-bar rc-hairline--bottom"
-    style={
-      Object {
-        "zIndex": 1,
-      }
-    }
+    class="rc-nav-bar rc-hairline--bottom"
+    style="z-index: 1;"
   >
     <div
-      className="rc-nav-bar__content"
+      class="rc-nav-bar__content"
     >
       <div
-        className="rc-nav-bar__left rc-haptics-feedback"
-        onClick={[Function]}
+        class="rc-nav-bar__left rc-haptics-feedback"
       >
-        <Icon
-          className="rc-nav-bar__arrow"
-          key="icon"
-          name="arrow-left"
-          tag="i"
-        >
-          <Badge
-            className="rc-nav-bar__arrow van-icon van-icon-arrow-left"
-            position="top-right"
-            showZero={true}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-            tag="i"
-          >
-            <i
-              className="rc-badge__wrapper rc-nav-bar__arrow van-icon van-icon-arrow-left"
-              style={
-                Object {
-                  "color": undefined,
-                  "fontSize": undefined,
-                }
-              }
-            />
-          </Badge>
-        </Icon>
+        <i
+          class="rc-badge__wrapper rc-nav-bar__arrow van-icon van-icon-arrow-left"
+        />
       </div>
       <div
-        className="rc-nav-bar__title van-ellipsis"
+        class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
     </div>
   </div>
-</NavBar>
+</div>
 `;
 
 exports[`NavBar should render right area correct 1`] = `
-<NavBar
-  border={true}
-  fixed={false}
-  leftArea=""
-  leftArrow={false}
-  placeholder={false}
-  rightArea="speaker-s"
-  safeAreaInsetTop={false}
-  title="foo"
-  zIndex={1}
->
+<div>
   <div
-    className="rc-nav-bar rc-hairline--bottom"
-    style={
-      Object {
-        "zIndex": 1,
-      }
-    }
+    class="rc-nav-bar rc-hairline--bottom"
+    style="z-index: 1;"
   >
     <div
-      className="rc-nav-bar__content"
+      class="rc-nav-bar__content"
     >
       <div
-        className="rc-nav-bar__title van-ellipsis"
+        class="rc-nav-bar__title van-ellipsis"
       >
         foo
       </div>
       <div
-        className="rc-nav-bar__right rc-haptics-feedback"
-        onClick={[Function]}
+        class="rc-nav-bar__right rc-haptics-feedback"
       >
         <span
-          className="rc-nav-bar__text"
+          class="rc-nav-bar__text"
         >
           speaker-s
         </span>
       </div>
     </div>
   </div>
-</NavBar>
+</div>
 `;

@@ -1,626 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Cascader should render option correctly when using defaultValue prop 1`] = `
-<Cascader
-  closeIcon="cross"
-  closeable={true}
-  defaultValue={
-    Array [
-      "330000",
-    ]
-  }
-  options={
-    Array [
-      Object {
-        "children": Array [
-          Object {
-            "text": "杭州市",
-            "value": "330100",
-          },
-        ],
-        "text": "浙江省",
-        "value": "330000",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "text": "南京市",
-            "value": "320100",
-          },
-        ],
-        "text": "江苏省",
-        "value": "320000",
-      },
-    ]
-  }
-  swipeable={true}
+<div
+  class="rc-cascader"
 >
   <div
-    className="rc-cascader"
+    class="rc-cascader__header"
+  >
+    <h2
+      class="rc-cascader__title"
+    />
+    <i
+      class="rc-badge__wrapper rc-cascader__close-icon van-icon van-icon-cross"
+    />
+  </div>
+  <div
+    class="rc-cascader__tabs rc-tabs rc-tabs--line"
   >
     <div
-      className="rc-cascader__header"
-    >
-      <h2
-        className="rc-cascader__title"
-      />
-      <Icon
-        className="rc-cascader__close-icon"
-        name="cross"
-        onClick={[Function]}
-        tag="i"
-      >
-        <Badge
-          className="rc-cascader__close-icon van-icon van-icon-cross"
-          onClick={[Function]}
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper rc-cascader__close-icon van-icon van-icon-cross"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
-    </div>
-    <ForwardRef
-      active={0}
-      animated={true}
-      className="rc-cascader__tabs"
-      duration={300}
-      ellipsis={true}
-      lazyRender={true}
-      offsetTop={0}
-      onClickTab={[Function]}
-      swipeThreshold={0}
-      swipeable={true}
-      type="line"
+      class="rc-tabs__wrap rc-tabs__wrap--scrollable"
     >
       <div
-        className="rc-cascader__tabs rc-tabs rc-tabs--line"
+        class="rc-tabs__nav rc-tabs__nav--line rc-tabs__nav--complete"
+        role="tablist"
       >
         <div
-          className="rc-tabs__wrap rc-tabs__wrap--scrollable"
+          aria-selected="true"
+          class="rc-tab rc-tab--active rc-cascader__tab"
         >
-          <div
-            className="rc-tabs__nav rc-tabs__nav--line rc-tabs__nav--complete"
-            role="tablist"
-            style={
-              Object {
-                "background": undefined,
-                "borderColor": undefined,
-              }
-            }
+          <span
+            class="rc-tab__text"
           >
-            <ForwardRef
-              className="rc-cascader__tab"
-              isActive={true}
-              key=".$0"
-              onClick={[Function]}
-              scrollable={true}
-              showZeroBadge={true}
-              title="浙江省"
-              type="line"
-            >
-              <div
-                aria-selected={true}
-                className="rc-tab rc-tab--active rc-cascader__tab"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                <span
-                  className="rc-tab__text"
-                >
-                  浙江省
-                </span>
-              </div>
-            </ForwardRef>
-            <div
-              className="rc-tabs__line"
-              style={
-                Object {
-                  "backgroundColor": undefined,
-                }
-              }
-            />
-          </div>
+            浙江省
+          </span>
         </div>
-        <TabsContent
-          animated={true}
-          count={1}
-          currentIndex={0}
-          duration={300}
-          inited={true}
-          lazyRender={true}
-          onChange={[Function]}
-          swipeable={true}
+        <div
+          class="rc-tabs__line"
+        />
+      </div>
+    </div>
+    <div
+      class="rc-tabs__content rc-tabs__content--animated"
+    >
+      <div
+        class="rc-tabs__track rc-swiper"
+        style="--rc-swipe-slide-size: 100%; --rc-swipe-track-offset: 0%;"
+      >
+        <div
+          class="rc-swiper__track rc-swiper__track--allow-touch-move"
         >
           <div
-            className="rc-tabs__content rc-tabs__content--animated"
+            class="rc-swiper__track-inner"
           >
-            <Swiper
-              allowTouchMove={true}
-              autoplay={false}
-              autoplayInterval={300}
-              className="rc-tabs__track"
-              defaultIndex={0}
-              indicator={false}
-              loop={false}
-              onIndexChange={[Function]}
-              slideSize={100}
-              stopPropagation={Array []}
-              stuckAtBoundary={false}
-              trackOffset={0}
+            <div
+              class="rc-swiper__slide"
+              style="left: -0%; transform: none;"
             >
               <div
-                className="rc-tabs__track rc-swiper"
-                style={
-                  Object {
-                    "--rc-swipe-slide-size": "100%",
-                    "--rc-swipe-track-offset": "0%",
-                  }
-                }
+                class="rc-tabs__pane-wrapper rc-swiper-item"
               >
                 <div
-                  className="rc-swiper__track rc-swiper__track--allow-touch-move"
-                  onClickCapture={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  onTouchStart={[Function]}
+                  class="rc-tab__pane"
                 >
-                  <div
-                    className="rc-swiper__track-inner"
+                  <ul
+                    class="rc-cascader__options"
                   >
-                    <Animated(div)
-                      className="rc-swiper__slide"
-                      key=".$.$.$.$0"
-                      style={
-                        Object {
-                          "left": "-0%",
-                          "x": "0%",
-                        }
-                      }
+                    <li
+                      class="rc-cascader__option rc-cascader__option--selected"
                     >
-                      <div
-                        className="rc-swiper__slide"
-                        style={
-                          Object {
-                            "left": "-0%",
-                            "transform": "none",
-                          }
-                        }
-                      >
-                        <SwiperItem
-                          className="rc-tabs__pane-wrapper"
-                          key=".$.$.$0"
-                          style={
-                            Object {
-                              "cursor": undefined,
-                            }
-                          }
-                        >
-                          <div
-                            className="rc-tabs__pane-wrapper rc-swiper-item"
-                            style={
-                              Object {
-                                "cursor": undefined,
-                              }
-                            }
-                          >
-                            <ForwardRef
-                              index={0}
-                              key=".$0"
-                              showZeroBadge={true}
-                              title="浙江省"
-                              titleClass="rc-cascader__tab"
-                            >
-                              <div
-                                className="rc-tab__pane"
-                              >
-                                <ul
-                                  className="rc-cascader__options"
-                                  key="0"
-                                >
-                                  <li
-                                    className="rc-cascader__option rc-cascader__option--selected"
-                                    key="330000"
-                                    onClick={[Function]}
-                                    style={
-                                      Object {
-                                        "color": undefined,
-                                      }
-                                    }
-                                  >
-                                    <span>
-                                      浙江省
-                                    </span>
-                                    <Icon
-                                      className="rc-cascader__selected-icon"
-                                      name="success"
-                                      tag="i"
-                                    >
-                                      <Badge
-                                        className="rc-cascader__selected-icon van-icon van-icon-success"
-                                        position="top-right"
-                                        showZero={true}
-                                        style={
-                                          Object {
-                                            "color": undefined,
-                                            "fontSize": undefined,
-                                          }
-                                        }
-                                        tag="i"
-                                      >
-                                        <i
-                                          className="rc-badge__wrapper rc-cascader__selected-icon van-icon van-icon-success"
-                                          style={
-                                            Object {
-                                              "color": undefined,
-                                              "fontSize": undefined,
-                                            }
-                                          }
-                                        />
-                                      </Badge>
-                                    </Icon>
-                                  </li>
-                                  <li
-                                    className="rc-cascader__option"
-                                    key="320000"
-                                    onClick={[Function]}
-                                    style={
-                                      Object {
-                                        "color": undefined,
-                                      }
-                                    }
-                                  >
-                                    <span>
-                                      江苏省
-                                    </span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </ForwardRef>
-                          </div>
-                        </SwiperItem>
-                      </div>
-                    </Animated(div)>
-                  </div>
+                      <span>
+                        浙江省
+                      </span>
+                      <i
+                        class="rc-badge__wrapper rc-cascader__selected-icon van-icon van-icon-success"
+                      />
+                    </li>
+                    <li
+                      class="rc-cascader__option"
+                    >
+                      <span>
+                        江苏省
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </Swiper>
+            </div>
           </div>
-        </TabsContent>
+        </div>
       </div>
-    </ForwardRef>
+    </div>
   </div>
-</Cascader>
+</div>
 `;
 
-exports[`Cascader should render title slot correctly 1`] = `"<h2 class=\\"rc-cascader__title\\">Custom Title</h2>"`;
+exports[`Cascader should render title slot correctly 1`] = `
+<h2
+  class="rc-cascader__title"
+>
+  Custom Title
+</h2>
+`;
 
 exports[`Cascader when value change 1`] = `
-<Cascader
-  closeIcon="cross"
-  closeable={true}
-  defaultValue={
-    Array [
-      "330000",
-    ]
-  }
-  options={
-    Array [
-      Object {
-        "children": Array [
-          Object {
-            "text": "杭州市",
-            "value": "330100",
-          },
-        ],
-        "text": "浙江省",
-        "value": "330000",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "text": "南京市",
-            "value": "320100",
-          },
-        ],
-        "text": "江苏省",
-        "value": "320000",
-      },
-    ]
-  }
-  swipeable={true}
-  value={
-    Array [
-      "350000",
-    ]
-  }
+<div
+  class="rc-cascader"
 >
   <div
-    className="rc-cascader"
+    class="rc-cascader__header"
   >
-    <div
-      className="rc-cascader__header"
-    >
-      <h2
-        className="rc-cascader__title"
-      />
-      <Icon
-        className="rc-cascader__close-icon"
-        name="cross"
-        onClick={[Function]}
-        tag="i"
-      >
-        <Badge
-          className="rc-cascader__close-icon van-icon van-icon-cross"
-          onClick={[Function]}
-          position="top-right"
-          showZero={true}
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
-          tag="i"
-        >
-          <i
-            className="rc-badge__wrapper rc-cascader__close-icon van-icon van-icon-cross"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": undefined,
-                "fontSize": undefined,
-              }
-            }
-          />
-        </Badge>
-      </Icon>
-    </div>
-    <ForwardRef
-      active={0}
-      animated={true}
-      className="rc-cascader__tabs"
-      duration={300}
-      ellipsis={true}
-      lazyRender={true}
-      offsetTop={0}
-      onClickTab={[Function]}
-      swipeThreshold={0}
-      swipeable={true}
-      type="line"
-    >
-      <div
-        className="rc-cascader__tabs rc-tabs rc-tabs--line"
-      >
-        <div
-          className="rc-tabs__wrap rc-tabs__wrap--scrollable"
-        >
-          <div
-            className="rc-tabs__nav rc-tabs__nav--line rc-tabs__nav--complete"
-            role="tablist"
-            style={
-              Object {
-                "background": undefined,
-                "borderColor": undefined,
-              }
-            }
-          >
-            <ForwardRef
-              className="rc-cascader__tab"
-              isActive={true}
-              key=".$0"
-              onClick={[Function]}
-              scrollable={true}
-              showZeroBadge={true}
-              title="浙江省"
-              type="line"
-            >
-              <div
-                aria-selected={true}
-                className="rc-tab rc-tab--active rc-cascader__tab"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                <span
-                  className="rc-tab__text"
-                >
-                  浙江省
-                </span>
-              </div>
-            </ForwardRef>
-            <div
-              className="rc-tabs__line"
-              style={
-                Object {
-                  "backgroundColor": undefined,
-                }
-              }
-            />
-          </div>
-        </div>
-        <TabsContent
-          animated={true}
-          count={1}
-          currentIndex={0}
-          duration={300}
-          inited={true}
-          lazyRender={true}
-          onChange={[Function]}
-          swipeable={true}
-        >
-          <div
-            className="rc-tabs__content rc-tabs__content--animated"
-          >
-            <Swiper
-              allowTouchMove={true}
-              autoplay={false}
-              autoplayInterval={300}
-              className="rc-tabs__track"
-              defaultIndex={0}
-              indicator={false}
-              loop={false}
-              onIndexChange={[Function]}
-              slideSize={100}
-              stopPropagation={Array []}
-              stuckAtBoundary={false}
-              trackOffset={0}
-            >
-              <div
-                className="rc-tabs__track rc-swiper"
-                style={
-                  Object {
-                    "--rc-swipe-slide-size": "100%",
-                    "--rc-swipe-track-offset": "0%",
-                  }
-                }
-              >
-                <div
-                  className="rc-swiper__track rc-swiper__track--allow-touch-move"
-                  onClickCapture={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  onTouchStart={[Function]}
-                >
-                  <div
-                    className="rc-swiper__track-inner"
-                  >
-                    <Animated(div)
-                      className="rc-swiper__slide"
-                      key=".$.$.$.$0"
-                      style={
-                        Object {
-                          "left": "-0%",
-                          "x": "0%",
-                        }
-                      }
-                    >
-                      <div
-                        className="rc-swiper__slide"
-                        style={
-                          Object {
-                            "left": "-0%",
-                            "transform": "none",
-                          }
-                        }
-                      >
-                        <SwiperItem
-                          className="rc-tabs__pane-wrapper"
-                          key=".$.$.$0"
-                          style={
-                            Object {
-                              "cursor": undefined,
-                            }
-                          }
-                        >
-                          <div
-                            className="rc-tabs__pane-wrapper rc-swiper-item"
-                            style={
-                              Object {
-                                "cursor": undefined,
-                              }
-                            }
-                          >
-                            <ForwardRef
-                              index={0}
-                              key=".$0"
-                              showZeroBadge={true}
-                              title="浙江省"
-                              titleClass="rc-cascader__tab"
-                            >
-                              <div
-                                className="rc-tab__pane"
-                              >
-                                <ul
-                                  className="rc-cascader__options"
-                                  key="0"
-                                >
-                                  <li
-                                    className="rc-cascader__option rc-cascader__option--selected"
-                                    key="330000"
-                                    onClick={[Function]}
-                                    style={
-                                      Object {
-                                        "color": undefined,
-                                      }
-                                    }
-                                  >
-                                    <span>
-                                      浙江省
-                                    </span>
-                                    <Icon
-                                      className="rc-cascader__selected-icon"
-                                      name="success"
-                                      tag="i"
-                                    >
-                                      <Badge
-                                        className="rc-cascader__selected-icon van-icon van-icon-success"
-                                        position="top-right"
-                                        showZero={true}
-                                        style={
-                                          Object {
-                                            "color": undefined,
-                                            "fontSize": undefined,
-                                          }
-                                        }
-                                        tag="i"
-                                      >
-                                        <i
-                                          className="rc-badge__wrapper rc-cascader__selected-icon van-icon van-icon-success"
-                                          style={
-                                            Object {
-                                              "color": undefined,
-                                              "fontSize": undefined,
-                                            }
-                                          }
-                                        />
-                                      </Badge>
-                                    </Icon>
-                                  </li>
-                                  <li
-                                    className="rc-cascader__option"
-                                    key="320000"
-                                    onClick={[Function]}
-                                    style={
-                                      Object {
-                                        "color": undefined,
-                                      }
-                                    }
-                                  >
-                                    <span>
-                                      江苏省
-                                    </span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </ForwardRef>
-                          </div>
-                        </SwiperItem>
-                      </div>
-                    </Animated(div)>
-                  </div>
-                </div>
-              </div>
-            </Swiper>
-          </div>
-        </TabsContent>
-      </div>
-    </ForwardRef>
+    <h2
+      class="rc-cascader__title"
+    />
+    <i
+      class="rc-badge__wrapper rc-cascader__close-icon van-icon van-icon-cross"
+    />
   </div>
-</Cascader>
+</div>
 `;
