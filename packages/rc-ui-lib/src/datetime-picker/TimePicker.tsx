@@ -6,14 +6,16 @@ import React, {
   useImperativeHandle,
   useCallback,
 } from 'react';
-import { Picker } from '..';
+import { Picker } from '../picker';
 import { DateTimePickerInstance, TimePickerProps } from './PropsType';
-import { PickerInstance } from '../picker';
 import { useUpdateEffect } from '../hooks';
 import { padZero, range } from '../utils';
 import { times } from './utils';
 import useRefState from '../hooks/use-ref-state';
 import { doubleRaf } from '../utils/raf';
+
+import type { PickerInstance } from '../picker';
+
 
 const TimePicker = forwardRef<DateTimePickerInstance, TimePickerProps>((props, ref) => {
   const formatValue = (value?: string): string => {

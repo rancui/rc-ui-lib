@@ -6,6 +6,8 @@ import Icon from '../icon';
 import { useSetState, useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
+import type {ReactEventHandler} from "react";
+
 const Image: React.FC<ImageProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('image', prefixCls);
@@ -49,18 +51,14 @@ const Image: React.FC<ImageProps> = (props) => {
     }
   }, [props.src]);
 
-  const onLoad = (e) => {
-    if (!unmountedRef.current) {
-      setStatus({ loading: false });
-      props.onLoad?.(e);
-    }
+  const onLoad: ReactEventHandler<HTMLImageElement> = (e) => {
+    setStatus({ loading: false });
+    props.onLoad?.(e);
   };
 
-  const onError = (e) => {
-    if (!unmountedRef.current) {
-      setStatus({ loading: false, error: true });
-      props.onError?.(e);
-    }
+  const onError: ReactEventHandler<HTMLImageElement> = (e) => {
+    setStatus({ loading: false, error: true });
+    props.onError?.(e);
   };
 
   const renderLoadingIcon = () => {

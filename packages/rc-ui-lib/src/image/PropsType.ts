@@ -47,9 +47,9 @@ export interface ImageProps extends BaseTypeProps {
   /** 自元素 */
   children?: React.ReactNode;
   /** 图片加载完毕时触发	 */
-  onLoad?: (e: React.MouseEvent<HTMLImageElement>) => void;
+  onLoad?: React.ReactEventHandler<HTMLImageElement>;
   /** 图片加载失败时触发	 */
-  onError?: (e: React.MouseEvent<HTMLImageElement>) => void;
+  onError?: React.ReactEventHandler<HTMLImageElement>;
   /** 点击图片时触发	 */
   onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
 }

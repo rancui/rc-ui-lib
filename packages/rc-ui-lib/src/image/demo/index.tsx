@@ -13,7 +13,7 @@ export default (): React.ReactNode => {
   return (
     <DemoSection className="demo-image">
       <DemoBlock title="基础用法">
-        <Image width="100" height="100" src={base64} />
+        <Image width="100" height="100" src={'https://img.yzcdn.cn/vant/cat.jpeg'} />
       </DemoBlock>
       <DemoBlock title="填充模式">
         <Flex wrap="wrap" gutter={20}>
