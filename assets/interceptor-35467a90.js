@@ -1,0 +1,1 @@
+import{b as l,n as r}from"./base-1da74170.js";function f(t){const{interceptor:s,args:c,done:n,canceled:e}=t;if(s){const o=s.apply(null,c||[]);l(o)?o.then(i=>{i?n():e&&e()}).catch(r):o?n():e&&e()}else n()}export{f as c};

@@ -1,0 +1,1 @@
+import{r}from"./react-libs-840bfe49.js";import{g as c}from"./get-rect-4dc7f7e4.js";const o=t=>{const[e,s]=r.useState(0);return r.useEffect(()=>{t.current&&s(c(t.current).height)},[t.current]),e},g=o;export{g as u};

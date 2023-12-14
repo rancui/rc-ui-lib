@@ -1,0 +1,1 @@
+import{r as s}from"./react-libs-840bfe49.js";import{d as f}from"./base-1da74170.js";function m(r){const[t,o]=s.useState(r),a=s.useRef(t),n=s.useCallback(e=>{o(u=>f(e)?e(u):e)},[t]);return[t,n,a]}export{m as u};

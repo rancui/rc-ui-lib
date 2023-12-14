@@ -1,0 +1,1 @@
+import{r as t}from"./react-libs-840bfe49.js";const u=(r,s)=>{const e=t.useRef(!1);t.useEffect(()=>()=>{e.current=!1},[]),t.useEffect(()=>{if(!e.current)e.current=!0;else return r()},s)},c=u;export{c as u};

@@ -1,0 +1,1 @@
+import{a as i}from"./base-1da74170.js";const a=i?window:global;let e=Date.now();function m(n){const t=Date.now(),o=Math.max(0,16-(t-e)),c=setTimeout(n,o);return e=t+o,c}function r(n){return(a.requestAnimationFrame||m).call(a,n)}function s(n){(a.cancelAnimationFrame||a.clearTimeout).call(a,n)}function u(n){r(()=>{r(n)})}export{s as c,u as d,r};

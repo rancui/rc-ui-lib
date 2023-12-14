@@ -1,0 +1,1 @@
+import{r as o}from"./react-libs-840bfe49.js";import{d as c}from"./base-1da74170.js";const S=r=>{const[n,a]=o.useState(r),u=o.useCallback(t=>{a(e=>{const s=c(t)?t(e):t;return s?{...e,...s}:e})},[]);return[n,u]},f=S;export{f as u};

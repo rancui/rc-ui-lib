@@ -1,0 +1,1 @@
+function o(e){return e===window}const r=e=>{const t=e;if(o(t)){const n=t.innerWidth,i=t.innerHeight;return{top:0,left:0,right:n,bottom:i,width:n,height:i}}return t&&t.getBoundingClientRect?t.getBoundingClientRect():{top:0,left:0,right:0,bottom:0,width:0,height:0}},g=r;export{g as a,r as g};
