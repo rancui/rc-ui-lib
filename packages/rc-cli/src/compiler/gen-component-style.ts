@@ -72,6 +72,7 @@ function genEntry(params: {
     }
     content += depsPath.map(template).join('\n');
     content = content.replace(new RegExp(`\\${sep}`, 'g'), '/');
+
     fse.outputFileSync(outputFile, content);
   });
 }

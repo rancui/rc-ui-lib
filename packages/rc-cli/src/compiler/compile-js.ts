@@ -18,7 +18,7 @@ export async function compileScript(filePath: string, format: Format): Promise<v
 
   let code = readFileSync(filePath, 'utf-8');
 
-  if (!filePath.includes(`${sep}style${sep}`)) {
+  if (filePath.includes(`${sep}style${sep}`)) {
     code = replaceCSSImportExt(code);
   }
   code = replaceScriptImportExt(code, filePath, extension);
