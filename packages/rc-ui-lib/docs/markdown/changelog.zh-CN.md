@@ -16,6 +16,28 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### [2.1.2](https://github.com/rancui/rc-ui-lib/compare/v2.1.1...v2.1.2)
+
+`2024-01-04`
+
+- 修复构建后样式文件引入路径错误 (#75) [#75](https://github.com/rancui/rc-ui-lib/issues/75)
+### [2.1.1](https://github.com/rancui/rc-ui-lib/compare/v2.1.0...v2.1.1)
+
+`2023-12-14`
+
+**Bug Fixes**
+
+- 浮动气泡组件测试案例修改 [#72](https://github.com/rancui/rc-ui-lib/issues/72)
+- TimePicker 循环引用 [#74](https://github.com/rancui/rc-ui-lib/issues/74)
+
+**Chore**
+
+- 支持react 18 [#71](https://github.com/rancui/rc-ui-lib/issues/71)
+
+**Feature**
+
+- 新增浮动气泡组件 [#70](https://github.com/rancui/rc-ui-lib/issues/70)
+
 ### [2.1.1](https://github.com/rancui/rc-ui-lib/compare/v2.1.0...v2.1.1)
 
 `2023-12-14`
