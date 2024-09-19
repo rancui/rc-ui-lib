@@ -133,7 +133,7 @@ describe('Picker cascade', () => {
     });
 
     await fireEvent.click(confirmBtn);
-    expect(pickColumnText(onConfirm.mock.calls[1][0])).toEqual(['A2', 'B3', 'C5']);
+    expect(pickColumnText(onConfirm.mock.calls[1][0])).toEqual(['A2', 'B3', 'C6']);
   });
 
   it('setColumnIndex of cascade columns', async () => {

@@ -7,6 +7,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
+  useState,
 } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
@@ -31,6 +32,8 @@ const PickerColumn = memo<PickerColumnProps & { ref?: React.ForwardedRef<PickerC
     const [bem] = createNamespace('picker-column', prefixCls);
 
     const { itemHeight, visibleItemCount, defaultIndex, initialOptions } = props;
+
+    const [, setState] = useState({});
 
     const root = useRef<HTMLDivElement>(null);
     const wrapper = useRef<HTMLUListElement>(null);
@@ -96,7 +99,8 @@ const PickerColumn = memo<PickerColumnProps & { ref?: React.ForwardedRef<PickerC
     const setOptions = (options: PickerOption[]) => {
       if (JSON.stringify(options) !== JSON.stringify(optionsRef.current)) {
         optionsRef.current = options;
-        setIndex(props.defaultIndex);
+        // setIndex(props.defaultIndex);
+        setState({});
       }
     };
 

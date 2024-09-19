@@ -44,51 +44,45 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
   const pickerRef = useRef<PickerInstance>(null);
   const [currentDate, setCurrentDate, currentDateRef] = useRefState(formatValue(value));
 
-  const getBoundary = (type: 'max' | 'min', dateValue: Date) => {
-    const boundary = props[`${type}Date`];
-    const year = boundary.getFullYear();
-    let month = 1;
-    let date = 1;
-    let hour = 0;
-    let minute = 0;
+  const ranges = useMemo(() => {
+    const getBoundary = (type: 'max' | 'min', dateValue: Date) => {
+      const boundary = props[`${type}Date`];
+      const year = boundary.getFullYear();
+      let month = 1;
+      let date = 1;
+      let hour = 0;
+      let minute = 0;
 
-    if (type === 'max') {
-      month = 12;
-      date = getMonthEndDay(dateValue.getFullYear(), dateValue.getMonth() + 1);
-      hour = 23;
-      minute = 59;
-    }
+      if (type === 'max') {
+        month = 12;
+        date = getMonthEndDay(dateValue.getFullYear(), dateValue.getMonth() + 1);
+        hour = 23;
+        minute = 59;
+      }
 
-    if (dateValue.getFullYear() === year) {
-      month = boundary.getMonth() + 1;
-      if (dateValue.getMonth() + 1 === month) {
-        date = boundary.getDate();
-        if (dateValue.getDate() === date) {
-          hour = boundary.getHours();
-          if (dateValue.getHours() === hour) {
-            minute = boundary.getMinutes();
+      if (dateValue.getFullYear() === year) {
+        month = boundary.getMonth() + 1;
+        if (dateValue.getMonth() + 1 === month) {
+          date = boundary.getDate();
+          if (dateValue.getDate() === date) {
+            hour = boundary.getHours();
+            if (dateValue.getHours() === hour) {
+              minute = boundary.getMinutes();
+            }
           }
         }
       }
-    }
 
-    return {
-      [`${type}Year`]: year,
-      [`${type}Month`]: month,
-      [`${type}Date`]: date,
-      [`${type}Hour`]: hour,
-      [`${type}Minute`]: minute,
+      return {
+        [`${type}Year`]: year,
+        [`${type}Month`]: month,
+        [`${type}Date`]: date,
+        [`${type}Hour`]: hour,
+        [`${type}Minute`]: minute,
+      };
     };
-  };
-  const ranges = useMemo(() => {
-    const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = getBoundary(
-      'max',
-      currentDateRef.current,
-    );
-    const { minYear, minDate, minMonth, minHour, minMinute } = getBoundary(
-      'min',
-      currentDateRef.current,
-    );
+    const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = getBoundary('max', currentDate);
+    const { minYear, minDate, minMonth, minHour, minMinute } = getBoundary('min', currentDate);
 
     let result = [
       {
@@ -136,7 +130,7 @@ const DatePicker = forwardRef<DateTimePickerInstance, DatePickerProps>((props, r
     }
 
     return result;
-  }, [columnsOrder, props.type, currentDateRef.current]);
+  }, [props, columnsOrder, currentDate]);
 
   const originColumns = useMemo(
     () =>
