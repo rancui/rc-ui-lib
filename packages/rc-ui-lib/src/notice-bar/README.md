@@ -104,6 +104,30 @@ import { NoticeBar } from 'rc-ui-lib';
 | onClose  | 关闭通知栏时触发             | _event: Event_ |
 | onReplay | 每当滚动栏重新开始滚动时触发 | -              |
 
+### 方法
+
+通过 ref 可以获取到 Field 实例并调用实例方法
+
+```ts
+const noticeBarRef = useRef<NoticeBarInstance>(null);
+```
+
+```jsx
+<NoticeBar ref={noticeBarRef} scrollable text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+
+<input
+  type="button"
+  value="click"
+  onClick={() => {
+    noticeBarRef.current?.reset()
+  }}
+/>
+```
+
+| 方法名 | 说明     | 参数 | 返回值 |
+| ------ | -------- | ---- | ------ |
+| reset  | 重置滚动 | -    | -      |
+
 ## 主题定制
 
 ### 样式变量
