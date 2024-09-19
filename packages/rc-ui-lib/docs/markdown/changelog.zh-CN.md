@@ -16,6 +16,19 @@ rc-ui-lib 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### [2.1.3](https://github.com/rancui/rc-ui-lib/compare/v2.1.2...v2.1.3)
+
+`2024-09-19`
+
+**Bug Fixes**
+
+- 修复DatetimePicker组件日期不联动、最大日期限制问题(#76) [#76](https://github.com/rancui/rc-ui-lib/issues/76) [#77](https://github.com/rancui/rc-ui-lib/issues/77)
+### [2.1.2](https://github.com/rancui/rc-ui-lib/compare/v2.1.1...v2.1.2)
+
+`2024-01-04`
+
+- 修复构建后样式文件引入路径错误 (#75) [#75](https://github.com/rancui/rc-ui-lib/issues/75)
+
 ### [2.1.2](https://github.com/rancui/rc-ui-lib/compare/v2.1.1...v2.1.2)
 
 `2024-01-04`
