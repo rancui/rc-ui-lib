@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     ]),
     { [BORDER_SURROUND]: hairline },
   );
-
+  // 内联样式处理
   const style: Record<string, string | number> = { ...props.style };
 
   if (color) {

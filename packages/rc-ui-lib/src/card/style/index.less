@@ -1,0 +1,87 @@
+@import "./var.less";
+
+:root {
+  --rc-card-size: @card-size;
+  --rc-card-color: @card-color;
+  --rc-card-background-color: @card-background-color;
+  --rc-card-radius: @card-radius;
+
+  --rc-card-body-padding: @card-padding;
+
+  --rc-card-header-padding: @card-header-padding;
+  --rc-card-header-size: @card-header-size;
+  --rc-card-header-color: @card-header-color;
+
+  --rc-card-footer-padding: @card-footer-padding;
+}
+
+.@{rc-prefix}-card {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: var(--rc-card-color);
+  font-size: var(--rc-card-size);
+  background-color: var(--rc-card-background-color);
+
+  &--round {
+    border-radius: var(--rc-card-radius);
+  }
+
+  &--border {
+    border: 1px solid var(--rc-gray-2);
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--rc-card-header-size);
+    color: var(--rc-card-header-color);
+    padding: var(--rc-card-header-padding);
+
+    &__extra {
+      font-weight: normal;
+    }
+
+    &.rc-hairline--bottom {
+      margin-bottom: var(--rc-padding-sm);
+    }
+  }
+
+  &-body {
+    padding: var(--rc-card-body-padding);
+
+    & + .@{rc-prefix}-card-cover {
+      margin-top: var(--rc-padding-sm);
+    }
+
+    .@{rc-prefix}-card-cover + & {
+      margin-top: var(--rc-padding-sm);
+    }
+
+    &:first-child {
+      padding-top: var(--rc-padding-sm);
+    }
+    &:last-child {
+      padding-bottom: var(--rc-padding-sm);
+    }
+  }
+
+  &-footer {
+    padding: var(--rc-card-footer-padding);
+    text-align: right;
+
+    &--compact {
+      padding: 0;
+    }
+
+    &.rc-hairline--top {
+      margin-top: var(--rc-padding-sm);
+    }
+  }
+
+  &-cover {
+    width: 100%;
+  }
+}
