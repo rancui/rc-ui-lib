@@ -1,8 +1,3 @@
----
-simulator:
-  compact: false
----
-
 # Card 卡片
 
 ## 介绍
@@ -18,9 +13,6 @@ import { Card } from 'rc-ui-lib';
 ### 基础用法
 
 ```jsx
-/**
- * title: 基础用法
- */
 import React from 'react';
 import { Card } from 'rc-ui-lib';
 export default () => {
@@ -38,9 +30,6 @@ export default () => {
 `round`属性开启圆角样式
 
 ```jsx
-/**
- * title: 圆角卡片
- */
 import React from 'react';
 import { Card } from 'rc-ui-lib';
 export default () => {
@@ -58,9 +47,6 @@ export default () => {
 通过 `Card.Footer` 设置底部内容。
 
 ```jsx
-/**
- * title: 底部内容
- */
 import React from 'react';
 import { Card, Button } from 'rc-ui-lib';
 
@@ -69,7 +55,7 @@ export default () => {
     <Card round>
       <Card.Header>卡片标题</Card.Header>
       <Card.Body>
-        React Vant 是一套轻量、可靠的移动端 React 组件库，提供了丰富的基础组件和业务组件，帮助开发者快速搭建移动应用。
+        rc-ui-lib 是一套轻量、可靠的移动端 React 组件库，提供了丰富的基础组件和业务组件，帮助开发者快速搭建移动应用。
       </Card.Body>
       <Card.Footer>
         <Button type="primary" round block size="small">
@@ -85,16 +71,37 @@ export default () => {
 
 使用 `Card.Cover` 可以方便的展示封面，随意调整位置
 
-<code title="封面展示" src="./demo/cover.tsx" />
+```jsx
+<Card round style={{ margin: 10 }}>
+  <Card.Cover onClick={() => Toast.info('点击了Cover区域')}>
+    <Image src={coverDemoImg} />
+  </Card.Cover>
+  <Card.Header onClick={() => Toast.info('点击了Header区域')}>
+    封面展示
+  </Card.Header>
+  <Card.Body onClick={() => Toast.info('点击了Body区域')}>
+    卡片内容区域
+  </Card.Body>
+  <Card.Footer>
+    <Button round size='small'>
+      更多
+    </Button>
+    <Button
+      round
+      color='linear-gradient(to right, #ff6034, #ee0a24)'
+      size='small'
+     >
+      Like
+    </Button>
+  </Card.Footer>
+ </Card>
+```
 
 ### 展示边框
 
 `Card.Header` 和 `Card.Footer` 的 `border` 属性可以展示对应边框
 
 ```jsx
-/**
- * title: 展示边框
- */
 import React from 'react';
 import { Card, Button } from 'rc-ui-lib';
 
@@ -125,9 +132,6 @@ export default () => {
 ### 自定义卡片样式
 
 ```jsx
-/**
- * title: 自定义卡片样式
- */
 import React from 'react';
 import { Card } from 'rc-ui-lib';
 
@@ -207,12 +211,12 @@ export default () => {
 
 | 名称 | 默认值 | 描述 |
 | --- | --- | --- |
-| --rv-card-size | _var(--rv-font-size-md)_ | - |
-| --rv-card-color | _var(--rv-text-color)_ | - |
-| --rv-card-background-color | _var(--rv-white)_ | - |
-| --rv-card-radius | _var(--rv-border-radius-lg)_ | - |
-| --rv-card-body-padding | _0 var(--rv-padding-md)_ | - |
-| --rv-card-header-padding | _var(--rv-padding-sm) var(--rv-padding-md)_ | - |
-| --rv-card-header-size | _var(--rv-font-size-lg)_ | - |
-| --rv-card-header-color | _var(--rv-black)_ | - |
-| --rv-card-footer-padding | _var(--rv-padding-sm) var(--rv-padding-md)_ | - |
+| --rc-card-size | _var(--rc-font-size-md)_ | - |
+| --rc-card-color | _var(--rc-text-color)_ | - |
+| --rc-card-background-color | _var(--rc-white)_ | - |
+| --rc-card-radius | _var(--rc-border-radius-lg)_ | - |
+| --rc-card-body-padding | _0 var(--rc-padding-md)_ | - |
+| --rc-card-header-padding | _var(--rc-padding-sm) var(--rc-padding-md)_ | - |
+| --rc-card-header-size | _var(--rc-font-size-lg)_ | - |
+| --rc-card-header-color | _var(--rc-black)_ | - |
+| --rc-card-footer-padding | _var(--rc-padding-sm) var(--rc-padding-md)_ | - |

@@ -5,25 +5,31 @@ import ActionBarContext from './ActionBarContext';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { usePlaceholder } from '../hooks/use-placeholder';
 
-const ActionBar: React.FC<ActionBarProps> = (props) => {
+const ActionBar: React.FC<ActionBarProps> = ({
+  safeAreaInsetBottom = true,
+  placeholder = false,
+  className,
+  style,
+  children,
+}: ActionBarProps) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('action-bar', prefixCls);
   const root = useRef<HTMLDivElement>(null);
 
-  const children = useMemo(() => React.Children.toArray(props.children), [props.children]);
+  const childrenArray = useMemo(() => React.Children.toArray(children), [children]);
 
   const renderPlaceholder = usePlaceholder(root, bem);
 
   const renderActionBar = () => (
-    <ActionBarContext.Provider value={{ parent: { children } }}>
+    <ActionBarContext.Provider value={{ parent: { childrenArray } }}>
       <div
         ref={root}
-        className={classnames(props.className, bem(), {
-          'rc-safe-area-bottom': props.safeAreaInsetBottom,
+        className={classnames(className, bem(), {
+          'rc-safe-area-bottom': safeAreaInsetBottom,
         })}
-        style={props.style}
+        style={style}
       >
-        {React.Children.toArray(props.children)
+        {React.Children.toArray(children)
           .filter(Boolean)
           .map((child: React.ReactElement, index: number) => {
             return React.cloneElement(child, {
@@ -34,12 +40,7 @@ const ActionBar: React.FC<ActionBarProps> = (props) => {
     </ActionBarContext.Provider>
   );
 
-  return props.placeholder ? renderPlaceholder(renderActionBar) : renderActionBar();
-};
-
-ActionBar.defaultProps = {
-  safeAreaInsetBottom: true,
-  placeholder: false,
+  return placeholder ? renderPlaceholder(renderActionBar) : renderActionBar();
 };
 
 export default ActionBar;
