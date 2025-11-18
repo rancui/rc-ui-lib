@@ -247,6 +247,4 @@ const CalendarMonth = forwardRef<CalendarMonthInstance, CalendarMonthProps>((pro
   );
 });
 
-CalendarMonth.defaultProps = {};
-
 export default CalendarMonth;

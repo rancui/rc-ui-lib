@@ -59,7 +59,7 @@ export default (): React.ReactNode => {
               Like
             </Button>
         </Card.Footer>
-      </Card>
+        </Card>
       </DemoBlock>
       <DemoBlock title='展示边框'>
         <Card round style={{margin: 10}}>

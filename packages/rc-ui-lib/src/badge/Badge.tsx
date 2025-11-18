@@ -5,9 +5,21 @@ import { isDef, addUnit } from '../utils';
 import { isNumeric } from '../utils/validate/number';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-const Badge: React.FC<BadgeProps> = (props) => {
-  const { content, max, dot, showZero, tag } = props;
-
+const Badge: React.FC<BadgeProps> = ({
+  content,
+  max,
+  dot,
+  showZero = true,          // 原defaultProps
+  tag = 'div',              // 原defaultProps
+  position = 'top-right',   // 原defaultProps
+  color,
+  offset,
+  children,
+  style,
+  className,
+  onClick,
+  onTouchStart,
+}: BadgeProps) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('badge', prefixCls);
 
@@ -30,46 +42,47 @@ const Badge: React.FC<BadgeProps> = (props) => {
     val.startsWith('-') ? val.replace('-', '') : `-${val}`;
 
   const renderBadge = () => {
-    if (hasContent() || props.dot) {
-      let style: CSSProperties = {
-        background: props.color,
+    if (hasContent() || dot) {
+      let badgeStyle: CSSProperties = {
+        background: color,
       };
 
-      if (props.offset) {
-        const [x, y] = props.offset;
-        const { position } = props;
+      if (offset) {
+        const [x, y] = offset;
         const [offsetY, offsetX] = position.split('-') as ['top' | 'bottom', 'left' | 'right'];
 
-        if (props.children) {
+        if (children) {
           if (typeof y === 'number') {
-            style[offsetY] = addUnit(offsetY === 'top' ? y : -y);
+            badgeStyle[offsetY] = addUnit(offsetY === 'top' ? y : -y);
           } else {
-            style[offsetY] = offsetY === 'top' ? addUnit(y) : getOffsetWithMinusString(y);
+            badgeStyle[offsetY] = offsetY === 'top' ? addUnit(y) : getOffsetWithMinusString(y);
           }
 
           if (typeof x === 'number') {
-            style[offsetX] = addUnit(offsetX === 'left' ? x : -x);
+            badgeStyle[offsetX] = addUnit(offsetX === 'left' ? x : -x);
           } else {
-            style[offsetX] = offsetX === 'left' ? addUnit(x) : getOffsetWithMinusString(x);
+            badgeStyle[offsetX] = offsetX === 'left' ? addUnit(x) : getOffsetWithMinusString(x);
           }
         } else {
-          style.marginTop = addUnit(y);
-          style.marginLeft = addUnit(x);
+          badgeStyle.marginTop = addUnit(y);
+          badgeStyle.marginLeft = addUnit(x);
         }
       }
 
-      if (!props.children) {
-        style = { ...props.style, ...style };
+      // 没有 children 的情况，外层就直接是这个 badge，本身要合并传进来的 style
+      if (!children) {
+        badgeStyle = { ...style, ...badgeStyle };
       }
+
       return (
         <div
           className={classnames(
             {
-              [props.className]: props.className && !props.children,
+              [className!]: className && !children,
             },
-            bem([props.position, { dot: props.dot, fixed: !!props.children }]),
+            bem([position, { dot, fixed: !!children }]),
           )}
-          style={style}
+          style={badgeStyle}
         >
           {renderContent()}
         </div>
@@ -78,27 +91,21 @@ const Badge: React.FC<BadgeProps> = (props) => {
     return null;
   };
 
-  if (props.children) {
+  if (children) {
     return React.createElement(
       tag,
       {
-        className: classnames(bem('wrapper'), props.className),
-        onClick: props.onClick,
-        onTouchStart: props.onTouchStart,
-        style: props.style,
+        className: classnames(bem('wrapper'), className),
+        onClick,
+        onTouchStart,
+        style,
       },
-      props.children,
+      children,
       renderBadge(),
     );
   }
 
   return renderBadge();
-};
-
-Badge.defaultProps = {
-  tag: 'div',
-  showZero: true,
-  position: 'top-right',
 };
 
 export default Badge;

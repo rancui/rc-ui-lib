@@ -6,20 +6,35 @@ import { ButtonProps } from './PropsType';
 import { BORDER_SURROUND, WHITE } from '../utils/constant';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-const Button: React.FC<ButtonProps> = (props) => {
-  const {
-    tag,
-    type,
-    color,
-    plain,
-    disabled,
-    loading,
-    hairline,
-    className,
-    iconPrefix,
-    loadingText,
-    iconPosition,
-  } = props;
+const Button: React.FC<ButtonProps> = ({
+  // —— 原先在 Button.defaultProps 中的默认值 —— //
+  size = 'normal',          // 原：defaultProps.size
+  type = 'default',         // 原：defaultProps.type
+  tag = 'button',           // 原：defaultProps.tag
+  iconPosition = 'left',    // 原：defaultProps.iconPosition
+
+  // —— 其它 props 按需解构 —— //
+  color,
+  plain,
+  disabled,
+  loading,
+  hairline,
+  className,
+  iconPrefix,
+  loadingText,
+  style: styleProp,
+  nativeType,
+  icon,
+  block,
+  round,
+  square,
+  shadow,
+  children,
+  text,
+  loadingSize = '20px',   // 原先在 renderLoadingIcon 里用解构默认值，现在直接在参数上给默认值
+  loadingType,
+  onClick,
+}: ButtonProps) => {
 
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('button', prefixCls);
@@ -28,23 +43,23 @@ const Button: React.FC<ButtonProps> = (props) => {
     className,
     bem([
       type,
-      props.size,
+      size,
       {
         plain,
         loading,
         disabled,
         hairline,
-        block: props.block,
-        round: props.round,
-        square: props.square,
-        shadow: props.shadow,
-        [`shadow-${+props.shadow}`]: props.shadow,
+        block,
+        round,
+        square,
+        shadow,
+        [`shadow-${+shadow}`]: shadow,
       },
     ]),
     { [BORDER_SURROUND]: hairline },
   );
-  // 内联样式处理
-  const style: Record<string, string | number> = { ...props.style };
+  // 内联样式处理:使用解构出来的 styleProp 初始化本地 style
+  const style: Record<string, string | number> = { ...(styleProp || {}) };
 
   if (color) {
     style.color = plain ? color : WHITE;
@@ -62,14 +77,13 @@ const Button: React.FC<ButtonProps> = (props) => {
     }
   }
 
-  function onClick(event) {
-    if (!loading && !disabled && props.onClick) {
-      props.onClick(event);
+  function handleClick(event) {
+    if (!loading && !disabled && onClick) {
+      onClick(event);
     }
   }
 
   const renderLoadingIcon = () => {
-    const { loadingSize = '20px', loadingType } = props;
     return (
       <Loading
         className={classnames(bem('loading'))}
@@ -81,18 +95,18 @@ const Button: React.FC<ButtonProps> = (props) => {
   };
 
   const renderIcon = () => {
-    if (props.loading) {
+    if (loading) {
       return renderLoadingIcon();
     }
 
-    if (typeof props.icon === 'string') {
+    if (typeof icon === 'string') {
       return (
-        <Icon name={props.icon} className={classnames(bem('icon'))} classPrefix={iconPrefix} />
+        <Icon name={icon} className={classnames(bem('icon'))} classPrefix={iconPrefix} />
       );
     }
 
-    if (isValidElement(props.icon)) {
-      return props.icon;
+    if (isValidElement(icon)) {
+      return icon;
     }
 
     return null;
@@ -103,7 +117,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     if (loading) {
       text = loadingText;
     } else {
-      text = props.children || props.text;
+      text = children || text;
     }
 
     if (text) {
@@ -129,19 +143,12 @@ const Button: React.FC<ButtonProps> = (props) => {
     {
       style,
       className: classes,
-      type: props.nativeType,
+      type: nativeType,
       disabled,
-      onClick,
+      onClick: handleClick,
     },
     renderContent(),
   );
-};
-
-Button.defaultProps = {
-  size: 'normal',
-  type: 'default',
-  tag: 'button',
-  iconPosition: 'left',
 };
 
 export default Button;

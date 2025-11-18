@@ -21,7 +21,7 @@ const ActionBar: React.FC<ActionBarProps> = ({
   const renderPlaceholder = usePlaceholder(root, bem);
 
   const renderActionBar = () => (
-    <ActionBarContext.Provider value={{ parent: { childrenArray } }}>
+    <ActionBarContext.Provider value={{ parent: { children: childrenArray } }}>
       <div
         ref={root}
         className={classnames(className, bem(), {
