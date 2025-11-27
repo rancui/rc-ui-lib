@@ -18,7 +18,17 @@ import { useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props, ref) => {
-  const { index } = props;
+  const { 
+    index, 
+    name: nameProp, 
+    disabled, 
+    readonly, 
+    border = true, 
+    isLink = true,
+    clickable,
+    children,
+    ...otherProps 
+  } = props;
   const parent = useContext(CollapseContext);
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('collapse-item', prefixCls);
@@ -26,7 +36,7 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
   const wrapperRef = useRef(null);
   const contentRef = useRef(null);
 
-  const name = useMemo(() => props.name ?? index, [props.name]);
+  const name = useMemo(() => nameProp ?? index, [nameProp]);
 
   const expanded = useMemo(() => {
     if (parent) {
@@ -73,14 +83,12 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
   };
 
   const onClickTitle = () => {
-    if (!props.disabled && !props.readonly) {
+    if (!disabled && !readonly) {
       toggle();
     }
   };
 
   const renderTitle = () => {
-    const { border, disabled, children: _children, readonly, ...others } = props;
-
     return (
       <Cell
         className={classnames(
@@ -92,9 +100,9 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
         )}
         aria-expanded={String(expanded)}
         onClick={onClickTitle}
-        {...others}
-        isLink={readonly ? false : others.isLink}
-        clickable={disabled || readonly ? false : others.clickable}
+        {...otherProps}
+        isLink={readonly ? false : isLink}
+        clickable={disabled || readonly ? false : clickable}
       />
     );
   };
@@ -102,7 +110,7 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
   const renderContent = lazyRender(() => (
     <div ref={wrapperRef} className={classnames(bem('wrapper'))} onTransitionEnd={onTransitionEnd}>
       <div ref={contentRef} className={classnames(bem('content'))}>
-        {props.children}
+        {children}
       </div>
     </div>
   ));
@@ -112,16 +120,12 @@ const CollapseItem = forwardRef<CollapseItemInstance, CollapseItemProps>((props,
   }));
 
   return (
-    <div className={classnames(bem({ border: index && props.border }))}>
+    <div className={classnames(bem({ border: index && border }))}>
       {renderTitle()}
       {renderContent()}
     </div>
   );
 });
 
-CollapseItem.defaultProps = {
-  isLink: true,
-  border: true,
-};
 CollapseItem.displayName = 'CollapseItem';
 export default CollapseItem;

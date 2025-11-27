@@ -113,17 +113,17 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const renderText = () => {
-    let text;
+    let textContent;
     if (loading) {
-      text = loadingText;
+      textContent = loadingText;
     } else {
-      text = children || text;
+      textContent = children || text;
     }
 
-    if (text) {
+    if (textContent) {
       return (
         <span key="text" className={classnames(bem('text'))}>
-          {text}
+          {textContent}
         </span>
       );
     }

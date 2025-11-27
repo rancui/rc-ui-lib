@@ -6,9 +6,9 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const Divider: React.FC<DividerProps> = ({
   children,
   className,
-  hairline,
+  hairline = true,
   dashed,
-  contentPosition,
+  contentPosition = 'center',
   ...props
 }) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
@@ -30,11 +30,6 @@ const Divider: React.FC<DividerProps> = ({
       {children}
     </div>
   );
-};
-
-Divider.defaultProps = {
-  hairline: true,
-  contentPosition: 'center',
 };
 
 export default Divider;

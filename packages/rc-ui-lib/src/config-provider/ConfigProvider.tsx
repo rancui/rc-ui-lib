@@ -21,7 +21,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> = ({
   className,
   style,
   themeVars,
-  tag,
+  tag = 'div',
   children,
   ...props
 }) => {
@@ -43,10 +43,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> = ({
       )}
     </ConfigProviderContext.Provider>
   );
-};
-
-ConfigProvider.defaultProps = {
-  tag: 'div',
 };
 
 export default ConfigProvider;

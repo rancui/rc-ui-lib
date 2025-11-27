@@ -18,9 +18,10 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('checkbox-group', prefixCls);
   const [childrenRefs, setChildrenRefs] = useRefs();
+  const { defaultValue = [] } = props;
   const [checked, setChecked] = useMergedState({
     value: props.value,
-    defaultValue: props.defaultValue,
+    defaultValue,
   });
 
   const toggleAll = (options: CheckboxGroupToggleAllOptions = {}) => {
@@ -67,9 +68,5 @@ const CheckBoxGroup = forwardRef<CheckboxGroupInstance, CheckboxGroupProps>((pro
     </CheckBoxContext.Provider>
   );
 });
-
-CheckBoxGroup.defaultProps = {
-  defaultValue: [],
-};
 
 export default CheckBoxGroup;

@@ -21,7 +21,14 @@ import type { DialogProps } from '../dialog/PropsType';
 
 const ICON_SIZE = '16px';
 
-const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
+const Field = forwardRef<FieldInstance, FieldProps>((propsRaw, ref) => {
+  const props = {
+    clearIcon: 'clear' as const,
+    clearTrigger: 'focus' as const,
+    formatTrigger: 'onChange' as FieldFormatTrigger,
+    ...propsRaw,
+  };
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('field', prefixCls);
 
@@ -444,12 +451,6 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     </Cell>
   );
 });
-
-Field.defaultProps = {
-  clearIcon: 'clear',
-  clearTrigger: 'focus',
-  formatTrigger: 'onChange',
-};
 
 export const FIELD_KEY = Symbol('field');
 

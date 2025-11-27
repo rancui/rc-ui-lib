@@ -12,12 +12,30 @@ import { DropdownItemInstance, DropdownItemOption, DropdownItemProps } from './P
 import { DropdownMenuContext } from './DropdownMenu';
 
 const DropdownItem = forwardRef<DropdownItemInstance, DropdownItemProps>((props, ref) => {
+  const { 
+    options = [], 
+    disabled = false, 
+    placeholder = '请选择',
+    defaultValue,
+    value,
+    title,
+    name,
+    titleClass,
+    teleport,
+    onChange: onChangeCallback,
+    onOpen: onOpenCallback,
+    onOpened: onOpenedCallback,
+    onClose: onCloseCallback,
+    onClosed: onClosedCallback,
+    children,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('dropdown-item', prefixCls);
   const parent = useContext(DropdownMenuContext);
   const [selectedValue, setSelectedValue] = useMergedState({
-    defaultValue: props.defaultValue,
-    value: props.value,
+    defaultValue,
+    value,
   });
 
   const currentValueRef = useRef(selectedValue);
@@ -29,11 +47,11 @@ const DropdownItem = forwardRef<DropdownItemInstance, DropdownItemProps>((props,
   });
 
   const onOpen = () => {
-    props.onOpen?.();
+    onOpenCallback?.();
   };
 
   const onOpened = () => {
-    props.onOpened?.();
+    onOpenedCallback?.();
   };
 
   const onClose = () => {
@@ -41,17 +59,17 @@ const DropdownItem = forwardRef<DropdownItemInstance, DropdownItemProps>((props,
       showPopup: false,
     });
     parent.close();
-    props.onClose?.();
+    onCloseCallback?.();
   };
 
   const onClosed = () => {
     setState({ showWrapper: false });
-    props.onClosed?.();
+    onClosedCallback?.();
   };
 
   const onClickWrapper = (event) => {
     // 防止在使用teleport时被识别为在外面点击并关闭
-    if (props.teleport) {
+    if (teleport) {
       event.stopPropagation();
     }
   };
@@ -71,20 +89,20 @@ const DropdownItem = forwardRef<DropdownItemInstance, DropdownItemProps>((props,
   };
 
   const renderTitle = () => {
-    if (props.title) {
-      return props.title;
+    if (title) {
+      return title;
     }
-    const match = props.options.find((option) => option.value === currentValueRef.current?.value);
-    return match ? match.text : props.placeholder;
+    const match = options.find((option) => option.value === currentValueRef.current?.value);
+    return match ? match.text : placeholder;
   };
 
   useImperativeHandle(ref, () => ({
     toggle,
     renderTitle,
     state,
-    name: props.name,
-    titleClass: props.titleClass,
-    disabled: props.disabled,
+    name,
+    titleClass,
+    disabled,
   }));
 
   const renderOption = (option: DropdownItemOption) => {
@@ -95,7 +113,7 @@ const DropdownItem = forwardRef<DropdownItemInstance, DropdownItemProps>((props,
         const newValue = { ...selectedValue, text: option.text, value: option.value };
         setSelectedValue(newValue);
         currentValueRef.current = newValue;
-        props.onChange?.(newValue);
+        onChangeCallback?.(newValue);
         parent.onChange?.(newValue);
         onClose();
       }
@@ -152,20 +170,15 @@ const DropdownItem = forwardRef<DropdownItemInstance, DropdownItemProps>((props,
           onOpened={onOpened}
           onClosed={onClosed}
         >
-          {props.options?.map(renderOption)}
-          {props.children}
+          {options?.map(renderOption)}
+          {children}
         </Popup>
       </div>
     );
   };
 
-  return props.teleport ? renderToContainer(props.teleport, renderContent()) : renderContent();
+  return teleport ? renderToContainer(teleport, renderContent()) : renderContent();
 });
 
-DropdownItem.defaultProps = {
-  options: [],
-  disabled: false,
-  placeholder: '请选择',
-};
 DropdownItem.displayName = 'DropdownItem';
 export default DropdownItem;

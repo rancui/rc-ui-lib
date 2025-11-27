@@ -5,7 +5,7 @@ import { FlexProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Flex: React.FC<FlexProps> = (props) => {
-  const { direction, wrap, justify, align, gutter, style, className, children, ...rest } = props;
+  const { direction, wrap, justify, align, gutter = 0, style, className, children, ...rest } = props;
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('flexbox', prefixCls);
   const getGutter: [number, number] = useMemo(
@@ -46,10 +46,6 @@ const Flex: React.FC<FlexProps> = (props) => {
       </div>
     </FlexContext.Provider>
   );
-};
-
-Flex.defaultProps = {
-  gutter: 0,
 };
 
 export default Flex;

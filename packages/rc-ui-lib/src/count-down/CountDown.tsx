@@ -6,13 +6,21 @@ import { parseFormat } from './utils';
 import { CurrentTime, useCountDown } from '../hooks/use-count-down';
 
 const CountDown = forwardRef<CountDownInstance, CountDownProps>((props, ref) => {
-  const { time, format, autoStart, millisecond, renderChildren } = props;
+  const { 
+    time = 0, 
+    format = 'HH:mm:ss', 
+    autoStart = true, 
+    millisecond = false, 
+    renderChildren,
+    onChange,
+    onFinish,
+  } = props;
 
   const { start, pause, reset, current } = useCountDown({
     time: +time,
     millisecond,
-    onChange: (value: CurrentTime) => props.onChange?.(value),
-    onFinish: props.onFinish,
+    onChange: (value: CurrentTime) => onChange?.(value),
+    onFinish,
   });
   const timeText = useMemo(() => parseFormat(format, current), [format, current]);
 
@@ -43,12 +51,5 @@ const CountDown = forwardRef<CountDownInstance, CountDownProps>((props, ref) => 
     </div>
   );
 });
-
-CountDown.defaultProps = {
-  time: 0,
-  format: 'HH:mm:ss',
-  autoStart: true,
-  millisecond: false,
-};
 
 export default CountDown;

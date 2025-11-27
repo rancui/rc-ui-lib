@@ -13,9 +13,20 @@ import { closest } from '../utils/closest';
 import { useSetState } from '../hooks';
 
 const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
+  const {
+    gap = 24,
+    axis = 'y',
+    offset = { x: -1, y: -1 },
+    teleport = () => document.body,
+    magnetic,
+    icon,
+    onClick,
+    children,
+    onOffsetChange,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('floating-bubble', prefixCls);
-  const { offset, axis, gap, magnetic, icon, onClick, teleport, children } = props;
   const windowSize = useWindowSize();
   const touch = useTouch();
   const rootRef = useRef<HTMLDivElement>();
@@ -102,7 +113,7 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
       const updateOffset = pick(state, ['x', 'y']);
 
       if (prevX.current !== updateOffset.x || prevY.current !== updateOffset.y) {
-        props?.onOffsetChange?.(updateOffset);
+        onOffsetChange?.(updateOffset);
       }
     }
     // }, 0);
@@ -140,16 +151,6 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = (props) => {
     );
   };
   return teleport ? renderToContainer(teleport, renderContent()) : renderContent();
-};
-
-FloatingBubble.defaultProps = {
-  gap: 24,
-  axis: 'y',
-  offset: {
-    x: -1,
-    y: -1,
-  },
-  teleport: () => document.body,
 };
 
 export default FloatingBubble;

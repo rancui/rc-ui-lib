@@ -23,21 +23,29 @@ function validateModelValue(
 }
 
 const Collapse: React.FC<CollapseProps> = (props) => {
+  const { 
+    border = true, 
+    initValue = [], 
+    accordion, 
+    value, 
+    onChange, 
+    children 
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('collapse', prefixCls);
 
   const innerEffect = useRef(false);
 
-  const [modelValue, setModelValue] = useState(() => props.value ?? props.initValue);
+  const [modelValue, setModelValue] = useState(() => value ?? initValue);
 
   const updateName = (name: number | string | Array<number | string>) => {
     innerEffect.current = true;
     setModelValue(name);
-    props.onChange?.(name);
+    onChange?.(name);
   };
 
   const toggle = (name, isExpanded: boolean) => {
-    const { accordion } = props;
     if (accordion) {
       updateName(name === modelValue ? '' : name);
     } else if (isExpanded) {
@@ -50,7 +58,6 @@ const Collapse: React.FC<CollapseProps> = (props) => {
   };
 
   const isExpanded = (name: string | number): boolean => {
-    const { accordion } = props;
     if (process.env.NODE_ENV !== 'production' && !validateModelValue(modelValue, accordion)) {
       return false;
     }
@@ -62,13 +69,13 @@ const Collapse: React.FC<CollapseProps> = (props) => {
       innerEffect.current = false;
       return;
     }
-    setModelValue(props.value);
-  }, [props.value]);
+    setModelValue(value);
+  }, [value]);
 
   return (
     <CollapseContext.Provider value={{ isExpanded, toggle }}>
-      <div className={classnames(bem(), { [BORDER_TOP_BOTTOM]: props.border })}>
-        {React.Children.toArray(props.children)
+      <div className={classnames(bem(), { [BORDER_TOP_BOTTOM]: border })}>
+        {React.Children.toArray(children)
           .filter(Boolean)
           .map((child: ReactElement, index: number) =>
             React.cloneElement(child, {
@@ -78,11 +85,6 @@ const Collapse: React.FC<CollapseProps> = (props) => {
       </div>
     </CollapseContext.Provider>
   );
-};
-
-Collapse.defaultProps = {
-  border: true,
-  initValue: [],
 };
 
 export default Collapse;

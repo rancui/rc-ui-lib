@@ -8,14 +8,20 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 import type {ReactEventHandler} from "react";
 
-const Image: React.FC<ImageProps> = (props) => {
+const Image: React.FC<ImageProps> = ({
+  fit = 'fill',
+  errorIcon = 'photo-fail',
+  loadingIcon = 'photo',
+  showError = true,
+  showLoading = true,
+  block = true,
+  ...props
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('image', prefixCls);
   const [status, setStatus] = useSetState({ loading: true, error: false });
   const imgRef = useRef<HTMLImageElement>(null);
   const unmountedRef = useRef(false);
-
-  const { fit, errorIcon, loadingIcon, showError, showLoading, block } = props;
 
   const style = useMemo(() => {
     const internalStyle: CSSProperties = {};
@@ -137,15 +143,6 @@ const Image: React.FC<ImageProps> = (props) => {
       {props.children}
     </div>
   );
-};
-
-Image.defaultProps = {
-  fit: 'fill',
-  errorIcon: 'photo-fail',
-  loadingIcon: 'photo',
-  showError: true,
-  showLoading: true,
-  block: true,
 };
 
 export default Image;
