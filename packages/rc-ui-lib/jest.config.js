@@ -10,5 +10,5 @@ module.exports = {
     '!**/**/PropsType.ts',
     '!**/test/**',
   ],
-  // testMatch: ['**/swipe-cell/__test__/**/*.spec.[jt]s?(x)'],
+   //testMatch: ['**/tabs/__test__/**/*.spec.[jt]s?(x)'],
 };

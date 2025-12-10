@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   useState,
   useContext,
+  useCallback,
 } from 'react';
 import classnames from 'classnames';
 
@@ -288,10 +289,10 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     }
   };
 
-  const onStickyScroll = (params: { isFixed: boolean; scrollTop: number }) => {
+  const onStickyScroll = useCallback((params: { isFixed: boolean; scrollTop: number }) => {
     stickyFixed.current = params.isFixed;
     onScroll?.(params);
-  };
+  }, [onScroll]);
 
   const renderNav = () => {
     return childrenList.map((item: TabPaneProps, index: number) => {
@@ -395,9 +396,9 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     scrollTo,
   }));
 
-  const onStickyChange = () => {
+  const onStickyChange = useCallback(() => {
     setLine(true);
-  };
+  }, []);
 
   return (
     <TabsContext.Provider value={{ props, currentName, scrollIntoView, setLine }}>
