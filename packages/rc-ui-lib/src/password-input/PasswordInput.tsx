@@ -11,24 +11,37 @@ import classNames from 'classnames';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { PasswordInputInstance, PasswordInputProps } from '.';
 import { BORDER_LEFT, BORDER_SURROUND } from '../utils/constant';
-import { addUnit } from '../utils';
+import { addUnit, noop } from '../utils';
 import useUpdateEffect from '../hooks/use-update-effect';
 import { NumberKeyboardProps } from '../number-keyboard';
 
 const DEFAULT_CELL_LENGTH = 6;
 
 const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((props, ref) => {
+  const {
+    value = '',
+    info = null,
+    errorInfo = null,
+    length = DEFAULT_CELL_LENGTH,
+    gutter = 0,
+    mask = true,
+    focused = false,
+    onChange = noop,
+    onFocus,
+    onBlur,
+    onFill,
+    keyboard,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('password-input', prefixCls);
 
   const rootRef = useRef<HTMLDivElement>(null);
   const nativeInputRef = useRef<HTMLInputElement>(null);
 
-  const [inputValue, setInputValue] = useState(props.value);
+  const [inputValue, setInputValue] = useState(value);
 
-  const { length, value, focused } = props;
-
-  const info = props.errorInfo || props.info;
+  const infoText = errorInfo || info;
 
   const cellLength = length > 0 && length < Infinity ? Math.floor(length) : DEFAULT_CELL_LENGTH;
 
@@ -41,26 +54,26 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
 
   useEffect(() => {
     if (inputValue.length >= cellLength) {
-      props.onFill?.(inputValue);
+      onFill?.(inputValue);
     }
-    props.onChange?.(inputValue.slice(0, cellLength));
-  }, [props.onChange, props.onFill, inputValue, cellLength]);
+    onChange(inputValue.slice(0, cellLength));
+  }, [onChange, onFill, inputValue, cellLength]);
 
-  const onFocus = () => {
-    if (!props.keyboard) {
+  const handleFocus = () => {
+    if (!keyboard) {
       nativeInputRef.current?.focus();
     }
-    props.onFocus?.();
+    onFocus?.();
   };
 
-  const onBlur = () => {
-    props.onBlur?.();
+  const handleBlur = () => {
+    onBlur?.();
   };
 
   useImperativeHandle(ref, () => ({
-    focus: () => onFocus(),
+    focus: () => handleFocus(),
     blur: () => {
-      onBlur();
+      handleBlur();
       nativeInputRef.current?.blur();
     },
     resetValue: () => {
@@ -70,7 +83,6 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
 
   const renderPoints = () => {
     const Points: JSX.Element[] = [];
-    const { mask, gutter } = props;
 
     for (let i = 0; i < length; i++) {
       const char = inputValue[i];
@@ -103,17 +115,17 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
         ref={rootRef}
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
-        onFocus={onFocus}
-        onBlur={onBlur}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         className={classNames(bem())}
       >
         <ul
-          className={classNames(bem('security'), { [BORDER_SURROUND]: !props.gutter })}
+          className={classNames(bem('security'), { [BORDER_SURROUND]: !gutter })}
         >
           {renderPoints()}
         </ul>
-        {info && (
-          <div className={classNames(bem(props.errorInfo ? 'error-info' : 'info'))}>{info}</div>
+        {infoText && (
+          <div className={classNames(bem(errorInfo ? 'error-info' : 'info'))}>{infoText}</div>
         )}
         <input
           ref={nativeInputRef}
@@ -123,16 +135,16 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
           pattern="[0-9]*"
           inputMode="numeric"
           onChange={(e) => {
-            setInputValue(e.target.value.slice(0, props.length));
+            setInputValue(e.target.value.slice(0, length));
           }}
         />
       </div>
-      {props.keyboard &&
-        React.cloneElement(props.keyboard, {
+      {keyboard &&
+        React.cloneElement(keyboard, {
           visible: focused,
           onInput: (v) => {
             if (inputValue.length < cellLength) {
-              setInputValue((inputValue + v).slice(0, props.length));
+              setInputValue((inputValue + v).slice(0, length));
             }
           },
           onDelete: () => {
@@ -148,16 +160,5 @@ const PasswordInput = forwardRef<PasswordInputInstance, PasswordInputProps>((pro
     </>
   );
 });
-
-PasswordInput.defaultProps = {
-  value: '',
-  info: null,
-  errorInfo: null,
-  length: DEFAULT_CELL_LENGTH,
-  gutter: 0,
-  mask: true,
-  focused: false,
-  onChange: () => {},
-};
 
 export default PasswordInput;

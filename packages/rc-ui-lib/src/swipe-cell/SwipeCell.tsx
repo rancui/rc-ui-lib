@@ -13,6 +13,21 @@ import { SwipeCellInstance, SwipeCellPosition, SwipeCellProps, SwipeCellSide } f
 import { isDef } from '../utils';
 
 const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => {
+  const {
+    disabled = false,
+    hideOnClickOutside = true,
+    leftWidth,
+    rightWidth,
+    left,
+    right,
+    name,
+    beforeClose,
+    onClick,
+    onOpen,
+    onClose,
+    children,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('swipe-cell', prefixCls);
 
@@ -30,10 +45,10 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     elementRef.current ? elementRef.current.offsetWidth : 0;
 
   function getLeftWidth() {
-    return isDef(props.leftWidth) ? +props.leftWidth : getWidth(leftRef);
+    return isDef(leftWidth) ? +leftWidth : getWidth(leftRef);
   }
   function getRightWidth() {
-    return isDef(props.rightWidth) ? +props.rightWidth : getWidth(rightRef);
+    return isDef(rightWidth) ? +rightWidth : getWidth(rightRef);
   }
 
   const [{ x }, api] = useSpring(
@@ -49,20 +64,20 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
 
   const bind = useDrag(
     (state) => {
-      if (!props.disabled) {
+      if (!disabled) {
         lockClick.current = true;
         draggingRef.current = true;
         const [offsetX] = state.offset;
         if (state.last) {
-          const leftWidth = getLeftWidth();
-          const rightWidth = getRightWidth();
+          const leftWidthValue = getLeftWidth();
+          const rightWidthValue = getRightWidth();
           let position = offsetX + state.velocity[0] * state.direction[0] * 50;
           if (offsetX > 0) {
             position = Math.max(0, position);
           } else {
             position = Math.min(0, position);
           }
-          const nearestPosition = nearest([-rightWidth, 0, leftWidth], position);
+          const nearestPosition = nearest([-rightWidthValue, 0, leftWidthValue], position);
           api.start({
             x: nearestPosition,
           });
@@ -84,11 +99,11 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     {
       from: () => [x.get(), 0],
       bounds: () => {
-        const leftWidth = getLeftWidth();
-        const rightWidth = getRightWidth();
+        const leftWidthValue = getLeftWidth();
+        const rightWidthValue = getRightWidth();
         return {
-          left: -rightWidth,
-          right: leftWidth,
+          left: -rightWidthValue,
+          right: leftWidthValue,
         };
       },
       axis: 'x',
@@ -105,9 +120,9 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
       x: offset,
     });
 
-    props.onOpen?.({
+    onOpen?.({
       position: side,
-      name: props.name,
+      name: name || '',
     });
   };
 
@@ -117,21 +132,21 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     });
     if (opened.current) {
       opened.current = false;
-      props.onClose?.({
+      onClose?.({
         position,
-        name: props.name,
+        name: name || '',
       });
     }
   };
 
-  const onClick = (position: SwipeCellPosition = 'outside') => {
-    props.onClick?.(position);
+  const handleClick = (position: SwipeCellPosition = 'outside') => {
+    onClick?.(position);
     if (opened.current && !lockClick.current) {
       callInterceptor({
-        interceptor: props.beforeClose,
+        interceptor: beforeClose,
         args: [
           {
-            name: props.name,
+            name: name || '',
             position,
             instance: {
               close: () => close(position),
@@ -143,19 +158,19 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     }
   };
 
-  const getClickHandler = (position: SwipeCellPosition, stop?: boolean) => (event) => {
+  const getClickHandler = (position: SwipeCellPosition, stop?: boolean) => (event: React.MouseEvent) => {
     if (stop) {
       event.preventDefault();
       event.stopPropagation();
     }
-    onClick(position);
+    handleClick(position);
   };
 
   const renderSideContent = (
     side: SwipeCellSide,
     sideRef: React.MutableRefObject<HTMLDivElement>,
   ) => {
-    const contentSlot = props[side];
+    const contentSlot = side === 'left' ? left : right;
     return contentSlot ? (
       <div ref={sideRef} className={classNames(bem(side))} onClick={getClickHandler(side, true)}>
         {contentSlot}
@@ -168,7 +183,7 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     close,
   }));
 
-  useClickAway(rootRef, () => onClick('outside'), 'touchstart', props.hideOnClickOutside);
+  useClickAway(rootRef, () => handleClick('outside'), 'touchstart', hideOnClickOutside);
 
   return (
     <div
@@ -202,7 +217,7 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
               pointerEvents: x.to((v) => (v !== 0 && x.goal !== 0 ? 'none' : 'unset')),
             }}
           >
-            {props.children}
+            {children}
           </animated.div>
         </div>
         {renderSideContent('right', rightRef)}
@@ -210,10 +225,5 @@ const SwipeCell = forwardRef<SwipeCellInstance, SwipeCellProps>((props, ref) => 
     </div>
   );
 });
-
-SwipeCell.defaultProps = {
-  disabled: false,
-  hideOnClickOutside: true,
-};
 
 export default SwipeCell;

@@ -5,22 +5,20 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { LazyloadEventProps } from './PropsType';
 import useEventVisible from './utils/useEventVisible';
 
-const Lazyload: React.FC<LazyloadEventProps> = (props) => {
+const Lazyload: React.FC<LazyloadEventProps> = ({
+  children,
+  loading = null,
+  scrollContainer = document.body,
+  listenEvents = DEFAULT_EVENTS,
+  offset = 0,
+  debounce = 300,
+  throttle = 0,
+  height = 0,
+  className = '',
+  style,
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('lazyload', prefixCls);
-
-  const {
-    children,
-    loading,
-    scrollContainer,
-    listenEvents,
-    offset,
-    debounce,
-    throttle,
-    height,
-    className,
-    style,
-  } = props;
 
   const [containerRef, visible] = useEventVisible({
     listenEvents,
@@ -37,17 +35,6 @@ const Lazyload: React.FC<LazyloadEventProps> = (props) => {
         : loading || <div style={{ height }} className={classNames(bem('placeholder'))} />}
     </div>
   );
-};
-
-Lazyload.defaultProps = {
-  loading: null,
-  className: '',
-  height: 0,
-  listenEvents: DEFAULT_EVENTS,
-  scrollContainer: document.body,
-  offset: 0,
-  debounce: 300,
-  throttle: 0,
 };
 
 export default Lazyload;

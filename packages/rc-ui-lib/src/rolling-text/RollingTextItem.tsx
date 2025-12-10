@@ -4,14 +4,16 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { RollingTextItemProps } from './PropsType';
 import { addUnit } from '../utils';
 
-const RollingTextItem: React.FC<RollingTextItemProps> = ({
-  direction,
-  figureArr,
-  isStart,
-  height,
-  duration,
-  delay,
-}) => {
+const RollingTextItem: React.FC<RollingTextItemProps> = (props) => {
+  const {
+    direction = 'down',
+    figureArr,
+    isStart,
+    height = 40,
+    duration = 2,
+    delay,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('rolling-text-item', prefixCls);
 
@@ -33,10 +35,10 @@ const RollingTextItem: React.FC<RollingTextItemProps> = ({
     () => ({
       height: addUnit(height),
       '--rc-translate': translatePx,
-      '--rc-duration': `${duration  }s`,
-      '--rc-delay': `${delay  }s`,
+      '--rc-duration': `${duration}s`,
+      '--rc-delay': delay !== undefined ? `${delay}s` : undefined,
     }),
-    [duration, delay, translatePx],
+    [duration, delay, translatePx, height],
   );
 
   return (
@@ -51,12 +53,6 @@ const RollingTextItem: React.FC<RollingTextItemProps> = ({
       </div>
     </div>
   );
-};
-
-RollingTextItem.defaultProps = {
-  duration: 2,
-  direction: 'down',
-  height: 40,
 };
 
 export default RollingTextItem;

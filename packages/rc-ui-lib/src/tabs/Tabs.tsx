@@ -41,11 +41,39 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import PopupContext from '../popup/PopupContext';
 
 const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
+  const {
+    type = 'line',
+    duration = 300,
+    swipeThreshold = 5,
+    offsetTop = 0,
+    ellipsis = true,
+    lazyRender = true,
+    active = 0,
+    children,
+    color,
+    background,
+    border,
+    sticky,
+    animated,
+    swipeable,
+    scrollspy,
+    lineWidth,
+    lineHeight,
+    beforeChange,
+    titleActiveColor,
+    titleInactiveColor,
+    onChange,
+    onClickTab,
+    onScroll,
+    navLeft,
+    navRight,
+    navBottom,
+    className,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const popupContext = useContext(PopupContext);
   const [bem] = createNamespace('tabs', prefixCls);
-
-  const { children, color, background } = props;
 
   const root = useRef<HTMLDivElement>(null);
   const [wrapRef, setWrapRef] = useState<HTMLDivElement>(null);
@@ -73,19 +101,19 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     position: '',
     currentIndex: -1,
     lineStyle: {
-      backgroundColor: props.color,
+      backgroundColor: color,
     } as React.CSSProperties,
   });
 
   const childrenList = useMemo(
-    () => parseChildList<TabPaneProps>(props.children),
-    [props.children],
+    () => parseChildList<TabPaneProps>(children),
+    [children],
   );
 
   // whether the nav is scrollable
   const scrollable = useMemo(
-    () => childrenList.length > props.swipeThreshold || !props.ellipsis,
-    [childrenList.length, props.swipeThreshold, props.ellipsis],
+    () => childrenList.length > +swipeThreshold || !ellipsis,
+    [childrenList.length, swipeThreshold, ellipsis],
   );
 
   const navStyle = useMemo(
@@ -103,7 +131,7 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     return activeTab && getTabName(activeTab, state.currentIndex);
   }, [state.currentIndex]);
 
-  const offsetTopPx = useMemo(() => unitToPx(props.offsetTop), [props.offsetTop]);
+  const offsetTopPx = useMemo(() => unitToPx(offsetTop), [offsetTop]);
 
   // scroll active tab into view
   const scrollIntoView = (immediate?: boolean) => {
@@ -115,7 +143,7 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     const title = titleRefs[state.currentIndex];
 
     const to = title.offsetLeft - (nav.offsetWidth - title.offsetWidth) / 2;
-    scrollLeftTo(nav, to, immediate ? 0 : +props.duration);
+    scrollLeftTo(nav, to, immediate ? 0 : +duration);
   };
 
   const setLine = (immediate?: boolean) => {
@@ -123,22 +151,21 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     if (immediate) shouldAnimate = false;
     const titles = titleRefs;
     const hidden = isHidden(root.current);
-    if (!titles || !titles[state.currentIndex] || props.type !== 'line' || hidden) {
+    if (!titles || !titles[state.currentIndex] || type !== 'line' || hidden) {
       return;
     }
 
     const title = titles[state.currentIndex];
-    const { lineWidth, lineHeight } = props;
     const left = title.offsetLeft + title.offsetWidth / 2;
 
     const lineStyle = {
       width: addUnit(lineWidth),
-      backgroundColor: props.color,
+      backgroundColor: color,
       transform: `translateX(${left}px) translateX(-50%)`,
     } as React.CSSProperties;
 
     if (shouldAnimate) {
-      lineStyle.transitionDuration = `${props.duration}ms`;
+      lineStyle.transitionDuration = `${duration}ms`;
     }
 
     if (isDef(lineHeight)) {
@@ -180,7 +207,7 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
 
     if (initChange.current) {
       if (shouldEmitChange) {
-        props.onChange?.(newName, newTab.title);
+        onChange?.(newName, newTab.title);
       }
     }
   };
@@ -194,22 +221,22 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
   };
 
   const scrollToCurrentContent = (immediate?, current?) => {
-    if (props.scrollspy) {
+    if (scrollspy) {
       const target = contentRefs[current ?? state.currentIndex];
       if (target && scroller) {
         const to = getElementTop(target, scroller) - (offsetTopPx + tabHeightRef.current);
         lockScroll.current = true;
-        scrollTopTo(scroller, to, immediate ? 0 : +props.duration, () => {
+        scrollTopTo(scroller, to, immediate ? 0 : +duration, () => {
           lockScroll.current = false;
         });
       }
     }
   };
 
-  const onClickTab = (item, index: number, event: React.MouseEvent) => {
+  const handleClickTab = (item, index: number, event: React.MouseEvent) => {
     const { title, disabled = false } = item;
     const name = getTabName(item, index);
-    props.onClickTab?.({
+    onClickTab?.({
       name,
       title,
       event,
@@ -218,7 +245,7 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     if (disabled) return;
 
     callInterceptor({
-      interceptor: props.beforeChange,
+      interceptor: beforeChange,
       args: [name],
       done: () => {
         if (index !== state.currentIndex) {
@@ -247,11 +274,11 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     return titleRefs.length - 1;
   };
 
-  const onScroll = () => {
-    if (props.scrollspy && !lockScroll.current) {
+  const handleScroll = () => {
+    if (scrollspy && !lockScroll.current) {
       let index = getCurrentIndexOnScroll();
-      if (typeof props.scrollspy === 'object') {
-        if (props.scrollspy.autoFocusLast && isReachBottom(props.scrollspy.reachBottomThreshold)) {
+      if (typeof scrollspy === 'object') {
+        if (scrollspy.autoFocusLast && isReachBottom(scrollspy.reachBottomThreshold)) {
           index = titleRefs.length - 1;
         }
       }
@@ -263,7 +290,7 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
 
   const onStickyScroll = (params: { isFixed: boolean; scrollTop: number }) => {
     stickyFixed.current = params.isFixed;
-    props.onScroll?.(params);
+    onScroll?.(params);
   };
 
   const renderNav = () => {
@@ -273,21 +300,21 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
           ref={setTitleRefs(index)}
           key={item.key}
           dot={item.dot}
-          type={props.type}
+          type={type}
           badge={item.badge}
           title={item.title}
-          color={props.color}
+          color={color}
           style={item.titleStyle}
           className={item.titleClass}
           isActive={index === state.currentIndex}
           disabled={item.disabled}
           scrollable={scrollable}
           renderTitle={item.renderTitle}
-          activeColor={props.titleActiveColor}
-          inactiveColor={props.titleInactiveColor}
+          activeColor={titleActiveColor}
+          inactiveColor={titleInactiveColor}
           showZeroBadge={item.showZeroBadge}
           onClick={(event) => {
-            onClickTab(item, index, event);
+            handleClickTab(item, index, event);
           }}
         />
       );
@@ -295,7 +322,6 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
   };
 
   const renderHeader = () => {
-    const { type, border } = props;
     return (
       <div
         ref={setWrapRef}
@@ -310,10 +336,10 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
           className={classnames(bem('nav', [type, { complete: scrollable }]))}
           style={navStyle}
         >
-          {props.navRight}
+          {navLeft}
           {renderNav()}
           {type === 'line' && <div className={classnames(bem('line'))} style={state.lineStyle} />}
-          {props.navRight}
+          {navRight}
         </div>
       </div>
     );
@@ -321,17 +347,17 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
 
   useUpdateEffect(() => {
     setLine();
-  }, [props.color, windowSize.width]);
+  }, [color, windowSize.width]);
 
   useUpdateEffect(() => {
-    if (props.active !== currentName) {
-      setCurrentIndexByName(props.active);
+    if (active !== currentName) {
+      setCurrentIndexByName(active);
     }
-  }, [props.active]);
+  }, [active]);
 
   useUpdateEffect(() => {
     if (state.inited) {
-      setCurrentIndexByName(props.active || currentName);
+      setCurrentIndexByName(active || currentName);
       setLine();
       scrollIntoView(true);
     }
@@ -341,13 +367,13 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     scrollIntoView();
     setLine();
     // scroll to correct position
-    if (stickyFixed.current && !props.scrollspy) {
+    if (stickyFixed.current && !scrollspy) {
       setRootScrollTop(Math.ceil(getElementTop(root.current!) - offsetTopPx));
     }
   }, [state.currentIndex]);
 
   const init = () => {
-    setCurrentIndexByName(props.active);
+    setCurrentIndexByName(active);
     scrollIntoView(true);
     setState({ inited: true });
   };
@@ -362,7 +388,7 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     }
   }, [popupContext.visible]);
 
-  useEventListener('scroll', onScroll, { target: scroller, depends: [state.currentIndex] });
+  useEventListener('scroll', handleScroll, { target: scroller, depends: [state.currentIndex] });
 
   useImperativeHandle(ref, () => ({
     resize: setLine,
@@ -375,8 +401,8 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
 
   return (
     <TabsContext.Provider value={{ props, currentName, scrollIntoView, setLine }}>
-      <div ref={root} className={classnames(props.className, bem([props.type]))}>
-        {props.sticky ? (
+      <div ref={root} className={classnames(className, bem([type]))}>
+        {sticky ? (
           <Sticky
             container={root}
             offsetTop={offsetTopPx}
@@ -384,21 +410,21 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
             onScroll={onStickyScroll}
           >
             {renderHeader()}
-            {props.navBottom}
+            {navBottom}
           </Sticky>
         ) : (
           <>
             {renderHeader()}
-            {props.navBottom}
+            {navBottom}
           </>
         )}
         <TabsContent
           count={childrenList.length}
           inited={state.inited}
-          animated={props.animated}
-          duration={props.duration}
-          swipeable={props.swipeable}
-          lazyRender={props.lazyRender}
+          animated={animated}
+          duration={duration}
+          swipeable={swipeable}
+          lazyRender={lazyRender}
           currentIndex={state.currentIndex}
           onChange={setCurrentIndex}
         >
@@ -415,15 +441,5 @@ const Tabs = forwardRef<TabsInstance, TabsProps>((props, ref) => {
     </TabsContext.Provider>
   );
 });
-
-Tabs.defaultProps = {
-  type: 'line',
-  duration: 300,
-  swipeThreshold: 5,
-  offsetTop: 0,
-  ellipsis: true,
-  lazyRender: true,
-  active: 0,
-};
 
 export default Tabs;

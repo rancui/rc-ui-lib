@@ -7,17 +7,12 @@ import { TagProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Tag: React.FC<TagProps> = (props) => {
-  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
-  const [bem] = createNamespace('tag', prefixCls);
-
-  const nodeRef = useRef(null);
-
   const {
-    visible,
+    visible = true,
+    type = 'default',
     plain,
     textColor,
     color,
-    type,
     mark,
     round,
     size,
@@ -25,7 +20,14 @@ const Tag: React.FC<TagProps> = (props) => {
     onClick,
     onClose,
     children,
+    className,
+    style: propStyle,
   } = props;
+
+  const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
+  const [bem] = createNamespace('tag', prefixCls);
+
+  const nodeRef = useRef(null);
 
   const handleClose = (event: MouseEvent) => {
     event.stopPropagation();
@@ -62,8 +64,8 @@ const Tag: React.FC<TagProps> = (props) => {
     return (
       <span
         ref={nodeRef}
-        style={{ ...getStyle, ...props.style }}
-        className={classnames(props.className, bem([classes, type]))}
+        style={{ ...getStyle, ...propStyle }}
+        className={classnames(className, bem([classes, type]))}
         onClick={onClick}
       >
         {children}
@@ -77,11 +79,6 @@ const Tag: React.FC<TagProps> = (props) => {
       {renderTag()}
     </CSSTransition>
   );
-};
-
-Tag.defaultProps = {
-  visible: true,
-  type: 'default',
 };
 
 export default Tag;

@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useMemo, TouchEvent } from 'react';
+import React, { useRef, useContext, useMemo } from 'react';
 import classnames from 'classnames';
 import useMergedState from '../hooks/use-merged-state';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
@@ -41,25 +41,44 @@ const getRateStatus = (
   return { status: 'void', value: 0 };
 };
 
-const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => {
+const Rate: React.FC<RateProps> = (props) => {
+  const {
+    count = 5,
+    touchable = true,
+    onChange,
+    size = 20,
+    gutter = 4,
+    icon = 'star',
+    voidIcon = 'star-o',
+    color,
+    readonly,
+    disabled,
+    allowHalf,
+    voidColor,
+    iconPrefix,
+    disabledColor,
+    value: valueProp,
+    defaultValue,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('rate', prefixCls);
   const [value, setValue] = useMergedState({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    value: valueProp,
+    defaultValue,
   });
   const root = useRef<HTMLDivElement>(null);
   const touch = useTouch();
   const [itemRefs, setItemRefs] = useRefs();
 
-  const untouchable = () => props.readonly || props.disabled || !touchable;
+  const untouchable = () => readonly || disabled || !touchable;
 
   const starList = useMemo<RateListItem[]>(
     () =>
-      Array(count)
+      Array(+count)
         .fill('')
-        .map((_, i) => getRateStatus(value, i + 1, props.allowHalf, props.readonly)),
-    [value, count],
+        .map((_, i) => getRateStatus(value, i + 1, allowHalf || false, readonly || false)),
+    [value, count, allowHalf, readonly],
   );
 
   const ranges = useRef<{ left: number; score: number }[]>();
@@ -68,7 +87,7 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
     const rects = itemRefs.map((item) => item.getBoundingClientRect());
     ranges.current = [];
     rects.forEach((rect, index) => {
-      if (props.allowHalf) {
+      if (allowHalf) {
         ranges.current.push(
           { score: index + 0.5, left: rect.left },
           { score: index + 1, left: rect.left + rect.width / 2 },
@@ -85,30 +104,30 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
         return ranges.current[i].score;
       }
     }
-    return props.allowHalf ? 0.5 : 1;
+    return allowHalf ? 0.5 : 1;
   };
 
   const select = (index: number) => {
-    if (!props.disabled && !props.readonly && index !== value) {
+    if (!disabled && !readonly && index !== value) {
       setValue(index);
       onChange?.(index);
     }
   };
 
-  const onTouchStart = (event) => {
+  const onTouchStart = (event: React.TouchEvent) => {
     if (untouchable()) {
       return;
     }
-    touch.start(event);
+    touch.start(event.nativeEvent);
     updateRanges();
   };
 
-  const onTouchMove = (event) => {
+  const onTouchMove = (event: React.TouchEvent) => {
     if (untouchable()) {
       return;
     }
 
-    touch.move(event);
+    touch.move(event.nativeEvent);
 
     if (touch.isHorizontal()) {
       const { clientX } = event.touches[0];
@@ -119,18 +138,6 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
   usePassiveHandler();
 
   const renderStar = (item: RateListItem, index: number) => {
-    const {
-      icon,
-      size,
-      color,
-      gutter,
-      voidIcon,
-      voidColor,
-      disabled,
-      disabledColor,
-      allowHalf,
-      iconPrefix,
-    } = props;
     const score = index + 1;
     const isFull = item.status === 'full';
     const isVoid = item.status === 'void';
@@ -191,26 +198,17 @@ const Rate: React.FC<RateProps> = ({ count, touchable, onChange, ...props }) => 
       role="radiogroup"
       className={classnames(
         bem({
-          readonly: props.readonly,
-          disabled: props.disabled,
+          readonly,
+          disabled,
         }),
       )}
       tabIndex={0}
-      onTouchStart={(e: TouchEvent) => onTouchStart(e)}
-      onTouchMove={(e: TouchEvent) => onTouchMove(e)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
     >
       {starList.map(renderStar)}
     </div>
   );
-};
-
-Rate.defaultProps = {
-  size: 20,
-  count: 5,
-  gutter: 4,
-  icon: 'star',
-  voidIcon: 'star-o',
-  touchable: true,
 };
 
 export default Rate;

@@ -36,6 +36,32 @@ const popupProps = [
 ] as const;
 
 const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
+  const {
+    overlay = false,
+    duration = 300,
+    closeOnClickAction = true,
+    closeOnClickOverlay = true,
+    closeOnClickOutside = true,
+    offset = [0, 8],
+    theme = 'light',
+    trigger = 'click',
+    actions = [],
+    placement = 'bottom',
+    reference,
+    iconPrefix,
+    onSelect,
+    children,
+    overlayStyle,
+    overlayClass,
+    teleport,
+    onClose,
+    onOpen,
+    onClosed,
+    onOpened,
+    onClickOverlay,
+    ...restProps
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('popover', prefixCls);
 
@@ -47,7 +73,7 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
 
   const createPopperInstance = () =>
     createPopper(wrapperRef.current, popoverRef.current.popupRef.current, {
-      placement: props.placement,
+      placement,
       modifiers: [
         {
           name: 'computeStyles',
@@ -58,14 +84,14 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
         },
         extend({}, offsetModifier, {
           options: {
-            offset: props.offset,
+            offset,
           },
         }),
       ],
     });
 
   const onClickWrapper = () => {
-    if (props.trigger === 'click') {
+    if (trigger === 'click') {
       updateShow((e) => !e);
     }
   };
@@ -75,15 +101,15 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
       return;
     }
 
-    props.onSelect?.(action, index);
+    onSelect?.(action, index);
 
-    if (props.closeOnClickAction) {
+    if (closeOnClickAction) {
       updateShow(false);
     }
   };
 
   const onClickAway = () => {
-    if (!props.overlay || props.closeOnClickOverlay) {
+    if (!overlay || closeOnClickOverlay) {
       updateShow(false);
     }
   };
@@ -103,7 +129,7 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
         {icon && (
           <Icon
             name={icon}
-            classPrefix={props.iconPrefix}
+            classPrefix={iconPrefix}
             className={classNames(bem('action-icon'))}
           />
         )}
@@ -131,12 +157,12 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
         popper.current = createPopperInstance();
       } else {
         popper.current?.setOptions({
-          placement: props.placement,
+          placement,
         });
       }
     };
     updateLocation();
-  }, [visible, props.placement]);
+  }, [visible, placement]);
 
   useEffect(() => {
     let popupTarget;
@@ -163,43 +189,45 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
     hide: () => updateShow(false),
   }));
 
-  useClickAway(wrapperRef, onClickAway, 'touchstart', props.closeOnClickOutside);
+  useClickAway(wrapperRef, onClickAway, 'touchstart', closeOnClickOutside);
 
   return (
     <>
       <span ref={wrapperRef} className={classNames(bem('wrapper'))} onClick={onClickWrapper}>
-        {props.reference}
+        {reference}
       </span>
       <Popup
         ref={popoverRef}
         visible={visible}
-        className={classNames(bem([props.theme]))}
+        className={classNames(bem([theme]))}
         position=""
         transition="rc-zoom"
         lockScroll={false}
-        {...pick(props, popupProps)}
+        {...pick(
+          {
+            overlay,
+            duration,
+            overlayStyle,
+            overlayClass,
+            closeOnClickOverlay,
+            teleport,
+            onClose,
+            onOpen,
+            onClosed,
+            onOpened,
+            onClickOverlay,
+          },
+          popupProps,
+        )}
       >
         <div className={classNames(bem('arrow'))} />
         <div role="menu" className={classNames(bem('content'))}>
-          {props.children || props.actions.map(renderAction)}
+          {children || actions.map(renderAction)}
         </div>
       </Popup>
     </>
   );
 });
-
-Popover.defaultProps = {
-  overlay: false,
-  duration: 300,
-  closeOnClickAction: true,
-  closeOnClickOverlay: true,
-  closeOnClickOutside: true,
-  offset: [0, 8] as [number, number],
-  theme: 'light',
-  trigger: 'click',
-  actions: [],
-  placement: 'bottom',
-};
 
 Popover.displayName = 'Popover';
 

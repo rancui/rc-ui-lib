@@ -7,6 +7,8 @@ import { useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
+  const { showZeroBadge = true, name, index, title, children } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('tab', prefixCls);
   const parent = useContext(TabsContext);
@@ -14,9 +16,8 @@ const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
   const [inited, setInited] = useState(false);
 
   const { animated, swipeable, scrollspy, lazyRender } = parent.props;
-  const { index } = props;
 
-  const getName = () => props.name ?? index;
+  const getName = () => name ?? index;
 
   const init = () => {
     setInited(true);
@@ -30,21 +31,21 @@ const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
     }
 
     return active;
-  }, [inited, parent.currentName]);
+  }, [inited, parent.currentName, name, index]);
 
   useUpdateEffect(() => {
     parent.setLine();
     parent.scrollIntoView();
-  }, [props.title]);
+  }, [title]);
 
   const show = scrollspy || isActive;
 
   if (animated || swipeable) {
-    return <div className={classnames(bem('pane'))}>{props.children}</div>;
+    return <div className={classnames(bem('pane'))}>{children}</div>;
   }
 
   const shouldRender = inited || scrollspy || !lazyRender;
-  const Content = shouldRender ? props.children : null;
+  const Content = shouldRender ? children : null;
 
   return (
     <div
@@ -57,9 +58,5 @@ const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
     </div>
   );
 });
-
-TabPane.defaultProps = {
-  showZeroBadge: true,
-};
 
 export default TabPane;

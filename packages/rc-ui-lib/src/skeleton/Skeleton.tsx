@@ -7,14 +7,29 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const DEFAULT_ROW_WIDTH = '100%';
 const DEFAULT_LAST_ROW_WIDTH = '60%';
 
-const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...props }) => {
+const Skeleton: React.FC<SkeletonProps> = (props) => {
+  const {
+    children,
+    className,
+    style,
+    loading = true,
+    animate = true,
+    round = true,
+    row = 3,
+    avatarShape = 'round',
+    rowWidth = DEFAULT_ROW_WIDTH,
+    rowHeight,
+    title,
+    titleWidth,
+    avatar,
+    avatarSize,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('skeleton', prefixCls);
 
   const getRowWidth = (index: number) => {
-    const { rowWidth } = props;
-
-    if (rowWidth === DEFAULT_ROW_WIDTH && index === +props.row - 1) {
+    if (rowWidth === DEFAULT_ROW_WIDTH && index === +row - 1) {
       return DEFAULT_LAST_ROW_WIDTH;
     }
 
@@ -25,8 +40,6 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
     return rowWidth;
   };
   const getRowHeight = (index: number) => {
-    const { rowHeight } = props;
-
     if (Array.isArray(rowHeight)) {
       return rowHeight[index];
     }
@@ -35,11 +48,11 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
   };
 
   const renderAvatar = () => {
-    if (props.avatar) {
+    if (avatar) {
       return (
         <div
-          className={classnames(bem('avatar', props.avatarShape))}
-          style={getSizeStyle(props.avatarSize)}
+          className={classnames(bem('avatar', avatarShape))}
+          style={getSizeStyle(avatarSize)}
         />
       );
     }
@@ -47,8 +60,8 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
   };
 
   const renderTitle = () => {
-    if (props.title) {
-      const width = addUnit(props.titleWidth);
+    if (title) {
+      const width = addUnit(titleWidth);
       const height = addUnit(getRowHeight(0));
       return <div className={classnames(bem('title'))} style={{ width, height }} />;
     }
@@ -56,7 +69,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
   };
 
   const renderRows = () =>
-    Array(props.row)
+    Array(row)
       .fill('')
       .map((_, i) => {
         const width = addUnit(getRowWidth(i));
@@ -65,10 +78,10 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
         return <div key={i} className={classnames(bem('row'))} style={{ width, height }} />;
       });
 
-  if (!props.loading) return children;
+  if (!loading) return children;
   return (
     <div
-      className={classnames(className, bem({ animate: props.animate, round: props.round }))}
+      className={classnames(className, bem({ animate, round }))}
       style={style}
     >
       {renderAvatar()}
@@ -78,15 +91,6 @@ const Skeleton: React.FC<SkeletonProps> = ({ children, className, style, ...prop
       </div>
     </div>
   );
-};
-
-Skeleton.defaultProps = {
-  loading: true,
-  animate: true,
-  round: true,
-  row: 3,
-  avatarShape: 'round',
-  rowWidth: DEFAULT_ROW_WIDTH,
 };
 
 export default Skeleton;

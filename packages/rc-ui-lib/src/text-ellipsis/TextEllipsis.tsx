@@ -1,11 +1,18 @@
-import React, { useState, useRef, useContext, useEffect } from 'react';
+import React, { useState, useRef, useContext, useEffect, useCallback } from 'react';
 import classnames from 'classnames';
 import type { MouseEvent } from 'react';
 import { TextEllipsisProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import useEventListener from '../hooks/use-event-listener';
 
-const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
+const TextEllipsis: React.FC<TextEllipsisProps> = ({
+  rows = 1,
+  expandText = '',
+  collapseText = '',
+  content,
+  className,
+  onClick,
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('text-ellipsis', prefixCls);
 
@@ -21,7 +28,7 @@ const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
     return match ? Number(match[0]) : 0;
   };
 
-  const calcEllipsis = () => {
+  const calcEllipsis = useCallback(() => {
     const cloneContainer = () => {
       if (!root.current) return;
 
@@ -39,14 +46,13 @@ const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
       container.style.minHeight = 'auto';
       container.style.maxHeight = 'auto';
 
-      container.innerText = props.content;
+      container.innerText = content;
       document.body.appendChild(container);
       // eslint-disable-next-line consistent-return
       return container;
     };
 
     const calcEllipsisText = (container: HTMLDivElement, maxHeight: number) => {
-      const { content, expandText } = props;
       const dot = '...';
       let left = 0;
       let right = content.length;
@@ -70,7 +76,7 @@ const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
 
     const { paddingBottom, paddingTop, lineHeight } = container.style;
     const maxHeight =
-      (Number(props.rows) + 0.5) * pxToNum(lineHeight) +
+      (Number(rows) + 0.5) * pxToNum(lineHeight) +
       pxToNum(paddingTop) +
       pxToNum(paddingBottom);
     if (maxHeight < container.offsetHeight) {
@@ -78,41 +84,35 @@ const TextEllipsis: React.FC<TextEllipsisProps> = (props) => {
       setText(calcEllipsisText(container, maxHeight));
     } else {
       setHasAction(false);
-      setText(props.content);
+      setText(content);
     }
 
     document.body.removeChild(container);
-  };
+  }, [content, rows, expandText]);
 
   const onClickAction = (event: MouseEvent) => {
     setExpanded((e) => !e);
-    props.onClick?.(event);
+    onClick?.(event);
   };
 
   const renderAction = () => (
     <span className={classnames(bem('action'))} onClick={onClickAction}>
-      {expanded ? props.collapseText : props.expandText}
+      {expanded ? collapseText : expandText}
     </span>
   );
 
   useEffect(() => {
     calcEllipsis();
-  }, [props.content, props.rows]);
+  }, [calcEllipsis]);
 
   useEventListener('resize', calcEllipsis);
 
   return (
-    <div ref={root} className={classnames(props.className, bem())}>
-      {expanded ? props.content : text}
+    <div ref={root} className={classnames(className, bem())}>
+      {expanded ? content : text}
       {hasAction ? renderAction() : null}
     </div>
   );
-};
-
-TextEllipsis.defaultProps = {
-  rows: 1,
-  expandText: '',
-  collapseText: '',
 };
 
 export default TextEllipsis;

@@ -48,97 +48,131 @@ export const sharedPopupProps = [
 let globalZIndex = 2000;
 
 const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
+  const {
+    round,
+    visible,
+    closeable,
+    title,
+    description,
+    children,
+    duration = 300,
+    closeIcon = 'cross',
+    position = 'center',
+    zIndex: zIndexProp,
+    overlay = true,
+    lockScroll = true,
+    closeIconPosition = 'top-right',
+    closeOnClickOverlay = true,
+    preventDefaultMouseDown = false,
+    teleport = () => document.body,
+    overlayClass,
+    overlayStyle,
+    destroyOnClose,
+    mountOnEnter,
+    transition,
+    safeAreaInsetBottom,
+    closeOnPopstate,
+    onClickOverlay: onClickOverlayProp,
+    onOpen,
+    onClose,
+    onOpened,
+    onClosed,
+    beforeClose,
+    iconPrefix,
+    onClick,
+    onClickCloseIcon,
+    className,
+    style: propStyle,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('popup', prefixCls);
 
-  const { round, visible, closeable, title, description, children, duration, closeIcon, position } =
-    props;
   const opened = useRef(false);
-  const zIndex = useRef<number>(props.zIndex ?? globalZIndex);
+  const zIndex = useRef<number>(zIndexProp ?? globalZIndex);
   const popupRef = useRef<HTMLDivElement>();
   const [animatedVisible, setAnimatedVisible] = useState(visible);
 
   const style = useMemo(() => {
     const initStyle = {
       zIndex: zIndex.current,
-      ...props.style,
+      ...propStyle,
     };
 
-    if (isDef(props.duration)) {
-      const key = props.position === 'center' ? 'animationDuration' : 'transitionDuration';
-      initStyle[key] = `${props.duration}ms`;
+    if (isDef(duration)) {
+      const key = position === 'center' ? 'animationDuration' : 'transitionDuration';
+      initStyle[key] = `${duration}ms`;
     }
     return initStyle;
-  }, [zIndex.current, props.style, props.duration]);
+  }, [zIndex.current, propStyle, duration, position]);
 
   const open = () => {
-    zIndex.current = props.zIndex !== undefined ? +props.zIndex : globalZIndex++;
+    zIndex.current = zIndexProp !== undefined ? +zIndexProp : globalZIndex++;
     opened.current = true;
-    props.onOpen?.();
+    onOpen?.();
   };
 
   const close = () => {
     if (opened.current) {
       callInterceptor({
-        interceptor: props.beforeClose,
+        interceptor: beforeClose,
         args: ['close'],
         done: () => {
           opened.current = false;
-          props.onClose?.();
+          onClose?.();
         },
       });
     }
   };
 
-  const onClickOverlay = (event) => {
-    props.onClickOverlay?.(event);
+  const handleClickOverlay = (event: React.MouseEvent) => {
+    onClickOverlayProp?.(event);
 
-    if (props.closeOnClickOverlay) {
+    if (closeOnClickOverlay) {
       close();
     }
   };
 
   const renderOverlay = () => {
-    if (props.overlay) {
+    if (overlay) {
       return (
         <Overlay
           visible={visible}
-          lockScroll={props.lockScroll}
-          className={props.overlayClass}
-          customStyle={props.overlayStyle}
+          lockScroll={lockScroll}
+          className={overlayClass}
+          customStyle={overlayStyle}
           zIndex={zIndex.current}
           duration={duration}
-          onClick={onClickOverlay}
+          onClick={handleClickOverlay}
         />
       );
     }
     return null;
   };
 
-  const onClickCloseIcon = (e) => {
-    if (props.onClickCloseIcon) {
-      props.onClickCloseIcon(e);
+  const handleClickCloseIcon = (e: React.MouseEvent) => {
+    if (onClickCloseIcon) {
+      onClickCloseIcon(e);
     }
     close();
   };
 
   const renderCloseIcon = () => {
     if (closeable) {
-      const { closeIconPosition } = props;
       if (typeof closeIcon === 'string') {
         return (
           <Icon
             name={closeIcon}
             className={classnames(bem('close-icon', closeIconPosition))}
-            classPrefix={props.iconPrefix}
-            onClick={onClickCloseIcon}
+            classPrefix={iconPrefix}
+            onClick={handleClickCloseIcon}
           />
         );
       }
       return (
         <div
           className={classnames(bem('close-icon', closeIconPosition))}
-          onClick={onClickCloseIcon}
+          onClick={handleClickCloseIcon}
         >
           {closeIcon}
         </div>
@@ -162,7 +196,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const renderPopup = () => {
-    const { safeAreaInsetBottom } = props;
     return (
       <div
         ref={popupRef}
@@ -176,11 +209,11 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
             [position]: position,
           }),
           { 'rc-safe-area-bottom': safeAreaInsetBottom },
-          props.className,
+          className,
         )}
-        onClick={props.onClick}
+        onClick={onClick}
         onMouseDown={(e) => {
-          if (props.preventDefaultMouseDown) {
+          if (preventDefaultMouseDown) {
             e.preventDefault();
           }
         }}
@@ -194,7 +227,6 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   const renderTransition = () => {
-    const { transition, destroyOnClose, mountOnEnter } = props;
     const name =
       position === 'center' ? `${prefixCls}-fade` : `${prefixCls}-popup-slide-${position}`;
 
@@ -209,10 +241,10 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
         mountOnEnter={!mountOnEnter}
         unmountOnExit={destroyOnClose}
         onEnter={open}
-        onEntered={props.onOpened}
+        onEntered={onOpened}
         onExited={() => {
           setAnimatedVisible(false);
-          props.onClosed?.();
+          onClosed?.();
         }}
       >
         {renderPopup()}
@@ -221,12 +253,12 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   };
 
   useEventListener('popstate', () => {
-    if (props.closeOnPopstate) {
+    if (closeOnPopstate) {
       close();
     }
   });
 
-  useLockScroll(popupRef, props.visible);
+  useLockScroll(popupRef, visible);
 
   useEffect(() => {
     if (visible) {
@@ -240,25 +272,13 @@ const Popup = forwardRef<PopupInstanceType, PopupProps>((props, ref) => {
   }));
 
   return renderToContainer(
-    props.teleport,
+    teleport,
     <PopupContext.Provider value={{ visible }}>
       {renderOverlay()}
       {renderTransition()}
     </PopupContext.Provider>,
   );
 });
-
-Popup.defaultProps = {
-  duration: 300,
-  overlay: true,
-  lockScroll: true,
-  position: 'center',
-  closeIcon: 'cross',
-  closeIconPosition: 'top-right',
-  closeOnClickOverlay: true,
-  preventDefaultMouseDown: false,
-  teleport: () => document.body,
-};
 
 Popup.displayName = 'Popup';
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, isValidElement, useContext, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, isValidElement, useContext, useImperativeHandle, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 // Utils
 import { isPromise, getSizeStyle, extend, pick } from '../utils';
@@ -12,48 +12,78 @@ import { UploaderPreviewItem } from './UploaderPreviewItem';
 import ImagePreview from '../image-preview';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
+const Uploader = forwardRef<UploaderInstance, UploaderProps>(({
+  maxSize = Number.MAX_VALUE,
+  maxCount = Number.MAX_VALUE,
+  deletable = true,
+  showUpload = true,
+  previewImage = true,
+  previewFullImage = true,
+  name = '',
+  accept = 'image/*',
+  value = [],
+  imageFit = 'cover',
+  resultType = 'dataUrl',
+  uploadIcon = 'photograph',
+  capture,
+  multiple,
+  disabled,
+  readonly,
+  uploadText,
+  afterRead,
+  beforeRead,
+  beforeDelete,
+  previewSize,
+  previewOptions,
+  previewCoverRender,
+  onChange,
+  onClosePreview,
+  onDelete,
+  onOversize,
+  onClickPreview,
+  onClickUpload,
+  className,
+  children,
+}, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('uploader', prefixCls);
 
   const imagePreview = useRef(null);
   const inputRef = useRef<HTMLInputElement>();
 
-  const getDetail = (index = props?.value.length || 0) => ({
-    name: props.name,
+  const getDetail = useCallback((index = value.length || 0) => ({
+    name,
     index,
-  });
+  }), [name, value.length]);
 
-  const resetInput = () => {
+  const resetInput = useCallback(() => {
     if (inputRef.current) {
       inputRef.current.value = '';
     }
-  };
+  }, []);
 
-  const onAfterRead = (items: UploaderFileListItem | UploaderFileListItem[]) => {
+  const onAfterRead = useCallback((items: UploaderFileListItem | UploaderFileListItem[]) => {
     resetInput();
-    if (isOversize(items, props.maxSize)) {
+    if (isOversize(items, maxSize)) {
       if (Array.isArray(items)) {
-        const result = filterFiles(items, props.maxSize);
+        const result = filterFiles(items, maxSize);
         items = result.valid;
-        props.onOversize?.(result.invalid, getDetail());
+        onOversize?.(result.invalid, getDetail());
         if (!items.length) {
           return;
         }
       } else {
-        props.onOversize?.(items, getDetail());
+        onOversize?.(items, getDetail());
         return;
       }
     }
-    props.onChange?.([...props.value, ...toArray(items)]);
-    if (props.afterRead) {
-      props.afterRead(items, getDetail());
+    onChange?.([...value, ...toArray(items)]);
+    if (afterRead) {
+      afterRead(items, getDetail());
     }
-  };
+  }, [resetInput, maxSize, getDetail, onOversize, onChange, value, afterRead]);
 
-  const readFile = (files: File | File[]) => {
-    const { maxCount, value, resultType } = props;
-
+  const readFile = useCallback((files: File | File[]) => {
     if (Array.isArray(files)) {
       const remainCount = +maxCount - value.length;
 
@@ -91,19 +121,19 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
         onAfterRead(result);
       });
     }
-  };
+  }, [maxCount, value.length, resultType, onAfterRead]);
 
-  const onChange = (event) => {
-    const { files } = event.target as HTMLInputElement;
+  const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
 
-    if (props.disabled || !files || !files.length) {
+    if (disabled || !files || !files.length) {
       return;
     }
 
     const file = files.length === 1 ? files[0] : ([].slice.call(files) as File[]);
 
-    if (props.beforeRead) {
-      const response = props.beforeRead(file, getDetail()) as File | File[];
+    if (beforeRead) {
+      const response = beforeRead(file, getDetail()) as File | File[];
       if (!response) {
         resetInput();
         return;
@@ -123,15 +153,16 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
       }
     }
     readFile(file);
-  };
-  const onClosePreview = () => {
-    if (props.onClosePreview) {
-      props.onClosePreview();
+  }, [disabled, beforeRead, getDetail, resetInput, readFile]);
+  const handleClosePreview = useCallback(() => {
+    if (onClosePreview) {
+      onClosePreview();
     }
-  };
-  const previewImage = (item: UploaderFileListItem) => {
-    if (props.previewFullImage) {
-      const imageFiles = props.value.filter(isImageFile);
+  }, [onClosePreview]);
+
+  const handlePreviewImage = useCallback((item: UploaderFileListItem) => {
+    if (previewFullImage) {
+      const imageFiles = value.filter(isImageFile);
       const images = imageFiles
         .map((image) => image.content || image.url)
         .filter(Boolean) as string[];
@@ -140,95 +171,98 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
           {
             images,
             startPosition: imageFiles.indexOf(item),
-            onClose: onClosePreview,
+            onClose: handleClosePreview,
           },
-          props.previewOptions,
+          previewOptions,
         ),
       );
     }
-  };
+  }, [previewFullImage, value, previewOptions, handleClosePreview]);
 
-  const closeImagePreview = () => {
+  const closeImagePreview = useCallback(() => {
     if (imagePreview.current) {
       imagePreview.current.close();
     }
-  };
+  }, []);
 
-  const deleteFile = (item: UploaderFileListItem, index: number) => {
-    const fileList = props.value.slice(0);
+  const deleteFile = useCallback((item: UploaderFileListItem, index: number) => {
+    const fileList = value.slice(0);
     fileList.splice(index, 1);
 
-    props.onChange?.(fileList);
-    props.onDelete?.(item, getDetail(index));
-  };
+    onChange?.(fileList);
+    onDelete?.(item, getDetail(index));
+  }, [value, onChange, onDelete, getDetail]);
 
-  const renderPreviewItem = (item: UploaderFileListItem, index: number) => {
+  const renderPreviewItem = useCallback((item: UploaderFileListItem, index: number) => {
     const needPickData = ['imageFit', 'deletable', 'previewSize', 'beforeDelete'] as const;
 
-    const previewData = extend(pick(props, needPickData), pick(item, needPickData, true));
+    const previewData = extend(
+      pick({ imageFit, deletable, previewSize, beforeDelete }, needPickData),
+      pick(item, needPickData, true)
+    );
 
     return (
       <UploaderPreviewItem
         item={item}
         key={index}
         index={index}
-        previewCoverRender={props.previewCoverRender}
+        previewCoverRender={previewCoverRender}
         onClick={() => {
-          if (props.onClickPreview) props.onClickPreview(item, getDetail(index));
+          if (onClickPreview) onClickPreview(item, getDetail(index));
         }}
         onDelete={() => deleteFile(item, index)}
-        onPreview={() => previewImage(item)}
-        {...pick(props, ['name'])}
+        onPreview={() => handlePreviewImage(item)}
+        name={name}
         {...previewData}
       />
     );
-  };
+  }, [imageFit, deletable, previewSize, beforeDelete, previewCoverRender, onClickPreview, getDetail, deleteFile, handlePreviewImage, name]);
 
-  const renderPreviewList = () => {
-    if (props.previewImage) {
-      return props.value.map(renderPreviewItem);
+  const renderPreviewList = useCallback(() => {
+    if (previewImage) {
+      return value.map(renderPreviewItem);
     }
     return null;
-  };
+  }, [previewImage, value, renderPreviewItem]);
 
-  const onClickUpload = (event) => {
-    if (props.onClickUpload) props.onClickUpload(event);
-  };
+  const handleClickUpload = useCallback((event: React.MouseEvent) => {
+    if (onClickUpload) onClickUpload(event);
+  }, [onClickUpload]);
 
-  const renderUploadIcon = () => {
-    if (typeof props.uploadIcon === 'string') {
-      return <Icon name={props.uploadIcon} className={classnames(bem('upload-icon'))} />;
+  const renderUploadIcon = useCallback(() => {
+    if (typeof uploadIcon === 'string') {
+      return <Icon name={uploadIcon} className={classnames(bem('upload-icon'))} />;
     }
 
-    if (isValidElement(props.uploadIcon)) {
-      return props.uploadIcon;
+    if (isValidElement(uploadIcon)) {
+      return uploadIcon;
     }
 
     return null;
-  };
+  }, [uploadIcon, bem]);
 
-  const renderUpload = () => {
-    if (props.value.length >= props.maxCount || !props.showUpload) {
+  const renderUpload = useCallback(() => {
+    if (value.length >= Number(maxCount) || !showUpload) {
       return null;
     }
 
-    const Input = props.readonly ? null : (
+    const Input = readonly ? null : (
       <input
         ref={inputRef}
         type="file"
         className={classnames(bem('input'))}
-        accept={props.accept}
-        capture={props.capture as unknown as boolean}
-        multiple={props.multiple}
-        disabled={props.disabled}
-        onChange={onChange}
+        accept={accept}
+        capture={capture as unknown as boolean}
+        multiple={multiple}
+        disabled={disabled}
+        onChange={handleInputChange}
       />
     );
 
-    if (props.children) {
+    if (children) {
       return (
-        <div className={classnames(bem('input-wrapper'))} onClick={onClickUpload}>
-          {props.children}
+        <div className={classnames(bem('input-wrapper'))} onClick={handleClickUpload}>
+          {children}
           {Input}
         </div>
       );
@@ -236,24 +270,24 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
 
     return (
       <div
-        className={classnames(bem('upload', { readonly: props.readonly }))}
-        style={getSizeStyle(props.previewSize)}
-        onClick={onClickUpload}
+        className={classnames(bem('upload', { readonly }))}
+        style={getSizeStyle(previewSize)}
+        onClick={handleClickUpload}
       >
         {renderUploadIcon()}
-        {props.uploadText && (
-          <span className={classnames(bem('upload-text'))}>{props.uploadText}</span>
+        {uploadText && (
+          <span className={classnames(bem('upload-text'))}>{uploadText}</span>
         )}
         {Input}
       </div>
     );
-  };
+  }, [value.length, maxCount, showUpload, readonly, bem, accept, capture, multiple, disabled, handleInputChange, children, handleClickUpload, previewSize, renderUploadIcon, uploadText]);
 
-  const chooseFile = () => {
-    if (inputRef.current && !props.disabled) {
+  const chooseFile = useCallback(() => {
+    if (inputRef.current && !disabled) {
       inputRef.current.click();
     }
-  };
+  }, [disabled]);
 
   useImperativeHandle(ref, () => ({
     chooseFile,
@@ -261,28 +295,13 @@ const Uploader = forwardRef<UploaderInstance, UploaderProps>((props, ref) => {
   }));
 
   return (
-    <div className={classnames(bem())}>
-      <div className={classnames(bem('wrapper', { disabled: props.disabled }))}>
+    <div className={classnames(bem(), className)}>
+      <div className={classnames(bem('wrapper', { disabled }))}>
         {renderPreviewList()}
         {renderUpload()}
       </div>
     </div>
   );
 });
-
-Uploader.defaultProps = {
-  maxSize: Number.MAX_VALUE,
-  maxCount: Number.MAX_VALUE,
-  deletable: true,
-  showUpload: true,
-  previewImage: true,
-  previewFullImage: true,
-  name: '',
-  accept: 'image/*',
-  value: [],
-  imageFit: 'cover',
-  resultType: 'dataUrl',
-  uploadIcon: 'photograph',
-};
 
 export default Uploader;

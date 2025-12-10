@@ -9,17 +9,33 @@ import useMergedState from '../hooks/use-merged-state';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Tabbar: React.FC<TabbarProps> = (props) => {
+  const {
+    fixed = true,
+    border = true,
+    defaultValue = 0,
+    value: valueProp,
+    zIndex,
+    activeColor,
+    inactiveColor,
+    placeholder,
+    safeAreaInsetBottom,
+    onChange,
+    children,
+    className,
+    style: propStyle,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('tabbar', prefixCls);
 
   const [current, setCurrent] = useMergedState({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    value: valueProp,
+    defaultValue,
   });
   const root = useRef<HTMLDivElement>();
   const height = useHeight(root);
 
-  const renderPlaceholder = (renderContent) => {
+  const renderPlaceholder = (renderContent: () => React.ReactNode) => {
     return (
       <div className={classnames(bem('placeholder'))} style={{ height }}>
         {renderContent()}
@@ -28,28 +44,42 @@ const Tabbar: React.FC<TabbarProps> = (props) => {
   };
 
   // enable safe-area-inset-bottom by default when fixed
-  const enableSafeArea = () => props.safeAreaInsetBottom ?? props.fixed;
+  const enableSafeArea = () => safeAreaInsetBottom ?? fixed;
 
   const setActive = (active: number | string) => {
-    if (active !== props.value) {
-      props.onChange?.(active);
+    if (active !== valueProp) {
+      onChange?.(active);
       setCurrent(active);
     }
   };
 
   const renderTabbar = () => {
-    const { fixed, zIndex, border } = props;
     return (
-      <TabbarContext.Provider value={{ parent: { ...props, value: current } }}>
+      <TabbarContext.Provider
+        value={{
+          parent: {
+            fixed,
+            border,
+            defaultValue,
+            value: current,
+            zIndex,
+            activeColor,
+            inactiveColor,
+            placeholder,
+            safeAreaInsetBottom,
+            onChange,
+          },
+        }}
+      >
         <div
           ref={root}
-          style={{ ...props.style, ...getZIndexStyle(zIndex) }}
-          className={classnames(props.className, bem({ fixed }), {
+          style={{ ...propStyle, ...getZIndexStyle(zIndex) }}
+          className={classnames(className, bem({ fixed }), {
             [BORDER_TOP_BOTTOM]: border,
             'rc-safe-area-bottom': enableSafeArea(),
           })}
         >
-          {React.Children.toArray(props.children)
+          {React.Children.toArray(children)
             .filter(Boolean)
             .map((child: React.ReactElement, index) =>
               React.cloneElement(child, {
@@ -62,16 +92,10 @@ const Tabbar: React.FC<TabbarProps> = (props) => {
     );
   };
 
-  if (props.fixed && props.placeholder) {
+  if (fixed && placeholder) {
     return renderPlaceholder(renderTabbar);
   }
   return renderTabbar();
-};
-
-Tabbar.defaultProps = {
-  fixed: true,
-  border: true,
-  defaultValue: 0,
 };
 
 export default Tabbar;

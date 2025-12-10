@@ -12,17 +12,25 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('number-keyboard', prefixCls);
   const {
-    visible,
-    safeAreaInsetBottom,
-    theme,
-    blurOnClose,
-    showDeleteKey,
-    hideOnClickOutside,
-    zIndex,
+    visible = false,
+    safeAreaInsetBottom = true,
+    theme = 'default',
+    blurOnClose = true,
+    showDeleteKey = true,
+    hideOnClickOutside = true,
+    zIndex = 100,
     teleport,
     title,
     closeButtonText,
     titleLeft,
+    deleteButtonText,
+    closeButtonLoading = false,
+    extraKey = '',
+    randomKeyOrder = false,
+    onBlur,
+    onClose,
+    onDelete,
+    onInput,
   } = props;
 
   const root = useRef<HTMLDivElement>(null);
@@ -32,37 +40,37 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
 
   const keys = useMemo(
     () => (theme === 'custom' ? genCustomKeys(props) : genDefaultKeys(props)),
-    [theme],
+    [theme, randomKeyOrder, extraKey, showDeleteKey, deleteButtonText],
   );
 
-  const onBlur = () => {
+  const handleBlur = () => {
     if (visible) {
-      props.onBlur?.();
+      onBlur?.();
     }
   };
 
-  const onClose = () => {
-    props.onClose?.();
+  const handleClose = () => {
+    onClose?.();
 
     if (blurOnClose) {
-      onBlur();
+      handleBlur();
     }
   };
 
   const onPress = (text: string, type: KeyType) => {
     if (text === '') {
       if (type === 'extra') {
-        onBlur();
+        handleBlur();
       }
       return;
     }
 
     if (type === 'delete') {
-      props.onDelete?.();
+      onDelete?.();
     } else if (type === 'close') {
-      onClose();
+      handleClose();
     } else {
-      props.onInput?.(text);
+      onInput?.(text);
     }
   };
 
@@ -75,7 +83,7 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
         {titleLeft && <span className={classNames(bem('title-left'))}>{titleLeft}</span>}
         {title && <h2 className={classNames(bem('title'))}>{title}</h2>}
         {showClose && (
-          <button type="button" className={classNames(bem('close'))} onClick={onClose}>
+          <button type="button" className={classNames(bem('close'))} onClick={handleClose}>
             {closeButtonText}
           </button>
         )}
@@ -105,17 +113,17 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
           {showDeleteKey && (
             <NumberKeyboardKey
               large
-              text={props.deleteButtonText}
+              text={deleteButtonText}
               type="delete"
               onPress={onPress}
             />
           )}
           <NumberKeyboardKey
             large
-            text={props.closeButtonText}
+            text={closeButtonText}
             type="close"
             color="blue"
-            loading={props.closeButtonLoading}
+            loading={closeButtonLoading}
             onPress={onPress}
           />
         </div>
@@ -124,7 +132,7 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
     return null;
   };
 
-  useClickAway(root, onBlur, 'touchstart', hideOnClickOutside);
+  useClickAway(root, handleBlur, 'touchstart', hideOnClickOutside);
 
   return (
     <Popup
@@ -137,7 +145,7 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
       duration={300}
       teleport={teleport}
       safeAreaInsetBottom={safeAreaInsetBottom}
-      onClose={onClose}
+      onClose={handleClose}
     >
       <div ref={root} className={classNames(bem())}>
         {renderTitle()}
@@ -148,19 +156,6 @@ const NumberKeyboard: React.FC<NumberKeyboardProps> = (props) => {
       </div>
     </Popup>
   );
-};
-
-NumberKeyboard.defaultProps = {
-  theme: 'default',
-  visible: false,
-  extraKey: '',
-  showDeleteKey: true,
-  zIndex: 100,
-  closeButtonLoading: false,
-  hideOnClickOutside: true,
-  randomKeyOrder: false,
-  safeAreaInsetBottom: true,
-  blurOnClose: true,
 };
 
 export default NumberKeyboard;
