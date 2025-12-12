@@ -13,6 +13,11 @@ describe('Watermark', () => {
       return null;
     });
     global.URL.createObjectURL = jest.fn(() => 'run to here');
+    global.URL.revokeObjectURL = jest.fn();
+    // 确保 URL.revokeObjectURL 在全局范围内可用
+    if (typeof URL !== 'undefined' && !URL.revokeObjectURL) {
+      URL.revokeObjectURL = jest.fn();
+    }
 
     setupJestCanvasMock();
   });
@@ -20,7 +25,6 @@ describe('Watermark', () => {
     cleanup();
     spyConsole.mockRestore();
     jest.restoreAllMocks();
-    window.URL.revokeObjectURL = mockRevoke;
   });
 
   it('should render content', () => {

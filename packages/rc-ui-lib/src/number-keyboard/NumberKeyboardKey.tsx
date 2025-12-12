@@ -18,17 +18,16 @@ interface NumberKeyboardKeyProps extends BaseTypeProps {
   onPress: (text: string, type: KeyType) => void;
 }
 
-const NumberKeyboardKey: React.FC<NumberKeyboardKeyProps> = (props) => {
-  const {
-    type,
-    text,
-    color = '',
-    wider = false,
-    large = false,
-    loading = false,
-    onPress,
-    children,
-  } = props;
+const NumberKeyboardKey: React.FC<NumberKeyboardKeyProps> = ({
+  type,
+  text,
+  color = '',
+  wider = false,
+  large = false,
+  loading = false,
+  onPress,
+  children,
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('key', prefixCls);
 
@@ -53,20 +52,20 @@ const NumberKeyboardKey: React.FC<NumberKeyboardKeyProps> = (props) => {
     </svg>
   );
 
-  const onTouchStart = (event: React.TouchEvent) => {
-    touch.start(event.nativeEvent);
+  const onTouchStart = (event) => {
+    touch.start(event);
     setActive(true);
   };
 
-  const onTouchMove = (event: React.TouchEvent) => {
-    touch.move(event.nativeEvent);
+  const onTouchMove = (event) => {
+    touch.move(event);
 
     if (touch.direction.current) {
       setActive(false);
     }
   };
 
-  const onTouchEnd = (event: React.TouchEvent) => {
+  const onTouchEnd = (event) => {
     if (active) {
       // eliminate tap delay on safari
       if (!children) {
