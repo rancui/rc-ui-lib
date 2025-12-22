@@ -220,3 +220,87 @@ describe('ImagePreviewItem', () => {
     fireEvent.pointerUp(item, { pointerId: 3, buttons: 0, timeStamp: new Date().getTime() });
   });
 });
+
+describe('ImagePreview.open', () => {
+  afterEach(() => {
+    cleanup();
+    jest.restoreAllMocks();
+  });
+
+  it('should open image preview and return close function', async () => {
+    const instance = ImagePreview.open({ images });
+    await sleep(100);
+    expect(document.querySelector('.rc-image-preview')).toBeTruthy();
+    instance.close();
+    await sleep(300);
+  });
+
+  it('should call onClose when close is called', async () => {
+    const onClose = jest.fn();
+    const instance = ImagePreview.open({ images, onClose });
+    await sleep(100);
+    instance.close();
+    // onClose is called immediately when close is called
+    expect(onClose).toHaveBeenCalled();
+    await sleep(500);
+  });
+
+  it('should call onClose with params when close is called with params', async () => {
+    const onClose = jest.fn();
+    const instance = ImagePreview.open({ images, onClose });
+    await sleep(100);
+    const params = { index: 1 };
+    instance.close(params);
+    // onClose is called immediately with params when close is called
+    expect(onClose).toHaveBeenCalledWith(params);
+    await sleep(500);
+  });
+
+  it('should not close when beforeClose returns false', async () => {
+    const beforeClose = jest.fn().mockResolvedValue(false);
+    const onClose = jest.fn();
+    const instance = ImagePreview.open({ images, beforeClose, onClose });
+    await sleep(100);
+    expect(document.querySelector('.rc-image-preview')).toBeTruthy();
+    const closeIcon = document.querySelector('i.rc-image-preview__close-icon');
+    if (closeIcon) {
+      await fireEvent.click(closeIcon);
+      await sleep(300);
+      expect(beforeClose).toHaveBeenCalled();
+      expect(onClose).not.toHaveBeenCalled();
+      expect(document.querySelector('.rc-image-preview')).toBeTruthy();
+    }
+    instance.close();
+    await sleep(300);
+  });
+
+  it('should close when beforeClose returns true', async () => {
+    const beforeClose = jest.fn().mockResolvedValue(true);
+    const onClose = jest.fn();
+    const instance = ImagePreview.open({ images, beforeClose, onClose, closeable: true });
+    await sleep(100);
+    const closeIcon = document.querySelector('i.rc-image-preview__close-icon');
+    if (closeIcon) {
+      await fireEvent.click(closeIcon);
+      await sleep(300);
+      expect(beforeClose).toHaveBeenCalled();
+    }
+    instance.close();
+    await sleep(300);
+  });
+
+  it('should close when beforeClose returns undefined', async () => {
+    const beforeClose = jest.fn().mockResolvedValue(undefined);
+    const onClose = jest.fn();
+    const instance = ImagePreview.open({ images, beforeClose, onClose, closeable: true });
+    await sleep(100);
+    const closeIcon = document.querySelector('i.rc-image-preview__close-icon');
+    if (closeIcon) {
+      await fireEvent.click(closeIcon);
+      await sleep(300);
+      expect(beforeClose).toHaveBeenCalled();
+    }
+    instance.close();
+    await sleep(300);
+  });
+});

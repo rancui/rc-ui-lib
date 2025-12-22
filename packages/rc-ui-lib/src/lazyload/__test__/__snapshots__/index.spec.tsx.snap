@@ -5,6 +5,11 @@ exports[`test Lazyload by listen event LazyloadImage should render correctly whe
   <div
     class="rc-lazyload-image"
     data-src="https://img.yzcdn.cn/vant/apple-5.jpg"
+    debounce="300"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
+    throttle="0"
   />
 </div>
 `;
@@ -14,7 +19,12 @@ exports[`test Lazyload by listen event LazyloadImage should render correctly whe
   <img
     class="rc-lazyload-image"
     data-src="https://img.yzcdn.cn/vant/apple-5.jpg"
+    debounce="300"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    throttle="0"
   />
 </div>
 `;
@@ -38,8 +48,13 @@ exports[`test Lazyload by listen event lazyload should render correctly when loa
 <div>
   <img
     class="rc-lazyload-image rc-lazyload-image__error rc-lazyload-image__loaded"
+    debounce="300"
     lazy="loaded"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
     src="undefined"
+    throttle="0"
   />
 </div>
 `;
@@ -55,6 +70,86 @@ exports[`test Lazyload by observer lazyload should render correctly when Interse
       src="https://img.yzcdn.cn/vant/apple-5.jpg"
       width="100%"
     />
+  </div>
+</div>
+`;
+
+exports[`test Lazyload by observer should handle LazyloadObserve with loading prop 1`] = `
+<div>
+  <div
+    class="rc-lazyload"
+  >
+    <div>
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test Lazyload by observer should handle error image in LazyloadImageObserve 1`] = `
+<div>
+  <img
+    class="rc-lazyload-image rc-lazyload-image__error rc-lazyload-image__loaded"
+    debounce="300"
+    lazy="loaded"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    observeroptions="[object Object]"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
+    src="undefined"
+    throttle="0"
+  />
+</div>
+`;
+
+exports[`test Lazyload by observer should handle observerOptions in LazyloadImageObserve 1`] = `
+<div>
+  <img
+    class="rc-lazyload-image rc-lazyload-image__loaded"
+    debounce="300"
+    lazy="loaded"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    observeroptions="[object Object]"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
+    src="https://img.yzcdn.cn/vant/apple-5.jpg"
+    throttle="0"
+  />
+</div>
+`;
+
+exports[`test Lazyload by observer should handle style prop in LazyloadImageObserve 1`] = `
+<div>
+  <img
+    class="rc-lazyload-image rc-lazyload-image__loaded"
+    debounce="300"
+    lazy="loaded"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    observeroptions="[object Object]"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
+    src="https://img.yzcdn.cn/vant/apple-5.jpg"
+    throttle="0"
+  />
+</div>
+`;
+
+exports[`test Lazyload by observer should handle type="background" in LazyloadImageObserve 1`] = `
+<div>
+  <div
+    class="rc-lazyload-image rc-lazyload-image__loaded"
+    debounce="300"
+    lazy="loaded"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    observeroptions="[object Object]"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
+    style="background-image: url(https://img.yzcdn.cn/vant/apple-5.jpg);"
+    throttle="0"
+  >
+    <div>
+      Content
+    </div>
   </div>
 </div>
 `;
@@ -76,9 +171,14 @@ exports[`test Lazyload by observer should render correctly when IntersectionObse
 <div>
   <img
     class="rc-lazyload-image rc-lazyload-image__loaded"
+    debounce="300"
     lazy="loaded"
+    listenevents="scroll,wheel,resize,mousewheel,animationend,transitionend,touchmove"
+    offset="0"
+    scrollcontainer="[object HTMLBodyElement]"
     src="https://img.yzcdn.cn/vant/apple-5.jpg"
     style="height: 300px;"
+    throttle="0"
   />
 </div>
 `;

@@ -15,7 +15,8 @@ const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
 
   const [inited, setInited] = useState(false);
 
-  const { animated, swipeable, scrollspy, lazyRender } = parent.props;
+  const parentProps = parent?.props || {};
+  const { animated, swipeable, scrollspy, lazyRender = true } = parentProps;
 
   const getName = () => name ?? index;
 
@@ -24,18 +25,20 @@ const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
   };
 
   const isActive = useMemo(() => {
-    const active = getName() === parent.currentName;
+    const active = getName() === parent?.currentName;
 
     if (active && !inited) {
       init();
     }
 
     return active;
-  }, [inited, parent.currentName, name, index]);
+  }, [inited, parent?.currentName, name, index]);
 
   useUpdateEffect(() => {
-    parent.setLine();
-    parent.scrollIntoView();
+    if (parent?.setLine && parent?.scrollIntoView) {
+      parent.setLine();
+      parent.scrollIntoView();
+    }
   }, [title]);
 
   const show = scrollspy || isActive;

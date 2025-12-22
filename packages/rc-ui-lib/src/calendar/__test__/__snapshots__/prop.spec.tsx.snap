@@ -63,6 +63,11 @@ exports[`Calendar prop should render correctly when using firstDayOfWeek prop 1`
         class="rc-calendar__month"
       >
         <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
+        <div
           class="rc-calendar__days"
           role="grid"
         >
