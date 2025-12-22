@@ -1,5 +1,5 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { act } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from '..';
 

@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import React from 'react';
 import { fireEvent, render, cleanup } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act } from 'react';
 import { Lazyload } from '..';
 import { sleep } from '../../../tests/utils';
 import { DEFAULT_URL } from '../utils';

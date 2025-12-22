@@ -47,6 +47,8 @@ export interface DialogProps extends BaseTypeProps {
   closeOnPopstate?: boolean;
   /** 点击背景关闭 */
   closeOnClickOverlay?: boolean;
+  /** 点击遮罩层时触发 */
+  onClickOverlay?: (e: React.MouseEvent) => void;
   /** 点击关闭icon按钮时调用方法 */
   onClickCloseIcon?: () => void;
   children?: React.ReactNode;

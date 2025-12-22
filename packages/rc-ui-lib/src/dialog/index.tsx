@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { noop } from '../utils';
 import { AlertDialogProps, DialogProps, DialogStatic } from './PropsType';
@@ -28,34 +28,40 @@ Dialog.show = (props: DialogProps) => {
     onClose = noop,
     cancelProps,
     confirmProps,
+    closeOnClickOverlay,
     ...restProps
   } = props;
 
   const userContainer = resolveContainer(props.teleport);
   const container = document.createElement('div');
   userContainer.appendChild(container);
-  // 使用对象引用来存储 destroy 函数，解决闭包问题
   const destroyRef = { current: noop };
 
   const TempDialog = () => {
     const [visible, setVisible] = useState(false);
     const [cancelLoading, setCancelLoading] = useState(false);
     const [okLoading, setOkLoading] = useState(false);
+    const onCloseRef = useRef(onClose);
+    const onCancelRef = useRef(onCancel);
+    const onClosedRef = useRef(onClosed);
 
     useEffect(() => {
       setVisible(true);
     }, []);
 
-    const destroy = () => {
+    useEffect(() => {
+      onCloseRef.current = onClose;
+      onCancelRef.current = onCancel;
+      onClosedRef.current = onClosed;
+    }, [onClose, onCancel, onClosed]);
+
+    destroyRef.current = () => {
       setVisible(false);
-      if (onClose) onClose();
+      if (onCloseRef.current) onCloseRef.current();
     };
-
-    destroyRef.current = destroy;
-
     const _afterClose = () => {
-      if (onClosed) {
-        onClosed();
+      if (onClosedRef.current) {
+        onClosedRef.current();
       }
       const unmountResult = unmount(container);
       if (unmountResult && container.parentNode) {
@@ -67,7 +73,7 @@ Dialog.show = (props: DialogProps) => {
       const i = setTimeout(() => setOkLoading(true));
       if ((await onConfirm(e)) !== false) {
         clearTimeout(i);
-        destroy();
+        destroyRef.current();
       } else {
         clearTimeout(i);
         setOkLoading(false);
@@ -75,27 +81,26 @@ Dialog.show = (props: DialogProps) => {
     };
     const _onCancel = async (e, clickOverlay?) => {
       if (clickOverlay) {
-        // 点击 overlay 时，也应该调用 onCancel
-        if ((await onCancel(e)) !== false) {
-          destroy();
+        if (onCancelRef.current) {
+          await onCancelRef.current(e);
         }
+        destroyRef.current();
         return;
       }
       const i = setTimeout(() => setCancelLoading(true));
-      if ((await onCancel(e)) !== false) {
+      if ((await onCancelRef.current(e)) !== false) {
         clearTimeout(i);
-        destroy();
+        destroyRef.current();
       } else {
         clearTimeout(i);
         setCancelLoading(false);
       }
     };
 
-    // 处理点击 overlay 的情况
-    const handleClickOverlay = (e: React.MouseEvent) => {
-      if (restProps.closeOnClickOverlay) {
-        // 手动调用 _onCancel，而不是让 Popup 的 close() 调用 onClose
-        _onCancel(e, true);
+    const _onClickOverlay = (event: React.MouseEvent) => {
+      const shouldClose = closeOnClickOverlay !== undefined ? closeOnClickOverlay : defaultOptions.closeOnClickOverlay;
+      if (shouldClose) {
+        _onCancel(event, true);
       }
     };
 
@@ -107,16 +112,12 @@ Dialog.show = (props: DialogProps) => {
         teleport={() => container}
         cancelProps={{ loading: cancelLoading, ...cancelProps }}
         confirmProps={{ loading: okLoading, ...confirmProps }}
-        onClose={destroy}
+        onClose={destroyRef.current}
         onCancel={_onCancel}
         onConfirm={_onConfirm}
         onClosed={_afterClose}
-        {...(restProps.closeOnClickOverlay
-          ? {
-              onClickOverlay: handleClickOverlay,
-              closeOnClickOverlay: false,
-            }
-          : {})}
+        onClickOverlay={_onClickOverlay}
+        closeOnClickOverlay={closeOnClickOverlay !== undefined ? closeOnClickOverlay : defaultOptions.closeOnClickOverlay}
       />
     );
   };
@@ -147,19 +148,18 @@ Dialog.confirm = (props: DialogProps): Promise<boolean> => {
       confirmButtonText: '确认',
       showCancelButton: true,
       ...props,
-      onCancel: async (e) => {
-        const result = await onCancel(e);
-        // 如果 onCancel 返回 false，不关闭弹窗，也不 reject
-        if (result === false) {
-          return false;
-        }
-        // 否则 reject promise（不传递值），并返回 true 让 _onCancel 知道应该关闭弹窗
-        reject();
-        return true;
+      onCancel: (e) => {
+        onCancel(e);
+        // Use setTimeout to ensure the promise rejection is handled after the click event
+        setTimeout(() => {
+          reject(new Error('Dialog cancelled'));
+        }, 0);
       },
       onConfirm: (e) => {
         onConfirm(e);
-        resolve(true);
+        setTimeout(() => {
+          resolve(true);
+        }, 0);
       },
     });
   });
