@@ -34,7 +34,8 @@ Dialog.show = (props: DialogProps) => {
   const userContainer = resolveContainer(props.teleport);
   const container = document.createElement('div');
   userContainer.appendChild(container);
-  let destroy = noop;
+  // 使用对象引用来存储 destroy 函数，解决闭包问题
+  const destroyRef = { current: noop };
 
   const TempDialog = () => {
     const [visible, setVisible] = useState(false);
@@ -45,10 +46,13 @@ Dialog.show = (props: DialogProps) => {
       setVisible(true);
     }, []);
 
-    destroy = () => {
+    const destroy = () => {
       setVisible(false);
       if (onClose) onClose();
     };
+
+    destroyRef.current = destroy;
+
     const _afterClose = () => {
       if (onClosed) {
         onClosed();
@@ -71,7 +75,10 @@ Dialog.show = (props: DialogProps) => {
     };
     const _onCancel = async (e, clickOverlay?) => {
       if (clickOverlay) {
-        destroy();
+        // 点击 overlay 时，也应该调用 onCancel
+        if ((await onCancel(e)) !== false) {
+          destroy();
+        }
         return;
       }
       const i = setTimeout(() => setCancelLoading(true));
@@ -81,6 +88,14 @@ Dialog.show = (props: DialogProps) => {
       } else {
         clearTimeout(i);
         setCancelLoading(false);
+      }
+    };
+
+    // 处理点击 overlay 的情况
+    const handleClickOverlay = (e: React.MouseEvent) => {
+      if (restProps.closeOnClickOverlay) {
+        // 手动调用 _onCancel，而不是让 Popup 的 close() 调用 onClose
+        _onCancel(e, true);
       }
     };
 
@@ -96,12 +111,18 @@ Dialog.show = (props: DialogProps) => {
         onCancel={_onCancel}
         onConfirm={_onConfirm}
         onClosed={_afterClose}
+        {...(restProps.closeOnClickOverlay
+          ? {
+              onClickOverlay: handleClickOverlay,
+              closeOnClickOverlay: false,
+            }
+          : {})}
       />
     );
   };
   render(<TempDialog />, container);
 
-  return destroy;
+  return () => destroyRef.current();
 };
 
 // 可使用 async/await 的方式
@@ -126,9 +147,15 @@ Dialog.confirm = (props: DialogProps): Promise<boolean> => {
       confirmButtonText: '确认',
       showCancelButton: true,
       ...props,
-      onCancel: (e) => {
-        onCancel(e);
+      onCancel: async (e) => {
+        const result = await onCancel(e);
+        // 如果 onCancel 返回 false，不关闭弹窗，也不 reject
+        if (result === false) {
+          return false;
+        }
+        // 否则 reject promise（不传递值），并返回 true 让 _onCancel 知道应该关闭弹窗
         reject();
+        return true;
       },
       onConfirm: (e) => {
         onConfirm(e);

@@ -8,6 +8,7 @@ import type { SwiperInstance } from '../swiper';
 import Popup from '../popup';
 import ImagePreviewItem from './ImagePreviewItem';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
+import { callInterceptor } from '../utils/interceptor';
 
 const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
@@ -54,13 +55,24 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
     </Swiper>
   );
 
+  const handleCloseIconClick = () => {
+    // 通过 callInterceptor 来触发 beforeClose 逻辑，与 Popup 保持一致
+    callInterceptor({
+      interceptor: props.beforeClose,
+      args: ['close'],
+      done: () => {
+        props.onClose?.();
+      },
+    });
+  };
+
   const renderClose = () => {
     if (props.closeable) {
       return (
         <Icon
           name={props.closeIcon}
           className={classnames(bem('close-icon', props.closeIconPosition))}
-          onClick={() => props.onClose?.()}
+          onClick={handleCloseIconClick}
         />
       );
     }

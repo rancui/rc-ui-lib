@@ -10,5 +10,5 @@ module.exports = {
     '!**/**/PropsType.ts',
     '!**/test/**',
   ],
-   //testMatch: ['**/tabs/__test__/**/*.spec.[jt]s?(x)'],
+   //testMatch: ['**/picker/__test__/**/*.spec.[jt]s?(x)'],
 };

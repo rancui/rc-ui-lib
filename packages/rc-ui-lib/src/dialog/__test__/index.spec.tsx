@@ -302,7 +302,7 @@ describe('Dialog', () => {
       const cancelButton = document.querySelector('.rc-dialog__cancel');
       if (cancelButton) {
         await fireEvent.click(cancelButton);
-        await new Promise((resolve) => setTimeout(resolve, 200));
+        // 直接 await promise，它会自动等待 reject
         try {
           await promise;
           // Should not reach here

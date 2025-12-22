@@ -29,7 +29,8 @@ ImagePreview.open = (props: ImagePreviewProps) => {
   const userContainer = resolveContainer(props.teleport);
   const container = document.createElement('div');
   userContainer.appendChild(container);
-  let destroy = noop as (p?: CloseParams) => void;
+  // 使用对象引用来存储 destroy 函数，解决闭包问题
+  const destroyRef = { current: noop as (p?: CloseParams) => void };
 
   const TempDialog = () => {
     const [visible, setVisible] = useState(false);
@@ -38,14 +39,17 @@ ImagePreview.open = (props: ImagePreviewProps) => {
       setVisible(true);
     }, []);
 
-    destroy = (p: CloseParams) => {
+    const destroy = (p?: CloseParams) => {
       setVisible(false);
       if (onClose) onClose(p);
     };
 
-    const _afterClose = async (p) => {
-      if ((await beforeClose?.(0)) !== false) {
-        destroy(p);
+    destroyRef.current = destroy;
+
+    const _afterClose = async (action: string | number) => {
+      const result = await beforeClose?.(action);
+      if (result !== false) {
+        destroy();
 
         const unmountResult = unmount(container);
         if (unmountResult && container.parentNode) {
@@ -70,7 +74,7 @@ ImagePreview.open = (props: ImagePreviewProps) => {
   render(<TempDialog />, container);
 
   return {
-    close: destroy,
+    close: (p?: CloseParams) => destroyRef.current(p),
   };
 };
 
