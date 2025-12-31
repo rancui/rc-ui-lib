@@ -4,10 +4,14 @@ import LazyloadEvent from './LazyloadEvent';
 import LazyLoadObserve from './LazyloadObserve';
 import { LazyloadProps } from './PropsType';
 
-const Lazyload: React.FC<LazyloadProps> = (props) => {
+const Lazyload: React.FC<LazyloadProps> = ({
+  loading = null,
+  height = 0,
+  observer = true,
+  eventOptions = {},
+  ...resetProps
+}) => {
   const [mode, setMode] = useState<keyof typeof modeType>();
-
-  const { observer, eventOptions, ...resetProps } = props;
 
   useEffect(() => {
     const toSetMode = (value) => {
@@ -20,21 +24,21 @@ const Lazyload: React.FC<LazyloadProps> = (props) => {
     toSetMode(observer ? modeType.observer : modeType.event);
   }, [observer]);
 
+  const resetPropsWithDefaults = {
+    loading,
+    height,
+    ...resetProps,
+  };
+
   return (
     <>
       {mode === modeType.event ? (
-        <LazyloadEvent {...resetProps} {...eventOptions} />
+        <LazyloadEvent {...resetPropsWithDefaults} {...eventOptions} />
       ) : mode === modeType.observer ? (
-        <LazyLoadObserve {...resetProps} />
+        <LazyLoadObserve {...resetPropsWithDefaults} />
       ) : null}
     </>
   );
-};
-
-Lazyload.defaultProps = {
-  loading: null,
-  height: 0,
-  observer: true,
 };
 
 export default Lazyload;

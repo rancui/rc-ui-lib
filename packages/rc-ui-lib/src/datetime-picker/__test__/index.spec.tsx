@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act } from 'react';
 import { sleep } from '../../../tests/utils';
 import DateTimePicker, { DateTimePickerInstance, DateTimePickerProps } from '..';
 import { getTrueValue } from '../utils';

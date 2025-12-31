@@ -13,6 +13,7 @@ const CheckBox = forwardRef<CheckboxInstance, CheckboxProps>((props, ref) => {
     value: props.checked,
     defaultValue: props.defaultChecked,
   });
+  const { bindGroup = true } = props;
 
   const setParentValue = (isChecked: boolean) => {
     const { name } = props;
@@ -25,7 +26,7 @@ const CheckBox = forwardRef<CheckboxInstance, CheckboxProps>((props, ref) => {
       if (!overlimit && value.indexOf(name) === -1) {
         value.push(name);
 
-        if (props.bindGroup) {
+        if (bindGroup) {
           context.toggle(value);
         }
       }
@@ -35,7 +36,7 @@ const CheckBox = forwardRef<CheckboxInstance, CheckboxProps>((props, ref) => {
       if (index !== -1) {
         value.splice(index, 1);
 
-        if (props.bindGroup) {
+        if (bindGroup) {
           context.toggle(value);
         }
       }
@@ -43,14 +44,14 @@ const CheckBox = forwardRef<CheckboxInstance, CheckboxProps>((props, ref) => {
   };
 
   const isChecked = useMemo(() => {
-    if (parent && props.bindGroup) {
+    if (parent && bindGroup) {
       return context.checked.indexOf(props.name as string) !== -1;
     }
     return checked;
   }, [context.checked, checked]);
 
   const toggle = (newValue = !isChecked) => {
-    if (parent && props.bindGroup) {
+    if (parent && bindGroup) {
       setParentValue(newValue);
     } else {
       setChecked(newValue);
@@ -72,15 +73,12 @@ const CheckBox = forwardRef<CheckboxInstance, CheckboxProps>((props, ref) => {
       parent={parent}
       checked={isChecked}
       className={props.className}
-      bindGroup={props.bindGroup}
+      bindGroup={bindGroup}
       onToggle={toggle}
     />
   );
 });
 
 CheckBox.displayName = 'Checkbox';
-CheckBox.defaultProps = {
-  bindGroup: true,
-};
 
 export default CheckBox;

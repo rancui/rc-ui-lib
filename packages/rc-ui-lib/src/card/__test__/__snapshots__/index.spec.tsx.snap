@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders correctly 1`] = `
+<div>
+  <div
+    class="rc-card"
+  />
+</div>
+`;
+
+exports[`Card should render Card with border prop 1`] = `
+<div>
+  <div
+    class="rc-card rc-card--border"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`Card should render Card with round prop 1`] = `
+<div>
+  <div
+    class="rc-card rc-card--round"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`Card should render Card.Footer with border prop 1`] = `
+<div>
+  <div
+    class="rc-card"
+  >
+    <div
+      class="rc-card-footer rc-hairline--top"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should render Card.Footer with compact prop 1`] = `
+<div>
+  <div
+    class="rc-card"
+  >
+    <div
+      class="rc-card-footer rc-card-footer--compact"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should render Card.Header with border prop 1`] = `
+<div>
+  <div
+    class="rc-card"
+  >
+    <div
+      class="rc-card-header rc-hairline--bottom"
+    >
+      <div
+        class="rc-card-header__content"
+      >
+        Header
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should render Card.Header with extra prop 1`] = `
+<div>
+  <div
+    class="rc-card"
+  >
+    <div
+      class="rc-card-header"
+    >
+      <div
+        class="rc-card-header__content"
+      >
+        Header
+      </div>
+      <div
+        class="rc-card-header__extra"
+      >
+        <span>
+          extra
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

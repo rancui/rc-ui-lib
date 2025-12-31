@@ -11,6 +11,17 @@ import { getRect } from '../hooks/get-rect';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Sticky: React.FC<StickyProps> = (props) => {
+  const {
+    offsetTop = 0,
+    offsetBottom = 0,
+    position = 'top',
+    zIndex,
+    container,
+    onScroll,
+    onChange,
+    children,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('sticky', prefixCls);
 
@@ -25,8 +36,8 @@ const Sticky: React.FC<StickyProps> = (props) => {
   const scrollParent = useScrollParent(root);
 
   const offset = useMemo<number>(
-    () => unitToPx(props.position === 'top' ? props.offsetTop : props.offsetBottom),
-    [props.position, props.offsetTop, props.offsetBottom],
+    () => unitToPx(position === 'top' ? offsetTop : offsetBottom),
+    [position, offsetTop, offsetBottom],
   );
 
   const rootStyle = useMemo<CSSProperties | undefined>(() => {
@@ -45,10 +56,10 @@ const Sticky: React.FC<StickyProps> = (props) => {
       return null;
     }
 
-    const style: CSSProperties = extend(getZIndexStyle(props.zIndex), {
+    const style: CSSProperties = extend(getZIndexStyle(zIndex), {
       width: `${state.width}px`,
       height: `${state.height}px`,
-      [props.position]: `${offset}px`,
+      [position]: `${offset}px`,
     });
 
     if (state.transform) {
@@ -56,23 +67,21 @@ const Sticky: React.FC<StickyProps> = (props) => {
     }
 
     return style;
-  }, [props.position, state.fixed, offset, state.width, state.height, state.transform]);
+  }, [position, state.fixed, offset, state.width, state.height, state.transform, zIndex]);
 
   const emitScroll = (scrollTop: number, isFixed: boolean) => {
-    if (props.onScroll) {
-      props.onScroll({
+    if (onScroll) {
+      onScroll({
         scrollTop,
         isFixed,
       });
     }
   };
 
-  const onScroll = () => {
+  const handleScroll = () => {
     if (!root.current || isHidden(root.current)) {
       return;
     }
-
-    const { container, position } = props;
     const rootRect = getRect(root.current);
     const scrollTop = getScrollTop(window);
 
@@ -106,25 +115,19 @@ const Sticky: React.FC<StickyProps> = (props) => {
     emitScroll(scrollTop, newState.fixed);
   };
 
-  useEventListener('scroll', onScroll, { target: scrollParent });
-  useVisibilityChange(root, onScroll);
+  useEventListener('scroll', handleScroll, { target: scrollParent });
+  useVisibilityChange(root, handleScroll);
   useUpdateEffect(() => {
-    props.onChange?.(state.fixed);
-  }, [state.fixed]);
+    onChange?.(state.fixed);
+  }, [state.fixed, onChange]);
 
   return (
     <div ref={root} style={rootStyle}>
       <div className={classnames(bem({ fixed: state.fixed }))} style={stickyStyle}>
-        {props.children}
+        {children}
       </div>
     </div>
   );
-};
-
-Sticky.defaultProps = {
-  offsetTop: 0,
-  offsetBottom: 0,
-  position: 'top',
 };
 
 export default Sticky;

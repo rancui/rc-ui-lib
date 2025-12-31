@@ -12,7 +12,7 @@ function isImage(name?: string): boolean {
 const Icon: React.FC<IconProps> = (props) => {
   const { iconPrefix } = useContext(ConfigProviderContext);
 
-  const { dot, tag, name, className, onClick, onTouchStart } = props;
+  const { dot, tag = 'i', name, className, onClick, onTouchStart } = props;
 
   const imageIcon = isImage(name);
 
@@ -41,8 +41,5 @@ const Icon: React.FC<IconProps> = (props) => {
   );
 };
 
-Icon.defaultProps = {
-  tag: 'i',
-};
 
 export default Icon;

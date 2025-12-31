@@ -7,18 +7,28 @@ import { isDef } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Overlay: React.FC<OverlayProps> = (props) => {
+  const {
+    visible,
+    duration = 300,
+    customStyle,
+    children,
+    zIndex,
+    lockScroll = true,
+    onClick,
+    className,
+    style: propStyle,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('overlay', prefixCls);
   const nodeRef = useRef(null);
 
-  useLockScroll(nodeRef, props.visible && props.lockScroll);
-
-  const { visible, duration, customStyle, children } = props;
+  useLockScroll(nodeRef, visible && lockScroll);
 
   const renderOverlay = () => {
     const style: CSSProperties = {
-      zIndex: props.zIndex !== undefined ? +props.zIndex : undefined,
-      ...props.style,
+      zIndex: zIndex !== undefined ? +zIndex : undefined,
+      ...propStyle,
       ...customStyle,
     };
 
@@ -30,8 +40,8 @@ const Overlay: React.FC<OverlayProps> = (props) => {
       <div
         ref={nodeRef}
         style={style}
-        onClick={props.onClick}
-        className={classnames(bem(), props.className)}
+        onClick={onClick}
+        className={classnames(bem(), className)}
       >
         {children}
       </div>
@@ -50,11 +60,6 @@ const Overlay: React.FC<OverlayProps> = (props) => {
       {renderOverlay()}
     </CSSTransition>
   );
-};
-
-Overlay.defaultProps = {
-  lockScroll: true,
-  duration: 300,
 };
 
 export default Overlay;

@@ -20,7 +20,8 @@ const Form = forwardRef<FormInstance, FormProps>((props, ref) => {
     border,
     inset,
     colon,
-    showValidateMessage,
+    showValidateMessage = true,
+    validateTrigger = 'onChange',
     ...formProps
   } = props;
 
@@ -30,7 +31,7 @@ const Form = forwardRef<FormInstance, FormProps>((props, ref) => {
         layout,
         colon,
         showValidateMessage,
-        validateTrigger: formProps.validateTrigger,
+        validateTrigger,
       }}
     >
       <RcForm className={classnames(bem(), className)} style={style} ref={ref} {...formProps}>
@@ -42,10 +43,5 @@ const Form = forwardRef<FormInstance, FormProps>((props, ref) => {
     </FormContext.Provider>
   );
 });
-
-Form.defaultProps = {
-  showValidateMessage: true,
-  validateTrigger: 'onChange',
-};
 
 export default Form;

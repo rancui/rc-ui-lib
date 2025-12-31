@@ -4,10 +4,21 @@ import LazyLoadImageObserve from './LazyloadImageObserve';
 import { DEFAULT_EVENTS, hasIntersectionObserver, modeType } from './utils';
 import { LazyloadImageProps } from './PropsType';
 
-const Lazyload: React.FC<LazyloadImageProps> = (props) => {
-  const [mode, setMode] = useState<keyof typeof modeType>();
+const defaultImageEventOptions = {
+  scrollContainer: document.body,
+  offset: 0,
+  debounce: 300,
+  throttle: 0,
+  listenEvents: DEFAULT_EVENTS,
+};
 
-  const { observer, ...resetProps } = props;
+const Lazyload: React.FC<LazyloadImageProps> = ({
+  loading = null,
+  observer = true,
+  eventOptions = defaultImageEventOptions,
+  ...resetProps
+}) => {
+  const [mode, setMode] = useState<keyof typeof modeType>();
 
   useEffect(() => {
     const toSetMode = (value) => {
@@ -20,27 +31,19 @@ const Lazyload: React.FC<LazyloadImageProps> = (props) => {
     toSetMode(observer ? modeType.observer : modeType.event);
   }, [observer]);
 
+  const resetPropsWithDefaults = {
+    loading,
+    ...resetProps,
+  };
+
   return (
     <>
       {mode === modeType.event ? (
-        <LazyloadImageEvent {...resetProps} />
+        <LazyloadImageEvent {...resetPropsWithDefaults} {...eventOptions} />
       ) : mode === modeType.observer ? (
-        <LazyLoadImageObserve {...resetProps} />
+        <LazyLoadImageObserve {...resetPropsWithDefaults} />
       ) : null}
     </>
   );
 };
-
-Lazyload.defaultProps = {
-  loading: null,
-  observer: true,
-  eventOptions: {
-    scrollContainer: document.body,
-    offset: 0,
-    debounce: 300,
-    throttle: 0,
-    listenEvents: DEFAULT_EVENTS,
-  },
-};
-
 export default Lazyload;

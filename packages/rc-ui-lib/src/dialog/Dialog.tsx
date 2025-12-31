@@ -24,16 +24,34 @@ const Dialog: React.FC<DialogProps> = (props) => {
     messageAlign,
     closeOnClickOverlay,
     onClickCloseIcon,
+    transition = 'rc-dialog-bounce',
+    showConfirmButton = true,
+    closeOnPopstate = true,
+    showCancelButton,
+    cancelButtonText,
+    cancelButtonColor,
+    confirmButtonText,
+    confirmButtonColor,
+    cancelProps,
+    confirmProps,
+    onCancel,
+    onConfirm,
+    onOpen,
+    onOpened,
+    onClose,
+    onClosed,
+    footer,
+    children,
     ...others
   } = props;
 
   const renderTitle = () => {
-    if (props.title) {
+    if (title) {
       return (
         <div
           className={classnames(
             bem('header', {
-              isolated: !props.message && !props.children,
+              isolated: !message && !children,
             }),
           )}
         >
@@ -45,8 +63,8 @@ const Dialog: React.FC<DialogProps> = (props) => {
   };
 
   const renderContent = () => {
-    if (props.children) {
-      return <div className={classnames(bem('content'))}>{props.children}</div>;
+    if (children) {
+      return <div className={classnames(bem('content'))}>{children}</div>;
     }
     if (message) {
       return (
@@ -70,27 +88,27 @@ const Dialog: React.FC<DialogProps> = (props) => {
 
   const renderButtons = () => (
     <div className={classnames(BORDER_TOP, bem('footer'))}>
-      {props.showCancelButton && (
+      {showCancelButton && (
         <Button
           size="large"
-          text={props.cancelButtonText || '取消'}
+          text={cancelButtonText || '取消'}
           className={classnames(bem('cancel'))}
-          style={{ color: props.cancelButtonColor }}
-          loading={props.cancelProps?.loading}
-          disabled={props.cancelProps?.disabled}
-          onClick={props.cancelProps?.loading ? noop : props.onCancel}
+          style={{ color: cancelButtonColor }}
+          loading={cancelProps?.loading}
+          disabled={cancelProps?.disabled}
+          onClick={cancelProps?.loading ? noop : onCancel}
         />
       )}
-      {props.showConfirmButton && (
+      {showConfirmButton && (
         <Button
           size="large"
-          text={props.confirmButtonText || '确认'}
-          className={classnames(bem('confirm'), { [BORDER_LEFT]: props.showCancelButton })}
+          text={confirmButtonText || '确认'}
+          className={classnames(bem('confirm'), { [BORDER_LEFT]: showCancelButton })}
           round={theme === 'round-button'}
-          style={{ color: props.confirmButtonColor }}
-          loading={props.confirmProps?.loading}
-          disabled={props.confirmProps?.disabled}
-          onClick={props.confirmProps?.loading ? noop : props.onConfirm}
+          style={{ color: confirmButtonColor }}
+          loading={confirmProps?.loading}
+          disabled={confirmProps?.disabled}
+          onClick={confirmProps?.loading ? noop : onConfirm}
         />
       )}
     </div>
@@ -98,34 +116,34 @@ const Dialog: React.FC<DialogProps> = (props) => {
 
   const renderRoundButtons = () => (
     <ActionBar className={classnames(bem('footer'))}>
-      {props.showCancelButton && (
+      {showCancelButton && (
         <ActionBar.Button
           type="warning"
-          text={props.cancelButtonText || '取消'}
+          text={cancelButtonText || '取消'}
           className={classnames(bem('cancel'))}
-          color={props.cancelButtonColor}
-          loading={props.cancelProps?.loading}
-          disabled={props.cancelProps?.disabled}
-          onClick={props.cancelProps?.loading ? noop : props.onCancel}
+          color={cancelButtonColor}
+          loading={cancelProps?.loading}
+          disabled={cancelProps?.disabled}
+          onClick={cancelProps?.loading ? noop : onCancel}
         />
       )}
-      {props.showConfirmButton && (
+      {showConfirmButton && (
         <ActionBar.Button
           type="danger"
-          text={props.confirmButtonText || '确认'}
+          text={confirmButtonText || '确认'}
           className={classnames(bem('confirm'))}
-          color={props.confirmButtonColor}
-          loading={props.confirmProps?.loading}
-          disabled={props.confirmProps?.disabled}
-          onClick={props.confirmProps?.loading ? noop : props.onConfirm}
+          color={confirmButtonColor}
+          loading={confirmProps?.loading}
+          disabled={confirmProps?.disabled}
+          onClick={confirmProps?.loading ? noop : onConfirm}
         />
       )}
     </ActionBar>
   );
 
   const renderFooter = () => {
-    if (props.footer) return props.footer;
-    return props.theme === 'round-button' ? renderRoundButtons() : renderButtons();
+    if (footer) return footer;
+    return theme === 'round-button' ? renderRoundButtons() : renderButtons();
   };
 
   return (
@@ -136,22 +154,18 @@ const Dialog: React.FC<DialogProps> = (props) => {
       style={{ width: addUnit(width) }}
       aria-labelledby={title || message}
       closeOnClickOverlay={closeOnClickOverlay}
-      onOpen={props.onOpen}
-      onOpened={props.onOpened}
-      onClose={props.onClose}
-      onClosed={props.onClosed}
+      transition={transition}
+      closeOnPopstate={closeOnPopstate}
+      onOpen={onOpen}
+      onOpened={onOpened}
+      onClose={onClose}
+      onClosed={onClosed}
     >
       {renderTitle()}
       {renderContent()}
       {renderFooter()}
     </Popup>
   );
-};
-
-Dialog.defaultProps = {
-  transition: 'rc-dialog-bounce',
-  showConfirmButton: true,
-  closeOnPopstate: true,
 };
 
 export default Dialog as React.FC<DialogProps> & DialogStatic;

@@ -15,10 +15,24 @@ const DEFAULT_HEAD_HEIGHT = 50;
 const TEXT_STATUS = ['pulling', 'loosing', 'success'];
 
 const PullRefresh: React.FC<PullRefreshProps> = (props) => {
+  const {
+    disabled,
+    animationDuration = 300,
+    headHeight = 50,
+    successDuration = 500,
+    pullingText = '下拉即可刷新...',
+    loosingText = '释放即可刷新...',
+    loadingText = '加载中...',
+    successText,
+    pullDistance,
+    onRefresh,
+    children,
+    className,
+    style,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('pull-refresh', prefixCls);
-
-  const { disabled, animationDuration } = props;
 
   const root = useRef<HTMLDivElement>();
   const [state, updateState] = useSetState({
@@ -34,9 +48,9 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   const touch = useTouch();
 
   const getHeadStyle = () => {
-    if (props.headHeight !== DEFAULT_HEAD_HEIGHT) {
+    if (headHeight !== DEFAULT_HEAD_HEIGHT) {
       return {
-        height: `${props.headHeight}px`,
+        height: `${headHeight}px`,
       };
     }
     return null;
@@ -47,13 +61,13 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   }, [state.status, disabled]);
 
   const ease = (distance: number) => {
-    const pullDistance = +(props.pullDistance || props.headHeight);
+    const pullDist = +(pullDistance || headHeight);
 
-    if (distance > pullDistance) {
-      if (distance < pullDistance * 2) {
-        distance = pullDistance + (distance - pullDistance) / 2;
+    if (distance > pullDist) {
+      if (distance < pullDist * 2) {
+        distance = pullDist + (distance - pullDist) / 2;
       } else {
-        distance = pullDistance * 1.5 + (distance - pullDistance * 2) / 4;
+        distance = pullDist * 1.5 + (distance - pullDist * 2) / 4;
       }
     }
 
@@ -61,14 +75,14 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   };
 
   const setStatus = (distance: number, isLoading?: boolean) => {
-    const pullDistance = +(props.pullDistance || props.headHeight);
+    const pullDist = +(pullDistance || headHeight);
     const newState = { distance } as typeof state;
 
     if (isLoading) {
       newState.status = 'loading';
     } else if (distance === 0) {
       newState.status = 'normal';
-    } else if (distance < pullDistance) {
+    } else if (distance < pullDist) {
       newState.status = 'pulling';
     } else {
       newState.status = 'loosing';
@@ -80,14 +94,28 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     if (state.status === 'normal') {
       return '' as ReactNode;
     }
-    return props[`${state.status}Text`] as ReactNode;
+    const statusTextMap = {
+      pulling: pullingText,
+      loosing: loosingText,
+      loading: loadingText,
+      success: successText,
+    };
+    return statusTextMap[state.status] as ReactNode;
   };
 
   const renderStatus = () => {
     const { status, distance } = state;
 
-    if (typeof props[`${state.status}Text`] === 'function') {
-      return props[`${state.status}Text`]!({ distance });
+    const statusTextMap = {
+      pulling: pullingText,
+      loosing: loosingText,
+      loading: loadingText,
+      success: successText,
+    };
+    const currentStatusText = statusTextMap[status];
+
+    if (typeof currentStatusText === 'function') {
+      return currentStatusText({ distance });
     }
 
     const nodes: JSX.Element[] = [];
@@ -114,13 +142,13 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     updateState({ status: 'success' });
     setTimeout(() => {
       setStatus(0);
-    }, +props.successDuration);
+    }, +successDuration);
   };
 
-  const onRefresh = async () => {
+  const handleRefresh = async () => {
     try {
       updateState({ refreshing: true });
-      await props.onRefresh();
+      await onRefresh();
       updateState({ refreshing: false });
     } catch (error) {
       updateState({ refreshing: false });
@@ -171,8 +199,8 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     if (reachTop.current && touch.deltaY && isTouchable()) {
       updateState({ duration: +animationDuration });
       if (state.status === 'loosing') {
-        setStatus(+props.headHeight, true);
-        onRefresh();
+        setStatus(+headHeight, true);
+        handleRefresh();
       } else {
         setStatus(0);
       }
@@ -187,13 +215,13 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   useUpdateEffect(() => {
     updateState({ duration: +animationDuration });
     if (state.refreshing) {
-      setStatus(+props.headHeight, true);
-    } else if (props.successText) {
+      setStatus(+headHeight, true);
+    } else if (successText) {
       showSuccessTip();
     } else {
       setStatus(0, false);
     }
-  }, [state.refreshing]);
+  }, [state.refreshing, animationDuration, headHeight, successText]);
 
   const trackStyle = useMemo(
     () => ({
@@ -204,7 +232,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   );
 
   return (
-    <div ref={root} className={classnames(props.className, bem())} style={props.style}>
+    <div ref={root} className={classnames(className, bem())} style={style}>
       <div
         ref={track}
         className={classnames(bem('track'))}
@@ -216,19 +244,10 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
         <div className={classnames(bem('head'))} style={getHeadStyle()}>
           {renderStatus()}
         </div>
-        {props.children}
+        {children}
       </div>
     </div>
   );
-};
-
-PullRefresh.defaultProps = {
-  headHeight: 50,
-  animationDuration: 300,
-  successDuration: 500,
-  pullingText: '下拉即可刷新...',
-  loosingText: '释放即可刷新...',
-  loadingText: '加载中...',
 };
 
 export default PullRefresh;

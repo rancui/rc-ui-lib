@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { noop } from '../utils';
 import { CloseParams, ImagePreviewProps, ImagePreviewStatic } from './PropsType';
@@ -29,31 +29,51 @@ ImagePreview.open = (props: ImagePreviewProps) => {
   const userContainer = resolveContainer(props.teleport);
   const container = document.createElement('div');
   userContainer.appendChild(container);
-  let destroy = noop as (p?: CloseParams) => void;
+  const destroyRef = { current: noop as (p?: CloseParams) => void };
 
   const TempDialog = () => {
     const [visible, setVisible] = useState(false);
+    const beforeCloseRef = useRef(beforeClose);
+    const onCloseRef = useRef(onClose);
 
     useEffect(() => {
       setVisible(true);
     }, []);
 
-    destroy = (p: CloseParams) => {
+    useEffect(() => {
+      beforeCloseRef.current = beforeClose;
+      onCloseRef.current = onClose;
+    }, [beforeClose, onClose]);
+
+    const _doClose = (p?: CloseParams) => {
       setVisible(false);
-      if (onClose) onClose(p);
+      if (onCloseRef.current) onCloseRef.current(p);
+    };
+
+    destroyRef.current = async (p?: CloseParams) => {
+      if (beforeCloseRef.current) {
+        const result = await beforeCloseRef.current(0);
+        if (result === false) {
+          return;
+        }
+      }
+      _doClose(p);
     };
 
     const _afterClose = async (p) => {
-      if ((await beforeClose?.(0)) !== false) {
-        destroy(p);
-
-        const unmountResult = unmount(container);
-        if (unmountResult && container.parentNode) {
-          container.parentNode.removeChild(container);
+      if (beforeCloseRef.current) {
+        const result = await beforeCloseRef.current(0);
+        if (result === false) {
+          return false;
         }
-        return true;
       }
-      return false;
+      _doClose(p);
+
+      const unmountResult = unmount(container);
+      if (unmountResult && container.parentNode) {
+        container.parentNode.removeChild(container);
+      }
+      return true;
     };
 
     return (
@@ -62,7 +82,7 @@ ImagePreview.open = (props: ImagePreviewProps) => {
         {...restProps}
         visible={visible}
         teleport={() => container}
-        onClose={destroy}
+        onClose={_afterClose}
         beforeClose={_afterClose}
       />
     );
@@ -70,7 +90,7 @@ ImagePreview.open = (props: ImagePreviewProps) => {
   render(<TempDialog />, container);
 
   return {
-    close: destroy,
+    close: (p?: CloseParams) => destroyRef.current(p),
   };
 };
 

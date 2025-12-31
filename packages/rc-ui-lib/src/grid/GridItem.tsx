@@ -16,11 +16,20 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
   children,
   className,
   style,
+  index = 0,
+  parent = {},
+  icon,
+  badge,
+  iconPrefix,
+  iconColor,
+  text,
+  contentStyle: contentStyleProp,
+  contentClassName,
+  onClick,
   ...props
 }) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('grid-item', prefixCls);
-  const { index, parent } = props;
   if (!parent) {
     if (process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line no-console
@@ -54,40 +63,40 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
     if (square && gutter) {
       const gutterValue = addUnit(gutter);
       return {
-        ...props.contentStyle,
+        ...contentStyleProp,
         right: gutterValue,
         bottom: gutterValue,
         height: 'auto',
       };
     }
-    return props.contentStyle;
-  }, [parent.gutter, parent.columnNum, props.contentStyle]);
+    return contentStyleProp;
+  }, [parent.gutter, parent.columnNum, contentStyleProp]);
 
   const renderIcon = () => {
-    if (typeof props.icon === 'string') {
+    if (typeof icon === 'string') {
       return (
         <Icon
-          badge={props.badge}
-          name={props.icon as string}
+          badge={badge}
+          name={icon as string}
           size={parent.iconSize}
           className={classnames(bem('icon'))}
-          classPrefix={props.iconPrefix}
-          color={props.iconColor}
+          classPrefix={iconPrefix}
+          color={iconColor}
         />
       );
     }
-    if (React.isValidElement(props.icon)) {
-      return <Badge {...props.badge}>{props.icon}</Badge>;
+    if (React.isValidElement(icon)) {
+      return <Badge {...badge}>{icon}</Badge>;
     }
     return null;
   };
 
   const renderText = () => {
-    if (React.isValidElement(props.text)) {
-      return props.text;
+    if (React.isValidElement(text)) {
+      return text;
     }
-    if (props.text) {
-      return <span className={classnames(bem('text'))}>{props.text}</span>;
+    if (text) {
+      return <span className={classnames(bem('text'))}>{text}</span>;
     }
     return null;
   };
@@ -107,14 +116,14 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
   const { center, border, square, gutter, reverse, direction } = parent;
 
   const classes = classnames(
-    props.contentClassName,
+    contentClassName,
     bem('content', [
       direction,
       {
         center,
         square,
         reverse,
-        clickable: !!props.onClick,
+        clickable: !!onClick,
         surround: border && gutter,
       },
     ]),
@@ -124,20 +133,15 @@ const GridItem: React.FC<GridItemProps & InternalProps> = ({
   return (
     <div className={classnames(className, bem({ square }))} style={rootStyle}>
       <div
-        role={props.onClick ? 'button' : undefined}
+        role={onClick ? 'button' : undefined}
         className={classes}
         style={contentStyle}
-        onClick={props.onClick}
+        onClick={onClick}
       >
         {renderContent()}
       </div>
     </div>
   );
-};
-
-GridItem.defaultProps = {
-  index: 0,
-  parent: {},
 };
 
 export default GridItem;

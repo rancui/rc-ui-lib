@@ -27,9 +27,24 @@ import {
 
 export const DropdownMenuContext: Context<DropdownMenuContextProps> = createContext({});
 const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props, ref) => {
+  const {
+    duration = 200,
+    overlay = true,
+    direction = 'down',
+    zIndex = 2000,
+    closeOnClickOutside = true,
+    closeOnClickOverlay = true,
+    shouldRenderTitle = false,
+    activeColor,
+    className,
+    style,
+    children,
+    onChange: onChangeCallback,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('dropdown-menu', prefixCls);
-  const [titleFlag, setTitleFlag] = useState(props.shouldRenderTitle);
+  const [titleFlag, setTitleFlag] = useState(shouldRenderTitle);
   const [showPopupIndex, setShowPopupIndex] = useState(null);
   const showPopupIndexRef = useRef<number>(null);
   const rect = useRef<{ bottom: number; top: number }>({ bottom: 0, top: 0 });
@@ -44,9 +59,9 @@ const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props,
   }, [showPopupIndex]);
 
   const barStyle = () => {
-    if (opened && isDef(props.zIndex)) {
+    if (opened && isDef(zIndex)) {
       return {
-        zIndex: +props.zIndex + 1,
+        zIndex: +zIndex + 1,
       };
     }
     return {};
@@ -60,7 +75,7 @@ const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props,
   const updateOffset = () => {
     if (barRef.current) {
       rect.current = getRect(barRef.current);
-      if (props.direction === 'down') {
+      if (direction === 'down') {
         offsetRef.current = rect.current.bottom;
       } else {
         offsetRef.current = window.innerHeight - rect.current.top;
@@ -80,7 +95,7 @@ const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props,
   }));
 
   const onClickAway = () => {
-    if (props.closeOnClickOutside) {
+    if (closeOnClickOutside) {
       closeAll();
     }
   };
@@ -139,12 +154,12 @@ const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props,
         <span
           className={classnames(
             bem('title', {
-              down: showPopup === (props.direction === 'down'),
+              down: showPopup === (direction === 'down'),
               active: showPopup,
             }),
             titleClass,
           )}
-          style={{ color: showPopup ? props.activeColor : '' }}
+          style={{ color: showPopup ? activeColor : '' }}
         >
           <div className="rc-ellipsis">{item.renderTitle()}</div>
         </span>
@@ -162,23 +177,31 @@ const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props,
       setTitleFlag(true);
     }
     updateShowPopupIndex(null);
-    props.onChange?.(value);
+    onChangeCallback?.(value);
   };
 
   return (
     <DropdownMenuContext.Provider
       value={{
-        props,
+        props: { 
+          duration, 
+          overlay, 
+          direction, 
+          zIndex, 
+          closeOnClickOutside, 
+          closeOnClickOverlay,
+          activeColor,
+        },
         offset: offsetRef.current,
         onChange: handleChange,
         close: closeAll,
       }}
     >
-      <div ref={root} className={classnames(bem(), props.className)} style={{ ...props.style }}>
+      <div ref={root} className={classnames(bem(), className)} style={{ ...style }}>
         <div ref={barRef} style={barStyle()} className={classnames(bem('bar', { opened }))}>
           {childrenRefs.map(renderTitle)}
         </div>
-        {React.Children.toArray(props.children)
+        {React.Children.toArray(children)
           .filter(Boolean)
           .map((child: React.ReactElement, index: number) =>
             React.cloneElement(child, {
@@ -189,16 +212,6 @@ const DropdownMenu = forwardRef<DropdownMenuInstance, DropdownMenuProps>((props,
     </DropdownMenuContext.Provider>
   );
 });
-
-DropdownMenu.defaultProps = {
-  duration: 200,
-  overlay: true,
-  direction: 'down',
-  zIndex: 2000,
-  closeOnClickOutside: true,
-  closeOnClickOverlay: true,
-  shouldRenderTitle: false,
-};
 
 DropdownMenu.displayName = 'DropdownMenu';
 

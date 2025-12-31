@@ -11,21 +11,23 @@ export type SidebarProvide = {
 };
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
+  const { value = '0', children, onChange } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('sidebar', prefixCls);
 
-  const getActive = () => +props.value;
+  const getActive = () => +value;
 
-  const setActive = (value: number) => {
-    if (value !== getActive()) {
-      props.onChange?.(value);
+  const setActive = (activeValue: number) => {
+    if (activeValue !== getActive()) {
+      onChange?.(activeValue);
     }
   };
 
   return (
     <SidebarContext.Provider value={{ getActive, setActive }}>
       <div role="tablist" className={classNames(bem())}>
-        {React.Children.toArray(props.children)
+        {React.Children.toArray(children)
           .filter(Boolean)
           .map((child: ReactElement, index: number) =>
             React.cloneElement(child, {
@@ -35,10 +37,6 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
       </div>
     </SidebarContext.Provider>
   );
-};
-
-Sidebar.defaultProps = {
-  value: '0',
 };
 
 export default Sidebar;

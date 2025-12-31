@@ -25,6 +25,14 @@ const Cascader: React.FC<CascaderProps> = (props) => {
 
   const mountedRef = useMountedRef();
 
+  // 用解构+默认值替代 defaultProps
+  const {
+    closeable = true,
+    swipeable = true,
+    options = [],
+    closeIcon = 'cross',
+  } = props;
+
   const {
     text: textKey,
     value: valueKey,
@@ -59,10 +67,10 @@ const Cascader: React.FC<CascaderProps> = (props) => {
 
   const updateTabs = () => {
     if (internalValue || internalValue === 0) {
-      const selectedOptions = getSelectedOptionsByValue(props.options, internalValue);
+      const selectedOptions = getSelectedOptionsByValue(options, internalValue);
 
       if (selectedOptions) {
-        let optionsCursor = props.options;
+        let optionsCursor = options;
 
         const tabs = selectedOptions.map((option) => {
           const tab = {
@@ -99,7 +107,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     updateState({
       tabs: [
         {
-          options: props.options,
+          options: options,
           selectedOption: null,
         },
       ],
@@ -169,7 +177,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
         }
         initialState.tabs.push({ options, selectedOption });
         return selectedOption[childrenKey];
-      }, props.options);
+      }, options);
       return initialState;
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -179,14 +187,14 @@ const Cascader: React.FC<CascaderProps> = (props) => {
   };
 
   const renderCloseIcon = () => {
-    if (!props.closeable) return null;
-    if (typeof props.closeIcon === 'string') {
+    if (!closeable) return null;
+    if (typeof closeIcon === 'string') {
       return (
-        <Icon name={props.closeIcon} className={classnames(bem('close-icon'))} onClick={onClose} />
+        <Icon name={closeIcon} className={classnames(bem('close-icon'))} onClick={onClose} />
       );
     }
-    if (isValidElement(props.closeIcon)) {
-      return props.closeIcon;
+    if (isValidElement(closeIcon)) {
+      return closeIcon;
     }
     return null;
   };
@@ -264,7 +272,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
       className={classnames(bem('tabs'))}
       color={props.activeColor}
       swipeThreshold={0}
-      swipeable={props.swipeable}
+      swipeable={swipeable}
       onClickTab={onClickTab}
     >
       {state.tabs.map(renderTab)}
@@ -303,13 +311,6 @@ const Cascader: React.FC<CascaderProps> = (props) => {
       {state.tabs.length ? renderTabs() : null}
     </div>
   );
-};
-
-Cascader.defaultProps = {
-  closeable: true,
-  swipeable: true,
-  options: [],
-  closeIcon: 'cross',
 };
 
 export default Cascader;

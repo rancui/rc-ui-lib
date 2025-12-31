@@ -8,54 +8,59 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const PRESET_IMAGES = ['error', 'search', 'default'];
 
 const Empty: React.FC<EmptyProps> = (props) => {
+  const { 
+    image = 'default',
+    description,
+    imageSize,
+    className,
+    style,
+    children,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('empty', prefixCls);
 
   const renderImage = () => {
-    let { image } = props;
+    let imageValue = image;
 
-    if (isValidElement(image)) {
-      return image;
+    if (isValidElement(imageValue)) {
+      return imageValue;
     }
 
-    if (image === 'network') {
+    if (imageValue === 'network') {
       return Network;
     }
 
-    if (PRESET_IMAGES.includes(image as string)) {
-      image = `https://img.yzcdn.cn/vant/empty-image-${image}.png`;
+    if (PRESET_IMAGES.includes(imageValue as string)) {
+      imageValue = `https://img.yzcdn.cn/vant/empty-image-${imageValue}.png`;
     }
 
-    return <img src={image as string} alt="" />;
+    return <img src={imageValue as string} alt="" />;
   };
 
   const renderDescription = () => {
-    if (props.description) {
-      return <p className={classnames(bem('description'))}>{props.description}</p>;
+    if (description) {
+      return <p className={classnames(bem('description'))}>{description}</p>;
     }
     return null;
   };
 
   const renderBottom = () => {
-    if (props.children) {
-      return <div className={classnames(bem('bottom'))}>{props.children}</div>;
+    if (children) {
+      return <div className={classnames(bem('bottom'))}>{children}</div>;
     }
     return null;
   };
 
   return (
-    <div className={classnames(props.className, bem())} style={props.style}>
-      <div className={classnames(bem('image'))} style={getSizeStyle(props.imageSize)}>
+    <div className={classnames(className, bem())} style={style}>
+      <div className={classnames(bem('image'))} style={getSizeStyle(imageSize)}>
         {renderImage()}
       </div>
       {renderDescription()}
       {renderBottom()}
     </div>
   );
-};
-
-Empty.defaultProps = {
-  image: 'default',
 };
 
 export default Empty;

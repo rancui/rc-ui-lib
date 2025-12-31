@@ -10,39 +10,53 @@ import { addUnit } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Swtich: React.FC<SwitchProps> = (props) => {
+  const {
+    loading,
+    disabled,
+    size,
+    activeColor,
+    inactiveColor,
+    activeValue = true,
+    inactiveValue = false,
+    checked: checkedProp,
+    defaultChecked,
+    onChange,
+    onClick,
+    className,
+    style: propStyle,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('switch', prefixCls);
 
-  const { loading, disabled, size, activeColor, inactiveColor } = props;
-
   const [checked, setChecked] = useMergedState({
-    value: props.checked,
-    defaultValue: props.defaultChecked,
+    value: checkedProp,
+    defaultValue: defaultChecked,
   });
 
-  const isChecked = useMemo(() => checked === props.activeValue, [checked, props.activeValue]);
+  const isChecked = useMemo(() => checked === activeValue, [checked, activeValue]);
 
   const style: CSSProperties = {
     fontSize: addUnit(size),
     backgroundColor: isChecked ? activeColor : inactiveColor,
-    ...props.style,
+    ...propStyle,
   };
 
-  const onClick = (e) => {
-    if (!props.disabled) {
-      props.onClick?.(e);
+  const handleClick = (e: React.MouseEvent) => {
+    if (!disabled) {
+      onClick?.(e);
     }
-    if (!props.disabled && !props.loading) {
-      const newValue = isChecked ? props.inactiveValue : props.activeValue;
+    if (!disabled && !loading) {
+      const newValue = isChecked ? inactiveValue : activeValue;
 
       setChecked(newValue);
-      props.onChange?.(newValue);
+      onChange?.(newValue);
     }
   };
 
   const renderLoading = () => {
-    if (props.loading) {
-      const color = isChecked ? props.activeColor : props.inactiveColor;
+    if (loading) {
+      const color = isChecked ? activeColor : inactiveColor;
       return <Loading className={classnames(bem('loading'))} color={color} />;
     }
     return null;
@@ -53,7 +67,7 @@ const Swtich: React.FC<SwitchProps> = (props) => {
       role="switch"
       tabIndex={0}
       className={classnames(
-        props.className,
+        className,
         bem({
           on: isChecked,
           loading,
@@ -62,16 +76,11 @@ const Swtich: React.FC<SwitchProps> = (props) => {
       )}
       style={style}
       aria-checked={isChecked}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div className={classnames(bem('node'))}>{renderLoading()}</div>
     </div>
   );
-};
-
-Swtich.defaultProps = {
-  activeValue: true,
-  inactiveValue: false,
 };
 
 export default Swtich;

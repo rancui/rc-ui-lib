@@ -7,10 +7,25 @@ import Badge from '../badge';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const TabsTitle = forwardRef<HTMLDivElement, TabsTitleProps>((props, ref) => {
+  const {
+    type,
+    color,
+    isActive,
+    activeColor,
+    inactiveColor,
+    disabled,
+    className,
+    scrollable,
+    renderTitle,
+    title,
+    dot,
+    badge,
+    showZeroBadge = true,
+    onClick,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('tab', prefixCls);
-
-  const { type, color, isActive, activeColor, inactiveColor, disabled, className } = props;
 
   const customStyle = useMemo(() => {
     const style: CSSProperties = {};
@@ -39,19 +54,19 @@ const TabsTitle = forwardRef<HTMLDivElement, TabsTitleProps>((props, ref) => {
 
   const renderText = () => {
     const Text = (
-      <span className={classnames(bem('text', { ellipsis: !props.scrollable }))}>
+      <span className={classnames(bem('text', { ellipsis: !scrollable }))}>
         {(() => {
-          if (typeof props.renderTitle === 'function') {
-            return props.renderTitle(isActive);
+          if (typeof renderTitle === 'function') {
+            return renderTitle(isActive);
           }
-          return props.renderTitle || props.title;
+          return renderTitle || title;
         })()}
       </span>
     );
 
-    if (props.dot || (isDef(props.badge) && props.badge !== '')) {
+    if (dot || (isDef(badge) && badge !== '')) {
       return (
-        <Badge dot={props.dot} content={props.badge} showZero={props.showZeroBadge}>
+        <Badge dot={dot} content={badge} showZero={showZeroBadge}>
           {Text}
         </Badge>
       );
@@ -65,22 +80,18 @@ const TabsTitle = forwardRef<HTMLDivElement, TabsTitleProps>((props, ref) => {
       ref={ref}
       className={classnames([
         bem({
-          active: props.isActive,
-          disabled: props.disabled,
+          active: isActive,
+          disabled,
         }),
         className,
       ])}
       style={customStyle}
-      aria-selected={props.isActive}
-      onClick={props.onClick}
+      aria-selected={isActive}
+      onClick={onClick}
     >
       {renderText()}
     </div>
   );
 });
-
-TabsTitle.defaultProps = {
-  showZeroBadge: true,
-};
 
 export default TabsTitle;

@@ -318,3 +318,60 @@ describe('Toast', () => {
     expect(document.querySelector('.el-teleport').querySelector('.rc-toast--info')).toBeTruthy();
   });
 });
+
+describe('lockClick', () => {
+  beforeEach(() => {
+    document.body.classList.remove('rc-toast--unclickable');
+  });
+
+  afterEach(() => {
+    document.body.classList.remove('rc-toast--unclickable');
+  });
+
+  it('should add unclickable class when lock is true', () => {
+    const { lockClick } = require('../lock-click');
+    lockClick(true);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(true);
+    lockClick(false);
+  });
+
+  it('should remove unclickable class when lock is false and lockCount is 0', () => {
+    const { lockClick } = require('../lock-click');
+    lockClick(true);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(true);
+    lockClick(false);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(false);
+  });
+
+  it('should handle multiple lock calls correctly', () => {
+    const { lockClick } = require('../lock-click');
+    lockClick(true);
+    lockClick(true);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(true);
+    lockClick(false);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(true);
+    lockClick(false);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(false);
+  });
+
+  it('should not remove class when lockCount is still greater than 0', () => {
+    const { lockClick } = require('../lock-click');
+    lockClick(true);
+    lockClick(true);
+    lockClick(false);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(true);
+    lockClick(false);
+    expect(document.body.classList.contains('rc-toast--unclickable')).toBe(false);
+  });
+
+  it('should not add class multiple times when already locked', () => {
+    const { lockClick } = require('../lock-click');
+    lockClick(true);
+    const classListBefore = document.body.classList.toString();
+    lockClick(true);
+    const classListAfter = document.body.classList.toString();
+    expect(classListBefore).toBe(classListAfter);
+    lockClick(false);
+    lockClick(false);
+  });
+});

@@ -19,6 +19,30 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import useEventListener from '../hooks/use-event-listener';
 
 const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
+  const {
+    columns = [],
+    columnsFieldNames,
+    itemHeight: itemHeightProp = 44,
+    visibleItemCount = 5,
+    swipeDuration = 1000,
+    defaultIndex = 0,
+    showToolbar = true,
+    toolbarPosition = 'top',
+    title,
+    loading,
+    readonly,
+    cancelButtonText,
+    confirmButtonText,
+    toolbar,
+    columnsTop,
+    columnsBottom,
+    optionRender,
+    onChange,
+    onConfirm,
+    onCancel,
+    className,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('picker', prefixCls);
 
@@ -36,15 +60,14 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
       values: 'values',
       children: 'children',
     },
-    props.columnsFieldNames,
+    columnsFieldNames,
   );
 
   const wrapper = useRef<HTMLDivElement>(null);
 
-  const itemHeight = useMemo(() => unitToPx(props.itemHeight), [props.itemHeight]);
+  const itemHeight = useMemo(() => unitToPx(itemHeightProp), [itemHeightProp]);
 
   const dataType = useMemo(() => {
-    const { columns } = props;
     const firstColumn = columns[0] || {};
 
     if (typeof firstColumn === 'object') {
@@ -56,24 +79,24 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
       }
     }
     return 'plain';
-  }, [props.columns]);
+  }, [columns, childrenKey, valuesKey]);
 
   const formatCascade = () => {
     const formatted: PickerObjectColumn[] = [];
 
     let cursor: PickerObjectColumn = {
-      [childrenKey]: props.columns,
+      [childrenKey]: columns,
     };
 
     while (cursor && cursor[childrenKey]) {
       const children = cursor[childrenKey];
-      let defaultIndex = cursor.defaultIndex ?? +props.defaultIndex;
+      let columnDefaultIndex = cursor.defaultIndex ?? +defaultIndex;
 
-      while (children[defaultIndex] && children[defaultIndex].disabled) {
-        if (defaultIndex < children.length - 1) {
-          defaultIndex++;
+      while (children[columnDefaultIndex] && children[columnDefaultIndex].disabled) {
+        if (columnDefaultIndex < children.length - 1) {
+          columnDefaultIndex++;
         } else {
-          defaultIndex = 0;
+          columnDefaultIndex = 0;
           break;
         }
       }
@@ -81,17 +104,15 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
       formatted.push({
         [valuesKey]: cursor[childrenKey],
         className: cursor.className,
-        defaultIndex,
+        defaultIndex: columnDefaultIndex,
       });
 
-      cursor = children[defaultIndex];
+      cursor = children[columnDefaultIndex];
     }
     setFormattedColumns(formatted);
   };
 
   const format = () => {
-    const { columns } = props;
-
     if (dataType === 'plain') {
       setFormattedColumns([
         {
@@ -118,7 +139,7 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
 
   const onCascadeChange = (columnIndex: number) => {
     let cursor: PickerObjectColumn = {
-      [childrenKey]: props.columns,
+      [childrenKey]: columns,
     };
     const indexes = getIndexes();
 
@@ -196,46 +217,46 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
     });
   };
 
-  const onChange = (columnIndex: number) => {
+  const handleChange = (columnIndex: number) => {
     if (dataType === 'cascade') {
       onCascadeChange(columnIndex);
     }
-    if (props.onChange) {
+    if (onChange) {
       if (dataType === 'plain') {
-        props.onChange(getColumnValue(0), getColumnIndex(0));
+        onChange(getColumnValue(0), getColumnIndex(0));
       } else {
-        props.onChange(getValues(), columnIndex);
+        onChange(getValues(), columnIndex);
       }
     }
   };
 
   const confirm = () => {
-    if (props.onConfirm) {
+    if (onConfirm) {
       if (dataType === 'plain') {
-        props.onConfirm(getColumnValue(0), getColumnIndex(0));
+        onConfirm(getColumnValue(0), getColumnIndex(0));
       } else {
-        props.onConfirm(getValues(), getIndexes());
+        onConfirm(getValues(), getIndexes());
       }
     }
   };
 
   const cancel = () => {
     if (dataType === 'plain') {
-      props.onCancel?.(getColumnValue(0), getColumnIndex(0));
+      onCancel?.(getColumnValue(0), getColumnIndex(0));
     } else {
-      props.onCancel?.(getValues(), getIndexes());
+      onCancel?.(getValues(), getIndexes());
     }
   };
 
   const renderTitle = () => {
-    if (props.title) {
-      return <div className={classNames(bem('title'), 'rc-ellipsis')}>{props.title}</div>;
+    if (title) {
+      return <div className={classNames(bem('title'), 'rc-ellipsis')}>{title}</div>;
     }
     return null;
   };
 
   const renderCancel = () => {
-    const text = props.cancelButtonText || '取消';
+    const text = cancelButtonText || '取消';
     return (
       <button type="button" className={classNames(bem('cancel'))} onClick={cancel}>
         {text}
@@ -244,7 +265,7 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
   };
 
   const renderConfirm = () => {
-    const text = props.confirmButtonText || '确认';
+    const text = confirmButtonText || '确认';
     return (
       <button type="button" className={classNames(bem('confirm'))} onClick={confirm}>
         {text}
@@ -253,9 +274,9 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
   };
 
   const renderToolbar = () => {
-    return props.showToolbar ? (
+    return showToolbar ? (
       <div className={classNames(bem('toolbar'))}>
-        {props.toolbar || (
+        {toolbar || (
           <>
             {renderCancel()}
             {renderTitle()}
@@ -270,24 +291,24 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
     formattedColumns.map((item, columnIndex) => (
       <Column
         key={String(columnIndex)}
-        optionRender={props.optionRender}
+        optionRender={optionRender}
         ref={setRefs(columnIndex)}
         textKey={textKey}
-        readonly={props.readonly}
+        readonly={readonly}
         className={item.className}
         itemHeight={itemHeight}
-        defaultIndex={item.defaultIndex ?? +props.defaultIndex}
-        swipeDuration={props.swipeDuration}
-        visibleItemCount={props.visibleItemCount}
+        defaultIndex={item.defaultIndex ?? +defaultIndex}
+        swipeDuration={swipeDuration}
+        visibleItemCount={visibleItemCount}
         initialOptions={item[valuesKey]}
         onChange={() => {
-          onChange(columnIndex);
+          handleChange(columnIndex);
         }}
       />
     ));
 
   const renderColumns = () => {
-    const wrapHeight = itemHeight * props.visibleItemCount;
+    const wrapHeight = itemHeight * visibleItemCount;
     const frameStyle = { height: `${itemHeight}px` };
     const columnsStyle = { height: `${wrapHeight}px` };
     const maskStyle = {
@@ -305,7 +326,7 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
 
   useEffect(() => {
     format();
-  }, [props.columns]);
+  }, [columns, dataType, valuesKey, childrenKey]);
 
   useEventListener('touchmove', preventDefault, {
     target: wrapper.current,
@@ -327,25 +348,16 @@ const Picker = forwardRef<PickerInstance, PickerProps>((props, ref) => {
   }));
 
   return (
-    <div className={classNames(bem(), props.className)}>
-      {props.toolbarPosition === 'top' ? renderToolbar() : null}
-      {props.loading ? <Loading className={classNames(bem('loading'))} /> : null}
-      {props.columnsTop}
+    <div className={classNames(bem(), className)}>
+      {toolbarPosition === 'top' ? renderToolbar() : null}
+      {loading ? <Loading className={classNames(bem('loading'))} /> : null}
+      {columnsTop}
       {renderColumns()}
-      {props.columnsBottom}
-      {props.toolbarPosition === 'bottom' ? renderToolbar() : null}
+      {columnsBottom}
+      {toolbarPosition === 'bottom' ? renderToolbar() : null}
     </div>
   );
 });
-
-Picker.defaultProps = {
-  itemHeight: 44,
-  visibleItemCount: 5,
-  swipeDuration: 1000,
-  defaultIndex: 0,
-  showToolbar: true,
-  toolbarPosition: 'top',
-};
 
 Picker.displayName = 'Picker';
 

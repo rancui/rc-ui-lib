@@ -5,18 +5,26 @@ import useEventVisible from './utils/useEventVisible';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import { LazyloadImageProps } from './PropsType';
 
+const DEFAULT_EVENT_OPTIONS = {
+  listenEvents: DEFAULT_EVENTS,
+  scrollContainer: document.body,
+  offset: 0,
+  debounce: 300,
+  throttle: 0,
+};
+
 const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('lazyload-image', prefixCls);
 
   const {
     className,
-    type,
+    type = 'image',
     style: incomingStyle,
     image,
-    errorImage,
-    loading,
-    eventOptions,
+    errorImage = DEFAULT_URL,
+    loading = null,
+    eventOptions = DEFAULT_EVENT_OPTIONS,
     height,
     width,
     onLoaded,
@@ -74,19 +82,6 @@ const LazyloadImage: React.FC<LazyloadImageProps> = (props) => {
           )}
     </>
   );
-};
-
-LazyloadImage.defaultProps = {
-  loading: null,
-  eventOptions: {
-    listenEvents: DEFAULT_EVENTS,
-    scrollContainer: document.body,
-    offset: 0,
-    debounce: 300,
-    throttle: 0,
-  },
-  type: 'image',
-  errorImage: DEFAULT_URL,
 };
 
 export default LazyloadImage;

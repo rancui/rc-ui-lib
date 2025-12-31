@@ -65,6 +65,11 @@ exports[`Calendar should render correctly when using color prop 1`] = `
         class="rc-calendar__month"
       >
         <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
+        <div
           class="rc-calendar__days"
           role="grid"
         >
@@ -395,6 +400,11 @@ exports[`Calendar should render correctly when using confirmText prop 1`] = `
         class="rc-calendar__month"
       >
         <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
+        <div
           class="rc-calendar__days"
           role="grid"
         >
@@ -724,6 +734,11 @@ exports[`Calendar should render correctly when using formatter prop 1`] = `
       <div
         class="rc-calendar__month"
       >
+        <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
         <div
           class="rc-calendar__days"
           role="grid"
@@ -1065,6 +1080,11 @@ exports[`Calendar should render correctly when using rowHeight prop 1`] = `
         class="rc-calendar__month"
       >
         <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
+        <div
           class="rc-calendar__days"
           role="grid"
         >
@@ -1394,6 +1414,11 @@ exports[`Calendar should render correctly when using scrollToDate method 1`] = `
       <div
         class="rc-calendar__month"
       >
+        <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
         <div
           class="rc-calendar__days"
           role="grid"
@@ -1727,6 +1752,11 @@ exports[`Calendar should render correctly when using title、footer、subtitle p
         class="rc-calendar__month"
       >
         <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
+        <div
           class="rc-calendar__days"
           role="grid"
         >
@@ -2042,6 +2072,11 @@ exports[`Calendar should render top-info and bottom-info slot correctly 1`] = `
       <div
         class="rc-calendar__month"
       >
+        <div
+          class="rc-calendar__month-title"
+        >
+          2010年1月
+        </div>
         <div
           class="rc-calendar__days"
           role="grid"

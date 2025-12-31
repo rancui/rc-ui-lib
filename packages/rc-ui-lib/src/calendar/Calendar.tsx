@@ -39,57 +39,93 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   const [bem] = createNamespace('calendar', prefixCls);
 
   const {
-    type,
-    title,
-    showTitle,
-    showSubtitle,
-    firstDayOfWeek,
-    minDate,
-    maxDate,
-    safeAreaInsetBottom,
-    footer,
-    showConfirm,
+    type = 'single' as CalendarType,
+    title = '日期选择',
+    color = '#ee0a24',
+    rowHeight = 64,
+    poppable = true,
+    lazyRender = true,
+    showMark = true,
+    showTitle = true,
+    showSubtitle = true,
+    showConfirm = true,
+    showRangePrompt = true,
+    readonly = false,
+    firstDayOfWeek = 0,
+    footer = null,
+    minDate = getToday(),
+    maxDate = (() => {
+      const now = getToday();
+      return new Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
+    })(),
+    show = false,
+    position = 'bottom',
+    round = true,
+    closeOnPopstate = true,
+    closeOnClickOverlay = true,
+    safeAreaInsetBottom = true,
+    maxRange = null,
+    allowSameDay = false,
+
+    // 其他 props 直接解构出来使用
     className,
     style,
+    subtitle: subtitleProp,
+    confirmText,
+    confirmDisabledText,
+    teleport,
+    defaultDate,
+    onMonthShow,
+    onSelect,
+    onOverRange,
+    onUnselect,
+    onClickSubtitle,
+    onClose,
+    closeOnClickOverlay: closeOnClickOverlayProp, // 为防止混淆，如果需要可单独用
+    ...restProps // 如果后续有需要，可以用到
   } = props;
 
-  const limitDateRange = (date: Date, minDate = props.minDate, maxDate = props.maxDate) => {
-    if (compareDay(date, minDate) === -1) {
-      return minDate;
+  const limitDateRange = (date: Date, min: Date = minDate, max: Date = maxDate) => {
+    if (compareDay(date, min) === -1) {
+      return min;
     }
-    if (compareDay(date, maxDate) === 1) {
-      return maxDate;
+    if (compareDay(date, max) === 1) {
+      return max;
     }
     return date;
   };
 
-  const getInitialDate = (defaultDate = props.defaultDate): Date | Date[] => {
-    if (defaultDate === null) {
-      return defaultDate;
+  const getInitialDate = (initialDefaultDate: CalendarProps['defaultDate'] = defaultDate):
+    | Date
+    | Date[] => {
+    if (initialDefaultDate === null) {
+      return initialDefaultDate;
     }
 
     const now = getToday();
 
     if (type === 'range') {
-      if (!Array.isArray(defaultDate)) {
-        defaultDate = [];
+      let d = initialDefaultDate;
+      if (!Array.isArray(d)) {
+        d = [];
       }
-      const start = limitDateRange(defaultDate[0] || now, minDate, getPrevDay(maxDate));
-      const end = limitDateRange(defaultDate[1] || now, getNextDay(minDate));
+      const start = limitDateRange(d[0] || now, minDate, getPrevDay(maxDate));
+      const end = limitDateRange(d[1] || now, getNextDay(minDate));
       return [start, end];
     }
 
     if (type === 'multiple') {
-      if (Array.isArray(defaultDate)) {
-        return defaultDate.map((date) => limitDateRange(date));
+      if (Array.isArray(initialDefaultDate)) {
+        return initialDefaultDate.map((date) => limitDateRange(date));
       }
       return [limitDateRange(now)];
     }
 
-    if (!defaultDate || Array.isArray(defaultDate)) {
-      defaultDate = now;
+    let d = initialDefaultDate;
+    if (!d || Array.isArray(d)) {
+      d = now;
     }
-    return limitDateRange(defaultDate);
+    return limitDateRange(d);
   };
 
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -118,15 +154,15 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
   const buttonDisabled = useMemo(() => {
     if (currentDate) {
-      if (props.type === 'range') {
+      if (type === 'range') {
         return !(currentDate as Date[])[0] || !(currentDate as Date[])[1];
       }
-      if (props.type === 'multiple') {
+      if (type === 'multiple') {
         return !(currentDate as Date[]).length;
       }
     }
     return !currentDate;
-  }, [props.type, currentDate]);
+  }, [type, currentDate]);
 
   const onScroll = () => {
     if (!bodyRef.current) return;
@@ -196,14 +232,14 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   };
 
   const scrollToCurrentDate = (date?: Date | Date[]) => {
-    if (props.poppable && !props.show) {
+    if (poppable && !show) {
       return;
     }
 
     const currentDate = date || getInitialDate();
     if (currentDate) {
       const targetDate =
-        props.type === 'single' ? (currentDate as Date) : (currentDate as Date[])[0];
+        type === 'single' ? (currentDate as Date) : (currentDate as Date[])[0];
       scrollToDate(targetDate);
     } else {
       raf(onScroll);
@@ -211,7 +247,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   };
 
   const init = () => {
-    if (props.poppable && !props.show) {
+    if (poppable && !show) {
       return;
     }
 
@@ -226,18 +262,18 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
     scrollToCurrentDate(date);
   };
 
-  const onConfirm = (date?: Date | Date[]) => {
+  const handleConfirm = (date?: Date | Date[]) => {
     props.onConfirm?.(cloneDates(date || currentDate));
   };
 
   const checkRange = (date: [Date, Date]) => {
-    const { maxRange, rangePrompt, showRangePrompt } = props;
+    const { rangePrompt } = props;
 
     if (maxRange && calcDateNum(date) > +maxRange) {
       if (showRangePrompt) {
         Toast(rangePrompt || t('rangePrompt', maxRange));
       }
-      props.onOverRange?.();
+      onOverRange?.();
       return false;
     }
 
@@ -247,17 +283,17 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
   const select = (date: Date | Date[], complete?: boolean) => {
     const toSetCurrentDate = (date: Date | Date[]) => {
       setCurrentDate(date);
-      props.onSelect?.(cloneDates(date));
+      onSelect?.(cloneDates(date));
     };
 
-    if (complete && props.type === 'range') {
+    if (complete && type === 'range') {
       const valid = checkRange(date as [Date, Date]);
 
       if (!valid) {
         // auto selected to max range
         toSetCurrentDate([
           (date as Date[])[0],
-          getDayByOffset((date as Date[])[0], +props.maxRange - 1),
+          getDayByOffset((date as Date[])[0], +maxRange - 1),
         ]);
         return;
       }
@@ -265,18 +301,17 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
     toSetCurrentDate(date);
 
-    if (complete && !props.showConfirm) {
-      onConfirm(date);
+    if (complete && !showConfirm) {
+      handleConfirm(date);
     }
   };
 
   const onClickDay = (item: CalendarDayItem) => {
-    if (props.readonly || !item.date) {
+    if (readonly || !item.date) {
       return;
     }
 
     const { date } = item;
-    const { type } = props;
     if (type === 'range') {
       if (!currentDate) {
         select([date]);
@@ -292,7 +327,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
           select([startDay, date], true);
         } else if (compareToStart === -1) {
           select([date]);
-        } else if (props.allowSameDay) {
+        } else if (allowSameDay) {
           select([date, date], true);
         }
       } else {
@@ -309,10 +344,10 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
       if (selectedIndex !== -1) {
         const [unselectedDate] = dates.splice(selectedIndex, 1);
-        props.onUnselect?.(cloneDate(unselectedDate));
+        onUnselect?.(cloneDate(unselectedDate));
         setCurrentDate([...dates]);
-      } else if (props.maxRange && dates.length >= +props.maxRange) {
-        Toast(props.rangePrompt || t('rangePrompt', props.maxRange));
+      } else if (maxRange && dates.length >= +maxRange) {
+        Toast(props.rangePrompt || t('rangePrompt', maxRange));
       } else {
         select([...dates, date]);
       }
@@ -331,18 +366,16 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
         currentDate={currentDate}
         showMonthTitle={showMonthTitle}
         firstDayOfWeek={dayOffset}
-        {...pick(props, [
-          'type',
-          'color',
-          'minDate',
-          'maxDate',
-          'showMark',
-          'formatter',
-          'rowHeight',
-          'lazyRender',
-          'showSubtitle',
-          'allowSameDay',
-        ])}
+        type={type}
+        color={color}
+        minDate={minDate}
+        maxDate={maxDate}
+        showMark={showMark}
+        formatter={props.formatter}
+        rowHeight={rowHeight}
+        lazyRender={lazyRender}
+        showSubtitle={showSubtitle}
+        allowSameDay={allowSameDay}
         onClick={onClickDay}
       />
     );
@@ -350,7 +383,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
   const renderFooter = () => {
     const disabled = buttonDisabled;
-    const text = disabled ? props.confirmDisabledText : props.confirmText;
+    const text = disabled ? confirmDisabledText : confirmText;
     return (
       <div className={classnames(bem('footer'), { 'rc-safe-area-bottom': safeAreaInsetBottom })}>
         {footer ||
@@ -359,11 +392,11 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
               round
               block
               type="danger"
-              color={props.color}
+              color={color}
               className={classnames(bem('confirm'))}
               disabled={buttonDisabled}
               nativeType="button"
-              onClick={() => onConfirm()}
+              onClick={() => handleConfirm()}
             >
               {text || '确认'}
             </Button>
@@ -376,12 +409,12 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
     <div className={classnames(bem(), className)} style={style}>
       <CalendarHeader
         title={title}
-        subtitle={props.subtitle || subtitle}
+        subtitle={subtitleProp || subtitle}
         showTitle={showTitle}
         showSubtitle={showSubtitle}
         firstDayOfWeek={firstDayOfWeek}
         onClickSubtitle={(event) => {
-          props.onClickSubtitle?.(event);
+          onClickSubtitle?.(event);
         }}
       />
       <div ref={bodyRef} className={classnames(bem('body'))} onScroll={onScroll}>
@@ -393,33 +426,33 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
 
   useEffect(() => {
     init();
-  }, [props.show]);
+  }, [show]);
 
   useUpdateEffect(() => {
     reset(getInitialDate());
   }, [props.type, props.minDate, props.maxDate]);
 
   useUpdateEffect(() => {
-    setCurrentDate(props.defaultDate);
+    setCurrentDate(defaultDate);
     scrollToCurrentDate();
-  }, [props.defaultDate]);
+  }, [defaultDate]);
 
   useImperativeHandle(ref, () => ({
     reset,
     scrollToDate,
   }));
 
-  return props.poppable ? (
+  return poppable ? (
     <Popup
-      visible={props.show}
+      visible={show}
       className={classnames(bem('popup'))}
-      round={props.round}
-      position={props.position}
-      closeable={props.showTitle || props.showSubtitle}
-      teleport={props.teleport}
-      closeOnClickOverlay={props.closeOnClickOverlay}
-      closeOnPopstate={props.closeOnPopstate}
-      onClose={() => props.onClose?.()}
+      round={round}
+      position={position}
+      closeable={showTitle || showSubtitle}
+      teleport={teleport}
+      closeOnClickOverlay={closeOnClickOverlay}
+      closeOnPopstate={closeOnPopstate}
+      onClose={() => onClose?.()}
     >
       {renderCalendar()}
     </Popup>
@@ -427,35 +460,5 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>((props, ref) => {
     <>{renderCalendar()}</>
   );
 });
-
-Calendar.defaultProps = {
-  type: 'single' as CalendarType,
-  title: '日期选择',
-  color: '#ee0a24',
-  rowHeight: 64,
-  poppable: true,
-  lazyRender: true,
-  showMark: true,
-  showTitle: true,
-  showSubtitle: true,
-  showConfirm: true,
-  showRangePrompt: true,
-  readonly: false,
-  firstDayOfWeek: 0,
-  footer: null,
-  minDate: getToday(),
-  maxDate: (() => {
-    const now = getToday();
-    return new Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
-  })(),
-  show: false,
-  position: 'bottom',
-  round: true,
-  closeOnPopstate: true,
-  closeOnClickOverlay: true,
-  safeAreaInsetBottom: true,
-  maxRange: null,
-  allowSameDay: false,
-};
 
 export default Calendar;

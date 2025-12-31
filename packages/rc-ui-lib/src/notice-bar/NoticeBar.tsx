@@ -14,7 +14,24 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 import PopupContext from '../popup/PopupContext';
 
 const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => {
-  const { text, color, background, wrapable, scrollable, speed, delay = 1 } = props;
+  const {
+    text,
+    color,
+    background,
+    wrapable,
+    scrollable,
+    speed = 60,
+    delay = 1,
+    leftIcon,
+    rightIcon,
+    mode,
+    onClose = noop,
+    onClick = noop,
+    onReplay,
+    children,
+    className,
+    style,
+  } = props;
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const popupContext = useContext(PopupContext);
   const [bem] = createNamespace('notice-bar', prefixCls);
@@ -33,43 +50,41 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
   const startTimer = useRef(null);
 
   const renderLeftIcon = () => {
-    if (typeof props.leftIcon !== 'string' && React.isValidElement(props.leftIcon)) {
-      return props.leftIcon;
+    if (typeof leftIcon !== 'string' && React.isValidElement(leftIcon)) {
+      return leftIcon;
     }
-    if (props.leftIcon) {
-      return <Icon className={classnames(bem('left-icon'))} name={props.leftIcon as string} />;
+    if (leftIcon) {
+      return <Icon className={classnames(bem('left-icon'))} name={leftIcon as string} />;
     }
     return null;
   };
 
   const getRightIconName = () => {
-    if (props.mode === 'closeable') {
+    if (mode === 'closeable') {
       return 'cross';
     }
-    if (props.mode === 'link') {
+    if (mode === 'link') {
       return 'arrow';
     }
     return '';
   };
 
-  const onClickRightIcon = (event) => {
-    if (props.mode === 'closeable') {
+  const handleClickRightIcon = (event: React.MouseEvent) => {
+    if (mode === 'closeable') {
       setState({ show: false });
-      if (props.onClose) {
-        props.onClose(event);
-      }
+      onClose(event);
     }
   };
 
   //  右侧图标
   const renderRightIcon = () => {
-    if (props.rightIcon) {
-      return props.rightIcon;
+    if (rightIcon) {
+      return rightIcon;
     }
     const name = getRightIconName();
     if (name) {
       return (
-        <Icon name={name} className={classnames(bem('right-icon'))} onClick={onClickRightIcon} />
+        <Icon name={name} className={classnames(bem('right-icon'))} onClick={handleClickRightIcon} />
       );
     }
     return null;
@@ -90,8 +105,8 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
           duration: (contentWidth.current + wrapWidth.current) / speed,
         });
 
-        if (props.onReplay) {
-          props.onReplay();
+        if (onReplay) {
+          onReplay();
         }
       });
     });
@@ -99,9 +114,9 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
 
   //  文字部分
   const renderMarquee = () => {
-    const ellipsis = scrollable === false && !props.wrapable;
+    const ellipsis = scrollable === false && !wrapable;
 
-    const style = {
+    const marqueeStyle = {
       transform: state.offset ? `translateX(${state.offset}px)` : '',
       transitionDuration: `${state.duration}s`,
     };
@@ -111,10 +126,10 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
         <div
           className={classnames(bem('content'), { 'rc-ellipsis': ellipsis })}
           ref={contentRef}
-          style={style}
+          style={marqueeStyle}
           onTransitionEnd={onTransitionEnd}
         >
-          {props.children || text}
+          {children || text}
         </div>
       </div>
     );
@@ -173,9 +188,9 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
     state.show && (
       <div
         role="alert"
-        className={classnames(bem({ wrapable }), props.className)}
-        style={{ color, background, ...props.style }}
-        onClick={props.onClick}
+        className={classnames(bem({ wrapable }), className)}
+        style={{ color, background, ...style }}
+        onClick={onClick}
       >
         {renderLeftIcon()}
         {renderMarquee()}
@@ -184,12 +199,5 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
     )
   );
 });
-
-NoticeBar.defaultProps = {
-  delay: 1,
-  speed: 60,
-  onClick: noop,
-  onClose: noop,
-};
 
 export default NoticeBar;

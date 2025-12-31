@@ -38,7 +38,7 @@ const Icon = (bem) => ({
 const Loading: React.FC<LoadingProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('loading', prefixCls);
-  const { className, type, vertical, color, size, textColor, children, textSize } = props;
+  const { className, type = 'circular', vertical, color, size, textColor, children, textSize } = props;
 
   const spinnerStyle = useMemo(
     () => ({
@@ -75,8 +75,5 @@ const Loading: React.FC<LoadingProps> = (props) => {
   );
 };
 
-Loading.defaultProps = {
-  type: 'circular',
-};
 
 export default Loading;

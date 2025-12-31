@@ -6,7 +6,7 @@ import { CalendarDayProps } from './PropsType';
 const CalendarDay: React.FC<CalendarDayProps> = (props) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('calendar', prefixCls);
-  const { item, index, color, offset, rowHeight } = props;
+  const { item, index, color, offset = 0, rowHeight } = props;
 
   const calcStyle = useMemo(() => {
     const style: React.CSSProperties = {
@@ -104,10 +104,6 @@ const CalendarDay: React.FC<CalendarDayProps> = (props) => {
       {renderContent()}
     </div>
   );
-};
-
-CalendarDay.defaultProps = {
-  offset: 0,
 };
 
 export default CalendarDay;

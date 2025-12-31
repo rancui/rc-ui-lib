@@ -14,12 +14,29 @@ import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 const List = forwardRef<ListInstance, ListProps>((props, ref) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('list', prefixCls);
+  const {
+    children,
+    direction = 'down',
+    offset = 300,
+    immediateCheck = true,
+    autoCheck = true,
+    loadingText = '加载中...',
+    finishedText = '没有更多了',
+    loading: loadingProp,
+    error: errorProp,
+    finished,
+    errorText,
+    onLoad,
+  } = props;
+  const scrollOffset = offset;
+  const scrollDirection = direction;
+
   const [state, updateState] = useSetState({
-    loading: props.loading,
-    error: props.error,
+    loading: loadingProp,
+    error: errorProp,
   });
 
-  const errorRecent = useRef(props.error);
+  const errorRecent = useRef(errorProp);
 
   const root = useRef<HTMLDivElement>();
   const scrollParent = useRef(null);
@@ -29,11 +46,10 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
 
   // 判断是否需要加载
   const check = async () => {
-    if (!props.onLoad) return;
-    if (state.loading || props.finished || errorRecent.current) {
+    if (!onLoad) return;
+    if (state.loading || finished || errorRecent.current) {
       return;
     }
-    const { offset, direction } = props;
     const scrollParentRect = getRect(scrollParent.current);
 
     if (!scrollParentRect.height || isHidden(root.current)) {
@@ -42,15 +58,15 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
 
     let isReachEdge = false;
     const placeholderRect = getRect(placeholder.current);
-    if (direction === 'up') {
-      isReachEdge = scrollParentRect.top - placeholderRect.top <= +offset;
+    if (scrollDirection === 'up') {
+      isReachEdge = scrollParentRect.top - placeholderRect.top <= +scrollOffset;
     } else {
-      isReachEdge = placeholderRect.bottom - scrollParentRect.bottom <= +offset;
+      isReachEdge = placeholderRect.bottom - scrollParentRect.bottom <= +scrollOffset;
     }
     if (isReachEdge) {
       try {
         updateState({ loading: true });
-        if (props.onLoad) await props.onLoad();
+        if (onLoad) await onLoad();
         updateState({ loading: false });
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -62,8 +78,8 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
   };
 
   const renderFinishedText = () => {
-    if (props.finished && props.finishedText) {
-      return <div className={classnames(bem('finished-text'))}>{props.finishedText}</div>;
+    if (finished && finishedText) {
+      return <div className={classnames(bem('finished-text'))}>{finishedText}</div>;
     }
     return null;
   };
@@ -75,10 +91,10 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
   };
 
   const renderErrorText = () => {
-    if (state.error && props.errorText) {
+    if (state.error && errorText) {
       return (
         <div className={classnames(bem('error-text'))} onClick={clickErrorText}>
-          {props.errorText}
+          {errorText}
         </div>
       );
     }
@@ -86,14 +102,14 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
   };
 
   const renderLoading = () => {
-    if (state.loading && !props.finished) {
+    if (state.loading && !finished) {
       return (
         <div className={classnames(bem('loading'))}>
-          {isValidElement(props.loadingText) ? (
-            props.loadingText
+          {isValidElement(loadingText) ? (
+            loadingText
           ) : (
             <Loading className={classnames(bem('loading-icon'))} size={16}>
-              {props.loadingText}
+              {loadingText}
             </Loading>
           )}
         </div>
@@ -103,25 +119,25 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
   };
 
   useUpdateEffect(() => {
-    if (props.autoCheck) {
+    if (autoCheck) {
       check();
     }
-  }, [state.loading, props.finished, props.error]);
+  }, [state.loading, finished, errorProp]);
 
   useUpdateEffect(() => {
-    updateState({ loading: props.loading, error: props.error });
-    errorRecent.current = props.error;
-  }, [props.loading, props.error]);
+    updateState({ loading: loadingProp, error: errorProp });
+    errorRecent.current = errorProp;
+  }, [loadingProp, errorProp]);
 
   useUpdateEffect(() => {
-    if (scrollParent.current && props.immediateCheck) {
+    if (scrollParent.current && immediateCheck) {
       check();
     }
   }, [scrollParent.current]);
 
   useEventListener('scroll', check, {
     target: scrollParent.current,
-    depends: [state.loading, props.finished, state.error],
+    depends: [state.loading, finished, state.error],
   });
 
   useImperativeHandle(ref, () => ({
@@ -133,22 +149,13 @@ const List = forwardRef<ListInstance, ListProps>((props, ref) => {
 
   return (
     <div ref={root} role="feed" className={classnames(bem())} aria-busy={state.loading}>
-      {props.direction === 'down' ? props.children : Placeholder}
+      {direction === 'down' ? children : Placeholder}
       {renderLoading()}
       {renderFinishedText()}
       {renderErrorText()}
-      {props.direction === 'up' ? props.children : Placeholder}
+      {direction === 'up' ? children : Placeholder}
     </div>
   );
 });
-
-List.defaultProps = {
-  offset: 300,
-  direction: 'down',
-  immediateCheck: true,
-  autoCheck: true,
-  loadingText: '加载中...',
-  finishedText: '没有更多了',
-};
 
 export default List;

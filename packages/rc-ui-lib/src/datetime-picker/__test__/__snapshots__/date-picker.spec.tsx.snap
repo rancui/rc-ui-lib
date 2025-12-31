@@ -566,18 +566,6 @@ exports[`DatePicker columnsOrder prop 1`] = `
             <div
               class="rc-ellipsis"
             >
-              2014
-            </div>
-          </li>
-          <li
-            class="rc-picker-column__item"
-            role="button"
-            style="height: 44px;"
-            tabindex="0"
-          >
-            <div
-              class="rc-ellipsis"
-            >
               2015
             </div>
           </li>
@@ -807,6 +795,18 @@ exports[`DatePicker columnsOrder prop 1`] = `
               class="rc-ellipsis"
             >
               2034
+            </div>
+          </li>
+          <li
+            class="rc-picker-column__item"
+            role="button"
+            style="height: 44px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-ellipsis"
+            >
+              2035
             </div>
           </li>
         </ul>

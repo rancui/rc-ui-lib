@@ -225,6 +225,10 @@ export default {
                 title: 'Badge 徽标',
               },
               {
+                path: 'card',
+                title: 'Card 卡片',
+              },
+              {
                 path: 'circle',
                 title: 'Circle 环形进度条',
               },

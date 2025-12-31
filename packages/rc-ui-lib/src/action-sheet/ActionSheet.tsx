@@ -8,26 +8,50 @@ import Popup from '../popup';
 import { sharedPopupProps } from '../popup/Popup';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-const ActionSheet: React.FC<ActionSheetProps> = (props) => {
+const ActionSheet: React.FC<ActionSheetProps> = ({
+  // 这里是 ActionSheet 自身逻辑直接用到的 props
+  title,
+  description,
+  cancelText,
+  actions,
+  visible,
+  children,
+  closeOnClickAction,
+  onClose,
+  onCancel,
+  onSelect,
+
+  // 这些是原来 defaultProps 里的字段，在这里直接写默认值
+  closeIcon = 'cross',
+  closeable = true,
+  safeAreaInsetBottom = true,
+  round = true,
+  lockScroll = true,
+  overlay = true,
+  closeOnClickOverlay = true,
+
+  // 其他传给 Popup 的属性，保持透传
+  ...restProps
+}: ActionSheetProps) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('action-sheet', prefixCls);
 
-  const onCancel = () => {
-    props.onClose?.();
-    props.onCancel?.();
+  const onCancelClick = () => {
+    onClose?.();
+    onCancel?.();
   };
 
   const renderHeader = () => {
-    if (!props.title) return null;
+    if (!title) return null;
     return (
       <div className={classnames(bem('header'))}>
-        {props.title}
-        {props.closeable &&
-          (typeof props.closeIcon === 'string' ? (
-            <Icon name={props.closeIcon} className={classnames(bem('close'))} onClick={onCancel} />
+        {title}
+        {closeable &&
+          (typeof closeIcon === 'string' ? (
+            <Icon name={closeIcon} className={classnames(bem('close'))} onClick={onCancelClick} />
           ) : (
-            <div className={classnames(bem('close'))} onClick={onCancel}>
-              {props.closeIcon}
+            <div className={classnames(bem('close'))} onClick={onCancelClick}>
+              {closeIcon}
             </div>
           ))}
       </div>
@@ -35,16 +59,16 @@ const ActionSheet: React.FC<ActionSheetProps> = (props) => {
   };
 
   const renderCancel = () => {
-    if (!props.cancelText) return null;
+    if (!cancelText) return null;
     return [
       <div key="cancel-gap" className={classnames(bem('gap'))} />,
       <button
         key="cancel-btn"
         type="button"
         className={classnames(bem('cancel'))}
-        onClick={onCancel}
+        onClick={onCancelClick}
       >
-        {props.cancelText}
+        {cancelText}
       </button>,
     ];
   };
@@ -76,11 +100,11 @@ const ActionSheet: React.FC<ActionSheetProps> = (props) => {
         callback(item);
       }
 
-      if (props.closeOnClickAction) {
+      if (closeOnClickAction) {
         onCancel();
       }
       setTimeout(() => {
-        props.onSelect?.(item, index);
+        onSelect?.(item, index);
       }, 0);
     };
 
@@ -98,25 +122,40 @@ const ActionSheet: React.FC<ActionSheetProps> = (props) => {
   };
 
   const renderDescription = () => {
-    if (props.description) {
-      return <div className={classnames(bem('description'))}>{props.description}</div>;
+    if (description) {
+      return <div className={classnames(bem('description'))}>{description}</div>;
     }
     return null;
   };
 
   const renderOptions = () => {
-    if (props.actions) {
-      return props.actions.map(renderOption);
+    if (actions) {
+      return actions.map(renderOption);
     }
     return null;
   };
 
+  // 这里组装一个带默认值的 props 对象，再交给 pick 过滤出 Popup 需要的那一部分
+  const popupPropsSource = {
+    visible,
+    closeIcon,
+    closeable,
+    safeAreaInsetBottom,
+    round,
+    lockScroll,
+    overlay,
+    closeOnClickOverlay,
+    onClose,
+    ...restProps,
+  };
+
+
   return (
     <Popup
-      visible={props.visible}
+      visible={visible}
       className={classnames(bem())}
       position="bottom"
-      {...pick(props, sharedPopupProps)}
+      {...pick(popupPropsSource, sharedPopupProps)}
       onClose={onCancel}
       closeable={false}
     >
@@ -124,21 +163,11 @@ const ActionSheet: React.FC<ActionSheetProps> = (props) => {
       {renderDescription()}
       <div className={classnames(bem('content'))}>
         {renderOptions()}
-        {props.children}
+        {children}
       </div>
       {renderCancel()}
     </Popup>
   );
-};
-
-ActionSheet.defaultProps = {
-  closeIcon: 'cross',
-  closeable: true,
-  safeAreaInsetBottom: true,
-  round: true,
-  lockScroll: true,
-  overlay: true,
-  closeOnClickOverlay: true,
 };
 
 export default ActionSheet;

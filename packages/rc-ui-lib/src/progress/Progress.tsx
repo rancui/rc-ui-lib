@@ -5,19 +5,30 @@ import { addUnit } from '../utils';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const Progress: React.FC<ProgressProps> = (props) => {
+  const {
+    percentage = 0,
+    strokeWidth = '4px',
+    color = '#1989fa',
+    trackColor = '#e5e5e5',
+    pivotColor = '',
+    textColor = 'white',
+    inactive = false,
+    showPivot = true,
+    pivotText,
+    className,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('progress', prefixCls);
-  const { inactive, color, trackColor, percentage, strokeWidth } = props;
 
   const background = useMemo(() => {
     return inactive ? undefined : color;
   }, [inactive, color]);
 
   const renderPivot = () => {
-    const { textColor, pivotText, pivotColor } = props;
     const text = pivotText ?? `${percentage}%`;
 
-    if (props.showPivot && text) {
+    if (showPivot && text) {
       const style = {
         color: textColor,
         left: `${+percentage}%`,
@@ -26,7 +37,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
       };
 
       return (
-        <span style={style} className={bem('pivot', { inactive: props.inactive }) as string}>
+        <span style={style} className={bem('pivot', { inactive }) as string}>
           {text}
         </span>
       );
@@ -43,11 +54,11 @@ const Progress: React.FC<ProgressProps> = (props) => {
     background,
   };
   return (
-    <div className={classnames(props.className, bem())} style={rootStyle}>
+    <div className={classnames(className, bem())} style={rootStyle}>
       <span
         className={classnames(
           bem('portion', {
-            inactive: props.inactive,
+            inactive,
           }),
         )}
         style={portionStyle}
@@ -55,17 +66,6 @@ const Progress: React.FC<ProgressProps> = (props) => {
       {renderPivot()}
     </div>
   );
-};
-
-Progress.defaultProps = {
-  percentage: 0,
-  strokeWidth: '4px',
-  color: '#1989fa',
-  trackColor: '#e5e5e5',
-  pivotColor: '',
-  textColor: 'white',
-  inactive: false,
-  showPivot: true,
 };
 
 export default Progress;

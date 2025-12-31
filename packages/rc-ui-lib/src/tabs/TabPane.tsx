@@ -7,44 +7,48 @@ import { useUpdateEffect } from '../hooks';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
+  const { showZeroBadge = true, name, index, title, children } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('tab', prefixCls);
   const parent = useContext(TabsContext);
 
   const [inited, setInited] = useState(false);
 
-  const { animated, swipeable, scrollspy, lazyRender } = parent.props;
-  const { index } = props;
+  const parentProps = parent?.props || {};
+  const { animated, swipeable, scrollspy, lazyRender = true } = parentProps;
 
-  const getName = () => props.name ?? index;
+  const getName = () => name ?? index;
 
   const init = () => {
     setInited(true);
   };
 
   const isActive = useMemo(() => {
-    const active = getName() === parent.currentName;
+    const active = getName() === parent?.currentName;
 
     if (active && !inited) {
       init();
     }
 
     return active;
-  }, [inited, parent.currentName]);
+  }, [inited, parent?.currentName, name, index]);
 
   useUpdateEffect(() => {
-    parent.setLine();
-    parent.scrollIntoView();
-  }, [props.title]);
+    if (parent?.setLine && parent?.scrollIntoView) {
+      parent.setLine();
+      parent.scrollIntoView();
+    }
+  }, [title]);
 
   const show = scrollspy || isActive;
 
   if (animated || swipeable) {
-    return <div className={classnames(bem('pane'))}>{props.children}</div>;
+    return <div className={classnames(bem('pane'))}>{children}</div>;
   }
 
   const shouldRender = inited || scrollspy || !lazyRender;
-  const Content = shouldRender ? props.children : null;
+  const Content = shouldRender ? children : null;
 
   return (
     <div
@@ -57,9 +61,5 @@ const TabPane = forwardRef<HTMLDivElement, TabPaneProps>((props, ref) => {
     </div>
   );
 });
-
-TabPane.defaultProps = {
-  showZeroBadge: true,
-};
 
 export default TabPane;

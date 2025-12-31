@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { noop } from '../utils';
 import { AlertDialogProps, DialogProps, DialogStatic } from './PropsType';
@@ -28,30 +28,40 @@ Dialog.show = (props: DialogProps) => {
     onClose = noop,
     cancelProps,
     confirmProps,
+    closeOnClickOverlay,
     ...restProps
   } = props;
 
   const userContainer = resolveContainer(props.teleport);
   const container = document.createElement('div');
   userContainer.appendChild(container);
-  let destroy = noop;
+  const destroyRef = { current: noop };
 
   const TempDialog = () => {
     const [visible, setVisible] = useState(false);
     const [cancelLoading, setCancelLoading] = useState(false);
     const [okLoading, setOkLoading] = useState(false);
+    const onCloseRef = useRef(onClose);
+    const onCancelRef = useRef(onCancel);
+    const onClosedRef = useRef(onClosed);
 
     useEffect(() => {
       setVisible(true);
     }, []);
 
-    destroy = () => {
+    useEffect(() => {
+      onCloseRef.current = onClose;
+      onCancelRef.current = onCancel;
+      onClosedRef.current = onClosed;
+    }, [onClose, onCancel, onClosed]);
+
+    destroyRef.current = () => {
       setVisible(false);
-      if (onClose) onClose();
+      if (onCloseRef.current) onCloseRef.current();
     };
     const _afterClose = () => {
-      if (onClosed) {
-        onClosed();
+      if (onClosedRef.current) {
+        onClosedRef.current();
       }
       const unmountResult = unmount(container);
       if (unmountResult && container.parentNode) {
@@ -63,7 +73,7 @@ Dialog.show = (props: DialogProps) => {
       const i = setTimeout(() => setOkLoading(true));
       if ((await onConfirm(e)) !== false) {
         clearTimeout(i);
-        destroy();
+        destroyRef.current();
       } else {
         clearTimeout(i);
         setOkLoading(false);
@@ -71,16 +81,26 @@ Dialog.show = (props: DialogProps) => {
     };
     const _onCancel = async (e, clickOverlay?) => {
       if (clickOverlay) {
-        destroy();
+        if (onCancelRef.current) {
+          await onCancelRef.current(e);
+        }
+        destroyRef.current();
         return;
       }
       const i = setTimeout(() => setCancelLoading(true));
-      if ((await onCancel(e)) !== false) {
+      if ((await onCancelRef.current(e)) !== false) {
         clearTimeout(i);
-        destroy();
+        destroyRef.current();
       } else {
         clearTimeout(i);
         setCancelLoading(false);
+      }
+    };
+
+    const _onClickOverlay = (event: React.MouseEvent) => {
+      const shouldClose = closeOnClickOverlay !== undefined ? closeOnClickOverlay : defaultOptions.closeOnClickOverlay;
+      if (shouldClose) {
+        _onCancel(event, true);
       }
     };
 
@@ -92,16 +112,18 @@ Dialog.show = (props: DialogProps) => {
         teleport={() => container}
         cancelProps={{ loading: cancelLoading, ...cancelProps }}
         confirmProps={{ loading: okLoading, ...confirmProps }}
-        onClose={destroy}
+        onClose={destroyRef.current}
         onCancel={_onCancel}
         onConfirm={_onConfirm}
         onClosed={_afterClose}
+        onClickOverlay={_onClickOverlay}
+        closeOnClickOverlay={closeOnClickOverlay !== undefined ? closeOnClickOverlay : defaultOptions.closeOnClickOverlay}
       />
     );
   };
   render(<TempDialog />, container);
 
-  return destroy;
+  return () => destroyRef.current();
 };
 
 // 可使用 async/await 的方式
@@ -128,11 +150,16 @@ Dialog.confirm = (props: DialogProps): Promise<boolean> => {
       ...props,
       onCancel: (e) => {
         onCancel(e);
-        reject();
+        // Use setTimeout to ensure the promise rejection is handled after the click event
+        setTimeout(() => {
+          reject(new Error('Dialog cancelled'));
+        }, 0);
       },
       onConfirm: (e) => {
         onConfirm(e);
-        resolve(true);
+        setTimeout(() => {
+          resolve(true);
+        }, 0);
       },
     });
   });

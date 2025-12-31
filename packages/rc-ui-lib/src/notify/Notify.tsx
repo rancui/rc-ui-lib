@@ -4,38 +4,47 @@ import Popup from '../popup';
 import { NotifyPrivateProps, NotifyProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-const Notify: React.FC<NotifyProps & NotifyPrivateProps> = ({ children, ...props }) => {
+const Notify: React.FC<NotifyProps & NotifyPrivateProps> = ({
+  children,
+  type = 'danger',
+  duration = 3000,
+  color = 'white',
+  lockScroll = false,
+  visible,
+  background,
+  message,
+  className,
+  onClick,
+  onClose,
+  onClosed,
+  teleport,
+  ...restProps
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('notify', prefixCls);
 
   const style = {
-    color: props.color,
-    background: props.background,
+    color,
+    background,
   };
 
   return (
     <Popup
-      visible={props.visible}
-      className={classnames(bem([props.type]), props.className)}
+      visible={visible}
+      className={classnames(bem([type]), className)}
       style={style}
       overlay={false}
       position="top"
-      lockScroll={props.lockScroll}
-      onClick={props.onClick}
-      onClose={props.onClose}
-      onClosed={props.onClosed}
-      teleport={props.teleport}
+      lockScroll={lockScroll}
+      onClick={onClick}
+      onClose={onClose}
+      onClosed={onClosed}
+      teleport={teleport}
+      {...restProps}
     >
-      {children || props.message}
+      {children || message}
     </Popup>
   );
-};
-
-Notify.defaultProps = {
-  type: 'danger',
-  duration: 3000,
-  color: 'white',
-  lockScroll: false,
 };
 
 export default Notify;

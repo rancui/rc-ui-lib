@@ -143,7 +143,7 @@ describe('Tabs', () => {
 
   it('should render correctly when set scrollspy prop', async () => {
     const onChange = jest.fn();
-    Date.now = jest.fn(() => 1482363367071);
+    //Date.now = jest.fn(() => 1482363367071);
     const scrollspyConfig = {
       autoFocusLast: true,
       reachBottomThreshold: 50,
@@ -302,7 +302,7 @@ describe('Tabs test with testing library', () => {
 
   it('should swipe to switch tab', async () => {
     const onChange = jest.fn();
-    Date.now = jest.fn(() => 1482363367071);
+    //Date.now = jest.fn(() => 1482363367071);
     const { container } = render(
       <Tabs sticky active="b" swipeable onChange={onChange}>
         <Tabs.TabPane title="title1" name="a">

@@ -18,8 +18,16 @@ interface NumberKeyboardKeyProps extends BaseTypeProps {
   onPress: (text: string, type: KeyType) => void;
 }
 
-const NumberKeyboardKey: React.FC<NumberKeyboardKeyProps> = (props) => {
-  const { type, text, color, wider, large, loading, onPress, children } = props;
+const NumberKeyboardKey: React.FC<NumberKeyboardKeyProps> = ({
+  type,
+  text,
+  color = '',
+  wider = false,
+  large = false,
+  loading = false,
+  onPress,
+  children,
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('key', prefixCls);
 
@@ -109,13 +117,6 @@ const NumberKeyboardKey: React.FC<NumberKeyboardKeyProps> = (props) => {
       </div>
     </div>
   );
-};
-
-NumberKeyboardKey.defaultProps = {
-  color: '',
-  wider: false,
-  large: false,
-  loading: false,
 };
 
 export default NumberKeyboardKey;

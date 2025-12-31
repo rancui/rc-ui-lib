@@ -5,7 +5,7 @@ import { BORDER_TOP_BOTTOM } from '../utils/constant';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
 const CellGroup: React.FC<CellGroupProps> = (props) => {
-  const { title, border, inset } = props;
+  const { title, border = true, inset } = props;
 
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('cell-group', prefixCls);
@@ -27,10 +27,6 @@ const CellGroup: React.FC<CellGroupProps> = (props) => {
     );
 
   return renderGroup();
-};
-
-CellGroup.defaultProps = {
-  border: true,
 };
 
 export default CellGroup;

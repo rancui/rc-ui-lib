@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { ShareSheetOption, ShareSheetProps } from './PropsType';
-import { pick } from '../utils';
 import Popup from '../popup';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
@@ -24,19 +23,37 @@ function getIconURL(icon: string) {
 }
 
 const ShareSheet: React.FC<ShareSheetProps> = (props) => {
+  const {
+    cancelText = '取消',
+    options = [],
+    closeOnPopstate = true,
+    safeAreaInsetBottom = true,
+    closeOnClickOverlay = true,
+    title,
+    description,
+    onCancel,
+    onSelect,
+    visible,
+    overlay,
+    duration,
+    lockScroll,
+    overlayStyle,
+    overlayClass,
+    className,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('share-sheet', prefixCls);
 
-  const onCancel = () => {
-    props.onCancel?.();
+  const handleCancel = () => {
+    onCancel?.();
   };
 
-  const onSelect = (option: ShareSheetOption, index: number) => {
-    props.onSelect?.(option, index);
+  const handleSelect = (option: ShareSheetOption, index: number) => {
+    onSelect?.(option, index);
   };
 
   const renderHeader = () => {
-    const { title, description } = props;
     if (title || description) {
       return (
         <div className={classnames(bem('header'))}>
@@ -49,32 +66,31 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
   };
 
   const renderOption = (option: ShareSheetOption, index: number) => {
-    const { name, icon, className, description } = option;
+    const { name, icon, className: optionClassName, description: optionDescription } = option;
     return (
       <div
         key={index}
         role="button"
         tabIndex={0}
-        className={classnames([bem('option'), className])}
-        onClick={() => onSelect(option, index)}
+        className={classnames([bem('option'), optionClassName])}
+        onClick={() => handleSelect(option, index)}
       >
         <img alt="share sheet icon" src={getIconURL(icon)} className={classnames(bem('icon'))} />
         {name && <span className={classnames(bem('name'))}>{name}</span>}
-        {description && (
-          <span className={classnames(bem('option-description'))}>{description}</span>
+        {optionDescription && (
+          <span className={classnames(bem('option-description'))}>{optionDescription}</span>
         )}
       </div>
     );
   };
 
-  const renderOptions = (options: ShareSheetOption[], border?: boolean, key?: React.Key) => (
+  const renderOptions = (optionsList: ShareSheetOption[], border?: boolean, key?: React.Key) => (
     <div key={key} className={classnames(bem('options', { border }))}>
-      {options.map(renderOption)}
+      {optionsList.map(renderOption)}
     </div>
   );
 
   const renderRows = () => {
-    const { options } = props;
     if (Array.isArray(options[0])) {
       return (options as ShareSheetOption[][]).map((item, index) =>
         renderOptions(item, index !== 0, index),
@@ -84,10 +100,9 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
   };
 
   const renderCancelButton = () => {
-    const { cancelText } = props;
     if (cancelText) {
       return (
-        <button type="button" className={classnames(bem('cancel'))} onClick={onCancel}>
+        <button type="button" className={classnames(bem('cancel'))} onClick={handleCancel}>
           {cancelText}
         </button>
       );
@@ -97,34 +112,24 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
   return (
     <Popup
       round
-      className={classnames(bem())}
+      className={classnames(bem(), className)}
       position="bottom"
-      onClose={onCancel}
-      {...pick(props, [
-        'closeOnPopstate',
-        'safeAreaInsetBottom',
-        'visible',
-        'overlay',
-        'duration',
-        'lockScroll',
-        'overlayStyle',
-        'overlayClass',
-        'closeOnClickOverlay',
-      ])}
+      onClose={handleCancel}
+      closeOnPopstate={closeOnPopstate}
+      safeAreaInsetBottom={safeAreaInsetBottom}
+      visible={visible}
+      overlay={overlay}
+      duration={duration}
+      lockScroll={lockScroll}
+      overlayStyle={overlayStyle}
+      overlayClass={overlayClass}
+      closeOnClickOverlay={closeOnClickOverlay}
     >
       {renderHeader()}
       {renderRows()}
       {renderCancelButton()}
     </Popup>
   );
-};
-
-ShareSheet.defaultProps = {
-  cancelText: '取消',
-  options: [],
-  closeOnPopstate: true,
-  safeAreaInsetBottom: true,
-  closeOnClickOverlay: true,
 };
 
 export default ShareSheet;

@@ -27,38 +27,57 @@ const ROTATE_ANGLE_MAP: Record<CircleStartPosition, number> = {
 };
 
 const Circle: React.FC<CircleProps> = (props) => {
+  const {
+    clockwise = true,
+    speed = 100,
+    fill = 'none',
+    strokeWidth = 40,
+    startPosition = 'top',
+    defaultRate,
+    rate,
+    strokeLinecap,
+    color,
+    layerColor,
+    size,
+    text,
+    children,
+    className,
+    style,
+    onChange,
+  } = props;
+
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('circle', prefixCls);
 
   const id = `rc-circle-${uid++}`;
 
-  const [currentRate, setCurrentRate] = useState(() => props.defaultRate || 0);
+  const [currentRate, setCurrentRate] = useState(() => defaultRate || 0);
 
-  const [rate] = useMergedState({
-    defaultValue: props.defaultRate,
-    value: props.rate,
+  const [rateValue] = useMergedState({
+    defaultValue: defaultRate,
+    value: rate,
   });
 
-  const viewBoxSize = useMemo(() => +props.strokeWidth + 1000, [props.strokeWidth]);
+  const viewBoxSize = useMemo(() => +strokeWidth + 1000, [strokeWidth]);
 
-  const path = useMemo(() => getPath(props.clockwise, viewBoxSize), [props.clockwise, viewBoxSize]);
+  const path = useMemo(() => getPath(clockwise, viewBoxSize), [clockwise, viewBoxSize]);
 
   const svgStyle = useMemo(() => {
-    const angleValue = ROTATE_ANGLE_MAP[props.startPosition];
+    const angleValue = ROTATE_ANGLE_MAP[startPosition];
     if (angleValue) {
       return {
         transform: `rotate(${angleValue}deg)`,
       };
     }
     return undefined;
-  }, [props.startPosition]);
+  }, [startPosition]);
 
   useEffect(() => {
     let rafId: number | undefined;
     const startTime = Date.now();
     const startRate = currentRate;
-    const endRate = format(rate);
-    const duration = Math.abs(((startRate - endRate) * 1000) / +props.speed);
+    const endRate = format(rateValue);
+    const duration = Math.abs(((startRate - endRate) * 1000) / +speed);
 
     const animate = () => {
       const now = Date.now();
@@ -67,57 +86,54 @@ const Circle: React.FC<CircleProps> = (props) => {
       const crate = format(parseFloat(tempRate.toFixed(1)));
 
       setCurrentRate(crate);
-      props.onChange?.(crate);
+      onChange?.(crate);
 
       if (endRate > currentRate ? tempRate < endRate : tempRate > endRate) {
         rafId = raf(animate);
       }
     };
 
-    if (props.speed) {
+    if (speed) {
       if (rafId) {
         cancelRaf(rafId);
       }
       rafId = raf(animate);
     } else {
       setCurrentRate(endRate);
-      props.onChange?.(endRate);
+      onChange?.(endRate);
     }
 
     return () => {
       cancelRaf(rafId);
     };
-  }, [rate]);
+  }, [rateValue]);
 
   const renderHover = () => {
     const PERIMETER = 3140;
-    const { strokeWidth, strokeLinecap } = props;
     const offset = (PERIMETER * currentRate) / 100;
-    const color = isObject(props.color) ? `url(#${id})` : props.color;
+    const colorValue = isObject(color) ? `url(#${id})` : color;
 
-    const style: CSSProperties = {
-      stroke: color,
+    const hoverStyle: CSSProperties = {
+      stroke: colorValue,
       strokeWidth: `${+strokeWidth + 1}px`,
       strokeLinecap,
       strokeDasharray: `${offset}px ${PERIMETER}px`,
     };
 
-    return <path d={path} style={style} className={classnames(bem('hover'))} stroke={color} />;
+    return <path d={path} style={hoverStyle} className={classnames(bem('hover'))} stroke={colorValue} />;
   };
 
   const renderLayer = () => {
-    const style = {
-      fill: props.fill,
-      stroke: props.layerColor,
-      strokeWidth: `${props.strokeWidth}px`,
+    const layerStyle = {
+      fill,
+      stroke: layerColor,
+      strokeWidth: `${strokeWidth}px`,
     };
 
-    return <path className={classnames(bem('layer'))} style={style} d={path} />;
+    return <path className={classnames(bem('layer'))} style={layerStyle} d={path} />;
   };
 
   const renderGradient = () => {
-    const { color } = props;
-
     if (!isObject(color)) {
       return null;
     }
@@ -137,16 +153,16 @@ const Circle: React.FC<CircleProps> = (props) => {
   };
 
   const renderText = () => {
-    if (props.text) {
-      return <div className={classnames(bem('text'))}>{props.text}</div>;
+    if (text) {
+      return <div className={classnames(bem('text'))}>{text}</div>;
     }
-    return props.children;
+    return children;
   };
 
   return (
     <div
-      className={classnames(bem(), props.className)}
-      style={{ ...props.style, ...getSizeStyle(props.size) }}
+      className={classnames(bem(), className)}
+      style={{ ...style, ...getSizeStyle(size) }}
     >
       <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} style={svgStyle}>
         {renderGradient()}
@@ -156,14 +172,6 @@ const Circle: React.FC<CircleProps> = (props) => {
       {renderText()}
     </div>
   );
-};
-
-Circle.defaultProps = {
-  clockwise: true,
-  speed: 100,
-  fill: 'none',
-  strokeWidth: 40,
-  startPosition: 'top',
 };
 
 export default Circle;

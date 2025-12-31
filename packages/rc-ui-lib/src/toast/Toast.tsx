@@ -1,5 +1,4 @@
-/* eslint-disable react/default-props-match-prop-types */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 
 import Icon from '../icon';
@@ -11,36 +10,56 @@ import { isDef } from '../utils';
 import { ToastPrivateProps, ToastProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-// eslint-disable-next-line react/require-default-props
-const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = (props) => {
-  let clickable = false;
+const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = ({
+  type = 'info',
+  duration = 2000,
+  position = 'middle',
+  transition = 'rc-fade',
+  loadingType = 'circular',
+  overlay = false,
+  visible,
+  forbidClick,
+  closeOnClick,
+  closeOnClickOverlay,
+  icon,
+  iconPrefix,
+  iconSize,
+  message,
+  className,
+  overlayClass,
+  overlayStyle,
+  onClose,
+  onClosed,
+  onOpened,
+  teleport,
+}) => {
+  const clickableRef = useRef(false);
 
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('toast', prefixCls);
 
-  const toggleClickable = () => {
-    const newValue = props.visible && props.forbidClick;
-    if (clickable !== newValue) {
-      clickable = newValue;
-      lockClick(clickable);
+  const toggleClickable = useCallback(() => {
+    const newValue = visible && forbidClick;
+    if (clickableRef.current !== newValue) {
+      clickableRef.current = newValue;
+      lockClick(clickableRef.current);
     }
-    if (!props.visible) {
+    if (!visible) {
       lockClick(false);
     }
-  };
+  }, [visible, forbidClick]);
 
-  const handleClick = () => {
-    if (props.closeOnClick) {
-      props.onClose?.();
+  const handleClick = useCallback(() => {
+    if (closeOnClick) {
+      onClose?.();
     }
-  };
+  }, [closeOnClick, onClose]);
 
   useEffect(() => {
     toggleClickable();
-  }, [props.visible, props.forbidClick]);
+  }, [toggleClickable]);
 
   const renderIcon = () => {
-    const { icon, type, iconPrefix, iconSize, loadingType } = props;
     const hasIcon = icon || type === 'success' || type === 'fail';
     if (hasIcon) {
       return typeof icon === 'string' ? (
@@ -63,7 +82,6 @@ const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = 
   };
 
   const renderMessage = () => {
-    const { message } = props;
     if (isDef(message) && message !== '') {
       return <div className={classnames(bem('info'))}>{message}</div>;
     }
@@ -73,35 +91,26 @@ const Toast: React.FC<ToastProps & ToastPrivateProps & { visible?: boolean }> = 
   return (
     <Popup
       className={classnames([
-        bem([props.position, { [props.type]: !props.icon }]),
-        props.className,
+        bem([position, { [type]: !icon }]),
+        className,
       ])}
-      visible={props.visible}
-      overlay={props.overlay}
-      transition={props.transition}
-      overlayClass={props.overlayClass}
-      overlayStyle={props.overlayStyle}
-      closeOnClickOverlay={props.closeOnClickOverlay}
+      visible={visible}
+      overlay={overlay}
+      transition={transition}
+      overlayClass={overlayClass}
+      overlayStyle={overlayStyle}
+      closeOnClickOverlay={closeOnClickOverlay}
       lockScroll={false}
       onClick={handleClick}
-      onClose={props.onClose}
-      onClosed={props.onClosed}
-      onOpened={props.onOpened}
-      teleport={props.teleport}
+      onClose={onClose}
+      onClosed={onClosed}
+      onOpened={onOpened}
+      teleport={teleport}
     >
       {renderIcon()}
       {renderMessage()}
     </Popup>
   );
-};
-
-Toast.defaultProps = {
-  type: 'info',
-  duration: 2000,
-  position: 'middle',
-  transition: 'rc-fade',
-  loadingType: 'circular',
-  overlay: false,
 };
 
 export default Toast;

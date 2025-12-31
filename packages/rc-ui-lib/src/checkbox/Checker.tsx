@@ -8,9 +8,10 @@ import { addUnit } from '../utils';
 
 const Checker: React.FC<CheckerProps<{}>> = (props) => {
   const iconRef = useRef(null);
+  const { bindGroup = true } = props;
 
   const getParentProp = (name: string) => {
-    if (props.parent && props.bindGroup) {
+    if (props.parent && bindGroup) {
       return props.parent.props[name];
     }
     return null;
@@ -49,7 +50,7 @@ const Checker: React.FC<CheckerProps<{}>> = (props) => {
   };
 
   const renderIcon = () => {
-    const { bem, shape, checked } = props;
+    const { bem, shape = 'round', checked } = props;
     const iconSize = props.iconSize || getParentProp('iconSize');
 
     return (
@@ -102,9 +103,5 @@ const Checker: React.FC<CheckerProps<{}>> = (props) => {
   );
 };
 
-Checker.defaultProps = {
-  shape: 'round',
-  bindGroup: true,
-};
 
 export default Checker;

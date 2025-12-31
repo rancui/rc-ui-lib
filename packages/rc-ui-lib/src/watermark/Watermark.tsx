@@ -1,29 +1,30 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
 import classnames from 'classnames';
 import { WatermarkProps } from './PropsType';
 import ConfigProviderContext from '../config-provider/ConfigProviderContext';
 
-const Watermark: React.FC<WatermarkProps> = (props) => {
+const Watermark: React.FC<WatermarkProps> = ({
+  width = 100,
+  height = 100,
+  zIndex = 100,
+  content,
+  image,
+  rotate = -22,
+  fullPage = false,
+  gapX = 0,
+  gapY = 0,
+  textColor = '#dcdee0',
+  opacity,
+  children,
+  className,
+}) => {
   const { prefixCls, createNamespace } = useContext(ConfigProviderContext);
   const [bem] = createNamespace('water-mark', prefixCls);
-  const {
-    width,
-    height,
-    zIndex,
-    content,
-    image,
-    rotate,
-    fullPage,
-    gapX,
-    gapY,
-    textColor,
-    opacity,
-    children,
-  } = props;
   const [imageBase64, setImageBase64] = useState('');
-  const svgElRef = useRef<HTMLDivElement>();
+  const svgElRef = useRef<HTMLDivElement>(null);
   const [watermarkUrl, setWatermarkUrl] = useState('');
-  const renderWatermark = () => {
+  
+  const renderWatermark = useCallback(() => {
     const rotateStyle = {
       transformOrigin: 'center',
       transform: `rotate(${rotate}deg)`,
@@ -81,9 +82,9 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         {svgInner()}
       </svg>
     );
-  };
+  }, [width, height, gapX, gapY, rotate, opacity, image, imageBase64, children, content, textColor]);
 
-  const makeImageToBase64 = (url: string) => {
+  const makeImageToBase64 = useCallback((url: string) => {
     const canvas = document.createElement('canvas');
     const imageEl = new Image();
     imageEl.crossOrigin = 'anonymous';
@@ -96,36 +97,42 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       setImageBase64(canvas.toDataURL());
     };
     imageEl.src = url;
-  };
-  const makeSvgToBlobUrl = (svgStr: string) => {
+  }, []);
+
+  const makeSvgToBlobUrl = useCallback((svgStr: string) => {
     // svg MIME type: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
     const svgBlob = new Blob([svgStr], {
       type: 'image/svg+xml',
     });
     return URL.createObjectURL(svgBlob);
-  };
+  }, []);
 
   useEffect(() => {
     if (svgElRef.current) {
-      if (watermarkUrl) {
-        URL.revokeObjectURL(watermarkUrl);
-      }
-      setWatermarkUrl(makeSvgToBlobUrl(svgElRef.current.innerHTML));
+      const newUrl = makeSvgToBlobUrl(svgElRef.current.innerHTML);
+      setWatermarkUrl((prevUrl) => {
+        if (prevUrl) {
+          URL.revokeObjectURL(prevUrl);
+        }
+        return newUrl;
+      });
     }
-  }, [imageBase64, gapX, gapY, content, textColor, width, height, rotate]);
+  }, [imageBase64, gapX, gapY, content, textColor, width, height, rotate, makeSvgToBlobUrl]);
+
   useEffect(() => {
     if (image) makeImageToBase64(image);
-  }, [image]);
+  }, [image, makeImageToBase64]);
+
   useEffect(() => {
     return () => {
       if (watermarkUrl) {
         URL.revokeObjectURL(watermarkUrl);
       }
     };
-  }, []);
+  }, [watermarkUrl]);
   return (
     <div
-      className={classnames(bem({ full: fullPage }))}
+      className={classnames(bem({ full: fullPage }), className)}
       style={{
         zIndex,
         backgroundImage: `url(${watermarkUrl})`,
@@ -135,17 +142,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       <div ref={svgElRef}>{renderWatermark()}</div>
     </div>
   );
-};
-
-Watermark.defaultProps = {
-  width: 100,
-  height: 100,
-  zIndex: 100,
-  rotate: -22,
-  fullPage: false,
-  gapX: 0,
-  gapY: 0,
-  textColor: '#dcdee0',
 };
 
 export default Watermark;
