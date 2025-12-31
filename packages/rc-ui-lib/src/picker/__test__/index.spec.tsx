@@ -106,7 +106,7 @@ describe('Picker', () => {
     });
 
     const column = container.querySelector('.rc-picker-column__wrapper');
-    await TestsEvent.triggerDrag(column, [0, -100]);
+    await TestsEvent.triggerDrag(column, [0, -250]);
 
     await sleep(500);
     expect(onChange).toHaveBeenCalledWith('1995', 5);

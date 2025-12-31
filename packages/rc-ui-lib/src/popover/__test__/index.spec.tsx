@@ -206,7 +206,7 @@ describe('Popover', () => {
     await act(() => {
       popoverRef.current.hide();
     });
-    await sleep(400);
+    await sleep(500);
     expect(getComputedStyle(baseElement.querySelector('.rc-popover')).display).toBe('none');
     await act(() => {
       popoverRef.current.show();

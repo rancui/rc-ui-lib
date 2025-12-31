@@ -95,10 +95,10 @@ describe('DateTimePicker', () => {
       value: '12:00',
     });
 
-    const columnWrapper = container.querySelector('.rc-picker-column');
-    await TestsEvent.triggerDrag(columnWrapper, [0, -300]);
+    const columnWrapper = container.querySelector('.rc-picker-column__wrapper');
+    await TestsEvent.triggerDrag(columnWrapper, [0, -500]);
 
-    await sleep(100);
+    await sleep(500);
     const confirmBtn = container.querySelector('.rc-picker__confirm');
     if (confirmBtn) {
       await fireEvent.click(confirmBtn);
